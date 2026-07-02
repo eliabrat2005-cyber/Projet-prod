@@ -44,6 +44,10 @@ class LigneFactureIntake:
     montant_brut: float | None = None # transport + frais_admin (avant gasoil)
     surtaxe_gasoil: float | None = None  # rempli après allocation
     montant_final: float | None = None   # brut + surtaxe (après gasoil)
+    # Liaison Easy Beer (Étape 2)
+    id_commande_easybeer: int | None = None
+    client_easybeer: str | None = None
+    statut_match: str | None = None      # OK | sans_piece | commande_absente | non_livree
 
 
 @dataclass
