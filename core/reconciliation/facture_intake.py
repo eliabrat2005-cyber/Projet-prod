@@ -129,6 +129,23 @@ def parse_facture(path) -> FactureIntake:
     cur: LigneFactureIntake | None = None
     cand_transport: float | None = None
     jour_courant: str | None = None
+
+    def _fermer():
+        """Clôt la livraison courante (append). Fonctionne MÊME sans ligne
+        « FRAIS ADMINISTRATIF » (cas TAXI COLIS). N'append que si un montant
+        transport a été capté."""
+        nonlocal cur, cand_transport
+        if cur is not None and cand_transport is not None:
+            cur.transport = cand_transport
+            if cur.frais_admin is None:
+                cur.frais_admin = 0.0
+            cur.montant_brut = round(
+                (cur.transport or 0.0) + (cur.frais_admin or 0.0), 2
+            )
+            fac.lignes.append(cur)
+        cur = None
+        cand_transport = None
+
     for _y, toks in rows:
         txt = " ".join(t for _, t in toks)
         seq = [t for _, t in toks]
@@ -139,9 +156,9 @@ def parse_facture(path) -> FactureIntake:
             continue
 
         if "EXP." in txt and "DEST" not in txt:
+            _fermer()                       # clôt la livraison précédente (ex. TAXI COLIS)
             cur = LigneFactureIntake()
             cur.jour = jour_courant
-            cand_transport = None
             dt = [t for x, t in toks if _band(x) == "date"
                   and re.match(r"\d{2}/\d{2}", t)]
             cur.exp_date = dt[0] if dt else None
@@ -150,6 +167,11 @@ def parse_facture(path) -> FactureIntake:
             continue
 
         if cur is None:
+            continue
+
+        # Artefacts de bas/haut de page : ne pas polluer le montant transport.
+        if ("Report" in txt or "Nbre OT" in txt or "N° COMPTE" in txt
+                or "Page " in txt or txt.startswith("FACTURE")):
             continue
 
         if "DEST.:" in txt:
@@ -161,25 +183,22 @@ def parse_facture(path) -> FactureIntake:
             cur.destinataire = " ".join(desig).strip() or None
             continue
 
-        if re.match(r"^0000\d{4}$", txt.strip()):
+        # N° pièce : « 00006800 » (normal) ou « C0076789 » (taxi colis)
+        if re.match(r"^(0000\d{4}|C\d{5,8})$", txt.strip()):
             cur.num_piece = txt.strip()
             continue
 
-        # Ligne « FRAIS ADMINISTRATIF ... 2,13 » → clôture la ligne
+        # Ligne « FRAIS ADMINISTRATIF ... 2,13 » → clôture la livraison
         if "ADMINISTRATIF" in txt:
             cur.frais_admin = _montant_rmost(toks)
-            cur.transport = cand_transport
-            cur.montant_brut = round((cur.transport or 0.0) + (cur.frais_admin or 0.0), 2)
-            fac.lignes.append(cur)
-            cur = None
-            cand_transport = None
+            _fermer()
             continue
 
         # Toute autre ligne du bloc : poids, unité, et candidat montant transport.
         pb = [t for x, t in toks if _band(x) == "poids"]
         if pb and cur.poids is None:
             cur.poids = _num(pb[0])
-        for u in ("KGS", "PAL", "FO"):
+        for u in ("KGS", "PAL", "FO", "COL"):
             if u in seq:
                 cur.unite = u
                 i = seq.index(u)
@@ -189,6 +208,8 @@ def parse_facture(path) -> FactureIntake:
         mv = _montant_rmost(toks)
         if mv is not None:
             cand_transport = mv
+
+    _fermer()  # clôt la dernière livraison de la facture
 
     # ── Totaux journaliers imprimés (pour la validation) ─────────────────
     # « TOTAL JOURNALIER DU 16/04/26 : Nbre OT : 5 ... 371,01 » → dernier nombre.

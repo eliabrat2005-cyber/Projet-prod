@@ -75,6 +75,15 @@ def traiter_facture(path, commandes_par_num: dict) -> ResultatTraitement:
     - relie les lignes à Easy Beer (best-effort, statut par ligne)
     """
     fac = parse_facture(path)
+
+    # Facture de STOCKAGE (entreposage) : pas de lignes de transport, une seule
+    # prestation « STOCKAGE SITE WISSOUS ». Ce n'est PAS une erreur — c'est un
+    # autre type de facture (traité à part). On la marque comme telle.
+    if not fac.lignes:
+        from .stockage import lire_stockage
+        if lire_stockage(path):
+            return ResultatTraitement(facture=fac, status="STOCKAGE", erreurs=[])
+
     erreurs = valider_facture(fac)
     if erreurs:
         return ResultatTraitement(facture=fac, status="REJECTED", erreurs=erreurs)

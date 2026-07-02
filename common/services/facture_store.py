@@ -37,6 +37,49 @@ def _date_iso(s: str | None) -> str | None:
         return None
 
 
+def stats_factures(tenant_id: str) -> dict:
+    """Compteurs pour la synthèse : nb factures, OK, rejetées, gasoil, HT total."""
+    rows = run_sql(
+        """
+        SELECT count(*) AS nb,
+               count(*) FILTER (WHERE status='OK') AS ok,
+               count(*) FILTER (WHERE status='REJECTED') AS rejetees,
+               COALESCE(sum(maj_total) FILTER (WHERE status='OK'), 0) AS gasoil,
+               COALESCE(sum(montant_ht) FILTER (WHERE status='OK'), 0) AS ht
+        FROM processed_invoices WHERE tenant_id=:t
+        """,
+        {"t": tenant_id},
+    )
+    return rows[0] if rows else {"nb": 0, "ok": 0, "rejetees": 0, "gasoil": 0, "ht": 0}
+
+
+def list_factures(tenant_id: str) -> list[dict]:
+    """Liste des factures traitées (récentes d'abord)."""
+    return run_sql(
+        """
+        SELECT id, id_facture_source, date_facture, montant_ht, montant_ttc,
+               maj_total, nb_lignes, status, date_traitement
+        FROM processed_invoices WHERE tenant_id=:t
+        ORDER BY date_facture DESC NULLS LAST, date_traitement DESC
+        """,
+        {"t": tenant_id},
+    )
+
+
+def get_lignes(tenant_id: str, invoice_id: str) -> list[dict]:
+    """Lignes d'une facture (avec la part gasoil et le montant final)."""
+    return run_sql(
+        """
+        SELECT ligne_index, exp_date, num_ordre_transport, num_piece, destinataire,
+               poids, unite, transport, frais_admin, surtaxe_gasoil, montant_final,
+               client_easybeer, statut_match
+        FROM processed_invoice_lines WHERE tenant_id=:t AND invoice_id=:i
+        ORDER BY ligne_index
+        """,
+        {"t": tenant_id, "i": invoice_id},
+    )
+
+
 def deja_traitee(tenant_id: str, id_facture: str) -> bool:
     rows = run_sql(
         "SELECT 1 FROM processed_invoices WHERE tenant_id=:t AND id_facture_source=:f",
@@ -123,6 +166,8 @@ def enregistrer(tenant_id: str, res: ResultatTraitement, user_id: str | None = N
                 )
             _audit(conn, tenant_id, idf, "STORE",
                    {"nb_lignes": len(fac.lignes), "liaison": res.recap_liaison})
+        elif res.status == "STOCKAGE":
+            _audit(conn, tenant_id, idf, "STORE", {"type": "stockage"})
         else:
             _audit(conn, tenant_id, idf, "ERROR", {"erreurs": res.erreurs})
 
