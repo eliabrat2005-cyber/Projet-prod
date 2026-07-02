@@ -1,0 +1,187 @@
+"""
+facture_intake.py — Lecteur ENRICHI d'une facture SOFRIPA (Phase 1 « intake »).
+
+Extrait la structure COMPLÈTE demandée par le CDC :
+  - entête : n° facture, date, Maj Go, Maj GNR, HT, TVA, TTC ;
+  - chaque ligne de transport : date d'expédition, n° OT, n° pièce (clé de
+    matching), expéditeur, destinataire, poids + unité, transport, frais admin,
+    montant_brut (= transport + frais admin).
+
+Puis on branche la répartition gasoil (gasoil.allouer_gasoil) pour obtenir le
+montant_final par ligne, avec Σ montant_final = HT au centime.
+
+Différent de io_files.lire_facture (utilisé par la réconciliation, inchangé) :
+ici on veut TOUS les champs + l'entête, pour le registre immuable.
+"""
+from __future__ import annotations
+
+import re
+from collections import defaultdict
+from dataclasses import dataclass, field
+
+from .gasoil import allouer_gasoil
+
+# Bandes de colonnes (positions x) de la facture SOFRIPA — calées sur ce format.
+COLS = {
+    "date": (0, 60), "desig": (60, 300), "poids": (300, 345), "colis": (345, 374),
+    "palette": (374, 417), "qte": (417, 457), "unite": (457, 498),
+    "pu": (498, 516), "montant": (516, 999),
+}
+
+
+@dataclass
+class LigneFactureIntake:
+    exp_date: str | None = None       # date d'expédition de la ligne (jj/mm/aa)
+    num_ot: str | None = None         # N° OT (ordre de transport SOFRIPA)
+    num_piece: str | None = None      # N° pièce (clé de matching : pièce−4000 = cmd)
+    expediteur: str | None = None
+    destinataire: str | None = None
+    poids: float | None = None
+    unite: str | None = None          # KGS ou PAL
+    transport: float | None = None    # coût transport de la ligne
+    frais_admin: float | None = None  # frais administratif (~2,13)
+    montant_brut: float | None = None # transport + frais_admin (avant gasoil)
+    surtaxe_gasoil: float | None = None  # rempli après allocation
+    montant_final: float | None = None   # brut + surtaxe (après gasoil)
+
+
+@dataclass
+class FactureIntake:
+    id_facture: str | None = None
+    date_facture: str | None = None
+    maj_go: float = 0.0
+    maj_gnr: float = 0.0
+    maj_total: float = 0.0
+    montant_ht: float | None = None
+    taux_tva: float | None = None
+    montant_tva: float | None = None
+    montant_ttc: float | None = None
+    lignes: list = field(default_factory=list)
+
+
+def _num(s: str) -> float | None:
+    s = s.replace(" ", "").replace(" ", "").replace(",", ".")
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
+def _band(x: float) -> str | None:
+    for k, (a, b) in COLS.items():
+        if a <= x < b:
+            return k
+
+
+def _montant_rmost(toks) -> float | None:
+    """Nombre le plus à droite dans la bande 'montant'."""
+    cands = sorted((x, t) for x, t in toks if _band(x) == "montant")
+    return _num(cands[-1][1]) if cands else None
+
+
+def parse_facture(path) -> FactureIntake:
+    """Lit un PDF SOFRIPA -> FactureIntake (entête + lignes + gasoil réparti)."""
+    import pdfplumber
+
+    fac = FactureIntake()
+    rows: list[tuple[float, list]] = []  # (y global, tokens) dans l'ordre du doc
+    full_text = ""
+    with pdfplumber.open(path) as pdf:
+        for pnum, page in enumerate(pdf.pages):
+            full_text += (page.extract_text() or "") + "\n"
+            lines = defaultdict(list)
+            for w in page.extract_words(keep_blank_chars=False):
+                lines[round(w["top"])].append((w["x0"], w["text"]))
+            for y in sorted(lines):
+                rows.append((pnum * 10000 + y, sorted(lines[y])))
+
+    # ── Entête (n° facture, date, majorations + totaux) ──────────────────
+    m = re.search(r"\bSO0?\d{5,6}\b", full_text)
+    fac.id_facture = m.group(0) if m else None
+    m = re.search(r"FACTURE\s+(\d{2}/\d{2}/\d{2})", full_text)
+    fac.date_facture = m.group(1) if m else None
+    # Ligne de totaux : "1 768,66 104,99 12 518,68 20,00 2 503,74 15 022,42 EUR"
+    m = re.search(
+        r"([\d  ]+,\d{2})\s+([\d  ]+,\d{2})\s+([\d  ]+,\d{2})\s+"
+        r"(\d{1,2},\d{2})\s+([\d  ]+,\d{2})\s+([\d  ]+,\d{2})\s*EUR",
+        full_text,
+    )
+    if m:
+        fac.maj_go = _num(m.group(1)) or 0.0
+        fac.maj_gnr = _num(m.group(2)) or 0.0
+        fac.montant_ht = _num(m.group(3))
+        fac.taux_tva = _num(m.group(4))
+        fac.montant_tva = _num(m.group(5))
+        fac.montant_ttc = _num(m.group(6))
+    fac.maj_total = round(fac.maj_go + fac.maj_gnr, 2)
+
+    # ── Lignes de transport (machine à états) ────────────────────────────
+    # Deux formats de ligne existent :
+    #   - normal  : montant transport sur la ligne « ... <poids> KGS/PAL <PU> <montant> »
+    #   - forfait : montant transport sur la ligne « FRAIS <poids> ... FO <montant> »
+    # → on prend le DERNIER montant vu dans le bloc (avant FRAIS ADMINISTRATIF).
+    cur: LigneFactureIntake | None = None
+    cand_transport: float | None = None
+    for _y, toks in rows:
+        txt = " ".join(t for _, t in toks)
+        seq = [t for _, t in toks]
+
+        if "EXP." in txt and "DEST" not in txt:
+            cur = LigneFactureIntake()
+            cand_transport = None
+            dt = [t for x, t in toks if _band(x) == "date"
+                  and re.match(r"\d{2}/\d{2}", t)]
+            cur.exp_date = dt[0] if dt else None
+            desig = [t for x, t in toks if _band(x) == "desig" and t not in ("EXP.", ":")]
+            cur.expediteur = " ".join(desig).strip() or None
+            continue
+
+        if cur is None:
+            continue
+
+        if "DEST.:" in txt:
+            ot = [t for x, t in toks if _band(x) == "date" and re.match(r"^\d{8,}$", t)]
+            cur.num_ot = ot[0] if ot else None
+            desig = [t for x, t in toks if _band(x) == "desig"]
+            if desig and desig[0] == "DEST.:":
+                desig = desig[1:]
+            cur.destinataire = " ".join(desig).strip() or None
+            continue
+
+        if re.match(r"^0000\d{4}$", txt.strip()):
+            cur.num_piece = txt.strip()
+            continue
+
+        # Ligne « FRAIS ADMINISTRATIF ... 2,13 » → clôture la ligne
+        if "ADMINISTRATIF" in txt:
+            cur.frais_admin = _montant_rmost(toks)
+            cur.transport = cand_transport
+            cur.montant_brut = round((cur.transport or 0.0) + (cur.frais_admin or 0.0), 2)
+            fac.lignes.append(cur)
+            cur = None
+            cand_transport = None
+            continue
+
+        # Toute autre ligne du bloc : poids, unité, et candidat montant transport.
+        pb = [t for x, t in toks if _band(x) == "poids"]
+        if pb and cur.poids is None:
+            cur.poids = _num(pb[0])
+        for u in ("KGS", "PAL", "FO"):
+            if u in seq:
+                cur.unite = u
+                i = seq.index(u)
+                if i > 0 and _num(seq[i - 1]) is not None:
+                    cur.poids = _num(seq[i - 1])
+                break
+        mv = _montant_rmost(toks)
+        if mv is not None:
+            cand_transport = mv
+
+    # ── Répartition gasoil sur les lignes ────────────────────────────────
+    bruts = [L.montant_brut or 0.0 for L in fac.lignes]
+    alloc = allouer_gasoil(bruts, fac.maj_total)
+    for L, a in zip(fac.lignes, alloc):
+        L.surtaxe_gasoil = a["surtaxe"]
+        L.montant_final = a["final"]
+
+    return fac
