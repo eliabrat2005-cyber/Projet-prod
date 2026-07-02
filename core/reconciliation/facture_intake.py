@@ -31,7 +31,8 @@ COLS = {
 
 @dataclass
 class LigneFactureIntake:
-    exp_date: str | None = None       # date d'expédition de la ligne (jj/mm/aa)
+    exp_date: str | None = None       # date propre à la ligne (jj/mm)
+    jour: str | None = None           # jour d'expédition (entête « Expédition du jj/mm/aa »)
     num_ot: str | None = None         # N° OT (ordre de transport SOFRIPA)
     num_piece: str | None = None      # N° pièce (clé de matching : pièce−4000 = cmd)
     expediteur: str | None = None
@@ -57,6 +58,7 @@ class FactureIntake:
     montant_tva: float | None = None
     montant_ttc: float | None = None
     lignes: list = field(default_factory=list)
+    totaux_journaliers: dict = field(default_factory=dict)  # {jj/mm/aa: total_montant}
 
 
 def _num(s: str) -> float | None:
@@ -122,12 +124,19 @@ def parse_facture(path) -> FactureIntake:
     # → on prend le DERNIER montant vu dans le bloc (avant FRAIS ADMINISTRATIF).
     cur: LigneFactureIntake | None = None
     cand_transport: float | None = None
+    jour_courant: str | None = None
     for _y, toks in rows:
         txt = " ".join(t for _, t in toks)
         seq = [t for _, t in toks]
 
+        mj = re.search(r"Exp[ée]dition du\s+(\d{2}/\d{2}/\d{2})", txt)
+        if mj:
+            jour_courant = mj.group(1)
+            continue
+
         if "EXP." in txt and "DEST" not in txt:
             cur = LigneFactureIntake()
+            cur.jour = jour_courant
             cand_transport = None
             dt = [t for x, t in toks if _band(x) == "date"
                   and re.match(r"\d{2}/\d{2}", t)]
@@ -177,6 +186,14 @@ def parse_facture(path) -> FactureIntake:
         if mv is not None:
             cand_transport = mv
 
+    # ── Totaux journaliers imprimés (pour la validation) ─────────────────
+    # « TOTAL JOURNALIER DU 16/04/26 : Nbre OT : 5 ... 371,01 » → dernier nombre.
+    for m in re.finditer(
+        r"TOTAL JOURNALIER DU\s+(\d{2}/\d{2}/\d{2}).*?([\d  ]+,\d{2})\s*$",
+        full_text, re.MULTILINE,
+    ):
+        fac.totaux_journaliers[m.group(1)] = _num(m.group(2))
+
     # ── Répartition gasoil sur les lignes ────────────────────────────────
     bruts = [L.montant_brut or 0.0 for L in fac.lignes]
     alloc = allouer_gasoil(bruts, fac.maj_total)
@@ -185,3 +202,52 @@ def parse_facture(path) -> FactureIntake:
         L.montant_final = a["final"]
 
     return fac
+
+
+def valider_facture(fac: FactureIntake, tol: float = 0.02) -> list[str]:
+    """Contrôles « les comptes tombent juste » du CDC (hors EasyBeer, cf. Étape 2).
+
+    Retourne la liste des erreurs (vide = facture valide). Règle tout-ou-rien :
+    la moindre erreur → la facture sera rejetée en amont de l'insertion BD.
+    """
+    err: list[str] = []
+
+    # 1. Champs entête présents
+    if not fac.id_facture:
+        err.append("N° de facture introuvable")
+    if fac.montant_ht is None:
+        err.append("Montant HT introuvable")
+    if not fac.lignes:
+        err.append("Aucune ligne de transport extraite")
+
+    # 2. Montants de ligne positifs
+    for i, L in enumerate(fac.lignes, 1):
+        if not L.transport or L.transport <= 0:
+            err.append(f"Ligne {i} (pièce {L.num_piece}) : transport ≤ 0")
+        if L.poids is not None and L.poids <= 0:
+            err.append(f"Ligne {i} (pièce {L.num_piece}) : poids ≤ 0")
+
+    # 3. Réconciliation globale : Σ montant_final == HT (après gasoil)
+    if fac.montant_ht is not None:
+        somme_final = round(sum(L.montant_final or 0.0 for L in fac.lignes), 2)
+        if abs(somme_final - fac.montant_ht) > tol:
+            err.append(
+                f"Σ montants finaux {somme_final} ≠ HT {fac.montant_ht} "
+                f"(écart {round(somme_final - fac.montant_ht, 2)})"
+            )
+
+    # 4. Réconciliation journalière : Σ brut du jour == total journalier imprimé
+    par_jour: dict[str, float] = {}
+    for L in fac.lignes:
+        if L.jour:
+            par_jour[L.jour] = round(par_jour.get(L.jour, 0.0) + (L.montant_brut or 0.0), 2)
+    for jour, total_pdf in fac.totaux_journaliers.items():
+        calc = par_jour.get(jour)
+        if calc is None:
+            err.append(f"Jour {jour} : total imprimé {total_pdf} mais aucune ligne")
+        elif total_pdf is not None and abs(calc - total_pdf) > tol:
+            err.append(
+                f"Jour {jour} : Σ lignes {calc} ≠ total journalier {total_pdf} "
+                f"(écart {round(calc - total_pdf, 2)})"
+            )
+    return err
