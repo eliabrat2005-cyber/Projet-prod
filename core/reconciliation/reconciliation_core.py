@@ -15,7 +15,7 @@ import datetime
 import logging
 import re
 import unicodedata
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 
 _log = logging.getLogger("ferment.reconciliation_core")
 
@@ -136,6 +136,32 @@ def _enseigne_de(facture: LigneFacture, commande: Commande) -> str:
     return (c[:m.start()].strip() if m else c.strip())
 
 
+def to_dict(res: "Resultat") -> dict:
+    """Sérialise un Resultat en dict JSON-compatible (pour stockage en base)."""
+    return asdict(res)
+
+
+def from_dict(d: dict) -> "Resultat":
+    """Reconstruit un Resultat depuis un dict sérialisé par to_dict()."""
+    def _cmd(c):
+        return Commande(**c) if c else None
+
+    lignes = []
+    for lig in d.get("lignes", []):
+        lig = dict(lig)
+        lig["commande"] = _cmd(lig.get("commande"))
+        lignes.append(LigneReconciliee(**lig))
+
+    return Resultat(
+        lignes=lignes,
+        sans_piece=[LigneFacture(**f) for f in d.get("sans_piece", [])],
+        internes=[LigneFacture(**f) for f in d.get("internes", [])],
+        par_enseigne=[GroupeEnseigne(**g) for g in d.get("par_enseigne", [])],
+        kpis=d.get("kpis", {}),
+        sans_piece_suggestions=[_cmd(c) for c in d.get("sans_piece_suggestions", [])],
+    )
+
+
 def _norm_client(s) -> set:
     """Normalise un nom de client en jeu de tokens (minuscules, sans accents,
     sans les parenthèses « (94) », « (Magasin 78) »…). Sert au départage par client."""
@@ -146,7 +172,7 @@ def _norm_client(s) -> set:
     return {t for t in s.split() if len(t) > 2}
 
 
-def _resoudre_commande(piece, client, poids, commandes_par_num, offset):
+def _resoudre_commande(piece, client, poids, exp_date, commandes_par_num, offset):
     """Résout la commande Easy Beer correspondant à un N° pièce SOFRIPA.
 
     Règle « candidats existants » (robuste, sans seuil ni date codés en dur) :
@@ -177,14 +203,21 @@ def _resoudre_commande(piece, client, poids, commandes_par_num, offset):
         if cmd is not None and all(num != n for n, _ in candidats):
             candidats.append((num, cmd))
 
+    # Contrôle de COHÉRENCE DE DATE : un n° pièce qui tombe sur une commande
+    # éloignée de plusieurs mois = FAUX appariement (coïncidence de numéro entre
+    # deux périodes, ex. facture 2023 dont la pièce−4000 tombe sur une commande
+    # 2025 réutilisant le même numéro). On le rejette → « sans pièce », honnête.
+    # NB : on NE filtre PAS sur le client (SOFRIPA étiquette parfois le
+    # distributeur, ex. SAMADA, là où EasyBeer a le magasin, ex. NATURALIA).
+    candidats = [(n, c) for (n, c) in candidats if _date_coherente(exp_date, c)]
+
     if not candidats:
         return None, None
     if len(candidats) == 1:
         return candidats[0]
 
-    # Collision (ne survient pas sur les données actuelles : le trou 3191-7190
-    # est vide). Filet de sécurité futur : départage par client (principal) puis
-    # poids (secondaire), avec un avertissement loggé pour inspection.
+    # Collision (n et n-4000 valides ET dates cohérentes) : départage par
+    # client puis poids, avec un avertissement loggé pour inspection.
     fac_tokens = _norm_client(client)
 
     def _cle(item):
@@ -203,6 +236,24 @@ def _resoudre_commande(piece, client, poids, commandes_par_num, offset):
         p, [n for n, _ in candidats], candidats[0][0],
     )
     return candidats[0]
+
+
+def _date_coherente(exp_date, cmd, max_jours=90) -> bool:
+    """True si la date d'expédition facture et la commande sont proches (≤ max_jours).
+
+    Sert à rejeter les appariements par simple coïncidence de numéro entre deux
+    périodes éloignées. Si l'une des deux dates est inconnue, bénéfice du doute
+    (True) pour ne pas rejeter un vrai appariement sur une info manquante.
+    """
+    d_fac = _parse_date_fr(exp_date)
+    d_cmd = _parse_date_fr(
+        cmd.brut.get("Date de livr. réelle")
+        or cmd.brut.get("Date de livr. prévue")
+        or cmd.brut.get("Date de création")
+    )
+    if not d_fac or not d_cmd:
+        return True
+    return abs((d_fac - d_cmd).days) <= max_jours
 
 
 def _parse_date_fr(v):
@@ -279,7 +330,9 @@ def reconcilier(factures, commandes_par_num, seuil_pct=SEUIL_PCT_DEFAUT, offset=
         if not f.piece:
             sans_piece.append(f)
             continue
-        num, cmd = _resoudre_commande(f.piece, f.client, f.poids, commandes_par_num, offset)
+        num, cmd = _resoudre_commande(
+            f.piece, f.client, f.poids, f.exp_date, commandes_par_num, offset,
+        )
         if cmd is None:
             sans_piece.append(f)   # pièce présente mais aucune commande en face (ou non résolue)
             continue
@@ -303,8 +356,19 @@ def reconcilier(factures, commandes_par_num, seuil_pct=SEUIL_PCT_DEFAUT, offset=
             commande=cmd,
         ))
 
+    par_enseigne, kpis = _synthese_et_kpis(lignes, sans_piece, internes)
+    return Resultat(lignes=lignes, sans_piece=sans_piece, internes=internes,
+                    par_enseigne=par_enseigne, kpis=kpis,
+                    sans_piece_suggestions=[
+                        _suggerer_commande(f, commandes_par_num) for f in sans_piece
+                    ])
+
+
+def _synthese_et_kpis(lignes, sans_piece, internes) -> tuple[list, dict]:
+    """Calcule (par_enseigne, kpis) à partir des lignes réconciliées. Partagé
+    entre reconcilier() (1 période) et agreger() (fusion de plusieurs mois)."""
     # ---- Synthèse par enseigne ----
-    groupes = {}
+    groupes: dict = {}
     for L in lignes:
         key = _enseigne_de(LigneFacture(client=L.client, ot=L.ot, piece=L.piece,
                                         poids=L.poids_sofripa, montant=L.cout_transport),
@@ -343,9 +407,21 @@ def reconcilier(factures, commandes_par_num, seuil_pct=SEUIL_PCT_DEFAUT, offset=
         "part_transport_dans_ht": round(cout_total / ht_total, 4) if ht_total else None,
         "cout_moyen_eur_par_kg": round(cout_sof_pos / poids_sof_pos, 3) if poids_sof_pos else None,
     }
+    return par_enseigne, kpis
 
+
+def agreger(resultats: list[Resultat]) -> Resultat:
+    """Fusionne plusieurs Resultat mensuels en un seul (pour afficher une plage
+    de mois). Concatène les lignes et recalcule enseignes + KPIs sur l'ensemble."""
+    lignes, sans_piece, internes, suggestions = [], [], [], []
+    for r in resultats:
+        lignes.extend(r.lignes)
+        sans_piece.extend(r.sans_piece)
+        internes.extend(r.internes)
+        suggestions.extend(
+            r.sans_piece_suggestions or [None] * len(r.sans_piece)
+        )
+    par_enseigne, kpis = _synthese_et_kpis(lignes, sans_piece, internes)
     return Resultat(lignes=lignes, sans_piece=sans_piece, internes=internes,
                     par_enseigne=par_enseigne, kpis=kpis,
-                    sans_piece_suggestions=[
-                        _suggerer_commande(f, commandes_par_num) for f in sans_piece
-                    ])
+                    sans_piece_suggestions=suggestions)

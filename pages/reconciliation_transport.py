@@ -41,6 +41,7 @@ from pathlib import Path
 
 from nicegui import app, ui
 
+from common.services.reconciliation_store import list_periods, load_range
 from core.reconciliation.pennylane_cache import PennylaneCache
 from core.reconciliation.stockage import repartition_par_enseigne, synthese_stockage
 from pages.auth import require_auth
@@ -317,31 +318,39 @@ def page_reconciliation_transport():
             with ui.card_section().classes("q-pa-md column gap-3"):
                 section_title("Paramètres", "tune")
 
-                # Période (libre) — les commandes viennent de l'API Easy Beer en
-                # direct ; la bascule « export Excel » est repliée dans Dépannage.
-                ui.label("Période (libre — mois, plusieurs mois, ou plage complète)").classes(
-                    "text-subtitle2"
-                ).style(f"color: {COLORS['ink']}; font-weight: 600")
+                # Affichage : plage de mois (De → À) lue INSTANTANÉMENT depuis la
+                # base — un seul mois ou plusieurs mois combinés, 0 appel API.
+                with ui.row().classes("w-full gap-3 items-end wrap"):
+                    with ui.column().classes("gap-1"):
+                        ui.label("Afficher de").classes("text-caption").style(
+                            f"color: {COLORS['ink2']}"
+                        )
+                        month_from = ui.select(
+                            options={}, label="mois de début",
+                        ).props("outlined dense").classes("w-56")
+                    with ui.column().classes("gap-1"):
+                        ui.label("à").classes("text-caption").style(
+                            f"color: {COLORS['ink2']}"
+                        )
+                        month_to = ui.select(
+                            options={}, label="mois de fin",
+                        ).props("outlined dense").classes("w-56")
+                    # Bouton discret : met à jour les données (SEUL appel API).
+                    run_btn = ui.button(
+                        "Mettre à jour", icon="sync",
+                    ).props("outline dense color=green-8")
+                    with run_btn:
+                        ui.tooltip("Récupère les 12 derniers mois chez Pennylane / Easy Beer")
+                ui.label(
+                    "Choisissez un mois, ou une plage (ex. février → avril) pour cumuler. "
+                    "« Mettre à jour » récupère les nouveautés (quelques minutes la 1re fois) "
+                    "— ensuite tout est instantané."
+                ).classes("text-caption").style(f"color: {COLORS['ink2']}")
 
                 d_def_min, d_def_max = _periode_defaut()
-                d_min_iso = state["date_min"] or d_def_min
-                d_max_iso = state["date_max"] or d_def_max
-                with ui.row().classes("w-full gap-4 items-end"):
-                    with ui.column().classes("gap-1"):
-                        ui.label("Du").classes("text-caption").style(
-                            f"color: {COLORS['ink2']}"
-                        )
-                        date_min = ui.input(value=d_min_iso).props("outlined dense type=date")
-                    with ui.column().classes("gap-1"):
-                        ui.label("Au").classes("text-caption").style(
-                            f"color: {COLORS['ink2']}"
-                        )
-                        date_max = ui.input(value=d_max_iso).props("outlined dense type=date")
-                    # Relance manuelle (discrète) — la réconciliation se lance déjà
-                    # automatiquement à l'arrivée et à chaque changement.
-                    run_btn = ui.button(
-                        "Relancer", icon="refresh",
-                    ).props("outline dense color=green-8")
+                _def_sync_min = (
+                    date.today() - timedelta(days=365)
+                ).replace(day=1).isoformat()
 
                 def _update_run_state():
                     """Source API : pas de fichier requis. Source export : fichier obligatoire."""
@@ -357,10 +366,41 @@ def page_reconciliation_transport():
                 # ── Dépannage (replié) : source des commandes + cache ─────────
                 default_source = app.storage.user.get("reconcil_source", "api")
                 with ui.expansion(
-                    "Dépannage — source des commandes & cache",
+                    "Dépannage — synchro d'une plage, source & cache",
                     icon="build",
                     value=(default_source == "export"),
                 ).classes("w-full q-mt-sm").props("dense"):
+                    # Backfill : synchroniser une plage précise (ex. historique 2022+).
+                    ui.label("Synchroniser une plage précise (historique)").classes(
+                        "text-subtitle2"
+                    ).style(f"color: {COLORS['ink']}; font-weight: 600")
+                    with ui.row().classes("w-full gap-3 items-end"):
+                        with ui.column().classes("gap-1"):
+                            ui.label("Du").classes("text-caption").style(
+                                f"color: {COLORS['ink2']}"
+                            )
+                            date_min = ui.input(value=_def_sync_min).props(
+                                "outlined dense type=date"
+                            )
+                        with ui.column().classes("gap-1"):
+                            ui.label("Au").classes("text-caption").style(
+                                f"color: {COLORS['ink2']}"
+                            )
+                            date_max = ui.input(value=d_def_max).props(
+                                "outlined dense type=date"
+                            )
+
+                        async def _sync_custom():
+                            d1 = (date_min.value or "").strip() or _def_sync_min
+                            d2 = (date_max.value or "").strip() or date.today().isoformat()
+                            await _run(d1, d2, manual=True)
+
+                        ui.button(
+                            "Synchroniser cette plage", icon="sync",
+                            on_click=_sync_custom,
+                        ).props("outline dense color=green-8")
+                    ui.separator().classes("q-my-sm")
+
                     ui.label(
                         "Par défaut, les commandes sont récupérées en direct via "
                         "l'API Easy Beer. En cas de problème (panne API…), basculez "
@@ -503,7 +543,9 @@ def page_reconciliation_transport():
         class _Cancelled(Exception):
             pass
 
-        async def _run(manual: bool = False):
+        async def _run(d1: str, d2: str, manual: bool = True):
+            """SYNCHRONISER la plage [d1, d2] : boucle sur les mois, réconcilie
+            chacun et l'enregistre en base. Seul moment qui interroge les API."""
             source = source_radio.value
             if source == "export" and (
                 not state.get("export_path") or not os.path.exists(state["export_path"])
@@ -515,99 +557,66 @@ def page_reconciliation_transport():
             token = run_state["token"]
             if run_state["prog_timer"]:
                 run_state["prog_timer"].cancel()
-            d1 = (date_min.value or "").strip() or None
-            d2 = (date_max.value or "").strip() or None
-            state["date_min"], state["date_max"] = d1, d2
-            app.storage.user["reconcil_date_min"] = d1
-            app.storage.user["reconcil_date_max"] = d2
 
-            results.clear()
-            results_stockage.clear()
             progress_box.clear()
             run_btn.disable()
 
-            # Progression réelle : le thread de travail écrit dans ce dict
-            # (il ne doit JAMAIS toucher l'UI), un ui.timer le relit côté UI.
-            progress = {"done": 0, "total": None, "hits": 0, "phase": None}
+            # Progression PAR MOIS : le thread écrit dans ce dict, un ui.timer le lit.
+            progress = {"done": 0, "total": None, "cur": None}
 
-            def _progress_cb(done, total, hits):
+            def _progress_cb(done, total, cur):
                 if token != run_state["token"]:
                     raise _Cancelled()
-                progress.update(done=done, total=total, hits=hits)
+                progress.update(done=done, total=total, cur=cur)
 
             with progress_box:
                 with ui.card().classes("w-full").props("flat bordered"):
                     with ui.card_section().classes("q-pa-md column gap-2"):
                         prog_label = ui.label(
-                            "Récupération de la liste des factures…"
+                            "Préparation de la synchronisation…"
                         ).classes("text-body2").style(f"color: {COLORS['ink']}")
                         prog_bar = ui.linear_progress(
                             value=0, show_value=False, size="10px",
-                        ).props("rounded color=green-8")
+                        ).props("rounded color=green-8 indeterminate")
 
             def _tick():
-                if progress.get("phase") == "commandes":
-                    prog_label.text = "Chargement des commandes via l'API Easy Beer…"
-                    prog_bar.props("indeterminate")
-                    return
-                prog_bar.props(remove="indeterminate")
                 total = progress["total"]
                 if not total:
                     return
-                done, hits = progress["done"], progress["hits"]
-                if done == 0:
-                    a_charger = max(total - hits, 0)
-                    msg = (
-                        f"{total} factures sur la période — {hits} en cache, "
-                        f"{a_charger} à télécharger"
+                prog_bar.props(remove="indeterminate")
+                done, cur = progress["done"], progress["cur"]
+                if cur:
+                    prog_label.text = (
+                        f"Synchronisation du mois {done + 1}/{total} ({cur})… "
+                        "(1re fois : téléchargement des factures)"
                     )
-                    if a_charger > 20:
-                        msg += " (première fois : plusieurs minutes)"
-                    prog_label.text = msg
                 else:
-                    prog_label.text = f"Facture {done}/{total} ({hits} depuis le cache)"
+                    prog_label.text = f"{total} mois synchronisés."
                 prog_bar.set_value(done / total)
 
             prog_timer = ui.timer(0.3, _tick)
             run_state["prog_timer"] = prog_timer
 
             try:
-                from core.reconciliation.io_api import (
-                    charger_sources,
-                    lire_factures_pennylane,
-                )
-                from core.reconciliation.io_api_easybeer import lire_commandes_easybeer
-                from core.reconciliation.reconciliation_core import reconcilier
+                from common.services.reconciliation_sync import synchroniser
 
                 def _work():
-                    stocks: list = []  # factures de stockage trouvées dans le même flux
-                    if source == "api":
-                        # Commandes en direct depuis Easy Beer (1 requête, qq secondes)
-                        progress["phase"] = "commandes"
-                        commandes = lire_commandes_easybeer()
-                        progress["phase"] = None
-                        factures = lire_factures_pennylane(
-                            date_min=d1, date_max=d2,
-                            cache=_CACHE, progress_cb=_progress_cb,
-                            stockage_out=stocks,
-                        )
-                    else:
-                        factures, commandes = charger_sources(
-                            state["export_path"], date_min=d1, date_max=d2,
-                            cache=_CACHE, progress_cb=_progress_cb,
-                            stockage_out=stocks,
-                        )
-                    return reconcilier(factures, commandes), stocks
+                    return synchroniser(
+                        tenant_id, d1, d2,
+                        source=source, export_path=state.get("export_path"),
+                        cache=_CACHE, user_id=user.get("id"),
+                        progress_cb=_progress_cb,
+                    )
 
-                res, stocks = await asyncio.to_thread(_work)
+                mois = await asyncio.to_thread(_work)
             except _Cancelled:
-                return  # remplacé par un lancement plus récent
+                return
             except Exception as exc:  # noqa: BLE001
-                _log.exception("Réconciliation échouée")
+                _log.exception("Synchronisation échouée")
                 if token == run_state["token"]:
                     progress_box.clear()
                     with progress_box:
-                        error_banner(f"Échec de la réconciliation : {exc}")
+                        error_banner(f"Échec de la synchronisation : {exc}")
                 return
             finally:
                 prog_timer.cancel()
@@ -615,34 +624,23 @@ def page_reconciliation_transport():
                     run_btn.enable()
 
             if token != run_state["token"]:
-                return  # résultat obsolète : la période a changé pendant le calcul
+                return
             progress_box.clear()
-            results.clear()
-            results_stockage.clear()
             _refresh_cache_stats()
-            _RUN_CACHE[cache_key] = {
-                "date_min": d1, "date_max": d2, "result": res, "stockage": stocks,
-            }
-            _render_results(res)
-            _render_stockage(stocks, res)
+            _refresh_months(select_latest=True)   # recharge le menu + montre le dernier mois
+            ui.notify(f"Synchronisation terminée ({len(mois)} mois).", type="positive")
 
-        async def _run_manual():
-            await _run(manual=True)
+        async def _sync_recent():
+            """« Mettre à jour » : synchronise les 12 derniers mois."""
+            d1 = (date.today() - timedelta(days=365)).replace(day=1).isoformat()
+            await _run(d1, date.today().isoformat(), manual=True)
 
-        run_btn.on_click(_run_manual)
+        run_btn.on_click(_sync_recent)
 
-        # ── Relance automatique : debounce 1 s après la dernière modification ──
-        debounce: dict = {"timer": None}
-
+        # Pas de relance automatique : la synchro (API) ne part QUE sur clic. Changer
+        # le mois affiché ne fait que relire la base (instantané).
         def _schedule_run():
-            if debounce["timer"]:
-                debounce["timer"].cancel()
-            # immediate=False : NiceGUI déclenche sinon le callback tout de suite,
-            # même avec once=True — ce qui annulerait l'effet debounce.
-            debounce["timer"] = ui.timer(1.0, _run, once=True, immediate=False)
-
-        date_min.on_value_change(lambda e: _schedule_run())
-        date_max.on_value_change(lambda e: _schedule_run())
+            return None
 
         # ── Rendu des résultats (3 niveaux) ────────────────────────────────
         def _render_results(res):
@@ -651,7 +649,18 @@ def page_reconciliation_transport():
             with results:
                 # ─── a) Synthèse (KPIs) ───────────────────────────────────
                 section_title("Synthèse", "insights")
+                # Taux de réconciliation = lignes appariées / (appariées + sans pièce).
+                _nb = k.get("livraisons_appariees", 0)
+                _nsp = k.get("lignes_sans_piece", 0)
+                _taux = _nb / (_nb + _nsp) if (_nb + _nsp) else None
+                _taux_couleur = (
+                    COLORS["success"] if (_taux or 0) >= 0.99
+                    else COLORS["orange"] if (_taux or 0) >= 0.9
+                    else COLORS["error"]
+                )
                 with ui.row().classes("w-full gap-3 wrap reconcil-kpis"):
+                    kpi_card("verified", "Taux de réconciliation",
+                             _pct(_taux), _taux_couleur)
                     kpi_card("euro", "Coût transport total",
                              _eur(k.get("cout_transport_total_eur")))
                     kpi_card("scale", "Coût moyen €/kg",
@@ -753,6 +762,8 @@ def page_reconciliation_transport():
                          "align": "right"},
                         {"name": "cout", "label": "Coût transport", "field": "cout",
                          "align": "right"},
+                        {"name": "cause", "label": "Cause", "field": "cause",
+                         "align": "left"},
                         {"name": "sugg", "label": "Suggestion Easy Beer (à vérifier)",
                          "field": "sugg", "align": "left"},
                     ]
@@ -763,6 +774,11 @@ def page_reconciliation_transport():
                             "client": f.client or "—",
                             "poids": _kg(f.poids),
                             "cout": _eur(f.montant),
+                            # Diagnostic : d'où vient la non-réconciliation ?
+                            "cause": (
+                                "N° pièce absent sur la facture" if not f.piece
+                                else f"N° pièce {f.piece} sans commande Easy Beer"
+                            ),
                             "sugg": (
                                 f"EB {c.numero} — {c.client} (à vérifier)"
                                 if c is not None else "aucune piste"
@@ -1033,12 +1049,94 @@ def page_reconciliation_transport():
                         pagination={"rowsPerPage": 0},
                     ).classes("w-full").props("flat bordered dense")
 
-        # ── Restauration / premier chargement ──────────────────────────────
-        if cached and cached.get("result") is not None:
-            # Dernier résultat connu → réaffiché immédiatement, sans relancer.
-            _render_results(cached["result"])
-            _render_stockage(cached.get("stockage") or [], cached["result"])
-        else:
-            # Premier passage : lancement automatique sur la période par défaut
-            # (mois précédent) — l'utilisateur arrive, les chiffres se chargent.
-            ui.timer(0.2, _run, once=True)
+        # ── Sélection d'un mois : lecture INSTANTANÉE depuis la base (0 appel API) ──
+        _MOIS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet",
+                    "août", "septembre", "octobre", "novembre", "décembre"]
+
+        def _show_range(ps_from, ps_to):
+            """Affiche la plage de mois [ps_from, ps_to] fusionnée depuis la base
+            (aucun appel API). Un seul mois si ps_from == ps_to."""
+            results.clear()
+            results_stockage.clear()
+            if not ps_from or not ps_to:
+                return
+            try:
+                snap = load_range(tenant_id, ps_from, ps_to)
+            except Exception:  # noqa: BLE001
+                _log.exception("Lecture de la plage échouée")
+                snap = None
+            if not snap or snap.get("result") is None:
+                return
+            # Mémorise la plage affichée (sert au nom de fichier de l'export Excel).
+            state["date_min"] = str(snap.get("period_start"))
+            state["date_max"] = str(snap.get("period_end"))
+            synced = snap.get("synced_at")
+            synced_txt = synced.strftime("%d/%m/%Y à %H:%M") if synced else "?"
+            nb_mois = snap.get("nb_mois", 1)
+            portee = (
+                f"{snap.get('period_start')} → {snap.get('period_end')} "
+                f"({nb_mois} mois)" if nb_mois > 1 else f"{snap.get('period_start')}"
+            )
+            with results:
+                with ui.row().classes("items-center gap-2 q-mb-xs"):
+                    ui.icon("cloud_done", size="sm").style(f"color: {COLORS['success']}")
+                    ui.label(
+                        f"Période affichée : {portee} · synchronisé le {synced_txt}"
+                    ).classes("text-caption").style(f"color: {COLORS['ink2']}")
+            _render_results(snap["result"])
+            _render_stockage(snap.get("stockage") or [], snap["result"])
+
+        def _current_range():
+            a, b = month_from.value, month_to.value
+            if a and b and a > b:
+                a, b = b, a
+            return a, b
+
+        def _refresh_months(select_latest=False):
+            """Remplit les deux menus (De / À) depuis la base et affiche la plage."""
+            try:
+                periods = list_periods(tenant_id)
+            except Exception:  # noqa: BLE001
+                _log.exception("Lecture des mois échouée")
+                periods = []
+            opts = {}
+            for p in periods:
+                ps = p["period_start"]
+                lbl = f"{_MOIS_FR[ps.month - 1].capitalize()} {ps.year}"
+                taux = p.get("taux")
+                if taux is not None:
+                    lbl += f" · {round(float(taux) * 100)}%"
+                opts[ps.isoformat()] = lbl
+            month_from.set_options(opts)
+            month_to.set_options(opts)
+            if not opts:
+                results.clear()
+                results_stockage.clear()
+                with results:
+                    ui.label(
+                        "Aucune donnée synchronisée. Cliquez « Mettre à jour » "
+                        "pour récupérer les derniers mois."
+                    ).classes("text-body2 q-mt-md").style(f"color: {COLORS['ink2']}")
+                return
+            latest = next(iter(opts))  # opts triés du plus récent au plus ancien
+            a = month_from.value if (not select_latest and month_from.value in opts) else latest
+            b = month_to.value if (not select_latest and month_to.value in opts) else latest
+            render_guard["busy"] = True
+            month_from.set_value(a)
+            month_to.set_value(b)
+            render_guard["busy"] = False
+            _show_range(*_current_range())
+
+        # Garde anti double-rendu : l'event ne rend que pour un choix UTILISATEUR ;
+        # les changements programmés passent par _show_range explicitement.
+        render_guard = {"busy": False}
+
+        def _on_month_change(_e):
+            if not render_guard["busy"]:
+                _show_range(*_current_range())
+
+        month_from.on_value_change(_on_month_change)
+        month_to.on_value_change(_on_month_change)
+
+        # Chargement initial : remplir les menus + afficher le mois le plus récent.
+        _refresh_months(select_latest=True)
