@@ -80,6 +80,72 @@ def get_lignes(tenant_id: str, invoice_id: str) -> list[dict]:
     )
 
 
+def exporter_registre_xlsx(tenant_id: str) -> bytes:
+    """Construit un Excel du registre : onglet Factures + onglet Lignes (gasoil
+    et commande Easy Beer inclus). C'est « la base de données » téléchargeable."""
+    from io import BytesIO
+
+    from openpyxl import Workbook
+    from openpyxl.styles import Font, PatternFill
+
+    factures = run_sql(
+        """
+        SELECT id_facture_source, date_facture, status, montant_ht, montant_tva,
+               montant_ttc, maj_go, maj_gnr, maj_total, nb_lignes, date_traitement,
+               error_log
+        FROM processed_invoices WHERE tenant_id=:t
+        ORDER BY date_facture DESC NULLS LAST
+        """,
+        {"t": tenant_id},
+    )
+    lignes = run_sql(
+        """
+        SELECT id_facture_source, jour, num_ordre_transport, num_piece, expediteur,
+               destinataire, poids, unite, transport, frais_admin, montant_brut,
+               surtaxe_gasoil, montant_final, id_commande_easybeer, client_easybeer,
+               statut_match
+        FROM processed_invoice_lines WHERE tenant_id=:t
+        ORDER BY id_facture_source, ligne_index
+        """,
+        {"t": tenant_id},
+    )
+
+    wb = Workbook()
+    hdr_fill = PatternFill("solid", fgColor="15803D")
+    hdr_font = Font(bold=True, color="FFFFFF")
+
+    def _cell(v):
+        # Excel refuse les datetimes avec fuseau horaire → on l'enlève.
+        if isinstance(v, datetime.datetime) and v.tzinfo is not None:
+            return v.replace(tzinfo=None)
+        return v
+
+    def _fill(ws, rows):
+        if not rows:
+            ws.append(["(vide)"])
+            return
+        headers = list(rows[0].keys())
+        ws.append(headers)
+        for c in ws[1]:
+            c.fill = hdr_fill
+            c.font = hdr_font
+        for r in rows:
+            ws.append([_cell(r[h]) for h in headers])
+        for i, h in enumerate(headers, 1):
+            ws.column_dimensions[ws.cell(1, i).column_letter].width = min(
+                max(len(h) + 2, 12), 40
+            )
+
+    ws1 = wb.active
+    ws1.title = "Factures"
+    _fill(ws1, factures)
+    _fill(wb.create_sheet("Lignes"), lignes)
+
+    buf = BytesIO()
+    wb.save(buf)
+    return buf.getvalue()
+
+
 def deja_traitee(tenant_id: str, id_facture: str) -> bool:
     rows = run_sql(
         "SELECT 1 FROM processed_invoices WHERE tenant_id=:t AND id_facture_source=:f",

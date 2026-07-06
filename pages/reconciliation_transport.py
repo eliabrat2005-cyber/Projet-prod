@@ -343,6 +343,24 @@ def page_reconciliation_transport():
                     ).props("outline dense color=green-8")
                     with run_btn:
                         ui.tooltip("Récupère les 12 derniers mois chez Pennylane / Easy Beer")
+
+                    async def _export_registre():
+                        from common.services.facture_store import exporter_registre_xlsx
+                        data = await asyncio.to_thread(exporter_registre_xlsx, tenant_id)
+                        ui.download.content(
+                            data, "registre_factures_sofripa.xlsx",
+                            media_type=(
+                                "application/vnd.openxmlformats-officedocument."
+                                "spreadsheetml.sheet"
+                            ),
+                        )
+
+                    reg_btn = ui.button(
+                        "Exporter le registre", icon="table_view",
+                        on_click=_export_registre,
+                    ).props("outline dense color=grey-8")
+                    with reg_btn:
+                        ui.tooltip("Télécharge toute la base des factures (Excel)")
                 ui.label(
                     "Choisissez un mois, ou une plage (ex. février → avril) pour cumuler. "
                     "« Mettre à jour » récupère les nouveautés (quelques minutes la 1re fois) "
