@@ -24,7 +24,7 @@ import tempfile
 import requests
 from dotenv import load_dotenv
 
-from .io_files import lire_commandes, lire_facture  # on réutilise ton parsing PDF + lecture export
+from .io_files import lire_commandes  # lecture de l'export commandes Easy Beer
 
 # Charge .env -> variables d'environnement (PENNYLANE_API_KEY). À faire AVANT _cle().
 load_dotenv()
@@ -167,7 +167,19 @@ def lire_factures_pennylane(date_min=None, date_max=None, supplier_id=SOFRIPA_SU
             f.write(pdf.content)
             chemin = f.name
         try:
-            parsees = lire_facture(chemin)   # <-- ton parsing existant, réutilisé tel quel
+            # Lecteur ENRICHI (gasoil réparti) : montant = coût transport RÉEL
+            # (transport + frais admin + part gasoil), + surtaxe_gasoil à part.
+            from .facture_intake import parse_facture
+            from .reconciliation_core import LigneFacture
+            fac_intake = parse_facture(chemin)
+            parsees = [
+                LigneFacture(
+                    exp_date=L.exp_date, ot=L.num_ot, client=L.destinataire,
+                    piece=L.num_piece, poids=L.poids, montant=L.montant_final,
+                    surtaxe_gasoil=L.surtaxe_gasoil or 0.0,
+                )
+                for L in fac_intake.lignes
+            ]
             stk = lire_stockage(chemin)      # facture mensuelle de stockage ? (sinon None)
         finally:
             os.unlink(chemin)

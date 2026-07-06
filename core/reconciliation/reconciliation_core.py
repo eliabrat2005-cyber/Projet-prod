@@ -44,7 +44,8 @@ class LigneFacture:
     client: str | None = None     # destinataire imprimé sur la facture
     piece: str | None = None      # N° pièce (0000xxxx) — sert à l'appariement
     poids: float | None = None    # poids BRUT facturé (kg) : produit + emballage + palette
-    montant: float | None = None  # coût de transport de la ligne (€)
+    montant: float | None = None  # coût transport de la ligne (€) — RÉEL (gasoil inclus)
+    surtaxe_gasoil: float = 0.0   # part de majoration gasoil déjà comprise dans montant
 
 
 @dataclass
@@ -69,11 +70,12 @@ class LigneReconciliee:
     poids_sofripa: float | None
     ecart_kg: float | None
     ecart_pct: float | None
-    cout_transport: float | None
+    cout_transport: float | None      # coût transport RÉEL (gasoil inclus)
     montant_ht: float | None
     transport_sur_ht: float | None
     eur_par_kg: float | None
     statut: str
+    surtaxe_gasoil: float = 0.0        # part gasoil comprise dans cout_transport
     commande: Commande | None = None  # référence vers la commande (colonnes brutes)
 
 
@@ -353,6 +355,7 @@ def reconcilier(factures, commandes_par_num, seuil_pct=SEUIL_PCT_DEFAUT, offset=
             cout_transport=cout, montant_ht=ht,
             transport_sur_ht=transport_sur_ht, eur_par_kg=eur_par_kg,
             statut=_statut(poids_eb, poids_sof, ecart_kg, ecart_pct, seuil_pct),
+            surtaxe_gasoil=f.surtaxe_gasoil,
             commande=cmd,
         ))
 
@@ -403,6 +406,7 @@ def _synthese_et_kpis(lignes, sans_piece, internes) -> tuple[list, dict]:
         "lignes_a_verifier_negatif": sum(1 for L in lignes if L.statut == STATUT_NEGATIF),
         "ecarts_notables": sum(1 for L in lignes if L.statut == STATUT_NOTABLE),
         "cout_transport_total_eur": round(cout_total, 2),
+        "gasoil_total_eur": round(sum(L.surtaxe_gasoil or 0.0 for L in lignes), 2),
         "montant_ht_total_eur": round(ht_total, 2),
         "part_transport_dans_ht": round(cout_total / ht_total, 4) if ht_total else None,
         "cout_moyen_eur_par_kg": round(cout_sof_pos / poids_sof_pos, 3) if poids_sof_pos else None,

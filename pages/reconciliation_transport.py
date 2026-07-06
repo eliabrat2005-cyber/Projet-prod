@@ -141,6 +141,8 @@ _CALC_COLS: list[tuple] = [
     ("Écart poids (kg)", lambda L: L.ecart_kg, _kg, lambda v: _fr(v, 1)),
     ("Écart poids (%)", lambda L: L.ecart_pct, _pct, _fr_pct),
     ("Coût transport SOFRIPA (€)", lambda L: L.cout_transport, _eur, lambda v: _fr(v, 1)),
+    ("dont majoration gasoil (€)", lambda L: getattr(L, "surtaxe_gasoil", 0.0), _eur,
+     lambda v: _fr(v, 2)),
     ("Montant HT Easy Beer (€)", lambda L: L.montant_ht, _eur, lambda v: _fr(v, 1)),
     ("Transport / HT (%)", lambda L: L.transport_sur_ht, _pct, _fr_pct),
     ("€ / kg facturé", lambda L: L.eur_par_kg, _eur_kg, lambda v: _fr(v, 3)),
@@ -661,8 +663,10 @@ def page_reconciliation_transport():
                 with ui.row().classes("w-full gap-3 wrap reconcil-kpis"):
                     kpi_card("verified", "Taux de réconciliation",
                              _pct(_taux), _taux_couleur)
-                    kpi_card("euro", "Coût transport total",
+                    kpi_card("euro", "Coût transport total (gasoil inclus)",
                              _eur(k.get("cout_transport_total_eur")))
+                    kpi_card("local_gas_station", "dont majoration gasoil",
+                             _eur(k.get("gasoil_total_eur")), COLORS["orange"])
                     kpi_card("scale", "Coût moyen €/kg",
                              _eur_kg(k.get("cout_moyen_eur_par_kg")), COLORS["blue"])
                     kpi_card("percent", "Part transport / HT",
@@ -701,6 +705,8 @@ def page_reconciliation_transport():
                      "align": "right"},
                     {"name": "cout", "label": "Coût transport", "field": "cout",
                      "align": "right"},
+                    {"name": "gasoil", "label": "dont gasoil", "field": "gasoil",
+                     "align": "right"},
                     {"name": "montant_ht", "label": "Montant HT", "field": "montant_ht",
                      "align": "right"},
                     {"name": "transport_ht", "label": "Transport/HT", "field": "transport_ht",
@@ -719,6 +725,7 @@ def page_reconciliation_transport():
                         "ecart_kg": _kg(L.ecart_kg),
                         "ecart_pct": _pct(L.ecart_pct),
                         "cout": _eur(L.cout_transport),
+                        "gasoil": _eur(getattr(L, "surtaxe_gasoil", 0.0)),
                         "montant_ht": _eur(L.montant_ht),
                         "transport_ht": _pct(L.transport_sur_ht),
                         "eur_kg": _eur_kg(L.eur_par_kg),

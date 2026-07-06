@@ -29,7 +29,7 @@ _log = logging.getLogger("ferment.pennylane_cache")
 # ⚠️ À incrémenter à CHAQUE modification du parsing (io_files.lire_facture ou
 # stockage.lire_stockage) : les entrées d'une autre version sont re-téléchargées.
 # v2 : ajout du champ "stockage" (facture mensuelle STOCKAGE SITE WISSOUS).
-PARSER_VERSION = 2
+PARSER_VERSION = 3
 
 DEFAULT_CACHE_DIR = Path("data/reconciliation_cache/factures")
 
