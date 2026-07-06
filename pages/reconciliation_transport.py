@@ -79,6 +79,27 @@ _STATUT_BADGE_JS = r"""
     </q-td>
 """
 
+# Badge « méthode » : distingue les rapprochements SÛRS (par N° pièce) des
+# rapprochements DÉDUITS (marque + ville + date). Un déduit « date » (départagé)
+# est moins sûr qu'un déduit « haute » (candidat unique).
+_METHODE_BADGE_JS = r"""
+    <q-td :props="props">
+      <q-badge :color="{
+        'Pièce':'green-7',
+        'Déduit':'indigo-5',
+        'Déduit (date)':'orange-6'
+      }[props.value] || 'grey-6'" :label="props.value"
+      :outline="props.value !== 'Pièce'" />
+    </q-td>
+"""
+
+
+def _methode_label(L) -> str:
+    """Libellé du badge méthode pour une ligne réconciliée."""
+    if getattr(L, "methode", "piece") != "deduit":
+        return "Pièce"
+    return "Déduit (date)" if getattr(L, "confiance", "") == "date" else "Déduit"
+
 # Mapping statut -> (fond pastel, couleur texte) pour l'Excel — teintes douces.
 _STATUT_FILL = {
     "OK": ("DCFCE7", "166534"),
@@ -146,6 +167,7 @@ _CALC_COLS: list[tuple] = [
     ("Montant HT Easy Beer (€)", lambda L: L.montant_ht, _eur, lambda v: _fr(v, 1)),
     ("Transport / HT (%)", lambda L: L.transport_sur_ht, _pct, _fr_pct),
     ("€ / kg facturé", lambda L: L.eur_par_kg, _eur_kg, lambda v: _fr(v, 3)),
+    ("Méthode", _methode_label, lambda v: v or "—", lambda v: v),
     ("Statut poids", lambda L: L.statut, lambda v: v or "—", lambda v: v),
 ]
 
@@ -693,6 +715,9 @@ def page_reconciliation_transport():
                              _kg(k.get("ecart_poids_total_kg")), COLORS["orange"])
                     kpi_card("local_shipping", "Livraisons appariées",
                              str(k.get("livraisons_appariees", 0)))
+                    kpi_card("auto_fix_high",
+                             "dont récupérées (déduit nom+ville+date)",
+                             str(k.get("livraisons_deduites", 0)), COLORS["blue"])
                     kpi_card("warning", "Écarts notables",
                              str(k.get("ecarts_notables", 0)), COLORS["orange"])
                     kpi_card("error_outline", "À vérifier (négatif)",
@@ -706,9 +731,13 @@ def page_reconciliation_transport():
                     ).classes("text-body2 q-mt-md").style(f"color: {COLORS['ink2']}")
                     return
 
-                # ─── b) Tableau décisionnel ───────────────────────────────
-                section_title(f"Tableau décisionnel ({len(res.lignes)} lignes)", "table_rows")
-                deci_columns = [
+                # ─── b) Deux tableaux : réconciliées SÛRES puis À VÉRIFIER ────
+                lignes_sures = [L for L in res.lignes
+                                if getattr(L, "methode", "piece") != "deduit"]
+                lignes_deduites = [L for L in res.lignes
+                                   if getattr(L, "methode", "piece") == "deduit"]
+
+                base_cols = [
                     {"name": "numero", "label": "N° cmd", "field": "numero",
                      "align": "left", "sortable": True},
                     {"name": "client", "label": "Client", "field": "client",
@@ -734,8 +763,11 @@ def page_reconciliation_transport():
                     {"name": "statut", "label": "Statut", "field": "statut",
                      "align": "left", "sortable": True},
                 ]
-                deci_rows = [
-                    {
+                methode_col = {"name": "methode", "label": "Confiance",
+                               "field": "methode", "align": "left", "sortable": True}
+
+                def _row(L):
+                    return {
                         "numero": L.numero,
                         "client": L.client or "—",
                         "poids_eb": _kg(L.poids_eb),
@@ -748,16 +780,45 @@ def page_reconciliation_transport():
                         "transport_ht": _pct(L.transport_sur_ht),
                         "eur_kg": _eur_kg(L.eur_par_kg),
                         "statut": L.statut,
+                        "methode": _methode_label(L),
                     }
-                    for L in res.lignes
-                ]
-                deci = ui.table(
-                    columns=deci_columns, rows=deci_rows, row_key="numero",
-                    pagination={"rowsPerPage": 50},
-                ).classes("w-full").props(
-                    'flat bordered dense :rows-per-page-options="[25,50,100]"'
+
+                def _rendre_table(cols, sous_lignes):
+                    t = ui.table(
+                        columns=cols, rows=[_row(L) for L in sous_lignes],
+                        row_key="numero", pagination={"rowsPerPage": 50},
+                    ).classes("w-full").props(
+                        'flat bordered dense :rows-per-page-options="[25,50,100]"'
+                    )
+                    t.add_slot("body-cell-statut", _STATUT_BADGE_JS)
+                    t.add_slot("body-cell-methode", _METHODE_BADGE_JS)
+                    return t
+
+                # 1) Réconciliées SÛRES (par N° pièce) — certitude
+                section_title(
+                    f"Réconciliées sûres — par N° pièce ({len(lignes_sures)})",
+                    "verified",
                 )
-                deci.add_slot("body-cell-statut", _STATUT_BADGE_JS)
+                if lignes_sures:
+                    _rendre_table(base_cols, lignes_sures)
+                else:
+                    ui.label("Aucune ligne sûre sur cette période.").classes(
+                        "text-body2").style(f"color: {COLORS['ink2']}")
+
+                # 2) À VÉRIFIER (déduites nom + ville + date) — très probable
+                if lignes_deduites:
+                    section_title(
+                        f"À vérifier — déduit par nom + ville + date "
+                        f"({len(lignes_deduites)})", "rule",
+                    )
+                    ui.label(
+                        "Très probable mais DÉDUIT (aucun N° pièce sur la facture) : "
+                        "rapproché sur marque + ville + date de livraison, chaque commande "
+                        "utilisée une seule fois. À confirmer d'un coup d'œil. Confiance "
+                        "« Déduit » = commande unique ; « Déduit (date) » = départagé entre "
+                        "plusieurs commandes proches."
+                    ).classes("text-caption q-mb-xs").style(f"color: {COLORS['ink2']}")
+                    _rendre_table(base_cols + [methode_col], lignes_deduites)
 
                 # ─── Sans pièce : suggestions à vérifier ──────────────────
                 if res.sans_piece:
@@ -766,12 +827,12 @@ def page_reconciliation_transport():
                         "help_outline",
                     )
                     ui.label(
-                        "Lignes facturées par SOFRIPA sans N° pièce exploitable : "
-                        "impossibles à rattacher automatiquement à une commande. "
-                        "La colonne « Suggestion » est une simple supposition "
-                        "(même client, date d'expédition proche, poids cohérent) — "
-                        "à vérifier à la main, rien n'est garanti. Ces lignes ne "
-                        "comptent ni dans les KPIs ni dans les autres tableaux."
+                        "Lignes que même la 2ᵉ passe (marque + ville + date) n'a pas pu "
+                        "rattacher de façon sûre : soit plusieurs commandes plausibles le "
+                        "même jour (ambigu), soit aucune commande correspondante dans Easy "
+                        "Beer (échantillon, commande annulée ou supprimée). La colonne "
+                        "« Suggestion » reste une simple piste à vérifier à la main. Ces "
+                        "lignes ne comptent ni dans les KPIs ni dans les autres tableaux."
                     ).classes("text-caption q-mb-xs").style(f"color: {COLORS['ink2']}")
 
                     suggestions = getattr(res, "sans_piece_suggestions", None) or [

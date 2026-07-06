@@ -29,7 +29,9 @@ _log = logging.getLogger("ferment.pennylane_cache")
 # ⚠️ À incrémenter à CHAQUE modification du parsing (io_files.lire_facture ou
 # stockage.lire_stockage) : les entrées d'une autre version sont re-téléchargées.
 # v2 : ajout du champ "stockage" (facture mensuelle STOCKAGE SITE WISSOUS).
-PARSER_VERSION = 3
+# v4 : exp_date complétée avec l'année (jj/mm → jj/mm/aaaa) pour le filtre de date.
+# v5 : année choisie « au plus proche de la date de facture » (corrige la bascule).
+PARSER_VERSION = 5
 
 DEFAULT_CACHE_DIR = Path("data/reconciliation_cache/factures")
 

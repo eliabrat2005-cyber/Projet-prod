@@ -17,14 +17,55 @@ Points « à confirmer » du 1er jet, VÉRIFIÉS contre la vraie API Pennylane v
   - Transporteur SOFRIPA = fournisseur id 19386322 (202 factures) ✅ confirmé
               ("ANTOINE" matchait par erreur la personne "Antoine Jacquemot")
 """
+import datetime
 import json
 import os
+import re
 import tempfile
 
 import requests
 from dotenv import load_dotenv
 
 from .io_files import lire_commandes  # lecture de l'export commandes Easy Beer
+
+
+def _exp_date_annee(exp_date: str | None, date_facture: str | None) -> str | None:
+    """Complète une date d'expédition « jj/mm » (portée par la ligne, sans année)
+    avec l'année de la facture « jj/mm/aa ».
+
+    Indispensable au rapprochement par date de la 2e passe : sans année,
+    `_parse_date_fr` renvoie None et le filtre de date ne s'applique jamais.
+
+    Choix de l'année : celle (année de facture, ou année-1) qui rend la date
+    d'expédition la PLUS PROCHE de la date de facture. Gère à la fois le cas
+    normal (expédition dans les semaines avant la facture) et le passage
+    d'année (expédition décembre facturée en janvier → année précédente), sans
+    casser une expédition du même mois que la facture. Renvoie « jj/mm/aaaa »,
+    ou l'entrée telle quelle si elle a déjà une année / n'est pas complétable.
+    """
+    if not exp_date:
+        return exp_date
+    m = re.match(r"^\s*(\d{1,2})/(\d{1,2})\s*$", exp_date)   # seulement « jj/mm » nu
+    mf = re.match(r"(\d{1,2})/(\d{1,2})/(\d{2,4})", date_facture or "")
+    if not m or not mf:
+        return exp_date
+    d, mo = int(m.group(1)), int(m.group(2))
+    fd, fm, fy = int(mf.group(1)), int(mf.group(2)), int(mf.group(3))
+    if fy < 100:
+        fy += 2000
+    try:
+        d_fac = datetime.date(fy, fm, fd)
+    except ValueError:
+        return f"{d:02d}/{mo:02d}/{fy}"
+    best = None
+    for an in (fy - 1, fy):        # l'expédition précède la facture → jamais fy+1
+        try:
+            cand = datetime.date(an, mo, d)
+        except ValueError:
+            continue
+        if best is None or abs((cand - d_fac).days) < abs((best - d_fac).days):
+            best = cand
+    return f"{d:02d}/{mo:02d}/{best.year}" if best else exp_date
 
 # Charge .env -> variables d'environnement (PENNYLANE_API_KEY). À faire AVANT _cle().
 load_dotenv()
@@ -174,7 +215,8 @@ def lire_factures_pennylane(date_min=None, date_max=None, supplier_id=SOFRIPA_SU
             fac_intake = parse_facture(chemin)
             parsees = [
                 LigneFacture(
-                    exp_date=L.exp_date, ot=L.num_ot, client=L.destinataire,
+                    exp_date=_exp_date_annee(L.exp_date, fac_intake.date_facture),
+                    ot=L.num_ot, client=L.destinataire,
                     piece=L.num_piece, poids=L.poids, montant=L.montant_final,
                     surtaxe_gasoil=L.surtaxe_gasoil or 0.0,
                 )
