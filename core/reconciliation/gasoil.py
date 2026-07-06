@@ -33,18 +33,28 @@ def allouer_gasoil(montants_bruts: list[float], maj_total: float) -> list[dict]:
         # Pas de base de répartition : aucune surtaxe (cas dégénéré).
         return [{"brut": b, "surtaxe": 0.0, "final": round(b, 2)} for b in montants_bruts]
 
+    # Répartition au CENTIME près (méthode du plus fort reste) :
+    #  1. part exacte de chaque ligne, en centimes ;
+    #  2. on garde la partie entière (arrondi vers le bas) ;
+    #  3. on distribue les centimes restants aux lignes dont le reste est le plus
+    #     grand, un par un.
+    # → Σ surtaxes = maj_total PILE, ET aucune ligne ne dévie de plus d'1 centime
+    #   de sa part exacte.
+    maj_cents = round(maj_total * 100)
+    exacts = [maj_cents * (b / somme_brut) for b in montants_bruts]
+    base = [int(e) for e in exacts]                      # arrondi vers le bas (centimes)
+    restants = maj_cents - sum(base)                     # centimes encore à distribuer
+    # indices triés par reste décroissant (les plus « lésés » servis d'abord)
+    ordre = sorted(range(n), key=lambda i: exacts[i] - base[i], reverse=True)
+    for k in range(max(0, restants)):
+        base[ordre[k % n]] += 1
+
     lignes = []
-    for b in montants_bruts:
-        surtaxe = round(maj_total * (b / somme_brut), 2)
-        lignes.append({"brut": round(b, 2), "surtaxe": surtaxe})
-
-    # Correction d'arrondi : le total des surtaxes doit valoir maj_total pile.
-    # On reporte l'écart (quelques centimes) sur la ligne au plus gros montant.
-    residu = round(maj_total - sum(x["surtaxe"] for x in lignes), 2)
-    if residu != 0.0 and lignes:
-        i_max = max(range(n), key=lambda i: lignes[i]["brut"])
-        lignes[i_max]["surtaxe"] = round(lignes[i_max]["surtaxe"] + residu, 2)
-
-    for x in lignes:
-        x["final"] = round(x["brut"] + x["surtaxe"], 2)
+    for b, cents in zip(montants_bruts, base):
+        surtaxe = round(cents / 100, 2)
+        lignes.append({
+            "brut": round(b, 2),
+            "surtaxe": surtaxe,
+            "final": round(round(b, 2) + surtaxe, 2),
+        })
     return lignes
