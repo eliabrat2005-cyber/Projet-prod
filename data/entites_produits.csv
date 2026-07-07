@@ -1,0 +1,10 @@
+barcode,product_name,entity,unit_weight_kg,active
+# Table de reference (override) : code-barres (gtin EasyBeer) -> entite + poids.
+# - entity : FERMENT_STATION (Symbiose/Niko) ou SPRAGA (kombucha).
+# - unit_weight_kg : poids unitaire ; laisser vide pour utiliser celui d'EasyBeer.
+# - active : false pour desactiver une ligne sans la supprimer.
+# Une reference absente ici est classee par la regle mots-cles (kombucha->Spraga,
+# kefir/niko/symbiose->FS). Un produit non reconnu -> ANOMALIE (a ajouter ici).
+# Exemples (a remplacer par les vrais gtin) :
+# 3760000000012,Kefir Original 33cl,FERMENT_STATION,0.55,true
+# 3770000000019,Kombucha Gingembre 33cl,SPRAGA,0.52,true
