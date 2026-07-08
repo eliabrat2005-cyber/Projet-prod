@@ -155,6 +155,27 @@ def parse_facture(path) -> FactureIntake:
             jour_courant = mj.group(1)
             continue
 
+        # Ligne de SURCOÛT autonome (ex. « SURCOÛT SALON 1,00 120,00 120,00 ») :
+        # un supplément facturé, PAS une livraison (ni destinataire ni pièce). On
+        # la clôt comme une ligne à part entière pour qu'elle compte dans le total
+        # du jour ET dans Σ montant = HT (sinon la facture est rejetée à tort).
+        if txt.strip().upper().startswith("SURCO"):
+            mv = _montant_rmost(toks)
+            if mv is None and seq:
+                mv = _num(seq[-1])
+            if mv:
+                _fermer()          # clôt une éventuelle livraison en cours
+                sc = LigneFactureIntake()
+                sc.jour = jour_courant
+                sc.destinataire = " ".join(
+                    t for t in seq if not re.fullmatch(r"[\d ., ]+", t)
+                ).strip() or "SURCOUT"
+                sc.transport = mv
+                sc.frais_admin = 0.0
+                sc.montant_brut = mv
+                fac.lignes.append(sc)
+            continue
+
         if "EXP." in txt and "DEST" not in txt:
             _fermer()                       # clôt la livraison précédente (ex. TAXI COLIS)
             cur = LigneFactureIntake()
@@ -245,11 +266,18 @@ def valider_facture(fac: FactureIntake, tol: float = 0.02) -> list[str]:
     if not fac.lignes:
         err.append("Aucune ligne de transport extraite")
 
-    # 2. Montants de ligne positifs
+    # 2. Montants de ligne positifs — SAUF transferts internes gratuits.
+    # Un enlèvement interne vers un site SYMBIOSE (ex. Ivry) peut légitimement
+    # être facturé 0 € : ce n'est PAS une erreur de lecture, on ne rejette pas
+    # la facture pour ça (ces lignes sont de toute façon exclues de la
+    # réconciliation, cf. _est_interne).
+    from .reconciliation_core import _est_interne
+
     for i, L in enumerate(fac.lignes, 1):
-        if not L.transport or L.transport <= 0:
+        interne = _est_interne(L.destinataire)
+        if (not L.transport or L.transport <= 0) and not interne:
             err.append(f"Ligne {i} (pièce {L.num_piece}) : transport ≤ 0")
-        if L.poids is not None and L.poids <= 0:
+        if L.poids is not None and L.poids <= 0 and not interne:
             err.append(f"Ligne {i} (pièce {L.num_piece}) : poids ≤ 0")
 
     # 3. Réconciliation globale : Σ montant_final == HT (après gasoil)

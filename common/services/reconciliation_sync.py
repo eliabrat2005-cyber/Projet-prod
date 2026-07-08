@@ -13,8 +13,10 @@ from __future__ import annotations
 import datetime
 import logging
 
+from common.services.facture_store import lire_lignes_reconciliation
+from common.services.facture_sync import traiter_factures_pennylane
 from common.services.reconciliation_store import save_snapshot
-from core.reconciliation.io_api import charger_sources, lire_factures_pennylane
+from core.reconciliation.io_api import charger_sources
 from core.reconciliation.io_api_easybeer import lire_commandes_easybeer
 from core.reconciliation.reconciliation_core import (
     OFFSET,
@@ -58,24 +60,36 @@ def synchroniser(
 
     progress_cb(mois_faits, mois_total, mois_courant|None) — appelé dans le thread
     de travail : ne pas toucher l'UI, écrire dans un dict relu par un ui.timer.
+
+    NOUVEAU FLUX (validation d'abord) :
+      1. Charger les commandes Easy Beer.
+      2. VALIDER + GRAVER les factures SOFRIPA de la période (traiter_factures_
+         pennylane) : chaque facture est contrôlée (Σ lignes = HT, totaux
+         journaliers) puis stockée avec un statut OK/REJECTED. Idempotent.
+      3. Réconcilier chaque mois UNIQUEMENT à partir des lignes des factures
+         VALIDÉES stockées (lire_lignes_reconciliation) — les factures rejetées
+         (comptes faux) sont exclues d'office. Plus de re-parse à la volée.
     """
-    # Les commandes Easy Beer sont chargées UNE fois (valables pour tous les mois).
+    # 1) Les commandes Easy Beer sont chargées UNE fois (valables pour tous les mois).
     if source == "api":
         commandes = lire_commandes_easybeer()
     else:
         _, commandes = charger_sources(export_path, date_min=None, date_max=None)
 
+    # 2) Valider + graver les factures de la période (source de vérité). Le detail
+    # (nb validées/rejetées) est visible ensuite dans l'onglet FACTURES.
+    traiter_factures_pennylane(
+        tenant_id, commandes, date_min=date_min, date_max=date_max, user_id=user_id,
+    )
+
     mois = _mois(date_min, date_max)
 
-    # ── Pré-passe : réserver toutes les commandes visées par un N° pièce (TOUS
-    # les mois). Ainsi la 2e passe déduite d'un mois ne « vole » jamais une
-    # commande qui appartient, par sa pièce, à une livraison d'un autre mois
-    # (collision de bord de mois). Les factures sont en cache → coût quasi nul.
+    # 3a) Pré-passe : réserver toutes les commandes visées par un N° pièce (TOUS
+    # les mois), depuis les factures VALIDÉES. Ainsi la 2e passe déduite d'un mois
+    # ne « vole » jamais une commande qui appartient à une autre livraison.
     reservees: set = set()
     for m_start, m_end in mois:
-        for f in lire_factures_pennylane(
-            date_min=m_start, date_max=m_end, cache=cache, stockage_out=None,
-        ):
+        for f in lire_lignes_reconciliation(tenant_id, m_start, m_end):
             if _est_interne(f.client) or not f.piece:
                 continue
             num, _cmd = _resoudre_commande(
@@ -84,20 +98,18 @@ def synchroniser(
             if num is not None:
                 reservees.add(num)
 
+    # 3b) Réconcilier chaque mois depuis les factures validées stockées.
     for i, (m_start, m_end) in enumerate(mois):
         if progress_cb:
             progress_cb(i, len(mois), m_start)
-        stocks: list = []
-        factures = lire_factures_pennylane(
-            date_min=m_start, date_max=m_end, cache=cache, stockage_out=stocks,
-        )
+        factures = lire_lignes_reconciliation(tenant_id, m_start, m_end)
         res = reconcilier(factures, commandes, commandes_reservees=reservees)
-        # Accumuler les commandes déduites de ce mois : elles deviennent réservées
-        # pour les mois suivants (unicité inter-mois côté déduit aussi).
+        # Les commandes déduites de ce mois deviennent réservées pour les suivants.
         reservees.update(
             L.numero for L in res.lignes if getattr(L, "methode", "piece") == "deduit"
         )
-        save_snapshot(tenant_id, m_start, m_end, res, stocks, user_id=user_id)
+        # Plus de volet « stockage » dans la réconciliation (onglet FACTURES à part).
+        save_snapshot(tenant_id, m_start, m_end, res, [], user_id=user_id)
     if progress_cb:
         progress_cb(len(mois), len(mois), None)
     return [m for m, _ in mois]

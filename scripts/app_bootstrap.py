@@ -24,4 +24,5 @@ if __name__ == "__main__":
     run_file("db/migrate.sql")
     # Schémas de features en fichiers séparés (à fusionner dans migrate.sql
     # une fois celui-ci démêlé). Dépendent des tables de base (tenants, users).
+    run_file("db/invoices_schema.sql")
     run_file("db/transport_allocation_schema.sql")

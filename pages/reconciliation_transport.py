@@ -41,9 +41,9 @@ from pathlib import Path
 
 from nicegui import app, ui
 
+from common.services import facture_store
 from common.services.reconciliation_store import list_periods, load_range
 from core.reconciliation.pennylane_cache import PennylaneCache
-from core.reconciliation.stockage import repartition_par_enseigne, synthese_stockage
 from pages.auth import require_auth
 from pages.theme import (
     COLORS,
@@ -74,10 +74,15 @@ _STATUT_BADGE_JS = r"""
         'Écart notable':'orange-7',
         'À vérifier (négatif)':'red-6',
         'Palette (pas de poids)':'blue-grey-5',
-        'Pas de poids EB':'grey-6'
+        'Pas de poids EB':'grey-6',
+        'Non rattaché':'blue-grey-4'
       }[props.value] || 'grey-6'" :label="props.value" />
     </q-td>
 """
+
+# Statut d'une ligne facturée SANS commande EasyBeer en face (affichée en gris
+# dans les tableaux officiels + export, avec juste son coût de transport).
+_STATUT_NON_RATTACHE = "Non rattaché"
 
 # Badge « méthode » : distingue les rapprochements SÛRS (par N° pièce) des
 # rapprochements DÉDUITS (marque + ville + date). Un déduit « date » (départagé)
@@ -100,6 +105,48 @@ def _methode_label(L) -> str:
         return "Pièce"
     return "Déduit (date)" if getattr(L, "confiance", "") == "date" else "Déduit"
 
+
+# Badge statut d'une FACTURE (onglet FACTURES).
+_FACTURE_BADGE_JS = r"""
+    <q-td :props="props">
+      <q-badge :color="{
+        'Validée':'green-6',
+        'Rejetée':'red-6',
+        'Stockage':'blue-grey-5'
+      }[props.value] || 'grey-6'" :label="props.value" />
+    </q-td>
+"""
+
+_FACTURE_STATUT_LABEL = {"OK": "Validée", "REJECTED": "Rejetée", "STOCKAGE": "Stockage"}
+
+# Seuil d'écart de poids jugé aberrant (kg) -> section « À vérifier ».
+_SEUIL_ECART_ABERRANT_KG = 500.0
+
+
+def _lignes_a_verifier(lignes, seuil_kg: float = _SEUIL_ECART_ABERRANT_KG) -> list[tuple]:
+    """Repère les GROSSES anomalies de réconciliation : (L, raison).
+
+    On isole seulement les cas manifestement impossibles :
+    - un même N° de commande apparaît plusieurs fois (doublon de facturation) ;
+    - un écart de poids aberrant (|écart| > seuil, ex. 500 kg).
+
+    Les petits écarts négatifs (fréquents, routiniers) NE sont PAS listés ici :
+    ils restent visibles via leur badge de statut dans le tableau normal.
+    """
+    from collections import Counter
+
+    cnt = Counter(L.numero for L in lignes)
+    out: list[tuple] = []
+    for L in lignes:
+        raisons: list[str] = []
+        if cnt[L.numero] > 1:
+            raisons.append(f"commande {L.numero} apparaît {cnt[L.numero]}×")
+        if L.ecart_kg is not None and abs(L.ecart_kg) > seuil_kg:
+            raisons.append(f"écart de poids {L.ecart_kg:+.0f} kg")
+        if raisons:
+            out.append((L, " ; ".join(raisons)))
+    return out
+
 # Mapping statut -> (fond pastel, couleur texte) pour l'Excel — teintes douces.
 _STATUT_FILL = {
     "OK": ("DCFCE7", "166534"),
@@ -107,6 +154,7 @@ _STATUT_FILL = {
     "À vérifier (négatif)": ("FEE2E2", "991B1B"),
     "Palette (pas de poids)": ("E2E8F0", "334155"),
     "Pas de poids EB": ("F1F5F9", "475569"),
+    "Non rattaché": ("E2E8F0", "475569"),
 }
 
 
@@ -170,6 +218,31 @@ _CALC_COLS: list[tuple] = [
     ("Méthode", _methode_label, lambda v: v or "—", lambda v: v),
     ("Statut poids", lambda L: L.statut, lambda v: v or "—", lambda v: v),
 ]
+
+
+def _sp_calc_cells(f) -> list[tuple]:
+    """Colonnes calculées pour une ligne NON RATTACHÉE (LigneFacture SOFRIPA sans
+    commande EB). Retourne, alignée sur _CALC_COLS, une liste (valeur_écran,
+    valeur_Excel). Les colonnes issues d'Easy Beer restent VIDES (on ne les a pas).
+    """
+    gasoil = getattr(f, "surtaxe_gasoil", 0.0) or 0.0
+    eur_kg = (f.montant / f.poids) if (f.montant and f.poids) else None
+    by_label = {
+        "N° OT (facture)": (f.ot or "—", f.ot),
+        "N° pièce (facture)": ("—", None),
+        "Poids Easy Beer (kg)": ("—", None),
+        "Poids SOFRIPA (kg)": (_kg(f.poids), _fr(f.poids, 1)),
+        "Écart poids (kg)": ("—", None),
+        "Écart poids (%)": ("—", None),
+        "Coût transport SOFRIPA (€)": (_eur(f.montant), _fr(f.montant, 1)),
+        "dont majoration gasoil (€)": (_eur(gasoil), _fr(gasoil, 2)),
+        "Montant HT Easy Beer (€)": ("—", None),
+        "Transport / HT (%)": ("—", None),
+        "€ / kg facturé": (_eur_kg(eur_kg), _fr(eur_kg, 3)),
+        "Méthode": ("—", None),
+        "Statut poids": (_STATUT_NON_RATTACHE, _STATUT_NON_RATTACHE),
+    }
+    return [by_label[label] for (label, *_rest) in _CALC_COLS]
 
 
 def _eb_headers(res) -> list[str]:
@@ -247,6 +320,20 @@ def _build_mega_xlsx(res, eb_headers: list[str]) -> bytes:
                     cell.fill = PatternFill("solid", fgColor=fill_hex)
                     cell.font = Font(color=font_hex, bold=True)
                     cell.alignment = center
+            ci += 1
+        r += 1
+
+    # Lignes NON RATTACHÉES (SOFRIPA sans commande EB) : colonnes EB vides,
+    # coût de transport présent, statut « Non rattaché » sur fond gris.
+    nr_fill, nr_font = _STATUT_FILL[_STATUT_NON_RATTACHE]
+    for f in res.sans_piece:
+        ci = 1 + n_eb  # on saute les colonnes EB (laissées vides)
+        for j, (_screen, excel_val) in enumerate(_sp_calc_cells(f)):
+            cell = ws.cell(r, ci, excel_val)
+            if j == i_statut:
+                cell.fill = PatternFill("solid", fgColor=nr_fill)
+                cell.font = Font(color=nr_font, bold=True)
+                cell.alignment = center
             ci += 1
         r += 1
 
@@ -492,7 +579,7 @@ def page_reconciliation_transport():
                             _update_run_state()
                             remove_btn.visible = False
                             results.clear()
-                            results_stockage.clear()
+                            results_factures.clear()
                             ui.notify("Export retiré.", type="info")
 
                         remove_btn = ui.button(
@@ -565,15 +652,15 @@ def page_reconciliation_transport():
         # ── Onglets Transport / Stockage + zone de progression partagée ────
         with ui.tabs().props("dense align=left").classes("w-full") as cost_tabs:
             tab_transport = ui.tab("Transport", icon="local_shipping")
-            tab_stockage = ui.tab("Stockage", icon="warehouse")
+            tab_factures = ui.tab("FACTURES", icon="receipt_long")
 
         progress_box = ui.column().classes("w-full")
 
         with ui.tab_panels(cost_tabs, value=tab_transport).classes("w-full"):
             with ui.tab_panel(tab_transport).classes("q-pa-none"):
                 results = ui.column().classes("w-full gap-4")
-            with ui.tab_panel(tab_stockage).classes("q-pa-none"):
-                results_stockage = ui.column().classes("w-full gap-4")
+            with ui.tab_panel(tab_factures).classes("q-pa-none"):
+                results_factures = ui.column().classes("w-full gap-4")
 
         # ── Logique d'exécution ────────────────────────────────────────────
         # Jeton d'annulation : changer la période/source pendant un calcul rend
@@ -700,11 +787,14 @@ def page_reconciliation_transport():
                     else COLORS["orange"] if (_taux or 0) >= 0.9
                     else COLORS["error"]
                 )
+                _cout_nr = sum((f.montant or 0) for f in res.sans_piece)
                 with ui.row().classes("w-full gap-3 wrap reconcil-kpis"):
                     kpi_card("verified", "Taux de réconciliation",
                              _pct(_taux), _taux_couleur)
                     kpi_card("euro", "Coût transport total (gasoil inclus)",
                              _eur(k.get("cout_transport_total_eur")))
+                    kpi_card("link_off", "dont transport non rattaché",
+                             _eur(_cout_nr), COLORS["ink2"])
                     kpi_card("local_gas_station", "dont majoration gasoil",
                              _eur(k.get("gasoil_total_eur")), COLORS["orange"])
                     kpi_card("scale", "Coût moyen €/kg",
@@ -730,6 +820,49 @@ def page_reconciliation_transport():
                         "Aucune ligne rapprochée sur cette période."
                     ).classes("text-body2 q-mt-md").style(f"color: {COLORS['ink2']}")
                     return
+
+                # ─── a bis) À VÉRIFIER : anomalies grossières (doublons, écarts) ──
+                a_verifier = _lignes_a_verifier(res.lignes)
+                if a_verifier:
+                    section_title(
+                        f"À vérifier — anomalies ({len(a_verifier)})", "report_problem",
+                    )
+                    ui.label(
+                        "Cas manifestement anormaux : même commande facturée plusieurs "
+                        "fois, ou écart de poids aberrant (> 500 kg). À contrôler en "
+                        "priorité."
+                    ).classes("text-caption q-mb-xs").style(f"color: {COLORS['error']}")
+                    av_cols = [
+                        {"name": "numero", "label": "N° cmd", "field": "numero",
+                         "align": "left", "sortable": True},
+                        {"name": "client", "label": "Client", "field": "client",
+                         "align": "left"},
+                        {"name": "poids_eb", "label": "Poids EB", "field": "poids_eb",
+                         "align": "right"},
+                        {"name": "poids_sof", "label": "Poids SOFRIPA",
+                         "field": "poids_sof", "align": "right"},
+                        {"name": "ecart_kg", "label": "Écart kg", "field": "ecart_kg",
+                         "align": "right"},
+                        {"name": "cout", "label": "Coût transport", "field": "cout",
+                         "align": "right"},
+                        {"name": "raison", "label": "Anomalie", "field": "raison",
+                         "align": "left"},
+                    ]
+                    av_rows = [
+                        {
+                            "numero": L.numero, "client": L.client or "—",
+                            "poids_eb": _kg(L.poids_eb), "poids_sof": _kg(L.poids_sofripa),
+                            "ecart_kg": _kg(L.ecart_kg), "cout": _eur(L.cout_transport),
+                            "raison": raison,
+                        }
+                        for L, raison in a_verifier
+                    ]
+                    ui.table(
+                        columns=av_cols, rows=av_rows, row_key="numero",
+                        pagination={"rowsPerPage": 25},
+                    ).classes("w-full").props(
+                        'flat bordered dense :rows-per-page-options="[25,50,100]"'
+                    )
 
                 # ─── b) Deux tableaux : réconciliées SÛRES puis À VÉRIFIER ────
                 lignes_sures = [L for L in res.lignes
@@ -820,19 +953,19 @@ def page_reconciliation_transport():
                     ).classes("text-caption q-mb-xs").style(f"color: {COLORS['ink2']}")
                     _rendre_table(base_cols + [methode_col], lignes_deduites)
 
-                # ─── Sans pièce : suggestions à vérifier ──────────────────
+                # ─── Non rattaché : transport sans commande EB ─────────────
                 if res.sans_piece:
                     section_title(
-                        f"Sans pièce — non rapprochées ({len(res.sans_piece)})",
-                        "help_outline",
+                        f"Non rattaché — transport sans commande EB "
+                        f"({len(res.sans_piece)})", "link_off",
                     )
                     ui.label(
-                        "Lignes que même la 2ᵉ passe (marque + ville + date) n'a pas pu "
-                        "rattacher de façon sûre : soit plusieurs commandes plausibles le "
-                        "même jour (ambigu), soit aucune commande correspondante dans Easy "
-                        "Beer (échantillon, commande annulée ou supprimée). La colonne "
-                        "« Suggestion » reste une simple piste à vérifier à la main. Ces "
-                        "lignes ne comptent ni dans les KPIs ni dans les autres tableaux."
+                        "Livraisons bien facturées par SOFRIPA mais sans commande Easy "
+                        "Beer en face (pas de N° pièce, livraison plateforme type SAMADA, "
+                        "ou client hors EB). On les GARDE : elles apparaissent aussi en "
+                        "gris « Non rattaché » dans le tableau général et l'export, avec "
+                        "leur coût de transport mais sans les données EB (poids, HT…) "
+                        "qu'on n'a pas. La « Suggestion » reste une piste à vérifier."
                     ).classes("text-caption q-mb-xs").style(f"color: {COLORS['ink2']}")
 
                     suggestions = getattr(res, "sans_piece_suggestions", None) or [
@@ -919,6 +1052,12 @@ def page_reconciliation_transport():
                         row[f"c{i}"] = _eb_display(brut.get(h))
                     for j, (_, getter, disp, _xl) in enumerate(_CALC_COLS):
                         row[f"c{n_eb + j}"] = disp(getter(L))
+                    mega_rows.append(row)
+                # Lignes NON RATTACHÉES : colonnes EB vides + coût transport.
+                for f in res.sans_piece:
+                    row = {f"c{i}": "" for i in range(n_eb)}
+                    for j, (screen, _excel) in enumerate(_sp_calc_cells(f)):
+                        row[f"c{n_eb + j}"] = screen
                     mega_rows.append(row)
 
                 mega = ui.table(
@@ -1019,121 +1158,131 @@ def page_reconciliation_transport():
                 ).classes("w-full").props("flat bordered dense")
 
         # ── Rendu de l'onglet Stockage ──────────────────────────────────────
-        def _render_stockage(stocks, res):
-            with results_stockage:
-                if not stocks:
+        def _render_factures():
+            """Onglet FACTURES : statut de validation de chaque facture SOFRIPA."""
+            with results_factures:
+                stats = facture_store.stats_factures(tenant_id)
+                section_title("Synthèse factures", "receipt_long")
+                with ui.row().classes("w-full gap-3 wrap reconcil-kpis"):
+                    kpi_card("description", "Factures traitées", str(stats.get("nb", 0)))
+                    kpi_card("verified", "Validées",
+                             str(stats.get("ok", 0)), COLORS["success"])
+                    kpi_card("error_outline", "Rejetées",
+                             str(stats.get("rejetees", 0)), COLORS["error"])
+                    kpi_card("euro", "HT total (validées)",
+                             _eur(float(stats.get("ht") or 0)))
+                    kpi_card("local_gas_station", "Gasoil total",
+                             _eur(float(stats.get("gasoil") or 0)), COLORS["orange"])
+
+                factures = facture_store.list_factures(tenant_id)
+                if not factures:
                     ui.label(
-                        "Aucune facture de stockage sur la période sélectionnée. "
-                        "Les factures de stockage SOFRIPA sont mensuelles et datées "
-                        "en fin de mois — élargissez la période si besoin."
+                        "Aucune facture traitée. Cliquez « Mettre à jour » pour "
+                        "valider et enregistrer les factures SOFRIPA."
                     ).classes("text-body2 q-mt-md").style(f"color: {COLORS['ink2']}")
                     return
 
-                syn = synthese_stockage(stocks, res.kpis if res else None)
+                section_title(f"Factures ({len(factures)})", "receipt")
+                ui.label(
+                    "Une facture est « Validée » si la somme des lignes = Total HT et "
+                    "si chaque total journalier est cohérent. Sinon « Rejetée » (motif "
+                    "au clic) et exclue de la réconciliation."
+                ).classes("text-caption q-mb-xs").style(f"color: {COLORS['ink2']}")
 
-                # ── Synthèse stockage (KPIs) ──────────────────────────────
-                section_title("Synthèse stockage", "warehouse")
-                with ui.row().classes("w-full gap-3 wrap reconcil-kpis"):
-                    kpi_card("warehouse", "Coût stockage total (HT)",
-                             _eur(syn["total_ht"]))
-                    kpi_card("receipt_long", "Total TTC",
-                             _eur(syn["total_ttc"]), COLORS["ink2"])
-                    kpi_card("calendar_month", "Moyenne mensuelle (HT)",
-                             _eur(syn["moyenne_mensuelle_ht"]), COLORS["blue"])
-                    if syn.get("cout_logistique_ht") is not None:
-                        kpi_card("summarize", "Coût logistique total (HT)",
-                                 _eur(syn["cout_logistique_ht"]))
-                        kpi_card("pie_chart", "Part stockage / logistique",
-                                 _pct(syn["part_stockage"]), COLORS["orange"])
-                        kpi_card("scale", "Stockage / kg expédié",
-                                 _eur_kg(syn["stockage_par_kg"]), COLORS["blue"])
-                        kpi_card("local_shipping", "Stockage / livraison",
-                                 _eur(syn["stockage_par_livraison"]), COLORS["blue"])
-                        kpi_card("percent", "Stockage / CA HT",
-                                 _pct(syn["part_stockage_sur_ca"]), COLORS["ink2"])
-
-                # ── Factures de stockage par mois (+ évolution) ───────────
-                section_title(f"Factures de stockage ({len(stocks)})", "receipt")
-                stk_columns = [
-                    {"name": "periode", "label": "Période", "field": "periode",
-                     "align": "left"},
-                    {"name": "date", "label": "Date facture", "field": "date",
-                     "align": "left"},
+                fac_cols = [
+                    {"name": "num", "label": "N° facture", "field": "num",
+                     "align": "left", "sortable": True},
+                    {"name": "date", "label": "Date", "field": "date",
+                     "align": "left", "sortable": True},
+                    {"name": "statut", "label": "Statut", "field": "statut",
+                     "align": "left", "sortable": True},
                     {"name": "ht", "label": "HT", "field": "ht", "align": "right"},
-                    {"name": "tva", "label": "TVA", "field": "tva", "align": "right"},
-                    {"name": "ttc", "label": "TTC", "field": "ttc", "align": "right"},
-                    {"name": "evol", "label": "Évol. HT vs mois préc.", "field": "evol",
+                    {"name": "gasoil", "label": "Gasoil", "field": "gasoil",
                      "align": "right"},
+                    {"name": "nb", "label": "Nb lignes", "field": "nb", "align": "right"},
+                    {"name": "motif", "label": "Motif (si rejetée)", "field": "motif",
+                     "align": "left"},
                 ]
-                stocks_tries = sorted(stocks, key=lambda s: s.get("date") or "")
-                stk_rows, prev = [], None
-                for s in stocks_tries:
-                    evol = ((s["ht"] - prev) / prev) if prev else None
-                    stk_rows.append({
-                        "periode": (
-                            f"Du {s['periode'].lower()}" if s.get("periode")
-                            else (s.get("date") or "—")
-                        ),
-                        "date": s.get("date") or "—",
-                        "ht": _eur(s["ht"]),
-                        "tva": _eur(s["tva"]),
-                        "ttc": _eur(s["ttc"]),
-                        "evol": _pct(evol) if evol is not None else "—",
-                    })
-                    prev = s["ht"]
-                stk_rows.append({
-                    "periode": "TOTAL", "date": "",
-                    "ht": _eur(syn["total_ht"]),
-                    "tva": _eur(round(sum(x["tva"] for x in stocks), 2)),
-                    "ttc": _eur(syn["total_ttc"]),
-                    "evol": "",
-                })
-                ui.table(
-                    columns=stk_columns, rows=stk_rows, row_key="periode",
-                    pagination={"rowsPerPage": 0},
-                ).classes("w-full").props("flat bordered dense")
-
-                # ── Répartition indicative par enseigne ───────────────────
-                rep = repartition_par_enseigne(
-                    syn["total_ht"], res.par_enseigne if res else [],
+                fac_rows = [
+                    {
+                        "id": str(f["id"]),
+                        "num": f["id_facture_source"],
+                        "date": (f["date_facture"].strftime("%d/%m/%Y")
+                                 if f.get("date_facture") else "—"),
+                        "statut": _FACTURE_STATUT_LABEL.get(f["status"], f["status"]),
+                        "ht": _eur(float(f["montant_ht"]) if f.get("montant_ht") else None),
+                        "gasoil": _eur(
+                            float(f["maj_total"]) if f.get("maj_total") else None),
+                        "nb": f.get("nb_lignes") or 0,
+                        "motif": ((f.get("error_log") or "").split("\n")[0]
+                                  if f["status"] == "REJECTED" else ""),
+                    }
+                    for f in factures
+                ]
+                fac_table = ui.table(
+                    columns=fac_cols, rows=fac_rows, row_key="num",
+                    pagination={"rowsPerPage": 50},
+                ).classes("w-full").props(
+                    'flat bordered dense :rows-per-page-options="[25,50,100]"'
                 )
-                if rep:
-                    section_title("Répartition par enseigne (indicative)", "store")
-                    ui.label(
-                        "Le stockage est facturé globalement (une ligne par mois) : "
-                        "cette ventilation le répartit au prorata du poids expédié "
-                        "par enseigne sur la période. C'est un modèle indicatif, "
-                        "pas une donnée facturée."
-                    ).classes("text-caption q-mb-xs").style(f"color: {COLORS['ink2']}")
-                    rep_columns = [
-                        {"name": "ens", "label": "Enseigne / tournée", "field": "ens",
+                fac_table.add_slot("body-cell-statut", _FACTURE_BADGE_JS)
+                by_num = {r["num"]: r for r in fac_rows}
+                fac_table.on(
+                    "rowClick",
+                    lambda e: _open_facture(by_num.get(e.args[1]["num"])),
+                )
+
+        def _open_facture(r):
+            if not r:
+                return
+            with ui.dialog() as dlg, ui.card().classes("w-full").style(
+                "max-width: 900px"
+            ):
+                with ui.row().classes("w-full items-center justify-between"):
+                    section_title(f"Facture {r['num']} — {r['statut']}", "receipt_long")
+                    ui.button(icon="close", on_click=dlg.close).props("flat round dense")
+                if r["statut"] == "Rejetée":
+                    fac = next(
+                        (x for x in facture_store.list_factures(tenant_id)
+                         if str(x["id"]) == r["id"]), None,
+                    )
+                    err = (fac or {}).get("error_log") or r.get("motif") or "?"
+                    error_banner("Facture rejetée — " + err)
+                lignes = facture_store.get_lignes(tenant_id, r["id"])
+                if lignes:
+                    lcols = [
+                        {"name": "piece", "label": "N° pièce", "field": "piece",
                          "align": "left"},
-                        {"name": "poids", "label": "Poids expédié", "field": "poids",
+                        {"name": "dest", "label": "Destinataire", "field": "dest",
+                         "align": "left"},
+                        {"name": "poids", "label": "Poids", "field": "poids",
                          "align": "right"},
-                        {"name": "part", "label": "% du poids", "field": "part",
+                        {"name": "final", "label": "Montant", "field": "final",
                          "align": "right"},
-                        {"name": "alloue", "label": "Stockage alloué (HT)",
-                         "field": "alloue", "align": "right"},
+                        {"name": "match", "label": "Lien EB", "field": "match",
+                         "align": "left"},
                     ]
-                    rep_rows = [
+                    lrows = [
                         {
-                            "ens": r["enseigne"],
-                            "poids": _kg(r["poids"]),
-                            "part": _pct(r["part"]),
-                            "alloue": _eur(r["alloue"]),
+                            "piece": ln.get("num_piece") or "—",
+                            "dest": ln.get("destinataire") or "—",
+                            "poids": _kg(
+                                float(ln["poids"]) if ln.get("poids") else None),
+                            "final": _eur(
+                                float(ln["montant_final"])
+                                if ln.get("montant_final") else None),
+                            "match": ln.get("statut_match") or "—",
                         }
-                        for r in rep
+                        for ln in lignes
                     ]
-                    rep_rows.append({
-                        "ens": "TOTAL",
-                        "poids": _kg(sum(r["poids"] for r in rep)),
-                        "part": _pct(1.0),
-                        "alloue": _eur(syn["total_ht"]),
-                    })
-                    ui.table(
-                        columns=rep_columns, rows=rep_rows, row_key="ens",
-                        pagination={"rowsPerPage": 0},
-                    ).classes("w-full").props("flat bordered dense")
+                    ui.table(columns=lcols, rows=lrows, row_key="piece").classes(
+                        "w-full"
+                    ).props("flat bordered dense")
+                else:
+                    ui.label(
+                        "Aucune ligne stockée (facture rejetée ou stockage)."
+                    ).classes("text-caption").style(f"color: {COLORS['ink2']}")
+            dlg.open()
 
         # ── Sélection d'un mois : lecture INSTANTANÉE depuis la base (0 appel API) ──
         _MOIS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet",
@@ -1143,7 +1292,7 @@ def page_reconciliation_transport():
             """Affiche la plage de mois [ps_from, ps_to] fusionnée depuis la base
             (aucun appel API). Un seul mois si ps_from == ps_to."""
             results.clear()
-            results_stockage.clear()
+            results_factures.clear()
             if not ps_from or not ps_to:
                 return
             try:
@@ -1170,7 +1319,7 @@ def page_reconciliation_transport():
                         f"Période affichée : {portee} · synchronisé le {synced_txt}"
                     ).classes("text-caption").style(f"color: {COLORS['ink2']}")
             _render_results(snap["result"])
-            _render_stockage(snap.get("stockage") or [], snap["result"])
+            _render_factures()
 
         def _current_range():
             a, b = month_from.value, month_to.value
@@ -1197,7 +1346,7 @@ def page_reconciliation_transport():
             month_to.set_options(opts)
             if not opts:
                 results.clear()
-                results_stockage.clear()
+                results_factures.clear()
                 with results:
                     ui.label(
                         "Aucune donnée synchronisée. Cliquez « Mettre à jour » "

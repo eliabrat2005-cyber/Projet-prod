@@ -58,12 +58,52 @@ def list_factures(tenant_id: str) -> list[dict]:
     return run_sql(
         """
         SELECT id, id_facture_source, date_facture, montant_ht, montant_ttc,
-               maj_total, nb_lignes, status, date_traitement
+               maj_total, nb_lignes, status, error_log, date_traitement
         FROM processed_invoices WHERE tenant_id=:t
         ORDER BY date_facture DESC NULLS LAST, date_traitement DESC
         """,
         {"t": tenant_id},
     )
+
+
+def lire_lignes_reconciliation(tenant_id: str, date_min: str, date_max: str) -> list:
+    """Lignes des factures VALIDÉES (status OK) sur [date_min, date_max] (dates
+    de facture ISO), converties en ``LigneFacture`` pour alimenter ``reconcilier``.
+
+    C'est la nouvelle SOURCE de la réconciliation : on ne réconcilie plus que des
+    factures dont les comptes tombent juste (Σ lignes = HT, totaux journaliers OK).
+    Les factures REJETÉES sont donc automatiquement exclues de la réconciliation.
+    """
+    from core.reconciliation.reconciliation_core import LigneFacture
+
+    rows = run_sql(
+        """
+        SELECT l.exp_date, l.num_ordre_transport, l.destinataire, l.num_piece,
+               l.poids, l.montant_final, l.surtaxe_gasoil
+        FROM processed_invoice_lines l
+        JOIN processed_invoices f ON f.id = l.invoice_id
+        WHERE l.tenant_id = :t AND f.status = 'OK'
+          AND f.date_facture BETWEEN :a AND :b
+        ORDER BY f.date_facture, l.ligne_index
+        """,
+        {"t": tenant_id, "a": date_min, "b": date_max},
+    )
+
+    def _f(v):
+        return float(v) if v is not None else None
+
+    return [
+        LigneFacture(
+            exp_date=r["exp_date"],
+            ot=r["num_ordre_transport"],
+            client=r["destinataire"],
+            piece=r["num_piece"],
+            poids=_f(r["poids"]),
+            montant=_f(r["montant_final"]),
+            surtaxe_gasoil=_f(r["surtaxe_gasoil"]) or 0.0,
+        )
+        for r in rows
+    ]
 
 
 def get_lignes(tenant_id: str, invoice_id: str) -> list[dict]:
