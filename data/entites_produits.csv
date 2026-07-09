@@ -1,10 +1,24 @@
 barcode,product_name,entity,unit_weight_kg,active
-# Table de reference (override) : code-barres (gtin EasyBeer) -> entite + poids.
-# - entity : FERMENT_STATION (Symbiose/Niko) ou SPRAGA (kombucha).
-# - unit_weight_kg : poids unitaire ; laisser vide pour utiliser celui d'EasyBeer.
-# - active : false pour desactiver une ligne sans la supprimer.
-# Une reference absente ici est classee par la regle mots-cles (kombucha->Spraga,
-# kefir/niko/symbiose->FS). Un produit non reconnu -> ANOMALIE (a ajouter ici).
-# Exemples (a remplacer par les vrais gtin) :
-# 3760000000012,Kefir Original 33cl,FERMENT_STATION,0.55,true
-# 3770000000019,Kombucha Gingembre 33cl,SPRAGA,0.52,true
+# Table de reference (override) : code produit EasyBeer -> entite (+ poids optionnel).
+# - barcode : ce que le module lit sur la ligne de commande. Pour un produit
+#   "bouteille" c'est le gtin ; pour un "stock autre" (cas Spraga) c'est le
+#   CODE ARTICLE (ex. SKC099). On liste ici les deux (code article ET EAN) par
+#   securite, selon ce qu'EasyBeer renvoie.
+# - entity : FERMENT_STATION (Symbiose/Niko/infusions) ou SPRAGA (kombucha).
+# - unit_weight_kg : laisser vide -> le module prend le poidsUnitaire d'EasyBeer.
+# - active : false pour desactiver sans supprimer.
+# Priorite : cet override GAGNE sur le mapping par categorie
+# (data/entites_categories.csv). Un produit ni ici ni mappe par categorie ->
+# ANOMALIE (a ajouter).
+#
+# ── SPRAGA (kombucha) — codes fournis par le boss le 2026-07-09 ────────────
+# Produits "stock autre" dans EasyBeer (arrivent dans elementsAutres d'une
+# commande) : le module lira le code article. On ajoute aussi l'EAN au cas ou.
+SKC099,Kombucha SPRAGA Original 33cl x12,SPRAGA,,true
+SKC100,Kombucha SPRAGA Gingembre Citron 33cl x12,SPRAGA,,true
+SKC101,Kombucha SPRAGA Pomme Poire 33cl x12,SPRAGA,,true
+SKC102,Kombucha SPRAGA Grenade 33cl x12,SPRAGA,,true
+18594225441087,Kombucha SPRAGA Original 33cl x12 (EAN),SPRAGA,,true
+18594225441117,Kombucha SPRAGA Gingembre Citron 33cl x12 (EAN),SPRAGA,,true
+18594225441094,Kombucha SPRAGA Pomme Poire 33cl x12 (EAN),SPRAGA,,true
+18594225441100,Kombucha SPRAGA Grenade 33cl x12 (EAN),SPRAGA,,true
