@@ -74,12 +74,14 @@ def lire_lignes_reconciliation(tenant_id: str, date_min: str, date_max: str) -> 
     factures dont les comptes tombent juste (Σ lignes = HT, totaux journaliers OK).
     Les factures REJETÉES sont donc automatiquement exclues de la réconciliation.
     """
+    from core.reconciliation.io_api import _exp_date_annee
     from core.reconciliation.reconciliation_core import LigneFacture
 
     rows = run_sql(
         """
         SELECT l.exp_date, l.num_ordre_transport, l.destinataire, l.num_piece,
-               l.poids, l.montant_final, l.surtaxe_gasoil
+               l.poids, l.unite, l.quantite, l.montant_final, l.surtaxe_gasoil,
+               f.date_facture
         FROM processed_invoice_lines l
         JOIN processed_invoices f ON f.id = l.invoice_id
         WHERE l.tenant_id = :t AND f.status = 'OK'
@@ -94,13 +96,22 @@ def lire_lignes_reconciliation(tenant_id: str, date_min: str, date_max: str) -> 
 
     return [
         LigneFacture(
-            exp_date=r["exp_date"],
+            # La date de ligne est stockée « jj/mm » (sans année) : on complète
+            # l'année depuis la date de facture, SINON _parse_date_fr renvoie None
+            # et les garde-fous de date (pièce ±90j, déduit ±6j) sont désactivés
+            # -> faux rapprochements sur de vieilles commandes (n° à 3 chiffres).
+            exp_date=_exp_date_annee(
+                r["exp_date"],
+                r["date_facture"].strftime("%d/%m/%Y") if r["date_facture"] else None,
+            ),
             ot=r["num_ordre_transport"],
             client=r["destinataire"],
             piece=r["num_piece"],
             poids=_f(r["poids"]),
             montant=_f(r["montant_final"]),
             surtaxe_gasoil=_f(r["surtaxe_gasoil"]) or 0.0,
+            unite=r["unite"],
+            quantite=_f(r["quantite"]),
         )
         for r in rows
     ]
@@ -253,18 +264,20 @@ def enregistrer(tenant_id: str, res: ResultatTraitement, user_id: str | None = N
                         INSERT INTO processed_invoice_lines
                           (tenant_id, invoice_id, id_facture_source, ligne_index, exp_date,
                            jour, num_ordre_transport, num_piece, expediteur, destinataire,
-                           poids, unite, transport, frais_admin, montant_brut, surtaxe_gasoil,
-                           montant_final, id_commande_easybeer, client_easybeer, statut_match)
+                           poids, unite, quantite, transport, frais_admin, montant_brut,
+                           surtaxe_gasoil, montant_final, id_commande_easybeer,
+                           client_easybeer, statut_match)
                         VALUES
                           (:t, :inv, :f, :idx, :ed, :j, :ot, :pc, :exp, :dest, :poids, :u,
-                           :tr, :fa, :mb, :sg, :mf, :cmd, :cl, :sm)
+                           :qte, :tr, :fa, :mb, :sg, :mf, :cmd, :cl, :sm)
                         """
                     ),
                     {
                         "t": tenant_id, "inv": inv_id, "f": idf, "idx": i,
                         "ed": L.exp_date, "j": L.jour, "ot": L.num_ot, "pc": L.num_piece,
                         "exp": L.expediteur, "dest": L.destinataire, "poids": L.poids,
-                        "u": L.unite, "tr": L.transport, "fa": L.frais_admin,
+                        "u": L.unite, "qte": L.quantite,
+                        "tr": L.transport, "fa": L.frais_admin,
                         "mb": L.montant_brut, "sg": L.surtaxe_gasoil, "mf": L.montant_final,
                         "cmd": L.id_commande_easybeer, "cl": L.client_easybeer,
                         "sm": L.statut_match,

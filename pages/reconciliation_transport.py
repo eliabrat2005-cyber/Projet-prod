@@ -119,19 +119,24 @@ _FACTURE_BADGE_JS = r"""
 
 _FACTURE_STATUT_LABEL = {"OK": "Validée", "REJECTED": "Rejetée", "STOCKAGE": "Stockage"}
 
-# Seuil d'écart de poids jugé aberrant (kg) -> section « À vérifier ».
-_SEUIL_ECART_ABERRANT_KG = 500.0
+# Seuils d'écart de poids ANORMAL (en %). Le poids SOFRIPA est BRUT (produit +
+# emballage + palette) ; le poids Easy Beer est NET : un sur-poids de quelques %
+# à quelques dizaines de % est donc NORMAL (écart médian ~ +5 %). On ne signale
+# que les vrais aberrants : SOFRIPA nettement SOUS l'EB (physiquement impossible)
+# ou poids EB anormalement petit (SOFRIPA plus du double -> EB sous-compte, cas
+# des commandes plateforme MONOPRIX/NATURALIA). Un seuil en KG absolu flaggerait
+# à tort le sur-poids d'emballage des grosses livraisons.
+_SEUIL_SOUS_EB = -0.30        # SOFRIPA < poids EB de plus de 30 %
+_SEUIL_EB_TROP_PETIT = 1.0    # SOFRIPA > +100 % du poids EB
 
 
-def _lignes_a_verifier(lignes, seuil_kg: float = _SEUIL_ECART_ABERRANT_KG) -> list[tuple]:
+def _lignes_a_verifier(lignes) -> list[tuple]:
     """Repère les GROSSES anomalies de réconciliation : (L, raison).
 
-    On isole seulement les cas manifestement impossibles :
     - un même N° de commande apparaît plusieurs fois (doublon de facturation) ;
-    - un écart de poids aberrant (|écart| > seuil, ex. 500 kg).
+    - écart de poids ANORMAL en % (SOFRIPA très sous l'EB, ou poids EB trop petit).
 
-    Les petits écarts négatifs (fréquents, routiniers) NE sont PAS listés ici :
-    ils restent visibles via leur badge de statut dans le tableau normal.
+    Le sur-poids d'emballage normal (quelques dizaines de %) N'est PAS signalé.
     """
     from collections import Counter
 
@@ -141,8 +146,13 @@ def _lignes_a_verifier(lignes, seuil_kg: float = _SEUIL_ECART_ABERRANT_KG) -> li
         raisons: list[str] = []
         if cnt[L.numero] > 1:
             raisons.append(f"commande {L.numero} apparaît {cnt[L.numero]}×")
-        if L.ecart_kg is not None and abs(L.ecart_kg) > seuil_kg:
-            raisons.append(f"écart de poids {L.ecart_kg:+.0f} kg")
+        if L.ecart_pct is not None:
+            if L.ecart_pct < _SEUIL_SOUS_EB:
+                raisons.append(f"SOFRIPA {abs(L.ecart_pct) * 100:.0f}% sous le poids EB")
+            elif L.ecart_pct > _SEUIL_EB_TROP_PETIT:
+                raisons.append(
+                    f"poids EB anormalement petit (SOFRIPA +{L.ecart_pct * 100:.0f}%)"
+                )
         if raisons:
             out.append((L, " ; ".join(raisons)))
     return out
@@ -200,13 +210,30 @@ def _fr_pct(v):
     return f"{v * 100:.1f}".replace(".", ",") + " %"
 
 
+def _poids_sof_disp(L) -> str:
+    """Poids SOFRIPA à l'écran : le poids kg si connu, sinon la QUANTITÉ facturée
+    (« 2 PAL », « 13 COL »…) quand SOFRIPA n'a pas mis de poids sur un forfait."""
+    if L.poids_sofripa is not None:
+        return _kg(L.poids_sofripa)
+    q, u = getattr(L, "quantite", None), getattr(L, "unite", None)
+    return f"{q:.0f} {u}" if (q and u) else "—"
+
+
+def _poids_sof_excel(L):
+    """Idem pour l'Excel (nombre kg à la française, ou « 2 PAL »)."""
+    if L.poids_sofripa is not None:
+        return _fr(L.poids_sofripa, 1)
+    q, u = getattr(L, "quantite", None), getattr(L, "unite", None)
+    return f"{q:.0f} {u}" if (q and u) else None
+
+
 # Colonnes calculées : (label, getter_valeur_brute, formateur_écran, formateur_Excel).
 # Libellés EXACTS de l'onglet « Réconciliation » de référence, ordre 48→58.
 _CALC_COLS: list[tuple] = [
     ("N° OT (facture)", lambda L: L.ot, lambda v: v or "—", lambda v: v),
     ("N° pièce (facture)", lambda L: L.piece, lambda v: v or "—", lambda v: v),
     ("Poids Easy Beer (kg)", lambda L: L.poids_eb, _kg, lambda v: _fr(v, 1)),
-    ("Poids SOFRIPA (kg)", lambda L: L.poids_sofripa, _kg, lambda v: _fr(v, 1)),
+    ("Poids SOFRIPA (kg)", lambda L: L, _poids_sof_disp, _poids_sof_excel),
     ("Écart poids (kg)", lambda L: L.ecart_kg, _kg, lambda v: _fr(v, 1)),
     ("Écart poids (%)", lambda L: L.ecart_pct, _pct, _fr_pct),
     ("Coût transport SOFRIPA (€)", lambda L: L.cout_transport, _eur, lambda v: _fr(v, 1)),
@@ -231,7 +258,12 @@ def _sp_calc_cells(f) -> list[tuple]:
         "N° OT (facture)": (f.ot or "—", f.ot),
         "N° pièce (facture)": ("—", None),
         "Poids Easy Beer (kg)": ("—", None),
-        "Poids SOFRIPA (kg)": (_kg(f.poids), _fr(f.poids, 1)),
+        "Poids SOFRIPA (kg)": (
+            _kg(f.poids) if f.poids is not None
+            else (f"{f.quantite:.0f} {f.unite}" if (f.quantite and f.unite) else "—"),
+            _fr(f.poids, 1) if f.poids is not None
+            else (f"{f.quantite:.0f} {f.unite}" if (f.quantite and f.unite) else None),
+        ),
         "Écart poids (kg)": ("—", None),
         "Écart poids (%)": ("—", None),
         "Coût transport SOFRIPA (€)": (_eur(f.montant), _fr(f.montant, 1)),
@@ -829,8 +861,10 @@ def page_reconciliation_transport():
                     )
                     ui.label(
                         "Cas manifestement anormaux : même commande facturée plusieurs "
-                        "fois, ou écart de poids aberrant (> 500 kg). À contrôler en "
-                        "priorité."
+                        "fois, poids SOFRIPA très en dessous de l'Easy Beer, ou poids EB "
+                        "anormalement petit (souvent une commande plateforme "
+                        "MONOPRIX/NATURALIA mal pesée dans EB). Le sur-poids d'emballage "
+                        "normal n'est pas listé."
                     ).classes("text-caption q-mb-xs").style(f"color: {COLORS['error']}")
                     av_cols = [
                         {"name": "numero", "label": "N° cmd", "field": "numero",
@@ -851,7 +885,7 @@ def page_reconciliation_transport():
                     av_rows = [
                         {
                             "numero": L.numero, "client": L.client or "—",
-                            "poids_eb": _kg(L.poids_eb), "poids_sof": _kg(L.poids_sofripa),
+                            "poids_eb": _kg(L.poids_eb), "poids_sof": _poids_sof_disp(L),
                             "ecart_kg": _kg(L.ecart_kg), "cout": _eur(L.cout_transport),
                             "raison": raison,
                         }
@@ -904,7 +938,7 @@ def page_reconciliation_transport():
                         "numero": L.numero,
                         "client": L.client or "—",
                         "poids_eb": _kg(L.poids_eb),
-                        "poids_sof": _kg(L.poids_sofripa),
+                        "poids_sof": _poids_sof_disp(L),
                         "ecart_kg": _kg(L.ecart_kg),
                         "ecart_pct": _pct(L.ecart_pct),
                         "cout": _eur(L.cout_transport),

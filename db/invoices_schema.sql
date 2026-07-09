@@ -42,7 +42,8 @@ CREATE TABLE IF NOT EXISTS processed_invoice_lines (
   expediteur            TEXT,
   destinataire          TEXT,
   poids                 NUMERIC,
-  unite                 TEXT,                        -- KGS | PAL | FO
+  unite                 TEXT,                        -- KGS | PAL | COL | FO
+  quantite              NUMERIC,                     -- quantité facturée dans l'unité (nb palettes/colis/kg)
   transport             NUMERIC,
   frais_admin           NUMERIC,
   montant_brut          NUMERIC,                     -- avant gasoil
@@ -54,6 +55,8 @@ CREATE TABLE IF NOT EXISTS processed_invoice_lines (
 );
 CREATE INDEX IF NOT EXISTS idx_pil_invoice ON processed_invoice_lines(invoice_id);
 CREATE INDEX IF NOT EXISTS idx_pil_piece ON processed_invoice_lines(tenant_id, num_piece);
+-- Ajout de la quantité facturée (colonne récente) sur les tables existantes.
+ALTER TABLE processed_invoice_lines ADD COLUMN IF NOT EXISTS quantite NUMERIC;
 
 -- Table 3 : journal d'audit (toutes les actions)
 CREATE TABLE IF NOT EXISTS invoice_processing_audit (

@@ -61,6 +61,8 @@ class LigneFacture:
     poids: float | None = None    # poids BRUT facturé (kg) : produit + emballage + palette
     montant: float | None = None  # coût transport de la ligne (€) — RÉEL (gasoil inclus)
     surtaxe_gasoil: float = 0.0   # part de majoration gasoil déjà comprise dans montant
+    unite: str | None = None      # KGS | PAL | COL | FO — seul KGS est un vrai poids (kg)
+    quantite: float | None = None # quantité facturée dans l'unité (nb palettes/colis/kg)
 
 
 @dataclass
@@ -91,6 +93,8 @@ class LigneReconciliee:
     eur_par_kg: float | None
     statut: str
     surtaxe_gasoil: float = 0.0        # part gasoil comprise dans cout_transport
+    unite: str | None = None          # unité de facturation SOFRIPA (KGS|PAL|COL|FO)
+    quantite: float | None = None     # quantité facturée (nb palettes/colis/kg)
     commande: Commande | None = None  # référence vers la commande (colonnes brutes)
     methode: str = "piece"            # "piece" (sûr, via N° pièce) | "deduit" (nom+ville+date)
     confiance: str = ""               # "" (pièce) | "haute" (unique) | "date" (départagé par date)
@@ -495,7 +499,7 @@ def _faire_ligne(f, num, cmd, seuil_pct, methode="piece", confiance="") -> "Lign
     """Construit une LigneReconciliee (calculs poids/coût) — partagé entre le
     rapprochement par pièce (sûr) et la 2e passe déduite (nom+ville+date)."""
     poids_eb = cmd.poids
-    poids_sof = f.poids
+    poids_sof = f.poids  # poids RÉEL en kg (col. Poids de la facture), toute unité
     ecart_kg = (poids_sof - poids_eb) if (poids_sof is not None and poids_eb is not None) else None
     ecart_pct = (ecart_kg / poids_eb) if (ecart_kg is not None and poids_eb) else None
     cout = f.montant
@@ -509,6 +513,7 @@ def _faire_ligne(f, num, cmd, seuil_pct, methode="piece", confiance="") -> "Lign
         eur_par_kg=(cout / poids_sof) if (cout is not None and poids_sof) else None,
         statut=_statut(poids_eb, poids_sof, ecart_kg, ecart_pct, seuil_pct),
         surtaxe_gasoil=f.surtaxe_gasoil,
+        unite=getattr(f, "unite", None), quantite=getattr(f, "quantite", None),
         commande=cmd, methode=methode, confiance=confiance,
     )
 

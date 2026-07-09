@@ -1,4 +1,9 @@
-"""Test du détecteur d'anomalies « À vérifier » de la page réconciliation."""
+"""Test du détecteur d'anomalies « À vérifier » de la page réconciliation.
+
+Le poids SOFRIPA est BRUT (emballage inclus), l'EB est NET : on ne signale que
+les écarts ANORMAUX en % (SOFRIPA très sous l'EB, ou poids EB anormalement
+petit), pas le sur-poids d'emballage normal.
+"""
 from __future__ import annotations
 
 from types import SimpleNamespace
@@ -6,48 +11,42 @@ from types import SimpleNamespace
 from pages.reconciliation_transport import _lignes_a_verifier
 
 
-def _L(numero, ecart_kg=0.0, statut="OK"):
+def _L(numero, ecart_pct=0.05):
     return SimpleNamespace(
-        numero=numero, ecart_kg=ecart_kg, statut=statut,
-        client="X", poids_eb=10.0, poids_sofripa=10.0, cout_transport=50.0,
+        numero=numero, ecart_pct=ecart_pct, ecart_kg=None,
+        client="X", poids_eb=100.0, poids_sofripa=105.0, cout_transport=50.0,
+        statut="OK",
     )
 
 
-def test_ligne_normale_pas_signalee():
-    assert _lignes_a_verifier([_L(1), _L(2)]) == []
+def test_surpoids_emballage_normal_pas_signale():
+    # +5 % à +40 % = emballage/palette normal -> RAS.
+    assert _lignes_a_verifier([_L(1, 0.05), _L(2, 0.40)]) == []
 
 
 def test_doublon_commande_signale():
     res = _lignes_a_verifier([_L(7205), _L(7205), _L(9)])
-    numeros = {L.numero for L, _ in res}
-    assert numeros == {7205}
-    assert all("2×" in raison for _, raison in res)
+    assert {L.numero for L, _ in res} == {7205}
+    assert all("2×" in r for _, r in res)
 
 
-def test_ecart_poids_aberrant_signale():
-    res = _lignes_a_verifier([_L(1, ecart_kg=1000.0)], seuil_kg=500.0)
-    assert len(res) == 1
-    assert "écart de poids" in res[0][1]
+def test_poids_eb_trop_petit_signale():
+    # EB=100, SOFRIPA=800 -> +700 % : EB sous-compte (cas plateforme).
+    res = _lignes_a_verifier([_L(1, ecart_pct=7.0)])
+    assert len(res) == 1 and "anormalement petit" in res[0][1]
 
 
-def test_ecart_sous_seuil_non_signale():
-    assert _lignes_a_verifier([_L(1, ecart_kg=120.0)], seuil_kg=500.0) == []
+def test_sofripa_sous_eb_signale():
+    # SOFRIPA 93 % sous l'EB (ex. livraison partielle) -> signalé.
+    res = _lignes_a_verifier([_L(1, ecart_pct=-0.93)])
+    assert len(res) == 1 and "sous le poids EB" in res[0][1]
 
 
-def test_petit_ecart_negatif_non_signale():
-    # Un petit écart négatif routinier n'est PAS une grosse anomalie ici.
-    assert _lignes_a_verifier([_L(1, ecart_kg=-3.0, statut="À vérifier (négatif)")]) == []
+def test_petit_negatif_non_signale():
+    # -10 % = bruit de mesure, pas une anomalie.
+    assert _lignes_a_verifier([_L(1, ecart_pct=-0.10)]) == []
 
 
-def test_gros_ecart_negatif_signale():
-    # Mais un écart négatif ÉNORME (ex. -1304 kg) l'est (par la magnitude).
-    res = _lignes_a_verifier([_L(1, ecart_kg=-1304.0)], seuil_kg=500.0)
-    assert len(res) == 1 and "écart de poids" in res[0][1]
-
-
-def test_cumul_raisons():
-    # doublon + écart aberrant sur la même commande -> 2 raisons
-    res = _lignes_a_verifier([_L(5, ecart_kg=800.0), _L(5, ecart_kg=800.0)])
-    assert len(res) == 2
-    for _, raison in res:
-        assert "2×" in raison and "écart de poids" in raison
+def test_ecart_pct_none_non_signale():
+    # Ligne sans poids comparable (ecart_pct None) -> pas d'anomalie de poids.
+    assert _lignes_a_verifier([_L(1, ecart_pct=None)]) == []

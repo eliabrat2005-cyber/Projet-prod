@@ -38,7 +38,8 @@ class LigneFactureIntake:
     expediteur: str | None = None
     destinataire: str | None = None
     poids: float | None = None
-    unite: str | None = None          # KGS ou PAL
+    unite: str | None = None          # KGS | PAL | COL | FO
+    quantite: float | None = None     # quantité facturée dans l'unité (nb palettes/colis/kg)
     transport: float | None = None    # coût transport de la ligne
     frais_admin: float | None = None  # frais administratif (~2,13)
     montant_brut: float | None = None # transport + frais_admin (avant gasoil)
@@ -215,15 +216,30 @@ def parse_facture(path) -> FactureIntake:
             _fermer()
             continue
 
-        # Toute autre ligne du bloc : poids, unité, et candidat montant transport.
+        # Poids RÉEL en kg : colonne « Poids » de la ligne FRAIS de la livraison.
+        # SOFRIPA met TOUJOURS le poids kg là, même quand la facturation est à la
+        # palette/colis/forfait. Les grands nombres à séparateur de milliers sont
+        # éclatés en plusieurs tokens (« 8 116 » → ["8","116"]) : on les recolle.
         pb = [t for x, t in toks if _band(x) == "poids"]
         if pb and cur.poids is None:
-            cur.poids = _num(pb[0])
+            cur.poids = _num(" ".join(pb))
         for u in ("KGS", "PAL", "FO", "COL"):
             if u in seq:
                 cur.unite = u
+                # Quantité facturée = le nombre juste avant l'unité (nb de
+                # palettes / colis / kilos selon l'unité). On la garde pour
+                # afficher « 2 PAL » quand SOFRIPA n'a pas mis de poids.
+                _iq = seq.index(u)
+                if _iq > 0 and _num(seq[_iq - 1]) is not None:
+                    cur.quantite = _num(seq[_iq - 1])
+                # La quantité facturée (avant l'unité) N'EST le poids QUE pour KGS
+                # (facturation au kilo). Pour PAL/COL/FO c'est un COMPTE de
+                # palettes/colis — surtout pas un poids. Le vrai poids reste celui
+                # de la colonne Poids ci-dessus ; ce repli ne sert qu'aux lignes
+                # KGS sans ligne FRAIS.
                 i = seq.index(u)
-                if i > 0 and _num(seq[i - 1]) is not None:
+                if (u == "KGS" and cur.poids is None
+                        and i > 0 and _num(seq[i - 1]) is not None):
                     cur.poids = _num(seq[i - 1])
                 break
         mv = _montant_rmost(toks)
