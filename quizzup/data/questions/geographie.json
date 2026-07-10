@@ -1,0 +1,33 @@
+{
+  "id": "geographie",
+  "name": "Géographie",
+  "icon": "🌍",
+  "color": "#27ae60",
+  "questions": [
+    {"q": "Quelle est la capitale de l'Espagne ?", "choices": ["Madrid", "Barcelone", "Séville", "Valence"], "answer": 0},
+    {"q": "Quel est le plus grand pays du monde en superficie ?", "choices": ["La Russie", "Le Canada", "La Chine", "Les États-Unis"], "answer": 0},
+    {"q": "Quel fleuve traverse Paris ?", "choices": ["La Seine", "La Loire", "Le Rhône", "La Garonne"], "answer": 0},
+    {"q": "Sur quel continent se trouve le désert du Sahara ?", "choices": ["L'Afrique", "L'Asie", "L'Australie", "L'Amérique du Sud"], "answer": 0},
+    {"q": "Quelle est la capitale du Brésil ?", "choices": ["Brasília", "Rio de Janeiro", "São Paulo", "Salvador"], "answer": 0},
+    {"q": "Quel pays a la forme d'une botte ?", "choices": ["L'Italie", "Le Portugal", "La Grèce", "La Norvège"], "answer": 0},
+    {"q": "Quel est le plus long fleuve du monde (mesure classique) ?", "choices": ["Le Nil", "L'Amazone", "Le Mississippi", "Le Yangzi Jiang"], "answer": 0},
+    {"q": "Combien de pays partagent une frontière terrestre avec la France métropolitaine ?", "choices": ["Huit", "Six", "Cinq", "Dix"], "answer": 0},
+    {"q": "Quelle mer sépare l'Europe de l'Afrique ?", "choices": ["La mer Méditerranée", "La mer Rouge", "La mer Noire", "La mer Baltique"], "answer": 0},
+    {"q": "Quelle est la capitale de la Norvège ?", "choices": ["Oslo", "Stockholm", "Copenhague", "Helsinki"], "answer": 0},
+    {"q": "Dans quel pays se trouve le Machu Picchu ?", "choices": ["Le Pérou", "Le Mexique", "La Bolivie", "Le Chili"], "answer": 0},
+    {"q": "Quel est le plus petit État du monde ?", "choices": ["Le Vatican", "Monaco", "Saint-Marin", "Le Liechtenstein"], "answer": 0},
+    {"q": "Quelle chaîne de montagnes sépare la France de l'Espagne ?", "choices": ["Les Pyrénées", "Les Alpes", "Le Jura", "Les Vosges"], "answer": 0},
+    {"q": "Quelle est la capitale de la Turquie ?", "choices": ["Ankara", "Istanbul", "Izmir", "Antalya"], "answer": 0},
+    {"q": "Quel océan borde la côte ouest des États-Unis ?", "choices": ["L'océan Pacifique", "L'océan Atlantique", "L'océan Indien", "L'océan Arctique"], "answer": 0},
+    {"q": "Dans quel pays se trouvent les chutes du Niagara (côté nord) ?", "choices": ["Le Canada", "Le Mexique", "Le Brésil", "L'Argentine"], "answer": 0},
+    {"q": "Quel désert est le plus aride du monde ?", "choices": ["Le désert d'Atacama", "Le Sahara", "Le désert de Gobi", "Le Kalahari"], "answer": 0},
+    {"q": "Quelle île est la plus grande du monde (hors continent) ?", "choices": ["Le Groenland", "Madagascar", "Bornéo", "L'Australie"], "answer": 0},
+    {"q": "Quelle est la capitale de la Corée du Sud ?", "choices": ["Séoul", "Busan", "Pyongyang", "Tokyo"], "answer": 0},
+    {"q": "Quel détroit sépare l'Espagne du Maroc ?", "choices": ["Le détroit de Gibraltar", "Le détroit du Bosphore", "Le détroit de Béring", "Le détroit de Malacca"], "answer": 0},
+    {"q": "Quel pays compte le plus d'habitants au monde en 2024 ?", "choices": ["L'Inde", "La Chine", "Les États-Unis", "L'Indonésie"], "answer": 0},
+    {"q": "Quel volcan domine la baie de Naples ?", "choices": ["Le Vésuve", "L'Etna", "Le Stromboli", "Le Vulcano"], "answer": 0},
+    {"q": "Quelle est la capitale de l'Égypte ?", "choices": ["Le Caire", "Alexandrie", "Louxor", "Gizeh"], "answer": 0},
+    {"q": "Quel lac est le plus profond du monde ?", "choices": ["Le lac Baïkal", "Le lac Tanganyika", "Le lac Supérieur", "Le lac Victoria"], "answer": 0},
+    {"q": "Quelle ville est traversée par le Bosphore, à cheval sur deux continents ?", "choices": ["Istanbul", "Le Caire", "Moscou", "Athènes"], "answer": 0}
+  ]
+}

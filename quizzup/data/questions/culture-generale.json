@@ -1,0 +1,33 @@
+{
+  "id": "culture-generale",
+  "name": "Culture Générale",
+  "icon": "💡",
+  "color": "#f39c12",
+  "questions": [
+    {"q": "Combien y a-t-il de continents sur Terre selon le modèle classique français ?", "choices": ["Cinq ou six selon les modèles", "Trois", "Neuf", "Douze"], "answer": 0},
+    {"q": "Quelle est la monnaie officielle du Japon ?", "choices": ["Le yen", "Le won", "Le yuan", "Le baht"], "answer": 0},
+    {"q": "Combien de côtés possède un hexagone ?", "choices": ["Six", "Cinq", "Sept", "Huit"], "answer": 0},
+    {"q": "Quel est le plus grand océan du monde ?", "choices": ["L'océan Pacifique", "L'océan Atlantique", "L'océan Indien", "L'océan Arctique"], "answer": 0},
+    {"q": "Qui a écrit « Les Misérables » ?", "choices": ["Victor Hugo", "Émile Zola", "Gustave Flaubert", "Honoré de Balzac"], "answer": 0},
+    {"q": "Quelle planète est surnommée la « planète rouge » ?", "choices": ["Mars", "Vénus", "Jupiter", "Mercure"], "answer": 0},
+    {"q": "Combien de joueurs composent une équipe de football sur le terrain ?", "choices": ["Onze", "Neuf", "Dix", "Douze"], "answer": 0},
+    {"q": "Quelle est la capitale de l'Australie ?", "choices": ["Canberra", "Sydney", "Melbourne", "Perth"], "answer": 0},
+    {"q": "Quel peintre a réalisé « La Joconde » ?", "choices": ["Léonard de Vinci", "Michel-Ange", "Raphaël", "Botticelli"], "answer": 0},
+    {"q": "Combien de minutes y a-t-il dans une journée complète ?", "choices": ["1440", "1240", "1560", "1340"], "answer": 0},
+    {"q": "Quel est l'animal terrestre le plus rapide du monde ?", "choices": ["Le guépard", "Le lion", "L'antilope", "Le lévrier"], "answer": 0},
+    {"q": "Dans quel pays se trouve la tour de Pise ?", "choices": ["L'Italie", "L'Espagne", "La Grèce", "Le Portugal"], "answer": 0},
+    {"q": "Quelle langue compte le plus de locuteurs natifs au monde ?", "choices": ["Le mandarin", "L'anglais", "L'espagnol", "L'hindi"], "answer": 0},
+    {"q": "Combien de cordes possède une guitare classique ?", "choices": ["Six", "Quatre", "Cinq", "Sept"], "answer": 0},
+    {"q": "Quel est le symbole chimique de l'or ?", "choices": ["Au", "Or", "Ag", "Go"], "answer": 0},
+    {"q": "Quelle est la plus haute montagne du monde ?", "choices": ["L'Everest", "Le K2", "Le Kilimandjaro", "Le Mont Blanc"], "answer": 0},
+    {"q": "Qui a peint « La Nuit étoilée » ?", "choices": ["Vincent van Gogh", "Claude Monet", "Paul Cézanne", "Pablo Picasso"], "answer": 0},
+    {"q": "Combien de dents possède un adulte humain en général (dents de sagesse incluses) ?", "choices": ["32", "28", "30", "36"], "answer": 0},
+    {"q": "Quel pays a offert la statue de la Liberté aux États-Unis ?", "choices": ["La France", "Le Royaume-Uni", "L'Espagne", "L'Italie"], "answer": 0},
+    {"q": "Quel est le plus long fleuve de France ?", "choices": ["La Loire", "La Seine", "Le Rhône", "La Garonne"], "answer": 0},
+    {"q": "Combien y a-t-il de touches noires sur un piano standard de 88 touches ?", "choices": ["36", "32", "40", "44"], "answer": 0},
+    {"q": "Quel écrivain a créé le détective Sherlock Holmes ?", "choices": ["Arthur Conan Doyle", "Agatha Christie", "Edgar Allan Poe", "Charles Dickens"], "answer": 0},
+    {"q": "Quelle est la capitale du Canada ?", "choices": ["Ottawa", "Toronto", "Montréal", "Vancouver"], "answer": 0},
+    {"q": "Quel organe humain consomme le plus d'énergie au repos ?", "choices": ["Le cerveau", "Le cœur", "Le foie", "Les poumons"], "answer": 0},
+    {"q": "En quelle année l'être humain a-t-il marché sur la Lune pour la première fois ?", "choices": ["1969", "1965", "1971", "1959"], "answer": 0}
+  ]
+}

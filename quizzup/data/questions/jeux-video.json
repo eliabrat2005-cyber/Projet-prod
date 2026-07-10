@@ -1,0 +1,33 @@
+{
+  "id": "jeux-video",
+  "name": "Jeux Vidéo",
+  "icon": "🎮",
+  "color": "#5b48d9",
+  "questions": [
+    {"q": "Quel plombier moustachu est la mascotte de Nintendo ?", "choices": ["Mario", "Luigi", "Wario", "Toad"], "answer": 0},
+    {"q": "Dans quel jeu incarne-t-on Link pour sauver la princesse Zelda ?", "choices": ["The Legend of Zelda", "Final Fantasy", "Dark Souls", "Dragon Quest"], "answer": 0},
+    {"q": "Quel jeu de construction en blocs est le jeu le plus vendu de tous les temps ?", "choices": ["Minecraft", "Tetris", "Roblox", "Terraria"], "answer": 0},
+    {"q": "Quel hérisson bleu est la mascotte de Sega ?", "choices": ["Sonic", "Tails", "Knuckles", "Shadow"], "answer": 0},
+    {"q": "Dans quel battle royale construit-on des structures pour se protéger ?", "choices": ["Fortnite", "PUBG", "Apex Legends", "Warzone"], "answer": 0},
+    {"q": "Quelle entreprise fabrique la PlayStation ?", "choices": ["Sony", "Microsoft", "Nintendo", "Sega"], "answer": 0},
+    {"q": "Quel jeu de Rockstar se déroule dans la ville fictive de Los Santos ?", "choices": ["GTA V", "Red Dead Redemption 2", "Mafia III", "Saints Row"], "answer": 0},
+    {"q": "Dans Pokémon, quel est le rival électrique jaune emblématique de la licence ?", "choices": ["Pikachu", "Salamèche", "Bulbizarre", "Évoli"], "answer": 0},
+    {"q": "Quel jeu de tir 5v5 de Riot Games mélange visée et compétences d'agents ?", "choices": ["Valorant", "Counter-Strike 2", "Overwatch 2", "Rainbow Six Siege"], "answer": 0},
+    {"q": "Quelle saga d'Ubisoft permet d'incarner des assassins à travers l'Histoire ?", "choices": ["Assassin's Creed", "Far Cry", "Watch Dogs", "Prince of Persia"], "answer": 0},
+    {"q": "Quel jeu de blocs qui tombent a été créé par Alexeï Pajitnov en 1984 ?", "choices": ["Tetris", "Puyo Puyo", "Columns", "Dr. Mario"], "answer": 0},
+    {"q": "Dans quel MOBA s'affrontent deux équipes de cinq champions sur la Faille de l'invocateur ?", "choices": ["League of Legends", "Dota 2", "Smite", "Heroes of the Storm"], "answer": 0},
+    {"q": "Quelle console de Nintendo est à la fois portable et de salon ?", "choices": ["La Switch", "La Wii U", "La 3DS", "La GameCube"], "answer": 0},
+    {"q": "Quel personnage de Mortal Kombat crie « Get over here! » ?", "choices": ["Scorpion", "Sub-Zero", "Raiden", "Liu Kang"], "answer": 0},
+    {"q": "Dans quel jeu FromSoftware incarne-t-on le « Sans-éclat » dans l'Entre-terre ?", "choices": ["Elden Ring", "Dark Souls III", "Bloodborne", "Sekiro"], "answer": 0},
+    {"q": "Quel simulateur de vie permet de créer et diriger des personnages dans leur maison ?", "choices": ["Les Sims", "Animal Crossing", "Stardew Valley", "Second Life"], "answer": 0},
+    {"q": "Quelle héroïne exploratrice de tombeaux est l'icône de la saga Tomb Raider ?", "choices": ["Lara Croft", "Aloy", "Samus Aran", "Ellie"], "answer": 0},
+    {"q": "Quel studio japonais a créé Final Fantasy ?", "choices": ["Square Enix", "Capcom", "Konami", "Bandai Namco"], "answer": 0},
+    {"q": "Dans quel jeu de course Nintendo lance-t-on des carapaces à ses adversaires ?", "choices": ["Mario Kart", "F-Zero", "Gran Turismo", "Forza"], "answer": 0},
+    {"q": "Quel jeu de survie sur console et PC oppose des survivants à des zombies dans un univers signé Naughty Dog ?", "choices": ["The Last of Us", "Days Gone", "Dying Light", "Resident Evil"], "answer": 0},
+    {"q": "Quelle est la monnaie utilisée dans les jeux Zelda ?", "choices": ["Les rubis", "Les pièces d'or", "Les gils", "Les crédits"], "answer": 0},
+    {"q": "Quel jeu polonais adapté de romans suit le sorceleur Geralt de Riv ?", "choices": ["The Witcher 3", "Cyberpunk 2077", "Skyrim", "Dragon Age"], "answer": 0},
+    {"q": "Sur quelle plateforme de Valve achète-t-on la majorité des jeux PC ?", "choices": ["Steam", "Epic Games Store", "GOG", "Origin"], "answer": 0},
+    {"q": "Quel fantôme poursuit Pac-Man en tête dans le labyrinthe (le rouge) ?", "choices": ["Blinky", "Pinky", "Inky", "Clyde"], "answer": 0},
+    {"q": "Quelle chasseuse de primes intergalactique porte une armure Chozo chez Nintendo ?", "choices": ["Samus Aran", "Zelda", "Bayonetta", "Palutena"], "answer": 0}
+  ]
+}

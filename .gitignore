@@ -44,3 +44,6 @@ Procfile
 .env
 .env.local
 *.env
+
+# QuizzUp — DB locale du jeu
+quizzup/quizzup.db

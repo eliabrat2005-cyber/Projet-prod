@@ -1,0 +1,33 @@
+{
+  "id": "cinema",
+  "name": "Cinéma",
+  "icon": "🎬",
+  "color": "#c0392b",
+  "questions": [
+    {"q": "Qui a réalisé le film « Titanic » (1997) ?", "choices": ["James Cameron", "Steven Spielberg", "Ridley Scott", "Christopher Nolan"], "answer": 0},
+    {"q": "Quel acteur incarne Jack Sparrow dans « Pirates des Caraïbes » ?", "choices": ["Johnny Depp", "Orlando Bloom", "Brad Pitt", "Hugh Jackman"], "answer": 0},
+    {"q": "Quel film d'animation Pixar met en scène un poisson-clown à la recherche de son fils ?", "choices": ["Le Monde de Nemo", "Vice-Versa", "Là-haut", "Toy Story"], "answer": 0},
+    {"q": "Dans quelle saga trouve-t-on le personnage de Dark Vador ?", "choices": ["Star Wars", "Star Trek", "Dune", "Alien"], "answer": 0},
+    {"q": "Quel réalisateur est connu pour « Pulp Fiction » et « Kill Bill » ?", "choices": ["Quentin Tarantino", "Martin Scorsese", "David Fincher", "Tim Burton"], "answer": 0},
+    {"q": "Quel film a remporté l'Oscar du meilleur film en 2020, une première pour un film sud-coréen ?", "choices": ["Parasite", "Old Boy", "Snowpiercer", "Memories of Murder"], "answer": 0},
+    {"q": "Qui joue le rôle principal dans « Forrest Gump » ?", "choices": ["Tom Hanks", "Tom Cruise", "Kevin Costner", "Robin Williams"], "answer": 0},
+    {"q": "Quel acteur français incarne le personnage principal dans « Intouchables » aux côtés de François Cluzet ?", "choices": ["Omar Sy", "Jamel Debbouze", "Dany Boon", "Gad Elmaleh"], "answer": 0},
+    {"q": "Dans « Le Roi Lion », quel est le nom du père de Simba ?", "choices": ["Mufasa", "Scar", "Rafiki", "Zazu"], "answer": 0},
+    {"q": "Quel réalisateur a signé « Inception » et « Interstellar » ?", "choices": ["Christopher Nolan", "Denis Villeneuve", "James Cameron", "Ridley Scott"], "answer": 0},
+    {"q": "Quelle actrice incarne Hermione Granger dans la saga « Harry Potter » ?", "choices": ["Emma Watson", "Emma Stone", "Keira Knightley", "Natalie Portman"], "answer": 0},
+    {"q": "Quel film de 1994 met en scène un prisonnier nommé Andy Dufresne ?", "choices": ["Les Évadés", "La Ligne verte", "Papillon", "Le Prisonnier d'Alcatraz"], "answer": 0},
+    {"q": "Quel est le premier long-métrage d'animation de Walt Disney (1937) ?", "choices": ["Blanche-Neige et les Sept Nains", "Pinocchio", "Fantasia", "Cendrillon"], "answer": 0},
+    {"q": "Qui incarne Iron Man dans l'univers Marvel au cinéma ?", "choices": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Mark Ruffalo"], "answer": 0},
+    {"q": "Quel festival de cinéma décerne la Palme d'or ?", "choices": ["Le Festival de Cannes", "La Mostra de Venise", "La Berlinale", "Le Festival de Deauville"], "answer": 0},
+    {"q": "Dans « Matrix », quelle pilule Neo choisit-il ?", "choices": ["La rouge", "La bleue", "La verte", "La jaune"], "answer": 0},
+    {"q": "Quel réalisateur français a signé « Le Fabuleux Destin d'Amélie Poulain » ?", "choices": ["Jean-Pierre Jeunet", "Luc Besson", "Michel Gondry", "Cédric Klapisch"], "answer": 0},
+    {"q": "Quel acteur incarne le Joker dans « The Dark Knight » (2008) ?", "choices": ["Heath Ledger", "Joaquin Phoenix", "Jack Nicholson", "Jared Leto"], "answer": 0},
+    {"q": "Quelle créature géante escalade l'Empire State Building dans un classique de 1933 ?", "choices": ["King Kong", "Godzilla", "Le Kraken", "Mothra"], "answer": 0},
+    {"q": "Quel film de Steven Spielberg met en scène des dinosaures clonés dans un parc ?", "choices": ["Jurassic Park", "Godzilla", "King Kong", "Le Monde perdu de Conan Doyle"], "answer": 0},
+    {"q": "Qui a réalisé « Psychose » et « Les Oiseaux » ?", "choices": ["Alfred Hitchcock", "Stanley Kubrick", "Orson Welles", "Billy Wilder"], "answer": 0},
+    {"q": "Quel personnage d'animation vit dans un ananas sous la mer... au cinéma comme à la télé ?", "choices": ["Bob l'éponge", "Nemo", "Ariel", "Oscar"], "answer": 0},
+    {"q": "Quelle saga suit Dominic Toretto et sa « famille » de pilotes ?", "choices": ["Fast and Furious", "Taxi", "Need for Speed", "Drive"], "answer": 0},
+    {"q": "Quel acteur incarne James Bond dans « Casino Royale » (2006) ?", "choices": ["Daniel Craig", "Pierce Brosnan", "Sean Connery", "Roger Moore"], "answer": 0},
+    {"q": "Dans « Retour vers le futur », quel véhicule sert de machine à voyager dans le temps ?", "choices": ["Une DeLorean", "Une Mustang", "Une Cadillac", "Un van Volkswagen"], "answer": 0}
+  ]
+}

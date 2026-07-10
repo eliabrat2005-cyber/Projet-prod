@@ -1,0 +1,33 @@
+{
+  "id": "musique",
+  "name": "Musique",
+  "icon": "🎵",
+  "color": "#8e44ad",
+  "questions": [
+    {"q": "Combien de notes compte la gamme majeure classique (do ré mi...) ?", "choices": ["Sept", "Cinq", "Six", "Huit"], "answer": 0},
+    {"q": "Quel groupe britannique était composé de John, Paul, George et Ringo ?", "choices": ["Les Beatles", "Les Rolling Stones", "Queen", "Pink Floyd"], "answer": 0},
+    {"q": "Quel chanteur est surnommé le « King of Pop » ?", "choices": ["Michael Jackson", "Elvis Presley", "Prince", "Stevie Wonder"], "answer": 0},
+    {"q": "Quel instrument possède 88 touches ?", "choices": ["Le piano", "L'orgue", "L'accordéon", "Le clavecin"], "answer": 0},
+    {"q": "Quel compositeur allemand, devenu sourd, a écrit la 9ᵉ Symphonie ?", "choices": ["Ludwig van Beethoven", "Wolfgang Amadeus Mozart", "Jean-Sébastien Bach", "Franz Schubert"], "answer": 0},
+    {"q": "Quelle chanteuse française est surnommée « la Môme » ?", "choices": ["Édith Piaf", "Dalida", "Barbara", "Juliette Gréco"], "answer": 0},
+    {"q": "Quel groupe interprète « Bohemian Rhapsody » ?", "choices": ["Queen", "Les Beatles", "Led Zeppelin", "The Who"], "answer": 0},
+    {"q": "De quel pays est originaire le groupe ABBA ?", "choices": ["La Suède", "La Norvège", "Le Danemark", "L'Allemagne"], "answer": 0},
+    {"q": "Quel rappeur français a sorti l'album « Civilisation » en 2021 ?", "choices": ["Orelsan", "Nekfeu", "Booba", "SCH"], "answer": 0},
+    {"q": "Quel instrument Louis Armstrong jouait-il ?", "choices": ["La trompette", "Le saxophone", "Le piano", "La clarinette"], "answer": 0},
+    {"q": "Quelle artiste a sorti les albums « 21 » et « 25 » ?", "choices": ["Adele", "Beyoncé", "Rihanna", "Taylor Swift"], "answer": 0},
+    {"q": "Quel genre musical est né en Jamaïque, popularisé par Bob Marley ?", "choices": ["Le reggae", "La salsa", "Le ska punk", "Le calypso"], "answer": 0},
+    {"q": "Combien de cordes possède un violon ?", "choices": ["Quatre", "Cinq", "Six", "Trois"], "answer": 0},
+    {"q": "Quel DJ français a signé le tube « One More Time » avec son duo ?", "choices": ["Daft Punk", "David Guetta", "Bob Sinclar", "Justice"], "answer": 0},
+    {"q": "Quel compositeur autrichien, enfant prodige, a écrit « La Flûte enchantée » ?", "choices": ["Wolfgang Amadeus Mozart", "Joseph Haydn", "Ludwig van Beethoven", "Antonio Vivaldi"], "answer": 0},
+    {"q": "Quel artiste belge interprète « Formidable » et « Papaoutai » ?", "choices": ["Stromae", "Angèle", "Jacques Brel", "Damso"], "answer": 0},
+    {"q": "Quel festival de musique emblématique s'est tenu en 1969 dans l'État de New York ?", "choices": ["Woodstock", "Coachella", "Glastonbury", "Lollapalooza"], "answer": 0},
+    {"q": "Quel instrument est l'emblème du flamenco espagnol ?", "choices": ["La guitare", "Le violon", "L'accordéon", "La mandoline"], "answer": 0},
+    {"q": "Quelle famille d'instruments comprend la flûte, le hautbois et la clarinette ?", "choices": ["Les bois", "Les cuivres", "Les cordes", "Les percussions"], "answer": 0},
+    {"q": "Quel chanteur canadien a explosé avec « Baby » en 2010 ?", "choices": ["Justin Bieber", "Shawn Mendes", "The Weeknd", "Drake"], "answer": 0},
+    {"q": "Les « Quatre Saisons » sont l'œuvre de quel compositeur italien ?", "choices": ["Antonio Vivaldi", "Giuseppe Verdi", "Gioachino Rossini", "Claudio Monteverdi"], "answer": 0},
+    {"q": "Quel groupe de rock est associé au célèbre prisme sur la pochette de « The Dark Side of the Moon » ?", "choices": ["Pink Floyd", "Led Zeppelin", "The Doors", "Deep Purple"], "answer": 0},
+    {"q": "Quelle voix masculine est la plus grave ?", "choices": ["La basse", "Le ténor", "Le baryton", "Le contre-ténor"], "answer": 0},
+    {"q": "Quelle artiste américaine a sorti l'album « 1989 » ?", "choices": ["Taylor Swift", "Katy Perry", "Lady Gaga", "Ariana Grande"], "answer": 0},
+    {"q": "Quel style de musique électronique est né à Détroit dans les années 1980 ?", "choices": ["La techno", "La house", "Le dubstep", "La trance"], "answer": 0}
+  ]
+}

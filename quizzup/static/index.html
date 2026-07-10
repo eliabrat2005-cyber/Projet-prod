@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#1a1035">
+  <title>QuizzUp — Duels de quiz en direct</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── Écran : choix du pseudo ─────────────────────────────── -->
+    <section id="screen-name" class="screen">
+      <div class="name-box">
+        <div class="logo">Quizz<span>Up</span><em>⚡</em></div>
+        <p class="tagline">Défie tes amis en duel de quiz&nbsp;!</p>
+        <input id="name-input" type="text" maxlength="20" placeholder="Ton pseudo" autocomplete="off">
+        <button id="name-go" class="btn btn-primary">Jouer</button>
+      </div>
+    </section>
+
+    <!-- ── Écran : accueil / liste des thèmes ──────────────────── -->
+    <section id="screen-home" class="screen hidden">
+      <header class="topbar">
+        <div class="logo logo-small">Quizz<span>Up</span><em>⚡</em></div>
+        <button id="profile-btn" class="avatar-chip">
+          <span class="avatar" id="home-avatar">?</span>
+          <span id="home-name">—</span>
+        </button>
+      </header>
+      <div class="conn-banner hidden" id="conn-banner">Connexion au serveur…</div>
+      <h2 class="section-title">Choisis un thème</h2>
+      <div id="topics-grid" class="topics-grid"></div>
+    </section>
+
+    <!-- ── Écran : détail d'un thème ───────────────────────────── -->
+    <section id="screen-topic" class="screen hidden">
+      <header class="topbar">
+        <button class="back-btn" data-back="home">‹</button>
+        <div class="topbar-title" id="topic-title">Thème</div>
+        <span></span>
+      </header>
+      <div class="topic-hero" id="topic-hero">
+        <div class="topic-hero-icon" id="topic-icon">❓</div>
+        <div class="topic-level-line">
+          <span class="level-badge" id="topic-level">Niv. 0</span>
+          <span class="level-title" id="topic-title-rank">Débutant</span>
+        </div>
+        <div class="xp-bar"><div class="xp-fill" id="topic-xp-fill"></div></div>
+        <div class="xp-text" id="topic-xp-text">0 / 40 XP</div>
+        <div class="topic-record" id="topic-record"></div>
+      </div>
+      <div class="topic-actions">
+        <button id="btn-quick" class="btn btn-primary btn-big">⚡ Partie rapide</button>
+        <button id="btn-friend" class="btn btn-secondary btn-big">👥 Défier un ami</button>
+        <button id="btn-bot" class="btn btn-ghost btn-big">🤖 Jouer contre un bot</button>
+        <button id="btn-ranking" class="btn btn-ghost btn-big">🏆 Classement</button>
+      </div>
+    </section>
+
+    <!-- ── Écran : défi d'un ami (salon code) ──────────────────── -->
+    <section id="screen-friend" class="screen hidden">
+      <header class="topbar">
+        <button class="back-btn" data-back="topic">‹</button>
+        <div class="topbar-title">Défier un ami</div>
+        <span></span>
+      </header>
+      <div class="friend-box">
+        <div class="friend-card">
+          <h3>Créer un défi</h3>
+          <p>Génère un code et envoie-le à ton ami.</p>
+          <button id="btn-create-room" class="btn btn-primary">Générer un code</button>
+          <div id="room-code-box" class="room-code hidden">
+            <div class="room-code-value" id="room-code">····</div>
+            <div class="room-waiting">En attente de ton adversaire… <span class="dots"></span></div>
+          </div>
+        </div>
+        <div class="friend-sep">ou</div>
+        <div class="friend-card">
+          <h3>Rejoindre un défi</h3>
+          <input id="join-code-input" type="text" maxlength="4" placeholder="CODE" autocomplete="off">
+          <button id="btn-join-room" class="btn btn-secondary">Rejoindre</button>
+          <div id="join-error" class="join-error hidden">Code introuvable 😕</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Écran : classement ──────────────────────────────────── -->
+    <section id="screen-ranking" class="screen hidden">
+      <header class="topbar">
+        <button class="back-btn" data-back="topic">‹</button>
+        <div class="topbar-title" id="ranking-title">Classement</div>
+        <span></span>
+      </header>
+      <ol id="ranking-list" class="ranking-list"></ol>
+    </section>
+
+    <!-- ── Écran : profil ──────────────────────────────────────── -->
+    <section id="screen-profile" class="screen hidden">
+      <header class="topbar">
+        <button class="back-btn" data-back="home">‹</button>
+        <div class="topbar-title">Mon profil</div>
+        <span></span>
+      </header>
+      <div class="profile-head">
+        <span class="avatar avatar-xl" id="profile-avatar">?</span>
+        <div id="profile-name" class="profile-name">—</div>
+      </div>
+      <div class="profile-stats" id="profile-stats"></div>
+      <h3 class="section-title">Mes thèmes</h3>
+      <div id="profile-topics" class="profile-topics"></div>
+    </section>
+
+    <!-- ── Écran : recherche d'adversaire ──────────────────────── -->
+    <section id="screen-search" class="screen hidden">
+      <div class="search-box">
+        <div class="search-spinner"></div>
+        <div class="search-text">Recherche d'un adversaire…</div>
+        <button id="btn-cancel-search" class="btn btn-ghost">Annuler</button>
+      </div>
+    </section>
+
+    <!-- ── Écran : VS ──────────────────────────────────────────── -->
+    <section id="screen-vs" class="screen hidden">
+      <div class="vs-wrap">
+        <div class="vs-player vs-left">
+          <span class="avatar avatar-big" id="vs-me-avatar">?</span>
+          <div class="vs-name" id="vs-me-name">Moi</div>
+          <div class="vs-level" id="vs-me-level"></div>
+        </div>
+        <div class="vs-badge">VS</div>
+        <div class="vs-player vs-right">
+          <span class="avatar avatar-big avatar-opp" id="vs-opp-avatar">?</span>
+          <div class="vs-name" id="vs-opp-name">???</div>
+          <div class="vs-level" id="vs-opp-level"></div>
+        </div>
+      </div>
+      <div class="vs-topic" id="vs-topic">—</div>
+    </section>
+
+    <!-- ── Écran : match ───────────────────────────────────────── -->
+    <section id="screen-game" class="screen hidden">
+      <div class="game-head">
+        <div class="game-player me">
+          <span class="avatar" id="g-me-avatar">?</span>
+          <span class="game-score" id="g-me-score">0</span>
+        </div>
+        <div class="game-center">
+          <div class="round-label" id="g-round">1/7</div>
+          <div class="round-dots" id="g-dots"></div>
+        </div>
+        <div class="game-player opp">
+          <span class="game-score" id="g-opp-score">0</span>
+          <span class="avatar avatar-opp" id="g-opp-avatar">?</span>
+        </div>
+      </div>
+
+      <div class="timer-track"><div class="timer-fill" id="timer-fill"></div></div>
+
+      <div id="double-banner" class="double-banner hidden">✨ POINTS DOUBLÉS ✨</div>
+
+      <div id="countdown-overlay" class="countdown-overlay hidden">
+        <div class="countdown-num" id="countdown-num">3</div>
+      </div>
+
+      <div class="question-card" id="question-card">
+        <div class="question-text" id="question-text">…</div>
+      </div>
+
+      <div id="opp-answered" class="opp-answered hidden">⚡ <span id="opp-answered-name">Adversaire</span> a répondu&nbsp;!</div>
+
+      <div class="answers" id="answers"></div>
+
+      <div id="round-points" class="round-points hidden"></div>
+    </section>
+
+    <!-- ── Écran : résultats ───────────────────────────────────── -->
+    <section id="screen-results" class="screen hidden">
+      <div class="results-banner" id="results-banner">Victoire !</div>
+      <div class="results-scores">
+        <div class="results-side">
+          <span class="avatar avatar-big" id="r-me-avatar">?</span>
+          <div class="results-name" id="r-me-name">Moi</div>
+          <div class="results-score" id="r-me-score">0</div>
+        </div>
+        <div class="results-vs">—</div>
+        <div class="results-side">
+          <span class="avatar avatar-big avatar-opp" id="r-opp-avatar">?</span>
+          <div class="results-name" id="r-opp-name">???</div>
+          <div class="results-score" id="r-opp-score">0</div>
+        </div>
+      </div>
+      <div class="results-xp">
+        <div class="results-xp-gain" id="r-xp-gain">+0 XP</div>
+        <div class="level-line">
+          <span class="level-badge" id="r-level">Niv. 0</span>
+          <span class="level-title" id="r-title">Débutant</span>
+        </div>
+        <div class="xp-bar"><div class="xp-fill" id="r-xp-fill"></div></div>
+        <div class="xp-text" id="r-xp-text"></div>
+        <div id="r-levelup" class="levelup hidden">🎉 NIVEAU SUPÉRIEUR !</div>
+      </div>
+      <div id="rematch-status" class="rematch-status hidden"></div>
+      <div class="results-actions">
+        <button id="btn-rematch" class="btn btn-primary btn-big">🔄 Revanche</button>
+        <button id="btn-results-home" class="btn btn-ghost btn-big">🏠 Accueil</button>
+      </div>
+    </section>
+
+  </div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

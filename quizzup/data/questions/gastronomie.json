@@ -1,0 +1,33 @@
+{
+  "id": "gastronomie",
+  "name": "Gastronomie",
+  "icon": "🍽️",
+  "color": "#d94f7a",
+  "questions": [
+    {"q": "Quel fromage français est affiné dans les caves du village du même nom, en Aveyron ?", "choices": ["Le roquefort", "Le camembert", "Le comté", "Le reblochon"], "answer": 0},
+    {"q": "De quel pays la paella est-elle originaire ?", "choices": ["L'Espagne", "L'Italie", "Le Portugal", "Le Mexique"], "answer": 0},
+    {"q": "Quel ingrédient principal compose le guacamole ?", "choices": ["L'avocat", "La courgette", "Le poivron", "Les pois"], "answer": 0},
+    {"q": "Quelle pâtisserie française est faite de choux et de crème, en forme d'éclair ?", "choices": ["L'éclair", "Le mille-feuille", "Le macaron", "Le paris-brest"], "answer": 0},
+    {"q": "Quel plat japonais consiste en du riz vinaigré accompagné de poisson cru ?", "choices": ["Le sushi", "Le ramen", "Le tempura", "Le yakitori"], "answer": 0},
+    {"q": "Quelle boisson est obtenue par fermentation du raisin ?", "choices": ["Le vin", "La bière", "Le cidre", "L'hydromel"], "answer": 0},
+    {"q": "Quel est l'ingrédient de base du houmous ?", "choices": ["Les pois chiches", "Les lentilles", "Les haricots blancs", "Les fèves"], "answer": 0},
+    {"q": "Quelle spécialité alsacienne mêle choux fermenté et charcuterie ?", "choices": ["La choucroute", "La flammekueche", "Le baeckeoffe", "La quiche"], "answer": 0},
+    {"q": "Quelle épice, la plus chère du monde, provient d'une fleur de crocus ?", "choices": ["Le safran", "La vanille", "La cardamome", "Le curcuma"], "answer": 0},
+    {"q": "Quel plat italien se compose d'une pâte garnie cuite au four, née à Naples ?", "choices": ["La pizza", "Le risotto", "Les lasagnes", "La focaccia"], "answer": 0},
+    {"q": "Quel fruit est l'ingrédient principal du cidre ?", "choices": ["La pomme", "La poire", "Le raisin", "La prune"], "answer": 0},
+    {"q": "Quelle sauce émulsionnée à base de jaune d'œuf et d'huile accompagne les frites ?", "choices": ["La mayonnaise", "La béarnaise", "La hollandaise", "L'aïoli"], "answer": 0},
+    {"q": "Quel dessert italien à base de mascarpone et de café signifie « tire-moi vers le haut » ?", "choices": ["Le tiramisu", "La panna cotta", "Le cannoli", "La cassata"], "answer": 0},
+    {"q": "De quelle région française le kouign-amann est-il originaire ?", "choices": ["La Bretagne", "La Normandie", "L'Alsace", "Le Pays basque"], "answer": 0},
+    {"q": "Quelle céréale est la base du pain traditionnel français ?", "choices": ["Le blé", "Le maïs", "Le riz", "L'orge"], "answer": 0},
+    {"q": "Quel plat bourguignon mijote du bœuf dans du vin rouge ?", "choices": ["Le bœuf bourguignon", "Le pot-au-feu", "La blanquette", "Le cassoulet"], "answer": 0},
+    {"q": "Le kéfir est une boisson obtenue par quel procédé ?", "choices": ["La fermentation", "La distillation", "L'infusion", "La macération"], "answer": 0},
+    {"q": "Quel piment mexicain fumé et séché est issu du jalapeño ?", "choices": ["Le chipotle", "Le habanero", "Le poblano", "Le serrano"], "answer": 0},
+    {"q": "Quelle huile est l'emblème de la cuisine méditerranéenne ?", "choices": ["L'huile d'olive", "L'huile de tournesol", "L'huile de colza", "L'huile de noix"], "answer": 0},
+    {"q": "Quel plat du Sud-Ouest mélange haricots blancs, saucisse et confit de canard ?", "choices": ["Le cassoulet", "La garbure", "Le tourin", "La piperade"], "answer": 0},
+    {"q": "Quel mollusque est traditionnellement dégusté avec du beurre persillé en Bourgogne ?", "choices": ["L'escargot", "L'huître", "La moule", "La coquille Saint-Jacques"], "answer": 0},
+    {"q": "Le paprika est obtenu à partir de quel légume séché et moulu ?", "choices": ["Le poivron", "La tomate", "La betterave", "La carotte"], "answer": 0},
+    {"q": "Quelle crêpe bretonne salée se prépare à la farine de sarrasin ?", "choices": ["La galette", "La gaufre", "Le blini", "Le pancake"], "answer": 0},
+    {"q": "Quel fromage italien est indispensable à la vraie pizza margherita ?", "choices": ["La mozzarella", "Le parmesan", "Le gorgonzola", "La ricotta"], "answer": 0},
+    {"q": "Quel vin pétillant ne peut porter son nom que s'il vient d'une région française précise ?", "choices": ["Le champagne", "Le prosecco", "Le cava", "Le crémant"], "answer": 0}
+  ]
+}

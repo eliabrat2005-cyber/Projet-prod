@@ -1,0 +1,33 @@
+{
+  "id": "histoire",
+  "name": "Histoire",
+  "icon": "🏛️",
+  "color": "#e67e22",
+  "questions": [
+    {"q": "En quelle année a eu lieu la prise de la Bastille ?", "choices": ["1789", "1792", "1776", "1804"], "answer": 0},
+    {"q": "Qui était le premier empereur des Français ?", "choices": ["Napoléon Bonaparte", "Louis XIV", "Charlemagne", "Napoléon III"], "answer": 0},
+    {"q": "En quelle année s'est terminée la Seconde Guerre mondiale ?", "choices": ["1945", "1944", "1946", "1943"], "answer": 0},
+    {"q": "Quelle civilisation a construit les pyramides de Gizeh ?", "choices": ["Les Égyptiens", "Les Mayas", "Les Romains", "Les Perses"], "answer": 0},
+    {"q": "Qui a découvert l'Amérique en 1492 ?", "choices": ["Christophe Colomb", "Vasco de Gama", "Fernand de Magellan", "Amerigo Vespucci"], "answer": 0},
+    {"q": "Quel roi de France était surnommé le « Roi-Soleil » ?", "choices": ["Louis XIV", "Louis XVI", "François Iᵉʳ", "Henri IV"], "answer": 0},
+    {"q": "En quelle année le mur de Berlin est-il tombé ?", "choices": ["1989", "1991", "1987", "1985"], "answer": 0},
+    {"q": "Quelle bataille marque la défaite définitive de Napoléon en 1815 ?", "choices": ["Waterloo", "Austerlitz", "Trafalgar", "Iéna"], "answer": 0},
+    {"q": "Qui était le chef de la France libre pendant la Seconde Guerre mondiale ?", "choices": ["Charles de Gaulle", "Philippe Pétain", "Georges Clemenceau", "Jean Moulin"], "answer": 0},
+    {"q": "Quelle reine d'Égypte fut la compagne de Jules César puis de Marc Antoine ?", "choices": ["Cléopâtre", "Néfertiti", "Hatchepsout", "Théodora"], "answer": 0},
+    {"q": "En quelle année a débuté la Première Guerre mondiale ?", "choices": ["1914", "1918", "1912", "1916"], "answer": 0},
+    {"q": "Quel empire était dirigé par Gengis Khan ?", "choices": ["L'Empire mongol", "L'Empire ottoman", "L'Empire perse", "L'Empire chinois"], "answer": 0},
+    {"q": "Qui a été la première femme élue au poste de Premier ministre du Royaume-Uni ?", "choices": ["Margaret Thatcher", "Theresa May", "Indira Gandhi", "Golda Meir"], "answer": 0},
+    {"q": "Quelle ville romaine fut ensevelie par l'éruption du Vésuve en 79 ap. J.-C. ?", "choices": ["Pompéi", "Rome", "Naples", "Ostie"], "answer": 0},
+    {"q": "Qui a fait construire le château de Versailles tel qu'on le connaît ?", "choices": ["Louis XIV", "Louis XIII", "Louis XV", "Napoléon Iᵉʳ"], "answer": 0},
+    {"q": "En quelle année les femmes ont-elles voté pour la première fois en France ?", "choices": ["1945", "1936", "1958", "1968"], "answer": 0},
+    {"q": "Quel navigateur portugais a dirigé la première expédition à faire le tour du monde ?", "choices": ["Fernand de Magellan", "Vasco de Gama", "Christophe Colomb", "James Cook"], "answer": 0},
+    {"q": "Quel événement déclenche la Première Guerre mondiale en 1914 ?", "choices": ["L'assassinat de l'archiduc François-Ferdinand", "L'invasion de la Pologne", "Le naufrage du Lusitania", "La révolution russe"], "answer": 0},
+    {"q": "Qui était le pharaon dont le tombeau intact fut découvert en 1922 ?", "choices": ["Toutânkhamon", "Ramsès II", "Khéops", "Akhenaton"], "answer": 0},
+    {"q": "Quelle guerre a opposé le Nord et le Sud des États-Unis de 1861 à 1865 ?", "choices": ["La guerre de Sécession", "La guerre d'indépendance", "La guerre de Sept Ans", "La guerre hispano-américaine"], "answer": 0},
+    {"q": "Sous quel nom est connue la période de renouveau artistique des XVᵉ-XVIᵉ siècles en Europe ?", "choices": ["La Renaissance", "Les Lumières", "Le Baroque", "Le Classicisme"], "answer": 0},
+    {"q": "Qui a prononcé le célèbre discours « I have a dream » en 1963 ?", "choices": ["Martin Luther King", "Malcolm X", "Nelson Mandela", "Rosa Parks"], "answer": 0},
+    {"q": "Quel traité met fin à la Première Guerre mondiale en 1919 ?", "choices": ["Le traité de Versailles", "Le traité de Vienne", "Le traité de Rome", "Le traité de Tordesillas"], "answer": 0},
+    {"q": "Quel homme d'État sud-africain a passé 27 ans en prison avant de devenir président ?", "choices": ["Nelson Mandela", "Desmond Tutu", "Frederik de Klerk", "Steve Biko"], "answer": 0},
+    {"q": "En quelle année Jules César a-t-il été assassiné ?", "choices": ["44 av. J.-C.", "27 av. J.-C.", "100 av. J.-C.", "14 ap. J.-C."], "answer": 0}
+  ]
+}

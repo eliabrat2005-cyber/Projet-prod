@@ -1,0 +1,33 @@
+{
+  "id": "technologie",
+  "name": "Technologie",
+  "icon": "💻",
+  "color": "#0e7c86",
+  "questions": [
+    {"q": "Qui a cofondé Apple avec Steve Wozniak ?", "choices": ["Steve Jobs", "Bill Gates", "Elon Musk", "Jeff Bezos"], "answer": 0},
+    {"q": "Que signifie « www » dans une adresse web ?", "choices": ["World Wide Web", "World Web Wire", "Wide World Web", "Web World Wide"], "answer": 0},
+    {"q": "Quel langage de programmation porte le nom d'un serpent ?", "choices": ["Python", "Java", "Ruby", "Rust"], "answer": 0},
+    {"q": "Quelle entreprise a créé le système d'exploitation Android ?", "choices": ["Google", "Apple", "Microsoft", "Samsung"], "answer": 0},
+    {"q": "Combien de bits composent un octet ?", "choices": ["Huit", "Quatre", "Seize", "Dix"], "answer": 0},
+    {"q": "Quel réseau social a été créé par Mark Zuckerberg en 2004 ?", "choices": ["Facebook", "Twitter", "Instagram", "MySpace"], "answer": 0},
+    {"q": "Que signifie « IA » ?", "choices": ["Intelligence artificielle", "Interface automatique", "Internet avancé", "Information appliquée"], "answer": 0},
+    {"q": "Quelle entreprise fabrique les puces graphiques GeForce ?", "choices": ["NVIDIA", "AMD", "Intel", "Qualcomm"], "answer": 0},
+    {"q": "Quel est le nom du premier iPhone commercialisé ?", "choices": ["iPhone (2007)", "iPhone 3G", "iPhone One", "iPhone Zero"], "answer": 0},
+    {"q": "Quel protocole sécurisé chiffre les échanges entre un navigateur et un site web ?", "choices": ["HTTPS", "HTTP", "FTP", "SMTP"], "answer": 0},
+    {"q": "Qui est considéré comme le père de l'informatique théorique et du test portant son nom ?", "choices": ["Alan Turing", "John von Neumann", "Charles Babbage", "Claude Shannon"], "answer": 0},
+    {"q": "Quelle cryptomonnaie a été créée en 2009 par Satoshi Nakamoto ?", "choices": ["Le Bitcoin", "L'Ethereum", "Le Litecoin", "Le Dogecoin"], "answer": 0},
+    {"q": "Quel système d'exploitation libre a été créé par Linus Torvalds ?", "choices": ["Linux", "Windows", "macOS", "FreeBSD"], "answer": 0},
+    {"q": "Quelle entreprise possède YouTube ?", "choices": ["Google", "Meta", "Amazon", "Microsoft"], "answer": 0},
+    {"q": "Comment appelle-t-on un programme malveillant qui chiffre vos fichiers contre rançon ?", "choices": ["Un ransomware", "Un antivirus", "Un firewall", "Un spyware"], "answer": 0},
+    {"q": "Quel composant est considéré comme le « cerveau » de l'ordinateur ?", "choices": ["Le processeur (CPU)", "Le disque dur", "La RAM", "La carte mère"], "answer": 0},
+    {"q": "Quelle entreprise d'Elon Musk fabrique des fusées réutilisables ?", "choices": ["SpaceX", "Blue Origin", "Virgin Galactic", "NASA"], "answer": 0},
+    {"q": "Que signifie le sigle « USB » ?", "choices": ["Universal Serial Bus", "United System Board", "Universal System Backup", "Unified Serial Band"], "answer": 0},
+    {"q": "Quel assistant vocal équipe les enceintes Echo d'Amazon ?", "choices": ["Alexa", "Siri", "Cortana", "Google Assistant"], "answer": 0},
+    {"q": "Quelle norme sans fil permet de connecter des écouteurs à un téléphone à courte portée ?", "choices": ["Le Bluetooth", "Le Wi-Fi", "La 5G", "La NFC"], "answer": 0},
+    {"q": "Quel navigateur web est développé par Mozilla ?", "choices": ["Firefox", "Chrome", "Safari", "Edge"], "answer": 0},
+    {"q": "Quelle entreprise a développé l'assistant IA « Claude » ?", "choices": ["Anthropic", "OpenAI", "Google", "Meta"], "answer": 0},
+    {"q": "Quel format d'image supporte la transparence et la compression sans perte ?", "choices": ["PNG", "JPEG", "BMP", "GIF 87a"], "answer": 0},
+    {"q": "Comment s'appelle la mémoire vive d'un ordinateur ?", "choices": ["La RAM", "La ROM", "Le cache L1", "Le SSD"], "answer": 0},
+    {"q": "Quel langage structure le contenu des pages web ?", "choices": ["HTML", "CSS", "JavaScript", "PHP"], "answer": 0}
+  ]
+}

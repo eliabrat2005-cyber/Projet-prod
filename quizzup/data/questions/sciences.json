@@ -1,0 +1,33 @@
+{
+  "id": "sciences",
+  "name": "Sciences",
+  "icon": "🔬",
+  "color": "#2980b9",
+  "questions": [
+    {"q": "Quelle est la formule chimique de l'eau ?", "choices": ["H₂O", "CO₂", "O₂", "H₂O₂"], "answer": 0},
+    {"q": "Combien de planètes compte le Système solaire ?", "choices": ["Huit", "Neuf", "Sept", "Dix"], "answer": 0},
+    {"q": "Quel gaz les plantes absorbent-elles pour la photosynthèse ?", "choices": ["Le dioxyde de carbone", "L'oxygène", "L'azote", "L'hydrogène"], "answer": 0},
+    {"q": "Quelle est la vitesse approximative de la lumière dans le vide ?", "choices": ["300 000 km/s", "150 000 km/s", "1 000 000 km/s", "30 000 km/s"], "answer": 0},
+    {"q": "Qui a formulé la théorie de la relativité générale ?", "choices": ["Albert Einstein", "Isaac Newton", "Niels Bohr", "Galilée"], "answer": 0},
+    {"q": "Quel est l'élément chimique le plus abondant dans l'Univers ?", "choices": ["L'hydrogène", "L'hélium", "L'oxygène", "Le carbone"], "answer": 0},
+    {"q": "Combien d'os compte environ le squelette humain adulte ?", "choices": ["206", "156", "256", "306"], "answer": 0},
+    {"q": "Quelle planète est la plus proche du Soleil ?", "choices": ["Mercure", "Vénus", "Mars", "La Terre"], "answer": 0},
+    {"q": "Quel scientifique a découvert la pénicilline ?", "choices": ["Alexander Fleming", "Louis Pasteur", "Marie Curie", "Robert Koch"], "answer": 0},
+    {"q": "Quelle est l'unité de mesure de la force ?", "choices": ["Le newton", "Le joule", "Le watt", "Le pascal"], "answer": 0},
+    {"q": "Quel est le plus grand organe du corps humain ?", "choices": ["La peau", "Le foie", "Le cerveau", "L'intestin"], "answer": 0},
+    {"q": "Quelle molécule porte l'information génétique ?", "choices": ["L'ADN", "Le glucose", "La protéine", "Le lipide"], "answer": 0},
+    {"q": "À quelle température l'eau bout-elle au niveau de la mer ?", "choices": ["100 °C", "90 °C", "110 °C", "120 °C"], "answer": 0},
+    {"q": "Quelle scientifique a reçu deux prix Nobel dans deux disciplines différentes ?", "choices": ["Marie Curie", "Rosalind Franklin", "Ada Lovelace", "Dorothy Hodgkin"], "answer": 0},
+    {"q": "Quel est le symbole chimique du fer ?", "choices": ["Fe", "Fr", "F", "Ir"], "answer": 0},
+    {"q": "Quelle force maintient les planètes en orbite autour du Soleil ?", "choices": ["La gravitation", "Le magnétisme", "La force nucléaire", "L'électricité statique"], "answer": 0},
+    {"q": "Combien de chromosomes possède une cellule humaine normale ?", "choices": ["46", "23", "44", "48"], "answer": 0},
+    {"q": "Quelle est la plus grande planète du Système solaire ?", "choices": ["Jupiter", "Saturne", "Neptune", "Uranus"], "answer": 0},
+    {"q": "Quel animal est un mammifère ?", "choices": ["Le dauphin", "Le requin", "Le crocodile", "Le pingouin"], "answer": 0},
+    {"q": "Quel phénomène explique que le niveau des mers monte et descend deux fois par jour ?", "choices": ["Les marées", "Les courants", "Le vent", "Les séismes"], "answer": 0},
+    {"q": "Quel métal est liquide à température ambiante ?", "choices": ["Le mercure", "Le plomb", "L'étain", "Le sodium"], "answer": 0},
+    {"q": "Quelle partie du cerveau contrôle l'équilibre et la coordination ?", "choices": ["Le cervelet", "Le cortex frontal", "L'hippocampe", "L'hypothalamus"], "answer": 0},
+    {"q": "Quel type d'animal était le tyrannosaure ?", "choices": ["Un dinosaure théropode", "Un mammifère", "Un reptile marin", "Un ptérosaure"], "answer": 0},
+    {"q": "Quelle est l'unité de la puissance électrique ?", "choices": ["Le watt", "Le volt", "L'ampère", "L'ohm"], "answer": 0},
+    {"q": "Quel pourcentage approximatif de l'atmosphère terrestre est composé d'azote ?", "choices": ["78 %", "21 %", "50 %", "90 %"], "answer": 0}
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "sport",
+  "name": "Sport",
+  "icon": "⚽",
+  "color": "#16a085",
+  "questions": [
+    {"q": "Combien de fois la France a-t-elle remporté la Coupe du monde de football (à fin 2024) ?", "choices": ["Deux", "Une", "Trois", "Quatre"], "answer": 0},
+    {"q": "Quel joueur a remporté huit Ballons d'or ?", "choices": ["Lionel Messi", "Cristiano Ronaldo", "Zinédine Zidane", "Kylian Mbappé"], "answer": 0},
+    {"q": "Combien de sets faut-il gagner pour remporter un match de tennis masculin en Grand Chelem ?", "choices": ["Trois", "Deux", "Quatre", "Cinq"], "answer": 0},
+    {"q": "Quel pays a inventé le rugby ?", "choices": ["L'Angleterre", "La France", "La Nouvelle-Zélande", "L'Afrique du Sud"], "answer": 0},
+    {"q": "Tous les combien d'années ont lieu les Jeux olympiques d'été ?", "choices": ["Quatre ans", "Deux ans", "Trois ans", "Cinq ans"], "answer": 0},
+    {"q": "Quelle course cycliste se termine traditionnellement sur les Champs-Élysées ?", "choices": ["Le Tour de France", "Paris-Roubaix", "Le Giro", "La Vuelta"], "answer": 0},
+    {"q": "Combien de joueurs une équipe de basket compte-t-elle sur le terrain ?", "choices": ["Cinq", "Six", "Sept", "Quatre"], "answer": 0},
+    {"q": "Quel nageur américain détient le record de médailles d'or olympiques ?", "choices": ["Michael Phelps", "Mark Spitz", "Ryan Lochte", "Caeleb Dressel"], "answer": 0},
+    {"q": "Sur quelle surface se joue le tournoi de Roland-Garros ?", "choices": ["La terre battue", "Le gazon", "Le dur", "La moquette"], "answer": 0},
+    {"q": "Quel pays a remporté la Coupe du monde de football 2022 ?", "choices": ["L'Argentine", "La France", "Le Brésil", "La Croatie"], "answer": 0},
+    {"q": "En boxe anglaise, comment appelle-t-on une victoire avant la limite par arrêt de l'arbitre ?", "choices": ["Le K.-O. technique", "Le jab", "L'uppercut", "Le clinch"], "answer": 0},
+    {"q": "Quel sprinteur jamaïcain détient le record du monde du 100 m ?", "choices": ["Usain Bolt", "Yohan Blake", "Asafa Powell", "Tyson Gay"], "answer": 0},
+    {"q": "Combien de points vaut un essai au rugby à XV ?", "choices": ["Cinq", "Trois", "Quatre", "Sept"], "answer": 0},
+    {"q": "Quelle équipe NBA Michael Jordan a-t-il menée à six titres ?", "choices": ["Les Chicago Bulls", "Les Lakers", "Les Celtics", "Les Knicks"], "answer": 0},
+    {"q": "Dans quel sport s'illustre Teddy Riner ?", "choices": ["Le judo", "La lutte", "Le karaté", "La boxe"], "answer": 0},
+    {"q": "Combien de trous compte un parcours de golf standard ?", "choices": ["Dix-huit", "Neuf", "Vingt", "Quinze"], "answer": 0},
+    {"q": "Quel club espagnol joue au stade Santiago-Bernabéu ?", "choices": ["Le Real Madrid", "Le FC Barcelone", "L'Atlético de Madrid", "Le FC Séville"], "answer": 0},
+    {"q": "Quelle nation domine historiquement le rugby avec les « All Blacks » ?", "choices": ["La Nouvelle-Zélande", "L'Australie", "L'Afrique du Sud", "Les Fidji"], "answer": 0},
+    {"q": "En Formule 1, quel pilote a égalé le record de sept titres mondiaux de Schumacher ?", "choices": ["Lewis Hamilton", "Max Verstappen", "Sebastian Vettel", "Fernando Alonso"], "answer": 0},
+    {"q": "Quel gardien français a soulevé la Coupe du monde 2018 en tant que capitaine ?", "choices": ["Hugo Lloris", "Fabien Barthez", "Steve Mandanda", "Mike Maignan"], "answer": 0},
+    {"q": "Au tennis, comment s'appelle un score de zéro ?", "choices": ["Zéro (« love » en anglais)", "Blanc", "Nul", "Egg"], "answer": 0},
+    {"q": "Quelle ville a accueilli les Jeux olympiques d'été 2024 ?", "choices": ["Paris", "Los Angeles", "Tokyo", "Londres"], "answer": 0},
+    {"q": "Quel sport se pratique sur un ring avec des gants rembourrés ?", "choices": ["La boxe", "L'escrime", "Le taekwondo", "Le MMA"], "answer": 0},
+    {"q": "Combien de temps dure un match de football (temps réglementaire) ?", "choices": ["90 minutes", "80 minutes", "100 minutes", "60 minutes"], "answer": 0},
+    {"q": "Quelle joueuse de tennis a remporté 23 titres du Grand Chelem en simple ?", "choices": ["Serena Williams", "Steffi Graf", "Martina Navratilova", "Venus Williams"], "answer": 0}
+  ]
+}
