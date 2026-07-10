@@ -147,6 +147,79 @@ def test_full_bot_game(quizzup_modules):
     assert any(row["name"] == "Testeur" for row in lb)
 
 
+def _drain_until(ws, wanted: str, limit: int = 300) -> dict:
+    """Lit les messages jusqu'à trouver ``wanted`` (répond '0' aux questions)."""
+    for _ in range(limit):
+        msg = json.loads(ws.receive_text())
+        if msg["type"] == wanted:
+            return msg
+        if msg["type"] == "question":
+            ws.send_text(json.dumps({"type": "answer", "game_id": msg.get("game_id"),
+                                     "round": msg["round"], "choice": 0}))
+    raise AssertionError(f"message '{wanted}' jamais reçu")
+
+
+def test_rematch_keeps_same_bot(quizzup_modules):
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    client = TestClient(server.app)
+    topic_id = client.get("/api/topics").json()[0]["id"]
+
+    with client.websocket_connect("/ws") as ws:
+        ws.send_text(json.dumps({"type": "hello", "name": "Revanchard"}))
+        json.loads(ws.receive_text())
+        ws.send_text(json.dumps({"type": "play_bot", "topic_id": topic_id}))
+
+        m1 = _drain_until(ws, "match_found")
+        # Le message answer a besoin du game_id : on rejoue le drain avec.
+        game_id = m1["game_id"]
+        bot_name = m1["opponent"]["name"]
+
+        for _ in range(300):
+            msg = json.loads(ws.receive_text())
+            if msg["type"] == "question":
+                ws.send_text(json.dumps({"type": "answer", "game_id": game_id,
+                                         "round": msg["round"], "choice": 0}))
+            elif msg["type"] == "game_over":
+                break
+
+        ws.send_text(json.dumps({"type": "rematch", "game_id": game_id}))
+        m2 = _drain_until(ws, "match_found")
+        assert m2["opponent"]["name"] == bot_name  # même adversaire, pas un nouveau bot
+        assert m2["game_id"] != game_id            # mais une nouvelle partie
+
+
+def test_quick_match_pairs_two_humans(quizzup_modules):
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    client = TestClient(server.app)
+    topic_id = client.get("/api/topics").json()[0]["id"]
+
+    with client.websocket_connect("/ws") as ws1, client.websocket_connect("/ws") as ws2:
+        ws1.send_text(json.dumps({"type": "hello", "name": "Rapide1"}))
+        json.loads(ws1.receive_text())
+        ws2.send_text(json.dumps({"type": "hello", "name": "Rapide2"}))
+        json.loads(ws2.receive_text())
+
+        ws1.send_text(json.dumps({"type": "find_match", "topic_id": topic_id}))
+        assert json.loads(ws1.receive_text())["type"] == "queued"
+        ws2.send_text(json.dumps({"type": "find_match", "topic_id": topic_id}))
+
+        m1 = _drain_until(ws1, "match_found")
+        m2 = _drain_until(ws2, "match_found")
+        assert m1["opponent"]["name"] == "Rapide2" and m1["opponent"]["is_bot"] is False
+        assert m2["opponent"]["name"] == "Rapide1" and m2["opponent"]["is_bot"] is False
+
+        # Abandon en cours de match : l'autre gagne par forfait.
+        ws1.send_text(json.dumps({"type": "leave_game", "game_id": m1["game_id"]}))
+        over1 = _drain_until(ws1, "game_over")
+        over2 = _drain_until(ws2, "game_over")
+        assert over1["result"] == "loss" and over1["forfeit"] is True
+        assert over2["result"] == "win" and over2["forfeit"] is True
+
+
 def test_room_code_flow(quizzup_modules):
     _, server, _ = quizzup_modules
     from starlette.testclient import TestClient

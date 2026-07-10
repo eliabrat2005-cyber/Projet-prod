@@ -12,6 +12,7 @@ const S = {
   game: null,            // état du match en cours
   timerRAF: null,
   reconnectDelay: 500,
+  sound: localStorage.getItem("quizzup_sound") !== "0",
 };
 
 const $ = (id) => document.getElementById(id);
@@ -35,6 +36,7 @@ function initial(name) { return (name || "?").trim().charAt(0).toUpperCase() || 
 // ─── Sons (WebAudio, pas d'assets) ──────────────────────────────────────────
 let audioCtx = null;
 function beep(freq, dur = 0.12, type = "sine", gain = 0.08) {
+  if (!S.sound) return;
   try {
     audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
     const o = audioCtx.createOscillator();
@@ -50,6 +52,7 @@ const sndTick = () => beep(880, 0.06, "square", 0.04);
 const sndGood = () => { beep(660, 0.1); setTimeout(() => beep(990, 0.18), 90); };
 const sndBad = () => beep(160, 0.3, "sawtooth", 0.07);
 const sndGo = () => beep(1320, 0.2, "triangle", 0.09);
+const vibrate = (pattern) => { if (navigator.vibrate) try { navigator.vibrate(pattern); } catch (e) {} };
 
 // ─── WebSocket ──────────────────────────────────────────────────────────────
 function connect() {
@@ -74,7 +77,18 @@ function connect() {
 }
 
 function send(msg) {
-  if (S.ws && S.ws.readyState === WebSocket.OPEN) S.ws.send(JSON.stringify(msg));
+  if (S.ws && S.ws.readyState === WebSocket.OPEN) {
+    S.ws.send(JSON.stringify(msg));
+    return true;
+  }
+  toast("Connexion au serveur en cours…");
+  return false;
+}
+
+// Anti double-clic : désactive un bouton pendant un court instant.
+function debounceBtn(btn, ms = 1500) {
+  btn.disabled = true;
+  setTimeout(() => { btn.disabled = false; }, ms);
 }
 
 // ─── Dispatch des messages serveur ──────────────────────────────────────────
@@ -129,8 +143,14 @@ function onWelcome(msg) {
   $("home-name").textContent = msg.player.name;
   $("home-avatar").textContent = initial(msg.player.name);
   renderTopics();
-  // Ne pas écraser un match en cours lors d'une reconnexion
-  if (!S.game || S.game.over) show("home");
+  // Reconnexion en plein match : le serveur a déclaré forfait à la coupure,
+  // on ne laisse pas le client figé sur l'écran de jeu.
+  if (S.game && !S.game.over) {
+    S.game = null;
+    cancelAnimationFrame(S.timerRAF);
+    toast("Connexion perdue — la partie a été interrompue 🏳️");
+  }
+  show("home");
 }
 
 // ─── Accueil / thèmes ───────────────────────────────────────────────────────
@@ -235,6 +255,8 @@ function onCountdown(msg) {
 
   const overlay = $("countdown-overlay");
   const num = $("countdown-num");
+  $("countdown-sub").textContent = `Question ${msg.round}/${msg.rounds}`;
+  $("countdown-double").classList.toggle("hidden", !msg.double);
   overlay.classList.remove("hidden");
   const secs = Math.max(1, Math.round(msg.seconds));
   let n = secs;
@@ -279,7 +301,17 @@ function startTimer(duration) {
   const tick = (now) => {
     const left = Math.max(0, 1 - (now - start) / total);
     fill.style.transform = `scaleX(${left})`;
-    if (left > 0) S.timerRAF = requestAnimationFrame(tick);
+    if (left > 0) {
+      S.timerRAF = requestAnimationFrame(tick);
+    } else if (S.game && !S.game.answered) {
+      // Temps écoulé : on fige les réponses en attendant la révélation.
+      S.game.answered = true;
+      for (const b of document.querySelectorAll(".answer-btn")) b.disabled = true;
+      const pts = $("round-points");
+      pts.textContent = "Temps écoulé…";
+      pts.classList.add("zero");
+      pts.classList.remove("hidden");
+    }
   };
   S.timerRAF = requestAnimationFrame(tick);
 }
@@ -313,10 +345,12 @@ function onReveal(msg) {
   });
 
   const gotIt = msg.you.choice === msg.correct;
-  if (gotIt) sndGood(); else sndBad();
+  if (gotIt) { sndGood(); vibrate(30); } else { sndBad(); vibrate([70, 40, 70]); }
 
   const pts = $("round-points");
-  pts.textContent = gotIt ? `+${msg.you.points} pts` : (msg.you.choice === null ? "Temps écoulé !" : "Raté !");
+  const time = msg.you.time !== null ? ` · ${msg.you.time.toFixed(1).replace(".", ",")} s` : "";
+  pts.textContent = gotIt ? `+${msg.you.points} pts${time}`
+                          : (msg.you.choice === null ? "Temps écoulé !" : "Raté !");
   pts.classList.toggle("zero", !gotIt);
   pts.classList.remove("hidden");
 
@@ -349,10 +383,34 @@ function onGameOver(msg) {
 
   const banner = $("results-banner");
   banner.className = "results-banner " + msg.result;
-  banner.textContent = msg.result === "win" ? (msg.forfeit ? "Victoire par abandon !" : "Victoire ! 🏆")
+  banner.textContent = msg.result === "win" ? "Victoire ! 🏆"
                      : msg.result === "loss" ? "Défaite…"
                      : "Égalité !";
-  if (msg.result === "win") sndGood(); else if (msg.result === "loss") sndBad();
+  const sub = $("results-sub");
+  if (msg.forfeit) {
+    sub.textContent = msg.result === "win" ? "Ton adversaire a abandonné"
+                                           : "Tu as abandonné la partie";
+    sub.classList.remove("hidden");
+  } else if (msg.scores.you === 160) {
+    sub.textContent = "🌟 PARTIE PARFAITE — 160/160 🌟";
+    sub.classList.remove("hidden");
+  } else {
+    sub.classList.add("hidden");
+  }
+  if (msg.result === "win") { sndGood(); vibrate([40, 60, 40, 60, 120]); }
+  else if (msg.result === "loss") sndBad();
+
+  // Recap round par round (vert = gagné, rouge = perdu, jaune = égalité)
+  const dots = $("r-dots");
+  dots.innerHTML = "";
+  for (let i = 0; i < S.game.rounds; i++) {
+    const dot = document.createElement("i");
+    const r = S.game.roundResults[i];
+    if (r === "won") dot.classList.add("won");
+    else if (r === "lost") dot.classList.add("lost");
+    else if (r === "tied") dot.classList.add("tied");
+    dots.appendChild(dot);
+  }
 
   $("r-me-avatar").textContent = initial(S.player.name);
   $("r-me-name").textContent = S.player.name;
@@ -402,10 +460,11 @@ async function openRanking() {
       list.innerHTML = "<li class='ranking-empty'>Personne n'a encore joué ce thème. Sois le premier !</li>";
       return;
     }
+    const medals = ["🥇", "🥈", "🥉"];
     rows.forEach((r, i) => {
       const li = document.createElement("li");
       if (r.player_id === S.player.id) li.classList.add("me");
-      li.innerHTML = `<span class="rank">${i + 1}</span>
+      li.innerHTML = `<span class="rank">${medals[i] || i + 1}</span>
         <span class="avatar">${initial(r.name)}</span>
         <span class="r-name">${escapeHtml(r.name)}<small>Niv. ${r.level} — ${r.title}</small></span>
         <span class="r-xp">${r.xp} XP</span>`;
@@ -472,8 +531,17 @@ document.querySelectorAll(".back-btn").forEach((b) => {
 
 $("profile-btn").onclick = () => { send({ type: "get_profile" }); renderProfile(); show("profile"); };
 
-$("btn-quick").onclick = () => send({ type: "find_match", topic_id: S.currentTopic.id });
-$("btn-bot").onclick = () => send({ type: "play_bot", topic_id: S.currentTopic.id });
+$("btn-quick").onclick = () => {
+  if (!S.currentTopic) return;
+  if (send({ type: "find_match", topic_id: S.currentTopic.id })) {
+    $("search-topic").textContent = `${S.currentTopic.icon} ${S.currentTopic.name}`;
+    debounceBtn($("btn-quick"));
+  }
+};
+$("btn-bot").onclick = () => {
+  if (!S.currentTopic) return;
+  if (send({ type: "play_bot", topic_id: S.currentTopic.id })) debounceBtn($("btn-bot"));
+};
 $("btn-ranking").onclick = openRanking;
 $("btn-friend").onclick = () => {
   $("room-code-box").classList.add("hidden");
@@ -490,10 +558,26 @@ $("btn-join-room").onclick = () => {
 $("join-code-input").addEventListener("keydown", (e) => { if (e.key === "Enter") $("btn-join-room").click(); });
 
 $("btn-rematch").onclick = () => {
+  if (!S.game) return;
   send({ type: "rematch", game_id: S.game.id });
   $("rematch-status").textContent = "En attente de ton adversaire…";
   $("rematch-status").classList.remove("hidden");
   $("btn-rematch").disabled = true;
+};
+
+$("btn-giveup").onclick = () => {
+  if (!S.game || S.game.over) return;
+  if (confirm("Abandonner la partie ? Ton adversaire gagnera par forfait.")) {
+    send({ type: "leave_game", game_id: S.game.id });
+  }
+};
+
+$("sound-btn").onclick = () => {
+  S.sound = !S.sound;
+  localStorage.setItem("quizzup_sound", S.sound ? "1" : "0");
+  $("sound-btn").textContent = S.sound ? "🔊" : "🔇";
+  $("sound-btn").classList.toggle("off", !S.sound);
+  if (S.sound) sndTick();
 };
 $("btn-results-home").onclick = () => {
   if (S.game) send({ type: "decline_rematch", game_id: S.game.id });
@@ -505,5 +589,9 @@ $("btn-results-home").onclick = () => {
 
 // Quitter un match en cours si on ferme l'onglet : le serveur gère via disconnect.
 window.addEventListener("beforeunload", () => { if (S.ws) S.ws.close(); });
+
+// État initial du bouton son (préférence persistée)
+$("sound-btn").textContent = S.sound ? "🔊" : "🔇";
+$("sound-btn").classList.toggle("off", !S.sound);
 
 connect();

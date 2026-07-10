@@ -152,7 +152,7 @@ class Session:
         if topic_id is None:
             await self.send({"type": "error", "message": "Thème inconnu."})
             return
-        lobby.start_bot_game(topic_id, self.participant)
+        await lobby.start_bot_game(topic_id, self.participant)
 
     async def _create_room(self, msg: dict) -> None:
         topic_id = self._valid_topic(msg)
@@ -169,7 +169,7 @@ class Session:
 
     async def _join_room(self, msg: dict) -> None:
         code = str(msg.get("code") or "")
-        game = lobby.join_room(code, self.participant)
+        game = await lobby.join_room(code, self.participant)
         if game is None:
             await self.send({"type": "room_not_found", "code": code})
 

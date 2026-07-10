@@ -15,6 +15,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+button { touch-action: manipulation; }
 
 html, body { height: 100%; }
 body {
@@ -76,6 +77,12 @@ body {
   border: none; border-radius: 24px; padding: 4px 14px 4px 4px; color: var(--text);
   font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit;
 }
+.topbar-right { display: flex; align-items: center; gap: 8px; }
+.icon-btn {
+  background: rgba(255,255,255,.08); border: none; border-radius: 12px;
+  width: 40px; height: 40px; font-size: 18px; cursor: pointer;
+}
+.icon-btn.off { opacity: .45; }
 
 /* ── Écran pseudo ────────────────────────────────────────── */
 #screen-name { display: flex; align-items: center; justify-content: center; }
@@ -170,7 +177,8 @@ body {
   animation: spin 0.9s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
-.search-text { font-size: 18px; font-weight: 700; margin-bottom: 24px; }
+.search-text { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.search-topic { color: var(--muted); font-weight: 700; margin-bottom: 24px; }
 .dots::after { content: ""; animation: dots 1.4s steps(4) infinite; }
 @keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
 
@@ -220,8 +228,10 @@ body {
   position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
   background: rgba(16, 8, 40, .82); z-index: 30; backdrop-filter: blur(3px);
 }
+.countdown-overlay { flex-direction: column; gap: 6px; }
+.countdown-sub { font-size: 20px; font-weight: 800; color: var(--text); opacity: .9; }
 .countdown-num { font-size: 110px; font-weight: 900; color: var(--accent); animation: count-pop .95s ease infinite; }
-.countdown-num.round-intro { font-size: 34px; color: var(--text); animation: none; text-align: center; line-height: 1.4; }
+.countdown-double { font-weight: 900; color: var(--accent); letter-spacing: .08em; animation: pulse 1s infinite; }
 @keyframes count-pop { 0% { transform: scale(1.6); opacity: 0; } 25% { transform: scale(1); opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; } }
 
 .question-card {
@@ -255,12 +265,22 @@ body {
 .round-points.zero { color: var(--muted); }
 @keyframes rise { from { transform: translateY(18px) scale(.6); opacity: 0; } }
 
+.giveup-btn {
+  display: block; margin: 26px auto 0; background: none; border: none;
+  color: var(--muted); font-size: 13.5px; font-weight: 700; cursor: pointer;
+  font-family: inherit; opacity: .7; padding: 8px 14px;
+}
+.giveup-btn:active { opacity: 1; }
+
 /* ── Résultats ───────────────────────────────────────────── */
 #screen-results { text-align: center; padding-top: 40px; }
 .results-banner { font-size: 36px; font-weight: 900; margin-bottom: 26px; animation: vs-pop .5s cubic-bezier(.2,.9,.3,1.5); }
 .results-banner.win { color: var(--green); }
 .results-banner.loss { color: var(--red); }
 .results-banner.draw { color: var(--accent); }
+.results-sub { color: var(--muted); font-weight: 700; margin: -16px 0 20px; }
+.results-dots { justify-content: center; margin-bottom: 22px; }
+.results-dots i { width: 14px; height: 14px; }
 .results-scores { display: flex; align-items: center; justify-content: center; gap: 22px; margin-bottom: 30px; }
 .results-side { width: 120px; }
 .results-name { font-weight: 700; margin-top: 8px; font-size: 14.5px; }

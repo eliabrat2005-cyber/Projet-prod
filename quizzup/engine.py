@@ -302,8 +302,15 @@ class Lobby:
 
     # ── Démarrage de partie ────────────────────────────────────────────────
 
-    def start_game(self, topic_id: str, p1: Participant, p2: Participant,
-                   bot_accuracy: float = 0.7) -> Game:
+    async def start_game(self, topic_id: str, p1: Participant, p2: Participant,
+                         bot_accuracy: float = 0.7) -> Game:
+        # Un joueur ne peut être que dans une partie à la fois : si une
+        # partie active traîne (autre onglet, client figé), on la clôt.
+        for p in (p1, p2):
+            if not p.is_bot:
+                stale = self.active_game_of(p.player_id)
+                if stale is not None:
+                    await stale.forfeit(p.player_id)
         game = Game(topic_id, p1, p2, bot_accuracy=bot_accuracy)
         self.games[game.id] = game
         game.task = asyncio.create_task(self._run_and_cleanup(game))
@@ -317,10 +324,10 @@ class Lobby:
             await asyncio.sleep(3 if FAST else 300)
             self.games.pop(game.id, None)
 
-    def start_bot_game(self, topic_id: str, human: Participant) -> Game:
+    async def start_bot_game(self, topic_id: str, human: Participant) -> Game:
         level = qbank.level_info(store.get_topic_stats(human.player_id, topic_id)["xp"])["level"]
         bot, accuracy = make_bot(level)
-        return self.start_game(topic_id, human, bot, bot_accuracy=accuracy)
+        return await self.start_game(topic_id, human, bot, bot_accuracy=accuracy)
 
     # ── Matchmaking « Partie rapide » ──────────────────────────────────────
 
@@ -331,7 +338,7 @@ class Lobby:
             if waiting.player_id != me.player_id:
                 queue.remove(waiting)
                 self._cancel_queue_timer(waiting.player_id)
-                self.start_game(topic_id, waiting, me)
+                await self.start_game(topic_id, waiting, me)
                 return
         if me not in queue:
             queue.append(me)
@@ -348,7 +355,7 @@ class Lobby:
         queue = self.queues.get(topic_id, [])
         if me in queue:
             queue.remove(me)
-            self.start_bot_game(topic_id, me)
+            await self.start_bot_game(topic_id, me)
 
     def cancel_find(self, me: Participant) -> None:
         for queue in self.queues.values():
@@ -371,14 +378,14 @@ class Lobby:
         self.rooms[code] = (topic_id, host)
         return code
 
-    def join_room(self, code: str, guest: Participant) -> Game | None:
+    async def join_room(self, code: str, guest: Participant) -> Game | None:
         entry = self.rooms.pop(code.strip().upper(), None)
         if entry is None:
             return None
         topic_id, host = entry
         if host.send is None or host.player_id == guest.player_id:
             return None
-        return self.start_game(topic_id, host, guest)
+        return await self.start_game(topic_id, host, guest)
 
     def close_rooms_of(self, pid: str) -> None:
         for code in [c for c, (_, h) in self.rooms.items() if h.player_id == pid]:
@@ -391,7 +398,7 @@ class Lobby:
         if game is None or not game.finished:
             return
         me = game.participant(pid)
-        if me is None:
+        if me is None or self.active_game_of(pid) is not None:
             return
         game.rematch_votes.add(pid)
         opp = game.opponent_of(pid)
@@ -402,10 +409,10 @@ class Lobby:
                             "from": me.name})
         if all(p.player_id in game.rematch_votes for p in game.players):
             self.games.pop(game_id, None)
-            if opp.is_bot:
-                self.start_bot_game(game.topic_id, me)
-            else:
-                self.start_game(game.topic_id, game.players[0], game.players[1])
+            # Mêmes adversaires (bot compris : même nom, même force),
+            # nouvelles questions — comme l'original.
+            await self.start_game(game.topic_id, game.players[0], game.players[1],
+                                  bot_accuracy=game.bot_accuracy)
 
     async def decline_rematch(self, game_id: str, pid: str) -> None:
         game = self.games.get(game_id)

@@ -25,10 +25,13 @@
     <section id="screen-home" class="screen hidden">
       <header class="topbar">
         <div class="logo logo-small">Quizz<span>Up</span><em>⚡</em></div>
-        <button id="profile-btn" class="avatar-chip">
-          <span class="avatar" id="home-avatar">?</span>
-          <span id="home-name">—</span>
-        </button>
+        <div class="topbar-right">
+          <button id="sound-btn" class="icon-btn" title="Son">🔊</button>
+          <button id="profile-btn" class="avatar-chip">
+            <span class="avatar" id="home-avatar">?</span>
+            <span id="home-name">—</span>
+          </button>
+        </div>
       </header>
       <div class="conn-banner hidden" id="conn-banner">Connexion au serveur…</div>
       <h2 class="section-title">Choisis un thème</h2>
@@ -118,6 +121,7 @@
       <div class="search-box">
         <div class="search-spinner"></div>
         <div class="search-text">Recherche d'un adversaire…</div>
+        <div class="search-topic" id="search-topic"></div>
         <button id="btn-cancel-search" class="btn btn-ghost">Annuler</button>
       </div>
     </section>
@@ -162,7 +166,9 @@
       <div id="double-banner" class="double-banner hidden">✨ POINTS DOUBLÉS ✨</div>
 
       <div id="countdown-overlay" class="countdown-overlay hidden">
+        <div class="countdown-sub" id="countdown-sub">Question 1/7</div>
         <div class="countdown-num" id="countdown-num">3</div>
+        <div class="countdown-double hidden" id="countdown-double">✨ POINTS DOUBLÉS ✨</div>
       </div>
 
       <div class="question-card" id="question-card">
@@ -174,11 +180,14 @@
       <div class="answers" id="answers"></div>
 
       <div id="round-points" class="round-points hidden"></div>
+
+      <button id="btn-giveup" class="giveup-btn">🏳️ Abandonner</button>
     </section>
 
     <!-- ── Écran : résultats ───────────────────────────────────── -->
     <section id="screen-results" class="screen hidden">
       <div class="results-banner" id="results-banner">Victoire !</div>
+      <div class="results-sub hidden" id="results-sub"></div>
       <div class="results-scores">
         <div class="results-side">
           <span class="avatar avatar-big" id="r-me-avatar">?</span>
@@ -192,6 +201,7 @@
           <div class="results-score" id="r-opp-score">0</div>
         </div>
       </div>
+      <div class="round-dots results-dots" id="r-dots"></div>
       <div class="results-xp">
         <div class="results-xp-gain" id="r-xp-gain">+0 XP</div>
         <div class="level-line">
