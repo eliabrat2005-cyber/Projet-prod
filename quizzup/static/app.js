@@ -60,7 +60,7 @@ function confetti(count = 120) {
   const canvas = $("confetti");
   const ctx = canvas.getContext("2d");
   canvas.width = innerWidth; canvas.height = innerHeight;
-  const colors = ["#ffb200", "#ff5f8f", "#2ecc71", "#6c4bd8", "#4fc3f7", "#fff176"];
+  const colors = ["#d9b665", "#b08d3e", "#171a30", "#9a8cf0", "#a8d8ff", "#f6efe0"];
   const parts = Array.from({ length: count }, () => ({
     x: Math.random() * canvas.width,
     y: -20 - Math.random() * canvas.height * 0.4,
@@ -207,7 +207,8 @@ function renderTopics(filter = "") {
     const pct = Math.round(100 * st.xp_in_level / st.xp_for_next);
     const btn = document.createElement("button");
     btn.className = "topic-card";
-    btn.style.background = `linear-gradient(150deg, ${t.color} 0%, rgba(0,0,0,.45) 170%)`;
+    btn.style.background =
+      `linear-gradient(165deg, ${t.color}30 0%, rgba(255,255,255,.9) 62%)`;
     btn.innerHTML = `<span class="t-level">Niv. ${st.level}</span>
       <span class="t-icon">${t.icon}</span><span class="t-name">${t.name}</span>
       <span class="t-count">${t.count} questions</span>
@@ -223,7 +224,7 @@ function openTopic(t) {
   $("topic-title").textContent = t.name;
   $("topic-icon").textContent = t.icon;
   $("topic-hero").style.setProperty("background",
-    `linear-gradient(160deg, ${t.color} 0%, rgba(0,0,0,.4) 170%)`);
+    `linear-gradient(170deg, ${t.color}42 0%, rgba(255,255,255,.92) 78%)`);
   $("topic-level").textContent = `Niv. ${st.level}`;
   $("topic-title-rank").textContent = st.title;
   $("topic-xp-fill").style.width = `${Math.round(100 * st.xp_in_level / st.xp_for_next)}%`;
