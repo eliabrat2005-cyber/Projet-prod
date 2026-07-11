@@ -30,7 +30,7 @@ proxy avec support WebSocket).
 
 ## Règles du jeu
 
-- **Duel 1 contre 1** sur un thème choisi parmi 11 (275 questions en français)
+- **Duel 1 contre 1** sur un thème choisi parmi **23** (près de **2 000 questions** en français)
 - **7 questions** par match, **10 secondes** chacune, 4 choix de réponse
 - Compte à rebours 3-2-1 avant chaque question, les deux joueurs voient la
   même question au même moment
@@ -41,6 +41,24 @@ proxy avec support WebSocket).
   sont révélés entre chaque question
 - Fin de match : victoire / défaite / égalité, gain d'XP, **revanche** possible
 - Abandon ou déconnexion en cours de match = victoire de l'adversaire
+
+## Bibliothèque de questions
+
+Deux sources fusionnées (~2 000 questions, 23 thèmes) :
+
+- **19 thèmes rédigés à la main** (35 à 59 questions chacun) : Histoire, Géographie,
+  Sciences, Cinéma, Musique, Sport, Football, Jeux Vidéo, Culture Générale,
+  Gastronomie, Technologie, Animaux, Mythologie, Espace, Corps humain, France,
+  Littérature, Séries TV, Dessins animés
+- **4 thèmes générés programmatiquement** (`qgen.py`, pools stables de 135 à 377
+  questions) : Capitales du monde, Drapeaux, Calcul mental, Anglais
+
+**Anti-répétition** : le serveur mémorise les questions vues par joueur et par
+thème (hash md5 du texte, table `seen_questions`). Chaque nouvelle partie pioche
+d'abord dans les questions jamais vues ; en duel, l'union des historiques des
+deux joueurs est exclue. Quand un thème est épuisé, le cycle repart de zéro.
+Résultat : sur un thème généré, des dizaines de parties d'affilée sans jamais
+revoir une question.
 
 ## Modes de jeu
 

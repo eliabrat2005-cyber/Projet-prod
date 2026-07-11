@@ -49,10 +49,40 @@ function beep(freq, dur = 0.12, type = "sine", gain = 0.08) {
   } catch (e) { /* audio non dispo */ }
 }
 const sndTick = () => beep(880, 0.06, "square", 0.04);
+const sndUrgent = () => beep(1100, 0.05, "square", 0.05);
 const sndGood = () => { beep(660, 0.1); setTimeout(() => beep(990, 0.18), 90); };
 const sndBad = () => beep(160, 0.3, "sawtooth", 0.07);
 const sndGo = () => beep(1320, 0.2, "triangle", 0.09);
 const vibrate = (pattern) => { if (navigator.vibrate) try { navigator.vibrate(pattern); } catch (e) {} };
+
+// ─── Confettis (canvas maison, zéro dépendance) ─────────────────────────────
+function confetti(count = 120) {
+  const canvas = $("confetti");
+  const ctx = canvas.getContext("2d");
+  canvas.width = innerWidth; canvas.height = innerHeight;
+  const colors = ["#ffb200", "#ff5f8f", "#2ecc71", "#6c4bd8", "#4fc3f7", "#fff176"];
+  const parts = Array.from({ length: count }, () => ({
+    x: Math.random() * canvas.width,
+    y: -20 - Math.random() * canvas.height * 0.4,
+    w: 6 + Math.random() * 6, h: 8 + Math.random() * 8,
+    vy: 2.2 + Math.random() * 3.4, vx: -1.6 + Math.random() * 3.2,
+    rot: Math.random() * Math.PI, vr: -0.12 + Math.random() * 0.24,
+    color: colors[(Math.random() * colors.length) | 0],
+  }));
+  const t0 = performance.now();
+  cancelAnimationFrame(confetti._raf);
+  (function frame(now) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const p of parts) {
+      p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = p.color; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    }
+    if (now - t0 < 3200) confetti._raf = requestAnimationFrame(frame);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  })(t0);
+}
 
 // ─── WebSocket ──────────────────────────────────────────────────────────────
 function connect() {
@@ -160,16 +190,28 @@ function topicStats(topicId) {
                 games: 0, wins: 0, losses: 0, draws: 0, best_score: 0 };
 }
 
-function renderTopics() {
+function renderTopics(filter = "") {
   const grid = $("topics-grid");
   grid.innerHTML = "";
-  for (const t of S.topics) {
+  const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  const list = S.topics.filter((t) => !filter || norm(t.name).includes(norm(filter)));
+  const totalQ = S.topics.reduce((acc, t) => acc + t.count, 0);
+  $("home-stats").textContent =
+    `${S.topics.length} thèmes · ${totalQ.toLocaleString("fr-FR")} questions — jamais deux fois la même`;
+  if (!list.length) {
+    grid.innerHTML = `<div class="topics-empty">Aucun thème ne correspond 😕</div>`;
+    return;
+  }
+  for (const t of list) {
     const st = topicStats(t.id);
+    const pct = Math.round(100 * st.xp_in_level / st.xp_for_next);
     const btn = document.createElement("button");
     btn.className = "topic-card";
     btn.style.background = `linear-gradient(150deg, ${t.color} 0%, rgba(0,0,0,.45) 170%)`;
     btn.innerHTML = `<span class="t-level">Niv. ${st.level}</span>
-      <span class="t-icon">${t.icon}</span><span class="t-name">${t.name}</span>`;
+      <span class="t-icon">${t.icon}</span><span class="t-name">${t.name}</span>
+      <span class="t-count">${t.count} questions</span>
+      <span class="t-progress"><i style="width:${pct}%"></i></span>`;
     btn.onclick = () => openTopic(t);
     grid.appendChild(btn);
   }
@@ -223,6 +265,7 @@ function onMatchFound(msg) {
   $("g-me-score").textContent = "0";
   $("g-opp-score").textContent = "0";
   $("opp-answered-name").textContent = msg.opponent.name;
+  $("streak-badge").classList.add("hidden");
   renderDots();
 }
 
@@ -282,10 +325,17 @@ function onQuestion(msg) {
 
   const wrap = $("answers");
   wrap.innerHTML = "";
+  const keys = ["A", "B", "C", "D"];
   msg.choices.forEach((choice, i) => {
     const btn = document.createElement("button");
     btn.className = "answer-btn";
-    btn.textContent = choice;
+    const key = document.createElement("span");
+    key.className = "key";
+    key.textContent = keys[i];
+    const txt = document.createElement("span");
+    txt.className = "txt";
+    txt.textContent = choice;
+    btn.append(key, txt);
     btn.onclick = () => answer(i, btn);
     wrap.appendChild(btn);
   });
@@ -296,11 +346,21 @@ function onQuestion(msg) {
 function startTimer(duration) {
   cancelAnimationFrame(S.timerRAF);
   const fill = $("timer-fill");
+  const track = fill.parentElement;
+  track.classList.remove("urgent");
   const start = performance.now();
   const total = duration * 1000;
+  let lastWholeSec = Math.ceil(duration);
   const tick = (now) => {
     const left = Math.max(0, 1 - (now - start) / total);
     fill.style.transform = `scaleX(${left})`;
+    const secsLeft = left * duration;
+    // Urgence sur les 3 dernières secondes : pulse rouge + bip par seconde
+    if (secsLeft <= 3 && !S.game?.answered) {
+      track.classList.add("urgent");
+      const whole = Math.ceil(secsLeft);
+      if (whole < lastWholeSec && whole > 0) { sndUrgent(); lastWholeSec = whole; }
+    }
     if (left > 0) {
       S.timerRAF = requestAnimationFrame(tick);
     } else if (S.game && !S.game.answered) {
@@ -344,8 +404,20 @@ function onReveal(msg) {
     if (msg.opp.choice !== null && i === msg.opp.choice) b.classList.add("opp-pick");
   });
 
+  $("timer-fill").parentElement.classList.remove("urgent");
+
   const gotIt = msg.you.choice === msg.correct;
   if (gotIt) { sndGood(); vibrate(30); } else { sndBad(); vibrate([70, 40, 70]); }
+
+  // Série de bonnes réponses 🔥
+  S.game.streak = gotIt ? (S.game.streak || 0) + 1 : 0;
+  const badge = $("streak-badge");
+  if (S.game.streak >= 2) {
+    $("streak-count").textContent = S.game.streak;
+    badge.classList.remove("hidden");
+  } else {
+    badge.classList.add("hidden");
+  }
 
   const pts = $("round-points");
   const time = msg.you.time !== null ? ` · ${msg.you.time.toFixed(1).replace(".", ",")} s` : "";
@@ -397,8 +469,9 @@ function onGameOver(msg) {
   } else {
     sub.classList.add("hidden");
   }
-  if (msg.result === "win") { sndGood(); vibrate([40, 60, 40, 60, 120]); }
+  if (msg.result === "win") { sndGood(); vibrate([40, 60, 40, 60, 120]); confetti(140); }
   else if (msg.result === "loss") sndBad();
+  if (msg.level_up) setTimeout(() => confetti(80), 900);
 
   // Recap round par round (vert = gagné, rouge = perdu, jaune = égalité)
   const dots = $("r-dots");
@@ -589,6 +662,9 @@ $("btn-results-home").onclick = () => {
 
 // Quitter un match en cours si on ferme l'onglet : le serveur gère via disconnect.
 window.addEventListener("beforeunload", () => { if (S.ws) S.ws.close(); });
+
+// Recherche de thème en direct
+$("topic-search").addEventListener("input", (e) => renderTopics(e.target.value));
 
 // État initial du bouton son (préférence persistée)
 $("sound-btn").textContent = S.sound ? "🔊" : "🔇";

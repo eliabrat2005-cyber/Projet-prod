@@ -34,7 +34,9 @@
         </div>
       </header>
       <div class="conn-banner hidden" id="conn-banner">Connexion au serveur…</div>
-      <h2 class="section-title">Choisis un thème</h2>
+      <input id="topic-search" class="topic-search" type="search"
+             placeholder="🔍 Chercher un thème…" autocomplete="off">
+      <div class="home-stats" id="home-stats"></div>
       <div id="topics-grid" class="topics-grid"></div>
     </section>
 
@@ -164,6 +166,7 @@
       <div class="timer-track"><div class="timer-fill" id="timer-fill"></div></div>
 
       <div id="double-banner" class="double-banner hidden">✨ POINTS DOUBLÉS ✨</div>
+      <div id="streak-badge" class="streak-badge hidden">🔥 <span id="streak-count">2</span></div>
 
       <div id="countdown-overlay" class="countdown-overlay hidden">
         <div class="countdown-sub" id="countdown-sub">Question 1/7</div>
@@ -220,6 +223,7 @@
     </section>
 
   </div>
+  <canvas id="confetti" class="confetti-canvas"></canvas>
   <div id="toast" class="toast hidden"></div>
   <script src="/static/app.js"></script>
 </body>

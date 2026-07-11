@@ -76,13 +76,55 @@ def test_titles(quizzup_modules):
 def test_question_bank_valid(quizzup_modules):
     _, _, q = quizzup_modules
     topics = q.load_topics()
-    assert len(topics) >= 10
+    assert len(topics) >= 20
+    assert sum(len(t["questions"]) for t in topics.values()) >= 1500
     for topic in topics.values():
         assert len(topic["questions"]) >= 20
+        hashes = [item["h"] for item in topic["questions"]]
+        assert len(hashes) == len(set(hashes)), f"question dupliquée dans {topic['id']}"
         for item in topic["questions"]:
             assert len(item["choices"]) == 4
             assert 0 <= item["answer"] <= 3
             assert len(set(item["choices"])) == 4, f"doublon de choix : {item['q']}"
+
+
+def test_generated_topics_valid(quizzup_modules):
+    _, _, q = quizzup_modules
+    topics = q.load_topics()
+    for tid in ("capitales", "drapeaux", "calcul", "anglais"):
+        assert tid in topics, f"thème généré manquant : {tid}"
+        pool = topics[tid]["questions"]
+        assert len(pool) >= 130, f"{tid} : pool trop petit ({len(pool)})"
+        for item in pool:
+            assert len(item["choices"]) == 4
+            assert len(set(item["choices"])) == 4, f"doublon dans {item['q']}"
+            assert 0 <= item["answer"] <= 3
+
+
+def test_no_repeat_across_consecutive_games(quizzup_modules):
+    """Simule des parties consécutives : aucune question ne revient tant que
+    le thème n'est pas épuisé, puis le cycle repart proprement."""
+    engine, _, q = quizzup_modules
+    from quizzup import store
+
+    p1 = engine.Participant("joueur-norepeat", "NoRepeat")
+    topic_id = "capitales"
+    pool_size = len(q.load_topics()[topic_id]["questions"])
+    full_cycles = pool_size // q.ROUNDS_PER_GAME
+
+    seen: set[str] = set()
+    games = min(full_cycles, 30)
+    for i in range(games):
+        picked = engine._pick_fresh_questions(topic_id, [p1])
+        hashes = {x["h"] for x in picked}
+        assert len(hashes) == 7
+        assert not (hashes & seen), f"répétition à la partie {i + 1}"
+        seen |= hashes
+    # Épuisement : le cycle suivant repart sans erreur
+    for _ in range(3):
+        picked = engine._pick_fresh_questions(topic_id, [p1])
+        assert len(picked) == 7
+    store.reset_seen_questions("joueur-norepeat", topic_id)
 
 
 def test_pick_game_questions_shuffles(quizzup_modules):
@@ -101,12 +143,23 @@ def test_full_bot_game(quizzup_modules):
     _, server, q = quizzup_modules
     from starlette.testclient import TestClient
 
-    client = TestClient(server.app)
+    # Context manager = portal anyio partagé : tous les websockets du test
+    # vivent dans le MÊME event loop, comme en production sous uvicorn.
+    # Sans lui, chaque websocket a sa propre boucle et les messages émis
+    # depuis la boucle de l'adversaire peuvent ne jamais réveiller le lecteur.
+    with TestClient(server.app) as client:
+        resp = client.get("/api/topics")
+        assert resp.status_code == 200
+        topic_id = resp.json()[0]["id"]
 
-    resp = client.get("/api/topics")
-    assert resp.status_code == 200
-    topic_id = resp.json()[0]["id"]
+        _run_full_bot_game(client, topic_id)
 
+        # Le match est bien persistant : stats et classement mis à jour.
+        lb = client.get(f"/api/leaderboard/{topic_id}").json()
+        assert any(row["name"] == "Testeur" for row in lb)
+
+
+def _run_full_bot_game(client, topic_id):
     with client.websocket_connect("/ws") as ws:
         ws.send_text(json.dumps({"type": "hello", "name": "Testeur"}))
         welcome = json.loads(ws.receive_text())
@@ -142,10 +195,6 @@ def test_full_bot_game(quizzup_modules):
         assert game_over["xp_gained"] >= 5
         assert game_over["level_after"]["xp"] > 0
 
-    # Le match est bien persistant : stats et classement mis à jour.
-    lb = client.get(f"/api/leaderboard/{topic_id}").json()
-    assert any(row["name"] == "Testeur" for row in lb)
-
 
 def _drain_until(ws, wanted: str, limit: int = 300) -> dict:
     """Lit les messages jusqu'à trouver ``wanted`` (répond '0' aux questions)."""
@@ -163,9 +212,11 @@ def test_rematch_keeps_same_bot(quizzup_modules):
     _, server, _ = quizzup_modules
     from starlette.testclient import TestClient
 
-    client = TestClient(server.app)
-    topic_id = client.get("/api/topics").json()[0]["id"]
+    with TestClient(server.app) as client:
+        _run_rematch_flow(client, client.get("/api/topics").json()[0]["id"])
 
+
+def _run_rematch_flow(client, topic_id):
     with client.websocket_connect("/ws") as ws:
         ws.send_text(json.dumps({"type": "hello", "name": "Revanchard"}))
         json.loads(ws.receive_text())
@@ -194,9 +245,13 @@ def test_quick_match_pairs_two_humans(quizzup_modules):
     _, server, _ = quizzup_modules
     from starlette.testclient import TestClient
 
-    client = TestClient(server.app)
-    topic_id = client.get("/api/topics").json()[0]["id"]
+    # Portal partagé obligatoire : les deux websockets doivent vivre dans le
+    # même event loop pour que les émissions croisées se délivrent (cf. prod).
+    with TestClient(server.app) as client:
+        _run_quick_match_flow(client, client.get("/api/topics").json()[0]["id"])
 
+
+def _run_quick_match_flow(client, topic_id):
     with client.websocket_connect("/ws") as ws1, client.websocket_connect("/ws") as ws2:
         ws1.send_text(json.dumps({"type": "hello", "name": "Rapide1"}))
         json.loads(ws1.receive_text())
@@ -224,9 +279,11 @@ def test_room_code_flow(quizzup_modules):
     _, server, _ = quizzup_modules
     from starlette.testclient import TestClient
 
-    client = TestClient(server.app)
-    topic_id = client.get("/api/topics").json()[0]["id"]
+    with TestClient(server.app) as client:
+        _run_room_code_flow(client, client.get("/api/topics").json()[0]["id"])
 
+
+def _run_room_code_flow(client, topic_id):
     with client.websocket_connect("/ws") as ws1, client.websocket_connect("/ws") as ws2:
         ws1.send_text(json.dumps({"type": "hello", "name": "Hôte"}))
         json.loads(ws1.receive_text())

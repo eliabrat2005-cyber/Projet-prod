@@ -41,6 +41,13 @@ def _db() -> sqlite3.Connection:
                 best_score INTEGER NOT NULL DEFAULT 0,
                 PRIMARY KEY (player_id, topic_id)
             );
+            CREATE TABLE IF NOT EXISTS seen_questions (
+                player_id TEXT NOT NULL,
+                topic_id  TEXT NOT NULL,
+                qhash     TEXT NOT NULL,
+                seen_at   TEXT NOT NULL,
+                PRIMARY KEY (player_id, topic_id, qhash)
+            );
             """
         )
         _conn.commit()
@@ -70,6 +77,38 @@ def get_player(pid: str) -> dict | None:
 def rename_player(pid: str, name: str) -> None:
     with _lock:
         _db().execute("UPDATE players SET name = ? WHERE id = ?", (name, pid))
+        _db().commit()
+
+
+# ─── Questions déjà vues (anti-répétition) ──────────────────────────────────
+
+def get_seen_questions(pid: str, topic_id: str) -> set[str]:
+    with _lock:
+        rows = _db().execute(
+            "SELECT qhash FROM seen_questions WHERE player_id = ? AND topic_id = ?",
+            (pid, topic_id),
+        ).fetchall()
+    return {r["qhash"] for r in rows}
+
+
+def record_seen_questions(pid: str, topic_id: str, hashes: list[str]) -> None:
+    now = datetime.now(UTC).isoformat()
+    with _lock:
+        _db().executemany(
+            "INSERT OR REPLACE INTO seen_questions (player_id, topic_id, qhash, seen_at)"
+            " VALUES (?, ?, ?, ?)",
+            [(pid, topic_id, h, now) for h in hashes],
+        )
+        _db().commit()
+
+
+def reset_seen_questions(pid: str, topic_id: str) -> None:
+    """Cycle terminé (tout le thème a été vu) : on repart de zéro."""
+    with _lock:
+        _db().execute(
+            "DELETE FROM seen_questions WHERE player_id = ? AND topic_id = ?",
+            (pid, topic_id),
+        )
         _db().commit()
 
 

@@ -81,6 +81,28 @@ def make_bot(level_hint: int) -> tuple[Participant, float]:
 
 # ─── Partie ─────────────────────────────────────────────────────────────────
 
+def _pick_fresh_questions(topic_id: str, players: list[Participant]) -> list[dict]:
+    """Tire les questions du match en évitant celles déjà vues par les joueurs.
+
+    Quand un joueur a fait le tour du thème, son historique est remis à zéro
+    (nouveau cycle) — garantit un maximum de variété partie après partie.
+    """
+    humans = [p for p in players if not p.is_bot]
+    exclude: set[str] = set()
+    for p in humans:
+        exclude |= store.get_seen_questions(p.player_id, topic_id)
+    all_hashes = {q["h"] for q in qbank.get_topic(topic_id)["questions"]}
+    if len(all_hashes - exclude) < ROUNDS:
+        for p in humans:
+            store.reset_seen_questions(p.player_id, topic_id)
+        exclude = set()
+    questions = qbank.pick_game_questions(topic_id, exclude=exclude)
+    picked = [q["h"] for q in questions]
+    for p in humans:
+        store.record_seen_questions(p.player_id, topic_id, picked)
+    return questions
+
+
 class Game:
     def __init__(self, topic_id: str, p1: Participant, p2: Participant,
                  bot_accuracy: float = 0.7):
@@ -88,7 +110,7 @@ class Game:
         self.topic_id = topic_id
         self.players = [p1, p2]
         self.bot_accuracy = bot_accuracy
-        self.questions = qbank.pick_game_questions(topic_id)
+        self.questions = _pick_fresh_questions(topic_id, self.players)
         self.scores = {p1.player_id: 0, p2.player_id: 0}
         self.round_no = 0
         self.round_answers: dict[str, tuple[int, float]] = {}  # pid -> (choix, temps)

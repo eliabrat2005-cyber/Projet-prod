@@ -1,14 +1,24 @@
 """Chargement de la banque de questions + système de niveaux/titres.
 
-Chaque thème est un JSON dans ``quizzup/data/questions/`` :
+Deux sources fusionnées :
+- JSON dans ``quizzup/data/questions/`` (thèmes rédigés à la main) :
     {"id": "...", "name": "...", "icon": "🎬", "color": "#hex",
      "questions": [{"q": "...", "choices": ["a","b","c","d"], "answer": 0}]}
+- Thèmes générés programmatiquement (``qgen.py``) — pools stables de
+  centaines de questions (capitales, drapeaux, calcul, anglais…).
+
+Anti-répétition : chaque question a un hash stable (md5 du texte) ; le
+serveur mémorise les hashes vus par joueur/thème et pioche d'abord dans
+les questions jamais vues.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import random
 from pathlib import Path
+
+from . import qgen
 
 _DATA_DIR = Path(__file__).parent / "data" / "questions"
 
@@ -74,6 +84,11 @@ def level_info(xp: int) -> dict:
 _topics: dict[str, dict] = {}
 
 
+def question_hash(text: str) -> str:
+    """Identifiant stable d'une question (pour l'anti-répétition)."""
+    return hashlib.md5(text.encode("utf-8")).hexdigest()[:12]
+
+
 def load_topics() -> dict[str, dict]:
     global _topics
     if _topics:
@@ -81,10 +96,13 @@ def load_topics() -> dict[str, dict]:
     topics: dict[str, dict] = {}
     for path in sorted(_DATA_DIR.glob("*.json")):
         data = json.loads(path.read_text(encoding="utf-8"))
+        topics[data["id"]] = data
+    topics.update(qgen.generated_topics())
+    for tid, data in topics.items():
         for i, q in enumerate(data["questions"]):
             if len(q["choices"]) != 4 or not (0 <= q["answer"] <= 3):
-                raise ValueError(f"{path.name} question #{i} invalide")
-        topics[data["id"]] = data
+                raise ValueError(f"{tid} question #{i} invalide")
+            q["h"] = question_hash(q["q"])
     _topics = topics
     return topics
 
@@ -102,18 +120,30 @@ def get_topic(topic_id: str) -> dict | None:
     return load_topics().get(topic_id)
 
 
-def pick_game_questions(topic_id: str, n: int = ROUNDS_PER_GAME) -> list[dict]:
+def pick_game_questions(topic_id: str, n: int = ROUNDS_PER_GAME,
+                        exclude: set[str] | None = None) -> list[dict]:
     """Tire ``n`` questions distinctes, réponses mélangées.
 
-    Chaque item : {"q", "choices" (mélangées), "answer" (index post-mélange)}.
+    ``exclude`` = hashes déjà vus par les joueurs : on pioche d'abord dans
+    les questions jamais vues, et on ne complète avec des déjà-vues que si
+    le thème est épuisé. Chaque item : {"q", "h", "choices", "answer"}.
     """
     topic = load_topics()[topic_id]
-    picked = random.sample(topic["questions"], min(n, len(topic["questions"])))
+    pool = topic["questions"]
+    n = min(n, len(pool))
+    exclude = exclude or set()
+    fresh = [q for q in pool if q["h"] not in exclude]
+    if len(fresh) >= n:
+        picked = random.sample(fresh, n)
+    else:  # thème épuisé : toutes les fraîches + complément déjà vu
+        seen_pool = [q for q in pool if q["h"] in exclude]
+        picked = fresh + random.sample(seen_pool, n - len(fresh))
+        random.shuffle(picked)
     out = []
     for q in picked:
         order = list(range(4))
         random.shuffle(order)
         choices = [q["choices"][i] for i in order]
         answer = order.index(q["answer"])
-        out.append({"q": q["q"], "choices": choices, "answer": answer})
+        out.append({"q": q["q"], "h": q["h"], "choices": choices, "answer": answer})
     return out
