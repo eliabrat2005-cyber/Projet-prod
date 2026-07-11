@@ -7,7 +7,9 @@ import uvicorn
 
 
 def main() -> None:
-    port = int(os.environ.get("QUIZZUP_PORT", "8600"))
+    # PORT est fourni par les hébergeurs cloud (Render, Railway…) ;
+    # QUIZZUP_PORT reste prioritaire pour un déploiement manuel.
+    port = int(os.environ.get("QUIZZUP_PORT") or os.environ.get("PORT") or "8600")
     host = os.environ.get("QUIZZUP_HOST", "0.0.0.0")
     uvicorn.run("quizzup.server:app", host=host, port=port, log_level="info")
 

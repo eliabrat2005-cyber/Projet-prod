@@ -1,0 +1,18 @@
+# Blueprint Render.com — héberge QuizzUp gratuitement, sans terminal.
+# Sur render.com : New + → Blueprint → sélectionner ce dépôt → Apply.
+services:
+  - type: web
+    name: quizzup
+    runtime: python
+    plan: free
+    branch: claude/quizzup-game-recreation-j7s0p6
+    buildCommand: pip install -r quizzup/requirements.txt
+    startCommand: python -m quizzup
+    healthCheckPath: /health
+    envVars:
+      # Free tier = disque éphémère : les scores repartent de zéro à chaque
+      # redéploiement/mise en veille. Suffisant pour tester et faire une démo.
+      - key: QUIZZUP_DB
+        value: /tmp/quizzup.db
+      - key: PYTHON_VERSION
+        value: "3.11.9"

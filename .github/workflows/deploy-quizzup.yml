@@ -1,11 +1,11 @@
 name: Deploy QuizzUp
 
-# Déploie QuizzUp sur le VPS à chaque push de la branche du jeu.
-# Réutilise les mêmes secrets SSH que le déploiement Ferment Station —
-# aucune connexion manuelle nécessaire.
+# Déploie QuizzUp sur le VPS (lancement manuel : onglet Actions →
+# Deploy QuizzUp → Run workflow). Nécessite les secrets VPS_HOST,
+# VPS_USER et VPS_SSH_KEY dans Settings → Secrets and variables →
+# Actions. Tant qu'ils n'existent pas, utiliser l'hébergement Render
+# (render.yaml à la racine) qui ne demande aucun secret.
 on:
-  push:
-    branches: [claude/quizzup-game-recreation-j7s0p6]
   workflow_dispatch:
 
 jobs:
