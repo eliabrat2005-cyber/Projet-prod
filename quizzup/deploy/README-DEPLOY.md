@@ -2,7 +2,21 @@
 
 Aucune installation locale nécessaire — tout tourne sur le VPS.
 
-## 1. Installer (une seule fois)
+## Méthode zéro terminal (recommandée) : GitHub Actions
+
+Le workflow `.github/workflows/deploy-quizzup.yml` déploie automatiquement
+QuizzUp sur le VPS **à chaque push de la branche du jeu**, en réutilisant les
+secrets SSH du déploiement Ferment Station (`VPS_HOST`/`VPS_USER`/`VPS_SSH_KEY`).
+Il peut aussi être lancé à la main (onglet *Actions* → *Deploy QuizzUp* →
+*Run workflow*).
+
+Après déploiement, le jeu est accessible sur **http://92.222.229.87:8600**
+(le service écoute sur toutes les interfaces). Pour une jolie URL HTTPS,
+voir la section 3 ci-dessous.
+
+## Méthode manuelle en SSH
+
+### 1. Installer (une seule fois)
 
 Depuis un terminal (Mac : Terminal, Windows : PowerShell) :
 

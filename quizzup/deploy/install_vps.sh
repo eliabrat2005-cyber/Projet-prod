@@ -6,8 +6,9 @@ set -euo pipefail
 APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"  # racine du repo
 VENV="$APP_DIR/.venv-quizzup"
 PORT="${QUIZZUP_PORT:-8600}"
+HOST="${QUIZZUP_HOST:-127.0.0.1}"   # 0.0.0.0 = accessible depuis Internet
 
-echo "→ Installation dans $APP_DIR (port $PORT)"
+echo "→ Installation dans $APP_DIR (écoute $HOST:$PORT)"
 
 # 1. Environnement Python isolé + dépendances (léger : fastapi + uvicorn)
 if [ ! -d "$VENV" ]; then
@@ -26,7 +27,7 @@ After=network.target
 User=$USER
 WorkingDirectory=$APP_DIR
 Environment=QUIZZUP_PORT=$PORT
-Environment=QUIZZUP_HOST=127.0.0.1
+Environment=QUIZZUP_HOST=$HOST
 ExecStart=$VENV/bin/python -m quizzup
 Restart=always
 RestartSec=3

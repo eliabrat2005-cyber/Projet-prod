@@ -1,0 +1,46 @@
+name: Deploy QuizzUp
+
+# Déploie QuizzUp sur le VPS à chaque push de la branche du jeu.
+# Réutilise les mêmes secrets SSH que le déploiement Ferment Station —
+# aucune connexion manuelle nécessaire.
+on:
+  push:
+    branches: [claude/quizzup-game-recreation-j7s0p6]
+  workflow_dispatch:
+
+jobs:
+  deploy-quizzup:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-quizzup
+      cancel-in-progress: true
+
+    steps:
+      - name: Deploy QuizzUp to VPS
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+            BRANCH=claude/quizzup-game-recreation-j7s0p6
+            if [ ! -d "$HOME/quizzup/.git" ]; then
+              git clone --branch "$BRANCH" "$(git -C /home/ubuntu/app remote get-url origin)" "$HOME/quizzup"
+            fi
+            cd "$HOME/quizzup"
+            git fetch origin "$BRANCH"
+            git checkout "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+            QUIZZUP_HOST=0.0.0.0 bash quizzup/deploy/install_vps.sh
+            sudo systemctl restart quizzup
+            sleep 2
+            # Ouvre le port si un pare-feu ufw est actif (sinon no-op)
+            sudo ufw allow 8600/tcp 2>/dev/null || true
+            if curl -sf http://127.0.0.1:8600/health > /dev/null; then
+              echo "✅ QuizzUp déployé — http://$(curl -s --max-time 5 ifconfig.me):8600"
+            else
+              echo "❌ QuizzUp ne répond pas"
+              sudo journalctl -u quizzup --no-pager -n 30
+              exit 1
+            fi
