@@ -98,6 +98,14 @@ def load_topics() -> dict[str, dict]:
         data = json.loads(path.read_text(encoding="utf-8"))
         topics[data["id"]] = data
     topics.update(qgen.generated_topics())
+    # Grille triée alphabétiquement (accents ignorés) : les thèmes générés
+    # s'intercalent au bon endroit au lieu de s'empiler à la fin.
+    def _sort_key(item: tuple[str, dict]) -> str:
+        import unicodedata
+        name = item[1]["name"]
+        return unicodedata.normalize("NFD", name).encode("ascii", "ignore").decode().lower()
+
+    topics = dict(sorted(topics.items(), key=_sort_key))
     for tid, data in topics.items():
         for i, q in enumerate(data["questions"]):
             if len(q["choices"]) != 4 or not (0 <= q["answer"] <= 3):

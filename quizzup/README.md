@@ -30,7 +30,7 @@ proxy avec support WebSocket).
 
 ## Règles du jeu
 
-- **Duel 1 contre 1** sur un thème choisi parmi **23** (près de **2 000 questions** en français)
+- **Duel 1 contre 1** sur un thème choisi parmi **100** (près de **4 800 questions** en français)
 - **7 questions** par match, **10 secondes** chacune, 4 choix de réponse
 - Compte à rebours 3-2-1 avant chaque question, les deux joueurs voient la
   même question au même moment
@@ -44,14 +44,16 @@ proxy avec support WebSocket).
 
 ## Bibliothèque de questions
 
-Deux sources fusionnées (~2 000 questions, 23 thèmes) :
+Deux sources fusionnées (**4 802 questions, 100 thèmes**) :
 
-- **19 thèmes rédigés à la main** (35 à 59 questions chacun) : Histoire, Géographie,
-  Sciences, Cinéma, Musique, Sport, Football, Jeux Vidéo, Culture Générale,
-  Gastronomie, Technologie, Animaux, Mythologie, Espace, Corps humain, France,
-  Littérature, Séries TV, Dessins animés
-- **4 thèmes générés programmatiquement** (`qgen.py`, pools stables de 135 à 377
-  questions) : Capitales du monde, Drapeaux, Calcul mental, Anglais
+- **86 thèmes rédigés à la main** (24 à 59 questions chacun) : de l'Histoire à
+  Naruto, de One Piece à Star Wars, en passant par Harry Potter, Marvel,
+  Pokémon, les Bonbons, le Rap français, les Dinosaures, la Formule 1,
+  Minecraft, les Échecs, le Japon, les Pirates, Noël… (voir `data/questions/`)
+- **14 thèmes générés programmatiquement** (`qgen.py`, pools stables de 45 à 377
+  questions) : Capitales du monde, Drapeaux, Calcul mental, Anglais, Espagnol,
+  Allemand, Italien, Départements français, États américains, Monnaies,
+  Chiffres romains, Éléments chimiques, Petits des animaux, Langues du monde
 
 **Anti-répétition** : le serveur mémorise les questions vues par joueur et par
 thème (hash md5 du texte, table `seen_questions`). Chaque nouvelle partie pioche
