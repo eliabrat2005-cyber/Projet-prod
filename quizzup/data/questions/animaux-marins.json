@@ -1,0 +1,32 @@
+{
+  "id": "animaux-marins",
+  "name": "Animaux marins",
+  "icon": "🐬",
+  "color": "#0277bd",
+  "questions": [
+    {"q": "Quel est le plus grand animal ayant jamais vécu sur Terre ?", "choices": ["La baleine bleue", "Le mégalodon", "Le cachalot", "Le requin-baleine"], "answer": 0},
+    {"q": "Quel mammifère marin chasse en groupe et s'attaque même aux requins ?", "choices": ["L'orque", "Le dauphin", "Le narval", "Le béluga"], "answer": 0},
+    {"q": "Combien de bras possède une pieuvre ?", "choices": ["Huit", "Six", "Dix", "Douze"], "answer": 0},
+    {"q": "Quel animal marin possède dix bras dont deux tentacules ?", "choices": ["Le calmar", "La pieuvre", "La crevette", "La méduse"], "answer": 0},
+    {"q": "Quel requin est le plus grand poisson du monde ?", "choices": ["Le requin-baleine", "Le grand blanc", "Le requin-tigre", "Le requin pèlerin"], "answer": 0},
+    {"q": "De quoi se nourrit le requin-baleine ?", "choices": ["De plancton", "De phoques", "De gros poissons", "De tortues"], "answer": 0},
+    {"q": "Quel cétacé au front bombé est surnommé le « canari des mers » ?", "choices": ["Le béluga", "Le narval", "Le dauphin", "Le marsouin"], "answer": 0},
+    {"q": "Quelle « licorne des mers » porte une longue défense torsadée ?", "choices": ["Le narval", "Le béluga", "L'espadon", "Le poisson-scie"], "answer": 0},
+    {"q": "Quel animal marin change de couleur et projette de l'encre ?", "choices": ["La seiche", "La méduse", "L'étoile de mer", "Le bernard-l'hermite"], "answer": 0},
+    {"q": "Quel poisson des abysses attire ses proies avec un leurre lumineux ?", "choices": ["La baudroie (poisson-pêcheur)", "Le poisson-lune", "L'anguille", "Le poisson-globe"], "answer": 0},
+    {"q": "Quel animal sans cerveau dérive dans les océans depuis 500 millions d'années ?", "choices": ["La méduse", "L'étoile de mer", "Le plancton", "Le corail"], "answer": 0},
+    {"q": "Quel petit hippocampe mâle a une particularité unique ?", "choices": ["C'est lui qui porte les œufs", "Il change de sexe", "Il vole hors de l'eau", "Il vit 100 ans"], "answer": 0},
+    {"q": "Quel crustacé change de coquille en grandissant ?", "choices": ["Le bernard-l'hermite", "Le crabe", "Le homard", "La crevette"], "answer": 0},
+    {"q": "Quelle tortue marine géante se nourrit principalement de méduses ?", "choices": ["La tortue luth", "La tortue verte", "La tortue imbriquée", "La caouanne"], "answer": 0},
+    {"q": "Quel animal construit les récifs coralliens ?", "choices": ["Le polype corallien", "L'algue rouge", "L'éponge", "L'anémone"], "answer": 0},
+    {"q": "Avec quel animal le poisson-clown vit-il en symbiose ?", "choices": ["L'anémone de mer", "Le corail", "L'oursin", "L'étoile de mer"], "answer": 0},
+    {"q": "Quel grand poisson plat au corps rond se dore au soleil en surface ?", "choices": ["Le poisson-lune (môle)", "La raie manta", "Le turbot", "Le flétan"], "answer": 0},
+    {"q": "Quelle raie géante et inoffensive « vole » dans l'océan ?", "choices": ["La raie manta", "La raie torpille", "La pastenague", "La raie léopard"], "answer": 0},
+    {"q": "Quel mammifère marin dort d'un seul hémisphère cérébral à la fois ?", "choices": ["Le dauphin", "Le phoque", "Le morse", "La loutre"], "answer": 0},
+    {"q": "Quel animal marin le plus venimeux est une méduse australienne ?", "choices": ["La méduse-boîte (cuboméduse)", "La physalie", "La méduse-lune", "L'ortie de mer"], "answer": 0},
+    {"q": "Quel cétacé plonge le plus profond, jusqu'à 2 000 m ?", "choices": ["Le cachalot", "La baleine bleue", "L'orque", "Le rorqual"], "answer": 0},
+    {"q": "Contre quel calmar géant le cachalot se bat-il dans les abysses ?", "choices": ["Le calmar géant (Architeuthis)", "Le kraken réel", "Le nautile", "La pieuvre géante"], "answer": 0},
+    {"q": "Quel pinnipède arctique porte deux longues défenses d'ivoire ?", "choices": ["Le morse", "Le phoque barbu", "L'otarie", "L'éléphant de mer"], "answer": 0},
+    {"q": "Quelle loutre de mer utilise une pierre comme outil ?", "choices": ["La loutre de mer", "La loutre d'Europe", "Le castor marin", "Le raton laveur d'eau"], "answer": 0}
+  ]
+}

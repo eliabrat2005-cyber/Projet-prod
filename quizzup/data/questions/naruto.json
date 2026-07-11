@@ -1,0 +1,32 @@
+{
+  "id": "naruto",
+  "name": "Naruto",
+  "icon": "🍥",
+  "color": "#e65100",
+  "questions": [
+    {"q": "Quel démon est scellé dans le corps de Naruto ?", "choices": ["Kyûbi, le renard à neuf queues", "Shukaku", "Gyûki", "Matatabi"], "answer": 0},
+    {"q": "Quel est le rêve de Naruto ?", "choices": ["Devenir Hokage", "Devenir le plus riche", "Quitter Konoha", "Diriger l'Akatsuki"], "answer": 0},
+    {"q": "Comment s'appelle le village de Naruto ?", "choices": ["Konoha", "Suna", "Kiri", "Iwa"], "answer": 0},
+    {"q": "Qui est le rival et meilleur ami de Naruto ?", "choices": ["Sasuke", "Kiba", "Neji", "Shikamaru"], "answer": 0},
+    {"q": "Quel clan possède le Sharingan ?", "choices": ["Le clan Uchiwa", "Le clan Hyûga", "Le clan Nara", "Le clan Uzumaki"], "answer": 0},
+    {"q": "Qui est le sensei de l'équipe 7 ?", "choices": ["Kakashi", "Iruka", "Jiraya", "Asuma"], "answer": 0},
+    {"q": "Quel plat Naruto adore-t-il par-dessus tout ?", "choices": ["Les ramen", "Les sushis", "Les onigiris", "Le curry"], "answer": 0},
+    {"q": "Quelle technique emblématique Naruto utilise-t-il en permanence ?", "choices": ["Le multi-clonage", "Le Chidori", "Les 64 poings du Hakke", "La manipulation des ombres"], "answer": 0},
+    {"q": "Qui a scellé Kyûbi dans Naruto ?", "choices": ["Minato, son père", "Jiraya", "Hiruzen", "Tsunade"], "answer": 0},
+    {"q": "Quelle kunoichi de l'équipe 7 devient élève de Tsunade ?", "choices": ["Sakura", "Hinata", "Ino", "Tenten"], "answer": 0},
+    {"q": "Quel membre du clan Hyûga est amoureuse de Naruto ?", "choices": ["Hinata", "Hanabi", "Tenten", "Temari"], "answer": 0},
+    {"q": "Quelle organisation criminelle porte des manteaux noirs à nuages rouges ?", "choices": ["L'Akatsuki", "L'Anbu", "Kara", "Le Son"], "answer": 0},
+    {"q": "Qui est le frère aîné de Sasuke ?", "choices": ["Itachi", "Madara", "Obito", "Shisui"], "answer": 0},
+    {"q": "Quel sannin légendaire est l'auteur de romans et le mentor de Naruto ?", "choices": ["Jiraya", "Orochimaru", "Tsunade", "Kabuto"], "answer": 0},
+    {"q": "Quelle est l'arme favorite des ninjas pour lancer ?", "choices": ["Le kunai et le shuriken", "Le katana", "L'arc", "Le nunchaku"], "answer": 0},
+    {"q": "Quel ninja du sable contrôle le sable grâce à Shukaku ?", "choices": ["Gaara", "Kankurô", "Baki", "Rasa"], "answer": 0},
+    {"q": "Quelle technique Kakashi a-t-il inventée ?", "choices": ["Le Chidori (Raikiri)", "Le Rasengan", "L'Amaterasu", "Le Byakugan"], "answer": 0},
+    {"q": "Quel est le nom de la technique en spirale de Naruto ?", "choices": ["Le Rasengan", "Le Chidori", "Le Kamui", "L'Odama Sharingan"], "answer": 0},
+    {"q": "Qui devient le 5ᵉ Hokage après Hiruzen ?", "choices": ["Tsunade", "Kakashi", "Danzô", "Jiraya"], "answer": 0},
+    {"q": "Quel ninja paresseux est un génie de la stratégie ?", "choices": ["Shikamaru", "Chôji", "Kiba", "Shino"], "answer": 0},
+    {"q": "Quel serpent légendaire est invoqué par Orochimaru ?", "choices": ["Manda", "Gamabunta", "Katsuyu", "Aoda"], "answer": 0},
+    {"q": "Comment s'appelle le fils de Naruto dans la suite de la série ?", "choices": ["Boruto", "Kawaki", "Shinki", "Mitsuki"], "answer": 0},
+    {"q": "Quel œil légendaire Nagato (Pain) possède-t-il ?", "choices": ["Le Rinnegan", "Le Sharingan", "Le Byakugan", "Le Tenseigan"], "answer": 0},
+    {"q": "Quel examen les genins passent-ils pour monter en grade ?", "choices": ["L'examen chûnin", "L'examen jônin", "Le test des clochettes", "L'examen Anbu"], "answer": 0}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "one-piece",
+  "name": "One Piece",
+  "icon": "🏴‍☠️",
+  "color": "#c62828",
+  "questions": [
+    {"q": "Quel est le rêve de Luffy ?", "choices": ["Devenir le roi des pirates", "Devenir amiral", "Trouver All Blue", "Cartographier le monde"], "answer": 0},
+    {"q": "Quel fruit du démon Luffy a-t-il mangé ?", "choices": ["Le fruit du caoutchouc (Gomu Gomu)", "Le fruit du feu", "Le fruit des ténèbres", "Le fruit de la lumière"], "answer": 0},
+    {"q": "Comment s'appelle l'équipage de Luffy ?", "choices": ["L'équipage du Chapeau de paille", "Les pirates du Roux", "Les pirates de Barbe Blanche", "Les Heart Pirates"], "answer": 0},
+    {"q": "Qui est le sabreur de l'équipage, qui rêve d'être le meilleur au monde ?", "choices": ["Zoro", "Sanji", "Usopp", "Brook"], "answer": 0},
+    {"q": "Combien de sabres Zoro utilise-t-il dans son style ?", "choices": ["Trois", "Deux", "Un", "Quatre"], "answer": 0},
+    {"q": "Qui est la navigatrice de l'équipage ?", "choices": ["Nami", "Robin", "Vivi", "Perona"], "answer": 0},
+    {"q": "Quel cuisinier n'attaque jamais avec ses mains ?", "choices": ["Sanji", "Zeff", "Patty", "Carne"], "answer": 0},
+    {"q": "Quel animal est Chopper ?", "choices": ["Un renne", "Un raton laveur", "Un cerf", "Un tanuki"], "answer": 0},
+    {"q": "Qui a donné son chapeau de paille à Luffy ?", "choices": ["Shanks", "Ace", "Rayleigh", "Garp"], "answer": 0},
+    {"q": "Quel est le nom du premier bateau de l'équipage ?", "choices": ["Le Vogue Merry", "Le Thousand Sunny", "Le Moby Dick", "L'Oro Jackson"], "answer": 0},
+    {"q": "Qui est le frère juré de Luffy, utilisateur du feu ?", "choices": ["Ace", "Sabo", "Law", "Kid"], "answer": 0},
+    {"q": "Quel trésor légendaire tous les pirates recherchent-ils ?", "choices": ["Le One Piece", "Le Trésor de Mary Geoise", "L'Uranus", "Le Road Poneglyphe"], "answer": 0},
+    {"q": "Comment s'appelle la mer la plus dangereuse du monde ?", "choices": ["Grand Line", "East Blue", "Calm Belt", "West Blue"], "answer": 0},
+    {"q": "Qui était le roi des pirates exécuté à Logue Town ?", "choices": ["Gol D. Roger", "Barbe Blanche", "Rocks", "Ryuma"], "answer": 0},
+    {"q": "Quel archéologue de l'équipage peut faire éclore des membres partout ?", "choices": ["Robin", "Nami", "Vivi", "Olvia"], "answer": 0},
+    {"q": "Quel squelette musicien rejoint l'équipage ?", "choices": ["Brook", "Laboon", "Ryuma", "Apoo"], "answer": 0},
+    {"q": "Quel charpentier cyborg construit le Thousand Sunny ?", "choices": ["Franky", "Iceburg", "Tom", "Paulie"], "answer": 0},
+    {"q": "Quel grand-père de Luffy est un héros de la Marine ?", "choices": ["Garp", "Sengoku", "Zephyr", "Kong"], "answer": 0},
+    {"q": "Comment s'appellent les fruits qui donnent des pouvoirs ?", "choices": ["Les fruits du démon", "Les fruits maudits", "Les fruits des mers", "Les fruits royaux"], "answer": 0},
+    {"q": "Quel est le point faible de tous les utilisateurs de fruits du démon ?", "choices": ["L'eau de mer", "Le feu", "Le sel", "La pleine lune"], "answer": 0},
+    {"q": "Quel tireur d'élite raconte toujours des histoires inventées ?", "choices": ["Usopp", "Yasopp", "Buggy", "Caribou"], "answer": 0},
+    {"q": "Quelle énergie invisible permet de frapper les hommes-caoutchouc ?", "choices": ["Le Haki", "Le Chakra", "Le Nen", "Le Cosmos"], "answer": 0},
+    {"q": "Quel capitaine clown a mangé le fruit du morcellement ?", "choices": ["Baggy", "Shanks", "Mihawk", "Alvida"], "answer": 0},
+    {"q": "Quel empereur des mers est surnommé « Barbe Blanche » ?", "choices": ["Edward Newgate", "Kaido", "Big Mom", "Shanks"], "answer": 0}
+  ]
+}

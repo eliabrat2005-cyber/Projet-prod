@@ -1,0 +1,32 @@
+{
+  "id": "manga",
+  "name": "Manga & Anime",
+  "icon": "📖",
+  "color": "#ad1457",
+  "questions": [
+    {"q": "Dans quel sens se lit traditionnellement un manga ?", "choices": ["De droite à gauche", "De gauche à droite", "De haut en bas", "En diagonale"], "answer": 0},
+    {"q": "Comment appelle-t-on les mangas destinés aux jeunes garçons ?", "choices": ["Shōnen", "Shōjo", "Seinen", "Josei"], "answer": 0},
+    {"q": "Comment appelle-t-on les mangas destinés aux jeunes filles ?", "choices": ["Shōjo", "Shōnen", "Seinen", "Kodomo"], "answer": 0},
+    {"q": "Quel mangaka est surnommé « le dieu du manga » ?", "choices": ["Osamu Tezuka", "Akira Toriyama", "Eiichiro Oda", "Go Nagai"], "answer": 0},
+    {"q": "Quel petit robot au grand cœur est l'œuvre culte de Tezuka ?", "choices": ["Astro Boy", "Doraemon", "Mazinger Z", "Goldorak"], "answer": 0},
+    {"q": "Quel chat-robot bleu vient du futur pour aider Nobita ?", "choices": ["Doraemon", "Astro", "Meowth", "Luna"], "answer": 0},
+    {"q": "Quel manga d'Eiichiro Oda est le plus vendu de l'histoire ?", "choices": ["One Piece", "Naruto", "Dragon Ball", "Bleach"], "answer": 0},
+    {"q": "Quel magazine japonais prépublie One Piece et Naruto ?", "choices": ["Le Weekly Shōnen Jump", "Le Big Comic", "Le Ribon", "Le Morning"], "answer": 0},
+    {"q": "Dans quel manga un lycéen voit-il les fantômes et devient shinigami ?", "choices": ["Bleach", "Death Note", "Jujutsu Kaisen", "Yu Yu Hakusho"], "answer": 0},
+    {"q": "Quel manga suit Yuji Itadori et des exorcistes de fléaux ?", "choices": ["Jujutsu Kaisen", "Chainsaw Man", "Demon Slayer", "Blue Exorcist"], "answer": 0},
+    {"q": "Quel héros à la tronçonneuse fusionne avec son chien-démon Pochita ?", "choices": ["Denji (Chainsaw Man)", "Yuji", "Asta", "Gon"], "answer": 0},
+    {"q": "Dans quel manga Gon cherche-t-il son père chasseur ?", "choices": ["Hunter x Hunter", "Fairy Tail", "Black Clover", "Toriko"], "answer": 0},
+    {"q": "Quel manga de boxe suit Ippo Makunouchi ?", "choices": ["Hajime no Ippo", "Ashita no Joe", "Baki", "Kengan Ashura"], "answer": 0},
+    {"q": "Quel manga de basket a popularisé ce sport au Japon dans les années 90 ?", "choices": ["Slam Dunk", "Kuroko's Basket", "Ahiru no Sora", "Buzzer Beater"], "answer": 0},
+    {"q": "Quel manga de volley suit Shoyo Hinata ?", "choices": ["Haikyū!!", "Ace of Diamond", "Blue Lock", "Captain Tsubasa"], "answer": 0},
+    {"q": "Quel manga de foot est connu en France sous le nom « Olive et Tom » ?", "choices": ["Captain Tsubasa", "Blue Lock", "Inazuma Eleven", "Days"], "answer": 0},
+    {"q": "Quel manga culte de Katsuhiro Otomo se déroule à Neo-Tokyo ?", "choices": ["Akira", "Ghost in the Shell", "Gunnm", "Cowboy Bebop"], "answer": 0},
+    {"q": "Quel manga sombre suit Guts, le guerrier à l'épée géante ?", "choices": ["Berserk", "Vinland Saga", "Vagabond", "Kingdom"], "answer": 0},
+    {"q": "Quel manga viking suit Thorfinn en quête de vengeance ?", "choices": ["Vinland Saga", "Berserk", "Kingdom", "Golden Kamuy"], "answer": 0},
+    {"q": "Quel manga d'alchimie suit les frères Elric ?", "choices": ["Fullmetal Alchemist", "Black Butler", "Soul Eater", "D.Gray-man"], "answer": 0},
+    {"q": "Quelle famille d'espion, tueuse et télépathe forme un faux foyer ?", "choices": ["Spy x Family", "Assassination Classroom", "Gto Family", "Kaguya-sama"], "answer": 0},
+    {"q": "Quel professeur poulpe doit être assassiné par ses élèves ?", "choices": ["Koro-sensei", "Onizuka", "Ansatsu", "Karasuma"], "answer": 0},
+    {"q": "Comment appelle-t-on un auteur de manga ?", "choices": ["Un mangaka", "Un otaku", "Un sensei", "Un dessinka"], "answer": 0},
+    {"q": "Quel manga de courses de voitures a rendu culte la Toyota AE86 ?", "choices": ["Initial D", "Wangan Midnight", "MF Ghost", "Capeta"], "answer": 0}
+  ]
+}

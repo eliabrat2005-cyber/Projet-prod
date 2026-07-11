@@ -1,0 +1,32 @@
+{
+  "id": "chocolat",
+  "name": "Chocolat",
+  "icon": "🍫",
+  "color": "#6d4c41",
+  "questions": [
+    {"q": "De quel arbre vient le cacao ?", "choices": ["Le cacaoyer", "Le caféier", "Le karité", "Le baobab"], "answer": 0},
+    {"q": "Quelle civilisation buvait déjà du cacao il y a des millénaires ?", "choices": ["Les Mayas et les Aztèques", "Les Romains", "Les Égyptiens", "Les Vikings"], "answer": 0},
+    {"q": "Quel pays est le premier producteur mondial de cacao ?", "choices": ["La Côte d'Ivoire", "Le Ghana", "Le Brésil", "L'Équateur"], "answer": 0},
+    {"q": "Quel ingrédient distingue le chocolat au lait du chocolat noir ?", "choices": ["Le lait (en poudre)", "Le sucre", "La vanille", "Le beurre"], "answer": 0},
+    {"q": "De quoi est composé le chocolat blanc ?", "choices": ["De beurre de cacao, sans pâte de cacao", "De cacao blanchi", "De lait concentré", "De sucre glacé"], "answer": 0},
+    {"q": "Quel pays est réputé pour ses pralines et compte Neuhaus et Leonidas ?", "choices": ["La Belgique", "La Suisse", "La France", "L'Autriche"], "answer": 0},
+    {"q": "Quel pays consomme le plus de chocolat par habitant ?", "choices": ["La Suisse", "La France", "Les États-Unis", "Le Japon"], "answer": 0},
+    {"q": "Quelle marque suisse a inventé le chocolat au lait fondant avec Henri Nestlé ?", "choices": ["Peter (Daniel Peter)", "Lindt", "Toblerone", "Suchard"], "answer": 0},
+    {"q": "Quelle barre suisse a une forme de montagne triangulaire ?", "choices": ["Le Toblerone", "Le Ragusa", "Le Cailler", "L'Ovomaltine"], "answer": 0},
+    {"q": "Quelle montagne figure sur l'emballage du Toblerone ?", "choices": ["Le Cervin (Matterhorn)", "Le Mont Blanc", "L'Eiger", "La Jungfrau"], "answer": 0},
+    {"q": "Quelle pâte à tartiner italienne mélange noisettes et cacao ?", "choices": ["Le Nutella", "La Nocciolata", "Le Banania", "L'Ovomaltine"], "answer": 0},
+    {"q": "Quelle entreprise fabrique le Nutella ?", "choices": ["Ferrero", "Nestlé", "Mondelez", "Mars"], "answer": 0},
+    {"q": "Quel chocolat Ferrero est enrobé de noisettes et emballé d'or ?", "choices": ["Le Ferrero Rocher", "Le Mon Chéri", "Le Kinder Bueno", "Le Schoko-Bons"], "answer": 0},
+    {"q": "Quel œuf en chocolat contient une surprise ?", "choices": ["Le Kinder Surprise", "L'œuf de Pâques Lindt", "Le Cémoi Kids", "Le Smarties Egg"], "answer": 0},
+    {"q": "Quel lapin en chocolat doré porte une clochette rouge ?", "choices": ["Le lapin Lindt", "Le lapin Milka", "Le lapin Cémoi", "Le lapin Côte d'Or"], "answer": 0},
+    {"q": "Quelle marque au chocolat lilas a une vache comme emblème ?", "choices": ["Milka", "Côte d'Or", "Poulain", "Suchard"], "answer": 0},
+    {"q": "Quel animal figure sur les tablettes Côte d'Or ?", "choices": ["Un éléphant", "Un lion", "Une vache", "Un ours"], "answer": 0},
+    {"q": "Quel roman de Roald Dahl se déroule dans une chocolaterie ?", "choices": ["Charlie et la Chocolaterie", "Matilda", "Le Bon Gros Géant", "James et la Grosse Pêche"], "answer": 0},
+    {"q": "Comment s'appelle le chocolatier excentrique du roman de Roald Dahl ?", "choices": ["Willy Wonka", "Hans Glück", "Oscar Choco", "Marcel Praliné"], "answer": 0},
+    {"q": "Quels petits ouvriers travaillent dans la chocolaterie de Wonka ?", "choices": ["Les Oompa Loompas", "Les lutins", "Les Minions", "Les gnomes"], "answer": 0},
+    {"q": "Comment appelle-t-on l'opération qui donne au chocolat son brillant ?", "choices": ["Le tempérage", "Le conchage", "La torréfaction", "Le moulage à froid"], "answer": 0},
+    {"q": "Quelle fève donne son amertume au chocolat noir ?", "choices": ["La fève de cacao", "La fève tonka", "La fève de café", "La caroube"], "answer": 0},
+    {"q": "Quel gâteau au chocolat a un cœur coulant ?", "choices": ["Le fondant (mi-cuit)", "Le brownie", "La forêt-noire", "Le marbré"], "answer": 0},
+    {"q": "Quelle boisson chaude espagnole se déguste avec des churros ?", "choices": ["Le chocolat chaud épais", "Le café con leche", "L'horchata", "Le colacao froid"], "answer": 0}
+  ]
+}

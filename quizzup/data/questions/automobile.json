@@ -1,0 +1,32 @@
+{
+  "id": "automobile",
+  "name": "Automobile",
+  "icon": "🚗",
+  "color": "#546e7a",
+  "questions": [
+    {"q": "Quel constructeur allemand a pour logo quatre anneaux ?", "choices": ["Audi", "BMW", "Mercedes", "Opel"], "answer": 0},
+    {"q": "Quel constructeur a pour logo une étoile à trois branches ?", "choices": ["Mercedes-Benz", "Subaru", "Chrysler", "Mitsubishi"], "answer": 0},
+    {"q": "Quel constructeur français a un losange pour emblème ?", "choices": ["Renault", "Peugeot", "Citroën", "DS"], "answer": 0},
+    {"q": "Quel animal figure sur le logo Peugeot ?", "choices": ["Un lion", "Un cheval", "Un taureau", "Un jaguar"], "answer": 0},
+    {"q": "Quels chevrons composent le logo Citroën ?", "choices": ["Deux chevrons", "Trois chevrons", "Un chevron", "Quatre chevrons"], "answer": 0},
+    {"q": "Quel cheval cabré orne les Ferrari ?", "choices": ["Le cavallino rampante", "Le mustang", "Le pur-sang", "Pégase"], "answer": 0},
+    {"q": "Quel constructeur italien a un taureau pour emblème ?", "choices": ["Lamborghini", "Ferrari", "Maserati", "Alfa Romeo"], "answer": 0},
+    {"q": "Quelle voiture du peuple allemande a une silhouette de coccinelle ?", "choices": ["La Volkswagen Coccinelle", "La Trabant", "L'Opel Kadett", "La DKW"], "answer": 0},
+    {"q": "Quelle petite française populaire est surnommée « Deuche » ?", "choices": ["La Citroën 2CV", "La Renault 4L", "La Peugeot 104", "La Simca 1000"], "answer": 0},
+    {"q": "Quelle marque américaine a produit la Model T, première voiture de masse ?", "choices": ["Ford", "Chevrolet", "Dodge", "Chrysler"], "answer": 0},
+    {"q": "Quel entrepreneur a rendu la marque Tesla mondialement célèbre ?", "choices": ["Elon Musk", "Jeff Bezos", "Nikola Tesla", "Henry Ford"], "answer": 0},
+    {"q": "Quelle voiture anglaise conduit James Bond ?", "choices": ["Une Aston Martin", "Une Jaguar", "Une Bentley", "Une Lotus"], "answer": 0},
+    {"q": "Quelle mini-voiture anglaise est une icône des années 60 ?", "choices": ["La Mini", "La Fiat 500", "La Beetle", "L'Austin Healey"], "answer": 0},
+    {"q": "Quelle voiture italienne minuscule est l'éternelle rivale de la Mini ?", "choices": ["La Fiat 500", "La Panda", "La Uno", "La Lancia Y"], "answer": 0},
+    {"q": "Quelle sportive japonaise est la star de la saga Fast and Furious ?", "choices": ["La Toyota Supra", "La Honda Civic", "La Mazda RX-8", "La Nissan Micra"], "answer": 0},
+    {"q": "Quel constructeur japonais fabrique la Prius hybride ?", "choices": ["Toyota", "Honda", "Nissan", "Mazda"], "answer": 0},
+    {"q": "Quelle marque suédoise est réputée pour la sécurité ?", "choices": ["Volvo", "Saab", "Polestar", "Koenigsegg"], "answer": 0},
+    {"q": "Quel hypercar français dépasse les 400 km/h ?", "choices": ["La Bugatti Chiron", "L'Alpine A110", "La Venturi", "La DS X"], "answer": 0},
+    {"q": "Quelle berline sportive française est produite à Dieppe ?", "choices": ["L'Alpine", "La Mégane RS", "La 208 GTI", "La Clio Williams"], "answer": 0},
+    {"q": "Que signifie « SUV » ?", "choices": ["Sport Utility Vehicle", "Super Urban Van", "Standard Utility Version", "Sport Ultra Vitesse"], "answer": 0},
+    {"q": "Quel document faut-il pour conduire en France ?", "choices": ["Le permis de conduire", "La carte grise seule", "L'assurance seule", "Le certificat"], "answer": 0},
+    {"q": "À quel âge peut-on passer le permis B en France ?", "choices": ["17 ans (depuis 2024)", "16 ans", "18 ans uniquement", "21 ans"], "answer": 0},
+    {"q": "Quelle pédale se trouve à gauche dans une voiture manuelle ?", "choices": ["L'embrayage", "Le frein", "L'accélérateur", "Le repose-pied"], "answer": 0},
+    {"q": "Quelle voiture à portes papillon voyage dans le temps au cinéma ?", "choices": ["La DeLorean DMC-12", "La Corvette", "La Countach", "La 300 SL"], "answer": 0}
+  ]
+}

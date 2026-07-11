@@ -1,0 +1,32 @@
+{
+  "id": "vins-et-fromages",
+  "name": "Vins & Fromages",
+  "icon": "🧀",
+  "color": "#880e4f",
+  "questions": [
+    {"q": "Quel fromage normand crémeux a une croûte fleurie blanche ?", "choices": ["Le camembert", "Le roquefort", "Le comté", "Le cantal"], "answer": 0},
+    {"q": "Quel fromage bleu s'affine dans des caves de l'Aveyron ?", "choices": ["Le roquefort", "Le bleu de Bresse", "La fourme", "Le gorgonzola"], "answer": 0},
+    {"q": "De quel lait est fait le roquefort ?", "choices": ["De brebis", "De vache", "De chèvre", "De bufflonne"], "answer": 0},
+    {"q": "Quel fromage du Jura est affiné en meules dans des fruitières ?", "choices": ["Le comté", "Le brie", "Le munster", "Le maroilles"], "answer": 0},
+    {"q": "Quel fromage alsacien est réputé pour son odeur puissante ?", "choices": ["Le munster", "Le comté", "L'emmental", "Le beaufort"], "answer": 0},
+    {"q": "Quel fromage de Seine-et-Marne est surnommé « roi des fromages » ?", "choices": ["Le brie", "Le camembert", "Le coulommiers", "Le chaource"], "answer": 0},
+    {"q": "Quel fromage savoyard fond dans la tartiflette ?", "choices": ["Le reblochon", "Le beaufort", "L'abondance", "La tomme"], "answer": 0},
+    {"q": "Quel fromage à trous est emblématique de la Suisse ?", "choices": ["L'emmental", "Le gruyère", "Le comté", "L'appenzeller"], "answer": 0},
+    {"q": "Quel fromage grec s'émiette dans la salade ?", "choices": ["La feta", "La mozzarella", "Le halloumi", "La ricotta"], "answer": 0},
+    {"q": "Quel fromage italien étirable garnit les pizzas ?", "choices": ["La mozzarella", "Le parmesan", "Le pecorino", "La burrata"], "answer": 0},
+    {"q": "Quel lait donne la vraie mozzarella di bufala ?", "choices": ["Le lait de bufflonne", "Le lait de vache", "Le lait de brebis", "Le lait de chèvre"], "answer": 0},
+    {"q": "Combien de familles de fromages français distingue-t-on environ ?", "choices": ["Huit grandes familles", "Trois", "Vingt", "Deux"], "answer": 0},
+    {"q": "Quelle région produit le champagne ?", "choices": ["La Champagne", "La Bourgogne", "L'Alsace", "Le Jura"], "answer": 0},
+    {"q": "Quel cépage rouge domine le Beaujolais ?", "choices": ["Le gamay", "Le pinot noir", "La syrah", "Le merlot"], "answer": 0},
+    {"q": "Quel cépage blanc donne le chablis ?", "choices": ["Le chardonnay", "Le sauvignon", "Le riesling", "Le chenin"], "answer": 0},
+    {"q": "Quelle région produit le saint-émilion ?", "choices": ["Le Bordelais", "La Bourgogne", "La Loire", "Le Rhône"], "answer": 0},
+    {"q": "Quel vin jaune est une spécialité du Jura ?", "choices": ["Le vin jaune", "Le vin de paille", "Le savagnin sec", "Le macvin"], "answer": 0},
+    {"q": "Quel vin doux naturel accompagne le foie gras dans le Sud-Ouest ?", "choices": ["Le sauternes", "Le muscadet", "Le chablis", "Le sancerre"], "answer": 0},
+    {"q": "Quelle appellation de la Loire produit un sauvignon blanc réputé ?", "choices": ["Sancerre", "Chinon", "Bourgueil", "Saumur rouge"], "answer": 0},
+    {"q": "Quel troisième jeudi de novembre célèbre un vin nouveau ?", "choices": ["Le Beaujolais nouveau", "Le Côtes-du-Rhône primeur", "Le Gaillac frais", "Le Muscadet jeune"], "answer": 0},
+    {"q": "Comment s'appelle le spécialiste qui accorde vins et plats ?", "choices": ["Le sommelier", "L'œnologue", "Le caviste", "Le maître de chai"], "answer": 0},
+    {"q": "Comment s'appelle la science du vin ?", "choices": ["L'œnologie", "La viticulture", "L'ampélographie", "La vinification"], "answer": 0},
+    {"q": "Quelle capacité fait une bouteille de vin standard ?", "choices": ["75 cl", "70 cl", "1 litre", "50 cl"], "answer": 0},
+    {"q": "Comment s'appelle une bouteille de 1,5 litre ?", "choices": ["Un magnum", "Un jéroboam", "Un salmanazar", "Un balthazar"], "answer": 0}
+  ]
+}

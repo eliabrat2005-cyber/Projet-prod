@@ -1,0 +1,32 @@
+{
+  "id": "films-horreur",
+  "name": "Films d'horreur",
+  "icon": "👻",
+  "color": "#424242",
+  "questions": [
+    {"q": "Quel clown terrifiant hante la ville de Derry dans « Ça » ?", "choices": ["Grippe-Sou (Pennywise)", "Art le clown", "Twisty", "Captain Spaulding"], "answer": 0},
+    {"q": "Quel tueur masqué frappe la nuit d'Halloween ?", "choices": ["Michael Myers", "Jason", "Freddy", "Ghostface"], "answer": 0},
+    {"q": "Quel tueur hante les rêves avec ses griffes ?", "choices": ["Freddy Krueger", "Jason Voorhees", "Chucky", "Pinhead"], "answer": 0},
+    {"q": "Quel tueur au masque de hockey sévit à Crystal Lake ?", "choices": ["Jason Voorhees", "Michael Myers", "Leatherface", "Victor Crowley"], "answer": 0},
+    {"q": "Quelle poupée rousse est possédée par un tueur ?", "choices": ["Chucky", "Annabelle", "Megan", "Billy"], "answer": 0},
+    {"q": "Quel masque fantomatique porte le tueur de « Scream » ?", "choices": ["Ghostface", "Le masque de Jason", "Un masque de clown", "Le masque de Guy Fawkes"], "answer": 0},
+    {"q": "Quelle question pose le tueur de Scream au téléphone ?", "choices": ["« Quel est ton film d'horreur préféré ? »", "« Où es-tu ? »", "« Tu aimes les jeux ? »", "« Qui est là ? »"], "answer": 0},
+    {"q": "Quel écrivain devient fou dans l'hôtel Overlook ?", "choices": ["Jack Torrance (Shining)", "Paul Sheldon", "Ben Mears", "Louis Creed"], "answer": 0},
+    {"q": "Quel romancier est le maître de l'horreur derrière « Ça » et « Shining » ?", "choices": ["Stephen King", "Clive Barker", "H.P. Lovecraft", "Dean Koontz"], "answer": 0},
+    {"q": "Quelle fillette est possédée dans « L'Exorciste » ?", "choices": ["Regan", "Carrie", "Samara", "Esther"], "answer": 0},
+    {"q": "Quel fantôme sort de la télévision dans « The Ring » ?", "choices": ["Samara (Sadako)", "Kayako", "La Dame blanche", "Valak"], "answer": 0},
+    {"q": "Combien de jours reste-t-il à vivre après avoir vu la cassette maudite ?", "choices": ["Sept", "Trois", "Treize", "Un"], "answer": 0},
+    {"q": "Quel couple d'enquêteurs paranormaux mène la saga « Conjuring » ?", "choices": ["Ed et Lorraine Warren", "Les Ghostbusters", "Sam et Dean", "Mulder et Scully"], "answer": 0},
+    {"q": "Quelle poupée maléfique vient de l'univers Conjuring ?", "choices": ["Annabelle", "Chucky", "Brahms", "Slappy"], "answer": 0},
+    {"q": "Quelle nonne démoniaque terrorise dans l'univers Conjuring ?", "choices": ["Valak", "Bathsheba", "La Llorona", "Mère Supérieure"], "answer": 0},
+    {"q": "Quel tueur teste ses victimes avec des pièges dans « Saw » ?", "choices": ["Jigsaw", "Le Collectionneur", "Ghostface", "Hannibal"], "answer": 0},
+    {"q": "Quel tueur du Texas porte un masque de peau humaine ?", "choices": ["Leatherface", "Jason", "Le Miner", "Victor"], "answer": 0},
+    {"q": "Dans quel film ne faut-il faire AUCUN bruit pour survivre ?", "choices": ["Sans un bruit", "Bird Box", "Don't Breathe", "Us"], "answer": 0},
+    {"q": "Quel réalisateur a signé « Get Out » et « Us » ?", "choices": ["Jordan Peele", "Ari Aster", "James Wan", "Ti West"], "answer": 0},
+    {"q": "Quelle lycéenne humiliée au bal se venge par télékinésie ?", "choices": ["Carrie", "Regan", "Nell", "Sissy"], "answer": 0},
+    {"q": "Quel cannibale raffiné aide Clarice Starling ?", "choices": ["Hannibal Lecter", "Buffalo Bill", "Norman Bates", "Patrick Bateman"], "answer": 0},
+    {"q": "Quel motel tenu par Norman Bates est le décor de « Psychose » ?", "choices": ["Le Bates Motel", "L'Overlook", "Le Motel Pines", "Le Paradise Inn"], "answer": 0},
+    {"q": "Dans quel film des morts-vivants assiègent un centre commercial ?", "choices": ["Zombie (Dawn of the Dead)", "28 jours plus tard", "World War Z", "REC"], "answer": 0},
+    {"q": "Quel film suédois se déroule lors d'un festival en plein soleil ?", "choices": ["Midsommar", "The Ritual", "The Wicker Man", "Apostle"], "answer": 0}
+  ]
+}

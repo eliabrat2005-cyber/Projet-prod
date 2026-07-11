@@ -1,0 +1,32 @@
+{
+  "id": "mario",
+  "name": "Super Mario",
+  "icon": "🍄",
+  "color": "#e53935",
+  "questions": [
+    {"q": "Quel est le métier de Mario ?", "choices": ["Plombier", "Menuisier", "Cuisinier", "Facteur"], "answer": 0},
+    {"q": "De quelle couleur est la casquette de Mario ?", "choices": ["Rouge", "Verte", "Bleue", "Jaune"], "answer": 0},
+    {"q": "De quelle couleur est la tenue de Luigi ?", "choices": ["Verte", "Rouge", "Bleue", "Violette"], "answer": 0},
+    {"q": "Quelle princesse Mario sauve-t-il sans cesse ?", "choices": ["Peach", "Daisy", "Rosalina", "Zelda"], "answer": 0},
+    {"q": "Quel roi des Koopas enlève la princesse Peach ?", "choices": ["Bowser", "Wario", "Kamek", "Boo"], "answer": 0},
+    {"q": "Quel champignon fait grandir Mario ?", "choices": ["Le Super Champignon", "Le champignon 1-Up", "Le champignon poison", "Le Méga Champi doré"], "answer": 0},
+    {"q": "Que donne le champignon vert 1-Up ?", "choices": ["Une vie supplémentaire", "Une étoile", "Un pouvoir de feu", "De la vitesse"], "answer": 0},
+    {"q": "Quelle fleur permet à Mario de lancer des boules de feu ?", "choices": ["La Fleur de feu", "La Fleur de glace", "La Rose magma", "La Fleur boo"], "answer": 0},
+    {"q": "Que rend l'Étoile à Mario ?", "choices": ["Invincible temporairement", "Géant", "Invisible", "Volant"], "answer": 0},
+    {"q": "Quel dinosaure vert sert de monture à Mario ?", "choices": ["Yoshi", "Birdo", "Rex", "Dino"], "answer": 0},
+    {"q": "Que gobe Yoshi avec sa langue ?", "choices": ["Les ennemis (et les fruits)", "Les pièces", "Les blocs", "Les tuyaux"], "answer": 0},
+    {"q": "Quel frère de Mario chasse les fantômes dans sa propre série ?", "choices": ["Luigi", "Wario", "Waluigi", "Toad"], "answer": 0},
+    {"q": "Comment s'appelle l'aspirateur à fantômes de Luigi ?", "choices": ["L'Ectoblast", "Le Ghost-o-matic", "Le Boo Vac", "Le Fantovac"], "answer": 0},
+    {"q": "Quel champignon serviteur vit au château de Peach ?", "choices": ["Toad", "Toadette", "Kinopio doré", "Goomba"], "answer": 0},
+    {"q": "Quel anti-héros moustachu est l'opposé cupide de Mario ?", "choices": ["Wario", "Waluigi", "Bowser Jr", "Boshi"], "answer": 0},
+    {"q": "Par quoi Mario voyage-t-il entre les niveaux ?", "choices": ["Des tuyaux verts", "Des portes", "Des échelles", "Des canons uniquement"], "answer": 0},
+    {"q": "Quels ennemis champignons marchent bêtement vers Mario ?", "choices": ["Les Goombas", "Les Koopas", "Les Boos", "Les Chomps"], "answer": 0},
+    {"q": "Quelles tortues à carapace peuplent le Royaume Champignon ?", "choices": ["Les Koopas", "Les Goombas", "Les Yoshis", "Les Blorbs"], "answer": 0},
+    {"q": "Quel fantôme timide se cache quand on le regarde ?", "choices": ["Boo", "Spectro", "Le Roi Boo", "Le Polterpup"], "answer": 0},
+    {"q": "Que collecte Mario pour gagner des vies ?", "choices": ["Des pièces d'or", "Des rubis", "Des gemmes", "Des bananes"], "answer": 0},
+    {"q": "Quel jeu de course réunit tous les personnages de l'univers ?", "choices": ["Mario Kart", "Mario Racing", "Super Circuit GP", "Kart Royale"], "answer": 0},
+    {"q": "Quel objet redouté vise le premier de la course dans Mario Kart ?", "choices": ["La carapace bleue", "La banane", "L'éclair", "Le Bill Balle"], "answer": 0},
+    {"q": "Dans quel jeu de 1996 Mario passe-t-il à la 3D ?", "choices": ["Super Mario 64", "Super Mario World", "Mario Sunshine", "Mario Galaxy"], "answer": 0},
+    {"q": "Quel créateur japonais a imaginé Mario ?", "choices": ["Shigeru Miyamoto", "Hideo Kojima", "Satoru Iwata", "Eiji Aonuma"], "answer": 0}
+  ]
+}

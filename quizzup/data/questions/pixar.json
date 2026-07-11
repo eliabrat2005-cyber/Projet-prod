@@ -1,0 +1,32 @@
+{
+  "id": "pixar",
+  "name": "Pixar",
+  "icon": "🤠",
+  "color": "#00acc1",
+  "questions": [
+    {"q": "Quel est le tout premier long-métrage de Pixar (1995) ?", "choices": ["Toy Story", "1001 Pattes", "Monstres et Cie", "Le Monde de Nemo"], "answer": 0},
+    {"q": "Quel cow-boy jouet est le préféré d'Andy ?", "choices": ["Woody", "Buzz", "Jessie", "Bayonne"], "answer": 0},
+    {"q": "Quelle phrase culte lance Buzz l'Éclair ?", "choices": ["« Vers l'infini et au-delà ! »", "« En avant toute ! »", "« Toujours plus haut ! »", "« Que la force soit avec moi ! »"], "answer": 0},
+    {"q": "Quel monstre bleu à cornes travaille avec Bob Razowski ?", "choices": ["Sulli", "Mike", "Léon", "Georges"], "answer": 0},
+    {"q": "Que collectent les monstres de Monstropolis pour produire de l'énergie ?", "choices": ["Les cris d'enfants (puis les rires)", "Les rêves", "Les larmes", "Les cauchemars en bocaux"], "answer": 0},
+    {"q": "Comment s'appelle la petite fille qui s'introduit chez Monstres et Cie ?", "choices": ["Bouh", "Riley", "Bonnie", "Dory"], "answer": 0},
+    {"q": "Quel poisson-clown traverse l'océan pour retrouver son fils ?", "choices": ["Marin", "Nemo", "Dory", "Crush"], "answer": 0},
+    {"q": "Quelle tortue de mer surfe le courant est-australien ?", "choices": ["Crush", "Squiz", "Bernie", "Gill"], "answer": 0},
+    {"q": "Quel rat parisien cuisine dans le restaurant de Gusteau ?", "choices": ["Rémy", "Émile", "Django", "Linguini"], "answer": 0},
+    {"q": "Quelle est la devise du chef Gusteau ?", "choices": ["« Tout le monde peut cuisiner »", "« La cuisine est un art »", "« Goûtez d'abord »", "« Jamais sans beurre »"], "answer": 0},
+    {"q": "Quelle voiture de course rouge porte le numéro 95 ?", "choices": ["Flash McQueen", "Martin", "Doc Hudson", "Chick Hicks"], "answer": 0},
+    {"q": "Quelle dépanneuse rouillée est le meilleur ami de Flash ?", "choices": ["Martin", "Doc", "Luigi", "Sally"], "answer": 0},
+    {"q": "Dans « Là-haut », vers quelles chutes Carl veut-il voler ?", "choices": ["Les chutes du Paradis", "Le Salto Angel réel", "Les chutes Victoria", "Les chutes de l'Aventure"], "answer": 0},
+    {"q": "Quel jeune scout accompagne Carl malgré lui ?", "choices": ["Russell", "Dug", "Alfredo", "Miguel"], "answer": 0},
+    {"q": "Quel chien de « Là-haut » parle grâce à un collier ?", "choices": ["Dug", "Rex", "Alpha", "Slinky"], "answer": 0},
+    {"q": "Dans « Vice-Versa », dans la tête de quelle fillette vivent les émotions ?", "choices": ["Riley", "Bouh", "Bonnie", "Mei"], "answer": 0},
+    {"q": "Quelle émotion jaune dirige le quartier cérébral de Riley ?", "choices": ["Joie", "Tristesse", "Peur", "Dégoût"], "answer": 0},
+    {"q": "Quel garçon voyage au pays des morts avec sa guitare ?", "choices": ["Miguel (Coco)", "Manolo", "Héctor", "Dante"], "answer": 0},
+    {"q": "Quelle fête mexicaine inspire le film « Coco » ?", "choices": ["Le Jour des morts", "La Quinceañera", "Cinco de Mayo", "La Posada"], "answer": 0},
+    {"q": "Quel robot nettoyeur reste seul sur Terre ?", "choices": ["WALL-E", "EVE", "M-O", "AUTO"], "answer": 0},
+    {"q": "Quelle famille de super-héros doit reprendre du service ?", "choices": ["Les Indestructibles", "Les Parr-fait", "Les Fantastiques", "Les Superstars"], "answer": 0},
+    {"q": "Quelle créatrice de costumes interdit les capes ?", "choices": ["Edna Mode", "Violette", "Elastigirl", "Mirage"], "answer": 0},
+    {"q": "Dans « Alerte rouge », en quel animal Mei se transforme-t-elle ?", "choices": ["Un panda roux géant", "Un dragon", "Un tigre", "Un panda géant"], "answer": 0},
+    {"q": "Quelle lampe de bureau saute dans le logo de Pixar ?", "choices": ["Luxo Jr.", "Pixie", "Lumen", "Spark"], "answer": 0}
+  ]
+}

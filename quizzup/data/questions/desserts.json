@@ -1,0 +1,32 @@
+{
+  "id": "desserts",
+  "name": "Desserts",
+  "icon": "🍰",
+  "color": "#f06292",
+  "questions": [
+    {"q": "Quel dessert italien signifie « tire-moi vers le haut » ?", "choices": ["Le tiramisu", "La panna cotta", "Le sabayon", "La cassata"], "answer": 0},
+    {"q": "Quel fromage entre dans la recette du tiramisu ?", "choices": ["Le mascarpone", "La ricotta", "Le mascognac", "Le philadelphia"], "answer": 0},
+    {"q": "Quelle pâtisserie française superpose trois couches de pâte feuilletée et de crème ?", "choices": ["Le mille-feuille", "L'opéra", "Le fraisier", "Le succès"], "answer": 0},
+    {"q": "Quel gâteau au café et chocolat porte un nom musical ?", "choices": ["L'opéra", "La symphonie", "Le concerto", "La sonate"], "answer": 0},
+    {"q": "Quel dessert est fait de blancs d'œufs battus et de sucre, cuit au four ?", "choices": ["La meringue", "Le flan", "La dacquoise", "Le financier"], "answer": 0},
+    {"q": "Quel dessert australien-néozélandais porte le nom d'une ballerine ?", "choices": ["La pavlova", "La charlotte", "La madeleine", "La religieuse"], "answer": 0},
+    {"q": "Quelle crème brûlée-t-on au chalumeau ?", "choices": ["La crème brûlée", "La crème anglaise", "La chantilly", "La panna cotta"], "answer": 0},
+    {"q": "Quelle tarte renversée aux pommes est née d'une maladresse ?", "choices": ["La tarte Tatin", "La tarte normande", "L'apple pie", "La galette des rois"], "answer": 0},
+    {"q": "Quel gâteau des rois contient une fève en janvier ?", "choices": ["La galette des rois", "Le kouglof", "La brioche des morts", "Le panettone"], "answer": 0},
+    {"q": "Quelle gaufre belge au sucre perlé est célèbre dans le monde entier ?", "choices": ["La gaufre de Liège", "La gaufre de Bruxelles", "Le stroopwafel", "La gaufre du Nord"], "answer": 0},
+    {"q": "Quelle pâtisserie choux en forme de religieuse existe vraiment ?", "choices": ["La religieuse", "La nonne", "L'abbesse", "La cathédrale"], "answer": 0},
+    {"q": "Avec quelle pâte prépare-t-on les éclairs ?", "choices": ["De la pâte à choux", "De la pâte feuilletée", "De la pâte sablée", "De la pâte brisée"], "answer": 0},
+    {"q": "Quel gâteau roulé se déguste traditionnellement à Noël ?", "choices": ["La bûche", "Le fraisier", "Le stollen", "Le baba"], "answer": 0},
+    {"q": "Quel gâteau imbibé de rhum porte un nom de vieil homme ?", "choices": ["Le baba au rhum", "Le papi gâteau", "Le grand-père", "Le patriarche"], "answer": 0},
+    {"q": "Quel dessert espagnol frit se trempe dans le chocolat chaud ?", "choices": ["Les churros", "Les beignets", "Les pestiños", "Les buñuelos"], "answer": 0},
+    {"q": "Quel écrivain a rendu la madeleine célèbre dans la littérature ?", "choices": ["Marcel Proust", "Victor Hugo", "Balzac", "Flaubert"], "answer": 0},
+    {"q": "Quel entremets américain au fromage frais vient de New York ?", "choices": ["Le cheesecake", "Le brownie", "Le carrot cake", "Le red velvet"], "answer": 0},
+    {"q": "Quel dessert japonais est une boule de pâte de riz fourrée ?", "choices": ["Le mochi", "Le dorayaki", "Le taiyaki", "Le yokan"], "answer": 0},
+    {"q": "Quelle crème caramélisée sur le dessus est un classique des bistrots ?", "choices": ["La crème caramel (flan)", "L'île flottante", "Le riz au lait", "La mousse"], "answer": 0},
+    {"q": "Quels blancs en neige flottent sur une crème anglaise ?", "choices": ["L'île flottante", "La meringue glacée", "Le nuage sucré", "La neige de lait"], "answer": 0},
+    {"q": "Quel gâteau basque est fourré à la cerise noire ou à la crème ?", "choices": ["Le gâteau basque", "Le far breton", "Le broyé", "La tourtière"], "answer": 0},
+    {"q": "Quel flan breton contient des pruneaux ?", "choices": ["Le far breton", "Le kouign-amann", "Le quatre-quarts", "La galette"], "answer": 0},
+    {"q": "Quel dessert glacé italien est plus dense que la glace classique ?", "choices": ["Le gelato", "Le sorbet", "Le granité", "Le parfait"], "answer": 0},
+    {"q": "Quelle pêche dessert a été créée pour une cantatrice ?", "choices": ["La pêche Melba", "La poire Belle-Hélène", "La pêche Diva", "La fraise Sarah"], "answer": 0}
+  ]
+}

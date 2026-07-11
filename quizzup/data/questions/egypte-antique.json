@@ -1,0 +1,32 @@
+{
+  "id": "egypte-antique",
+  "name": "Égypte antique",
+  "icon": "🐫",
+  "color": "#c19a3d",
+  "questions": [
+    {"q": "Comment s'appelaient les rois de l'Égypte antique ?", "choices": ["Les pharaons", "Les vizirs", "Les sultans", "Les scribes"], "answer": 0},
+    {"q": "Quel fleuve était la source de vie de l'Égypte ?", "choices": ["Le Nil", "L'Euphrate", "Le Tigre", "Le Jourdain"], "answer": 0},
+    {"q": "Quelle crue annuelle fertilisait les terres égyptiennes ?", "choices": ["La crue du Nil", "La mousson", "La crue du delta", "Les pluies d'hiver"], "answer": 0},
+    {"q": "Quel pharaon a fait construire la plus grande pyramide de Gizeh ?", "choices": ["Khéops", "Khéphren", "Mykérinos", "Djéser"], "answer": 0},
+    {"q": "Quel monument à corps de lion et tête humaine garde Gizeh ?", "choices": ["Le Sphinx", "L'Obélisque", "Le Colosse", "L'Anubis géant"], "answer": 0},
+    {"q": "Quel jeune pharaon a été découvert intact par Howard Carter en 1922 ?", "choices": ["Toutânkhamon", "Ramsès II", "Akhenaton", "Thoutmôsis III"], "answer": 0},
+    {"q": "Quelle reine légendaire fut la dernière souveraine d'Égypte ?", "choices": ["Cléopâtre VII", "Néfertiti", "Hatchepsout", "Nefertari"], "answer": 0},
+    {"q": "Quelle reine à la beauté célèbre était l'épouse d'Akhenaton ?", "choices": ["Néfertiti", "Cléopâtre", "Hatchepsout", "Tiyi"], "answer": 0},
+    {"q": "Quelle femme pharaon portait la barbe postiche du pouvoir ?", "choices": ["Hatchepsout", "Néfertiti", "Cléopâtre", "Nitocris"], "answer": 0},
+    {"q": "Quel pharaon bâtisseur a régné 66 ans et signé Abou Simbel ?", "choices": ["Ramsès II", "Khéops", "Toutânkhamon", "Séthi Iᵉʳ"], "answer": 0},
+    {"q": "Comment s'appelle l'écriture sacrée égyptienne ?", "choices": ["Les hiéroglyphes", "Le cunéiforme", "Le démotique seul", "L'alphabet copte"], "answer": 0},
+    {"q": "Quelle pierre a permis à Champollion de déchiffrer les hiéroglyphes ?", "choices": ["La pierre de Rosette", "La stèle de Palerme", "Le papyrus d'Ani", "La pierre de Memphis"], "answer": 0},
+    {"q": "Sur quel support végétal les scribes écrivaient-ils ?", "choices": ["Le papyrus", "Le parchemin", "L'argile", "La soie"], "answer": 0},
+    {"q": "Comment appelle-t-on la conservation des corps des défunts ?", "choices": ["La momification", "L'embaumement froid", "La crémation", "L'inhumation"], "answer": 0},
+    {"q": "Dans quel coffre décoré plaçait-on la momie ?", "choices": ["Le sarcophage", "L'ossuaire", "Le canope", "La stèle"], "answer": 0},
+    {"q": "Dans quels vases plaçait-on les organes du défunt ?", "choices": ["Les vases canopes", "Les amphores", "Les urnes d'or", "Les cratères"], "answer": 0},
+    {"q": "Quel dieu à tête de chacal préside à la momification ?", "choices": ["Anubis", "Horus", "Seth", "Thot"], "answer": 0},
+    {"q": "Quel dieu soleil était la divinité suprême ?", "choices": ["Rê (Ra)", "Osiris", "Ptah", "Amon seul"], "answer": 0},
+    {"q": "Quel dieu de l'au-delà a été reconstitué par Isis ?", "choices": ["Osiris", "Horus", "Seth", "Sobek"], "answer": 0},
+    {"q": "Quel dieu à tête d'ibis a inventé l'écriture ?", "choices": ["Thot", "Anubis", "Khnoum", "Bès"], "answer": 0},
+    {"q": "Que pesait-on contre une plume au tribunal d'Osiris ?", "choices": ["Le cœur du défunt", "L'âme", "Le cerveau", "Les mains"], "answer": 0},
+    {"q": "Quelle vallée abrite les tombeaux des pharaons du Nouvel Empire ?", "choices": ["La Vallée des Rois", "La Vallée des Reines", "Saqqarah", "Le plateau de Gizeh"], "answer": 0},
+    {"q": "Quelle première pyramide à degrés a été conçue par Imhotep ?", "choices": ["La pyramide de Djéser", "La pyramide de Khéops", "La pyramide rouge", "La pyramide rhomboïdale"], "answer": 0},
+    {"q": "Quel insecte sacré symbolisait la renaissance ?", "choices": ["Le scarabée", "L'abeille", "La sauterelle", "Le sphinx papillon"], "answer": 0}
+  ]
+}

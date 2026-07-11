@@ -52,7 +52,7 @@
     {"q": "Quel mode de cuisson utilise la vapeur d'eau ?", "choices": ["À la vapeur", "Le braisage", "La friture", "Le rôtissage"], "answer": 0},
     {"q": "Quelle pizza classique porte les couleurs du drapeau italien ?", "choices": ["La margherita", "La calzone", "La quattro stagioni", "La marinara"], "answer": 0},
     {"q": "Quel fromage néerlandais est enrobé de cire rouge ?", "choices": ["L'édam", "Le gouda", "Le maasdam", "Le leerdammer"], "answer": 0},
-    {"q": "Quelle boisson mexicaine est distillée à partir d'agave ?", "choices": ["La tequila", "Le rhum", "Le mezcal uniquement", "La cachaça"], "answer": 0},
+    {"q": "Quelle boisson mexicaine est distillée à partir d'agave ?", "choices": ["La tequila", "Le rhum", "Le pisco", "La cachaça"], "answer": 0},
     {"q": "Quel plat indien est un pain plat cuit au tandoor ?", "choices": ["Le naan", "Le samosa", "Le dahl", "Le biryani"], "answer": 0},
     {"q": "Quel bonbon français est une amande enrobée de sucre ?", "choices": ["La dragée", "Le calisson", "La praline rose", "Le nougat"], "answer": 0},
     {"q": "Quelle sauce italienne est à base de viande hachée et tomate ?", "choices": ["La bolognaise", "La carbonara", "L'arrabiata", "La puttanesca"], "answer": 0},

@@ -1,0 +1,32 @@
+{
+  "id": "bd-franco-belge",
+  "name": "BD franco-belge",
+  "icon": "💬",
+  "color": "#1565c0",
+  "questions": [
+    {"q": "Quel reporter à la houppette voyage avec son chien Milou ?", "choices": ["Tintin", "Spirou", "Gaston", "Ric Hochet"], "answer": 0},
+    {"q": "Qui a créé Tintin ?", "choices": ["Hergé", "Franquin", "Uderzo", "Peyo"], "answer": 0},
+    {"q": "Quel capitaine barbu et colérique accompagne Tintin ?", "choices": ["Le capitaine Haddock", "Le professeur Tournesol", "Dupont", "Le général Alcazar"], "answer": 0},
+    {"q": "Quel savant sourd invente des machines dans Tintin ?", "choices": ["Le professeur Tournesol", "Le docteur Müller", "Séraphin Lampion", "Nestor"], "answer": 0},
+    {"q": "Quels détectives jumeaux gaffeurs se ressemblent dans Tintin ?", "choices": ["Dupond et Dupont", "Tif et Tondu", "Blake et Mortimer", "Quick et Flupke"], "answer": 0},
+    {"q": "Dans quel album Tintin marche-t-il sur la Lune ?", "choices": ["On a marché sur la Lune", "Objectif Lune", "Vol 714", "L'Étoile mystérieuse"], "answer": 0},
+    {"q": "Quel petit Gaulois résiste encore et toujours aux Romains ?", "choices": ["Astérix", "Obélix", "Vercingétorix", "Assurancetourix"], "answer": 0},
+    {"q": "Qui ont créé Astérix ensemble ?", "choices": ["Goscinny et Uderzo", "Hergé et Jacobs", "Franquin et Jidéhem", "Morris et Goscinny"], "answer": 0},
+    {"q": "Que transporte Obélix, tombé dans la potion étant petit ?", "choices": ["Des menhirs", "Des sangliers", "Des amphores", "Des boucliers"], "answer": 0},
+    {"q": "Quel druide prépare la potion magique ?", "choices": ["Panoramix", "Assurancetourix", "Abraracourcix", "Agecanonix"], "answer": 0},
+    {"q": "Quel barde est bâillonné à chaque banquet ?", "choices": ["Assurancetourix", "Panoramix", "Cétautomatix", "Ordralfabétix"], "answer": 0},
+    {"q": "Quel cowboy solitaire tire plus vite que son ombre ?", "choices": ["Lucky Luke", "Blueberry", "Jerry Spring", "Comanche"], "answer": 0},
+    {"q": "Quel cheval accompagne Lucky Luke ?", "choices": ["Jolly Jumper", "Tornado", "Furie", "Silver"], "answer": 0},
+    {"q": "Quels quatre frères bandits poursuivent Lucky Luke ?", "choices": ["Les Dalton", "Les James", "Les Earp", "Les Cassidy"], "answer": 0},
+    {"q": "Quel chien stupide garde le pénitencier des Dalton ?", "choices": ["Rantanplan", "Milou", "Idéfix", "Bill"], "answer": 0},
+    {"q": "Quel groom travaille au Moustic Hôtel avec son écureuil Spip ?", "choices": ["Spirou", "Fantasio", "Gaston", "Boule"], "answer": 0},
+    {"q": "Quel animal fantastique à longue queue vit dans la forêt de Palombie ?", "choices": ["Le Marsupilami", "Le Bigfoot", "Le Yéti", "Le Migou"], "answer": 0},
+    {"q": "Quel cri pousse le Marsupilami ?", "choices": ["Houba !", "Hooo !", "Wraah !", "Bidou !"], "answer": 0},
+    {"q": "Quel employé de bureau gaffeur a inventé le gaffophone ?", "choices": ["Gaston Lagaffe", "Fantasio", "Prunelle", "Lebrac"], "answer": 0},
+    {"q": "Quels petits êtres bleus vivent dans des maisons-champignons ?", "choices": ["Les Schtroumpfs", "Les Lutins", "Les Minimoys", "Les Gnondpom"], "answer": 0},
+    {"q": "Qui a créé les Schtroumpfs ?", "choices": ["Peyo", "Franquin", "Roba", "Macherot"], "answer": 0},
+    {"q": "Quel sorcier veut capturer les Schtroumpfs ?", "choices": ["Gargamel", "Rascar Capac", "Zorglub", "Le Cyanure"], "answer": 0},
+    {"q": "Quel garçon vit des aventures avec son chien Bill ?", "choices": ["Boule", "Titeuf", "Cédric", "Petit Spirou"], "answer": 0},
+    {"q": "Quel duo londonien mêle science et mystère chez Jacobs ?", "choices": ["Blake et Mortimer", "Tif et Tondu", "Dupond et Dupont", "Harry et Platte"], "answer": 0}
+  ]
+}

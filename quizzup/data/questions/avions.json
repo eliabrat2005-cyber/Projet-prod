@@ -1,0 +1,32 @@
+{
+  "id": "avions",
+  "name": "Aviation",
+  "icon": "✈️",
+  "color": "#0277bd",
+  "questions": [
+    {"q": "Quels frères américains ont réussi le premier vol motorisé en 1903 ?", "choices": ["Les frères Wright", "Les frères Montgolfier", "Les frères Voisin", "Les frères Farman"], "answer": 0},
+    {"q": "Quels frères français ont inventé le ballon à air chaud ?", "choices": ["Les frères Montgolfier", "Les frères Wright", "Les frères Lumière", "Les frères Michelin"], "answer": 0},
+    {"q": "Quel Français a traversé la Manche en avion en 1909 ?", "choices": ["Louis Blériot", "Roland Garros", "Clément Ader", "Henri Farman"], "answer": 0},
+    {"q": "Quel aviateur a réussi la première traversée de l'Atlantique en solitaire ?", "choices": ["Charles Lindbergh", "Amelia Earhart", "Jean Mermoz", "Alcock"], "answer": 0},
+    {"q": "Comment s'appelait l'avion de Lindbergh ?", "choices": ["Le Spirit of St. Louis", "L'Enola Gay", "Le Flyer", "Le Concorde"], "answer": 0},
+    {"q": "Quelle aviatrice a disparu au-dessus du Pacifique en 1937 ?", "choices": ["Amelia Earhart", "Hélène Boucher", "Adrienne Bolland", "Maryse Bastié"], "answer": 0},
+    {"q": "Quel pilote-écrivain français a écrit « Vol de nuit » ?", "choices": ["Antoine de Saint-Exupéry", "Jean Mermoz", "Roland Garros", "Didier Daurat"], "answer": 0},
+    {"q": "Quel avion supersonique franco-britannique reliait Paris à New York en 3h30 ?", "choices": ["Le Concorde", "Le Tupolev 144", "Le Boeing 707", "Le Comet"], "answer": 0},
+    {"q": "Quel constructeur européen fabrique l'A380 ?", "choices": ["Airbus", "Boeing", "Dassault", "Embraer"], "answer": 0},
+    {"q": "Quel est le plus gros avion de ligne du monde ?", "choices": ["L'Airbus A380", "Le Boeing 747", "Le 777X", "L'A350"], "answer": 0},
+    {"q": "Quel avion américain est surnommé « Jumbo Jet » ?", "choices": ["Le Boeing 747", "Le 737", "Le DC-10", "Le 787"], "answer": 0},
+    {"q": "Quel avion de chasse français est produit par Dassault ?", "choices": ["Le Rafale", "Le F-16", "L'Eurofighter", "Le Gripen"], "answer": 0},
+    {"q": "Dans quelle ville Airbus assemble-t-il ses avions en France ?", "choices": ["Toulouse", "Bordeaux", "Marseille", "Nantes"], "answer": 0},
+    {"q": "Quelle partie de l'avion crée la portance ?", "choices": ["Les ailes", "Les réacteurs", "La queue", "Le fuselage"], "answer": 0},
+    {"q": "Comment s'appelle le corps principal de l'avion ?", "choices": ["Le fuselage", "La carlingue externe", "Le cockpit", "La nacelle"], "answer": 0},
+    {"q": "Où s'assoient les pilotes ?", "choices": ["Dans le cockpit", "Dans la cabine arrière", "Dans la soute", "Dans la tourelle"], "answer": 0},
+    {"q": "Quelle boîte enregistre les données de vol ?", "choices": ["La boîte noire (orange en réalité)", "La boîte bleue", "Le radar", "Le transpondeur seul"], "answer": 0},
+    {"q": "Quel mur invisible le premier avion supersonique a-t-il franchi en 1947 ?", "choices": ["Le mur du son", "Le mur de chaleur", "La stratosphère", "Le point critique"], "answer": 0},
+    {"q": "Quel pilote américain a franchi le mur du son en premier ?", "choices": ["Chuck Yeager", "Neil Armstrong", "Buzz Aldrin", "John Glenn"], "answer": 0},
+    {"q": "Quelle unité mesure la vitesse par rapport au son ?", "choices": ["Le nombre de Mach", "Le nœud", "Le knot sonique", "Le pied par seconde"], "answer": 0},
+    {"q": "Quelle compagnie française est née en 1933 ?", "choices": ["Air France", "UTA", "Air Inter", "Aéropostale SA"], "answer": 0},
+    {"q": "Quel service postal aérien héroïque reliait la France à l'Amérique du Sud ?", "choices": ["L'Aéropostale", "Air Courrier", "La Poste aérienne", "LatAir"], "answer": 0},
+    {"q": "Quel aéroport parisien est le plus grand de France ?", "choices": ["Paris-Charles-de-Gaulle", "Orly", "Le Bourget", "Beauvais"], "answer": 0},
+    {"q": "Comment s'appelle la piste d'envol des porte-avions ?", "choices": ["Le pont d'envol", "La rampe", "Le tarmac naval", "La catapulte seule"], "answer": 0}
+  ]
+}

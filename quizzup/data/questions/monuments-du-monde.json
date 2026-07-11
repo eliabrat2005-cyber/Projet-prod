@@ -1,0 +1,32 @@
+{
+  "id": "monuments-du-monde",
+  "name": "Monuments du monde",
+  "icon": "🗿",
+  "color": "#00695c",
+  "questions": [
+    {"q": "Dans quel pays se trouve le Taj Mahal ?", "choices": ["L'Inde", "Le Pakistan", "L'Iran", "Le Bangladesh"], "answer": 0},
+    {"q": "Pourquoi le Taj Mahal a-t-il été construit ?", "choices": ["En mémoire d'une épouse défunte", "Pour un couronnement", "Comme forteresse", "Comme temple"], "answer": 0},
+    {"q": "Quelle muraille est longue de milliers de kilomètres ?", "choices": ["La Grande Muraille de Chine", "Le mur d'Hadrien", "Les murailles de Carcassonne", "Le limes romain"], "answer": 0},
+    {"q": "Quelle cité inca perche à 2 400 m au Pérou ?", "choices": ["Le Machu Picchu", "Cuzco", "Nazca", "Tiahuanaco"], "answer": 0},
+    {"q": "Quelle cité rose est taillée dans la roche en Jordanie ?", "choices": ["Pétra", "Palmyre", "Persépolis", "Baalbek"], "answer": 0},
+    {"q": "Quelle statue géante du Christ domine Rio de Janeiro ?", "choices": ["Le Christ Rédempteur", "Le Christ des Andes", "Le Cristo Rei", "Le Sacré-Cœur"], "answer": 0},
+    {"q": "Quel amphithéâtre romain est l'emblème de Rome ?", "choices": ["Le Colisée", "Le théâtre de Marcellus", "Les arènes de Nîmes", "Le Circus Maximus"], "answer": 0},
+    {"q": "Quelle pyramide est la seule merveille antique encore debout ?", "choices": ["La pyramide de Khéops", "Le phare d'Alexandrie", "Les jardins de Babylone", "Le colosse de Rhodes"], "answer": 0},
+    {"q": "Quelle statue new-yorkaise tient une torche ?", "choices": ["La statue de la Liberté", "Le Lincoln Memorial", "Lady Columbia", "L'Ange doré"], "answer": 0},
+    {"q": "Quel opéra australien a des voiles blanches pour toit ?", "choices": ["L'opéra de Sydney", "L'opéra de Melbourne", "Le Harbour Hall", "Le Federation Square"], "answer": 0},
+    {"q": "Quelle horloge géante domine le palais de Westminster ?", "choices": ["Big Ben", "Le Grand Tic", "La Tour Victoria", "Westminster Clock"], "answer": 0},
+    {"q": "Quel pont rouge emblématique enjambe la baie de San Francisco ?", "choices": ["Le Golden Gate", "Le Bay Bridge", "Le Brooklyn Bridge", "Le London Bridge"], "answer": 0},
+    {"q": "Quelle basilique inachevée de Gaudí s'élève à Barcelone ?", "choices": ["La Sagrada Família", "La Seu", "Montserrat", "Santa Maria del Mar"], "answer": 0},
+    {"q": "Quel palais moscovite aux bulbes colorés borde la place Rouge ?", "choices": ["La cathédrale Saint-Basile", "Le Kremlin", "Le Bolchoï", "L'Ermitage"], "answer": 0},
+    {"q": "Quelle tour penchée attire les touristes en Italie ?", "choices": ["La tour de Pise", "La tour de Bologne", "Le campanile de Venise", "La torre del Mangia"], "answer": 0},
+    {"q": "Quel temple d'Athènes domine l'Acropole ?", "choices": ["Le Parthénon", "L'Érechthéion", "Le temple de Zeus", "Le théâtre de Dionysos"], "answer": 0},
+    {"q": "Quel temple géant du Cambodge est le plus grand monument religieux du monde ?", "choices": ["Angkor Vat", "Borobudur", "Bagan", "Prambanan"], "answer": 0},
+    {"q": "Quelles statues géantes fixent l'horizon sur l'île de Pâques ?", "choices": ["Les moaïs", "Les kouros", "Les atlantes", "Les totems"], "answer": 0},
+    {"q": "Quel cercle de pierres mystérieux se dresse en Angleterre ?", "choices": ["Stonehenge", "Avebury", "Carnac", "Newgrange"], "answer": 0},
+    {"q": "Quelle porte monumentale est le symbole de Berlin ?", "choices": ["La porte de Brandebourg", "La porte de Kiev", "La porte de Prusse", "La porte d'Iéna"], "answer": 0},
+    {"q": "Quel mausolée bleu et or brille à Istanbul face à Sainte-Sophie ?", "choices": ["La Mosquée bleue", "Topkapi", "Süleymaniye", "La citerne"], "answer": 0},
+    {"q": "Quel gratte-ciel de Dubaï est le plus haut du monde ?", "choices": ["Le Burj Khalifa", "La Shanghai Tower", "Le One World Trade", "Le Taipei 101"], "answer": 0},
+    {"q": "Quelle tour parisienne était la plus haute du monde en 1889 ?", "choices": ["La tour Eiffel", "La tour Montparnasse", "Notre-Dame", "Le Panthéon"], "answer": 0},
+    {"q": "Quel château bavarois a inspiré le château de Disney ?", "choices": ["Neuschwanstein", "Hohenzollern", "Heidelberg", "Wartburg"], "answer": 0}
+  ]
+}

@@ -35,7 +35,7 @@
     {"q": "Quel oiseau noir et blanc vit exclusivement dans l'hémisphère sud ?", "choices": ["Le manchot", "Le pingouin", "Le macareux", "Le fou de Bassan"], "answer": 0},
     {"q": "Quelle est la durée de vie moyenne d'un chien ?", "choices": ["10 à 13 ans", "5 à 7 ans", "18 à 20 ans", "25 ans"], "answer": 0},
     {"q": "Quel serpent est le plus long du monde ?", "choices": ["Le python réticulé", "L'anaconda", "Le cobra royal", "Le boa constricteur"], "answer": 0},
-    {"q": "Quel animal produit la soie ?", "choices": ["Le ver à soie", "L'araignée uniquement", "La chenille processionnaire", "Le bombyx adulte"], "answer": 0},
+    {"q": "Quel insecte élève-t-on pour produire la soie des tissus ?", "choices": ["Le ver à soie", "L'abeille", "La cigale", "La fourmi tisserande"], "answer": 0},
     {"q": "Quelle est la période d'hibernation typique du hérisson en France ?", "choices": ["L'hiver", "L'été", "Le printemps", "Il n'hiberne pas"], "answer": 0},
     {"q": "Quel grand requin est réputé le plus dangereux pour l'homme ?", "choices": ["Le grand requin blanc", "Le requin-baleine", "Le requin-marteau", "Le requin pèlerin"], "answer": 0},
     {"q": "Comment se déplace le kangourou ?", "choices": ["Par bonds", "En galopant", "En rampant", "En marchant sur deux pattes"], "answer": 0},

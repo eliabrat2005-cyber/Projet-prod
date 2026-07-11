@@ -1,0 +1,32 @@
+{
+  "id": "japon",
+  "name": "Japon",
+  "icon": "🗾",
+  "color": "#c62828",
+  "questions": [
+    {"q": "Quelle est la capitale du Japon ?", "choices": ["Tokyo", "Kyoto", "Osaka", "Nagoya"], "answer": 0},
+    {"q": "Comment les Japonais appellent-ils leur pays ?", "choices": ["Nihon (ou Nippon)", "Yamato seul", "Wakoku", "Edo"], "answer": 0},
+    {"q": "Que signifie « Nihon » ?", "choices": ["Le pays du soleil levant", "L'archipel sacré", "La terre des samouraïs", "L'île aux fleurs"], "answer": 0},
+    {"q": "Quel mont sacré est le plus haut sommet du Japon ?", "choices": ["Le mont Fuji", "Le mont Aso", "Le mont Tate", "Le mont Koya"], "answer": 0},
+    {"q": "Quelle ancienne capitale impériale compte des milliers de temples ?", "choices": ["Kyoto", "Tokyo", "Hiroshima", "Sendai"], "answer": 0},
+    {"q": "Quel vêtement traditionnel japonais se noue avec un obi ?", "choices": ["Le kimono", "Le hanbok", "Le qipao", "Le sari"], "answer": 0},
+    {"q": "Comment s'appellent les guerriers de l'ancien Japon ?", "choices": ["Les samouraïs", "Les ninjas", "Les shoguns", "Les moines sohei"], "answer": 0},
+    {"q": "Quel sabre courbe emblématique portaient les samouraïs ?", "choices": ["Le katana", "Le tanto", "Le naginata", "Le wakizashi"], "answer": 0},
+    {"q": "Quel code d'honneur guidait les samouraïs ?", "choices": ["Le bushido", "Le kendo", "Le seppuku", "Le shinto"], "answer": 0},
+    {"q": "Comment s'appelaient les espions et assassins du Japon féodal ?", "choices": ["Les ninjas (shinobis)", "Les samouraïs", "Les yakuzas", "Les daimyos"], "answer": 0},
+    {"q": "Quelle religion japonaise vénère les kamis de la nature ?", "choices": ["Le shintoïsme", "Le bouddhisme", "Le taoïsme", "Le confucianisme"], "answer": 0},
+    {"q": "Quel portique rouge marque l'entrée des sanctuaires shinto ?", "choices": ["Le torii", "La pagode", "Le dojo", "Le shoji"], "answer": 0},
+    {"q": "Quelle fleur de cerisier symbolise le printemps japonais ?", "choices": ["Le sakura", "Le lotus", "Le chrysanthème", "L'iris"], "answer": 0},
+    {"q": "Quel art plie le papier sans ciseaux ni colle ?", "choices": ["L'origami", "L'ikebana", "La calligraphie", "Le kirigami"], "answer": 0},
+    {"q": "Quel art japonais arrange les fleurs ?", "choices": ["L'ikebana", "L'origami", "Le bonsaï", "Le suiseki"], "answer": 0},
+    {"q": "Quel arbre miniature cultive-t-on en pot depuis des siècles ?", "choices": ["Le bonsaï", "Le sakura nain", "L'érable koto", "Le bambou zen"], "answer": 0},
+    {"q": "Quel plat de riz vinaigré et poisson cru est mondialement célèbre ?", "choices": ["Le sushi", "Le ramen", "Le tempura", "L'udon"], "answer": 0},
+    {"q": "Quelle boisson verte est au cœur d'une cérémonie traditionnelle ?", "choices": ["Le thé matcha", "Le saké", "Le genmaicha", "L'umeshu"], "answer": 0},
+    {"q": "Quel train à grande vitesse japonais est surnommé « train-balle » ?", "choices": ["Le Shinkansen", "Le Maglev", "Le Narita Express", "Le Yamanote"], "answer": 0},
+    {"q": "Quel sport de lutte oppose deux colosses dans un cercle ?", "choices": ["Le sumo", "Le judo", "Le kendo", "L'aïkido"], "answer": 0},
+    {"q": "Comment s'appelle le quartier électronique et geek de Tokyo ?", "choices": ["Akihabara", "Shibuya", "Ginza", "Harajuku"], "answer": 0},
+    {"q": "Quel passage piéton géant est le plus célèbre du monde ?", "choices": ["Celui de Shibuya", "Celui de Ginza", "Celui de Shinjuku", "Celui d'Ueno"], "answer": 0},
+    {"q": "Quelle mafia japonaise est connue pour ses tatouages ?", "choices": ["Les yakuzas", "Les triades", "Les ronins", "Les bosozoku"], "answer": 0},
+    {"q": "Quelle ville a subi la première bombe atomique en 1945 ?", "choices": ["Hiroshima", "Nagasaki", "Tokyo", "Kobe"], "answer": 0}
+  ]
+}

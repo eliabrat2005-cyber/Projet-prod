@@ -1,0 +1,32 @@
+{
+  "id": "italie",
+  "name": "Italie",
+  "icon": "🇮🇹",
+  "color": "#2e7d32",
+  "questions": [
+    {"q": "Quelle est la capitale de l'Italie ?", "choices": ["Rome", "Milan", "Naples", "Florence"], "answer": 0},
+    {"q": "Quelle ville italienne est bâtie sur des canaux ?", "choices": ["Venise", "Gênes", "Pise", "Trieste"], "answer": 0},
+    {"q": "Quel monument antique de Rome accueillait les combats de gladiateurs ?", "choices": ["Le Colisée", "Le Panthéon", "Le Forum", "Le Circus Maximus"], "answer": 0},
+    {"q": "Dans quelle ville se trouve la tour penchée ?", "choices": ["Pise", "Florence", "Sienne", "Bologne"], "answer": 0},
+    {"q": "Quelle ville toscane est le berceau de la Renaissance ?", "choices": ["Florence", "Rome", "Venise", "Milan"], "answer": 0},
+    {"q": "Quel musée florentin expose « La Naissance de Vénus » ?", "choices": ["Les Offices", "Le Vatican", "La Brera", "Le Bargello"], "answer": 0},
+    {"q": "Quel petit État se trouve entièrement dans Rome ?", "choices": ["Le Vatican", "Saint-Marin", "Monaco", "Malte"], "answer": 0},
+    {"q": "Quelle chapelle du Vatican a été peinte par Michel-Ange ?", "choices": ["La chapelle Sixtine", "La basilique Saint-Pierre", "Sainte-Marie-Majeure", "Le Latran"], "answer": 0},
+    {"q": "Quelle fontaine romaine reçoit les pièces des touristes ?", "choices": ["La fontaine de Trevi", "La fontaine des Quatre-Fleuves", "La Barcaccia", "La fontaine du Triton"], "answer": 0},
+    {"q": "Quelle ville est la capitale économique et de la mode en Italie ?", "choices": ["Milan", "Rome", "Turin", "Bologne"], "answer": 0},
+    {"q": "Quel opéra de Milan est l'un des plus prestigieux du monde ?", "choices": ["La Scala", "La Fenice", "Le San Carlo", "L'Arena"], "answer": 0},
+    {"q": "Quelle ville du sud est célèbre pour sa pizza ?", "choices": ["Naples", "Palerme", "Bari", "Catane"], "answer": 0},
+    {"q": "Quelle île italienne est la plus grande de la Méditerranée ?", "choices": ["La Sicile", "La Sardaigne", "La Corse", "L'Elbe"], "answer": 0},
+    {"q": "Quel volcan domine la baie de Naples ?", "choices": ["Le Vésuve", "L'Etna", "Le Stromboli", "Le Vulcano"], "answer": 0},
+    {"q": "Quelle côte spectaculaire s'étire au sud de Naples ?", "choices": ["La côte amalfitaine", "Les Cinque Terre", "La Riviera", "Le Gargano"], "answer": 0},
+    {"q": "Quels cinq villages colorés s'accrochent aux falaises de Ligurie ?", "choices": ["Les Cinque Terre", "Les Éoliennes", "Le Chianti", "Les Pouilles"], "answer": 0},
+    {"q": "Quel fleuve traverse Rome ?", "choices": ["Le Tibre", "L'Arno", "Le Pô", "L'Adige"], "answer": 0},
+    {"q": "Quel est le plus long fleuve d'Italie ?", "choices": ["Le Pô", "Le Tibre", "L'Arno", "La Piave"], "answer": 0},
+    {"q": "Quel plat de pâtes à la sauce aux œufs et guanciale vient de Rome ?", "choices": ["Les carbonara", "Les bolognaise", "Le pesto", "L'arrabbiata"], "answer": 0},
+    {"q": "Quelle voiture de sport au cheval cabré est basée à Maranello ?", "choices": ["Ferrari", "Lamborghini", "Maserati", "Alfa Romeo"], "answer": 0},
+    {"q": "Quel constructeur au taureau est le rival de Ferrari ?", "choices": ["Lamborghini", "Fiat", "Pagani", "Bugatti"], "answer": 0},
+    {"q": "Quel scooter italien est une icône depuis 1946 ?", "choices": ["La Vespa", "La Lambretta", "Le Ciao", "La Gilera"], "answer": 0},
+    {"q": "Quel café serré se boit debout au comptoir en Italie ?", "choices": ["L'espresso", "Le cappuccino", "Le latte", "Le ristretto seul"], "answer": 0},
+    {"q": "Quelle équipe nationale de football est surnommée la « Nazionale » ou « Squadra Azzurra » ?", "choices": ["L'Italie", "L'Espagne", "L'Argentine", "Le Portugal"], "answer": 0}
+  ]
+}

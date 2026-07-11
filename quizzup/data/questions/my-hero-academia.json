@@ -1,0 +1,32 @@
+{
+  "id": "my-hero-academia",
+  "name": "My Hero Academia",
+  "icon": "🦸",
+  "color": "#2e7d32",
+  "questions": [
+    {"q": "Comment s'appelle le héros principal de My Hero Academia ?", "choices": ["Izuku Midoriya", "Katsuki Bakugo", "Shoto Todoroki", "Tenya Iida"], "answer": 0},
+    {"q": "Quel est le surnom d'Izuku ?", "choices": ["Deku", "Kacchan", "Shoto", "Zuzu"], "answer": 0},
+    {"q": "Comment s'appellent les super-pouvoirs dans cet univers ?", "choices": ["Les Alters", "Les Dons", "Les Quirks français", "Les Auras"], "answer": 0},
+    {"q": "Quel héros numéro 1 transmet son pouvoir à Izuku ?", "choices": ["All Might", "Endeavor", "Hawks", "Best Jeanist"], "answer": 0},
+    {"q": "Comment s'appelle le pouvoir transmis de génération en génération ?", "choices": ["Le One For All", "Le All For One", "L'Explosion", "Le Full Cowl unique"], "answer": 0},
+    {"q": "Dans quel lycée de héros étudie Izuku ?", "choices": ["Yuei (U.A.)", "Shiketsu", "Ketsubutsu", "Isamu"], "answer": 0},
+    {"q": "Quel ami d'enfance colérique d'Izuku a un Alter d'explosion ?", "choices": ["Bakugo", "Todoroki", "Kirishima", "Denki"], "answer": 0},
+    {"q": "Quel élève maîtrise la glace et le feu ?", "choices": ["Shoto Todoroki", "Bakugo", "Momo", "Sero"], "answer": 0},
+    {"q": "Quelle élève peut annuler la gravité des objets ?", "choices": ["Ochaco Uraraka", "Tsuyu Asui", "Momo Yaoyorozu", "Kyoka Jiro"], "answer": 0},
+    {"q": "Quel professeur principal peut effacer les Alters du regard ?", "choices": ["Aizawa (Eraser Head)", "Present Mic", "Midnight", "Cementoss"], "answer": 0},
+    {"q": "Quel est le grand ennemi, voleur de pouvoirs ?", "choices": ["All For One", "Shigaraki", "Dabi", "Overhaul"], "answer": 0},
+    {"q": "Qui dirige l'Alliance des super-vilains ?", "choices": ["Tomura Shigaraki", "Dabi", "Toga", "Twice"], "answer": 0},
+    {"q": "Quel Alter possède Tsuyu Asui ?", "choices": ["Grenouille", "Invisibilité", "Créature", "Acide"], "answer": 0},
+    {"q": "Quelle vilaine est obsédée par le sang et peut prendre l'apparence des autres ?", "choices": ["Himiko Toga", "Nana", "La Brava", "Mustard"], "answer": 0},
+    {"q": "Quel héros en armure est le grand frère modèle de sa famille et délégué de classe ?", "choices": ["Tenya Iida", "Kirishima", "Ojiro", "Koda"], "answer": 0},
+    {"q": "Quel pourcentage du One For All Izuku peut-il utiliser au début sans se blesser ?", "choices": ["Presque aucun — il se brise les os", "100 %", "50 % sans risque", "20 % sans risque"], "answer": 0},
+    {"q": "Quel héros numéro 2, père de Shoto, contrôle les flammes ?", "choices": ["Endeavor", "Hawks", "All Might", "Mirko"], "answer": 0},
+    {"q": "Quelle élève peut créer des objets depuis son corps ?", "choices": ["Momo Yaoyorozu", "Mina Ashido", "Toru Hagakure", "Uraraka"], "answer": 0},
+    {"q": "Quel événement sportif oppose les classes de Yuei ?", "choices": ["Le festival du sport", "Le tournoi des héros", "L'examen provisoire", "La coupe All Might"], "answer": 0},
+    {"q": "Quel vilan brûlé aux flammes bleues cache un secret de famille ?", "choices": ["Dabi", "Shigaraki", "Spinner", "Compress"], "answer": 0},
+    {"q": "Quel élève au Alter de durcissement est le meilleur ami de Bakugo ?", "choices": ["Kirishima", "Kaminari", "Sero", "Sato"], "answer": 0},
+    {"q": "Que crie All Might en portant ses coups légendaires ?", "choices": ["Des noms d'États américains (Texas Smash…)", "Des noms de planètes", "Des chiffres", "Des noms de villes japonaises"], "answer": 0},
+    {"q": "Qui est l'auteur du manga My Hero Academia ?", "choices": ["Kohei Horikoshi", "Gege Akutami", "Tite Kubo", "Hiro Mashima"], "answer": 0},
+    {"q": "Quel examen les élèves passent-ils pour obtenir leur licence provisoire ?", "choices": ["L'examen de licence de héros", "Le concours d'entrée", "Le stage chez les pros", "Le test du dôme"], "answer": 0}
+  ]
+}

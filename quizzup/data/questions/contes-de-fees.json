@@ -1,0 +1,32 @@
+{
+  "id": "contes-de-fees",
+  "name": "Contes de fées",
+  "icon": "🧚",
+  "color": "#7b1fa2",
+  "questions": [
+    {"q": "Quel objet la marraine de Cendrillon transforme-t-elle en carrosse ?", "choices": ["Une citrouille", "Un potiron doré", "Une pomme", "Un melon"], "answer": 0},
+    {"q": "À quelle heure le sortilège de Cendrillon prend-il fin ?", "choices": ["Minuit", "Midi", "L'aube", "Vingt-trois heures"], "answer": 0},
+    {"q": "Que perd Cendrillon en s'enfuyant du bal ?", "choices": ["Une pantoufle de verre", "Son collier", "Sa couronne", "Son gant"], "answer": 0},
+    {"q": "Sur quoi la Belle au bois dormant se pique-t-elle ?", "choices": ["Un fuseau", "Une aiguille à coudre", "Une épine de rose", "Un rouet entier"], "answer": 0},
+    {"q": "Combien de temps la Belle au bois dormant dort-elle ?", "choices": ["Cent ans", "Mille ans", "Dix ans", "Sept ans"], "answer": 0},
+    {"q": "Quel fruit empoisonné la sorcière donne-t-elle à Blanche-Neige ?", "choices": ["Une pomme", "Une poire", "Une cerise", "Une figue"], "answer": 0},
+    {"q": "Que demande la méchante reine à son miroir ?", "choices": ["Qui est la plus belle", "Qui est la plus riche", "Qui est la plus forte", "Où est Blanche-Neige"], "answer": 0},
+    {"q": "Quelle fillette porte une galette et un petit pot de beurre à sa grand-mère ?", "choices": ["Le Petit Chaperon rouge", "Boucle d'or", "Gretel", "La Petite Sirène"], "answer": 0},
+    {"q": "Quel animal se déguise en grand-mère dans ce conte ?", "choices": ["Le loup", "Le renard", "L'ogre", "L'ours"], "answer": 0},
+    {"q": "Quel héros de Perrault sème des cailloux blancs pour retrouver son chemin ?", "choices": ["Le Petit Poucet", "Hansel", "Le Chat botté", "Tom Pouce"], "answer": 0},
+    {"q": "Quelle maison découvrent Hansel et Gretel dans la forêt ?", "choices": ["Une maison en pain d'épices et sucreries", "Une chaumière", "Un château", "Une cabane de paille"], "answer": 0},
+    {"q": "Quelles bottes magiques porte l'ogre du Petit Poucet ?", "choices": ["Les bottes de sept lieues", "Les bottes ailées", "Les bottes d'or", "Les bottes de géant"], "answer": 0},
+    {"q": "Quel chat rusé offre un royaume à son maître ?", "choices": ["Le Chat botté", "Le chat du Cheshire", "Raminagrobis", "Le chat noir"], "answer": 0},
+    {"q": "Quel nom le Chat botté donne-t-il à son maître ?", "choices": ["Le marquis de Carabas", "Le duc de Bellefontaine", "Le comte du Moulin", "Le prince Igor"], "answer": 0},
+    {"q": "Quelle jeune fille laisse tomber ses longs cheveux du haut d'une tour ?", "choices": ["Raiponce", "Blanche-Neige", "Gretel", "Peau d'Âne"], "answer": 0},
+    {"q": "En quoi la Bête se transforme-t-elle à la fin du conte ?", "choices": ["En prince", "En roi", "En oiseau", "Elle reste une bête"], "answer": 0},
+    {"q": "Que devient le vilain petit canard ?", "choices": ["Un cygne", "Un paon", "Un canard superbe", "Une oie blanche"], "answer": 0},
+    {"q": "Quel petit personnage de bois voit son nez grandir quand il ment ?", "choices": ["Pinocchio", "Le soldat de plomb", "Polichinelle", "Guignol"], "answer": 0},
+    {"q": "Quels frères allemands ont collecté Blanche-Neige et Raiponce ?", "choices": ["Les frères Grimm", "Andersen et Perrault", "Les frères Schmidt", "Les frères Hoffmann"], "answer": 0},
+    {"q": "Quel auteur français a écrit « Cendrillon » et « Le Chat botté » ?", "choices": ["Charles Perrault", "Jean de La Fontaine", "Madame d'Aulnoy", "Fénelon"], "answer": 0},
+    {"q": "Quel auteur danois a écrit « La Petite Sirène » ?", "choices": ["Hans Christian Andersen", "Les frères Grimm", "Perrault", "Selma Lagerlöf"], "answer": 0},
+    {"q": "Combien de vœux le génie des contes orientaux accorde-t-il ?", "choices": ["Trois", "Un", "Sept", "Autant qu'on veut"], "answer": 0},
+    {"q": "Quelle formule ouvre la caverne d'Ali Baba ?", "choices": ["Sésame, ouvre-toi", "Abracadabra", "Par la barbe du sultan", "Ouvre-toi, rocher"], "answer": 0},
+    {"q": "Combien de voleurs se cachent dans la caverne d'Ali Baba ?", "choices": ["Quarante", "Vingt", "Cent", "Douze"], "answer": 0}
+  ]
+}

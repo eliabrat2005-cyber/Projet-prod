@@ -1,0 +1,32 @@
+{
+  "id": "fortnite",
+  "name": "Fortnite",
+  "icon": "🪂",
+  "color": "#5e35b1",
+  "questions": [
+    {"q": "Quel studio a créé Fortnite ?", "choices": ["Epic Games", "Activision", "EA", "Ubisoft"], "answer": 0},
+    {"q": "Comment s'appelle le mode battle royale gratuit de Fortnite ?", "choices": ["Battle Royale", "Sauver le monde", "Créatif", "Zero Build seul"], "answer": 0},
+    {"q": "Combien de joueurs s'affrontent dans une partie classique ?", "choices": ["100", "60", "150", "50"], "answer": 0},
+    {"q": "Comment les joueurs arrivent-ils sur l'île ?", "choices": ["En sautant du Bus de combat", "En bateau", "En parachute d'avion", "Par téléportation"], "answer": 0},
+    {"q": "Quelle mécanique distingue Fortnite des autres battle royale ?", "choices": ["La construction", "Le vol", "La magie", "Les véhicules"], "answer": 0},
+    {"q": "Quelle zone mortelle rétrécit la carte au fil de la partie ?", "choices": ["La Tempête", "Le Gaz", "Le Cercle bleu", "La Lave"], "answer": 0},
+    {"q": "Comment s'appelle la monnaie du jeu ?", "choices": ["Les V-Bucks", "Les F-Coins", "Les Gemmes", "Les Crédits"], "answer": 0},
+    {"q": "Qu'achète-t-on avec le Passe de combat ?", "choices": ["Des skins et récompenses cosmétiques", "Des armes plus fortes", "Des vies", "Des munitions"], "answer": 0},
+    {"q": "Quelle couleur indique la rareté la plus élevée classique d'une arme ?", "choices": ["Doré (légendaire)", "Violet", "Bleu", "Vert"], "answer": 0},
+    {"q": "Quel outil sert à récolter bois, pierre et métal ?", "choices": ["La pioche", "La hache seule", "La perceuse", "Le marteau"], "answer": 0},
+    {"q": "Quelle danse de Fortnite est devenue un phénomène mondial ?", "choices": ["Le Floss", "La Macarena", "Le Moonwalk", "Le Dab seul"], "answer": 0},
+    {"q": "Quelle mascotte lama contient des ressources ?", "choices": ["Le Lama pinata", "Le Lama d'or", "Le Lama royal", "Le Lama géant"], "answer": 0},
+    {"q": "Quel personnage banane est emblématique du jeu ?", "choices": ["Peely", "Bananito", "Split", "Jonesy Banana"], "answer": 0},
+    {"q": "Quel soldat blond est le visage historique de Fortnite ?", "choices": ["Jonesy", "Ramirez", "Midas", "Brite Bomber"], "answer": 0},
+    {"q": "Quel personnage doré transforme tout ce qu'il touche en or ?", "choices": ["Midas", "Oro", "Goldie", "King Flake"], "answer": 0},
+    {"q": "Que se passe-t-il régulièrement à la fin des saisons ?", "choices": ["Un événement en direct spectaculaire", "Rien", "Un simple patch", "Une coupure d'un mois"], "answer": 0},
+    {"q": "Quel trou noir a englouti la carte en 2019 ?", "choices": ["L'événement « The End »", "La Faille", "Le Cube", "La Vague"], "answer": 0},
+    {"q": "Quel cube violet mystérieux a marqué le chapitre 1 ?", "choices": ["Kevin", "Bob", "Le Monolithe", "Doom Cube"], "answer": 0},
+    {"q": "Quel rappeur américain a donné un concert virtuel record dans Fortnite ?", "choices": ["Travis Scott", "Drake", "Post Malone", "Kanye West"], "answer": 0},
+    {"q": "Quel mode sans construction a été ajouté en 2022 ?", "choices": ["Zero Build", "No Wall", "Pure Aim", "Classic Royale"], "answer": 0},
+    {"q": "Comment s'appelle la victoire dans Fortnite ?", "choices": ["Le Top 1 (Victoire royale)", "Le Chicken Dinner", "Le Master Win", "L'Ace"], "answer": 0},
+    {"q": "Quel mode permet de créer ses propres îles et jeux ?", "choices": ["Le mode Créatif", "Le mode Bac à sable", "Le Forge", "L'Éditeur"], "answer": 0},
+    {"q": "Quelle compétition mondiale a couronné Bugha en 2019 ?", "choices": ["La Fortnite World Cup", "Les FNCS seuls", "L'Epic Masters", "La Royale Cup"], "answer": 0},
+    {"q": "Sur quelles plateformes Fortnite est-il jouable ?", "choices": ["Presque toutes (PC, consoles, mobile)", "PC uniquement", "Consoles uniquement", "Mobile uniquement"], "answer": 0}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "attaque-des-titans",
+  "name": "L'Attaque des Titans",
+  "icon": "🗼",
+  "color": "#5d4037",
+  "questions": [
+    {"q": "Comment s'appelle le héros principal de L'Attaque des Titans ?", "choices": ["Eren Jäger", "Armin Arlert", "Jean Kirstein", "Levi Ackerman"], "answer": 0},
+    {"q": "Que protègent les trois grands murs ?", "choices": ["Les derniers humains", "Un trésor royal", "Une forêt sacrée", "Des mines d'or"], "answer": 0},
+    {"q": "Comment s'appelle le mur extérieur percé par le Titan Colossal ?", "choices": ["Le mur Maria", "Le mur Rose", "Le mur Sina", "Le mur Trost"], "answer": 0},
+    {"q": "Quelle amie d'enfance d'Eren est une combattante d'exception ?", "choices": ["Mikasa", "Historia", "Sasha", "Annie"], "answer": 0},
+    {"q": "Quel ami d'Eren est un stratège brillant mais peu physique ?", "choices": ["Armin", "Jean", "Connie", "Reiner"], "answer": 0},
+    {"q": "Quel équipement permet aux soldats de voler entre les bâtiments ?", "choices": ["L'équipement tridimensionnel", "Le jetpack", "Les ailes mécaniques", "Le grappin simple"], "answer": 0},
+    {"q": "Quel est le point faible des titans ?", "choices": ["La nuque", "Le cœur", "Les yeux", "Les talons"], "answer": 0},
+    {"q": "Quel soldat est considéré comme le plus fort de l'humanité ?", "choices": ["Livaï (Levi)", "Erwin", "Mike", "Hansi"], "answer": 0},
+    {"q": "Quel bataillon explore l'extérieur des murs ?", "choices": ["Le Bataillon d'exploration", "Les Brigades spéciales", "La Garnison", "La Police militaire"], "answer": 0},
+    {"q": "Quel pouvoir Eren découvre-t-il à Trost ?", "choices": ["Se transformer en titan", "Voler", "Devenir invisible", "Contrôler les murs"], "answer": 0},
+    {"q": "Qui est le Titan Colossal ?", "choices": ["Bertholt", "Reiner", "Annie", "Zeke"], "answer": 0},
+    {"q": "Qui est le Titan Cuirassé ?", "choices": ["Reiner", "Bertholt", "Porco", "Zeke"], "answer": 0},
+    {"q": "Quelle recrue gloutonne est surnommée « la fille à la patate » ?", "choices": ["Sasha", "Historia", "Ymir", "Mina"], "answer": 0},
+    {"q": "Qui est le Titan Féminin ?", "choices": ["Annie", "Ymir", "Pieck", "Historia"], "answer": 0},
+    {"q": "Quel commandant du Bataillon d'exploration sacrifie tout pour la vérité ?", "choices": ["Erwin Smith", "Livaï", "Pixis", "Shadis"], "answer": 0},
+    {"q": "Quelle scientifique excentrique adore étudier les titans ?", "choices": ["Hansi Zoé", "Petra", "Rico", "Nanaba"], "answer": 0},
+    {"q": "Comment s'appelle le frère aîné d'Eren ?", "choices": ["Zeke", "Grisha", "Porco", "Marcel"], "answer": 0},
+    {"q": "Quel peuple vit sur l'île de Paradis ?", "choices": ["Les Eldiens", "Les Mahrs", "Les Asiatiques", "Les Marléens"], "answer": 0},
+    {"q": "Quel titan d'Eren donne son titre à la série ?", "choices": ["Le Titan Assaillant", "Le Titan Originel", "Le Titan Marteau", "Le Titan Charrette"], "answer": 0},
+    {"q": "Qui devient reine après la révélation de sa véritable identité ?", "choices": ["Historia", "Mikasa", "Frieda", "Ymir"], "answer": 0},
+    {"q": "Quel liquide provoque la transformation des Eldiens en titans ?", "choices": ["Le liquide céphalorachidien de titan", "L'eau des murs", "Le sang royal", "Le sérum noir"], "answer": 0},
+    {"q": "Combien de titans primordiaux ont un pouvoir hérité ?", "choices": ["Neuf", "Sept", "Douze", "Cinq"], "answer": 0},
+    {"q": "Quel événement final déclenche Eren avec le Titan Originel ?", "choices": ["Le Grand Terrassement", "La Purge", "Le Rugissement", "L'Éveil"], "answer": 0},
+    {"q": "Qui est l'auteur du manga original ?", "choices": ["Hajime Isayama", "Eiichiro Oda", "Masashi Kishimoto", "Kentaro Miura"], "answer": 0}
+  ]
+}

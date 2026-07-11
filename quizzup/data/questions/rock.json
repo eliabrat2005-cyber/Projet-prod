@@ -1,0 +1,32 @@
+{
+  "id": "rock",
+  "name": "Rock",
+  "icon": "🎸",
+  "color": "#4e342e",
+  "questions": [
+    {"q": "Quel groupe de Liverpool a révolutionné la musique dans les années 60 ?", "choices": ["Les Beatles", "The Rolling Stones", "The Who", "The Kinks"], "answer": 0},
+    {"q": "Quel chanteur aux grosses lèvres est le leader des Rolling Stones ?", "choices": ["Mick Jagger", "Keith Richards", "Charlie Watts", "Ronnie Wood"], "answer": 0},
+    {"q": "Quel chanteur de Queen avait une voix légendaire ?", "choices": ["Freddie Mercury", "Brian May", "Roger Taylor", "John Deacon"], "answer": 0},
+    {"q": "Quel groupe britannique a sorti « Stairway to Heaven » ?", "choices": ["Led Zeppelin", "Deep Purple", "Black Sabbath", "Pink Floyd"], "answer": 0},
+    {"q": "Quel groupe de Seattle a lancé le grunge avec Kurt Cobain ?", "choices": ["Nirvana", "Pearl Jam", "Soundgarden", "Alice in Chains"], "answer": 0},
+    {"q": "Quel guitariste gaucher a révolutionné l'instrument à Woodstock ?", "choices": ["Jimi Hendrix", "Eric Clapton", "Jimmy Page", "Carlos Santana"], "answer": 0},
+    {"q": "Quel groupe australien a sorti « Highway to Hell » ?", "choices": ["AC/DC", "INXS", "Midnight Oil", "Men at Work"], "answer": 0},
+    {"q": "Quel guitariste d'AC/DC joue en uniforme d'écolier ?", "choices": ["Angus Young", "Malcolm Young", "Brian Johnson", "Phil Rudd"], "answer": 0},
+    {"q": "Quel groupe a sorti l'album « The Dark Side of the Moon » ?", "choices": ["Pink Floyd", "Genesis", "Yes", "King Crimson"], "answer": 0},
+    {"q": "Quel groupe de metal californien a sorti « Master of Puppets » ?", "choices": ["Metallica", "Megadeth", "Slayer", "Anthrax"], "answer": 0},
+    {"q": "Quel groupe anglais de heavy metal a une mascotte nommée Eddie ?", "choices": ["Iron Maiden", "Judas Priest", "Motörhead", "Saxon"], "answer": 0},
+    {"q": "Quel « Prince des ténèbres » chantait dans Black Sabbath ?", "choices": ["Ozzy Osbourne", "Ronnie James Dio", "Lemmy", "Alice Cooper"], "answer": 0},
+    {"q": "Quel groupe américain a sorti « Hotel California » ?", "choices": ["Les Eagles", "Fleetwood Mac", "The Doors", "Creedence"], "answer": 0},
+    {"q": "Quel chanteur des Doors est mort à Paris en 1971 ?", "choices": ["Jim Morrison", "Janis Joplin", "Jimi Hendrix", "Brian Jones"], "answer": 0},
+    {"q": "Quel groupe irlandais est mené par Bono ?", "choices": ["U2", "The Cranberries", "Thin Lizzy", "The Script"], "answer": 0},
+    {"q": "Quel groupe britannique a sorti « Creep » et « OK Computer » ?", "choices": ["Radiohead", "Blur", "Oasis", "Muse"], "answer": 0},
+    {"q": "Quels frères se disputaient sans cesse dans Oasis ?", "choices": ["Liam et Noel Gallagher", "Ray et Dave Davies", "Angus et Malcolm Young", "Chris et Rich Robinson"], "answer": 0},
+    {"q": "Quel trio anglais spatial est mené par Matthew Bellamy ?", "choices": ["Muse", "Placebo", "Keane", "Elbow"], "answer": 0},
+    {"q": "Quel groupe américain mélange rap et metal depuis « Hybrid Theory » ?", "choices": ["Linkin Park", "Limp Bizkit", "Korn", "Papa Roach"], "answer": 0},
+    {"q": "Quel groupe français de rock chantait « Un autre monde » ?", "choices": ["Téléphone", "Indochine", "Noir Désir", "BB Brunes"], "answer": 0},
+    {"q": "Quel groupe français est mené par Nicola Sirkis ?", "choices": ["Indochine", "Téléphone", "Kyo", "Louise Attaque"], "answer": 0},
+    {"q": "Quel guitariste surnommé « Slowhand » a joué dans Cream ?", "choices": ["Eric Clapton", "Jeff Beck", "Jimmy Page", "Mark Knopfler"], "answer": 0},
+    {"q": "Quel groupe de Détroit formait un duo rouge et blanc ?", "choices": ["The White Stripes", "The Black Keys", "MC5", "The Stooges"], "answer": 0},
+    {"q": "Quel « Boss » du rock américain a sorti « Born in the U.S.A. » ?", "choices": ["Bruce Springsteen", "Tom Petty", "Bob Seger", "John Mellencamp"], "answer": 0}
+  ]
+}

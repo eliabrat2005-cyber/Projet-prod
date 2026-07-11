@@ -1,0 +1,32 @@
+{
+  "id": "disney",
+  "name": "Disney",
+  "icon": "🏰",
+  "color": "#0d47a1",
+  "questions": [
+    {"q": "Quelle princesse perd sa pantoufle de verre à minuit ?", "choices": ["Cendrillon", "Aurore", "Blanche-Neige", "Belle"], "answer": 0},
+    {"q": "Combien de nains accompagnent Blanche-Neige ?", "choices": ["Sept", "Six", "Huit", "Cinq"], "answer": 0},
+    {"q": "Quelle princesse dort cent ans après s'être piquée ?", "choices": ["Aurore", "Cendrillon", "Raiponce", "Tiana"], "answer": 0},
+    {"q": "Quel pantin de bois rêve de devenir un vrai petit garçon ?", "choices": ["Pinocchio", "Gepetto", "Olaf", "Woody"], "answer": 0},
+    {"q": "Que se passe-t-il quand Pinocchio ment ?", "choices": ["Son nez s'allonge", "Il rétrécit", "Ses oreilles poussent", "Il devient bleu"], "answer": 0},
+    {"q": "Quelle princesse lit des livres et apprivoise une Bête ?", "choices": ["Belle", "Ariel", "Jasmine", "Mérida"], "answer": 0},
+    {"q": "Quel voleur au grand cœur trouve une lampe magique ?", "choices": ["Aladdin", "Ali Baba", "Abu", "Jafar"], "answer": 0},
+    {"q": "Combien de vœux le Génie accorde-t-il ?", "choices": ["Trois", "Un", "Sept", "Illimités"], "answer": 0},
+    {"q": "Quelle sirène échange sa voix contre des jambes ?", "choices": ["Ariel", "Vaiana", "Ondine", "Mélodie"], "answer": 0},
+    {"q": "Quelle méchante pieuvre vole la voix d'Ariel ?", "choices": ["Ursula", "Maléfique", "Cruella", "Yzma"], "answer": 0},
+    {"q": "Quelle guerrière chinoise se déguise en soldat ?", "choices": ["Mulan", "Pocahontas", "Jasmine", "Tiana"], "answer": 0},
+    {"q": "Quel dragon minuscule accompagne Mulan ?", "choices": ["Mushu", "Sisu", "Elliott", "Figment"], "answer": 0},
+    {"q": "Quelle méchante veut un manteau en fourrure de dalmatiens ?", "choices": ["Cruella d'Enfer", "Ursula", "Maléfique", "Mère Gothel"], "answer": 0},
+    {"q": "Combien y a-t-il de dalmatiens dans le titre du film ?", "choices": ["101", "99", "100", "102"], "answer": 0},
+    {"q": "Quelle fée accompagne Peter Pan ?", "choices": ["La Fée Clochette", "La Fée Bleue", "Flora", "Pâquerette"], "answer": 0},
+    {"q": "Quel capitaine pirate est poursuivi par un crocodile ?", "choices": ["Le Capitaine Crochet", "Barbe Noire", "Le Capitaine Flint", "Silver"], "answer": 0},
+    {"q": "Quelle navigatrice polynésienne rend son cœur à Te Fiti ?", "choices": ["Vaiana", "Lilo", "Moana Junior", "Nani"], "answer": 0},
+    {"q": "Quel demi-dieu farceur accompagne Vaiana ?", "choices": ["Maui", "Tamatoa", "Tui", "Heihei"], "answer": 0},
+    {"q": "Quelle petite fille hawaïenne adopte l'extraterrestre Stitch ?", "choices": ["Lilo", "Nani", "Moana", "Boo"], "answer": 0},
+    {"q": "Quel éléphant vole grâce à ses grandes oreilles ?", "choices": ["Dumbo", "Babar", "Hathi", "Tantor"], "answer": 0},
+    {"q": "Quel ours apprend la vie sauvage à Mowgli ?", "choices": ["Baloo", "Bagheera", "Winnie", "Kaa"], "answer": 0},
+    {"q": "Quel tigre menaçant traque Mowgli ?", "choices": ["Shere Khan", "Kaa", "Bagheera", "Raja"], "answer": 0},
+    {"q": "Quelle reine possède un miroir magique qui dit la vérité ?", "choices": ["La méchante reine de Blanche-Neige", "Elsa", "La Reine de cœur", "Maléfique"], "answer": 0},
+    {"q": "En quelle année Disneyland Paris a-t-il ouvert ?", "choices": ["1992", "1985", "2000", "1995"], "answer": 0}
+  ]
+}

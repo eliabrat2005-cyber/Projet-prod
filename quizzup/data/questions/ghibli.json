@@ -1,0 +1,32 @@
+{
+  "id": "ghibli",
+  "name": "Studio Ghibli",
+  "icon": "🌸",
+  "color": "#558b2f",
+  "questions": [
+    {"q": "Quel réalisateur a cofondé le Studio Ghibli ?", "choices": ["Hayao Miyazaki", "Makoto Shinkai", "Satoshi Kon", "Mamoru Hosoda"], "answer": 0},
+    {"q": "Quel esprit géant et gris est la mascotte du studio ?", "choices": ["Totoro", "Le Sans-Visage", "Calcifer", "Teto"], "answer": 0},
+    {"q": "Dans « Le Voyage de Chihiro », en quoi les parents de Chihiro sont-ils transformés ?", "choices": ["En cochons", "En grenouilles", "En statues", "En corbeaux"], "answer": 0},
+    {"q": "Comment s'appelle le garçon-dragon qui aide Chihiro ?", "choices": ["Haku", "Kamaji", "Bô", "Rin"], "answer": 0},
+    {"q": "Quel esprit masqué mange tout dans les bains de Yubaba ?", "choices": ["Le Sans-Visage", "Totoro", "Le Kaonashi doré", "Susuwatari"], "answer": 0},
+    {"q": "Quelle princesse est élevée par des loups géants ?", "choices": ["San (Princesse Mononoké)", "Nausicaä", "Sophie", "Sheeta"], "answer": 0},
+    {"q": "Dans « Le Château ambulant », qui est le démon du feu ?", "choices": ["Calcifer", "Markl", "Navet", "Hin"], "answer": 0},
+    {"q": "En quoi la sorcière des Landes transforme-t-elle Sophie ?", "choices": ["En vieille dame", "En chat", "En oiseau", "En statue"], "answer": 0},
+    {"q": "Quelle jeune sorcière livre des colis sur son balai ?", "choices": ["Kiki", "Chihiro", "Arrietty", "Ponyo"], "answer": 0},
+    {"q": "Comment s'appelle le chat noir de Kiki ?", "choices": ["Jiji", "Teto", "Muta", "Baron"], "answer": 0},
+    {"q": "Quel poisson rouge veut devenir une petite fille ?", "choices": ["Ponyo", "Ariel", "Nami", "Umi"], "answer": 0},
+    {"q": "Quelle guerrière protège la Vallée du Vent des Ômus ?", "choices": ["Nausicaä", "San", "Kushana", "Eboshi"], "answer": 0},
+    {"q": "Dans quel film un château vole-t-il grâce à une pierre magique ?", "choices": ["Le Château dans le ciel", "Le Château ambulant", "Porco Rosso", "Ponyo"], "answer": 0},
+    {"q": "Quel pilote transformé en cochon survole l'Adriatique ?", "choices": ["Porco Rosso", "Marco Polo", "Jiro", "Baron"], "answer": 0},
+    {"q": "Quelles petites boules de suie animées apparaissent dans deux films ?", "choices": ["Les Susuwatari (noiraudes)", "Les Kodamas", "Les Makkuro", "Les Chibi-Totoros"], "answer": 0},
+    {"q": "Quel film suit deux sœurs, Satsuki et Mei, à la campagne ?", "choices": ["Mon voisin Totoro", "Souvenirs de Marnie", "Ponyo", "Le vent se lève"], "answer": 0},
+    {"q": "Quel véhicule à pattes sert de bus dans « Mon voisin Totoro » ?", "choices": ["Le Chat-bus", "Le Tram-chien", "Le Renard-train", "La Chenille express"], "answer": 0},
+    {"q": "Quelle petite chapardeuse vit sous le plancher d'une maison ?", "choices": ["Arrietty", "Marnie", "Taeko", "Shizuku"], "answer": 0},
+    {"q": "Quel film de Takahata raconte la vie de deux enfants pendant la guerre ?", "choices": ["Le Tombeau des lucioles", "Pompoko", "Omoide Poroporo", "Kaguya"], "answer": 0},
+    {"q": "Quels animaux métamorphes défendent leur forêt dans « Pompoko » ?", "choices": ["Les tanukis", "Les renards", "Les chats", "Les blaireaux d'Europe"], "answer": 0},
+    {"q": "Quel film de 2013 suit un concepteur d'avions japonais ?", "choices": ["Le vent se lève", "Porco Rosso", "Si tu tends l'oreille", "Le conte de Kaguya"], "answer": 0},
+    {"q": "Quel esprit de la forêt donne et reprend la vie dans « Princesse Mononoké » ?", "choices": ["Le Dieu-Cerf (Shishigami)", "Totoro", "Moro", "Okkoto"], "answer": 0},
+    {"q": "Quel film Ghibli a remporté l'Oscar du meilleur film d'animation en 2003 ?", "choices": ["Le Voyage de Chihiro", "Princesse Mononoké", "Le Château ambulant", "Totoro"], "answer": 0},
+    {"q": "Quel est le dernier film de Miyazaki, sorti en 2023 ?", "choices": ["Le Garçon et le Héron", "Le vent se lève", "Aya et la sorcière", "Kaguya"], "answer": 0}
+  ]
+}

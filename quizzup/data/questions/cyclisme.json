@@ -1,0 +1,32 @@
+{
+  "id": "cyclisme",
+  "name": "Cyclisme",
+  "icon": "🚴",
+  "color": "#f9a825",
+  "questions": [
+    {"q": "Quelle course cycliste est la plus célèbre du monde ?", "choices": ["Le Tour de France", "Le Giro", "La Vuelta", "Paris-Roubaix"], "answer": 0},
+    {"q": "De quelle couleur est le maillot du leader du Tour de France ?", "choices": ["Jaune", "Vert", "Rose", "Blanc à pois rouges"], "answer": 0},
+    {"q": "Quel maillot porte le meilleur grimpeur du Tour ?", "choices": ["Blanc à pois rouges", "Jaune", "Vert", "Arc-en-ciel"], "answer": 0},
+    {"q": "Quel maillot récompense le meilleur sprinteur au classement par points ?", "choices": ["Le maillot vert", "Le maillot jaune", "Le maillot blanc", "Le maillot or"], "answer": 0},
+    {"q": "Quel grand tour se court en Italie ?", "choices": ["Le Giro", "La Vuelta", "Le Tour de Lombardie", "Tirreno-Adriatico"], "answer": 0},
+    {"q": "De quelle couleur est le maillot de leader du Giro ?", "choices": ["Rose", "Jaune", "Rouge", "Bleu"], "answer": 0},
+    {"q": "Quelle classique pavée du Nord est surnommée « l'Enfer du Nord » ?", "choices": ["Paris-Roubaix", "Le Tour des Flandres", "Gand-Wevelgem", "Liège-Bastogne-Liège"], "answer": 0},
+    {"q": "Quel Belge surnommé « le Cannibale » a tout gagné dans les années 70 ?", "choices": ["Eddy Merckx", "Roger De Vlaeminck", "Freddy Maertens", "Lucien Van Impe"], "answer": 0},
+    {"q": "Quel Français a remporté 5 Tours de France dans les années 80 ?", "choices": ["Bernard Hinault", "Laurent Fignon", "Jacques Anquetil", "Raymond Poulidor"], "answer": 0},
+    {"q": "Quel coureur français populaire n'a jamais gagné le Tour malgré 8 podiums ?", "choices": ["Raymond Poulidor", "Laurent Jalabert", "Richard Virenque", "Thomas Voeckler"], "answer": 0},
+    {"q": "Quel Slovène a remporté plusieurs Tours de France dans les années 2020 ?", "choices": ["Tadej Pogacar", "Primoz Roglic", "Matej Mohoric", "Jan Tratnik"], "answer": 0},
+    {"q": "Quel Danois a battu Pogacar en 2022 et 2023 ?", "choices": ["Jonas Vingegaard", "Mads Pedersen", "Kasper Asgreen", "Jakob Fuglsang"], "answer": 0},
+    {"q": "Sur quelle avenue parisienne le Tour s'achève-t-il traditionnellement ?", "choices": ["Les Champs-Élysées", "L'avenue Foch", "Rivoli", "L'avenue Montaigne"], "answer": 0},
+    {"q": "Quel col mythique du Ventoux domine la Provence ?", "choices": ["Le mont Ventoux", "L'Alpe d'Huez", "Le Galibier", "Le Tourmalet"], "answer": 0},
+    {"q": "Combien de virages numérotés compte la montée de l'Alpe d'Huez ?", "choices": ["21", "18", "25", "15"], "answer": 0},
+    {"q": "Quel col pyrénéen est le plus franchi par le Tour ?", "choices": ["Le Tourmalet", "L'Aubisque", "Peyresourde", "L'Aspin"], "answer": 0},
+    {"q": "Comment s'appelle l'épreuve individuelle courue contre le chrono ?", "choices": ["Le contre-la-montre", "La poursuite", "L'échappée", "Le sprint long"], "answer": 0},
+    {"q": "Quel groupe de coureurs part devant le peloton ?", "choices": ["L'échappée", "La voiture-balai", "Le gruppetto", "Le train"], "answer": 0},
+    {"q": "Quel véhicule ramasse les coureurs abandonnant ?", "choices": ["La voiture-balai", "L'ambulance", "Le bus", "La moto-régie"], "answer": 0},
+    {"q": "Quel Américain a été déchu de ses 7 Tours pour dopage ?", "choices": ["Lance Armstrong", "Greg LeMond", "Floyd Landis", "Tyler Hamilton"], "answer": 0},
+    {"q": "Quel maillot porte le champion du monde de cyclisme ?", "choices": ["Le maillot arc-en-ciel", "Le maillot étoilé", "Le maillot doré", "Le maillot tricolore"], "answer": 0},
+    {"q": "Quelle discipline se pratique sur un anneau incliné en salle ?", "choices": ["Le cyclisme sur piste", "Le BMX", "Le VTT", "Le cyclo-cross"], "answer": 0},
+    {"q": "Quel sprinteur britannique a gagné 35 étapes du Tour ?", "choices": ["Mark Cavendish", "Chris Froome", "Bradley Wiggins", "Geraint Thomas"], "answer": 0},
+    {"q": "Quelle course est surnommée « la Doyenne » ?", "choices": ["Liège-Bastogne-Liège", "Milan-San Remo", "Paris-Tours", "La Flèche Wallonne"], "answer": 0}
+  ]
+}

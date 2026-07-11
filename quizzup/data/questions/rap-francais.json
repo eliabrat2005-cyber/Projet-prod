@@ -1,0 +1,32 @@
+{
+  "id": "rap-francais",
+  "name": "Rap français",
+  "icon": "🎤",
+  "color": "#37474f",
+  "questions": [
+    {"q": "Quel rappeur de Caen a sorti l'album « Civilisation » ?", "choices": ["Orelsan", "Nekfeu", "Vald", "Lomepal"], "answer": 0},
+    {"q": "Quel groupe marseillais emblématique compte Akhenaton et Shurik'n ?", "choices": ["IAM", "La Fonky Family", "Psy 4 de la Rime", "3e Œil"], "answer": 0},
+    {"q": "Quel groupe de Seine-Saint-Denis formait Joey Starr et Kool Shen ?", "choices": ["NTM", "Assassin", "Lunatic", "Ministère A.M.E.R."], "answer": 0},
+    {"q": "Quel rappeur des Hauts-de-Seine a fondé le label 92i ?", "choices": ["Booba", "Rohff", "Kaaris", "La Fouine"], "answer": 0},
+    {"q": "Quel rappeur belge a cartonné avec l'album « QALF » ?", "choices": ["Damso", "Hamza", "Roméo Elvis", "Caballero"], "answer": 0},
+    {"q": "Quel duo de frères mystérieux ne donne jamais d'interviews et a tourné un clip au sommet de la tour Eiffel ?", "choices": ["PNL", "Bigflo et Oli", "Djadja & Dinaz", "Les Casseurs Flowters"], "answer": 0},
+    {"q": "Quels frères toulousains ont sorti « La Vraie Vie » ?", "choices": ["Bigflo et Oli", "PNL", "Djadja & Dinaz", "Casseurs Flowters"], "answer": 0},
+    {"q": "Quel rappeur du 94 est surnommé « le Padre » ?", "choices": ["Rohff", "Kery James", "Youssoupha", "Sinik"], "answer": 0},
+    {"q": "Quel membre du 1995 a sorti « Feu » et « Cyborg » ?", "choices": ["Nekfeu", "Alpha Wann", "Sneazzy", "Framal"], "answer": 0},
+    {"q": "Quel rappeur de Sevran a explosé avec « Or Noir » ?", "choices": ["Kaaris", "Kalash Criminel", "Maes", "Sofiane"], "answer": 0},
+    {"q": "Quel pionnier a signé « Bouge de là » en 1991 ?", "choices": ["MC Solaar", "Doc Gynéco", "Ménélik", "Passi"], "answer": 0},
+    {"q": "Quel rappeur aux lunettes noires a sorti « Première consultation » ?", "choices": ["Doc Gynéco", "Stomy Bugsy", "Ärsenik", "Pit Baccardi"], "answer": 0},
+    {"q": "Quel collectif du 93 réunissait Lino et Calbo ?", "choices": ["Ärsenik", "Lunatic", "Tandem", "X-Men"], "answer": 0},
+    {"q": "Quel rappeur marseillais a sorti la trilogie « JVLIVS » ?", "choices": ["SCH", "Jul", "Naps", "Soso Maness"], "answer": 0},
+    {"q": "Quelle rappeuse a cartonné avec « Djadja » ?", "choices": ["Aya Nakamura", "Shay", "Chilla", "Diam's"], "answer": 0},
+    {"q": "Quelle rappeuse a marqué les années 2000 avec « La Boulette » ?", "choices": ["Diam's", "Keny Arkana", "Casey", "Shay"], "answer": 0},
+    {"q": "Quel rappeur du 91 a sorti la série d'albums « Agartha » ?", "choices": ["Vald", "Népal", "Alkpote", "Seth Gueko"], "answer": 0},
+    {"q": "Que signifie le sigle PNL ?", "choices": ["Peace N' Lovés", "Paix N' Liberté", "Pour Nos Loves", "Paris Nord Lascars"], "answer": 0},
+    {"q": "Quel album de PNL sorti en 2019 contient « Au DD » ?", "choices": ["Deux Frères", "Civilisation", "Trône", "Ipséité"], "answer": 0},
+    {"q": "Quel rappeur le plus certifié de France vient de Marseille ?", "choices": ["Jul", "Booba", "Ninho", "PLK"], "answer": 0},
+    {"q": "Quel rappeur du 91 cumule les records de streams avec « Jefe » ?", "choices": ["Ninho", "Niska", "Koba LaD", "PLK"], "answer": 0},
+    {"q": "Quel rappeur de La Courneuve a popularisé le « Charo » ?", "choices": ["Niska", "Ninho", "Koba LaD", "Sofiane"], "answer": 0},
+    {"q": "Quel duo Orelsan forme-t-il avec Gringe ?", "choices": ["Les Casseurs Flowters", "Le 75e Session", "Columbine", "L'Entourage"], "answer": 0},
+    {"q": "Quelle émission de rap français a lancé les clashs sur Skyrock ?", "choices": ["Planète Rap", "Rap Contenders", "Le Rap Show", "Booska-P Live"], "answer": 0}
+  ]
+}

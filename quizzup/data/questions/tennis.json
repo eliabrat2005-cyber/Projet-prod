@@ -1,0 +1,32 @@
+{
+  "id": "tennis",
+  "name": "Tennis",
+  "icon": "🎾",
+  "color": "#9e9d24",
+  "questions": [
+    {"q": "Quel tournoi du Grand Chelem se joue sur terre battue à Paris ?", "choices": ["Roland-Garros", "Wimbledon", "L'US Open", "L'Open d'Australie"], "answer": 0},
+    {"q": "Sur quelle surface se joue Wimbledon ?", "choices": ["Le gazon", "La terre battue", "Le dur", "La moquette"], "answer": 0},
+    {"q": "Quel Espagnol a remporté 14 fois Roland-Garros ?", "choices": ["Rafael Nadal", "Carlos Alcaraz", "Sergi Bruguera", "Carlos Moya"], "answer": 0},
+    {"q": "Quel Suisse élégant a remporté 20 titres du Grand Chelem ?", "choices": ["Roger Federer", "Stan Wawrinka", "Marc Rosset", "Novak Djokovic"], "answer": 0},
+    {"q": "Quel Serbe détient le record de titres du Grand Chelem en simple messieurs ?", "choices": ["Novak Djokovic", "Rafael Nadal", "Roger Federer", "Pete Sampras"], "answer": 0},
+    {"q": "Comment annonce-t-on un score de 0 au tennis ?", "choices": ["Zéro", "Nul", "Blanc", "Love-tout"], "answer": 0},
+    {"q": "Après 40-40, comment s'appelle la situation d'égalité ?", "choices": ["Deuce (égalité)", "Tie-break", "Let", "Avantage neutre"], "answer": 0},
+    {"q": "Combien de jeux faut-il gagner (minimum) pour remporter un set classique ?", "choices": ["Six", "Cinq", "Sept", "Quatre"], "answer": 0},
+    {"q": "Comment s'appelle le jeu décisif à 6-6 ?", "choices": ["Le tie-break", "Le deuce", "Le sudden death", "Le super jeu"], "answer": 0},
+    {"q": "Quel coup se frappe au-dessus de la tête comme un service ?", "choices": ["Le smash", "Le lob", "La volée", "Le passing"], "answer": 0},
+    {"q": "Quel coup consiste à faire passer la balle au-dessus de l'adversaire monté au filet ?", "choices": ["Le lob", "Le smash", "L'amortie", "Le chip"], "answer": 0},
+    {"q": "Quelle joueuse allemande a réussi le Grand Chelem doré en 1988 ?", "choices": ["Steffi Graf", "Martina Navratilova", "Monica Seles", "Gabriela Sabatini"], "answer": 0},
+    {"q": "Quelle Américaine a remporté 23 Grands Chelems en simple ?", "choices": ["Serena Williams", "Venus Williams", "Chris Evert", "Billie Jean King"], "answer": 0},
+    {"q": "Quel Français a remporté Roland-Garros en 1983 ?", "choices": ["Yannick Noah", "Henri Leconte", "Guy Forget", "Cédric Pioline"], "answer": 0},
+    {"q": "Quelle compétition par équipes nationales masculine a un « saladier d'argent » ?", "choices": ["La Coupe Davis", "La Laver Cup", "L'ATP Cup", "La Hopman Cup"], "answer": 0},
+    {"q": "Quel court central de Roland-Garros porte le nom d'un aviateur ?", "choices": ["Le court Philippe-Chatrier", "Le court Suzanne-Lenglen", "Le court Simonne-Mathieu", "Le court Central"], "answer": 0},
+    {"q": "Quelle Française des années folles était surnommée « la Divine » ?", "choices": ["Suzanne Lenglen", "Simonne Mathieu", "Françoise Dürr", "Mary Pierce"], "answer": 0},
+    {"q": "Quel jeune Espagnol a gagné Wimbledon et l'US Open avant ses 21 ans ?", "choices": ["Carlos Alcaraz", "Rafael Nadal", "Fernando Alonso", "Jaume Munar"], "answer": 0},
+    {"q": "Que signifie « let » au service ?", "choices": ["La balle a touché le filet mais est bonne — à rejouer", "Service gagnant", "Double faute", "Balle hors limite"], "answer": 0},
+    {"q": "Combien de sets gagnants faut-il en finale féminine de Grand Chelem ?", "choices": ["Deux", "Trois", "Un", "Quatre"], "answer": 0},
+    {"q": "Quel service gagnant l'adversaire ne touche-t-il même pas ?", "choices": ["L'ace", "Le kick", "Le slice", "La première"], "answer": 0},
+    {"q": "Quel tournoi parisien en salle clôt la saison des Masters 1000 ?", "choices": ["Le Rolex Paris Masters (Bercy)", "Le Masters de Monte-Carlo", "Lyon", "Metz"], "answer": 0},
+    {"q": "Quelle joueuse japonaise a remporté 4 titres du Grand Chelem ?", "choices": ["Naomi Osaka", "Kei Nishikori", "Ai Sugiyama", "Kimiko Date"], "answer": 0},
+    {"q": "De quelle couleur est la terre battue de Roland-Garros ?", "choices": ["Ocre (brique pilée)", "Verte", "Grise", "Bleue"], "answer": 0}
+  ]
+}

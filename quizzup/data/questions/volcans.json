@@ -1,0 +1,32 @@
+{
+  "id": "volcans",
+  "name": "Volcans & Séismes",
+  "icon": "🌋",
+  "color": "#bf360c",
+  "questions": [
+    {"q": "Comment s'appelle la roche en fusion à l'intérieur du volcan ?", "choices": ["Le magma", "La lave", "Le basalte", "La cendre"], "answer": 0},
+    {"q": "Comment s'appelle le magma une fois sorti du volcan ?", "choices": ["La lave", "Le magma externe", "La pierre ponce", "L'obsidienne"], "answer": 0},
+    {"q": "Quel volcan a enseveli Pompéi en 79 après J.-C. ?", "choices": ["Le Vésuve", "L'Etna", "Le Stromboli", "Le Vulcano"], "answer": 0},
+    {"q": "Quel volcan sicilien est le plus actif d'Europe ?", "choices": ["L'Etna", "Le Vésuve", "Le Stromboli", "Le Teide"], "answer": 0},
+    {"q": "Quel volcan de la Réunion entre régulièrement en éruption ?", "choices": ["Le piton de la Fournaise", "Le piton des Neiges", "La Soufrière", "La montagne Pelée"], "answer": 0},
+    {"q": "Quel volcan martiniquais a détruit Saint-Pierre en 1902 ?", "choices": ["La montagne Pelée", "La Soufrière", "Le morne Rouge", "Le Carbet"], "answer": 0},
+    {"q": "Comment s'appelle l'ouverture au sommet d'un volcan ?", "choices": ["Le cratère", "La cheminée", "La caldeira", "Le dôme"], "answer": 0},
+    {"q": "Comment s'appelle la dépression géante laissée par un volcan effondré ?", "choices": ["La caldeira", "Le cratère", "Le maar", "Le puy"], "answer": 0},
+    {"q": "Quel nuage brûlant dévale les pentes lors d'une éruption explosive ?", "choices": ["La nuée ardente", "Le panache", "Le lahar froid", "La fumerolle"], "answer": 0},
+    {"q": "Quelle coulée de boue volcanique est très destructrice ?", "choices": ["Le lahar", "La nuée", "Le tsunami", "La solfatare"], "answer": 0},
+    {"q": "Quelle ceinture volcanique entoure l'océan Pacifique ?", "choices": ["La ceinture de feu", "L'anneau de lave", "La dorsale", "Le rift"], "answer": 0},
+    {"q": "Quel supervolcan dort sous un parc national américain ?", "choices": ["Le Yellowstone", "Le mont Rainier", "Le Saint Helens", "Le Mauna Loa"], "answer": 0},
+    {"q": "Quel volcan hawaïen est l'un des plus grands du monde ?", "choices": ["Le Mauna Loa", "Le Kilimandjaro", "Le Fuji", "Le Krakatoa"], "answer": 0},
+    {"q": "Quel volcan indonésien a explosé en 1883 dans un bruit entendu à des milliers de km ?", "choices": ["Le Krakatoa", "Le Tambora", "Le Merapi", "Le Sinabung"], "answer": 0},
+    {"q": "Quel volcan japonais sacré figure sur d'innombrables estampes ?", "choices": ["Le mont Fuji", "Le Sakurajima", "L'Aso", "L'Ontake"], "answer": 0},
+    {"q": "Quels volcans endormis forment la chaîne des Puys en Auvergne ?", "choices": ["Des volcans éteints ou endormis", "Des volcans actifs", "Des geysers", "Des failles"], "answer": 0},
+    {"q": "Quel appareil enregistre les tremblements de terre ?", "choices": ["Le sismographe", "Le baromètre", "Le sonar", "Le magnétomètre"], "answer": 0},
+    {"q": "Quelle échelle mesure la magnitude d'un séisme ?", "choices": ["L'échelle de Richter", "L'échelle de Beaufort", "L'échelle de Mercalli seule", "L'échelle de Fujita"], "answer": 0},
+    {"q": "Comment s'appelle le point de départ d'un séisme en profondeur ?", "choices": ["L'hypocentre (foyer)", "L'épicentre", "La faille", "Le rift"], "answer": 0},
+    {"q": "Comment s'appelle le point en surface juste au-dessus du foyer ?", "choices": ["L'épicentre", "L'hypocentre", "Le cratère", "Le front"], "answer": 0},
+    {"q": "Quelle vague géante peut suivre un séisme sous-marin ?", "choices": ["Le tsunami", "La marée noire", "Le mascaret", "La houle"], "answer": 0},
+    {"q": "Quelles plaques dont le mouvement cause séismes et volcans couvrent la Terre ?", "choices": ["Les plaques tectoniques", "Les plaques magmatiques", "Les croûtes polaires", "Les plaques sismiques"], "answer": 0},
+    {"q": "Quelle célèbre faille traverse la Californie ?", "choices": ["La faille de San Andreas", "La faille de Cascadia", "Le rift est-africain", "La faille anatolienne"], "answer": 0},
+    {"q": "Quel jet d'eau chaude jaillit du sol en Islande ou à Yellowstone ?", "choices": ["Le geyser", "La fumerolle", "La source froide", "Le puits artésien"], "answer": 0}
+  ]
+}

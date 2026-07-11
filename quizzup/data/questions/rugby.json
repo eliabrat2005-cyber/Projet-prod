@@ -1,0 +1,32 @@
+{
+  "id": "rugby",
+  "name": "Rugby",
+  "icon": "🏉",
+  "color": "#33691e",
+  "questions": [
+    {"q": "Combien de joueurs compte une équipe de rugby à XV sur le terrain ?", "choices": ["Quinze", "Treize", "Onze", "Sept"], "answer": 0},
+    {"q": "Combien de points vaut un essai ?", "choices": ["Cinq", "Trois", "Quatre", "Sept"], "answer": 0},
+    {"q": "Combien de points vaut la transformation après un essai ?", "choices": ["Deux", "Trois", "Un", "Cinq"], "answer": 0},
+    {"q": "Quelle équipe nationale effectue le haka avant ses matchs ?", "choices": ["La Nouvelle-Zélande", "L'Australie", "Les Fidji", "L'Afrique du Sud"], "answer": 0},
+    {"q": "Comment s'appelle l'équipe de Nouvelle-Zélande ?", "choices": ["Les All Blacks", "Les Wallabies", "Les Springboks", "Les Pumas"], "answer": 0},
+    {"q": "Comment s'appelle l'équipe d'Afrique du Sud ?", "choices": ["Les Springboks", "Les All Blacks", "Les Lions", "Les Sharks"], "answer": 0},
+    {"q": "Quel tournoi oppose six nations européennes chaque année ?", "choices": ["Le Tournoi des Six Nations", "La Champions Cup", "Le Rugby Championship", "La Currie Cup"], "answer": 0},
+    {"q": "Comment s'appelle une victoire sur toutes les équipes du Tournoi ?", "choices": ["Le Grand Chelem", "Le Perfect", "La Triple Couronne", "Le Full House"], "answer": 0},
+    {"q": "Dans quel sens doit-on passer le ballon au rugby ?", "choices": ["En arrière (ou latéral)", "En avant", "Dans tous les sens", "Uniquement au pied"], "answer": 0},
+    {"q": "Comment s'appelle la remise en jeu après une sortie en touche ?", "choices": ["La touche (alignement)", "La mêlée", "Le renvoi", "La chandelle"], "answer": 0},
+    {"q": "Quelle phase oppose les deux packs d'avants tête contre tête ?", "choices": ["La mêlée", "Le ruck", "Le maul", "La touche"], "answer": 0},
+    {"q": "Quel joueur porte le numéro 10, chef d'orchestre du jeu ?", "choices": ["Le demi d'ouverture", "Le demi de mêlée", "L'arrière", "Le centre"], "answer": 0},
+    {"q": "Quel joueur porte le numéro 9 et sort les ballons des mêlées ?", "choices": ["Le demi de mêlée", "Le demi d'ouverture", "Le talonneur", "Le pilier"], "answer": 0},
+    {"q": "Quel pays a remporté la Coupe du monde 2023 ?", "choices": ["L'Afrique du Sud", "La Nouvelle-Zélande", "La France", "L'Angleterre"], "answer": 0},
+    {"q": "Quel demi de mêlée français a été élu meilleur joueur du monde en 2021 ?", "choices": ["Antoine Dupont", "Romain Ntamack", "Grégory Alldritt", "Baptiste Couilloud"], "answer": 0},
+    {"q": "Dans quel club évolue Antoine Dupont ?", "choices": ["Le Stade Toulousain", "Le Racing 92", "Le Stade Français", "L'UBB"], "answer": 0},
+    {"q": "Quelle ville anglaise a donné son nom au rugby ?", "choices": ["Rugby", "Bath", "Leicester", "Gloucester"], "answer": 0},
+    {"q": "Combien de points vaut un drop ?", "choices": ["Trois", "Deux", "Cinq", "Un"], "answer": 0},
+    {"q": "Quel trophée récompense le vainqueur de la Coupe du monde ?", "choices": ["La coupe Webb Ellis", "Le bouclier de Brennus", "La Calcutta Cup", "Le trophée Garibaldi"], "answer": 0},
+    {"q": "Quel bouclier récompense le champion de France du Top 14 ?", "choices": ["Le bouclier de Brennus", "La coupe Webb Ellis", "Le bouclier d'Auvergne", "L'écusson d'or"], "answer": 0},
+    {"q": "Quelle variante du rugby se joue à 7 et est olympique ?", "choices": ["Le rugby à VII", "Le rugby à XIII", "Le beach rugby", "Le touch rugby"], "answer": 0},
+    {"q": "Quel geste défensif consiste à stopper le porteur du ballon ?", "choices": ["Le plaquage", "Le raffut", "La percussion", "Le grattage"], "answer": 0},
+    {"q": "Quel joueur emblématique du XV de France était surnommé « le Caveman » ?", "choices": ["Sébastien Chabal", "Fabien Pelous", "Imanol Harinordoquy", "Thierry Dusautoir"], "answer": 0},
+    {"q": "De quelle couleur est le carton qui exclut définitivement un joueur ?", "choices": ["Rouge", "Jaune", "Noir", "Blanc"], "answer": 0}
+  ]
+}

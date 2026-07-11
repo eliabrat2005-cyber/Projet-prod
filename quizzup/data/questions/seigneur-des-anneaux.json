@@ -1,0 +1,32 @@
+{
+  "id": "seigneur-des-anneaux",
+  "name": "Seigneur des Anneaux",
+  "icon": "💍",
+  "color": "#827717",
+  "questions": [
+    {"q": "Quel hobbit doit détruire l'Anneau unique ?", "choices": ["Frodon", "Bilbon", "Sam", "Pippin"], "answer": 0},
+    {"q": "Où l'Anneau doit-il être détruit ?", "choices": ["Dans la Montagne du Destin", "À Fondcombe", "Dans la Moria", "À Minas Tirith"], "answer": 0},
+    {"q": "Qui est le fidèle jardinier qui accompagne Frodon ?", "choices": ["Sam", "Merry", "Pippin", "Fredegar"], "answer": 0},
+    {"q": "Quel magicien gris guide la Communauté ?", "choices": ["Gandalf", "Saroumane", "Radagast", "Elrond"], "answer": 0},
+    {"q": "Quelle créature appelle l'Anneau son « précieux » ?", "choices": ["Gollum", "Sauron", "Shelob", "Grima"], "answer": 0},
+    {"q": "Qui est l'héritier du trône du Gondor ?", "choices": ["Aragorn", "Boromir", "Faramir", "Denethor"], "answer": 0},
+    {"q": "Quel elfe archer fait partie de la Communauté ?", "choices": ["Legolas", "Elrond", "Haldir", "Celeborn"], "answer": 0},
+    {"q": "Quel nain manie la hache dans la Communauté ?", "choices": ["Gimli", "Balin", "Thorin", "Dwalin"], "answer": 0},
+    {"q": "Comment s'appelle le pays des hobbits ?", "choices": ["La Comté", "Le Rohan", "L'Eriador", "Bree"], "answer": 0},
+    {"q": "Quel magicien blanc trahit pour servir Sauron ?", "choices": ["Saroumane", "Gandalf", "Radagast", "Alatar"], "answer": 0},
+    {"q": "Combien de membres compte la Communauté de l'Anneau ?", "choices": ["Neuf", "Sept", "Huit", "Dix"], "answer": 0},
+    {"q": "Quels cavaliers noirs traquent l'Anneau ?", "choices": ["Les Nazgûl", "Les Uruk-hai", "Les Orques noirs", "Les Suderons"], "answer": 0},
+    {"q": "Quelle mine naine la Communauté traverse-t-elle ?", "choices": ["La Moria", "Erebor", "Les Monts de Fer", "Gundabad"], "answer": 0},
+    {"q": "Quel démon de feu affronte Gandalf sur le pont ?", "choices": ["Le Balrog", "Smaug", "Shelob", "Le Roi-Sorcier"], "answer": 0},
+    {"q": "Quelle dame elfe règne sur la Lothlórien ?", "choices": ["Galadriel", "Arwen", "Éowyn", "Tauriel"], "answer": 0},
+    {"q": "Quel royaume des cavaliers est dirigé par le roi Théoden ?", "choices": ["Le Rohan", "Le Gondor", "L'Arnor", "Le Harad"], "answer": 0},
+    {"q": "Quelle forteresse est assiégée lors de la grande bataille du deuxième film ?", "choices": ["Le Gouffre de Helm", "Minas Tirith", "Osgiliath", "Isengard"], "answer": 0},
+    {"q": "Quels arbres géants marchent et parlent ?", "choices": ["Les Ents", "Les Mallornes", "Les Woses", "Les Sylvains"], "answer": 0},
+    {"q": "Qui tue le Roi-Sorcier d'Angmar ?", "choices": ["Éowyn", "Aragorn", "Merry", "Gandalf"], "answer": 0},
+    {"q": "Quelle araignée géante attaque Frodon ?", "choices": ["Shelob", "Ungoliant", "Aragog", "Kankra"], "answer": 0},
+    {"q": "Quelle épée reforgée porte Aragorn ?", "choices": ["Andúril", "Glamdring", "Dard", "Herugrim"], "answer": 0},
+    {"q": "Qui a écrit « Le Seigneur des anneaux » ?", "choices": ["J.R.R. Tolkien", "C.S. Lewis", "G.R.R. Martin", "Terry Pratchett"], "answer": 0},
+    {"q": "Quel oncle de Frodon a trouvé l'Anneau en premier ?", "choices": ["Bilbon", "Otho", "Drogon", "Lotho"], "answer": 0},
+    {"q": "Quel œil enflammé surveille la Terre du Milieu ?", "choices": ["L'Œil de Sauron", "L'Œil de Morgoth", "Le Palantír", "L'Œil d'Isengard"], "answer": 0}
+  ]
+}

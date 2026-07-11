@@ -1,0 +1,32 @@
+{
+  "id": "oiseaux",
+  "name": "Oiseaux",
+  "icon": "🦜",
+  "color": "#00897b",
+  "questions": [
+    {"q": "Quel est le plus grand oiseau du monde ?", "choices": ["L'autruche", "Le condor", "L'albatros", "L'émeu"], "answer": 0},
+    {"q": "Quel est le plus petit oiseau du monde ?", "choices": ["Le colibri d'Elena", "Le roitelet", "Le troglodyte", "La mésange"], "answer": 0},
+    {"q": "Quel oiseau a la plus grande envergure ?", "choices": ["L'albatros hurleur", "Le condor des Andes", "L'aigle royal", "Le pélican"], "answer": 0},
+    {"q": "Quel rapace nocturne tourne la tête à 270 degrés ?", "choices": ["La chouette", "Le faucon", "L'épervier", "Le milan"], "answer": 0},
+    {"q": "Quelle différence visible sépare le hibou de la chouette ?", "choices": ["Les aigrettes (plumes en « oreilles »)", "La taille", "La couleur", "Le bec"], "answer": 0},
+    {"q": "Quel oiseau marin plonge en piqué pour pêcher au large des falaises ?", "choices": ["Le fou de Bassan", "La mouette", "Le goéland", "Le cormoran"], "answer": 0},
+    {"q": "Quel oiseau des villes roucoule ?", "choices": ["Le pigeon", "Le moineau", "Le merle", "L'étourneau"], "answer": 0},
+    {"q": "Quel petit passereau au ventre rouge visite les jardins en hiver ?", "choices": ["Le rouge-gorge", "Le chardonneret", "La mésange bleue", "Le pinson"], "answer": 0},
+    {"q": "Quel oiseau noir siffle magnifiquement au printemps ?", "choices": ["Le merle", "Le corbeau", "L'étourneau", "Le choucas"], "answer": 0},
+    {"q": "Quel oiseau bavard peut imiter la voix humaine ?", "choices": ["Le perroquet gris du Gabon", "Le canari", "La perruche seule", "Le mainate seul"], "answer": 0},
+    {"q": "Quel échassier rose doit sa couleur à son alimentation ?", "choices": ["Le flamant rose", "L'ibis", "La spatule", "Le héron"], "answer": 0},
+    {"q": "Que mangent les flamants roses pour rosir ?", "choices": ["Des crevettes et algues riches en carotène", "Des fraises", "Des coraux", "Des méduses roses"], "answer": 0},
+    {"q": "Quel oiseau ne construit pas de nid et pond chez les autres ?", "choices": ["Le coucou", "La pie", "Le geai", "Le loriot"], "answer": 0},
+    {"q": "Quel grand échassier livre les bébés selon la légende ?", "choices": ["La cigogne", "Le héron", "La grue", "L'ibis"], "answer": 0},
+    {"q": "Dans quelle région française la cigogne est-elle emblématique ?", "choices": ["L'Alsace", "La Bretagne", "La Provence", "Le Pays basque"], "answer": 0},
+    {"q": "Quel oiseau plongeur arbore un smoking naturel en Antarctique ?", "choices": ["Le manchot empereur", "Le pingouin torda", "Le macareux", "Le cormoran"], "answer": 0},
+    {"q": "Qui couve l'œuf chez les manchots empereurs ?", "choices": ["Le mâle", "La femelle", "Les deux en alternance dès le début", "Les grands-parents"], "answer": 0},
+    {"q": "Quel « clown des mers » a un bec multicolore ?", "choices": ["Le macareux moine", "Le pingouin", "La sterne", "Le fou"], "answer": 0},
+    {"q": "Quel rapace est le plus rapide du monde en piqué ?", "choices": ["Le faucon pèlerin", "L'aigle", "L'autour", "Le gerfaut"], "answer": 0},
+    {"q": "Quel oiseau américain est l'emblème des États-Unis ?", "choices": ["Le pygargue à tête blanche", "L'aigle royal", "Le condor", "Le faucon"], "answer": 0},
+    {"q": "Quel oiseau mythique renaît de ses cendres ?", "choices": ["Le phénix", "Le griffon", "Le roc", "La harpie"], "answer": 0},
+    {"q": "Quel oiseau disparu de l'île Maurice était incapable de voler ?", "choices": ["Le dodo", "Le kiwi", "Le kakapo", "Le moa"], "answer": 0},
+    {"q": "Quel oiseau néo-zélandais a donné son surnom aux habitants du pays ?", "choices": ["Le kiwi", "Le kea", "Le tui", "Le kakapo"], "answer": 0},
+    {"q": "Quel oiseau voyageur transportait les messages autrefois ?", "choices": ["Le pigeon voyageur", "L'hirondelle", "Le corbeau", "Le faucon"], "answer": 0}
+  ]
+}

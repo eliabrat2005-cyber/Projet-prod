@@ -1,0 +1,32 @@
+{
+  "id": "basket",
+  "name": "Basket",
+  "icon": "🏀",
+  "color": "#ef6c00",
+  "questions": [
+    {"q": "Combien de points vaut un panier marqué derrière la ligne à 3 points ?", "choices": ["Trois", "Deux", "Quatre", "Un"], "answer": 0},
+    {"q": "Quelle ligue nord-américaine est la référence mondiale du basket ?", "choices": ["La NBA", "L'Euroligue", "La WNBA", "La G-League"], "answer": 0},
+    {"q": "Quel joueur des Bulls a remporté 6 titres NBA dans les années 90 ?", "choices": ["Michael Jordan", "Scottie Pippen", "Magic Johnson", "Larry Bird"], "answer": 0},
+    {"q": "Quel numéro Michael Jordan portait-il ?", "choices": ["23", "32", "33", "45 toujours"], "answer": 0},
+    {"q": "Quel géant français a été drafté n°1 par les Spurs en 2023 ?", "choices": ["Victor Wembanyama", "Rudy Gobert", "Bilal Coulibaly", "Zaccharie Risacher"], "answer": 0},
+    {"q": "Quel meneur français a gagné 4 titres NBA avec les Spurs ?", "choices": ["Tony Parker", "Boris Diaw", "Nicolas Batum", "Evan Fournier"], "answer": 0},
+    {"q": "Combien de temps dure une possession avant de devoir tirer ?", "choices": ["24 secondes", "30 secondes", "14 secondes", "35 secondes"], "answer": 0},
+    {"q": "Quel « King » a ramené un titre à Cleveland en 2016 ?", "choices": ["LeBron James", "Kyrie Irving", "Kevin Love", "Dwyane Wade"], "answer": 0},
+    {"q": "Quel tir s'effectue en suspension d'une seule main au-dessus du panier ?", "choices": ["Le dunk", "Le lay-up", "Le hook", "Le fadeaway"], "answer": 0},
+    {"q": "Quel meneur des Warriors a révolutionné le tir à 3 points ?", "choices": ["Stephen Curry", "Klay Thompson", "Damian Lillard", "James Harden"], "answer": 0},
+    {"q": "Quelle équipe NBA joue au Madison Square Garden ?", "choices": ["Les New York Knicks", "Les Brooklyn Nets", "Les Celtics", "Les 76ers"], "answer": 0},
+    {"q": "Quel pivot légendaire des Lakers est mort en 2020 avec sa fille Gianna ?", "choices": ["Kobe Bryant", "Shaquille O'Neal", "Wilt Chamberlain", "Kareem"], "answer": 0},
+    {"q": "Quel surnom portait Kobe Bryant ?", "choices": ["Black Mamba", "The King", "The Answer", "Air"], "answer": 0},
+    {"q": "Quel pivot camerounais a mené les Sixers avant son transfert ?", "choices": ["Joel Embiid", "Pascal Siakam", "Serge Ibaka", "Luc Mbah a Moute"], "answer": 0},
+    {"q": "Quel Grec surnommé « Greek Freak » joue à Milwaukee ?", "choices": ["Giannis Antetokounmpo", "Nikola Jokic", "Luka Doncic", "Kristaps Porzingis"], "answer": 0},
+    {"q": "Combien de joueurs par équipe sur un terrain de basket ?", "choices": ["Cinq", "Six", "Sept", "Quatre"], "answer": 0},
+    {"q": "Quelle faute commet-on en marchant avec le ballon sans dribbler ?", "choices": ["Le marcher", "Le double dribble", "Le passage en force", "Les 3 secondes"], "answer": 0},
+    {"q": "Quelle équipe de France a décroché l'argent aux JO de Paris 2024 ?", "choices": ["La France", "L'Allemagne", "La Serbie", "Le Canada"], "answer": 0},
+    {"q": "Quel pivot français est plusieurs fois meilleur défenseur de la NBA ?", "choices": ["Rudy Gobert", "Joakim Noah", "Ian Mahinmi", "Clint Capela"], "answer": 0},
+    {"q": "Quel Slovène génial porte le numéro 77 ?", "choices": ["Luka Doncic", "Goran Dragic", "Nikola Jokic", "Dario Saric"], "answer": 0},
+    {"q": "Quel concours a lieu pendant le All-Star Week-end ?", "choices": ["Le concours de dunks", "Le marathon de tirs", "Le match des légendes", "Le concours de passes"], "answer": 0},
+    {"q": "À quelle hauteur le panier est-il fixé ?", "choices": ["3,05 m", "2,80 m", "3,20 m", "2,95 m"], "answer": 0},
+    {"q": "Quel film réunit Michael Jordan et les Looney Tunes ?", "choices": ["Space Jam", "Coach Carter", "White Men Can't Jump", "Hustle"], "answer": 0},
+    {"q": "Quel pivot serbe des Nuggets a été plusieurs fois MVP de la NBA ?", "choices": ["Nikola Jokic", "Nikola Vucevic", "Boban Marjanovic", "Jusuf Nurkic"], "answer": 0}
+  ]
+}

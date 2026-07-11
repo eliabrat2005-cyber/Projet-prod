@@ -1,0 +1,32 @@
+{
+  "id": "fruits-et-legumes",
+  "name": "Fruits & Légumes",
+  "icon": "🥕",
+  "color": "#689f38",
+  "questions": [
+    {"q": "Quel fruit rouge n'est botaniquement pas une baie mais un « faux-fruit » ?", "choices": ["La fraise", "La tomate", "Le raisin", "La myrtille"], "answer": 0},
+    {"q": "La tomate est-elle un fruit ou un légume au sens botanique ?", "choices": ["Un fruit", "Un légume", "Une racine", "Une baie synthétique"], "answer": 0},
+    {"q": "Quel légume orange est riche en bêta-carotène ?", "choices": ["La carotte", "Le navet", "Le panais", "Le céleri"], "answer": 0},
+    {"q": "Quel fruit jaune pousse en régimes ?", "choices": ["La banane", "Le citron", "La mangue", "L'ananas"], "answer": 0},
+    {"q": "Quel fruit tropical porte une couronne de feuilles ?", "choices": ["L'ananas", "La papaye", "Le litchi", "La goyave"], "answer": 0},
+    {"q": "Quel fruit vert ou violet donne l'huile méditerranéenne ?", "choices": ["L'olive", "L'avocat", "Le raisin", "La figue"], "answer": 0},
+    {"q": "Quel fruit à noyau est la base du guacamole ?", "choices": ["L'avocat", "La mangue", "L'olive", "Le kaki"], "answer": 0},
+    {"q": "Quel agrume est le plus acide ?", "choices": ["Le citron", "L'orange", "La clémentine", "Le pomelo"], "answer": 0},
+    {"q": "Quel petit agrume se pèle facilement à Noël ?", "choices": ["La clémentine", "Le pamplemousse", "Le cédrat", "La bergamote"], "answer": 0},
+    {"q": "Quel fruit d'été à noyau est velu ?", "choices": ["La pêche", "La nectarine", "La prune", "L'abricot"], "answer": 0},
+    {"q": "Quel fruit exotique marron est poilu avec une chair verte ?", "choices": ["Le kiwi", "Le litchi", "Le fruit de la passion", "La châtaigne"], "answer": 0},
+    {"q": "Quel gros fruit d'été se mange en tranches rafraîchissantes ?", "choices": ["La pastèque", "Le melon", "La papaye", "Le pomelo"], "answer": 0},
+    {"q": "Quel légume fait pleurer quand on le coupe ?", "choices": ["L'oignon", "L'ail", "Le poireau", "L'échalote"], "answer": 0},
+    {"q": "Quel légume vert ressemble à un petit arbre ?", "choices": ["Le brocoli", "Le chou-fleur", "L'artichaut", "Le romanesco"], "answer": 0},
+    {"q": "Quel légume-fleur mange-t-on feuille à feuille avec une vinaigrette ?", "choices": ["L'artichaut", "L'endive", "Le fenouil", "Le chou"], "answer": 0},
+    {"q": "Quel tubercule est la base des frites ?", "choices": ["La pomme de terre", "La patate douce", "Le manioc", "Le topinambour"], "answer": 0},
+    {"q": "Quel légume violet est l'ingrédient star de la moussaka ?", "choices": ["L'aubergine", "La betterave", "Le chou rouge", "L'oignon rouge"], "answer": 0},
+    {"q": "Quel légume d'hiver donne une soupe orange ?", "choices": ["Le potiron (courge)", "Le navet", "Le panais", "Le rutabaga"], "answer": 0},
+    {"q": "Quelle plante verte à tiges se déguste au printemps avec de la vinaigrette ?", "choices": ["L'asperge", "La rhubarbe", "Le céleri branche", "Le fenouil"], "answer": 0},
+    {"q": "Quelle tige rose acide se cuisine en tarte sucrée ?", "choices": ["La rhubarbe", "L'asperge rose", "La betterave", "Le radis géant"], "answer": 0},
+    {"q": "Quel fruit sec pousse dans une bogue piquante ?", "choices": ["La châtaigne", "La noix", "La noisette", "L'amande"], "answer": 0},
+    {"q": "Quel fruit rouge pousse sur un arbre en bouquets début juin ?", "choices": ["La cerise", "La fraise", "La groseille", "La framboise"], "answer": 0},
+    {"q": "Quel « fruit du dragon » a une peau rose à écailles ?", "choices": ["Le pitaya", "Le ramboutan", "Le mangoustan", "Le durian"], "answer": 0},
+    {"q": "Quel fruit asiatique est célèbre pour son odeur épouvantable ?", "choices": ["Le durian", "Le jacquier", "Le longane", "Le kumquat"], "answer": 0}
+  ]
+}

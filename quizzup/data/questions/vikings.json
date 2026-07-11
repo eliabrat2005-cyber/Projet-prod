@@ -1,0 +1,32 @@
+{
+  "id": "vikings",
+  "name": "Vikings",
+  "icon": "🪓",
+  "color": "#455a64",
+  "questions": [
+    {"q": "De quelle région venaient les Vikings ?", "choices": ["De Scandinavie", "De Germanie", "De Russie", "D'Écosse"], "answer": 0},
+    {"q": "Comment s'appelaient les navires rapides des Vikings ?", "choices": ["Les drakkars (langskips)", "Les galères", "Les caravelles", "Les cogues"], "answer": 0},
+    {"q": "Quelle figure ornait souvent la proue des navires vikings ?", "choices": ["Une tête de dragon", "Une sirène", "Un aigle", "Un cheval"], "answer": 0},
+    {"q": "Entre quels siècles s'étend l'âge des Vikings ?", "choices": ["Du VIIIᵉ au XIᵉ siècle", "Du Vᵉ au VIIᵉ", "Du XIIᵉ au XIVᵉ", "Du IIᵉ au IVᵉ"], "answer": 0},
+    {"q": "Quel monastère anglais pillé en 793 marque le début de l'ère viking ?", "choices": ["Lindisfarne", "Canterbury", "Iona", "Whitby"], "answer": 0},
+    {"q": "Quel dieu borgne règne sur Asgard ?", "choices": ["Odin", "Thor", "Tyr", "Freyr"], "answer": 0},
+    {"q": "Quels corbeaux rapportent les nouvelles du monde à Odin ?", "choices": ["Hugin et Munin", "Geri et Freki", "Sköll et Hati", "Ratatosk et Nidhögg"], "answer": 0},
+    {"q": "Quel dieu du tonnerre manie le marteau Mjöllnir ?", "choices": ["Thor", "Odin", "Loki", "Baldur"], "answer": 0},
+    {"q": "Quel paradis accueille les guerriers morts au combat ?", "choices": ["Le Valhalla", "Le Niflheim", "Le Helheim", "L'Alfheim"], "answer": 0},
+    {"q": "Quelles guerrières choisissent les morts dignes du Valhalla ?", "choices": ["Les Valkyries", "Les Nornes", "Les Dises", "Les Skjaldmös"], "answer": 0},
+    {"q": "Quel arbre-monde relie les neuf royaumes nordiques ?", "choices": ["Yggdrasil", "Mimameid", "Laerad", "Barnstokkr"], "answer": 0},
+    {"q": "Quelle fin du monde verra mourir les dieux nordiques ?", "choices": ["Le Ragnarök", "Le Fimbulvetr", "Le Crépuscule doré", "Le Jugement"], "answer": 0},
+    {"q": "Quelle écriture gravaient les Vikings sur pierres et bois ?", "choices": ["Les runes", "Les glyphes", "L'ogham", "Le futhark latin"], "answer": 0},
+    {"q": "Quel chef viking a assiégé Paris en 845 ?", "choices": ["Ragnar", "Rollon", "Björn", "Harald"], "answer": 0},
+    {"q": "Quel chef viking est devenu le premier duc de Normandie ?", "choices": ["Rollon", "Ragnar", "Knut", "Erik"], "answer": 0},
+    {"q": "Quelle région française doit son nom aux « hommes du Nord » ?", "choices": ["La Normandie", "La Bretagne", "La Picardie", "La Flandre"], "answer": 0},
+    {"q": "Quel Viking a fondé la première colonie au Groenland ?", "choices": ["Erik le Rouge", "Leif Erikson", "Floki", "Knut le Grand"], "answer": 0},
+    {"q": "Quel explorateur viking a atteint l'Amérique vers l'an 1000 ?", "choices": ["Leif Erikson", "Erik le Rouge", "Christophe Colomb", "Harald Hardrada"], "answer": 0},
+    {"q": "Comment les Vikings appelaient-ils l'Amérique découverte ?", "choices": ["Le Vinland", "Le Markland", "L'Atlantide", "Le Nyland"], "answer": 0},
+    {"q": "Quels guerriers combattaient dans une fureur sacrée, dit-on sans armure ?", "choices": ["Les berserkers", "Les housecarls", "Les jarls", "Les thralls"], "answer": 0},
+    {"q": "Comment s'appelait l'assemblée où les Vikings rendaient la justice ?", "choices": ["Le thing", "Le conseil du jarl", "L'althing royal", "La curie"], "answer": 0},
+    {"q": "Quel titre portait un chef ou noble viking ?", "choices": ["Le jarl", "Le thrall", "Le karl", "Le skald"], "answer": 0},
+    {"q": "Comment s'appelaient les poètes qui chantaient les exploits ?", "choices": ["Les skalds", "Les bardes", "Les troubadours", "Les scops"], "answer": 0},
+    {"q": "Quel roi viking a unifié le Danemark et donné son nom à une technologie sans fil ?", "choices": ["Harald à la Dent bleue (Bluetooth)", "Knut le Grand", "Sven à la Barbe fourchue", "Gorm l'Ancien"], "answer": 0}
+  ]
+}

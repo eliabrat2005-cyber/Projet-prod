@@ -1,0 +1,32 @@
+{
+  "id": "demon-slayer",
+  "name": "Demon Slayer",
+  "icon": "🗡️",
+  "color": "#00695c",
+  "questions": [
+    {"q": "Quel est le prénom du héros de Demon Slayer ?", "choices": ["Tanjiro", "Zenitsu", "Inosuke", "Giyu"], "answer": 0},
+    {"q": "Que devient Nezuko, la sœur de Tanjiro ?", "choices": ["Un démon", "Une pourfendeuse", "Une pilier", "Une guérisseuse"], "answer": 0},
+    {"q": "Comment Nezuko se protège-t-elle du soleil ?", "choices": ["Elle dort dans une boîte en bois", "Avec un parapluie", "Sous un manteau", "Grâce à un masque"], "answer": 0},
+    {"q": "Quel objet Nezuko garde-t-elle dans la bouche ?", "choices": ["Un bambou", "Une pierre", "Un tissu", "Un talisman"], "answer": 0},
+    {"q": "Quelle organisation combat les démons ?", "choices": ["L'armée des pourfendeurs de démons", "La brigade de l'aube", "Les samouraïs royaux", "Le clan du soleil"], "answer": 0},
+    {"q": "Quel souffle Tanjiro utilise-t-il en premier ?", "choices": ["Le souffle de l'eau", "Le souffle du feu", "Le souffle du vent", "Le souffle du tonnerre"], "answer": 0},
+    {"q": "Quel compagnon froussard utilise le souffle de la foudre ?", "choices": ["Zenitsu", "Inosuke", "Genya", "Murata"], "answer": 0},
+    {"q": "Quel compagnon porte une tête de sanglier ?", "choices": ["Inosuke", "Zenitsu", "Genya", "Sanemi"], "answer": 0},
+    {"q": "Comment s'appellent les épéistes d'élite de l'armée ?", "choices": ["Les Piliers", "Les Lames", "Les Kizuki", "Les Shinobis"], "answer": 0},
+    {"q": "Qui est le démon originel, ennemi ultime de la série ?", "choices": ["Muzan Kibutsuji", "Akaza", "Kokushibo", "Enmu"], "answer": 0},
+    {"q": "Quel pilier de la flamme meurt dans le film « Le Train de l'Infini » ?", "choices": ["Rengoku", "Giyu", "Tengen", "Shinobu"], "answer": 0},
+    {"q": "Quel pilier de l'eau sauve Tanjiro au début de l'histoire ?", "choices": ["Giyu Tomioka", "Sakonji", "Sanemi", "Muichiro"], "answer": 0},
+    {"q": "De quelle couleur les lames des pourfendeurs changent-elles ?", "choices": ["Selon leur porteur", "Toujours rouges", "Toujours noires", "Selon la lune"], "answer": 0},
+    {"q": "Comment s'appellent les douze démons d'élite de Muzan ?", "choices": ["Les Douze Lunes démoniaques", "Les Douze Crocs", "Les Ombres", "Les Douze Fléaux"], "answer": 0},
+    {"q": "Quelle pilier aux papillons utilise du poison ?", "choices": ["Shinobu", "Mitsuri", "Kanao", "Aoi"], "answer": 0},
+    {"q": "Quel sens de Tanjiro est extraordinairement développé ?", "choices": ["L'odorat", "L'ouïe", "La vue", "Le toucher"], "answer": 0},
+    {"q": "Quels boucles d'oreilles Tanjiro porte-t-il ?", "choices": ["Des pendentifs soleil (hanafuda)", "Des anneaux d'or", "Des croissants de lune", "Des perles rouges"], "answer": 0},
+    {"q": "Quel vieux maître au masque de tengu forme Tanjiro ?", "choices": ["Sakonji Urokodaki", "Jigoro", "Shinjuro", "Kagaya"], "answer": 0},
+    {"q": "Quel démon de rang supérieur affronte Tanjiro dans le train ?", "choices": ["Enmu", "Akaza", "Daki", "Rui"], "answer": 0},
+    {"q": "Quel pilier du son est un ancien shinobi flamboyant ?", "choices": ["Tengen Uzui", "Sanemi", "Gyomei", "Obanai"], "answer": 0},
+    {"q": "Dans quel quartier se déroule l'arc après le train ?", "choices": ["Le quartier des plaisirs", "Le village des forgerons", "Le mont Natagumo", "Asakusa"], "answer": 0},
+    {"q": "Quelle danse familiale inspire les techniques de feu de Tanjiro ?", "choices": ["La danse du dieu du feu (Hinokami)", "La danse du dragon", "La danse solaire", "Le kagura de l'eau"], "answer": 0},
+    {"q": "Qui est l'auteur du manga Demon Slayer ?", "choices": ["Koyoharu Gotouge", "Gege Akutami", "Tite Kubo", "Yoshihiro Togashi"], "answer": 0},
+    {"q": "À quelle époque du Japon se déroule l'histoire ?", "choices": ["L'ère Taisho", "L'ère Edo", "L'ère Meiji", "L'ère Showa"], "answer": 0}
+  ]
+}

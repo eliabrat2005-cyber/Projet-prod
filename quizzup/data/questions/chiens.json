@@ -1,0 +1,32 @@
+{
+  "id": "chiens",
+  "name": "Chiens",
+  "icon": "🐶",
+  "color": "#8d6e63",
+  "questions": [
+    {"q": "Quelle race de chien est la plus petite du monde ?", "choices": ["Le chihuahua", "Le yorkshire", "Le spitz nain", "Le teckel"], "answer": 0},
+    {"q": "Quelle race géante est surnommée « l'Apollon des chiens » ?", "choices": ["Le dogue allemand", "Le saint-bernard", "Le léonberg", "Le mastiff"], "answer": 0},
+    {"q": "Quel chien de montagne sauvait les voyageurs avec un tonnelet au cou ?", "choices": ["Le saint-bernard", "Le terre-neuve", "Le montagne des Pyrénées", "Le bouvier bernois"], "answer": 0},
+    {"q": "Quelle race nage si bien qu'elle sauve des vies en mer ?", "choices": ["Le terre-neuve", "Le labrador", "Le golden retriever", "Le barbet"], "answer": 0},
+    {"q": "Quelle race guide le plus souvent les personnes aveugles ?", "choices": ["Le labrador", "Le berger allemand", "Le caniche", "Le border collie"], "answer": 0},
+    {"q": "Quelle race est considérée comme la plus intelligente pour le troupeau ?", "choices": ["Le border collie", "Le beagle", "Le husky", "Le carlin"], "answer": 0},
+    {"q": "Quel chien nordique tire les traîneaux ?", "choices": ["Le husky sibérien", "L'akita", "Le chow-chow", "Le berger blanc"], "answer": 0},
+    {"q": "Quelle race japonaise est célèbre pour la fidélité du chien Hachiko ?", "choices": ["L'akita", "Le shiba inu", "Le spitz japonais", "Le tosa"], "answer": 0},
+    {"q": "Quel petit chien japonais est devenu un mème internet (« doge ») ?", "choices": ["Le shiba inu", "L'akita", "Le corgi", "Le carlin"], "answer": 0},
+    {"q": "Quelle race à taches noires est associée aux pompiers ?", "choices": ["Le dalmatien", "Le pointer", "Le braque", "Le setter"], "answer": 0},
+    {"q": "Combien de dalmatiens compte le dessin animé de Disney ?", "choices": ["101", "99", "100", "102"], "answer": 0},
+    {"q": "Quelle race préférée d'Élisabeth II a de toutes petites pattes ?", "choices": ["Le corgi", "Le cavalier king charles", "Le bichon", "Le basset"], "answer": 0},
+    {"q": "Quel chien saucisse allemand chassait le blaireau ?", "choices": ["Le teckel", "Le basset hound", "Le beagle", "Le jack russell"], "answer": 0},
+    {"q": "Quelle race française à poil frisé existe en quatre tailles ?", "choices": ["Le caniche", "Le bichon", "Le barbet", "Le lagotto"], "answer": 0},
+    {"q": "Quel chien policier par excellence vient d'Allemagne ?", "choices": ["Le berger allemand", "Le doberman", "Le rottweiler", "Le malinois"], "answer": 0},
+    {"q": "Quel berger belge est devenu la star des unités d'élite ?", "choices": ["Le malinois", "Le tervueren", "Le groenendael", "Le laekenois"], "answer": 0},
+    {"q": "Combien de temps dure la gestation d'une chienne ?", "choices": ["Environ 2 mois", "Environ 4 mois", "Environ 6 mois", "Environ 9 mois"], "answer": 0},
+    {"q": "Par quel sens le chien perçoit-il le mieux le monde ?", "choices": ["L'odorat", "La vue", "L'ouïe", "Le goût"], "answer": 0},
+    {"q": "Pourquoi le chien halète-t-il ?", "choices": ["Pour réguler sa température", "Par faim", "Par peur uniquement", "Pour communiquer"], "answer": 0},
+    {"q": "Quel chien de dessin animé accompagne Tintin ?", "choices": ["Milou", "Idéfix", "Rantanplan", "Bill"], "answer": 0},
+    {"q": "Quel chien célèbre de bande dessinée dort sur le toit de sa niche ?", "choices": ["Snoopy", "Pluto", "Scooby-Doo", "Droopy"], "answer": 0},
+    {"q": "Quel grand danois froussard résout des mystères avec Sammy ?", "choices": ["Scooby-Doo", "Scrappy", "Pluto", "Astro"], "answer": 0},
+    {"q": "De quel animal sauvage descend le chien domestique ?", "choices": ["Le loup gris", "Le renard", "Le chacal", "Le coyote"], "answer": 0},
+    {"q": "Quelle race chinoise a la langue bleue ?", "choices": ["Le chow-chow", "Le shar-peï", "Le pékinois", "Le carlin"], "answer": 0}
+  ]
+}

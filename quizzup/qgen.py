@@ -296,7 +296,395 @@ def build_anglais() -> list[dict]:
     return out
 
 
+# ─── Données : éléments chimiques (symbole ↔ nom) ──────────────────────────
+
+ELEMENTS: list[tuple[str, str]] = [
+    ("H", "l'hydrogène"), ("He", "l'hélium"), ("Li", "le lithium"), ("Be", "le béryllium"),
+    ("B", "le bore"), ("C", "le carbone"), ("N", "l'azote"), ("O", "l'oxygène"),
+    ("F", "le fluor"), ("Ne", "le néon"), ("Na", "le sodium"), ("Mg", "le magnésium"),
+    ("Al", "l'aluminium"), ("Si", "le silicium"), ("P", "le phosphore"), ("S", "le soufre"),
+    ("Cl", "le chlore"), ("Ar", "l'argon"), ("K", "le potassium"), ("Ca", "le calcium"),
+    ("Ti", "le titane"), ("Cr", "le chrome"), ("Mn", "le manganèse"), ("Fe", "le fer"),
+    ("Co", "le cobalt"), ("Ni", "le nickel"), ("Cu", "le cuivre"), ("Zn", "le zinc"),
+    ("As", "l'arsenic"), ("Br", "le brome"), ("Kr", "le krypton"), ("Ag", "l'argent"),
+    ("Sn", "l'étain"), ("I", "l'iode"), ("Xe", "le xénon"), ("Ba", "le baryum"),
+    ("W", "le tungstène"), ("Pt", "le platine"), ("Au", "l'or"), ("Hg", "le mercure"),
+    ("Pb", "le plomb"), ("Rn", "le radon"), ("Ra", "le radium"), ("U", "l'uranium"),
+    ("Pu", "le plutonium"), ("Mo", "le molybdène"), ("Cd", "le cadmium"), ("Sb", "l'antimoine"),
+]
+
+# ─── Données : vocabulaire (espagnol / allemand / italien) ──────────────────
+
+SPANISH_WORDS: list[tuple[str, str]] = [
+    ("chien", "perro"), ("chat", "gato"), ("cheval", "caballo"), ("oiseau", "pájaro"),
+    ("poisson", "pez"), ("vache", "vaca"), ("cochon", "cerdo"), ("lapin", "conejo"),
+    ("maison", "casa"), ("porte", "puerta"), ("fenêtre", "ventana"), ("table", "mesa"),
+    ("chaise", "silla"), ("lit", "cama"), ("cuisine", "cocina"), ("clé", "llave"),
+    ("pain", "pan"), ("fromage", "queso"), ("lait", "leche"), ("œuf", "huevo"),
+    ("pomme", "manzana"), ("fraise", "fresa"), ("orange", "naranja"), ("raisin", "uva"),
+    ("eau", "agua"), ("vin", "vino"), ("sel", "sal"), ("sucre", "azúcar"),
+    ("poulet", "pollo"), ("viande", "carne"), ("riz", "arroz"), ("gâteau", "pastel"),
+    ("tête", "cabeza"), ("main", "mano"), ("pied", "pie"), ("cœur", "corazón"),
+    ("œil", "ojo"), ("bouche", "boca"), ("nez", "nariz"), ("oreille", "oreja"),
+    ("soleil", "sol"), ("lune", "luna"), ("étoile", "estrella"), ("mer", "mar"),
+    ("plage", "playa"), ("montagne", "montaña"), ("fleur", "flor"), ("arbre", "árbol"),
+    ("pluie", "lluvia"), ("neige", "nieve"), ("feu", "fuego"), ("vent", "viento"),
+    ("livre", "libro"), ("école", "escuela"), ("ami", "amigo"), ("famille", "familia"),
+    ("frère", "hermano"), ("sœur", "hermana"), ("fils", "hijo"), ("mère", "madre"),
+    ("père", "padre"), ("femme", "mujer"), ("homme", "hombre"), ("enfant", "niño"),
+    ("ville", "ciudad"), ("rue", "calle"), ("voiture", "coche"), ("train", "tren"),
+    ("avion", "avión"), ("bateau", "barco"), ("argent", "dinero"), ("travail", "trabajo"),
+    ("jour", "día"), ("nuit", "noche"), ("matin", "mañana"), ("semaine", "semana"),
+    ("année", "año"), ("heure", "hora"), ("temps", "tiempo"), ("monde", "mundo"),
+    ("rouge", "rojo"), ("bleu", "azul"), ("vert", "verde"), ("noir", "negro"),
+    ("blanc", "blanco"), ("jaune", "amarillo"), ("petit", "pequeño"), ("grand", "grande"),
+    ("chaud", "caliente"), ("froid", "frío"), ("chaussure", "zapato"), ("chemise", "camisa"),
+]
+
+GERMAN_WORDS: list[tuple[str, str]] = [
+    ("chien", "Hund"), ("chat", "Katze"), ("cheval", "Pferd"), ("oiseau", "Vogel"),
+    ("poisson", "Fisch"), ("vache", "Kuh"), ("cochon", "Schwein"), ("lapin", "Kaninchen"),
+    ("maison", "Haus"), ("porte", "Tür"), ("fenêtre", "Fenster"), ("table", "Tisch"),
+    ("chaise", "Stuhl"), ("lit", "Bett"), ("cuisine", "Küche"), ("clé", "Schlüssel"),
+    ("pain", "Brot"), ("fromage", "Käse"), ("lait", "Milch"), ("œuf", "Ei"),
+    ("pomme", "Apfel"), ("fraise", "Erdbeere"), ("orange", "Orange"), ("raisin", "Traube"),
+    ("eau", "Wasser"), ("vin", "Wein"), ("sel", "Salz"), ("sucre", "Zucker"),
+    ("poulet", "Hähnchen"), ("viande", "Fleisch"), ("riz", "Reis"), ("gâteau", "Kuchen"),
+    ("tête", "Kopf"), ("main", "Hand"), ("pied", "Fuß"), ("cœur", "Herz"),
+    ("œil", "Auge"), ("bouche", "Mund"), ("nez", "Nase"), ("oreille", "Ohr"),
+    ("soleil", "Sonne"), ("lune", "Mond"), ("étoile", "Stern"), ("mer", "Meer"),
+    ("plage", "Strand"), ("montagne", "Berg"), ("fleur", "Blume"), ("arbre", "Baum"),
+    ("pluie", "Regen"), ("neige", "Schnee"), ("feu", "Feuer"), ("vent", "Wind"),
+    ("livre", "Buch"), ("école", "Schule"), ("ami", "Freund"), ("famille", "Familie"),
+    ("frère", "Bruder"), ("sœur", "Schwester"), ("fils", "Sohn"), ("mère", "Mutter"),
+    ("père", "Vater"), ("femme", "Frau"), ("homme", "Mann"), ("enfant", "Kind"),
+    ("ville", "Stadt"), ("rue", "Straße"), ("voiture", "Auto"), ("train", "Zug"),
+    ("avion", "Flugzeug"), ("bateau", "Schiff"), ("argent", "Geld"), ("travail", "Arbeit"),
+    ("jour", "Tag"), ("nuit", "Nacht"), ("matin", "Morgen"), ("semaine", "Woche"),
+    ("année", "Jahr"), ("monde", "Welt"), ("rouge", "rot"), ("bleu", "blau"),
+    ("vert", "grün"), ("noir", "schwarz"), ("blanc", "weiß"), ("jaune", "gelb"),
+]
+
+ITALIAN_WORDS: list[tuple[str, str]] = [
+    ("chien", "cane"), ("chat", "gatto"), ("cheval", "cavallo"), ("oiseau", "uccello"),
+    ("poisson", "pesce"), ("vache", "mucca"), ("cochon", "maiale"), ("lapin", "coniglio"),
+    ("maison", "casa"), ("porte", "porta"), ("fenêtre", "finestra"), ("table", "tavolo"),
+    ("chaise", "sedia"), ("lit", "letto"), ("cuisine", "cucina"), ("clé", "chiave"),
+    ("pain", "pane"), ("fromage", "formaggio"), ("lait", "latte"), ("œuf", "uovo"),
+    ("pomme", "mela"), ("fraise", "fragola"), ("orange", "arancia"), ("raisin", "uva"),
+    ("eau", "acqua"), ("vin", "vino"), ("sel", "sale"), ("sucre", "zucchero"),
+    ("poulet", "pollo"), ("viande", "carne"), ("riz", "riso"), ("gâteau", "torta"),
+    ("tête", "testa"), ("main", "mano"), ("pied", "piede"), ("cœur", "cuore"),
+    ("œil", "occhio"), ("bouche", "bocca"), ("nez", "naso"), ("oreille", "orecchio"),
+    ("soleil", "sole"), ("lune", "luna"), ("étoile", "stella"), ("mer", "mare"),
+    ("plage", "spiaggia"), ("montagne", "montagna"), ("fleur", "fiore"), ("arbre", "albero"),
+    ("pluie", "pioggia"), ("neige", "neve"), ("feu", "fuoco"), ("vent", "vento"),
+    ("livre", "libro"), ("école", "scuola"), ("ami", "amico"), ("famille", "famiglia"),
+    ("frère", "fratello"), ("sœur", "sorella"), ("fils", "figlio"), ("mère", "madre"),
+    ("père", "padre"), ("femme", "donna"), ("homme", "uomo"), ("enfant", "bambino"),
+    ("ville", "città"), ("rue", "strada"), ("voiture", "macchina"), ("train", "treno"),
+    ("avion", "aereo"), ("bateau", "barca"), ("argent", "denaro"), ("travail", "lavoro"),
+    ("jour", "giorno"), ("nuit", "notte"), ("matin", "mattina"), ("semaine", "settimana"),
+    ("année", "anno"), ("monde", "mondo"), ("rouge", "rosso"), ("bleu", "blu"),
+    ("vert", "verde"), ("noir", "nero"), ("blanc", "bianco"), ("jaune", "giallo"),
+]
+
+# ─── Données : départements français (numéro, nom, préfecture) ──────────────
+
+DEPARTEMENTS: list[tuple[str, str, str]] = [
+    ("01", "l'Ain", "Bourg-en-Bresse"), ("02", "l'Aisne", "Laon"), ("03", "l'Allier", "Moulins"),
+    ("04", "les Alpes-de-Haute-Provence", "Digne-les-Bains"), ("05", "les Hautes-Alpes", "Gap"),
+    ("06", "les Alpes-Maritimes", "Nice"), ("07", "l'Ardèche", "Privas"),
+    ("08", "les Ardennes", "Charleville-Mézières"),
+    ("09", "l'Ariège", "Foix"), ("10", "l'Aube", "Troyes"), ("11", "l'Aude", "Carcassonne"),
+    ("12", "l'Aveyron", "Rodez"), ("13", "les Bouches-du-Rhône", "Marseille"), ("14", "le Calvados", "Caen"),
+    ("15", "le Cantal", "Aurillac"), ("16", "la Charente", "Angoulême"), ("17", "la Charente-Maritime", "La Rochelle"),
+    ("18", "le Cher", "Bourges"), ("19", "la Corrèze", "Tulle"), ("2A", "la Corse-du-Sud", "Ajaccio"),
+    ("2B", "la Haute-Corse", "Bastia"), ("21", "la Côte-d'Or", "Dijon"), ("22", "les Côtes-d'Armor", "Saint-Brieuc"),
+    ("23", "la Creuse", "Guéret"), ("24", "la Dordogne", "Périgueux"), ("25", "le Doubs", "Besançon"),
+    ("26", "la Drôme", "Valence"), ("27", "l'Eure", "Évreux"), ("28", "l'Eure-et-Loir", "Chartres"),
+    ("29", "le Finistère", "Quimper"), ("30", "le Gard", "Nîmes"), ("31", "la Haute-Garonne", "Toulouse"),
+    ("32", "le Gers", "Auch"), ("33", "la Gironde", "Bordeaux"), ("34", "l'Hérault", "Montpellier"),
+    ("35", "l'Ille-et-Vilaine", "Rennes"), ("36", "l'Indre", "Châteauroux"), ("37", "l'Indre-et-Loire", "Tours"),
+    ("38", "l'Isère", "Grenoble"), ("39", "le Jura", "Lons-le-Saunier"), ("40", "les Landes", "Mont-de-Marsan"),
+    ("41", "le Loir-et-Cher", "Blois"), ("42", "la Loire", "Saint-Étienne"),
+    ("43", "la Haute-Loire", "Le Puy-en-Velay"),
+    ("44", "la Loire-Atlantique", "Nantes"), ("45", "le Loiret", "Orléans"), ("46", "le Lot", "Cahors"),
+    ("47", "le Lot-et-Garonne", "Agen"), ("48", "la Lozère", "Mende"), ("49", "le Maine-et-Loire", "Angers"),
+    ("50", "la Manche", "Saint-Lô"), ("51", "la Marne", "Châlons-en-Champagne"), ("52", "la Haute-Marne", "Chaumont"),
+    ("53", "la Mayenne", "Laval"), ("54", "la Meurthe-et-Moselle", "Nancy"), ("55", "la Meuse", "Bar-le-Duc"),
+    ("56", "le Morbihan", "Vannes"), ("57", "la Moselle", "Metz"), ("58", "la Nièvre", "Nevers"),
+    ("59", "le Nord", "Lille"), ("60", "l'Oise", "Beauvais"), ("61", "l'Orne", "Alençon"),
+    ("62", "le Pas-de-Calais", "Arras"), ("63", "le Puy-de-Dôme", "Clermont-Ferrand"),
+    ("64", "les Pyrénées-Atlantiques", "Pau"), ("65", "les Hautes-Pyrénées", "Tarbes"),
+    ("66", "les Pyrénées-Orientales", "Perpignan"), ("67", "le Bas-Rhin", "Strasbourg"),
+    ("68", "le Haut-Rhin", "Colmar"), ("69", "le Rhône", "Lyon"), ("70", "la Haute-Saône", "Vesoul"),
+    ("71", "la Saône-et-Loire", "Mâcon"), ("72", "la Sarthe", "Le Mans"), ("73", "la Savoie", "Chambéry"),
+    ("74", "la Haute-Savoie", "Annecy"), ("75", "Paris", "Paris"), ("76", "la Seine-Maritime", "Rouen"),
+    ("77", "la Seine-et-Marne", "Melun"), ("78", "les Yvelines", "Versailles"), ("79", "les Deux-Sèvres", "Niort"),
+    ("80", "la Somme", "Amiens"), ("81", "le Tarn", "Albi"), ("82", "le Tarn-et-Garonne", "Montauban"),
+    ("83", "le Var", "Toulon"), ("84", "le Vaucluse", "Avignon"), ("85", "la Vendée", "La Roche-sur-Yon"),
+    ("86", "la Vienne", "Poitiers"), ("87", "la Haute-Vienne", "Limoges"), ("88", "les Vosges", "Épinal"),
+    ("89", "l'Yonne", "Auxerre"), ("90", "le Territoire de Belfort", "Belfort"),
+    ("91", "l'Essonne", "Évry-Courcouronnes"), ("92", "les Hauts-de-Seine", "Nanterre"),
+    ("93", "la Seine-Saint-Denis", "Bobigny"), ("94", "le Val-de-Marne", "Créteil"), ("95", "le Val-d'Oise", "Cergy"),
+]
+
+# ─── Données : États américains (État, capitale) ────────────────────────────
+
+US_STATES: list[tuple[str, str]] = [
+    ("l'Alabama", "Montgomery"), ("l'Alaska", "Juneau"), ("l'Arizona", "Phoenix"),
+    ("l'Arkansas", "Little Rock"), ("la Californie", "Sacramento"), ("le Colorado", "Denver"),
+    ("le Connecticut", "Hartford"), ("le Delaware", "Dover"), ("la Floride", "Tallahassee"),
+    ("la Géorgie", "Atlanta"), ("Hawaï", "Honolulu"), ("l'Idaho", "Boise"),
+    ("l'Illinois", "Springfield"), ("l'Indiana", "Indianapolis"), ("l'Iowa", "Des Moines"),
+    ("le Kansas", "Topeka"), ("le Kentucky", "Frankfort"), ("la Louisiane", "Baton Rouge"),
+    ("le Maine", "Augusta"), ("le Maryland", "Annapolis"), ("le Massachusetts", "Boston"),
+    ("le Michigan", "Lansing"), ("le Minnesota", "Saint Paul"), ("le Mississippi", "Jackson"),
+    ("le Missouri", "Jefferson City"), ("le Montana", "Helena"), ("le Nebraska", "Lincoln"),
+    ("le Nevada", "Carson City"), ("le New Hampshire", "Concord"), ("le New Jersey", "Trenton"),
+    ("le Nouveau-Mexique", "Santa Fe"), ("l'État de New York", "Albany"),
+    ("la Caroline du Nord", "Raleigh"), ("le Dakota du Nord", "Bismarck"), ("l'Ohio", "Columbus"),
+    ("l'Oklahoma", "Oklahoma City"), ("l'Oregon", "Salem"), ("la Pennsylvanie", "Harrisburg"),
+    ("le Rhode Island", "Providence"), ("la Caroline du Sud", "Columbia"),
+    ("le Dakota du Sud", "Pierre"), ("le Tennessee", "Nashville"), ("le Texas", "Austin"),
+    ("l'Utah", "Salt Lake City"), ("le Vermont", "Montpelier"), ("la Virginie", "Richmond"),
+    ("l'État de Washington", "Olympia"), ("la Virginie-Occidentale", "Charleston"),
+    ("le Wisconsin", "Madison"), ("le Wyoming", "Cheyenne"),
+]
+
+# ─── Données : monnaies du monde ────────────────────────────────────────────
+
+CURRENCIES: list[tuple[str, str]] = [
+    ("le Japon", "le yen"), ("le Royaume-Uni", "la livre sterling"), ("la Suisse", "le franc suisse"),
+    ("les États-Unis", "le dollar américain"), ("le Canada", "le dollar canadien"),
+    ("le Mexique", "le peso mexicain"), ("le Brésil", "le réal"), ("l'Argentine", "le peso argentin"),
+    ("la Chine", "le yuan"), ("l'Inde", "la roupie indienne"), ("la Russie", "le rouble"),
+    ("la Turquie", "la livre turque"), ("la Suède", "la couronne suédoise"),
+    ("la Norvège", "la couronne norvégienne"), ("le Danemark", "la couronne danoise"),
+    ("la Pologne", "le złoty"), ("la Hongrie", "le forint"), ("la Tchéquie", "la couronne tchèque"),
+    ("la Corée du Sud", "le won"), ("la Thaïlande", "le baht"), ("le Vietnam", "le dong"),
+    ("l'Indonésie", "la roupie indonésienne"), ("Israël", "le shekel"),
+    ("l'Arabie saoudite", "le riyal saoudien"), ("les Émirats arabes unis", "le dirham des Émirats"),
+    ("l'Égypte", "la livre égyptienne"), ("le Maroc", "le dirham marocain"),
+    ("la Tunisie", "le dinar tunisien"), ("l'Algérie", "le dinar algérien"),
+    ("l'Afrique du Sud", "le rand"), ("le Nigeria", "le naira"), ("le Kenya", "le shilling kényan"),
+    ("l'Australie", "le dollar australien"), ("la Nouvelle-Zélande", "le dollar néo-zélandais"),
+    ("les Philippines", "le peso philippin"), ("la Malaisie", "le ringgit"),
+    ("Singapour", "le dollar de Singapour"), ("l'Ukraine", "la hryvnia"), ("la Roumanie", "le leu"),
+    ("la Bulgarie", "le lev"), ("l'Islande", "la couronne islandaise"), ("le Pérou", "le sol"),
+    ("le Chili", "le peso chilien"), ("la Colombie", "le peso colombien"),
+    ("la Bolivie", "le boliviano"), ("le Paraguay", "le guarani"), ("le Guatemala", "le quetzal"),
+    ("le Costa Rica", "le colón"), ("le Bangladesh", "le taka"), ("le Pakistan", "la roupie pakistanaise"),
+    ("le Népal", "la roupie népalaise"), ("le Cambodge", "le riel"), ("le Laos", "le kip"),
+    ("la Birmanie", "le kyat"), ("la Mongolie", "le tugrik"), ("le Kazakhstan", "le tenge"),
+    ("la Géorgie", "le lari"), ("l'Arménie", "le dram"), ("l'Azerbaïdjan", "le manat"),
+    ("l'Iran", "le rial iranien"),
+]
+
+# ─── Données : petits et femelles des animaux ───────────────────────────────
+
+ANIMAL_BABIES: list[tuple[str, str]] = [
+    ("la vache", "le veau"), ("la jument", "le poulain"), ("la brebis", "l'agneau"),
+    ("la chèvre", "le chevreau"), ("la truie", "le porcelet"), ("la chienne", "le chiot"),
+    ("la chatte", "le chaton"), ("la lapine", "le lapereau"), ("l'ourse", "l'ourson"),
+    ("la louve", "le louveteau"), ("la lionne", "le lionceau"), ("l'éléphante", "l'éléphanteau"),
+    ("la biche", "le faon"), ("la cane", "le caneton"), ("la poule", "le poussin"),
+    ("l'oie", "l'oison"), ("la dinde", "le dindonneau"), ("l'aigle", "l'aiglon"),
+    ("la girafe", "le girafeau"), ("la baleine", "le baleineau"), ("la renarde", "le renardeau"),
+    ("la laie (sanglier)", "le marcassin"), ("la hase (lièvre)", "le levraut"),
+    ("l'ânesse", "l'ânon"), ("la chamelle", "le chamelon"), ("la tigresse", "le tigreau"),
+    ("la souris", "le souriceau"), ("la pigeonne", "le pigeonneau"), ("la cigogne", "le cigogneau"),
+    ("l'hirondelle", "l'hirondeau"),
+]
+
+ANIMAL_FEMALES: list[tuple[str, str]] = [
+    ("du cheval", "la jument"), ("du sanglier", "la laie"), ("du cerf", "la biche"),
+    ("du lièvre", "la hase"), ("du canard", "la cane"), ("du cochon", "la truie"),
+    ("du bélier", "la brebis"), ("du taureau", "la vache"), ("du jars", "l'oie"),
+    ("du coq", "la poule"), ("du loup", "la louve"), ("du bouc", "la chèvre"),
+    ("du singe", "la guenon"), ("du dindon", "la dinde"), ("du mulet", "la mule"),
+]
+
+# ─── Données : langues officielles ──────────────────────────────────────────
+
+LANGUAGES: list[tuple[str, str]] = [
+    ("au Brésil", "le portugais"), ("au Mexique", "l'espagnol"), ("en Égypte", "l'arabe"),
+    ("en Autriche", "l'allemand"), ("en Iran", "le persan"), ("en Israël", "l'hébreu"),
+    ("en Chine", "le mandarin"), ("en Grèce", "le grec"), ("aux Pays-Bas", "le néerlandais"),
+    ("au Danemark", "le danois"), ("en Finlande", "le finnois"), ("en Islande", "l'islandais"),
+    ("en Hongrie", "le hongrois"), ("en Pologne", "le polonais"), ("en Roumanie", "le roumain"),
+    ("en Bulgarie", "le bulgare"), ("en Serbie", "le serbe"), ("en Albanie", "l'albanais"),
+    ("en Turquie", "le turc"), ("au Vietnam", "le vietnamien"), ("en Thaïlande", "le thaï"),
+    ("au Japon", "le japonais"), ("en Corée du Sud", "le coréen"), ("au Cambodge", "le khmer"),
+    ("en Indonésie", "l'indonésien"), ("en Mongolie", "le mongol"), ("en Géorgie", "le géorgien"),
+    ("en Arménie", "l'arménien"), ("en Ukraine", "l'ukrainien"), ("en Russie", "le russe"),
+    ("au Portugal", "le portugais"), ("en Argentine", "l'espagnol"), ("au Maroc", "l'arabe"),
+    ("en Angola", "le portugais"), ("au Mozambique", "le portugais"), ("en Somalie", "le somali"),
+    ("au Pakistan", "l'ourdou"), ("au Bangladesh", "le bengali"), ("au Népal", "le népalais"),
+    ("au Sri Lanka", "le cingalais"), ("en Birmanie", "le birman"), ("en Malaisie", "le malais"),
+    ("en Éthiopie", "l'amharique"), ("en Croatie", "le croate"), ("en Slovaquie", "le slovaque"),
+    ("en Slovénie", "le slovène"), ("en Lituanie", "le lituanien"), ("en Lettonie", "le letton"),
+    ("en Estonie", "l'estonien"), ("en Norvège", "le norvégien"),
+]
+
+
+def _roman(n: int) -> str:
+    vals = [(1000, "M"), (900, "CM"), (500, "D"), (400, "CD"), (100, "C"), (90, "XC"),
+            (50, "L"), (40, "XL"), (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")]
+    out = ""
+    for v, s in vals:
+        while n >= v:
+            out += s
+            n -= v
+    return out
+
+
+def _pairs_topic(rng_seed: int, pairs: list[tuple[str, str]],
+                 q_fwd: str, q_rev: str) -> list[dict]:
+    """Thème « paire » générique : question dans les deux sens, distracteurs du pool."""
+    rng = random.Random(rng_seed)
+    lefts = [a for a, _ in pairs]
+    rights = [b for _, b in pairs]
+    out = []
+    for left, right in pairs:
+        out.append({"q": q_fwd.format(left), "choices": [right, *_pick_distractors(rng, right, rights)],
+                    "answer": 0})
+        out.append({"q": q_rev.format(right), "choices": [left, *_pick_distractors(rng, left, lefts)],
+                    "answer": 0})
+    return out
+
+
+def build_elements() -> list[dict]:
+    return _pairs_topic(11, ELEMENTS,
+                        "Quel élément chimique a pour symbole « {} » ?",
+                        "Quel est le symbole chimique de {} ?")
+
+
+def build_espagnol() -> list[dict]:
+    return _pairs_topic(12, SPANISH_WORDS,
+                        "Comment dit-on « {} » en espagnol ?",
+                        "Que signifie « {} » en français (depuis l'espagnol) ?")
+
+
+def build_allemand() -> list[dict]:
+    return _pairs_topic(13, GERMAN_WORDS,
+                        "Comment dit-on « {} » en allemand ?",
+                        "Que signifie « {} » en français (depuis l'allemand) ?")
+
+
+def build_italien() -> list[dict]:
+    return _pairs_topic(14, ITALIAN_WORDS,
+                        "Comment dit-on « {} » en italien ?",
+                        "Que signifie « {} » en français (depuis l'italien) ?")
+
+
+def build_departements() -> list[dict]:
+    rng = random.Random(15)
+    names = [n for _, n, _ in DEPARTEMENTS]
+    prefs = [p for _, _, p in DEPARTEMENTS]
+    out = []
+    for num, name, pref in DEPARTEMENTS:
+        out.append({"q": f"Quel département porte le numéro {num} ?",
+                    "choices": [_cap_first(name), *[_cap_first(d) for d in _pick_distractors(rng, name, names)]],
+                    "answer": 0})
+        out.append({"q": f"Quelle est la préfecture de {name} ({num}) ?",
+                    "choices": [pref, *_pick_distractors(rng, pref, prefs)], "answer": 0})
+    return out
+
+
+def build_etats_usa() -> list[dict]:
+    return _pairs_topic(16, [(s, c) for s, c in US_STATES],
+                        "Quelle est la capitale de {} (État américain) ?",
+                        "De quel État américain {} est-elle la capitale ?")
+
+
+def build_monnaies() -> list[dict]:
+    rng = random.Random(17)
+    currs = [c for _, c in CURRENCIES]
+    out = []
+    for country, curr in CURRENCIES:
+        out.append({"q": f"Quelle est la monnaie de {country} ?",
+                    "choices": [_cap_first(curr), *[_cap_first(d) for d in _pick_distractors(rng, curr, currs)]],
+                    "answer": 0})
+    return out
+
+
+def build_chiffres_romains() -> list[dict]:
+    rng = random.Random(18)
+    numbers = list(range(1, 41)) + [45, 49, 50, 55, 60, 64, 70, 75, 80, 88, 90, 94, 99,
+                                    100, 150, 200, 300, 400, 444, 500, 600, 700, 800, 900,
+                                    1000, 1500, 1789, 1900, 1980, 2000, 2024]
+    out = []
+    for n in numbers:
+        r = _roman(n)
+        wrongs: set[str] = set()
+        while len(wrongs) < 3:
+            delta = rng.choice([-10, -5, -4, -2, -1, 1, 2, 4, 5, 10])
+            w = n + delta
+            if w >= 1 and _roman(w) != r:
+                wrongs.add(_roman(w))
+        out.append({"q": f"Comment s'écrit {n} en chiffres romains ?",
+                    "choices": [r, *sorted(wrongs)], "answer": 0})
+        wrong_nums: set[str] = set()
+        while len(wrong_nums) < 3:
+            delta = rng.choice([-10, -5, -4, -2, -1, 1, 2, 4, 5, 10])
+            w = n + delta
+            if w >= 1 and w != n:
+                wrong_nums.add(str(w))
+        out.append({"q": f"Quel nombre s'écrit « {r} » en chiffres romains ?",
+                    "choices": [str(n), *sorted(wrong_nums)], "answer": 0})
+    return out
+
+
+def build_petits_animaux() -> list[dict]:
+    rng = random.Random(19)
+    babies = [b for _, b in ANIMAL_BABIES]
+    females = [f for _, f in ANIMAL_FEMALES]
+    out = []
+    for adult, baby in ANIMAL_BABIES:
+        out.append({"q": f"Comment s'appelle le petit de {adult} ?",
+                    "choices": [_cap_first(baby), *[_cap_first(d) for d in _pick_distractors(rng, baby, babies)]],
+                    "answer": 0})
+    for male, female in ANIMAL_FEMALES:
+        out.append({"q": f"Comment s'appelle la femelle {male} ?",
+                    "choices": [_cap_first(female), *[_cap_first(d) for d in _pick_distractors(rng, female, females)]],
+                    "answer": 0})
+    return out
+
+
+def build_langues() -> list[dict]:
+    rng = random.Random(20)
+    langs = sorted({lang for _, lang in LANGUAGES})
+    out = []
+    for place, lang in LANGUAGES:
+        out.append({"q": f"Quelle langue officielle parle-t-on {place} ?",
+                    "choices": [_cap_first(lang), *[_cap_first(d) for d in _pick_distractors(rng, lang, langs)]],
+                    "answer": 0})
+    return out
+
+
 GENERATED_TOPICS: list[dict] = [
+    {"id": "elements-chimiques", "name": "Éléments chimiques", "icon": "🧪", "color": "#00838f",
+     "build": build_elements},
+    {"id": "espagnol", "name": "Espagnol", "icon": "🇪🇸", "color": "#bf360c",
+     "build": build_espagnol},
+    {"id": "allemand", "name": "Allemand", "icon": "🇩🇪", "color": "#4e342e",
+     "build": build_allemand},
+    {"id": "italien", "name": "Italien", "icon": "🇮🇹", "color": "#2e7d32",
+     "build": build_italien},
+    {"id": "departements", "name": "Départements français", "icon": "🗺️", "color": "#283593",
+     "build": build_departements},
+    {"id": "etats-usa", "name": "États américains", "icon": "🗽", "color": "#1565c0",
+     "build": build_etats_usa},
+    {"id": "monnaies", "name": "Monnaies du monde", "icon": "💰", "color": "#9e7d0a",
+     "build": build_monnaies},
+    {"id": "chiffres-romains", "name": "Chiffres romains", "icon": "🔢", "color": "#6a1b9a",
+     "build": build_chiffres_romains},
+    {"id": "petits-animaux", "name": "Petits des animaux", "icon": "🐣", "color": "#ef6c00",
+     "build": build_petits_animaux},
+    {"id": "langues", "name": "Langues du monde", "icon": "🗣️", "color": "#00695c",
+     "build": build_langues},
     {"id": "capitales", "name": "Capitales du monde", "icon": "🏙️", "color": "#2e86c1",
      "build": build_capitales},
     {"id": "drapeaux", "name": "Drapeaux", "icon": "🚩", "color": "#cb4335",

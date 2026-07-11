@@ -1,0 +1,32 @@
+{
+  "id": "paris",
+  "name": "Paris",
+  "icon": "🗼",
+  "color": "#5e35b1",
+  "questions": [
+    {"q": "Combien d'arrondissements compte Paris ?", "choices": ["20", "18", "22", "16"], "answer": 0},
+    {"q": "Quel fleuve traverse Paris ?", "choices": ["La Seine", "La Marne", "L'Oise", "La Loire"], "answer": 0},
+    {"q": "En quelle année la tour Eiffel a-t-elle été inaugurée ?", "choices": ["1889", "1900", "1878", "1850"], "answer": 0},
+    {"q": "Quelle hauteur fait la tour Eiffel (avec antennes) ?", "choices": ["Environ 330 m", "Environ 250 m", "Environ 400 m", "Environ 200 m"], "answer": 0},
+    {"q": "Quel musée parisien abrite « La Joconde » ?", "choices": ["Le Louvre", "Orsay", "Le Centre Pompidou", "L'Orangerie"], "answer": 0},
+    {"q": "Quel musée est installé dans une ancienne gare ?", "choices": ["Le musée d'Orsay", "Le Louvre", "Le Grand Palais", "Carnavalet"], "answer": 0},
+    {"q": "Quelle avenue relie l'Arc de triomphe à la place de la Concorde ?", "choices": ["Les Champs-Élysées", "L'avenue Montaigne", "Rivoli", "L'Opéra"], "answer": 0},
+    {"q": "Quel monument se dresse au centre de la place de l'Étoile ?", "choices": ["L'Arc de triomphe", "L'Obélisque", "La colonne Vendôme", "La porte Saint-Denis"], "answer": 0},
+    {"q": "Quel monument égyptien orne la place de la Concorde ?", "choices": ["L'obélisque de Louxor", "Un sphinx", "Une pyramide", "Une statue de Ramsès"], "answer": 0},
+    {"q": "Sur quelle colline se dresse le Sacré-Cœur ?", "choices": ["Montmartre", "Belleville", "Montparnasse", "La Butte-aux-Cailles"], "answer": 0},
+    {"q": "Quelle cathédrale gothique se trouve sur l'île de la Cité ?", "choices": ["Notre-Dame de Paris", "La Sainte-Chapelle", "Saint-Eustache", "Saint-Sulpice"], "answer": 0},
+    {"q": "Quel quartier étudiant s'étend autour de la Sorbonne ?", "choices": ["Le Quartier latin", "Le Marais", "Saint-Germain", "Bastille"], "answer": 0},
+    {"q": "Quel célèbre cabaret a un moulin rouge sur son toit ?", "choices": ["Le Moulin Rouge", "Le Lido", "Le Crazy Horse", "Les Folies Bergère"], "answer": 0},
+    {"q": "Quel jardin s'étend entre le Louvre et la Concorde ?", "choices": ["Les Tuileries", "Le Luxembourg", "Les Buttes-Chaumont", "Monceau"], "answer": 0},
+    {"q": "Quel palais abrite le Sénat et son jardin célèbre ?", "choices": ["Le palais du Luxembourg", "Le Palais-Royal", "L'Élysée", "Matignon"], "answer": 0},
+    {"q": "Quel opéra du XIXᵉ siècle porte le nom de son architecte ?", "choices": ["L'opéra Garnier", "L'opéra Bastille", "Le Châtelet", "L'Odéon"], "answer": 0},
+    {"q": "Quel centre d'art moderne expose ses tuyaux colorés en façade ?", "choices": ["Le Centre Pompidou", "Le Palais de Tokyo", "La Fondation Vuitton", "Le Jeu de Paume"], "answer": 0},
+    {"q": "Quel cimetière parisien abrite les tombes de Jim Morrison et Chopin ?", "choices": ["Le Père-Lachaise", "Montparnasse", "Montmartre", "Passy"], "answer": 0},
+    {"q": "Quel monument abrite le tombeau de Napoléon ?", "choices": ["Les Invalides", "Le Panthéon", "Notre-Dame", "La Madeleine"], "answer": 0},
+    {"q": "Où reposent Voltaire, Hugo et Marie Curie ?", "choices": ["Au Panthéon", "Aux Invalides", "À Saint-Denis", "Au Père-Lachaise"], "answer": 0},
+    {"q": "Quel grand bois borde l'ouest de Paris ?", "choices": ["Le bois de Boulogne", "Le bois de Vincennes", "La forêt de Meudon", "Le bois de Clamart"], "answer": 0},
+    {"q": "Quelle île artificielle aux cygnes porte une réplique d'une statue célèbre ?", "choices": ["L'île aux Cygnes (statue de la Liberté)", "L'île Saint-Louis", "L'île de la Cité", "L'île Seguin"], "answer": 0},
+    {"q": "Comment s'appellent les bouquinistes des quais de Seine ?", "choices": ["Les bouquinistes", "Les libraires verts", "Les colporteurs", "Les kiosquiers"], "answer": 0},
+    {"q": "Quel stade accueille le PSG dans le 16ᵉ arrondissement ?", "choices": ["Le Parc des Princes", "Le Stade de France", "Charléty", "Roland-Garros"], "answer": 0}
+  ]
+}

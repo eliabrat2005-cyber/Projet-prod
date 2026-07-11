@@ -1,0 +1,32 @@
+{
+  "id": "marques",
+  "name": "Marques & Logos",
+  "icon": "🛍️",
+  "color": "#6a1b9a",
+  "questions": [
+    {"q": "Quelle marque de sport a une virgule pour logo ?", "choices": ["Nike", "Adidas", "Puma", "Reebok"], "answer": 0},
+    {"q": "Combien de bandes composent le logo Adidas ?", "choices": ["Trois", "Deux", "Quatre", "Cinq"], "answer": 0},
+    {"q": "Quel félin bondit sur le logo d'une marque de sport allemande ?", "choices": ["Le puma", "Le jaguar", "Le guépard", "Le lynx"], "answer": 0},
+    {"q": "Quelle marque à la pomme croquée fabrique l'iPhone ?", "choices": ["Apple", "Samsung", "Huawei", "Xiaomi"], "answer": 0},
+    {"q": "Quel animal figure sur le logo de Lacoste ?", "choices": ["Un crocodile", "Un alligator", "Un lézard", "Un serpent"], "answer": 0},
+    {"q": "Quelle sirène à deux queues orne les cafés Starbucks ?", "choices": ["Une sirène", "Une néréide", "Une déesse", "Une ondine"], "answer": 0},
+    {"q": "Quelle marque suédoise vend des meubles en kit ?", "choices": ["IKEA", "Conforama", "But", "Habitat"], "answer": 0},
+    {"q": "Quelles couleurs composent le logo IKEA ?", "choices": ["Bleu et jaune", "Rouge et blanc", "Vert et blanc", "Noir et jaune"], "answer": 0},
+    {"q": "Quelle marque de luxe française a un monogramme LV ?", "choices": ["Louis Vuitton", "Lancel", "Longchamp", "Le Tanneur"], "answer": 0},
+    {"q": "Quelle maison française de luxe a deux C entrelacés ?", "choices": ["Chanel", "Cartier", "Céline", "Chloé"], "answer": 0},
+    {"q": "Quel joaillier français est célèbre pour ses boîtes rouges ?", "choices": ["Cartier", "Boucheron", "Chaumet", "Van Cleef"], "answer": 0},
+    {"q": "Quelle marque américaine de soda est la plus connue du monde ?", "choices": ["Coca-Cola", "Pepsi", "Dr Pepper", "Fanta"], "answer": 0},
+    {"q": "Quelle marque de boisson énergisante « donne des ailes » ?", "choices": ["Red Bull", "Monster", "Burn", "Rockstar"], "answer": 0},
+    {"q": "Quel bibendum blanc est la mascotte d'un fabricant de pneus ?", "choices": ["Michelin", "Goodyear", "Continental", "Pirelli"], "answer": 0},
+    {"q": "Quelle marque de céréales a un tigre pour mascotte ?", "choices": ["Frosties (Kellogg's)", "Chocapic", "Trésor", "Miel Pops"], "answer": 0},
+    {"q": "Quel clown jaune et rouge représente une chaîne de fast-food ?", "choices": ["Ronald McDonald", "Bozo", "Quicky", "Grimace"], "answer": 0},
+    {"q": "Quelle marque japonaise de consoles a créé la PlayStation ?", "choices": ["Sony", "Nintendo", "Sega", "Toshiba"], "answer": 0},
+    {"q": "Quel moteur de recherche a un logo multicolore ?", "choices": ["Google", "Bing", "Yahoo", "Qwant"], "answer": 0},
+    {"q": "Quelle marque de voitures de luxe a un ange ailé sur le capot ?", "choices": ["Rolls-Royce", "Bentley", "Jaguar", "Maybach"], "answer": 0},
+    {"q": "Quelle marque de chocolat suisse a un mont doré pour emblème ?", "choices": ["Toblerone", "Lindt", "Milka", "Cailler"], "answer": 0},
+    {"q": "Quelle marque de vêtements espagnole appartient à Inditex ?", "choices": ["Zara", "Mango", "Desigual", "H&M"], "answer": 0},
+    {"q": "Quelle marque de jouets danoise signifie « joue bien » ?", "choices": ["LEGO", "Playmobil", "Brio", "Meccano"], "answer": 0},
+    {"q": "Quelle marque française de cosmétiques dit « parce que vous le valez bien » ?", "choices": ["L'Oréal", "Garnier", "Yves Rocher", "Nivea"], "answer": 0},
+    {"q": "Quel réseau social avait un oiseau bleu pour logo avant de devenir X ?", "choices": ["Twitter", "Facebook", "Snapchat", "LinkedIn"], "answer": 0}
+  ]
+}

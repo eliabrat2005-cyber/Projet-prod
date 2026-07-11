@@ -1,0 +1,32 @@
+{
+  "id": "science-fiction",
+  "name": "Science-fiction",
+  "icon": "👽",
+  "color": "#4527a0",
+  "questions": [
+    {"q": "Quel vaisseau explore la galaxie dans « Star Trek » ?", "choices": ["L'Enterprise", "Le Faucon Millenium", "Le Nostromo", "Le Serenity"], "answer": 0},
+    {"q": "Quel officier de Star Trek a les oreilles pointues ?", "choices": ["Spock", "Kirk", "Sulu", "Scotty"], "answer": 0},
+    {"q": "Quelle planète des singes découvre Charlton Heston en 1968 ?", "choices": ["La Terre du futur", "Mars", "Vénus", "Une exoplanète lointaine"], "answer": 0},
+    {"q": "Quel chasseur d'androïdes traque les répliquants dans « Blade Runner » ?", "choices": ["Rick Deckard", "John Anderton", "Neo", "Snake Plissken"], "answer": 0},
+    {"q": "Quelle créature jaillit de la poitrine d'un astronaute dans « Alien » ?", "choices": ["Le xénomorphe (chestburster)", "Le Predator", "La Chose", "Le facehugger adulte"], "answer": 0},
+    {"q": "Quelle héroïne affronte le xénomorphe dans « Alien » ?", "choices": ["Ellen Ripley", "Sarah Connor", "Trinity", "Leia"], "answer": 0},
+    {"q": "Quel robot tueur vient du futur pour éliminer Sarah Connor ?", "choices": ["Le Terminator", "RoboCop", "Ultron", "Le T-1000 d'abord"], "answer": 0},
+    {"q": "Quelle intelligence artificielle mène la guerre dans « Terminator » ?", "choices": ["Skynet", "HAL 9000", "Matrix", "VIKI"], "answer": 0},
+    {"q": "Quelle planète désertique produit l'Épice dans « Dune » ?", "choices": ["Arrakis", "Tatooine", "Caladan", "Giedi Prime"], "answer": 0},
+    {"q": "Quels vers géants hantent le désert de Dune ?", "choices": ["Les vers des sables", "Les krakens", "Les sarlaccs", "Les léviathans"], "answer": 0},
+    {"q": "Quel héros de « Dune » rejoint les Fremen ?", "choices": ["Paul Atréides", "Duncan Idaho", "Leto II", "Gurney"], "answer": 0},
+    {"q": "Dans « Matrix », que fait la pilule rouge ?", "choices": ["Elle révèle la vérité sur la Matrice", "Elle efface la mémoire", "Elle rend immortel", "Elle téléporte"], "answer": 0},
+    {"q": "Quel agent aux lunettes noires traque Neo ?", "choices": ["L'agent Smith", "L'agent Jones", "Le Mérovingien", "Cypher"], "answer": 0},
+    {"q": "Quel ordinateur de bord se rebelle dans « 2001, l'Odyssée de l'espace » ?", "choices": ["HAL 9000", "Skynet", "Mother", "TARS"], "answer": 0},
+    {"q": "Dans quel film Matthew McConaughey traverse-t-il un trou de ver ?", "choices": ["Interstellar", "Gravity", "Contact", "Ad Astra"], "answer": 0},
+    {"q": "Quel astronaute cultive des pommes de terre sur Mars ?", "choices": ["Mark Watney (Seul sur Mars)", "Roy McBride", "Cooper", "Jim Lovell"], "answer": 0},
+    {"q": "Quelle machine à voyager dans le temps utilise 2,21 gigowatts ?", "choices": ["La DeLorean", "Le TARDIS", "La machine de Wells", "Le Stargate"], "answer": 0},
+    {"q": "Quelle cabine téléphonique bleue voyage dans le temps ?", "choices": ["Le TARDIS (Doctor Who)", "La cabine de Bill & Ted", "La Time Machine", "La K2000"], "answer": 0},
+    {"q": "Quel écrivain a imaginé les trois lois de la robotique ?", "choices": ["Isaac Asimov", "Arthur C. Clarke", "Philip K. Dick", "Ray Bradbury"], "answer": 0},
+    {"q": "Quel roman de H.G. Wells décrit une invasion martienne ?", "choices": ["La Guerre des mondes", "La Machine à explorer le temps", "L'Homme invisible", "L'Île du docteur Moreau"], "answer": 0},
+    {"q": "Quel extraterrestre veut « téléphoner maison » ?", "choices": ["E.T.", "Alf", "Paul", "Chewbacca"], "answer": 0},
+    {"q": "Quel film de Villeneuve montre des linguistes décodant une langue alien ?", "choices": ["Premier Contact", "Interstellar", "District 9", "Arrival 2"], "answer": 0},
+    {"q": "Quelle saga de jeux et films oppose humains et Covenant ?", "choices": ["Halo", "Mass Effect", "Gears of War", "Destiny"], "answer": 0},
+    {"q": "Quel chasseur extraterrestre invisible traque Schwarzenegger dans la jungle ?", "choices": ["Le Predator", "L'Alien", "Le T-800", "Le Klingon"], "answer": 0}
+  ]
+}

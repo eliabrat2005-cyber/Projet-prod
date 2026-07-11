@@ -1,0 +1,32 @@
+{
+  "id": "dragon-ball",
+  "name": "Dragon Ball",
+  "icon": "🐉",
+  "color": "#f57f17",
+  "questions": [
+    {"q": "Combien de boules de cristal faut-il réunir pour invoquer le dragon ?", "choices": ["Sept", "Cinq", "Six", "Neuf"], "answer": 0},
+    {"q": "Comment s'appelle le dragon invoqué par les Dragon Balls ?", "choices": ["Shenron", "Porunga", "Icarus", "Shenlong Junior"], "answer": 0},
+    {"q": "De quelle planète vient Son Goku ?", "choices": ["Végéta", "Namek", "La Terre", "Freezer 79"], "answer": 0},
+    {"q": "Quel est le nom saiyan de Son Goku ?", "choices": ["Kakarot", "Raditz", "Bardock", "Broly"], "answer": 0},
+    {"q": "Qui est le prince des Saiyans ?", "choices": ["Végéta", "Goku", "Nappa", "Raditz"], "answer": 0},
+    {"q": "Quelle attaque emblématique Goku lance-t-il avec les mains jointes ?", "choices": ["Le Kamehameha", "Le Final Flash", "Le Makankosappo", "Le Genkidama"], "answer": 0},
+    {"q": "Qui a appris le Kamehameha à Goku ?", "choices": ["Tortue Géniale", "Mr Popo", "Kaio", "Gohan (grand-père)"], "answer": 0},
+    {"q": "Quel Namek est le rival devenu allié de Goku ?", "choices": ["Piccolo", "Dendé", "Nail", "Guru"], "answer": 0},
+    {"q": "Comment s'appelle le fils aîné de Goku ?", "choices": ["Gohan", "Goten", "Trunks", "Bardock"], "answer": 0},
+    {"q": "Qui est l'épouse de Goku ?", "choices": ["Chichi", "Bulma", "Videl", "Lunch"], "answer": 0},
+    {"q": "Quel tyran galactique détruit la planète Végéta ?", "choices": ["Freezer", "Cell", "Buu", "Cooler"], "answer": 0},
+    {"q": "Quelle transformation légendaire donne des cheveux dorés ?", "choices": ["Le Super Saiyan", "Le Kaioken", "L'Ultra Instinct", "Le Namek géant"], "answer": 0},
+    {"q": "Quel androïde parfait absorbe C-17 et C-18 ?", "choices": ["Cell", "C-16", "Buu", "C-19"], "answer": 0},
+    {"q": "Quel démon rose détruit tout en transformant les gens en bonbons ?", "choices": ["Majin Buu", "Cell", "Freezer", "Dabra"], "answer": 0},
+    {"q": "Quelle scientifique aux cheveux bleus accompagne Goku depuis le début ?", "choices": ["Bulma", "Chichi", "C-18", "Videl"], "answer": 0},
+    {"q": "Quel adolescent vient du futur pour prévenir de l'arrivée des cyborgs ?", "choices": ["Trunks", "Goten", "Gohan", "Bardock"], "answer": 0},
+    {"q": "Quelle fusion naît de Goten et Trunks ?", "choices": ["Gotenks", "Végéto", "Gogeta", "Gotan"], "answer": 0},
+    {"q": "Quel tournoi d'arts martiaux réunit les meilleurs combattants ?", "choices": ["Le Tenkaichi Budokai", "Le Cell Game", "Le Tournoi du Pouvoir", "La Coupe Satan"], "answer": 0},
+    {"q": "Qui s'attribue la victoire contre Cell aux yeux du public ?", "choices": ["Mr Satan", "Gohan", "Goku", "Végéta"], "answer": 0},
+    {"q": "Quel petit compagnon de route est un cochon métamorphe ?", "choices": ["Oolong", "Puar", "Plume", "Karin"], "answer": 0},
+    {"q": "Sur quel nuage magique Goku voyage-t-il ?", "choices": ["Kinto-un (le Nuage magique)", "Le tapis volant", "Icarus", "Le Nimbus noir"], "answer": 0},
+    {"q": "Quel dieu de la destruction adore la nourriture terrienne ?", "choices": ["Beerus", "Whis", "Champa", "Zeno"], "answer": 0},
+    {"q": "Quelle technique permet à Goku de se téléporter ?", "choices": ["La Téléportation instantanée", "Le Kaioken", "Le Zanzoken", "Le Shunkan"], "answer": 0},
+    {"q": "Quel ermite vit sur une petite île avec sa maison « Kame House » ?", "choices": ["Tortue Géniale", "Karin", "Mr Popo", "Baba la voyante"], "answer": 0}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "fast-food",
+  "name": "Fast-food",
+  "icon": "🍔",
+  "color": "#e64a19",
+  "questions": [
+    {"q": "Quelle chaîne de fast-food a des arches dorées pour logo ?", "choices": ["McDonald's", "Burger King", "KFC", "Wendy's"], "answer": 0},
+    {"q": "Quel est le burger emblématique de McDonald's ?", "choices": ["Le Big Mac", "Le Whopper", "Le Double Steakhouse", "Le CBO"], "answer": 0},
+    {"q": "Combien d'étages de pain compte un Big Mac ?", "choices": ["Trois", "Deux", "Quatre", "Un"], "answer": 0},
+    {"q": "Quel est le burger star de Burger King ?", "choices": ["Le Whopper", "Le Big Mac", "Le CBO", "Le Bacon Lover"], "answer": 0},
+    {"q": "Quel colonel a fondé KFC ?", "choices": ["Le colonel Sanders", "Le colonel Kentucky", "Le général Lee", "Le colonel Fried"], "answer": 0},
+    {"q": "Quelle est la spécialité de KFC ?", "choices": ["Le poulet frit", "Les tacos", "Les burgers au bœuf", "Les hot-dogs"], "answer": 0},
+    {"q": "Quelle chaîne prépare des sandwichs baguette sur mesure ?", "choices": ["Subway", "Quick", "Pret A Manger", "Pomme de Pain"], "answer": 0},
+    {"q": "Quelle chaîne mexicaine américaine sert tacos et burritos ?", "choices": ["Taco Bell", "Del Taco", "El Taco", "Tacos Avenue"], "answer": 0},
+    {"q": "Quel clown est la mascotte historique de McDonald's ?", "choices": ["Ronald McDonald", "Grimace", "Bozo", "Happy"], "answer": 0},
+    {"q": "Comment s'appelle le menu enfant de McDonald's ?", "choices": ["Le Happy Meal", "Le Kids Box", "Le P'tit Menu", "Le Fun Meal"], "answer": 0},
+    {"q": "Quelle chaîne française de burgers a longtemps rivalisé avec McDo ?", "choices": ["Quick", "Flunch", "Buffalo Grill", "Courtepaille"], "answer": 0},
+    {"q": "Quelle sauce accompagne traditionnellement les nuggets ?", "choices": ["Plusieurs au choix (barbecue, moutarde…)", "La sauce béarnaise", "La sauce soja", "La sauce hollandaise"], "answer": 0},
+    {"q": "Quel plat turc se compose de viande grillée à la broche dans un pain ?", "choices": ["Le kebab", "Le falafel", "Le bao", "Le shawarma libanais"], "answer": 0},
+    {"q": "Quel sandwich français fourre des frites dans une demi-baguette ?", "choices": ["L'américain (mitraillette)", "Le jambon-beurre", "Le panini", "Le croque"], "answer": 0},
+    {"q": "Quelle pizza américaine à la croûte épaisse vient de Chicago ?", "choices": ["La deep dish", "La New York style", "La calzone", "La focaccia"], "answer": 0},
+    {"q": "Quelle chaîne de pizzas livre avec un logo en domino ?", "choices": ["Domino's Pizza", "Pizza Hut", "Papa John's", "Del Arte"], "answer": 0},
+    {"q": "Quel hot-dog new-yorkais est vendu dans la rue depuis 1916 à Coney Island ?", "choices": ["Le Nathan's", "Le Gray's", "Le Shake Dog", "Le Coney One"], "answer": 0},
+    {"q": "Que signifie « fast-food » en français ?", "choices": ["Restauration rapide", "Nourriture grasse", "Repas à emporter", "Cuisine express"], "answer": 0},
+    {"q": "Quelle boisson gazeuse accompagne classiquement un menu burger ?", "choices": ["Le cola", "Le thé glacé", "La limonade artisanale", "Le jus de tomate"], "answer": 0},
+    {"q": "Quel documentaire de 2004 teste 30 jours de McDo quotidien ?", "choices": ["Super Size Me", "Fast Food Nation", "Food Inc", "Fed Up"], "answer": 0},
+    {"q": "Dans quel pays le hamburger tire-t-il son nom d'une ville ?", "choices": ["L'Allemagne (Hambourg)", "Les États-Unis", "L'Autriche", "Les Pays-Bas"], "answer": 0},
+    {"q": "Quelle chaîne américaine de burgers premium est arrivée en France en 2015 avec ses frites en gobelet ?", "choices": ["Five Guys", "Shake Shack", "In-N-Out", "Steak 'n Shake"], "answer": 0},
+    {"q": "Quel poisson compose le Filet-O-Fish ?", "choices": ["Du colin (poisson blanc)", "Du saumon", "Du thon", "Du cabillaud pané au bleu"], "answer": 0},
+    {"q": "Quelle chaîne de tacos « à la française » est née à Lyon ?", "choices": ["O'Tacos", "Tacos King", "Takos City", "New School Tacos"], "answer": 0}
+  ]
+}

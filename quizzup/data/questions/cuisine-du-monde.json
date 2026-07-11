@@ -1,0 +1,32 @@
+{
+  "id": "cuisine-du-monde",
+  "name": "Cuisine du monde",
+  "icon": "🌮",
+  "color": "#e65100",
+  "questions": [
+    {"q": "De quel pays vient la paella ?", "choices": ["L'Espagne", "L'Italie", "Le Mexique", "Le Portugal"], "answer": 0},
+    {"q": "Quel plat mexicain se compose d'une tortilla pliée garnie ?", "choices": ["Le taco", "Le burrito roulé", "La quesadilla", "L'enchilada"], "answer": 0},
+    {"q": "Quel plat indien mijote du poulet dans une sauce crémeuse aux épices ?", "choices": ["Le butter chicken", "Le tandoori sec", "Le samosa", "Le naan"], "answer": 0},
+    {"q": "Quel pain plat indien accompagne les currys ?", "choices": ["Le naan", "La pita", "Le bagel", "La tortilla"], "answer": 0},
+    {"q": "Quel plat libanais est une purée de pois chiches au sésame ?", "choices": ["Le houmous", "Le taboulé", "Le falafel", "Le baba ganoush"], "answer": 0},
+    {"q": "Quelles boulettes de pois chiches frites sont une star de la street-food du Moyen-Orient ?", "choices": ["Les falafels", "Les keftas", "Les samossas", "Les accras"], "answer": 0},
+    {"q": "Quel plat japonais frit des beignets légers de légumes ou crevettes ?", "choices": ["Le tempura", "Le sushi", "Le gyoza", "Le takoyaki"], "answer": 0},
+    {"q": "Quels raviolis japonais grillés sont fourrés au porc ?", "choices": ["Les gyozas", "Les mochis", "Les onigiris", "Les nikuman"], "answer": 0},
+    {"q": "Quelle soupe vietnamienne parfumée contient nouilles de riz et bœuf ?", "choices": ["Le phở", "Le ramen", "La soupe miso", "Le laksa"], "answer": 0},
+    {"q": "Quel plat thaïlandais mélange nouilles sautées, cacahuètes et citron vert ?", "choices": ["Le pad thaï", "Le curry vert", "Le som tam", "Le riz gluant"], "answer": 0},
+    {"q": "Quel plat coréen fermenté accompagne tous les repas ?", "choices": ["Le kimchi", "Le bibimbap", "Le bulgogi", "Le tteok"], "answer": 0},
+    {"q": "Quel bol coréen mélange riz, légumes, viande et œuf ?", "choices": ["Le bibimbap", "Le kimchi", "Le japchae", "Le kimbap"], "answer": 0},
+    {"q": "Quel plat chinois de canard se déguste en crêpes fines ?", "choices": ["Le canard laqué de Pékin", "Le canard du Sichuan", "Le canard croustillant", "Le canard impérial frit"], "answer": 0},
+    {"q": "Quels petits paniers vapeur cantonais se picorent au thé ?", "choices": ["Les dim sum", "Les nems", "Les wontons frits", "Les baozi géants"], "answer": 0},
+    {"q": "Quel plat marocain cuit lentement dans un plat conique en terre ?", "choices": ["Le tajine", "Le couscous", "La pastilla", "La harira"], "answer": 0},
+    {"q": "Quelle semoule accompagnée de légumes est un emblème du Maghreb ?", "choices": ["Le couscous", "Le boulgour", "Le riz pilaf", "Le freekeh"], "answer": 0},
+    {"q": "Quel ragoût hongrois est relevé au paprika ?", "choices": ["Le goulash", "Le borscht", "Le stroganoff", "Le bigos"], "answer": 0},
+    {"q": "Quelle soupe rouge à la betterave vient d'Europe de l'Est ?", "choices": ["Le borscht", "Le goulash", "La soljanka", "Le jarret"], "answer": 0},
+    {"q": "Quel plat brésilien mijote haricots noirs et viandes ?", "choices": ["La feijoada", "Le churrasco", "La moqueca", "Le açaï"], "answer": 0},
+    {"q": "Quel plat péruvien « cuit » le poisson cru dans le citron vert ?", "choices": ["Le ceviche", "Le tiradito", "L'anticucho", "La causa"], "answer": 0},
+    {"q": "Quelle viande grillée à la broche garnit le gyros grec ?", "choices": ["Du porc (ou poulet)", "Du bœuf uniquement", "De l'agneau uniquement", "De la chèvre"], "answer": 0},
+    {"q": "Quelle salade grecque marie feta, olives et concombre ?", "choices": ["La salade grecque (horiatiki)", "Le tzatziki", "La moussaka", "Le mezze"], "answer": 0},
+    {"q": "Quel gratin grec superpose aubergines et viande hachée ?", "choices": ["La moussaka", "Le pastitsio", "Le gemista", "Le kleftiko"], "answer": 0},
+    {"q": "Quel plat suisse fait fondre un demi-fromage raclé sur des pommes de terre ?", "choices": ["La raclette", "La fondue", "Le rösti", "La croûte"], "answer": 0}
+  ]
+}

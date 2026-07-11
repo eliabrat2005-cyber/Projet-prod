@@ -1,0 +1,32 @@
+{
+  "id": "mode",
+  "name": "Mode",
+  "icon": "👗",
+  "color": "#ad1457",
+  "questions": [
+    {"q": "Quelle couturière française a créé le tailleur en tweed et le N°5 ?", "choices": ["Coco Chanel", "Jeanne Lanvin", "Elsa Schiaparelli", "Madeleine Vionnet"], "answer": 0},
+    {"q": "Quel couturier a lancé le « New Look » en 1947 ?", "choices": ["Christian Dior", "Cristóbal Balenciaga", "Pierre Balmain", "Jacques Fath"], "answer": 0},
+    {"q": "Quel couturier français a popularisé le smoking pour femme ?", "choices": ["Yves Saint Laurent", "Karl Lagerfeld", "Jean Paul Gaultier", "Thierry Mugler"], "answer": 0},
+    {"q": "Quel couturier à la marinière a habillé Madonna de corsets coniques ?", "choices": ["Jean Paul Gaultier", "Thierry Mugler", "Claude Montana", "Paco Rabanne"], "answer": 0},
+    {"q": "Quel directeur artistique au catogan blanc a régné sur Chanel ?", "choices": ["Karl Lagerfeld", "Hedi Slimane", "Tom Ford", "Marc Jacobs"], "answer": 0},
+    {"q": "Quelle maison italienne a une tête de Méduse dorée pour logo ?", "choices": ["Versace", "Gucci", "Prada", "Fendi"], "answer": 0},
+    {"q": "Quelle maison italienne a deux G entrelacés ?", "choices": ["Gucci", "Givenchy", "Galliano", "Genny"], "answer": 0},
+    {"q": "Quelle maison française est célèbre pour ses carrés de soie ?", "choices": ["Hermès", "Dior", "Céline", "Chloé"], "answer": 0},
+    {"q": "Quel sac Hermès porte le nom d'une actrice et chanteuse anglaise ?", "choices": ["Le Birkin", "Le Kelly", "Le Constance", "L'Evelyne"], "answer": 0},
+    {"q": "Quel sac Hermès porte le nom d'une princesse de Monaco ?", "choices": ["Le Kelly", "Le Birkin", "Le Grace", "Le Monaco"], "answer": 0},
+    {"q": "Quelles semelles rouges signent les escarpins de quel chausseur ?", "choices": ["Christian Louboutin", "Jimmy Choo", "Manolo Blahnik", "Roger Vivier"], "answer": 0},
+    {"q": "Quelle semaine de défilés rythme la mode deux fois par an ?", "choices": ["La Fashion Week", "La Design Week", "Le Salon du prêt-à-porter", "La Couture Cup"], "answer": 0},
+    {"q": "Quelles quatre capitales accueillent les grandes Fashion Weeks ?", "choices": ["Paris, Milan, Londres, New York", "Paris, Rome, Berlin, LA", "Milan, Madrid, Tokyo, NY", "Paris, Milan, Moscou, Miami"], "answer": 0},
+    {"q": "Comment s'appelle la haute couture accessible en boutique ?", "choices": ["Le prêt-à-porter", "Le sur-mesure", "La demi-couture", "Le vintage"], "answer": 0},
+    {"q": "Quel tissu bleu robuste a fait le succès des jeans ?", "choices": ["Le denim", "Le lin", "La toile de jute", "Le velours"], "answer": 0},
+    {"q": "Quelle marque américaine a inventé le blue-jean à rivets ?", "choices": ["Levi's", "Wrangler", "Lee", "Diesel"], "answer": 0},
+    {"q": "Quel motif écossais à carreaux est emblématique de Burberry ?", "choices": ["Le tartan", "Le pied-de-poule", "Le vichy", "Le jacquard"], "answer": 0},
+    {"q": "Quelle petite robe indémodable a été popularisée par Chanel ?", "choices": ["La petite robe noire", "La robe empire", "La robe fourreau rouge", "La robe portefeuille"], "answer": 0},
+    {"q": "Quel top model des années 90 est surnommée « la Brindille » ?", "choices": ["Kate Moss", "Naomi Campbell", "Cindy Crawford", "Claudia Schiffer"], "answer": 0},
+    {"q": "Quelle top model britannique d'origine jamaïcaine a marqué les podiums des années 90 ?", "choices": ["Naomi Campbell", "Iman", "Tyra Banks", "Grace Jones"], "answer": 0},
+    {"q": "Quel magazine de mode est dirigé longtemps par Anna Wintour ?", "choices": ["Vogue", "Elle", "Harper's Bazaar", "Marie Claire"], "answer": 0},
+    {"q": "Quel film avec Meryl Streep parodie l'univers de Vogue ?", "choices": ["Le Diable s'habille en Prada", "Coco avant Chanel", "Zoolander", "Phantom Thread"], "answer": 0},
+    {"q": "Quelle sneaker Nike au swoosh est la plus vendue de l'histoire ?", "choices": ["L'Air Force 1", "L'Air Max 90", "La Jordan 1", "La Cortez"], "answer": 0},
+    {"q": "Quel créateur américain a dirigé Louis Vuitton homme et fondé Off-White ?", "choices": ["Virgil Abloh", "Kanye West", "Jerry Lorenzo", "Heron Preston"], "answer": 0}
+  ]
+}

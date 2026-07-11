@@ -33,7 +33,7 @@
     {"q": "Quel stade parisien accueille le PSG ?", "choices": ["Le Parc des Princes", "Le Stade de France", "Charléty", "Jean-Bouin"], "answer": 0},
     {"q": "Quelle règle annule un but si l'attaquant est mal placé à la passe ?", "choices": ["Le hors-jeu", "L'avantage", "L'obstruction", "Le retrait"], "answer": 0},
     {"q": "Quel pays a remporté l'Euro 2016 en battant la France ?", "choices": ["Le Portugal", "L'Allemagne", "L'Espagne", "L'Italie"], "answer": 0},
-    {"q": "Quel arbitrage vidéo assiste les arbitres depuis 2018 ?", "choices": ["Le VAR", "La goal-line seule", "Le replay", "L'œil de faucon"], "answer": 0},
+    {"q": "Quel arbitrage vidéo assiste les arbitres depuis 2018 ?", "choices": ["Le VAR", "La goal-line technology", "Le replay", "L'œil de faucon"], "answer": 0},
     {"q": "Quel attaquant suédois est connu pour ses punchlines et ses acrobaties ?", "choices": ["Zlatan Ibrahimović", "Henrik Larsson", "Freddie Ljungberg", "Marcus Berg"], "answer": 0},
     {"q": "Quel club de Serie A joue en noir et blanc à Turin ?", "choices": ["La Juventus", "Le Torino", "L'Inter", "L'AC Milan"], "answer": 0},
     {"q": "Quelle nation africaine a remporté la CAN 2024 à domicile ?", "choices": ["La Côte d'Ivoire", "Le Sénégal", "Le Nigeria", "Le Cameroun"], "answer": 0},

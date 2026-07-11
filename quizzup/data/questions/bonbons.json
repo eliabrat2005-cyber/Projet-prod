@@ -1,0 +1,32 @@
+{
+  "id": "bonbons",
+  "name": "Bonbons & Sucreries",
+  "icon": "🍬",
+  "color": "#ec407a",
+  "questions": [
+    {"q": "Quel bonbon Haribo en forme d'ourson est un best-seller mondial ?", "choices": ["L'ours d'or", "La fraise Tagada", "Le crocodile", "Le schtroumpf"], "answer": 0},
+    {"q": "Quelle petite fraise rouge et sucrée est une star de Haribo ?", "choices": ["La fraise Tagada", "La fraise Pik", "La Fraizibus", "La Framboisine"], "answer": 0},
+    {"q": "Quel bonbon bleu emblématique reprend un personnage de bande dessinée ?", "choices": ["Le Schtroumpf", "Le Titi", "Le Marsupilami", "L'Astérix"], "answer": 0},
+    {"q": "Quel bonbon pétille et crépite sur la langue ?", "choices": ["Le sucre pétillant", "La guimauve", "Le caramel mou", "La réglisse"], "answer": 0},
+    {"q": "De quelle plante vient la réglisse ?", "choices": ["D'une racine", "D'une feuille", "D'une fleur", "D'une écorce"], "answer": 0},
+    {"q": "Quelle sucette ronde est vendue avec un bâton depuis 1958 en Espagne ?", "choices": ["La Chupa Chups", "La Pierrot Gourmand", "La Lolly", "La Pop Rock"], "answer": 0},
+    {"q": "Quel artiste célèbre a dessiné le logo de Chupa Chups ?", "choices": ["Salvador Dalí", "Picasso", "Andy Warhol", "Miró"], "answer": 0},
+    {"q": "Quel bonbon anglais mélange dragées aux mille parfums, dont certains atroces, dans Harry Potter ?", "choices": ["Les dragées surprises de Bertie Crochue", "Les Fizwizbiz", "Les Chocogrenouilles", "Les Patacitrouilles"], "answer": 0},
+    {"q": "Quelle barre chocolatée contient du caramel et des cacahuètes ?", "choices": ["Le Snickers", "Le Kit Kat", "Le Twix", "Le Bounty"], "answer": 0},
+    {"q": "Quelle barre chocolatée est fourrée à la noix de coco ?", "choices": ["Le Bounty", "Le Mars", "Le Lion", "Le Nuts"], "answer": 0},
+    {"q": "Quelles pastilles colorées ont pour slogan « fond dans la bouche, pas dans la main » ?", "choices": ["Les M&M's", "Les Smarties", "Les Skittles", "Les Dragibus"], "answer": 0},
+    {"q": "Quels bonbons multicolores Haribo ressemblent à de grosses billes molles ?", "choices": ["Les Dragibus", "Les Smarties", "Les Skittles", "Les Tic Tac"], "answer": 0},
+    {"q": "Quel bonbon acidulé en forme de bouteille pétille au cola ?", "choices": ["La bouteille de cola", "Le Fizzy", "La limonade Pik", "Le Cola-Cola"], "answer": 0},
+    {"q": "Quelle confiserie molle et aérée grille-t-on sur un feu de camp ?", "choices": ["Le marshmallow (guimauve)", "Le nougat", "La pâte de fruit", "Le loukoum"], "answer": 0},
+    {"q": "Quelle confiserie orientale est parfumée à la rose et couverte de sucre glace ?", "choices": ["Le loukoum", "Le halva", "La datte fourrée", "Le baklava"], "answer": 0},
+    {"q": "Quel bonbon à la menthe a un trou au milieu ?", "choices": ["Le Polo (ou Life Savers)", "Le Tic Tac", "Le Mentos", "La Vichy"], "answer": 0},
+    {"q": "Quelle pastille de Vichy est octogonale et blanche ?", "choices": ["La pastille de Vichy", "Le Krema", "La Ricola", "Le Fisherman's"], "answer": 0},
+    {"q": "Quel caramel breton est fait au beurre salé ?", "choices": ["Le caramel au beurre salé", "Le carambar", "Le nougat tendre", "Le toffee"], "answer": 0},
+    {"q": "Quel bonbon long au caramel est célèbre pour ses blagues ?", "choices": ["Le Carambar", "Le Malabar", "Le Kréma", "Le Michoko"], "answer": 0},
+    {"q": "Quel chewing-gum rose est associé à un personnage musclé ?", "choices": ["Le Malabar", "Le Hollywood", "Le Freedent", "Le Airwaves"], "answer": 0},
+    {"q": "Quelle spécialité de Montélimar mélange miel, amandes et pistaches ?", "choices": ["Le nougat", "Le calisson", "La praline", "Le touron espagnol"], "answer": 0},
+    {"q": "Quelle confiserie d'Aix-en-Provence a une forme de losange ?", "choices": ["Le calisson", "Le nougat", "La navette", "Le berlingot"], "answer": 0},
+    {"q": "Quel petit bonbon pyramidal rayé est une spécialité de Carpentras ?", "choices": ["Le berlingot", "Le calisson", "L'anis de Flavigny", "La bêtise de Cambrai"], "answer": 0},
+    {"q": "Quelle « bêtise » mentholée est née d'une erreur de confiseur ?", "choices": ["La bêtise de Cambrai", "Le berlingot de Nantes", "La violette de Toulouse", "Le sucre d'orge"], "answer": 0}
+  ]
+}

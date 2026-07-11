@@ -24,7 +24,7 @@
     {"q": "Quel est le muscle le plus puissant par rapport à sa taille ?", "choices": ["Le masséter (mâchoire)", "Le biceps", "Le mollet", "Le cœur"], "answer": 0},
     {"q": "Combien de litres d'air les poumons peuvent-ils contenir environ ?", "choices": ["6 litres", "2 litres", "10 litres", "4 centilitres"], "answer": 0},
     {"q": "Quelle protéine donne sa couleur rouge au sang ?", "choices": ["L'hémoglobine", "La kératine", "Le collagène", "La mélanine"], "answer": 0},
-    {"q": "Quel pigment protège la peau du soleil ?", "choices": ["La mélanine", "La kératine", "L'hémoglobine", "La carotène seule"], "answer": 0},
+    {"q": "Quel pigment protège la peau du soleil ?", "choices": ["La mélanine", "La kératine", "L'hémoglobine", "Le carotène"], "answer": 0},
     {"q": "Quelle partie de l'oreille assure l'équilibre ?", "choices": ["L'oreille interne", "Le tympan", "Le pavillon", "Le conduit auditif"], "answer": 0},
     {"q": "Quel organe stocke l'urine ?", "choices": ["La vessie", "Le rein", "L'uretère", "L'urètre"], "answer": 0},
     {"q": "Combien de battements par minute fait un cœur adulte au repos environ ?", "choices": ["60 à 80", "100 à 120", "30 à 40", "150"], "answer": 0},

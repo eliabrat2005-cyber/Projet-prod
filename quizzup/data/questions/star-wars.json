@@ -1,0 +1,32 @@
+{
+  "id": "star-wars",
+  "name": "Star Wars",
+  "icon": "🌌",
+  "color": "#1a237e",
+  "questions": [
+    {"q": "Quelle arme emblématique utilisent les Jedi ?", "choices": ["Le sabre laser", "Le blaster", "La vibrolame", "L'électrobâton"], "answer": 0},
+    {"q": "Qui est le père de Luke Skywalker ?", "choices": ["Dark Vador (Anakin)", "Obi-Wan", "Palpatine", "Qui-Gon"], "answer": 0},
+    {"q": "Quelle princesse envoie un message caché dans R2-D2 ?", "choices": ["Leia", "Padmé", "Rey", "Ahsoka"], "answer": 0},
+    {"q": "Quel contrebandier pilote le Faucon Millenium ?", "choices": ["Han Solo", "Lando", "Chewbacca", "Poe"], "answer": 0},
+    {"q": "De quelle espèce est Chewbacca ?", "choices": ["Wookiee", "Ewok", "Twi'lek", "Rodien"], "answer": 0},
+    {"q": "Quel petit maître Jedi vert parle en inversant ses phrases ?", "choices": ["Yoda", "Yaddle", "Grogu", "Plo Koon"], "answer": 0},
+    {"q": "Quelle station spatiale peut détruire une planète entière ?", "choices": ["L'Étoile de la mort", "Le Starkiller", "Le Supremacy", "Le Malevolence"], "answer": 0},
+    {"q": "Quelle énergie mystique relie tous les êtres vivants ?", "choices": ["La Force", "Le Flux", "L'Éther", "Le Vortex"], "answer": 0},
+    {"q": "Quel empereur Sith manipule la République depuis l'ombre ?", "choices": ["Palpatine", "Dark Maul", "Dooku", "Snoke"], "answer": 0},
+    {"q": "Sur quelle planète désertique grandit Luke ?", "choices": ["Tatooine", "Jakku", "Dune Sea", "Geonosis"], "answer": 0},
+    {"q": "Quel droïde doré parle plus de six millions de langues ?", "choices": ["C-3PO", "R2-D2", "BB-8", "K-2SO"], "answer": 0},
+    {"q": "Quel maître Jedi entraîne Anakin ?", "choices": ["Obi-Wan Kenobi", "Qui-Gon Jinn", "Mace Windu", "Yoda"], "answer": 0},
+    {"q": "Quel Sith au visage tatoué manie un double sabre rouge ?", "choices": ["Dark Maul", "Dooku", "Kylo Ren", "Savage"], "answer": 0},
+    {"q": "Qui est la sœur jumelle de Luke Skywalker ?", "choices": ["Leia", "Padmé", "Rey", "Jyn"], "answer": 0},
+    {"q": "Quel chasseur de primes en armure verte capture Han Solo ?", "choices": ["Boba Fett", "Jango Fett", "Din Djarin", "Bossk"], "answer": 0},
+    {"q": "Dans quoi Han Solo est-il congelé ?", "choices": ["La carbonite", "La cryoglace", "Le durakier", "Le plastacier"], "answer": 0},
+    {"q": "Quels petits guerriers poilus aident les rebelles sur Endor ?", "choices": ["Les Ewoks", "Les Jawas", "Les Gungans", "Les Porgs"], "answer": 0},
+    {"q": "Quel gangster limace retient Leia captive ?", "choices": ["Jabba le Hutt", "Ziro", "Watto", "Greedo"], "answer": 0},
+    {"q": "Quel personnage de la nouvelle trilogie découvre la Force sur Jakku ?", "choices": ["Rey", "Finn", "Rose", "Jannah"], "answer": 0},
+    {"q": "Qui est Kylo Ren avant de basculer du côté obscur ?", "choices": ["Ben Solo", "Finn", "Poe", "Jacen"], "answer": 0},
+    {"q": "Quelle série suit un Mandalorien et l'Enfant (Grogu) ?", "choices": ["The Mandalorian", "Ahsoka", "Andor", "Obi-Wan"], "answer": 0},
+    {"q": "Quel épisode ouvre la saga au cinéma en 1977 ?", "choices": ["Un nouvel espoir (épisode IV)", "L'épisode I", "L'Empire contre-attaque", "Le Retour du Jedi"], "answer": 0},
+    {"q": "Qui a créé Star Wars ?", "choices": ["George Lucas", "Steven Spielberg", "J.J. Abrams", "Gene Roddenberry"], "answer": 0},
+    {"q": "De quelle couleur est le sabre de Mace Windu ?", "choices": ["Violet", "Bleu", "Vert", "Jaune"], "answer": 0}
+  ]
+}

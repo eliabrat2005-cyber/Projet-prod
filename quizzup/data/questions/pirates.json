@@ -1,0 +1,32 @@
+{
+  "id": "pirates",
+  "name": "Pirates",
+  "icon": "⚓",
+  "color": "#37474f",
+  "questions": [
+    {"q": "Quel drapeau noir à tête de mort hissaient les pirates ?", "choices": ["Le Jolly Roger", "Le pavillon rouge", "La bannière noire", "Le drapeau corsaire"], "answer": 0},
+    {"q": "Quel pirate anglais terrifiant enflammait des mèches dans sa barbe ?", "choices": ["Barbe Noire", "Barbe Rousse", "William Kidd", "Calico Jack"], "answer": 0},
+    {"q": "Quel était le vrai nom de Barbe Noire ?", "choices": ["Edward Teach", "Henry Morgan", "Bartholomew Roberts", "Jack Rackham"], "answer": 0},
+    {"q": "Quelle différence sépare le corsaire du pirate ?", "choices": ["Le corsaire a une autorisation royale", "Le corsaire est plus cruel", "Le pirate navigue en mer du Nord", "Aucune"], "answer": 0},
+    {"q": "Quel corsaire malouin de Napoléon était surnommé « le Roi des corsaires » ?", "choices": ["Robert Surcouf", "Jean Bart", "René Duguay-Trouin", "Jean Lafitte"], "answer": 0},
+    {"q": "Quelle mer des Antilles était le terrain de chasse des pirates ?", "choices": ["La mer des Caraïbes", "La mer Rouge", "La Méditerranée", "La mer du Nord"], "answer": 0},
+    {"q": "Quelle ville jamaïcaine, repaire de pirates, a été engloutie par un séisme en 1692 ?", "choices": ["Port Royal", "La Tortue", "Nassau", "Kingston"], "answer": 0},
+    {"q": "Quelle île au nord d'Haïti était la base des boucaniers français ?", "choices": ["L'île de la Tortue", "Port Royal", "La Barbade", "Sainte-Lucie"], "answer": 0},
+    {"q": "Quelle capitale des Bahamas fut une « république de pirates » ?", "choices": ["Nassau", "Port-au-Prince", "La Havane", "San Juan"], "answer": 0},
+    {"q": "Quelles deux femmes pirates célèbres naviguaient avec Calico Jack ?", "choices": ["Anne Bonny et Mary Read", "Grace O'Malley et Ching Shih", "Anne et Jeanne", "Mary et Jane"], "answer": 0},
+    {"q": "Quelle veuve chinoise a commandé des centaines de jonques pirates ?", "choices": ["Ching Shih", "Mulan", "Grace O'Malley", "Mme Wong"], "answer": 0},
+    {"q": "Comment s'appelait le butin des pirates ?", "choices": ["La prise", "Le trésor royal", "La dîme", "Le tribut"], "answer": 0},
+    {"q": "Quel châtiment consistait à abandonner un pirate sur une île déserte ?", "choices": ["Le maronnage", "La cale", "La planche", "Le carcan"], "answer": 0},
+    {"q": "Quel supplice faisait passer le condamné sous la coque du navire ?", "choices": ["La grande cale", "La planche", "Le fouet", "La quille sèche"], "answer": 0},
+    {"q": "Quel oiseau accompagnait les pirates de fiction sur l'épaule ?", "choices": ["Le perroquet", "Le corbeau", "La mouette", "Le faucon"], "answer": 0},
+    {"q": "Quel roman de Stevenson a créé le mythe du trésor enterré ?", "choices": ["L'Île au trésor", "Robinson Crusoé", "Moby Dick", "Les Travailleurs de la mer"], "answer": 0},
+    {"q": "Quel pirate unijambiste cuisine dans « L'Île au trésor » ?", "choices": ["Long John Silver", "Billy Bones", "Ben Gunn", "Israel Hands"], "answer": 0},
+    {"q": "Quel capitaine pirate affronte Peter Pan ?", "choices": ["Le Capitaine Crochet", "Long John Silver", "Barbe Noire", "Le capitaine Flint"], "answer": 0},
+    {"q": "Quel pirate excentrique incarne Johnny Depp au cinéma ?", "choices": ["Jack Sparrow", "Will Turner", "Barbossa", "Davy Jones"], "answer": 0},
+    {"q": "Quel navire fantôme est commandé par Davy Jones ?", "choices": ["Le Hollandais volant", "Le Black Pearl", "Le Queen Anne's Revenge", "L'Interceptor"], "answer": 0},
+    {"q": "Comment s'appelait le navire de Barbe Noire ?", "choices": ["Le Queen Anne's Revenge", "Le Whydah", "Le Fancy", "Le Royal Fortune"], "answer": 0},
+    {"q": "Quelle boisson les pirates buvaient-ils dans les chansons ?", "choices": ["Le rhum", "Le gin", "La bière", "Le cidre"], "answer": 0},
+    {"q": "Comment appelait-on la carte menant au trésor ?", "choices": ["La carte au trésor", "Le portulan royal", "La carte noire", "Le parchemin"], "answer": 0},
+    {"q": "Quel symbole marquait l'emplacement du trésor sur la carte ?", "choices": ["Une croix (X)", "Un cercle", "Une tête de mort", "Une étoile"], "answer": 0}
+  ]
+}

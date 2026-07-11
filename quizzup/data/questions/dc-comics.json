@@ -1,0 +1,32 @@
+{
+  "id": "dc-comics",
+  "name": "DC Comics",
+  "icon": "🦇",
+  "color": "#263238",
+  "questions": [
+    {"q": "Quelle ville sombre Batman protège-t-il ?", "choices": ["Gotham City", "Metropolis", "Central City", "Star City"], "answer": 0},
+    {"q": "Quelle est la véritable identité de Batman ?", "choices": ["Bruce Wayne", "Clark Kent", "Dick Grayson", "Oliver Queen"], "answer": 0},
+    {"q": "De quelle planète vient Superman ?", "choices": ["Krypton", "Mars", "Oa", "Daxam"], "answer": 0},
+    {"q": "Quel minerai affaiblit Superman ?", "choices": ["La kryptonite", "Le vibranium", "Le plomb", "L'uranium"], "answer": 0},
+    {"q": "Quelle identité civile Superman utilise-t-il ?", "choices": ["Clark Kent", "Bruce Wayne", "Barry Allen", "Hal Jordan"], "answer": 0},
+    {"q": "Quelle amazone manie le lasso de vérité ?", "choices": ["Wonder Woman", "Supergirl", "Batgirl", "Hawkgirl"], "answer": 0},
+    {"q": "Quel héros est l'homme le plus rapide du monde ?", "choices": ["Flash", "Superman", "Quicksilver", "Green Lantern"], "answer": 0},
+    {"q": "Quel clown criminel est l'ennemi juré de Batman ?", "choices": ["Le Joker", "Double-Face", "Le Pingouin", "L'Épouvantail"], "answer": 0},
+    {"q": "Comment s'appelle le majordome de Bruce Wayne ?", "choices": ["Alfred", "Jarvis", "Lucius", "Edwin"], "answer": 0},
+    {"q": "Quel jeune acolyte de Batman devient Nightwing ?", "choices": ["Dick Grayson", "Jason Todd", "Tim Drake", "Damian"], "answer": 0},
+    {"q": "Quel anneau donne ses pouvoirs à Green Lantern ?", "choices": ["Un anneau de pouvoir vert", "Un anneau kryptonien", "L'anneau de Mera", "Un anneau magique noir"], "answer": 0},
+    {"q": "Quel roi des mers parle aux créatures marines ?", "choices": ["Aquaman", "Namor", "Triton", "Poseidon Jr"], "answer": 0},
+    {"q": "Quelle équipe réunit Batman, Superman et Wonder Woman ?", "choices": ["La Ligue de justice", "Les Avengers", "Les Titans", "La Doom Patrol"], "answer": 0},
+    {"q": "Quelle complice du Joker manie un maillet géant ?", "choices": ["Harley Quinn", "Catwoman", "Poison Ivy", "Batwoman"], "answer": 0},
+    {"q": "Quelle voleuse féline flirte avec Batman ?", "choices": ["Catwoman", "Harley Quinn", "Talia", "Zatanna"], "answer": 0},
+    {"q": "Quel génie chauve est l'ennemi de Superman ?", "choices": ["Lex Luthor", "Brainiac", "Darkseid", "Metallo"], "answer": 0},
+    {"q": "Quel signal appelle Batman dans le ciel de Gotham ?", "choices": ["Le Bat-Signal", "La Bat-Alarme", "Le Corbeau", "La Sirène noire"], "answer": 0},
+    {"q": "Quel jeune garçon dit « Shazam » pour se transformer ?", "choices": ["Billy Batson", "Freddy Freeman", "Jack Ryder", "Victor Stone"], "answer": 0},
+    {"q": "Quel cyborg mi-homme mi-machine rejoint la Ligue ?", "choices": ["Cyborg", "Metallo", "Red Tornado", "Robotman"], "answer": 0},
+    {"q": "Quel tyran de la planète Apokolips cherche l'Équation d'Anti-Vie ?", "choices": ["Darkseid", "Thanos", "Brainiac", "Doomsday"], "answer": 0},
+    {"q": "Quelle journaliste est l'amour de Superman ?", "choices": ["Lois Lane", "Vicki Vale", "Iris West", "Selina Kyle"], "answer": 0},
+    {"q": "Quel acteur incarne le Joker dans le film « Joker » (2019) ?", "choices": ["Joaquin Phoenix", "Heath Ledger", "Jared Leto", "Jack Nicholson"], "answer": 0},
+    {"q": "Dans quelle grotte Batman cache-t-il son équipement ?", "choices": ["La Batcave", "Le Manoir", "La Tour de guet", "Le Bunker"], "answer": 0},
+    {"q": "Quel monstre a « tué » Superman dans les comics ?", "choices": ["Doomsday", "Darkseid", "Bane", "Bizarro"], "answer": 0}
+  ]
+}

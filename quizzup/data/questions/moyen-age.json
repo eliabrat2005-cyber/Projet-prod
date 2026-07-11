@@ -1,0 +1,32 @@
+{
+  "id": "moyen-age",
+  "name": "Moyen Âge",
+  "icon": "⚔️",
+  "color": "#4e342e",
+  "questions": [
+    {"q": "Quels guerriers à cheval servaient leur seigneur en armure ?", "choices": ["Les chevaliers", "Les archers", "Les hallebardiers", "Les écuyers seuls"], "answer": 0},
+    {"q": "Quelle cérémonie faisait d'un écuyer un chevalier ?", "choices": ["L'adoubement", "Le sacre", "L'hommage", "Le tournoi"], "answer": 0},
+    {"q": "Comment s'appelle le système social fondé sur seigneurs et vassaux ?", "choices": ["La féodalité", "La monarchie absolue", "La chevalerie", "Le servage seul"], "answer": 0},
+    {"q": "Quels paysans étaient attachés à la terre de leur seigneur ?", "choices": ["Les serfs", "Les vilains libres", "Les manants", "Les bourgeois"], "answer": 0},
+    {"q": "Quelle forteresse dominait les campagnes médiévales ?", "choices": ["Le château fort", "Le donjon isolé", "La motte seule", "L'abbaye"], "answer": 0},
+    {"q": "Quelle tour principale servait de dernier refuge dans un château ?", "choices": ["Le donjon", "La barbacane", "L'échauguette", "Le beffroi"], "answer": 0},
+    {"q": "Quel fossé rempli d'eau protégeait les châteaux ?", "choices": ["Les douves", "La herse", "Le rempart", "La lice"], "answer": 0},
+    {"q": "Quel pont mobile fermait l'entrée du château ?", "choices": ["Le pont-levis", "La passerelle", "Le pont dormant", "La poterne"], "answer": 0},
+    {"q": "Quelles expéditions religieuses partaient vers Jérusalem ?", "choices": ["Les croisades", "Les pèlerinages armés", "Les conquêtes", "Les missions"], "answer": 0},
+    {"q": "Quel ordre de moines-soldats protégeait les pèlerins ?", "choices": ["Les Templiers", "Les Bénédictins", "Les Franciscains", "Les Cisterciens"], "answer": 0},
+    {"q": "Quel roi de France a fait arrêter les Templiers en 1307 ?", "choices": ["Philippe le Bel", "Saint Louis", "Philippe Auguste", "Louis XI"], "answer": 0},
+    {"q": "Quelle épidémie a tué un tiers des Européens vers 1348 ?", "choices": ["La peste noire", "La lèpre", "Le choléra", "La variole"], "answer": 0},
+    {"q": "Quelle guerre a opposé la France et l'Angleterre pendant plus d'un siècle ?", "choices": ["La guerre de Cent Ans", "La guerre de Trente Ans", "La guerre des Roses", "La guerre de Sept Ans"], "answer": 0},
+    {"q": "Quelle héroïne a fait sacrer Charles VII à Reims ?", "choices": ["Jeanne d'Arc", "Aliénor", "Blanche de Castille", "Isabeau"], "answer": 0},
+    {"q": "Où Jeanne d'Arc a-t-elle été brûlée en 1431 ?", "choices": ["À Rouen", "À Paris", "À Orléans", "À Reims"], "answer": 0},
+    {"q": "Quel style d'églises aux arcs brisés s'élève vers le ciel ?", "choices": ["Le gothique", "Le roman", "Le baroque", "Le byzantin"], "answer": 0},
+    {"q": "Quel style plus ancien a des voûtes arrondies et des murs épais ?", "choices": ["Le roman", "Le gothique", "Le classique", "Le rococo"], "answer": 0},
+    {"q": "Quels artistes ambulants divertissaient châteaux et places ?", "choices": ["Les troubadours et jongleurs", "Les hérauts", "Les moines", "Les échevins"], "answer": 0},
+    {"q": "Quel duc normand a conquis l'Angleterre en 1066 ?", "choices": ["Guillaume le Conquérant", "Rollon", "Richard Cœur de Lion", "Robert le Magnifique"], "answer": 0},
+    {"q": "Quelle bataille de 1066 a scellé la conquête normande ?", "choices": ["Hastings", "Azincourt", "Bouvines", "Crécy"], "answer": 0},
+    {"q": "Quelle broderie géante raconte la conquête de l'Angleterre ?", "choices": ["La tapisserie de Bayeux", "La tenture d'Angers", "La tapisserie de la Dame", "Le codex normand"], "answer": 0},
+    {"q": "Quel roi de France est parti deux fois en croisade et mort à Tunis ?", "choices": ["Saint Louis (Louis IX)", "Philippe Auguste", "Louis VII", "Charles V"], "answer": 0},
+    {"q": "Quel empereur à la barbe fleurie a été couronné en l'an 800 ?", "choices": ["Charlemagne", "Clovis", "Otton Iᵉʳ", "Pépin le Bref"], "answer": 0},
+    {"q": "Quelle invention de Gutenberg clôt symboliquement le Moyen Âge ?", "choices": ["L'imprimerie", "La boussole", "La poudre", "L'astrolabe"], "answer": 0}
+  ]
+}

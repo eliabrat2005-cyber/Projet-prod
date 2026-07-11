@@ -1,0 +1,32 @@
+{
+  "id": "pokemon",
+  "name": "Pokémon",
+  "icon": "⚡",
+  "color": "#fbc02d",
+  "questions": [
+    {"q": "Quel Pokémon électrique jaune accompagne Sacha ?", "choices": ["Pikachu", "Raichu", "Pichu", "Voltorbe"], "answer": 0},
+    {"q": "En quoi évolue Salamèche ?", "choices": ["Reptincel", "Dracaufeu", "Salamache", "Magmar"], "answer": 0},
+    {"q": "Quel est le type de Bulbizarre ?", "choices": ["Plante et Poison", "Plante uniquement", "Eau", "Insecte"], "answer": 0},
+    {"q": "Combien de badges faut-il pour défier la Ligue dans la première génération ?", "choices": ["Huit", "Six", "Dix", "Quatre"], "answer": 0},
+    {"q": "Quel objet sert à capturer les Pokémon ?", "choices": ["La Poké Ball", "Le Pokédex", "La CT", "La Pierre Lune"], "answer": 0},
+    {"q": "Quel professeur donne son premier Pokémon à Sacha ?", "choices": ["Le professeur Chen", "Le professeur Orme", "Le professeur Keteleeria", "Le professeur Flora"], "answer": 0},
+    {"q": "Quelle équipe de malfaiteurs poursuit Pikachu dans le dessin animé ?", "choices": ["La Team Rocket", "La Team Aqua", "La Team Magma", "La Team Plasma"], "answer": 0},
+    {"q": "Quel Pokémon légendaire est le numéro 151 de la première génération ?", "choices": ["Mew", "Mewtwo", "Artikodin", "Dracolosse"], "answer": 0},
+    {"q": "Quel Pokémon psy a été créé par manipulation génétique à partir de Mew ?", "choices": ["Mewtwo", "Alakazam", "Hypnomade", "Lugia"], "answer": 0},
+    {"q": "Quel Pokémon rose chante pour endormir ses adversaires ?", "choices": ["Rondoudou", "Mélofée", "Grodoudou", "Leveinard"], "answer": 0},
+    {"q": "En quoi évolue Évoli avec une Pierre Eau ?", "choices": ["Aquali", "Voltali", "Pyroli", "Givrali"], "answer": 0},
+    {"q": "Quel est le type efficace contre les Pokémon Eau ?", "choices": ["Électrik (ou Plante)", "Feu", "Normal", "Roche"], "answer": 0},
+    {"q": "Quel Pokémon serpent de roche garde le premier badge de Pierre ?", "choices": ["Onix", "Racaillou", "Grolem", "Rhinocorne"], "answer": 0},
+    {"q": "Quelle dresseuse spécialiste des Pokémon Eau accompagne Sacha au début ?", "choices": ["Ondine", "Flora", "Aurore", "Serena"], "answer": 0},
+    {"q": "Quel appareil enregistre les données des Pokémon rencontrés ?", "choices": ["Le Pokédex", "Le Pokématos", "La Montre", "Le Navi-Carte"], "answer": 0},
+    {"q": "Quel oiseau légendaire est de type Feu ?", "choices": ["Sulfura", "Artikodin", "Électhor", "Ho-Oh"], "answer": 0},
+    {"q": "Quel Pokémon fantôme de la première génération évolue en Spectrum ?", "choices": ["Fantominus", "Ectoplasma", "Ossatueur", "Nosferapti"], "answer": 0},
+    {"q": "Dans quelle région se déroule la première aventure de Sacha ?", "choices": ["Kanto", "Johto", "Hoenn", "Sinnoh"], "answer": 0},
+    {"q": "Quel Pokémon de la Team Rocket parle comme un humain ?", "choices": ["Miaouss", "Qulbutoké", "Smogo", "Abo"], "answer": 0},
+    {"q": "Quel Pokémon dragon est l'évolution finale de Minidraco ?", "choices": ["Dracolosse", "Draco", "Léviator", "Rayquaza"], "answer": 0},
+    {"q": "Quelle est l'évolution de Magicarpe ?", "choices": ["Léviator", "Lokhlass", "Hypotrempe", "Poissirène"], "answer": 0},
+    {"q": "Quel jeu mobile de 2016 fait chasser les Pokémon dans la vraie vie ?", "choices": ["Pokémon GO", "Pokémon Sleep", "Pokémon Unite", "Pokémon Quest"], "answer": 0},
+    {"q": "Quel Pokémon plante dort tout le temps et bloque les routes ?", "choices": ["Ronflex", "Grodoudou", "Mackogneur", "Chetiflor"], "answer": 0},
+    {"q": "Combien de Pokémon comptait le tout premier Pokédex ?", "choices": ["151", "100", "251", "386"], "answer": 0}
+  ]
+}

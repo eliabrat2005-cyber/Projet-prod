@@ -1,0 +1,32 @@
+{
+  "id": "noel",
+  "name": "Noël",
+  "icon": "🎄",
+  "color": "#c62828",
+  "questions": [
+    {"q": "Quelle date fête-t-on Noël ?", "choices": ["Le 25 décembre", "Le 24 décembre", "Le 1ᵉʳ janvier", "Le 6 janvier"], "answer": 0},
+    {"q": "Comment s'appelle la veille de Noël ?", "choices": ["Le réveillon", "L'Avent", "La vigile d'hiver", "La Sainte-Nuit"], "answer": 0},
+    {"q": "Quel calendrier fait patienter les enfants avant Noël ?", "choices": ["Le calendrier de l'Avent", "Le calendrier des fêtes", "Le calendrier d'hiver", "L'almanach"], "answer": 0},
+    {"q": "Par où le père Noël entre-t-il dans les maisons selon la tradition ?", "choices": ["Par la cheminée", "Par la fenêtre", "Par la porte", "Par la cave"], "answer": 0},
+    {"q": "Quel véhicule utilise le père Noël ?", "choices": ["Un traîneau volant", "Une calèche", "Un carrosse", "Une luge géante"], "answer": 0},
+    {"q": "Quels animaux tirent le traîneau du père Noël ?", "choices": ["Des rennes", "Des chevaux", "Des élans", "Des huskies"], "answer": 0},
+    {"q": "Quel renne au nez rouge guide le traîneau ?", "choices": ["Rudolphe", "Tornade", "Comète", "Fringant"], "answer": 0},
+    {"q": "Où le père Noël habite-t-il selon la tradition la plus répandue ?", "choices": ["En Laponie (ou au pôle Nord)", "Au Groenland", "En Sibérie", "En Alaska"], "answer": 0},
+    {"q": "Qui fabrique les jouets dans l'atelier du père Noël ?", "choices": ["Les lutins", "Les fées", "Les gnomes", "Les elfes de la forêt"], "answer": 0},
+    {"q": "Que dépose-t-on au pied du sapin ?", "choices": ["Les cadeaux", "Les chaussettes", "Les bougies", "Le houx"], "answer": 0},
+    {"q": "Que suspend-on à la cheminée dans la tradition anglo-saxonne ?", "choices": ["Des chaussettes", "Des guirlandes", "Des clochettes", "Des bonnets"], "answer": 0},
+    {"q": "Quel arbre décore-t-on à Noël ?", "choices": ["Le sapin", "Le pin parasol", "Le houx", "L'épicéa bleu uniquement"], "answer": 0},
+    {"q": "Quelle étoile guide les Rois mages dans le récit de la Nativité ?", "choices": ["L'étoile de Bethléem", "L'étoile polaire", "Vénus", "Sirius"], "answer": 0},
+    {"q": "Combien de Rois mages apportent des présents ?", "choices": ["Trois", "Deux", "Quatre", "Sept"], "answer": 0},
+    {"q": "Quels sont les noms des Rois mages ?", "choices": ["Melchior, Gaspard et Balthazar", "Pierre, Paul et Jacques", "Élie, Moïse et David", "Simon, Judas et Thomas"], "answer": 0},
+    {"q": "Quel gâteau roulé couronne le repas de Noël français ?", "choices": ["La bûche", "Le panettone", "Le stollen", "Le pudding"], "answer": 0},
+    {"q": "Quelle brioche aux fruits confits est la star de Noël en Italie ?", "choices": ["Le panettone", "Le pandoro nature", "La ciabatta", "La focaccia"], "answer": 0},
+    {"q": "Quelle plante suspendue permet de s'embrasser dessous ?", "choices": ["Le gui", "Le houx", "Le lierre", "Le sapin"], "answer": 0},
+    {"q": "Quelle boisson chaude épicée réchauffe les marchés de Noël ?", "choices": ["Le vin chaud", "Le grog", "Le cidre doux", "Le chocolat viennois"], "answer": 0},
+    {"q": "Quelle région française est célèbre pour ses marchés de Noël ?", "choices": ["L'Alsace", "La Bretagne", "La Provence", "La Savoie"], "answer": 0},
+    {"q": "Quels petits personnages d'argile composent la crèche provençale ?", "choices": ["Les santons", "Les figurines", "Les poupons", "Les angelots"], "answer": 0},
+    {"q": "Quel avare de Dickens est visité par trois esprits à Noël ?", "choices": ["Scrooge", "Fagin", "Marley", "Pip"], "answer": 0},
+    {"q": "Quel bonhomme construit-on avec de la neige, une carotte et un chapeau ?", "choices": ["Le bonhomme de neige", "Le golem d'hiver", "Le yéti", "Le lutin blanc"], "answer": 0},
+    {"q": "Dans quel pays le père Noël s'appelle-t-il « Santa Claus » ?", "choices": ["Aux États-Unis", "En Italie", "En Russie", "Au Portugal"], "answer": 0}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "echecs",
+  "name": "Échecs",
+  "icon": "♟️",
+  "color": "#3e2723",
+  "questions": [
+    {"q": "Combien de cases compte un échiquier ?", "choices": ["64", "81", "100", "49"], "answer": 0},
+    {"q": "Combien de pièces chaque joueur possède-t-il au départ ?", "choices": ["16", "12", "20", "24"], "answer": 0},
+    {"q": "Quelle pièce est la plus puissante du jeu ?", "choices": ["La dame", "Le roi", "La tour", "Le fou"], "answer": 0},
+    {"q": "Quelle pièce ne se déplace que d'une case à la fois ?", "choices": ["Le roi", "Le pion arrière", "La dame", "Le cavalier"], "answer": 0},
+    {"q": "Comment se déplace le cavalier ?", "choices": ["En L", "En diagonale", "En ligne droite", "En zigzag libre"], "answer": 0},
+    {"q": "Quelle pièce se déplace uniquement en diagonale ?", "choices": ["Le fou", "La tour", "Le pion", "Le roi"], "answer": 0},
+    {"q": "Quelle pièce se déplace horizontalement et verticalement ?", "choices": ["La tour", "Le fou", "Le cavalier", "Le pion"], "answer": 0},
+    {"q": "Que devient un pion qui atteint la dernière rangée ?", "choices": ["Il se promeut (souvent en dame)", "Il est capturé", "Il revient au départ", "Il devient roi"], "answer": 0},
+    {"q": "Comment s'appelle le coup spécial qui protège le roi derrière une tour ?", "choices": ["Le roque", "La promotion", "La prise en passant", "L'échange"], "answer": 0},
+    {"q": "Quelle prise spéciale permet de capturer un pion qui vient d'avancer de deux cases ?", "choices": ["La prise en passant", "Le roque", "La fourchette", "Le clouage"], "answer": 0},
+    {"q": "Comment gagne-t-on une partie d'échecs ?", "choices": ["Par échec et mat", "En capturant la dame", "En prenant toutes les pièces", "En atteignant le fond"], "answer": 0},
+    {"q": "Comment s'appelle la situation où le roi n'est pas attaqué mais ne peut plus bouger ?", "choices": ["Le pat (nulle)", "Le mat", "L'échec perpétuel", "Le zugzwang"], "answer": 0},
+    {"q": "Quel mat en deux coups est le plus rapide possible ?", "choices": ["Le mat du sot", "Le mat du berger", "Le mat à l'étouffée", "Le mat du couloir"], "answer": 0},
+    {"q": "Quel mat en quatre coups piège les débutants ?", "choices": ["Le mat du berger", "Le mat du sot", "Le mat à l'étouffée", "Le mat des pions"], "answer": 0},
+    {"q": "Quel champion norvégien a dominé les échecs depuis 2013 ?", "choices": ["Magnus Carlsen", "Fabiano Caruana", "Hikaru Nakamura", "Ding Liren"], "answer": 0},
+    {"q": "Quel Américain excentrique est devenu champion du monde en 1972 ?", "choices": ["Bobby Fischer", "Boris Spassky", "Paul Morphy", "Sammy Reshevsky"], "answer": 0},
+    {"q": "Quel champion russe a affronté l'ordinateur Deep Blue ?", "choices": ["Garry Kasparov", "Anatoli Karpov", "Vladimir Kramnik", "Mikhail Tal"], "answer": 0},
+    {"q": "Quel ordinateur d'IBM a battu Kasparov en 1997 ?", "choices": ["Deep Blue", "Watson", "AlphaZero", "Stockfish"], "answer": 0},
+    {"q": "Quel titre suprême décerne la fédération internationale ?", "choices": ["Grand maître international", "Maître suprême", "Champion d'or", "Expert mondial"], "answer": 0},
+    {"q": "Quel système de points mesure le niveau des joueurs ?", "choices": ["Le classement Elo", "Le score FIDE simple", "Le ranking WGP", "Les points Kasparov"], "answer": 0},
+    {"q": "Quelle série Netflix a fait exploser la popularité des échecs en 2020 ?", "choices": ["Le Jeu de la dame", "Gambit royal", "Reine d'échecs", "Checkmate"], "answer": 0},
+    {"q": "Quelle ouverture célèbre sacrifie un pion dès le deuxième coup côté dame ?", "choices": ["Le gambit dame", "La sicilienne", "La française", "L'espagnole"], "answer": 0},
+    {"q": "De quelle couleur joue celui qui commence ?", "choices": ["Les blancs", "Les noirs", "Au choix", "Tirage au sort obligatoire"], "answer": 0},
+    {"q": "Quelle cadence ultra-rapide se joue en 1 à 3 minutes ?", "choices": ["Le bullet", "Le blitz", "Le rapide", "La partie longue"], "answer": 0}
+  ]
+}

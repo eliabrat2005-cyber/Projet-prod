@@ -1,0 +1,32 @@
+{
+  "id": "chats",
+  "name": "Chats",
+  "icon": "🐱",
+  "color": "#78909c",
+  "questions": [
+    {"q": "Combien d'heures par jour un chat dort-il en moyenne ?", "choices": ["12 à 16 heures", "6 à 8 heures", "20 à 22 heures", "4 à 6 heures"], "answer": 0},
+    {"q": "Quelle race de chat n'a pas de poils ?", "choices": ["Le sphynx", "Le rex", "Le korat", "Le bombay"], "answer": 0},
+    {"q": "Quelle race de chat est la plus grande ?", "choices": ["Le maine coon", "Le ragdoll", "Le norvégien", "Le sibérien"], "answer": 0},
+    {"q": "Quelle race aux yeux bleus vient de Thaïlande ?", "choices": ["Le siamois", "Le persan", "Le birman", "L'angora"], "answer": 0},
+    {"q": "Quelle race à poil long a le visage aplati ?", "choices": ["Le persan", "Le maine coon", "L'angora", "Le sacré de Birmanie"], "answer": 0},
+    {"q": "Pourquoi le chat ronronne-t-il le plus souvent ?", "choices": ["Par contentement (ou pour s'apaiser)", "Par faim uniquement", "Pour chasser", "Par peur uniquement"], "answer": 0},
+    {"q": "À quoi servent les moustaches (vibrisses) du chat ?", "choices": ["À percevoir l'espace et les obstacles", "À sentir les odeurs", "À goûter", "À rien"], "answer": 0},
+    {"q": "Combien de vies prête-t-on au chat en France ?", "choices": ["Sept", "Neuf", "Trois", "Cinq"], "answer": 0},
+    {"q": "Quel sens du chat est très supérieur au nôtre dans la pénombre ?", "choices": ["La vue nocturne", "Le goût", "Le toucher", "L'odorat diurne"], "answer": 0},
+    {"q": "Comment s'appelle le petit du chat ?", "choices": ["Le chaton", "Le chatelet", "Le minon", "Le félin"], "answer": 0},
+    {"q": "Quel chat célèbre d'Alice au pays des merveilles disparaît en souriant ?", "choices": ["Le chat du Cheshire", "Le chat botté", "Figaro", "Lucifer"], "answer": 0},
+    {"q": "Quel chat de conte porte des bottes et sert son maître ?", "choices": ["Le Chat botté", "Le chat du Cheshire", "Grosminet", "Félix"], "answer": 0},
+    {"q": "Quel chat orange de BD déteste les lundis ?", "choices": ["Garfield", "Tom", "Grosminet", "Azraël"], "answer": 0},
+    {"q": "Quel chat poursuit éternellement la souris Jerry ?", "choices": ["Tom", "Grosminet", "Félix", "Sylvestre"], "answer": 0},
+    {"q": "Quel chat noir et blanc veut manger Titi ?", "choices": ["Grosminet", "Tom", "Félix", "Lucifer"], "answer": 0},
+    {"q": "Dans quel pays antique le chat était-il vénéré ?", "choices": ["L'Égypte", "La Grèce", "La Perse", "La Chine"], "answer": 0},
+    {"q": "Quelle déesse égyptienne a une tête de chatte ?", "choices": ["Bastet", "Isis", "Sekhmet la lionne", "Hathor"], "answer": 0},
+    {"q": "Que signifie un chat qui pétrit avec ses pattes ?", "choices": ["Un comportement de bien-être hérité du chaton", "Il aiguise ses griffes", "Il marque son territoire", "Il a froid"], "answer": 0},
+    {"q": "Quelle particularité ont les chats écaille-de-tortue ?", "choices": ["Ce sont presque toujours des femelles", "Ils sont sourds", "Ils sont aveugles", "Ils n'ont pas de queue"], "answer": 0},
+    {"q": "Quelle race sans queue vient de l'île de Man ?", "choices": ["Le manx", "Le bobtail", "Le sphynx", "Le scottish"], "answer": 0},
+    {"q": "Quelle race a les oreilles pliées vers l'avant ?", "choices": ["Le scottish fold", "L'american curl", "Le devon rex", "Le british"], "answer": 0},
+    {"q": "Quel organe permet au chat de toujours retomber sur ses pattes ?", "choices": ["L'oreille interne (réflexe de redressement)", "La queue seule", "Les griffes", "Les coussinets"], "answer": 0},
+    {"q": "Quel grand félin est le seul à vivre en groupe ?", "choices": ["Le lion", "Le tigre", "Le léopard", "Le guépard"], "answer": 0},
+    {"q": "Quel chat japonais porte-bonheur lève la patte ?", "choices": ["Le maneki-neko", "Le daruma", "Le kitsune", "Le tanuki"], "answer": 0}
+  ]
+}

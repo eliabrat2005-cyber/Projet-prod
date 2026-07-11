@@ -1,0 +1,32 @@
+{
+  "id": "jeux-olympiques",
+  "name": "Jeux Olympiques",
+  "icon": "🥇",
+  "color": "#00838f",
+  "questions": [
+    {"q": "Dans quel pays sont nés les Jeux olympiques antiques ?", "choices": ["La Grèce", "L'Italie", "L'Égypte", "La Turquie"], "answer": 0},
+    {"q": "Qui a rénové les Jeux olympiques modernes en 1896 ?", "choices": ["Pierre de Coubertin", "Jules Rimet", "Henri Didon", "Demetrios Vikelas"], "answer": 0},
+    {"q": "Où ont eu lieu les premiers JO modernes en 1896 ?", "choices": ["Athènes", "Paris", "Londres", "Rome"], "answer": 0},
+    {"q": "Combien d'anneaux composent le drapeau olympique ?", "choices": ["Cinq", "Quatre", "Six", "Sept"], "answer": 0},
+    {"q": "Que représentent les anneaux olympiques ?", "choices": ["Les cinq continents", "Les cinq sports d'origine", "Les cinq mers", "Les cinq valeurs"], "answer": 0},
+    {"q": "Quelle est la devise olympique ?", "choices": ["Plus vite, plus haut, plus fort — ensemble", "L'important c'est de participer", "Un esprit sain", "Vaincre ou mourir"], "answer": 0},
+    {"q": "Quelle flamme voyage jusqu'à la ville hôte ?", "choices": ["La flamme olympique", "Le flambeau d'or", "Le feu sacré d'Olympe", "La torche éternelle"], "answer": 0},
+    {"q": "Tous les combien d'années ont lieu les JO d'été ?", "choices": ["Quatre ans", "Deux ans", "Trois ans", "Cinq ans"], "answer": 0},
+    {"q": "Quelle ville a accueilli les JO d'été 2024 ?", "choices": ["Paris", "Los Angeles", "Tokyo", "Brisbane"], "answer": 0},
+    {"q": "Sur quel fleuve s'est déroulée la cérémonie d'ouverture de Paris 2024 ?", "choices": ["La Seine", "La Loire", "Le Rhône", "La Marne"], "answer": 0},
+    {"q": "Quel nageur américain détient 23 médailles d'or olympiques ?", "choices": ["Michael Phelps", "Mark Spitz", "Ryan Lochte", "Caeleb Dressel"], "answer": 0},
+    {"q": "Quel sprinteur jamaïcain a gagné le 100 m à trois JO consécutifs ?", "choices": ["Usain Bolt", "Yohan Blake", "Carl Lewis", "Asafa Powell"], "answer": 0},
+    {"q": "Quel nageur français a gagné 4 médailles d'or à Paris 2024 ?", "choices": ["Léon Marchand", "Florent Manaudou", "Yannick Agnel", "Maxime Grousset"], "answer": 0},
+    {"q": "Quelle gymnaste roumaine a obtenu le premier 10 parfait en 1976 ?", "choices": ["Nadia Comaneci", "Simone Biles", "Olga Korbut", "Vera Caslavska"], "answer": 0},
+    {"q": "Quels Jeux réunissent les athlètes en situation de handicap ?", "choices": ["Les Jeux paralympiques", "Les Jeux adaptés", "Les Handi-Jeux", "Les Special Olympics"], "answer": 0},
+    {"q": "Quelle ville a accueilli trois fois les JO d'été (1896 exclu) ?", "choices": ["Londres", "Paris", "Los Angeles", "Athènes"], "answer": 0},
+    {"q": "Quel athlète noir américain a triomphé aux JO de Berlin en 1936 ?", "choices": ["Jesse Owens", "Carl Lewis", "Jim Thorpe", "Ralph Metcalfe"], "answer": 0},
+    {"q": "Quelle épreuve combine 10 disciplines d'athlétisme ?", "choices": ["Le décathlon", "L'heptathlon", "Le pentathlon", "Le triathlon"], "answer": 0},
+    {"q": "Quel sport a historiquement rapporté le plus de médailles olympiques à la France ?", "choices": ["L'escrime", "Le judo", "La natation", "L'athlétisme"], "answer": 0},
+    {"q": "Quel judoka français a gagné 3 titres olympiques en individuel ?", "choices": ["Teddy Riner", "David Douillet", "Thierry Rey", "Lucie Décosse"], "answer": 0},
+    {"q": "Quelle mascotte a représenté Paris 2024 ?", "choices": ["La Phryge", "Le coq Footix", "La Marianne", "L'ourson Mischa"], "answer": 0},
+    {"q": "Quels JO d'hiver ont eu lieu en France en 1992 ?", "choices": ["Albertville", "Grenoble", "Chamonix", "Val d'Isère"], "answer": 0},
+    {"q": "Quel sport de glisse urbain a fait son entrée aux JO de Tokyo ?", "choices": ["Le skateboard", "Le roller", "Le BMX", "La trottinette"], "answer": 0},
+    {"q": "Quelle médaille récompense la troisième place ?", "choices": ["Le bronze", "L'argent", "Le cuivre", "L'étain"], "answer": 0}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "marvel",
+  "name": "Marvel",
+  "icon": "🕷️",
+  "color": "#b71c1c",
+  "questions": [
+    {"q": "Quel milliardaire génial porte l'armure d'Iron Man ?", "choices": ["Tony Stark", "Bruce Wayne", "Steve Rogers", "Hank Pym"], "answer": 0},
+    {"q": "Quel super-soldat manie un bouclier en vibranium ?", "choices": ["Captain America", "Bucky", "Falcon", "War Machine"], "answer": 0},
+    {"q": "En quoi Bruce Banner se transforme-t-il quand il s'énerve ?", "choices": ["Hulk", "Abomination", "La Chose", "Venom"], "answer": 0},
+    {"q": "Quel dieu nordique manie le marteau Mjolnir chez Marvel ?", "choices": ["Thor", "Loki", "Odin", "Heimdall"], "answer": 0},
+    {"q": "Quel lycéen est mordu par une araignée radioactive ?", "choices": ["Peter Parker", "Miles Morales", "Harry Osborn", "Eddie Brock"], "answer": 0},
+    {"q": "Quel titan fou veut réunir les six Pierres d'Infinité ?", "choices": ["Thanos", "Ultron", "Kang", "Galactus"], "answer": 0},
+    {"q": "Que fait Thanos en claquant des doigts avec le Gantelet ?", "choices": ["Il efface la moitié de l'univers", "Il détruit la Terre", "Il remonte le temps", "Il crée un clone"], "answer": 0},
+    {"q": "Quel roi du Wakanda est la Panthère noire ?", "choices": ["T'Challa", "M'Baku", "Killmonger", "T'Chaka"], "answer": 0},
+    {"q": "Quel métal fictif compose le bouclier de Captain America ?", "choices": ["Le vibranium", "L'adamantium", "L'uru", "Le carbonadium"], "answer": 0},
+    {"q": "Quelle espionne russe rejoint les Avengers ?", "choices": ["Black Widow", "Scarlet Witch", "Captain Marvel", "Wasp"], "answer": 0},
+    {"q": "Quel archer d'élite fait équipe avec Black Widow ?", "choices": ["Hawkeye", "Bullseye", "Green Arrow", "Punisher"], "answer": 0},
+    {"q": "Quel frère adoptif de Thor est le dieu de la malice ?", "choices": ["Loki", "Balder", "Tyr", "Fandral"], "answer": 0},
+    {"q": "Quel raton laveur armé fait partie des Gardiens de la Galaxie ?", "choices": ["Rocket", "Groot", "Drax", "Yondu"], "answer": 0},
+    {"q": "Quelle est la seule phrase que dit Groot ?", "choices": ["« Je s'appelle Groot »", "« Groot smash »", "« Toujours Groot »", "Il ne parle pas"], "answer": 0},
+    {"q": "Quel sorcier suprême protège la réalité ?", "choices": ["Doctor Strange", "Wong", "L'Ancien", "Mordo"], "answer": 0},
+    {"q": "Quel héros rétrécit grâce aux particules Pym ?", "choices": ["Ant-Man", "Atom", "Hulk", "Yellowjacket"], "answer": 0},
+    {"q": "Quelle pilote reçoit les pouvoirs du Tesseract ?", "choices": ["Captain Marvel", "Scarlet Witch", "Jean Grey", "She-Hulk"], "answer": 0},
+    {"q": "Quel mutant griffu a un squelette en adamantium ?", "choices": ["Wolverine", "Sabretooth", "Deadpool", "Beast"], "answer": 0},
+    {"q": "Quel professeur en fauteuil dirige les X-Men ?", "choices": ["Charles Xavier", "Magneto", "Beast", "Cyclope"], "answer": 0},
+    {"q": "Quel mercenaire bavard brise le quatrième mur ?", "choices": ["Deadpool", "Deathstroke", "Punisher", "Taskmaster"], "answer": 0},
+    {"q": "Quel symbiote noir donne naissance à Venom ?", "choices": ["Le symbiote Klyntar", "Le Serum X", "Le Venin cosmique", "L'Anti-Vie"], "answer": 0},
+    {"q": "Dans quelle ville Spider-Man patrouille-t-il ?", "choices": ["New York", "Chicago", "Los Angeles", "Gotham"], "answer": 0},
+    {"q": "Quel film Marvel de 2019 est l'un des plus gros succès du box-office ?", "choices": ["Avengers: Endgame", "Iron Man 3", "Black Panther", "Thor Ragnarok"], "answer": 0},
+    {"q": "Quel dessinateur-scénariste légendaire a cocréé Spider-Man et les X-Men ?", "choices": ["Stan Lee", "Bob Kane", "Frank Miller", "Alan Moore"], "answer": 0}
+  ]
+}

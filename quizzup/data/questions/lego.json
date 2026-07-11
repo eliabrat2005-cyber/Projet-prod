@@ -1,0 +1,32 @@
+{
+  "id": "lego",
+  "name": "LEGO",
+  "icon": "🧱",
+  "color": "#d32f2f",
+  "questions": [
+    {"q": "De quel pays vient la marque LEGO ?", "choices": ["Du Danemark", "De Suède", "D'Allemagne", "Des Pays-Bas"], "answer": 0},
+    {"q": "Que signifie « LEGO » en danois ?", "choices": ["« Joue bien » (leg godt)", "« Brique magique »", "« Petit bloc »", "« Construis tout »"], "answer": 0},
+    {"q": "Dans quelle ville danoise se trouve le siège de LEGO ?", "choices": ["Billund", "Copenhague", "Aarhus", "Odense"], "answer": 0},
+    {"q": "Comment s'appellent les petits personnages LEGO ?", "choices": ["Les minifigurines", "Les legomen", "Les briquets", "Les blockies"], "answer": 0},
+    {"q": "Combien de tenons compte la brique LEGO classique 2x4 ?", "choices": ["Huit", "Six", "Dix", "Douze"], "answer": 0},
+    {"q": "Quel parc d'attractions LEGO a ouvert en premier ?", "choices": ["Legoland Billund", "Legoland Windsor", "Legoland California", "Legoland Deutschland"], "answer": 0},
+    {"q": "Quelle gamme LEGO explore l'espace depuis 1978 ?", "choices": ["LEGO Space", "LEGO Galaxy", "LEGO Cosmos", "LEGO Orbit"], "answer": 0},
+    {"q": "Quelle gamme LEGO met en scène pompiers et policiers ?", "choices": ["LEGO City", "LEGO Town Hall", "LEGO Rescue", "LEGO Metro"], "answer": 0},
+    {"q": "Quelle gamme LEGO pour les tout-petits a de grosses briques ?", "choices": ["DUPLO", "QUATRO", "Baby Bricks", "LEGO Junior"], "answer": 0},
+    {"q": "Quelle gamme LEGO à thème ninja a sa propre série TV ?", "choices": ["Ninjago", "Chima", "Nexo Knights", "Bionicle"], "answer": 0},
+    {"q": "Quels robots à construire ont fait le succès de LEGO dans les années 2000 ?", "choices": ["Les Bionicle", "Les Transformers", "Les Exo-Force", "Les Robo Riders"], "answer": 0},
+    {"q": "Quelle gamme technique avec engrenages et moteurs existe depuis 1977 ?", "choices": ["LEGO Technic", "LEGO Engineer", "LEGO Mecha", "LEGO Pro"], "answer": 0},
+    {"q": "Quelle gamme robotique programmable LEGO a été créée avec le MIT ?", "choices": ["Mindstorms", "Boost", "Spike", "WeDo"], "answer": 0},
+    {"q": "Quel film de 2014 suit Emmet, un ouvrier LEGO ordinaire ?", "choices": ["La Grande Aventure LEGO", "LEGO City le film", "LEGO Movie 2 d'abord", "Emmet et Cie"], "answer": 0},
+    {"q": "Quelle phrase culte chante-t-on dans ce film ?", "choices": ["« Everything is Awesome »", "« Build the World »", "« Brick by Brick »", "« LEGO Forever »"], "answer": 0},
+    {"q": "Quel justicier masqué a son propre film LEGO en 2017 ?", "choices": ["Batman", "Spider-Man", "Iron Man", "Superman"], "answer": 0},
+    {"q": "Quelle licence spatiale est la plus ancienne collaboration LEGO ?", "choices": ["Star Wars", "Star Trek", "Alien", "NASA"], "answer": 0},
+    {"q": "Quel vaisseau de Star Wars est l'un des plus gros sets LEGO jamais vendus ?", "choices": ["Le Faucon Millenium", "L'Étoile de la mort", "Le Destroyer", "Le X-Wing"], "answer": 0},
+    {"q": "Quelle école de sorciers existe en version LEGO géante ?", "choices": ["Poudlard", "Beauxbâtons", "Salem", "Durmstrang"], "answer": 0},
+    {"q": "Quelle gamme LEGO reproduit les monuments du monde en miniature ?", "choices": ["LEGO Architecture", "LEGO Monuments", "LEGO World", "LEGO Landmarks"], "answer": 0},
+    {"q": "Quel jeu vidéo LEGO bac à sable mélange LEGO et Minecraft ?", "choices": ["LEGO Worlds", "LEGO Craft", "LEGO Builder", "LEGO Universe 2"], "answer": 0},
+    {"q": "En quelle matière étaient les premiers jouets LEGO des années 1930 ?", "choices": ["En bois", "En métal", "En plastique dur", "En carton"], "answer": 0},
+    {"q": "Quelle émission télé oppose des équipes de constructeurs LEGO ?", "choices": ["LEGO Masters", "Brick Wars", "Block Party", "Master Builders"], "answer": 0},
+    {"q": "Pourquoi marcher pieds nus sur un LEGO est-il si douloureux ?", "choices": ["La brique est rigide et concentre la pression", "Elle est électrique", "Elle est coupante", "Elle chauffe"], "answer": 0}
+  ]
+}

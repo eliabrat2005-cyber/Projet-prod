@@ -1,0 +1,32 @@
+{
+  "id": "james-bond",
+  "name": "James Bond",
+  "icon": "🍸",
+  "color": "#212121",
+  "questions": [
+    {"q": "Quel est le matricule de James Bond ?", "choices": ["007", "006", "008", "001"], "answer": 0},
+    {"q": "Pour quel service secret Bond travaille-t-il ?", "choices": ["Le MI6", "La CIA", "Le KGB", "Le MI5"], "answer": 0},
+    {"q": "Comment Bond commande-t-il sa vodka-martini ?", "choices": ["Au shaker, pas à la cuillère", "À la cuillère", "Sans glace", "Avec du citron chaud"], "answer": 0},
+    {"q": "Qui a créé le personnage de James Bond ?", "choices": ["Ian Fleming", "John le Carré", "Graham Greene", "Frederick Forsyth"], "answer": 0},
+    {"q": "Quel acteur a incarné Bond en premier au cinéma ?", "choices": ["Sean Connery", "Roger Moore", "George Lazenby", "David Niven"], "answer": 0},
+    {"q": "Quel est le premier film de la saga, sorti en 1962 ?", "choices": ["James Bond contre Dr No", "Goldfinger", "Bons Baisers de Russie", "Opération Tonnerre"], "answer": 0},
+    {"q": "Qui fournit ses gadgets à 007 ?", "choices": ["Q", "M", "Moneypenny", "Tanner"], "answer": 0},
+    {"q": "Quelle voiture est la plus associée à James Bond ?", "choices": ["L'Aston Martin DB5", "La Jaguar Type E", "La BMW Z3", "La Lotus Esprit"], "answer": 0},
+    {"q": "Qui dirige le MI6 dans la saga ?", "choices": ["M", "Q", "C", "Le Premier ministre"], "answer": 0},
+    {"q": "Quelle secrétaire flirte avec Bond depuis toujours ?", "choices": ["Miss Moneypenny", "Vesper", "Sylvia", "Mary"], "answer": 0},
+    {"q": "Quel méchant caresse un chat blanc ?", "choices": ["Blofeld", "Goldfinger", "Dr No", "Scaramanga"], "answer": 0},
+    {"q": "Quelle organisation criminelle dirige Blofeld ?", "choices": ["Le SPECTRE", "Le SMERSH", "Quantum", "L'Hydra"], "answer": 0},
+    {"q": "Quel homme de main géant a des dents en acier ?", "choices": ["Requin", "Oddjob", "Le Chiffre", "Jaws Junior"], "answer": 0},
+    {"q": "Quel garde du corps tue avec son chapeau melon tranchant ?", "choices": ["Oddjob", "Requin", "Nick Nack", "Tee Hee"], "answer": 0},
+    {"q": "Quel méchant veut irradier l'or de Fort Knox ?", "choices": ["Goldfinger", "Blofeld", "Le Chiffre", "Kananga"], "answer": 0},
+    {"q": "Quel acteur incarne Bond de 2006 à 2021 ?", "choices": ["Daniel Craig", "Pierce Brosnan", "Timothy Dalton", "Roger Moore"], "answer": 0},
+    {"q": "Dans quel film Bond affronte-t-il Le Chiffre au poker ?", "choices": ["Casino Royale", "Skyfall", "Quantum of Solace", "GoldenEye"], "answer": 0},
+    {"q": "Quelle agente du Trésor trahit puis sauve Bond dans Casino Royale ?", "choices": ["Vesper Lynd", "Camille", "Madeleine", "Solitaire"], "answer": 0},
+    {"q": "Quel film de 2012 révèle l'enfance écossaise de Bond ?", "choices": ["Skyfall", "Spectre", "Mourir peut attendre", "GoldenEye"], "answer": 0},
+    {"q": "Qui chante le générique de « Skyfall » ?", "choices": ["Adele", "Billie Eilish", "Shirley Bassey", "Sam Smith"], "answer": 0},
+    {"q": "Quel agent de la CIA est l'allié récurrent de Bond ?", "choices": ["Felix Leiter", "Jack Ryan", "Ethan Hunt", "Bill Tanner"], "answer": 0},
+    {"q": "Quel est le dernier film avec Daniel Craig (2021) ?", "choices": ["Mourir peut attendre", "Spectre", "Skyfall", "Casino Royale 2"], "answer": 0},
+    {"q": "Quelle arme de poing est fidèle à Bond depuis Dr No ?", "choices": ["Le Walther PPK", "Le Beretta 92", "Le Glock 17", "Le Colt 45"], "answer": 0},
+    {"q": "De quel pays Bond est-il l'agent secret ?", "choices": ["Le Royaume-Uni", "Les États-Unis", "Le Canada", "L'Australie"], "answer": 0}
+  ]
+}

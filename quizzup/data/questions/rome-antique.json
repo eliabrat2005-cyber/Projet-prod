@@ -1,0 +1,32 @@
+{
+  "id": "rome-antique",
+  "name": "Rome antique",
+  "icon": "🦅",
+  "color": "#8d1e1e",
+  "questions": [
+    {"q": "Quels jumeaux légendaires auraient fondé Rome ?", "choices": ["Romulus et Remus", "Castor et Pollux", "Énée et Turnus", "Numa et Ancus"], "answer": 0},
+    {"q": "Quel animal aurait allaité Romulus et Remus ?", "choices": ["Une louve", "Une ourse", "Une chèvre", "Une lionne"], "answer": 0},
+    {"q": "En quelle année légendaire Rome a-t-elle été fondée ?", "choices": ["753 av. J.-C.", "509 av. J.-C.", "1000 av. J.-C.", "27 av. J.-C."], "answer": 0},
+    {"q": "Quel général a conquis la Gaule ?", "choices": ["Jules César", "Pompée", "Crassus", "Scipion"], "answer": 0},
+    {"q": "Quel chef gaulois s'est rendu à César à Alésia ?", "choices": ["Vercingétorix", "Brennus", "Ambiorix", "Camulogène"], "answer": 0},
+    {"q": "Quel fleuve César a-t-il franchi en déclarant « le sort en est jeté » ?", "choices": ["Le Rubicon", "Le Tibre", "Le Pô", "L'Arno"], "answer": 0},
+    {"q": "Qui a assassiné César aux ides de mars ?", "choices": ["Des sénateurs menés par Brutus et Cassius", "Marc Antoine", "Cléopâtre", "Octave"], "answer": 0},
+    {"q": "Qui est devenu le premier empereur romain ?", "choices": ["Auguste (Octave)", "César", "Tibère", "Néron"], "answer": 0},
+    {"q": "Quels combattants s'affrontaient au Colisée ?", "choices": ["Les gladiateurs", "Les légionnaires", "Les prétoriens", "Les centurions"], "answer": 0},
+    {"q": "Quel esclave gladiateur a mené une grande révolte ?", "choices": ["Spartacus", "Crixus", "Maximus", "Cicéron"], "answer": 0},
+    {"q": "Comment s'appelait l'unité de base de l'armée romaine ?", "choices": ["La légion", "La phalange", "La cohorte suprême", "La garde"], "answer": 0},
+    {"q": "Quelle formation en carapace protégeait les légionnaires ?", "choices": ["La tortue (testudo)", "Le mur", "La phalange", "Le coin"], "answer": 0},
+    {"q": "Quel général carthaginois a traversé les Alpes avec des éléphants ?", "choices": ["Hannibal", "Hamilcar", "Hasdrubal", "Magon"], "answer": 0},
+    {"q": "Quelles guerres ont opposé Rome à Carthage ?", "choices": ["Les guerres puniques", "Les guerres gauloises", "Les guerres civiles", "Les guerres macédoniennes"], "answer": 0},
+    {"q": "Quel lieu public accueillait débats et commerce au centre de Rome ?", "choices": ["Le forum", "Le cirque", "Les thermes", "L'odéon"], "answer": 0},
+    {"q": "Où se déroulaient les courses de chars ?", "choices": ["Au Circus Maximus", "Au Colisée", "Au forum", "Au Panthéon"], "answer": 0},
+    {"q": "Quels bains publics étaient au cœur de la vie sociale ?", "choices": ["Les thermes", "Les atriums", "Les fontaines", "Les nymphées"], "answer": 0},
+    {"q": "Quels ouvrages acheminaient l'eau vers les villes ?", "choices": ["Les aqueducs", "Les viaducs", "Les canaux", "Les citernes"], "answer": 0},
+    {"q": "Quel empereur fou aurait nommé son cheval au Sénat ?", "choices": ["Caligula", "Néron", "Commode", "Domitien"], "answer": 0},
+    {"q": "Quel empereur philosophe a écrit des « Pensées » ?", "choices": ["Marc Aurèle", "Hadrien", "Trajan", "Antonin"], "answer": 0},
+    {"q": "Quel empereur a légalisé le christianisme en 313 ?", "choices": ["Constantin", "Dioclétien", "Théodose", "Julien"], "answer": 0},
+    {"q": "En quelle année l'Empire romain d'Occident est-il tombé ?", "choices": ["476", "410", "395", "527"], "answer": 0},
+    {"q": "Quelle langue parlaient les Romains ?", "choices": ["Le latin", "Le grec", "L'étrusque", "L'italien ancien"], "answer": 0},
+    {"q": "Quel vêtement drapé portaient les citoyens romains ?", "choices": ["La toge", "La tunique seule", "Le péplos", "La chlamyde"], "answer": 0}
+  ]
+}

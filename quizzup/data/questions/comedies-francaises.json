@@ -1,0 +1,32 @@
+{
+  "id": "comedies-francaises",
+  "name": "Comédies françaises",
+  "icon": "😂",
+  "color": "#f9a825",
+  "questions": [
+    {"q": "Dans quel film Louis de Funès dirige-t-il la gendarmerie d'une station balnéaire ?", "choices": ["Le Gendarme de Saint-Tropez", "Rabbi Jacob", "La Grande Vadrouille", "L'Aile ou la Cuisse"], "answer": 0},
+    {"q": "Quel duo traverse la France occupée dans « La Grande Vadrouille » ?", "choices": ["Bourvil et Louis de Funès", "Belmondo et Delon", "Coluche et Richard", "Blier et Serrault"], "answer": 0},
+    {"q": "Quel chevalier et son écuyer voyagent dans le temps dans « Les Visiteurs » ?", "choices": ["Godefroy et Jacquouille", "Perceval et Karadoc", "Arthur et Lancelot", "Jean et Pierre"], "answer": 0},
+    {"q": "Quelle réplique culte Jacquouille répète-t-il ?", "choices": ["« Okayyyy »", "« C'est de la balle »", "« Mortecouille uniquement »", "« Sapristi »"], "answer": 0},
+    {"q": "Dans quel film un cadre parisien est-il muté dans le Nord ?", "choices": ["Bienvenue chez les Ch'tis", "Rien à déclarer", "La Ch'tite Famille", "Le Nord c'est le Nord"], "answer": 0},
+    {"q": "Qui réalise et joue dans « Bienvenue chez les Ch'tis » ?", "choices": ["Dany Boon", "Kad Merad", "Gad Elmaleh", "Franck Dubosc"], "answer": 0},
+    {"q": "Quel dîner réunit des invités choisis pour leur bêtise supposée ?", "choices": ["Le Dîner de cons", "Le Grand Restaurant", "Le Repas des fauves", "Le Banquet"], "answer": 0},
+    {"q": "Quel personnage maladroit incarne Pierre Richard dans plusieurs comédies ?", "choices": ["François Perrin/Pignon", "Antoine Doinel", "Hubert", "Léon"], "answer": 0},
+    {"q": "Quel duo culte forme Gérard Depardieu avec Pierre Richard chez Francis Veber ?", "choices": ["La Chèvre, Les Compères, Les Fugitifs", "Les Bronzés", "Le Splendid", "Les Charlots"], "answer": 0},
+    {"q": "Quelle troupe est à l'origine des « Bronzés » ?", "choices": ["Le Splendid", "Les Nuls", "Les Inconnus", "Les Robins des Bois"], "answer": 0},
+    {"q": "Où se déroule « Les Bronzés font du ski » ?", "choices": ["Val d'Isère", "Chamonix", "Courchevel", "Les Arcs"], "answer": 0},
+    {"q": "Quel acteur incarne à la fois Godefroy de Montmirail et sa descendance moderne ?", "choices": ["Jean Reno", "Christian Clavier", "Gérard Jugnot", "Thierry Lhermitte"], "answer": 0},
+    {"q": "Quel film de 2011 réunit un aristocrate tétraplégique et son aide à domicile ?", "choices": ["Intouchables", "Samba", "Hors Normes", "Le Sens de la fête"], "answer": 0},
+    {"q": "Quel personnage incarné par Christian Clavier reçoit des gendres du monde entier ?", "choices": ["Claude Verneuil", "Jacquouille", "Astérix", "Hubert de Montmirail"], "answer": 0},
+    {"q": "Dans « OSS 117 », quel acteur incarne l'espion gaffeur ?", "choices": ["Jean Dujardin", "Guillaume Canet", "Gilles Lellouche", "Albert Dupontel"], "answer": 0},
+    {"q": "Quel taxi marseillais fonce dans les films de Luc Besson ?", "choices": ["Le taxi de Daniel", "Le taxi de Sami", "Le taxi d'Eddy", "Le taxi de Momo"], "answer": 0},
+    {"q": "Quelle comédie suit l'organisation chaotique d'un mariage dans un château ?", "choices": ["Le Sens de la fête", "Mariage à la grecque", "Plan de table", "Un plus une"], "answer": 0},
+    {"q": "Quel instituteur remonte le moral d'un pensionnat en créant une chorale ?", "choices": ["Clément Mathieu (Les Choristes)", "Monsieur Lazhar", "François Foucault", "Georges Lopez"], "answer": 0},
+    {"q": "Quelle famille de « sans-dents » débarque chez des bourgeois dans « Les Tuche » ?", "choices": ["Les Tuche", "Les Groseille", "Les Le Quesnoy", "Les Bidochon"], "answer": 0},
+    {"q": "Dans « La Vie est un long fleuve tranquille », quelles familles sont échangées ?", "choices": ["Les Groseille et les Le Quesnoy", "Les Tuche et les Verneuil", "Les Duval et les Martin", "Les Bodin et les Roche"], "answer": 0},
+    {"q": "Quel acteur incarne Astérix dans « Mission Cléopâtre » ?", "choices": ["Christian Clavier", "Gérard Depardieu", "Édouard Baer", "Clovis Cornillac"], "answer": 0},
+    {"q": "Qui réalise « Astérix et Obélix : Mission Cléopâtre » ?", "choices": ["Alain Chabat", "Claude Zidi", "Michel Hazanavicius", "Dany Boon"], "answer": 0},
+    {"q": "Quel sosie de Claude François incarne Benoît Poelvoorde dans « Podium » ?", "choices": ["Bernard Frédéric", "Jean-Claude Duss", "Bébel", "Patrick Chirac"], "answer": 0},
+    {"q": "Quelle bande d'amis se retrouve chaque été dans « Les Petits Mouchoirs » ?", "choices": ["La bande de Max", "Les Bronzés", "Les Copains d'abord", "La Bande du Splendid"], "answer": 0}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "harry-potter",
+  "name": "Harry Potter",
+  "icon": "🪄",
+  "color": "#4a148c",
+  "questions": [
+    {"q": "Dans quelle école de sorcellerie étudie Harry Potter ?", "choices": ["Poudlard", "Beauxbâtons", "Durmstrang", "Ilvermorny"], "answer": 0},
+    {"q": "Dans quelle maison Harry est-il réparti ?", "choices": ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"], "answer": 0},
+    {"q": "Quel objet magique répartit les élèves dans les maisons ?", "choices": ["Le Choixpeau", "La baguette", "Le Miroir", "La coupe de feu"], "answer": 0},
+    {"q": "Qui sont les deux meilleurs amis de Harry ?", "choices": ["Ron et Hermione", "Neville et Luna", "Fred et George", "Dean et Seamus"], "answer": 0},
+    {"q": "Quel mage noir a tué les parents de Harry ?", "choices": ["Voldemort", "Grindelwald", "Bellatrix", "Rogue"], "answer": 0},
+    {"q": "Quelle cicatrice Harry porte-t-il au front ?", "choices": ["Un éclair", "Une étoile", "Un serpent", "Une croix"], "answer": 0},
+    {"q": "Quel sport se joue sur des balais volants ?", "choices": ["Le Quidditch", "La Bataille explosive", "Le Quodpot", "Les Bavboules"], "answer": 0},
+    {"q": "Quelle balle Harry doit-il attraper en tant qu'attrapeur ?", "choices": ["Le Vif d'or", "Le Souafle", "Le Cognard", "La Comète"], "answer": 0},
+    {"q": "Qui est le directeur de Poudlard pendant la majorité de la saga ?", "choices": ["Dumbledore", "Rogue", "McGonagall", "Fudge"], "answer": 0},
+    {"q": "Quel demi-géant emmène Harry acheter ses fournitures ?", "choices": ["Hagrid", "Sirius", "Lupin", "Maugrey"], "answer": 0},
+    {"q": "Comment s'appelle la chouette de Harry ?", "choices": ["Hedwige", "Errol", "Coquecigrue", "Edwige la noire"], "answer": 0},
+    {"q": "Quel professeur de potions déteste Harry en apparence ?", "choices": ["Severus Rogue", "Slughorn", "Quirrell", "Lockhart"], "answer": 0},
+    {"q": "Quel sortilège mortel est impardonnable ?", "choices": ["Avada Kedavra", "Endoloris", "Impero", "Sectumsempra"], "answer": 0},
+    {"q": "Quelle formule fait léviter les objets ?", "choices": ["Wingardium Leviosa", "Accio", "Alohomora", "Lumos"], "answer": 0},
+    {"q": "Quel objet permet à Harry de devenir invisible ?", "choices": ["La cape d'invisibilité", "Le Retourneur de temps", "La Pierre philosophale", "Le Portoloin"], "answer": 0},
+    {"q": "Quel elfe de maison est libéré grâce à une chaussette ?", "choices": ["Dobby", "Kreattur", "Winky", "Hokey"], "answer": 0},
+    {"q": "Quel parrain de Harry s'évade d'Azkaban ?", "choices": ["Sirius Black", "Remus Lupin", "Peter Pettigrow", "Regulus"], "answer": 0},
+    {"q": "Quelles créatures gardent la prison d'Azkaban ?", "choices": ["Les Détraqueurs", "Les Trolls", "Les Acromentules", "Les Épouvantards"], "answer": 0},
+    {"q": "Comment accède-t-on à la voie 9¾ ?", "choices": ["En traversant un mur de la gare", "Par cheminée", "En Portoloin", "Par un passage secret du métro"], "answer": 0},
+    {"q": "Dans quels objets Voldemort a-t-il caché des fragments de son âme ?", "choices": ["Les Horcruxes", "Les Reliques", "Les Portoloins", "Les Pensines"], "answer": 0},
+    {"q": "Quel tournoi entre trois écoles a lieu dans le 4ᵉ tome ?", "choices": ["Le Tournoi des Trois Sorciers", "La Coupe de Quidditch", "Le Duel des Champions", "Le Grand Défi"], "answer": 0},
+    {"q": "Quelle forme prend le Patronus de Harry ?", "choices": ["Un cerf", "Une loutre", "Un chien", "Un phénix"], "answer": 0},
+    {"q": "Quelle banque des sorciers est gardée par des gobelins ?", "choices": ["Gringotts", "Barjow et Beurk", "Ollivander", "Honeydukes"], "answer": 0},
+    {"q": "Quel poste occupe Ron dans l'équipe de Quidditch de Gryffondor ?", "choices": ["Gardien", "Attrapeur", "Batteur", "Poursuiveur"], "answer": 0}
+  ]
+}

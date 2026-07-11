@@ -76,8 +76,8 @@ def test_titles(quizzup_modules):
 def test_question_bank_valid(quizzup_modules):
     _, _, q = quizzup_modules
     topics = q.load_topics()
-    assert len(topics) >= 20
-    assert sum(len(t["questions"]) for t in topics.values()) >= 1500
+    assert len(topics) >= 100
+    assert sum(len(t["questions"]) for t in topics.values()) >= 4500
     for topic in topics.values():
         assert len(topic["questions"]) >= 20
         hashes = [item["h"] for item in topic["questions"]]
