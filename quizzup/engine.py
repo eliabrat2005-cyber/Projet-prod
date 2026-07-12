@@ -81,22 +81,27 @@ def make_bot(level_hint: int) -> tuple[Participant, float]:
 
 # ─── Partie ─────────────────────────────────────────────────────────────────
 
-def _pick_fresh_questions(topic_id: str, players: list[Participant]) -> list[dict]:
+def _pick_fresh_questions(topic_id: str, players: list[Participant],
+                          difficulty: int | None = None) -> list[dict]:
     """Tire les questions du match en évitant celles déjà vues par les joueurs.
 
-    Quand un joueur a fait le tour du thème, son historique est remis à zéro
-    (nouveau cycle) — garantit un maximum de variété partie après partie.
+    Quand un joueur a fait le tour du palier demandé, son historique du
+    thème est remis à zéro (nouveau cycle) — garantit un maximum de
+    variété partie après partie.
     """
     humans = [p for p in players if not p.is_bot]
     exclude: set[str] = set()
     for p in humans:
         exclude |= store.get_seen_questions(p.player_id, topic_id)
-    all_hashes = {q["h"] for q in qbank.get_topic(topic_id)["questions"]}
-    if len(all_hashes - exclude) < ROUNDS:
+    pool = qbank.get_topic(topic_id)["questions"]
+    tier_hashes = {q["h"] for q in pool
+                   if difficulty is None or q["difficulty"] == difficulty}
+    if len(tier_hashes) >= ROUNDS and len(tier_hashes - exclude) < ROUNDS:
         for p in humans:
             store.reset_seen_questions(p.player_id, topic_id)
         exclude = set()
-    questions = qbank.pick_game_questions(topic_id, exclude=exclude)
+    questions = qbank.pick_game_questions(topic_id, exclude=exclude,
+                                          difficulty=difficulty)
     picked = [q["h"] for q in questions]
     for p in humans:
         store.record_seen_questions(p.player_id, topic_id, picked)
@@ -105,12 +110,14 @@ def _pick_fresh_questions(topic_id: str, players: list[Participant]) -> list[dic
 
 class Game:
     def __init__(self, topic_id: str, p1: Participant, p2: Participant,
-                 bot_accuracy: float = 0.7):
+                 bot_accuracy: float = 0.7,
+                 difficulty: int = qbank.DEFAULT_DIFFICULTY):
         self.id = uuid.uuid4().hex[:12]
         self.topic_id = topic_id
+        self.difficulty = difficulty
         self.players = [p1, p2]
         self.bot_accuracy = bot_accuracy
-        self.questions = _pick_fresh_questions(topic_id, self.players)
+        self.questions = _pick_fresh_questions(topic_id, self.players, difficulty)
         self.scores = {p1.player_id: 0, p2.player_id: 0}
         self.round_no = 0
         self.round_answers: dict[str, tuple[int, float]] = {}  # pid -> (choix, temps)
@@ -153,6 +160,8 @@ class Game:
                 "game_id": self.id,
                 "topic": {"id": topic["id"], "name": topic["name"],
                           "icon": topic["icon"], "color": topic["color"]},
+                "difficulty": self.difficulty,
+                "difficulty_label": qbank.DIFFICULTIES[self.difficulty],
                 "rounds": ROUNDS,
                 "opponent": {"name": opp.name, "is_bot": opp.is_bot,
                              "level": opp_stats["level"]},
@@ -272,9 +281,12 @@ class Game:
         return "draw"
 
     @staticmethod
-    def xp_for(result: str, score: int) -> int:
+    def xp_for(result: str, score: int,
+               difficulty: int = qbank.DEFAULT_DIFFICULTY) -> int:
+        """XP du match : base + bonus résultat, multipliés par la difficulté."""
         bonus = {"win": 30, "draw": 15, "loss": 5}[result]
-        return round(score / 4) + bonus
+        mult = {1: 0.8, 2: 1.0, 3: 1.3, 4: 1.6}[difficulty]
+        return round((score / 4 + bonus) * mult)
 
     async def _finish(self, forfeit_pid: str | None = None) -> None:
         if self.finished:
@@ -292,7 +304,7 @@ class Game:
                                   "opp": self.scores[self.opponent_of(me.player_id).player_id]},
                        "opponent": self.opponent_of(me.player_id).name}
             if not me.is_bot:
-                xp_gain = self.xp_for(result, score)
+                xp_gain = self.xp_for(result, score, self.difficulty)
                 before = qbank.level_info(store.get_topic_stats(me.player_id, self.topic_id)["xp"])
                 stats = store.record_game(me.player_id, self.topic_id, xp_gain, result, score)
                 after = qbank.level_info(stats["xp"])
@@ -318,14 +330,17 @@ class Game:
 class Lobby:
     def __init__(self) -> None:
         self.games: dict[str, Game] = {}
-        self.queues: dict[str, list[Participant]] = {}     # topic -> file d'attente
+        # (topic, difficulté) -> file d'attente
+        self.queues: dict[tuple[str, int], list[Participant]] = {}
         self.queue_timers: dict[str, asyncio.Task] = {}     # player_id -> fallback bot
-        self.rooms: dict[str, tuple[str, Participant]] = {} # code -> (topic, hôte)
+        # code -> (topic, difficulté, hôte)
+        self.rooms: dict[str, tuple[str, int, Participant]] = {}
 
     # ── Démarrage de partie ────────────────────────────────────────────────
 
     async def start_game(self, topic_id: str, p1: Participant, p2: Participant,
-                         bot_accuracy: float = 0.7) -> Game:
+                         bot_accuracy: float = 0.7,
+                         difficulty: int = qbank.DEFAULT_DIFFICULTY) -> Game:
         # Un joueur ne peut être que dans une partie à la fois : si une
         # partie active traîne (autre onglet, client figé), on la clôt.
         for p in (p1, p2):
@@ -333,7 +348,8 @@ class Lobby:
                 stale = self.active_game_of(p.player_id)
                 if stale is not None:
                     await stale.forfeit(p.player_id)
-        game = Game(topic_id, p1, p2, bot_accuracy=bot_accuracy)
+        game = Game(topic_id, p1, p2, bot_accuracy=bot_accuracy,
+                    difficulty=difficulty)
         self.games[game.id] = game
         game.task = asyncio.create_task(self._run_and_cleanup(game))
         return game
@@ -346,38 +362,43 @@ class Lobby:
             await asyncio.sleep(3 if FAST else 300)
             self.games.pop(game.id, None)
 
-    async def start_bot_game(self, topic_id: str, human: Participant) -> Game:
+    async def start_bot_game(self, topic_id: str, human: Participant,
+                             difficulty: int = qbank.DEFAULT_DIFFICULTY) -> Game:
         level = qbank.level_info(store.get_topic_stats(human.player_id, topic_id)["xp"])["level"]
         bot, accuracy = make_bot(level)
-        return await self.start_game(topic_id, human, bot, bot_accuracy=accuracy)
+        return await self.start_game(topic_id, human, bot, bot_accuracy=accuracy,
+                                     difficulty=difficulty)
 
     # ── Matchmaking « Partie rapide » ──────────────────────────────────────
 
-    async def find_match(self, topic_id: str, me: Participant) -> None:
-        queue = self.queues.setdefault(topic_id, [])
+    async def find_match(self, topic_id: str, me: Participant,
+                         difficulty: int = qbank.DEFAULT_DIFFICULTY) -> None:
+        queue = self.queues.setdefault((topic_id, difficulty), [])
         queue[:] = [p for p in queue if p.send is not None]  # purge les morts
         for waiting in queue:
             if waiting.player_id != me.player_id:
                 queue.remove(waiting)
                 self._cancel_queue_timer(waiting.player_id)
-                await self.start_game(topic_id, waiting, me)
+                await self.start_game(topic_id, waiting, me, difficulty=difficulty)
                 return
         if me not in queue:
             queue.append(me)
-        await me.emit({"type": "queued", "topic_id": topic_id})
+        await me.emit({"type": "queued", "topic_id": topic_id,
+                       "difficulty": difficulty})
         self._cancel_queue_timer(me.player_id)
         self.queue_timers[me.player_id] = asyncio.create_task(
-            self._bot_fallback(topic_id, me))
+            self._bot_fallback(topic_id, me, difficulty))
 
-    async def _bot_fallback(self, topic_id: str, me: Participant) -> None:
+    async def _bot_fallback(self, topic_id: str, me: Participant,
+                            difficulty: int) -> None:
         try:
             await asyncio.sleep(MATCHMAKING_BOT_FALLBACK)
         except asyncio.CancelledError:
             return
-        queue = self.queues.get(topic_id, [])
+        queue = self.queues.get((topic_id, difficulty), [])
         if me in queue:
             queue.remove(me)
-            await self.start_bot_game(topic_id, me)
+            await self.start_bot_game(topic_id, me, difficulty=difficulty)
 
     def cancel_find(self, me: Participant) -> None:
         for queue in self.queues.values():
@@ -392,25 +413,26 @@ class Lobby:
 
     # ── Salons privés « Défier un ami » ────────────────────────────────────
 
-    def create_room(self, topic_id: str, host: Participant) -> str:
+    def create_room(self, topic_id: str, host: Participant,
+                    difficulty: int = qbank.DEFAULT_DIFFICULTY) -> str:
         alphabet = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"  # sans caractères ambigus
         code = "".join(secrets.choice(alphabet) for _ in range(4))
         while code in self.rooms:
             code = "".join(secrets.choice(alphabet) for _ in range(4))
-        self.rooms[code] = (topic_id, host)
+        self.rooms[code] = (topic_id, difficulty, host)
         return code
 
     async def join_room(self, code: str, guest: Participant) -> Game | None:
         entry = self.rooms.pop(code.strip().upper(), None)
         if entry is None:
             return None
-        topic_id, host = entry
+        topic_id, difficulty, host = entry
         if host.send is None or host.player_id == guest.player_id:
             return None
-        return await self.start_game(topic_id, host, guest)
+        return await self.start_game(topic_id, host, guest, difficulty=difficulty)
 
     def close_rooms_of(self, pid: str) -> None:
-        for code in [c for c, (_, h) in self.rooms.items() if h.player_id == pid]:
+        for code in [c for c, (_, _, h) in self.rooms.items() if h.player_id == pid]:
             self.rooms.pop(code, None)
 
     # ── Revanche ───────────────────────────────────────────────────────────
@@ -434,7 +456,8 @@ class Lobby:
             # Mêmes adversaires (bot compris : même nom, même force),
             # nouvelles questions — comme l'original.
             await self.start_game(game.topic_id, game.players[0], game.players[1],
-                                  bot_accuracy=game.bot_accuracy)
+                                  bot_accuracy=game.bot_accuracy,
+                                  difficulty=game.difficulty)
 
     async def decline_rematch(self, game_id: str, pid: str) -> None:
         game = self.games.get(game_id)

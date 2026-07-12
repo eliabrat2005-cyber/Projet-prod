@@ -4,29 +4,577 @@
   "icon": "🗼",
   "color": "#5d4037",
   "questions": [
-    {"q": "Comment s'appelle le héros principal de L'Attaque des Titans ?", "choices": ["Eren Jäger", "Armin Arlert", "Jean Kirstein", "Levi Ackerman"], "answer": 0},
-    {"q": "Que protègent les trois grands murs ?", "choices": ["Les derniers humains", "Un trésor royal", "Une forêt sacrée", "Des mines d'or"], "answer": 0},
-    {"q": "Comment s'appelle le mur extérieur percé par le Titan Colossal ?", "choices": ["Le mur Maria", "Le mur Rose", "Le mur Sina", "Le mur Trost"], "answer": 0},
-    {"q": "Quelle amie d'enfance d'Eren est une combattante d'exception ?", "choices": ["Mikasa", "Historia", "Sasha", "Annie"], "answer": 0},
-    {"q": "Quel ami d'Eren est un stratège brillant mais peu physique ?", "choices": ["Armin", "Jean", "Connie", "Reiner"], "answer": 0},
-    {"q": "Quel équipement permet aux soldats de voler entre les bâtiments ?", "choices": ["L'équipement tridimensionnel", "Le jetpack", "Les ailes mécaniques", "Le grappin simple"], "answer": 0},
-    {"q": "Quel est le point faible des titans ?", "choices": ["La nuque", "Le cœur", "Les yeux", "Les talons"], "answer": 0},
-    {"q": "Quel soldat est considéré comme le plus fort de l'humanité ?", "choices": ["Livaï (Levi)", "Erwin", "Mike", "Hansi"], "answer": 0},
-    {"q": "Quel bataillon explore l'extérieur des murs ?", "choices": ["Le Bataillon d'exploration", "Les Brigades spéciales", "La Garnison", "La Police militaire"], "answer": 0},
-    {"q": "Quel pouvoir Eren découvre-t-il à Trost ?", "choices": ["Se transformer en titan", "Voler", "Devenir invisible", "Contrôler les murs"], "answer": 0},
-    {"q": "Qui est le Titan Colossal ?", "choices": ["Bertholt", "Reiner", "Annie", "Zeke"], "answer": 0},
-    {"q": "Qui est le Titan Cuirassé ?", "choices": ["Reiner", "Bertholt", "Porco", "Zeke"], "answer": 0},
-    {"q": "Quelle recrue gloutonne est surnommée « la fille à la patate » ?", "choices": ["Sasha", "Historia", "Ymir", "Mina"], "answer": 0},
-    {"q": "Qui est le Titan Féminin ?", "choices": ["Annie", "Ymir", "Pieck", "Historia"], "answer": 0},
-    {"q": "Quel commandant du Bataillon d'exploration sacrifie tout pour la vérité ?", "choices": ["Erwin Smith", "Livaï", "Pixis", "Shadis"], "answer": 0},
-    {"q": "Quelle scientifique excentrique adore étudier les titans ?", "choices": ["Hansi Zoé", "Petra", "Rico", "Nanaba"], "answer": 0},
-    {"q": "Comment s'appelle le frère aîné d'Eren ?", "choices": ["Zeke", "Grisha", "Porco", "Marcel"], "answer": 0},
-    {"q": "Quel peuple vit sur l'île de Paradis ?", "choices": ["Les Eldiens", "Les Mahrs", "Les Asiatiques", "Les Marléens"], "answer": 0},
-    {"q": "Quel titan d'Eren donne son titre à la série ?", "choices": ["Le Titan Assaillant", "Le Titan Originel", "Le Titan Marteau", "Le Titan Charrette"], "answer": 0},
-    {"q": "Qui devient reine après la révélation de sa véritable identité ?", "choices": ["Historia", "Mikasa", "Frieda", "Ymir"], "answer": 0},
-    {"q": "Quel liquide provoque la transformation des Eldiens en titans ?", "choices": ["Le liquide céphalorachidien de titan", "L'eau des murs", "Le sang royal", "Le sérum noir"], "answer": 0},
-    {"q": "Combien de titans primordiaux ont un pouvoir hérité ?", "choices": ["Neuf", "Sept", "Douze", "Cinq"], "answer": 0},
-    {"q": "Quel événement final déclenche Eren avec le Titan Originel ?", "choices": ["Le Grand Terrassement", "La Purge", "Le Rugissement", "L'Éveil"], "answer": 0},
-    {"q": "Qui est l'auteur du manga original ?", "choices": ["Hajime Isayama", "Eiichiro Oda", "Masashi Kishimoto", "Kentaro Miura"], "answer": 0}
+    {
+      "q": "Comment s'appelle le héros principal de L'Attaque des Titans ?",
+      "choices": [
+        "Eren Jäger",
+        "Armin Arlert",
+        "Jean Kirstein",
+        "Levi Ackerman"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Que protègent les trois grands murs ?",
+      "choices": [
+        "Les derniers humains",
+        "Un trésor royal",
+        "Une forêt sacrée",
+        "Des mines d'or"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment s'appelle le mur extérieur percé par le Titan Colossal ?",
+      "choices": [
+        "Le mur Maria",
+        "Le mur Rose",
+        "Le mur Sina",
+        "Le mur Trost"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle amie d'enfance d'Eren est une combattante d'exception ?",
+      "choices": [
+        "Mikasa",
+        "Historia",
+        "Sasha",
+        "Annie"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel ami d'Eren est un stratège brillant mais peu physique ?",
+      "choices": [
+        "Armin",
+        "Jean",
+        "Connie",
+        "Reiner"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel équipement permet aux soldats de voler entre les bâtiments ?",
+      "choices": [
+        "L'équipement tridimensionnel",
+        "Le jetpack",
+        "Les ailes mécaniques",
+        "Le grappin simple"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel est le point faible des titans ?",
+      "choices": [
+        "La nuque",
+        "Le cœur",
+        "Les yeux",
+        "Les talons"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel soldat est considéré comme le plus fort de l'humanité ?",
+      "choices": [
+        "Livaï (Levi)",
+        "Erwin",
+        "Mike",
+        "Hansi"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel bataillon explore l'extérieur des murs ?",
+      "choices": [
+        "Le Bataillon d'exploration",
+        "Les Brigades spéciales",
+        "La Garnison",
+        "La Police militaire"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel pouvoir Eren découvre-t-il à Trost ?",
+      "choices": [
+        "Se transformer en titan",
+        "Voler",
+        "Devenir invisible",
+        "Contrôler les murs"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Qui est le Titan Colossal ?",
+      "choices": [
+        "Bertholt",
+        "Reiner",
+        "Annie",
+        "Zeke"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Qui est le Titan Cuirassé ?",
+      "choices": [
+        "Reiner",
+        "Bertholt",
+        "Porco",
+        "Zeke"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle recrue gloutonne est surnommée « la fille à la patate » ?",
+      "choices": [
+        "Sasha",
+        "Historia",
+        "Ymir",
+        "Mina"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Qui est le Titan Féminin ?",
+      "choices": [
+        "Annie",
+        "Ymir",
+        "Pieck",
+        "Historia"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel commandant du Bataillon d'exploration sacrifie tout pour la vérité ?",
+      "choices": [
+        "Erwin Smith",
+        "Livaï",
+        "Pixis",
+        "Shadis"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle scientifique excentrique adore étudier les titans ?",
+      "choices": [
+        "Hansi Zoé",
+        "Petra",
+        "Rico",
+        "Nanaba"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Comment s'appelle le frère aîné d'Eren ?",
+      "choices": [
+        "Zeke",
+        "Grisha",
+        "Porco",
+        "Marcel"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel peuple vit sur l'île de Paradis ?",
+      "choices": [
+        "Les Eldiens",
+        "Les Mahrs",
+        "Les Asiatiques",
+        "Les Marléens"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel titan d'Eren donne son titre à la série ?",
+      "choices": [
+        "Le Titan Assaillant",
+        "Le Titan Originel",
+        "Le Titan Marteau",
+        "Le Titan Charrette"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Qui devient reine après la révélation de sa véritable identité ?",
+      "choices": [
+        "Historia",
+        "Mikasa",
+        "Frieda",
+        "Ymir"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel liquide provoque la transformation des Eldiens en titans ?",
+      "choices": [
+        "Le liquide céphalorachidien de titan",
+        "L'eau des murs",
+        "Le sang royal",
+        "Le sérum noir"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de titans primordiaux ont un pouvoir hérité ?",
+      "choices": [
+        "Neuf",
+        "Sept",
+        "Douze",
+        "Cinq"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel événement final déclenche Eren avec le Titan Originel ?",
+      "choices": [
+        "Le Grand Terrassement",
+        "La Purge",
+        "Le Rugissement",
+        "L'Éveil"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Qui est l'auteur du manga original ?",
+      "choices": [
+        "Hajime Isayama",
+        "Eiichiro Oda",
+        "Masashi Kishimoto",
+        "Kentaro Miura"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "En quoi Eren peut-il se transformer ?",
+      "choices": [
+        "En titan",
+        "En loup",
+        "En dragon",
+        "En géant de pierre"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Combien de grands murs concentriques protègent les humains ?",
+      "choices": [
+        "Trois",
+        "Deux",
+        "Quatre",
+        "Cinq"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "De quoi les titans se nourrissent-ils principalement ?",
+      "choices": [
+        "D'êtres humains",
+        "D'animaux sauvages",
+        "D'arbres",
+        "De minéraux"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "De quel type d'œuvre L'Attaque des Titans est-il tiré à l'origine ?",
+      "choices": [
+        "Un manga",
+        "Un roman",
+        "Un jeu vidéo",
+        "Un film"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment appelle-t-on les créatures géantes qui menacent l'humanité dans la série ?",
+      "choices": [
+        "Les Titans",
+        "Les Colosses",
+        "Les Ogres",
+        "Les Léviathans"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel accessoire rouge Mikasa porte-t-elle en souvenir d'Eren ?",
+      "choices": [
+        "Une écharpe",
+        "Un collier",
+        "Un bracelet",
+        "Un bandeau"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel est le titre original japonais de la série ?",
+      "choices": [
+        "Shingeki no Kyojin",
+        "Kyojin no Shingeki",
+        "Kyojin Densetsu",
+        "Shinsei Kyojin"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel titan Zeke Yeager détient-il ?",
+      "choices": [
+        "Le Titan Bestial",
+        "Le Titan Cuirassé",
+        "Le Titan Charrette",
+        "Le Titan Mâchoire"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment s'appelle la mère d'Eren ?",
+      "choices": [
+        "Carla Yeager",
+        "Dina Fritz",
+        "Frieda Reiss",
+        "Faye Yeager"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment s'appelle le père médecin d'Eren ?",
+      "choices": [
+        "Grisha Yeager",
+        "Keith Shadis",
+        "Kenny Ackerman",
+        "Dot Pixis"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel personnage détient le Titan Charrette ?",
+      "choices": [
+        "Pieck Finger",
+        "Annie Leonhart",
+        "Ymir",
+        "Gabi Braun"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle hauteur atteint environ le Titan Colossal ?",
+      "choices": [
+        "60 mètres",
+        "15 mètres",
+        "30 mètres",
+        "100 mètres"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment s'appelle l'oncle assassin de Levi ?",
+      "choices": [
+        "Kenny Ackerman",
+        "Keith Shadis",
+        "Nile Dok",
+        "Djel Sannes"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle jeune femme aux taches de rousseur se révèle être un Titan Mâchoire ?",
+      "choices": [
+        "Ymir",
+        "Historia Reiss",
+        "Sasha Blouse",
+        "Petra Ral"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment s'appelle la nation qui opprime les Eldiens vivant hors de l'île de Paradis ?",
+      "choices": [
+        "Marley",
+        "Hizuru",
+        "Fritz",
+        "Sina"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année la publication du manga a-t-elle débuté ?",
+      "choices": [
+        "2009",
+        "2005",
+        "2011",
+        "2013"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Dans quel magazine le manga a-t-il été prépublié ?",
+      "choices": [
+        "Bessatsu Shōnen Magazine",
+        "Weekly Shōnen Jump",
+        "Weekly Shōnen Magazine",
+        "Young Ace"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien de tomes compte le manga au total ?",
+      "choices": [
+        "34",
+        "30",
+        "28",
+        "40"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel studio d'animation a produit les trois premières saisons de l'anime ?",
+      "choices": [
+        "Wit Studio",
+        "MAPPA",
+        "Madhouse",
+        "Bones"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel studio a produit la saison finale de l'anime ?",
+      "choices": [
+        "MAPPA",
+        "Wit Studio",
+        "Ufotable",
+        "Production I.G"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Qui détenait le Titan Originel avant Grisha Yeager ?",
+      "choices": [
+        "Frieda Reiss",
+        "Rod Reiss",
+        "Uri Reiss",
+        "Historia Reiss"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel roi a érigé les murs et renoncé à toute guerre extérieure ?",
+      "choices": [
+        "Karl Fritz",
+        "Uri Reiss",
+        "Rod Reiss",
+        "Zeke Yeager"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Comment s'appelle l'ancêtre de tous les Eldiens, première détentrice du pouvoir des titans ?",
+      "choices": [
+        "Ymir Fritz",
+        "Dina Fritz",
+        "Frieda Reiss",
+        "Historia Reiss"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Il y a environ combien d'années Ymir Fritz a-t-elle obtenu le pouvoir des titans ?",
+      "choices": [
+        "2000 ans",
+        "500 ans",
+        "1000 ans",
+        "5000 ans"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien d'années un héritier de titan peut-il vivre après avoir reçu son pouvoir (la Malédiction d'Ymir) ?",
+      "choices": [
+        "13 ans",
+        "7 ans",
+        "20 ans",
+        "25 ans"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Comment s'appelle le Titan Mâchoire d'origine, ami d'enfance de Reiner, dévoré par Ymir ?",
+      "choices": [
+        "Marcel Galliard",
+        "Porco Galliard",
+        "Colt Grice",
+        "Bertholt Hoover"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel personnage hérite du Titan Colossal après la bataille de Shiganshina ?",
+      "choices": [
+        "Armin Arlert",
+        "Eren Yeager",
+        "Jean Kirstein",
+        "Connie Springer"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel jeune guerrier eldien hérite du Titan Mâchoire à la fin de l'histoire ?",
+      "choices": [
+        "Falco Grice",
+        "Gabi Braun",
+        "Colt Grice",
+        "Reiner Braun"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

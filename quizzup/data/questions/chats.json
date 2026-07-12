@@ -4,29 +4,621 @@
   "icon": "🐱",
   "color": "#78909c",
   "questions": [
-    {"q": "Combien d'heures par jour un chat dort-il en moyenne ?", "choices": ["12 à 16 heures", "6 à 8 heures", "20 à 22 heures", "4 à 6 heures"], "answer": 0},
-    {"q": "Quelle race de chat n'a pas de poils ?", "choices": ["Le sphynx", "Le rex", "Le korat", "Le bombay"], "answer": 0},
-    {"q": "Quelle race de chat est la plus grande ?", "choices": ["Le maine coon", "Le ragdoll", "Le norvégien", "Le sibérien"], "answer": 0},
-    {"q": "Quelle race aux yeux bleus vient de Thaïlande ?", "choices": ["Le siamois", "Le persan", "Le birman", "L'angora"], "answer": 0},
-    {"q": "Quelle race à poil long a le visage aplati ?", "choices": ["Le persan", "Le maine coon", "L'angora", "Le sacré de Birmanie"], "answer": 0},
-    {"q": "Pourquoi le chat ronronne-t-il le plus souvent ?", "choices": ["Par contentement (ou pour s'apaiser)", "Par faim uniquement", "Pour chasser", "Par peur uniquement"], "answer": 0},
-    {"q": "À quoi servent les moustaches (vibrisses) du chat ?", "choices": ["À percevoir l'espace et les obstacles", "À sentir les odeurs", "À goûter", "À rien"], "answer": 0},
-    {"q": "Combien de vies prête-t-on au chat en France ?", "choices": ["Sept", "Neuf", "Trois", "Cinq"], "answer": 0},
-    {"q": "Quel sens du chat est très supérieur au nôtre dans la pénombre ?", "choices": ["La vue nocturne", "Le goût", "Le toucher", "L'odorat diurne"], "answer": 0},
-    {"q": "Comment s'appelle le petit du chat ?", "choices": ["Le chaton", "Le chatelet", "Le minon", "Le félin"], "answer": 0},
-    {"q": "Quel chat célèbre d'Alice au pays des merveilles disparaît en souriant ?", "choices": ["Le chat du Cheshire", "Le chat botté", "Figaro", "Lucifer"], "answer": 0},
-    {"q": "Quel chat de conte porte des bottes et sert son maître ?", "choices": ["Le Chat botté", "Le chat du Cheshire", "Grosminet", "Félix"], "answer": 0},
-    {"q": "Quel chat orange de BD déteste les lundis ?", "choices": ["Garfield", "Tom", "Grosminet", "Azraël"], "answer": 0},
-    {"q": "Quel chat poursuit éternellement la souris Jerry ?", "choices": ["Tom", "Grosminet", "Félix", "Sylvestre"], "answer": 0},
-    {"q": "Quel chat noir et blanc veut manger Titi ?", "choices": ["Grosminet", "Tom", "Félix", "Lucifer"], "answer": 0},
-    {"q": "Dans quel pays antique le chat était-il vénéré ?", "choices": ["L'Égypte", "La Grèce", "La Perse", "La Chine"], "answer": 0},
-    {"q": "Quelle déesse égyptienne a une tête de chatte ?", "choices": ["Bastet", "Isis", "Sekhmet la lionne", "Hathor"], "answer": 0},
-    {"q": "Que signifie un chat qui pétrit avec ses pattes ?", "choices": ["Un comportement de bien-être hérité du chaton", "Il aiguise ses griffes", "Il marque son territoire", "Il a froid"], "answer": 0},
-    {"q": "Quelle particularité ont les chats écaille-de-tortue ?", "choices": ["Ce sont presque toujours des femelles", "Ils sont sourds", "Ils sont aveugles", "Ils n'ont pas de queue"], "answer": 0},
-    {"q": "Quelle race sans queue vient de l'île de Man ?", "choices": ["Le manx", "Le bobtail", "Le sphynx", "Le scottish"], "answer": 0},
-    {"q": "Quelle race a les oreilles pliées vers l'avant ?", "choices": ["Le scottish fold", "L'american curl", "Le devon rex", "Le british"], "answer": 0},
-    {"q": "Quel organe permet au chat de toujours retomber sur ses pattes ?", "choices": ["L'oreille interne (réflexe de redressement)", "La queue seule", "Les griffes", "Les coussinets"], "answer": 0},
-    {"q": "Quel grand félin est le seul à vivre en groupe ?", "choices": ["Le lion", "Le tigre", "Le léopard", "Le guépard"], "answer": 0},
-    {"q": "Quel chat japonais porte-bonheur lève la patte ?", "choices": ["Le maneki-neko", "Le daruma", "Le kitsune", "Le tanuki"], "answer": 0}
+    {
+      "q": "Combien d'heures par jour un chat dort-il en moyenne ?",
+      "choices": [
+        "12 à 16 heures",
+        "6 à 8 heures",
+        "20 à 22 heures",
+        "4 à 6 heures"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle race de chat n'a pas de poils ?",
+      "choices": [
+        "Le sphynx",
+        "Le rex",
+        "Le korat",
+        "Le bombay"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle race de chat est la plus grande ?",
+      "choices": [
+        "Le maine coon",
+        "Le ragdoll",
+        "Le norvégien",
+        "Le sibérien"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle race aux yeux bleus vient de Thaïlande ?",
+      "choices": [
+        "Le siamois",
+        "Le persan",
+        "Le birman",
+        "L'angora"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle race à poil long a le visage aplati ?",
+      "choices": [
+        "Le persan",
+        "Le maine coon",
+        "L'angora",
+        "Le sacré de Birmanie"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Pourquoi le chat ronronne-t-il le plus souvent ?",
+      "choices": [
+        "Par contentement (ou pour s'apaiser)",
+        "Par faim uniquement",
+        "Pour chasser",
+        "Par peur uniquement"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "À quoi servent les moustaches (vibrisses) du chat ?",
+      "choices": [
+        "À percevoir l'espace et les obstacles",
+        "À sentir les odeurs",
+        "À goûter",
+        "À rien"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de vies prête-t-on au chat en France ?",
+      "choices": [
+        "Sept",
+        "Neuf",
+        "Trois",
+        "Cinq"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel sens du chat est très supérieur au nôtre dans la pénombre ?",
+      "choices": [
+        "La vue nocturne",
+        "Le goût",
+        "Le toucher",
+        "L'odorat diurne"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment s'appelle le petit du chat ?",
+      "choices": [
+        "Le chaton",
+        "Le chatelet",
+        "Le minon",
+        "Le félin"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel chat célèbre d'Alice au pays des merveilles disparaît en souriant ?",
+      "choices": [
+        "Le chat du Cheshire",
+        "Le chat botté",
+        "Figaro",
+        "Lucifer"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel chat de conte porte des bottes et sert son maître ?",
+      "choices": [
+        "Le Chat botté",
+        "Le chat du Cheshire",
+        "Grosminet",
+        "Félix"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel chat orange de BD déteste les lundis ?",
+      "choices": [
+        "Garfield",
+        "Tom",
+        "Grosminet",
+        "Azraël"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel chat poursuit éternellement la souris Jerry ?",
+      "choices": [
+        "Tom",
+        "Grosminet",
+        "Félix",
+        "Sylvestre"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel chat noir et blanc veut manger Titi ?",
+      "choices": [
+        "Grosminet",
+        "Tom",
+        "Félix",
+        "Lucifer"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans quel pays antique le chat était-il vénéré ?",
+      "choices": [
+        "L'Égypte",
+        "La Grèce",
+        "La Perse",
+        "La Chine"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle déesse égyptienne a une tête de chatte ?",
+      "choices": [
+        "Bastet",
+        "Isis",
+        "Sekhmet la lionne",
+        "Hathor"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Que signifie un chat qui pétrit avec ses pattes ?",
+      "choices": [
+        "Un comportement de bien-être hérité du chaton",
+        "Il aiguise ses griffes",
+        "Il marque son territoire",
+        "Il a froid"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle particularité ont les chats écaille-de-tortue ?",
+      "choices": [
+        "Ce sont presque toujours des femelles",
+        "Ils sont sourds",
+        "Ils sont aveugles",
+        "Ils n'ont pas de queue"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle race sans queue vient de l'île de Man ?",
+      "choices": [
+        "Le manx",
+        "Le bobtail",
+        "Le sphynx",
+        "Le scottish"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle race a les oreilles pliées vers l'avant ?",
+      "choices": [
+        "Le scottish fold",
+        "L'american curl",
+        "Le devon rex",
+        "Le british"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel organe permet au chat de toujours retomber sur ses pattes ?",
+      "choices": [
+        "L'oreille interne (réflexe de redressement)",
+        "La queue seule",
+        "Les griffes",
+        "Les coussinets"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel grand félin est le seul à vivre en groupe ?",
+      "choices": [
+        "Le lion",
+        "Le tigre",
+        "Le léopard",
+        "Le guépard"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel chat japonais porte-bonheur lève la patte ?",
+      "choices": [
+        "Le maneki-neko",
+        "Le daruma",
+        "Le kitsune",
+        "Le tanuki"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle race de chat à poil mi-long, très docile, se détend dans les bras et doit son nom à « poupée de chiffon » ?",
+      "choices": [
+        "Le ragdoll",
+        "Le bengal",
+        "L'abyssin",
+        "Le sphynx"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Que signifie un chat qui cligne lentement des yeux en vous regardant ?",
+      "choices": [
+        "Un signe de confiance et d'affection",
+        "Une menace",
+        "Un signe de maladie",
+        "Une envie de jouer"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Pourquoi un chat griffe-t-il régulièrement les surfaces ?",
+      "choices": [
+        "Pour marquer son territoire et entretenir ses griffes",
+        "Uniquement pour s'amuser",
+        "Pour chercher de la nourriture",
+        "Pour aucune raison particulière"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle race de chat au pelage tiqué doit son nom à l'Abyssinie (Éthiopie) ?",
+      "choices": [
+        "L'abyssin",
+        "Le persan",
+        "Le siamois",
+        "Le bengal"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "De quel félin sauvage le bengal est-il issu par croisement ?",
+      "choices": [
+        "Le chat léopard d'Asie",
+        "Le serval",
+        "L'ocelot",
+        "Le chat des sables"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel grand félin a été croisé pour créer la race savannah ?",
+      "choices": [
+        "Le serval",
+        "Le caracal",
+        "L'ocelot",
+        "Le chat léopard d'Asie"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de doigts un chat possède-t-il normalement au total ?",
+      "choices": [
+        "Dix-huit",
+        "Vingt",
+        "Seize",
+        "Quatorze"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment s'appelle l'organe olfactif que le chat sollicite lors du flehmen (sa grimace) ?",
+      "choices": [
+        "L'organe de Jacobson",
+        "La glande de Harder",
+        "L'organe de Corti",
+        "Le corpuscule de Meissner"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle est la température corporelle normale d'un chat en bonne santé ?",
+      "choices": [
+        "Environ 38,5 °C",
+        "Environ 37 °C",
+        "Environ 40 °C",
+        "Environ 36 °C"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans quel pays est né le sphynx moderne à la fin des années 1960 ?",
+      "choices": [
+        "Le Canada",
+        "Les États-Unis",
+        "La Russie",
+        "La France"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "De quel État américain le maine coon est-il originaire ?",
+      "choices": [
+        "Le Maine",
+        "Le Vermont",
+        "Le Massachusetts",
+        "New York"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de temps dure en moyenne la gestation d'une chatte ?",
+      "choices": [
+        "Environ 65 jours",
+        "Environ 30 jours",
+        "Environ 90 jours",
+        "Environ 45 jours"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "De quoi dépend la couleur foncée des extrémités (points) du siamois ?",
+      "choices": [
+        "De la température de la peau",
+        "De son alimentation",
+        "De son âge",
+        "De l'ensoleillement"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel acide aminé essentiel, qu'il ne synthétise pas assez, oblige le chat à manger de la viande ?",
+      "choices": [
+        "La taurine",
+        "La kératine",
+        "La caséine",
+        "L'albumine"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Grâce à quoi les griffes du chat sont-elles rétractiles ?",
+      "choices": [
+        "À des ligaments élastiques",
+        "À des muscles seulement",
+        "À la gravité",
+        "À des articulations sphériques"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel pays est associé au chartreux, chat au pelage bleu-gris ?",
+      "choices": [
+        "La France",
+        "La Russie",
+        "La Thaïlande",
+        "L'Angleterre"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de dents possède un chat adulte ?",
+      "choices": [
+        "Trente",
+        "Vingt-huit",
+        "Trente-deux",
+        "Vingt-six"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle race de chat est réputée apprécier l'eau et la nage ?",
+      "choices": [
+        "Le turc de Van",
+        "Le persan",
+        "Le chartreux",
+        "Le british shorthair"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans quelle cité de l'Égypte antique la déesse chatte Bastet était-elle principalement vénérée ?",
+      "choices": [
+        "Bubastis",
+        "Thèbes",
+        "Memphis",
+        "Héliopolis"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "De quelle sous-espèce sauvage le chat domestique descend-il principalement ?",
+      "choices": [
+        "Le chat sauvage d'Afrique (Felis silvestris lybica)",
+        "Le chat sauvage d'Europe (Felis silvestris silvestris)",
+        "Le chat léopard d'Asie",
+        "Le chat des marais (Felis chaus)"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel est le nom scientifique du chat domestique ?",
+      "choices": [
+        "Felis catus",
+        "Felis silvestris",
+        "Panthera catus",
+        "Felis domesticus"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle est approximativement la vitesse de pointe d'un chat domestique en course ?",
+      "choices": [
+        "Environ 48 km/h",
+        "Environ 20 km/h",
+        "Environ 70 km/h",
+        "Environ 90 km/h"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien de muscles contrôlent environ chaque oreille du chat ?",
+      "choices": [
+        "Une trentaine (environ 32)",
+        "Une dizaine",
+        "Une centaine",
+        "Cinq"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Dans quelle plage de fréquences se situe généralement le ronronnement du chat ?",
+      "choices": [
+        "Environ 25 à 150 Hz",
+        "Environ 500 à 800 Hz",
+        "Environ 1 000 à 2 000 Hz",
+        "Environ 5 à 10 Hz"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel chat détient le record de longévité (38 ans) homologué par le Guinness ?",
+      "choices": [
+        "Creme Puff",
+        "Tiffany Two",
+        "Nutmeg",
+        "Rubble"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Comment fonctionne la vision des couleurs du chat ?",
+      "choices": [
+        "Il est dichromate (surtout bleu et jaune)",
+        "Il voit les couleurs comme l'humain",
+        "Il ne voit qu'en noir et blanc",
+        "Il est trichromate comme l'humain"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Comment s'appelait le premier chat envoyé dans l'espace, en 1963 ?",
+      "choices": [
+        "Félicette",
+        "Laïka",
+        "Ham",
+        "Albert"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Sur quel chromosome se trouve le gène de la couleur rousse chez le chat ?",
+      "choices": [
+        "Le chromosome X",
+        "Le chromosome Y",
+        "Un autosome",
+        "L'ADN mitochondrial"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle saveur le chat est-il incapable de percevoir, faute de récepteurs fonctionnels ?",
+      "choices": [
+        "Le sucré",
+        "Le salé",
+        "L'amer",
+        "L'acide"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Chez la chatte, qu'est-ce qui déclenche l'ovulation ?",
+      "choices": [
+        "L'accouplement (ovulation induite)",
+        "Un cycle mensuel spontané",
+        "La pleine lune",
+        "Le seul changement de saison"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Comment appelle-t-on les papilles rugueuses orientées vers l'arrière sur la langue du chat ?",
+      "choices": [
+        "Les papilles filiformes",
+        "Les papilles caliciformes",
+        "Les papilles fongiformes",
+        "Les papilles foliées"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel est approximativement le champ de vision d'un chat ?",
+      "choices": [
+        "Environ 200°",
+        "Environ 100°",
+        "Environ 300°",
+        "Environ 360°"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

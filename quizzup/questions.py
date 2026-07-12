@@ -24,6 +24,10 @@ _DATA_DIR = Path(__file__).parent / "data" / "questions"
 
 ROUNDS_PER_GAME = 7
 
+# Paliers de difficulté : chaque question porte un champ ``difficulty`` 1-4.
+DIFFICULTIES = {1: "Facile", 2: "Moyen", 3: "Difficile", 4: "Extrême"}
+DEFAULT_DIFFICULTY = 2
+
 # Titres par niveau, dans l'esprit QuizUp (le dernier palier est "Dieu du thème").
 TITLES: list[tuple[int, str]] = [
     (0, "Débutant"),
@@ -110,18 +114,27 @@ def load_topics() -> dict[str, dict]:
         for i, q in enumerate(data["questions"]):
             if len(q["choices"]) != 4 or not (0 <= q["answer"] <= 3):
                 raise ValueError(f"{tid} question #{i} invalide")
+            q.setdefault("difficulty", DEFAULT_DIFFICULTY)
+            if q["difficulty"] not in DIFFICULTIES:
+                raise ValueError(f"{tid} question #{i} : difficulté {q['difficulty']!r} invalide")
             q["h"] = question_hash(q["q"])
     _topics = topics
     return topics
 
 
 def topic_list() -> list[dict]:
-    """Liste des thèmes sans les questions (pour le client)."""
-    return [
-        {"id": t["id"], "name": t["name"], "icon": t["icon"], "color": t["color"],
-         "count": len(t["questions"])}
-        for t in load_topics().values()
-    ]
+    """Liste des thèmes sans les questions (pour le client).
+
+    ``tiers`` = nombre de questions par palier [facile, moyen, difficile, extrême].
+    """
+    out = []
+    for t in load_topics().values():
+        tiers = [0, 0, 0, 0]
+        for q in t["questions"]:
+            tiers[q["difficulty"] - 1] += 1
+        out.append({"id": t["id"], "name": t["name"], "icon": t["icon"],
+                    "color": t["color"], "count": len(t["questions"]), "tiers": tiers})
+    return out
 
 
 def get_topic(topic_id: str) -> dict | None:
@@ -129,29 +142,42 @@ def get_topic(topic_id: str) -> dict | None:
 
 
 def pick_game_questions(topic_id: str, n: int = ROUNDS_PER_GAME,
-                        exclude: set[str] | None = None) -> list[dict]:
+                        exclude: set[str] | None = None,
+                        difficulty: int | None = None) -> list[dict]:
     """Tire ``n`` questions distinctes, réponses mélangées.
 
     ``exclude`` = hashes déjà vus par les joueurs : on pioche d'abord dans
     les questions jamais vues, et on ne complète avec des déjà-vues que si
-    le thème est épuisé. Chaque item : {"q", "h", "choices", "answer"}.
+    le palier est épuisé. ``difficulty`` (1-4) filtre les questions du
+    palier demandé ; si le palier manque de questions, on complète avec
+    les paliers voisins (distance croissante) pour toujours remplir un
+    match. Chaque item : {"q", "h", "choices", "answer", "difficulty"}.
     """
     topic = load_topics()[topic_id]
     pool = topic["questions"]
     n = min(n, len(pool))
     exclude = exclude or set()
+
+    def tier_distance(q: dict) -> int:
+        return abs(q["difficulty"] - difficulty) if difficulty else 0
+
+    picked: list[dict] = []
     fresh = [q for q in pool if q["h"] not in exclude]
-    if len(fresh) >= n:
-        picked = random.sample(fresh, n)
-    else:  # thème épuisé : toutes les fraîches + complément déjà vu
-        seen_pool = [q for q in pool if q["h"] in exclude]
-        picked = fresh + random.sample(seen_pool, n - len(fresh))
-        random.shuffle(picked)
+    seen_pool = [q for q in pool if q["h"] in exclude]
+    for bucket in (fresh, seen_pool):  # jamais-vues d'abord, à palier égal
+        for dist in range(4):
+            if len(picked) >= n:
+                break
+            candidates = [q for q in bucket if tier_distance(q) == dist]
+            random.shuffle(candidates)
+            picked.extend(candidates[: n - len(picked)])
+    random.shuffle(picked)
     out = []
     for q in picked:
         order = list(range(4))
         random.shuffle(order)
         choices = [q["choices"][i] for i in order]
         answer = order.index(q["answer"])
-        out.append({"q": q["q"], "h": q["h"], "choices": choices, "answer": answer})
+        out.append({"q": q["q"], "h": q["h"], "choices": choices, "answer": answer,
+                    "difficulty": q["difficulty"]})
     return out

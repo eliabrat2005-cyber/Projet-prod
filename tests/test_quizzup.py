@@ -86,6 +86,62 @@ def test_question_bank_valid(quizzup_modules):
             assert len(item["choices"]) == 4
             assert 0 <= item["answer"] <= 3
             assert len(set(item["choices"])) == 4, f"doublon de choix : {item['q']}"
+            assert item["difficulty"] in (1, 2, 3, 4), \
+                f"difficulté invalide dans {topic['id']} : {item['q']}"
+
+
+def test_handwritten_topics_have_all_tiers(quizzup_modules):
+    """Les thèmes écrits à la main proposent les 4 paliers (≥4 questions
+    chacun) pour que le mode choisi soit vraiment ressenti. Les thèmes
+    *générés* (ex. capitales d'États américains) peuvent être intrinsèquement
+    durs et n'ont pas de palier facile — le tirage complète alors depuis les
+    paliers voisins (couvert par test_every_topic_is_playable_at_all_tiers)."""
+    _, _, q = quizzup_modules
+    from collections import Counter
+
+    from quizzup import qgen
+    generated = {t["id"] for t in qgen.GENERATED_TOPICS}
+    thin = []
+    for tid, topic in q.load_topics().items():
+        if tid in generated:
+            continue
+        c = Counter(item["difficulty"] for item in topic["questions"])
+        for tier in (1, 2, 3, 4):
+            if c.get(tier, 0) < 4:
+                thin.append(f"{tid} palier {tier}={c.get(tier, 0)}")
+    assert not thin, "paliers trop pauvres : " + ", ".join(thin)
+
+
+def test_every_topic_is_playable_at_all_tiers(quizzup_modules):
+    """Pour CHAQUE thème et CHAQUE palier, un match reçoit toujours 7
+    questions distinctes (le tirage complète depuis les paliers voisins si
+    un palier est trop pauvre)."""
+    _, _, q = quizzup_modules
+    for tid in q.load_topics():
+        for tier in (1, 2, 3, 4):
+            picked = q.pick_game_questions(tid, difficulty=tier)
+            assert len(picked) == 7, f"{tid} palier {tier} : {len(picked)} questions"
+            assert len({p["q"] for p in picked}) == 7, f"{tid} palier {tier} : doublon"
+
+
+def test_pick_respects_difficulty(quizzup_modules):
+    """Un match d'un palier donné tire en priorité des questions de ce palier."""
+    _, _, q = quizzup_modules
+    topics = q.load_topics()
+    # capitales a beaucoup de questions par palier → tirage 100 % dans le palier
+    for tier in (1, 2, 3, 4):
+        picked = q.pick_game_questions("capitales", difficulty=tier)
+        assert len(picked) == 7
+        in_tier = sum(1 for p in picked if p["difficulty"] == tier)
+        assert in_tier == 7, f"palier {tier} : seulement {in_tier}/7 dans le bon palier"
+
+
+def test_xp_scales_with_difficulty(quizzup_modules):
+    """Un match extrême rapporte plus d'XP qu'un match facile à score égal."""
+    engine, _, _ = quizzup_modules
+    easy = engine.Game.xp_for("win", 120, difficulty=1)
+    hard = engine.Game.xp_for("win", 120, difficulty=4)
+    assert hard > easy
 
 
 def test_generated_topics_valid(quizzup_modules):
@@ -178,6 +234,7 @@ def _run_full_bot_game(client, topic_id):
                 game_id = msg["game_id"]
                 assert msg["opponent"]["is_bot"] is True
                 assert msg["rounds"] == 7
+                assert msg["difficulty"] in (1, 2, 3, 4)
             elif msg["type"] == "question":
                 rounds_seen += 1
                 assert len(msg["choices"]) == 4
@@ -273,6 +330,32 @@ def _run_quick_match_flow(client, topic_id):
         over2 = _drain_until(ws2, "game_over")
         assert over1["result"] == "loss" and over1["forfeit"] is True
         assert over2["result"] == "win" and over2["forfeit"] is True
+
+
+def test_quick_match_separates_difficulties(quizzup_modules):
+    """Deux joueurs sur des paliers différents ne sont PAS appariés ensemble
+    (chacun tombe sur un bot via le fallback)."""
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    with TestClient(server.app) as client:
+        topic_id = client.get("/api/topics").json()[0]["id"]
+        with client.websocket_connect("/ws") as ws1, client.websocket_connect("/ws") as ws2:
+            ws1.send_text(json.dumps({"type": "hello", "name": "Facile"}))
+            json.loads(ws1.receive_text())
+            ws2.send_text(json.dumps({"type": "hello", "name": "Extreme"}))
+            json.loads(ws2.receive_text())
+
+            ws1.send_text(json.dumps({"type": "find_match", "topic_id": topic_id, "difficulty": 1}))
+            assert json.loads(ws1.receive_text())["type"] == "queued"
+            ws2.send_text(json.dumps({"type": "find_match", "topic_id": topic_id, "difficulty": 4}))
+            assert json.loads(ws2.receive_text())["type"] == "queued"
+
+            # Chacun bascule sur un bot (fallback FAST ~1s) au même palier choisi.
+            m1 = _drain_until(ws1, "match_found")
+            m2 = _drain_until(ws2, "match_found")
+            assert m1["opponent"]["is_bot"] is True and m1["difficulty"] == 1
+            assert m2["opponent"]["is_bot"] is True and m2["difficulty"] == 4
 
 
 def test_room_code_flow(quizzup_modules):

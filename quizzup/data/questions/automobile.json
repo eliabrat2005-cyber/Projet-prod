@@ -4,29 +4,555 @@
   "icon": "🚗",
   "color": "#546e7a",
   "questions": [
-    {"q": "Quel constructeur allemand a pour logo quatre anneaux ?", "choices": ["Audi", "BMW", "Mercedes", "Opel"], "answer": 0},
-    {"q": "Quel constructeur a pour logo une étoile à trois branches ?", "choices": ["Mercedes-Benz", "Subaru", "Chrysler", "Mitsubishi"], "answer": 0},
-    {"q": "Quel constructeur français a un losange pour emblème ?", "choices": ["Renault", "Peugeot", "Citroën", "DS"], "answer": 0},
-    {"q": "Quel animal figure sur le logo Peugeot ?", "choices": ["Un lion", "Un cheval", "Un taureau", "Un jaguar"], "answer": 0},
-    {"q": "Quels chevrons composent le logo Citroën ?", "choices": ["Deux chevrons", "Trois chevrons", "Un chevron", "Quatre chevrons"], "answer": 0},
-    {"q": "Quel cheval cabré orne les Ferrari ?", "choices": ["Le cavallino rampante", "Le mustang", "Le pur-sang", "Pégase"], "answer": 0},
-    {"q": "Quel constructeur italien a un taureau pour emblème ?", "choices": ["Lamborghini", "Ferrari", "Maserati", "Alfa Romeo"], "answer": 0},
-    {"q": "Quelle voiture du peuple allemande a une silhouette de coccinelle ?", "choices": ["La Volkswagen Coccinelle", "La Trabant", "L'Opel Kadett", "La DKW"], "answer": 0},
-    {"q": "Quelle petite française populaire est surnommée « Deuche » ?", "choices": ["La Citroën 2CV", "La Renault 4L", "La Peugeot 104", "La Simca 1000"], "answer": 0},
-    {"q": "Quelle marque américaine a produit la Model T, première voiture de masse ?", "choices": ["Ford", "Chevrolet", "Dodge", "Chrysler"], "answer": 0},
-    {"q": "Quel entrepreneur a rendu la marque Tesla mondialement célèbre ?", "choices": ["Elon Musk", "Jeff Bezos", "Nikola Tesla", "Henry Ford"], "answer": 0},
-    {"q": "Quelle voiture anglaise conduit James Bond ?", "choices": ["Une Aston Martin", "Une Jaguar", "Une Bentley", "Une Lotus"], "answer": 0},
-    {"q": "Quelle mini-voiture anglaise est une icône des années 60 ?", "choices": ["La Mini", "La Fiat 500", "La Beetle", "L'Austin Healey"], "answer": 0},
-    {"q": "Quelle voiture italienne minuscule est l'éternelle rivale de la Mini ?", "choices": ["La Fiat 500", "La Panda", "La Uno", "La Lancia Y"], "answer": 0},
-    {"q": "Quelle sportive japonaise est la star de la saga Fast and Furious ?", "choices": ["La Toyota Supra", "La Honda Civic", "La Mazda RX-8", "La Nissan Micra"], "answer": 0},
-    {"q": "Quel constructeur japonais fabrique la Prius hybride ?", "choices": ["Toyota", "Honda", "Nissan", "Mazda"], "answer": 0},
-    {"q": "Quelle marque suédoise est réputée pour la sécurité ?", "choices": ["Volvo", "Saab", "Polestar", "Koenigsegg"], "answer": 0},
-    {"q": "Quel hypercar français dépasse les 400 km/h ?", "choices": ["La Bugatti Chiron", "L'Alpine A110", "La Venturi", "La DS X"], "answer": 0},
-    {"q": "Quelle berline sportive française est produite à Dieppe ?", "choices": ["L'Alpine", "La Mégane RS", "La 208 GTI", "La Clio Williams"], "answer": 0},
-    {"q": "Que signifie « SUV » ?", "choices": ["Sport Utility Vehicle", "Super Urban Van", "Standard Utility Version", "Sport Ultra Vitesse"], "answer": 0},
-    {"q": "Quel document faut-il pour conduire en France ?", "choices": ["Le permis de conduire", "La carte grise seule", "L'assurance seule", "Le certificat"], "answer": 0},
-    {"q": "À quel âge peut-on passer le permis B en France ?", "choices": ["17 ans (depuis 2024)", "16 ans", "18 ans uniquement", "21 ans"], "answer": 0},
-    {"q": "Quelle pédale se trouve à gauche dans une voiture manuelle ?", "choices": ["L'embrayage", "Le frein", "L'accélérateur", "Le repose-pied"], "answer": 0},
-    {"q": "Quelle voiture à portes papillon voyage dans le temps au cinéma ?", "choices": ["La DeLorean DMC-12", "La Corvette", "La Countach", "La 300 SL"], "answer": 0}
+    {
+      "q": "Quel constructeur allemand a pour logo quatre anneaux ?",
+      "choices": [
+        "Audi",
+        "BMW",
+        "Mercedes",
+        "Opel"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel constructeur a pour logo une étoile à trois branches ?",
+      "choices": [
+        "Mercedes-Benz",
+        "Subaru",
+        "Chrysler",
+        "Mitsubishi"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel constructeur français a un losange pour emblème ?",
+      "choices": [
+        "Renault",
+        "Peugeot",
+        "Citroën",
+        "DS"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel animal figure sur le logo Peugeot ?",
+      "choices": [
+        "Un lion",
+        "Un cheval",
+        "Un taureau",
+        "Un jaguar"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quels chevrons composent le logo Citroën ?",
+      "choices": [
+        "Deux chevrons",
+        "Trois chevrons",
+        "Un chevron",
+        "Quatre chevrons"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel cheval cabré orne les Ferrari ?",
+      "choices": [
+        "Le cavallino rampante",
+        "Le mustang",
+        "Le pur-sang",
+        "Pégase"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel constructeur italien a un taureau pour emblème ?",
+      "choices": [
+        "Lamborghini",
+        "Ferrari",
+        "Maserati",
+        "Alfa Romeo"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle voiture du peuple allemande a une silhouette de coccinelle ?",
+      "choices": [
+        "La Volkswagen Coccinelle",
+        "La Trabant",
+        "L'Opel Kadett",
+        "La DKW"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle petite française populaire est surnommée « Deuche » ?",
+      "choices": [
+        "La Citroën 2CV",
+        "La Renault 4L",
+        "La Peugeot 104",
+        "La Simca 1000"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle marque américaine a produit la Model T, première voiture de masse ?",
+      "choices": [
+        "Ford",
+        "Chevrolet",
+        "Dodge",
+        "Chrysler"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel entrepreneur a rendu la marque Tesla mondialement célèbre ?",
+      "choices": [
+        "Elon Musk",
+        "Jeff Bezos",
+        "Nikola Tesla",
+        "Henry Ford"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle voiture anglaise conduit James Bond ?",
+      "choices": [
+        "Une Aston Martin",
+        "Une Jaguar",
+        "Une Bentley",
+        "Une Lotus"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle mini-voiture anglaise est une icône des années 60 ?",
+      "choices": [
+        "La Mini",
+        "La Fiat 500",
+        "La Beetle",
+        "L'Austin Healey"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle voiture italienne minuscule est l'éternelle rivale de la Mini ?",
+      "choices": [
+        "La Fiat 500",
+        "La Panda",
+        "La Uno",
+        "La Lancia Y"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle sportive japonaise est la star de la saga Fast and Furious ?",
+      "choices": [
+        "La Toyota Supra",
+        "La Honda Civic",
+        "La Mazda RX-8",
+        "La Nissan Micra"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel constructeur japonais fabrique la Prius hybride ?",
+      "choices": [
+        "Toyota",
+        "Honda",
+        "Nissan",
+        "Mazda"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle marque suédoise est réputée pour la sécurité ?",
+      "choices": [
+        "Volvo",
+        "Saab",
+        "Polestar",
+        "Koenigsegg"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel hypercar français dépasse les 400 km/h ?",
+      "choices": [
+        "La Bugatti Chiron",
+        "L'Alpine A110",
+        "La Venturi",
+        "La DS X"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle berline sportive française est produite à Dieppe ?",
+      "choices": [
+        "L'Alpine",
+        "La Mégane RS",
+        "La 208 GTI",
+        "La Clio Williams"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Que signifie « SUV » ?",
+      "choices": [
+        "Sport Utility Vehicle",
+        "Super Urban Van",
+        "Standard Utility Version",
+        "Sport Ultra Vitesse"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel document faut-il pour conduire en France ?",
+      "choices": [
+        "Le permis de conduire",
+        "La carte grise seule",
+        "L'assurance seule",
+        "Le certificat"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "À quel âge peut-on passer le permis B en France ?",
+      "choices": [
+        "17 ans (depuis 2024)",
+        "16 ans",
+        "18 ans uniquement",
+        "21 ans"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle pédale se trouve à gauche dans une voiture manuelle ?",
+      "choices": [
+        "L'embrayage",
+        "Le frein",
+        "L'accélérateur",
+        "Le repose-pied"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle voiture à portes papillon voyage dans le temps au cinéma ?",
+      "choices": [
+        "La DeLorean DMC-12",
+        "La Corvette",
+        "La Countach",
+        "La 300 SL"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel constructeur fabrique la Golf ?",
+      "choices": [
+        "Volkswagen",
+        "Opel",
+        "Ford",
+        "Seat"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de titres de champion du monde de Formule 1 Michael Schumacher a-t-il remportés ?",
+      "choices": [
+        "Sept",
+        "Cinq",
+        "Six",
+        "Huit"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel constructeur japonais a produit en série le moteur rotatif Wankel ?",
+      "choices": [
+        "Mazda",
+        "Honda",
+        "Toyota",
+        "Suzuki"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année la Citroën DS a-t-elle été présentée au Salon de l'automobile de Paris ?",
+      "choices": [
+        "1955",
+        "1948",
+        "1961",
+        "1934"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année la Ford Model T a-t-elle été lancée ?",
+      "choices": [
+        "1908",
+        "1901",
+        "1915",
+        "1920"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel ingénieur allemand a breveté la première automobile à moteur à combustion en 1886 ?",
+      "choices": [
+        "Karl Benz",
+        "Gottlieb Daimler",
+        "Rudolf Diesel",
+        "Nikolaus Otto"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Qui a inventé le moteur Diesel ?",
+      "choices": [
+        "Rudolf Diesel",
+        "Karl Benz",
+        "Gottlieb Daimler",
+        "Nikolaus Otto"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année a eu lieu la première édition des 24 Heures du Mans ?",
+      "choices": [
+        "1923",
+        "1906",
+        "1934",
+        "1949"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel constructeur détient le record de victoires aux 24 Heures du Mans ?",
+      "choices": [
+        "Porsche",
+        "Audi",
+        "Ferrari",
+        "Toyota"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel constructeur a remporté le plus de titres de champion du monde des constructeurs en Formule 1 ?",
+      "choices": [
+        "Ferrari",
+        "McLaren",
+        "Williams",
+        "Mercedes"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de titres mondiaux de Formule 1 Lewis Hamilton a-t-il remportés ?",
+      "choices": [
+        "Sept",
+        "Six",
+        "Cinq",
+        "Huit"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel modèle emblématique Porsche a-t-il présenté en 1963 ?",
+      "choices": [
+        "La 911",
+        "La 356",
+        "La 944",
+        "La Cayenne"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel pilote argentin a remporté cinq titres mondiaux de Formule 1 dans les années 1950 ?",
+      "choices": [
+        "Juan Manuel Fangio",
+        "Alberto Ascari",
+        "Nino Farina",
+        "Stirling Moss"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle marque a introduit l'airbag conducteur de série sur sa Classe S en 1981 ?",
+      "choices": [
+        "Mercedes-Benz",
+        "Volvo",
+        "BMW",
+        "Audi"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de Grands Prix Michael Schumacher a-t-il remportés au cours de sa carrière ?",
+      "choices": [
+        "91",
+        "84",
+        "103",
+        "77"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Qui fut le tout premier champion du monde de Formule 1, en 1950 ?",
+      "choices": [
+        "Giuseppe Farina",
+        "Juan Manuel Fangio",
+        "Alberto Ascari",
+        "Stirling Moss"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel constructeur a remporté le tout premier Grand Prix du championnat du monde de Formule 1, en 1950 à Silverstone ?",
+      "choices": [
+        "Alfa Romeo",
+        "Ferrari",
+        "Maserati",
+        "Mercedes"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Sous quel nom de code la Porsche 911 a-t-elle d'abord été présentée en 1963 ?",
+      "choices": [
+        "901",
+        "356",
+        "904",
+        "930"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel constructeur détenait les droits des appellations à trois chiffres comportant un zéro central, forçant Porsche à renommer sa 901 en 911 ?",
+      "choices": [
+        "Peugeot",
+        "Renault",
+        "Citroën",
+        "Fiat"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Ferrari a-t-il construit sa première automobile, la 125 S ?",
+      "choices": [
+        "1947",
+        "1929",
+        "1939",
+        "1953"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien de victoires en Grand Prix Ayrton Senna a-t-il remportées en carrière ?",
+      "choices": [
+        "41",
+        "35",
+        "51",
+        "27"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Ayrton Senna a-t-il décroché son premier titre mondial de Formule 1 ?",
+      "choices": [
+        "1988",
+        "1985",
+        "1990",
+        "1991"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Au volant de quelle écurie Ayrton Senna courait-il lors de son accident mortel en 1994 ?",
+      "choices": [
+        "Williams",
+        "McLaren",
+        "Lotus",
+        "Toleman"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel type de véhicules Ferruccio Lamborghini fabriquait-il avant de se lancer dans l'automobile sportive ?",
+      "choices": [
+        "Des tracteurs",
+        "Des motos",
+        "Des camions",
+        "Des bateaux"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle vitesse maximale la Bugatti Veyron Super Sport a-t-elle homologuée en 2010 ?",
+      "choices": [
+        "431 km/h",
+        "407 km/h",
+        "415 km/h",
+        "447 km/h"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel modèle Bugatti des années 1930, dont la version « Atlantic », est l'une des voitures les plus chères au monde ?",
+      "choices": [
+        "La Type 57",
+        "La Type 35",
+        "La EB110",
+        "La Veyron"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

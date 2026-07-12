@@ -4,29 +4,610 @@
   "icon": "🌮",
   "color": "#e65100",
   "questions": [
-    {"q": "De quel pays vient la paella ?", "choices": ["L'Espagne", "L'Italie", "Le Mexique", "Le Portugal"], "answer": 0},
-    {"q": "Quel plat mexicain se compose d'une tortilla pliée garnie ?", "choices": ["Le taco", "Le burrito roulé", "La quesadilla", "L'enchilada"], "answer": 0},
-    {"q": "Quel plat indien mijote du poulet dans une sauce crémeuse aux épices ?", "choices": ["Le butter chicken", "Le tandoori sec", "Le samosa", "Le naan"], "answer": 0},
-    {"q": "Quel pain plat indien accompagne les currys ?", "choices": ["Le naan", "La pita", "Le bagel", "La tortilla"], "answer": 0},
-    {"q": "Quel plat libanais est une purée de pois chiches au sésame ?", "choices": ["Le houmous", "Le taboulé", "Le falafel", "Le baba ganoush"], "answer": 0},
-    {"q": "Quelles boulettes de pois chiches frites sont une star de la street-food du Moyen-Orient ?", "choices": ["Les falafels", "Les keftas", "Les samossas", "Les accras"], "answer": 0},
-    {"q": "Quel plat japonais frit des beignets légers de légumes ou crevettes ?", "choices": ["Le tempura", "Le sushi", "Le gyoza", "Le takoyaki"], "answer": 0},
-    {"q": "Quels raviolis japonais grillés sont fourrés au porc ?", "choices": ["Les gyozas", "Les mochis", "Les onigiris", "Les nikuman"], "answer": 0},
-    {"q": "Quelle soupe vietnamienne parfumée contient nouilles de riz et bœuf ?", "choices": ["Le phở", "Le ramen", "La soupe miso", "Le laksa"], "answer": 0},
-    {"q": "Quel plat thaïlandais mélange nouilles sautées, cacahuètes et citron vert ?", "choices": ["Le pad thaï", "Le curry vert", "Le som tam", "Le riz gluant"], "answer": 0},
-    {"q": "Quel plat coréen fermenté accompagne tous les repas ?", "choices": ["Le kimchi", "Le bibimbap", "Le bulgogi", "Le tteok"], "answer": 0},
-    {"q": "Quel bol coréen mélange riz, légumes, viande et œuf ?", "choices": ["Le bibimbap", "Le kimchi", "Le japchae", "Le kimbap"], "answer": 0},
-    {"q": "Quel plat chinois de canard se déguste en crêpes fines ?", "choices": ["Le canard laqué de Pékin", "Le canard du Sichuan", "Le canard croustillant", "Le canard impérial frit"], "answer": 0},
-    {"q": "Quels petits paniers vapeur cantonais se picorent au thé ?", "choices": ["Les dim sum", "Les nems", "Les wontons frits", "Les baozi géants"], "answer": 0},
-    {"q": "Quel plat marocain cuit lentement dans un plat conique en terre ?", "choices": ["Le tajine", "Le couscous", "La pastilla", "La harira"], "answer": 0},
-    {"q": "Quelle semoule accompagnée de légumes est un emblème du Maghreb ?", "choices": ["Le couscous", "Le boulgour", "Le riz pilaf", "Le freekeh"], "answer": 0},
-    {"q": "Quel ragoût hongrois est relevé au paprika ?", "choices": ["Le goulash", "Le borscht", "Le stroganoff", "Le bigos"], "answer": 0},
-    {"q": "Quelle soupe rouge à la betterave vient d'Europe de l'Est ?", "choices": ["Le borscht", "Le goulash", "La soljanka", "Le jarret"], "answer": 0},
-    {"q": "Quel plat brésilien mijote haricots noirs et viandes ?", "choices": ["La feijoada", "Le churrasco", "La moqueca", "Le açaï"], "answer": 0},
-    {"q": "Quel plat péruvien « cuit » le poisson cru dans le citron vert ?", "choices": ["Le ceviche", "Le tiradito", "L'anticucho", "La causa"], "answer": 0},
-    {"q": "Quelle viande grillée à la broche garnit le gyros grec ?", "choices": ["Du porc (ou poulet)", "Du bœuf uniquement", "De l'agneau uniquement", "De la chèvre"], "answer": 0},
-    {"q": "Quelle salade grecque marie feta, olives et concombre ?", "choices": ["La salade grecque (horiatiki)", "Le tzatziki", "La moussaka", "Le mezze"], "answer": 0},
-    {"q": "Quel gratin grec superpose aubergines et viande hachée ?", "choices": ["La moussaka", "Le pastitsio", "Le gemista", "Le kleftiko"], "answer": 0},
-    {"q": "Quel plat suisse fait fondre un demi-fromage raclé sur des pommes de terre ?", "choices": ["La raclette", "La fondue", "Le rösti", "La croûte"], "answer": 0}
+    {
+      "q": "De quel pays vient la paella ?",
+      "choices": [
+        "L'Espagne",
+        "L'Italie",
+        "Le Mexique",
+        "Le Portugal"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel plat mexicain se compose d'une tortilla pliée garnie ?",
+      "choices": [
+        "Le taco",
+        "Le burrito roulé",
+        "La quesadilla",
+        "L'enchilada"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel plat indien mijote du poulet dans une sauce crémeuse aux épices ?",
+      "choices": [
+        "Le butter chicken",
+        "Le tandoori sec",
+        "Le samosa",
+        "Le naan"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel pain plat indien accompagne les currys ?",
+      "choices": [
+        "Le naan",
+        "La pita",
+        "Le bagel",
+        "La tortilla"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel plat libanais est une purée de pois chiches au sésame ?",
+      "choices": [
+        "Le houmous",
+        "Le taboulé",
+        "Le falafel",
+        "Le baba ganoush"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelles boulettes de pois chiches frites sont une star de la street-food du Moyen-Orient ?",
+      "choices": [
+        "Les falafels",
+        "Les keftas",
+        "Les samossas",
+        "Les accras"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel plat japonais frit des beignets légers de légumes ou crevettes ?",
+      "choices": [
+        "Le tempura",
+        "Le sushi",
+        "Le gyoza",
+        "Le takoyaki"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quels raviolis japonais grillés sont fourrés au porc ?",
+      "choices": [
+        "Les gyozas",
+        "Les mochis",
+        "Les onigiris",
+        "Les nikuman"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle soupe vietnamienne parfumée contient nouilles de riz et bœuf ?",
+      "choices": [
+        "Le phở",
+        "Le ramen",
+        "La soupe miso",
+        "Le laksa"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel plat thaïlandais mélange nouilles sautées, cacahuètes et citron vert ?",
+      "choices": [
+        "Le pad thaï",
+        "Le curry vert",
+        "Le som tam",
+        "Le riz gluant"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel plat coréen fermenté accompagne tous les repas ?",
+      "choices": [
+        "Le kimchi",
+        "Le bibimbap",
+        "Le bulgogi",
+        "Le tteok"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel bol coréen mélange riz, légumes, viande et œuf ?",
+      "choices": [
+        "Le bibimbap",
+        "Le kimchi",
+        "Le japchae",
+        "Le kimbap"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel plat chinois de canard se déguste en crêpes fines ?",
+      "choices": [
+        "Le canard laqué de Pékin",
+        "Le canard du Sichuan",
+        "Le canard croustillant",
+        "Le canard impérial frit"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quels petits paniers vapeur cantonais se picorent au thé ?",
+      "choices": [
+        "Les dim sum",
+        "Les nems",
+        "Les wontons frits",
+        "Les baozi géants"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel plat marocain cuit lentement dans un plat conique en terre ?",
+      "choices": [
+        "Le tajine",
+        "Le couscous",
+        "La pastilla",
+        "La harira"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle semoule accompagnée de légumes est un emblème du Maghreb ?",
+      "choices": [
+        "Le couscous",
+        "Le boulgour",
+        "Le riz pilaf",
+        "Le freekeh"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel ragoût hongrois est relevé au paprika ?",
+      "choices": [
+        "Le goulash",
+        "Le borscht",
+        "Le stroganoff",
+        "Le bigos"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle soupe rouge à la betterave vient d'Europe de l'Est ?",
+      "choices": [
+        "Le borscht",
+        "Le goulash",
+        "La soljanka",
+        "Le jarret"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel plat brésilien mijote haricots noirs et viandes ?",
+      "choices": [
+        "La feijoada",
+        "Le churrasco",
+        "La moqueca",
+        "Le açaï"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel plat péruvien « cuit » le poisson cru dans le citron vert ?",
+      "choices": [
+        "Le ceviche",
+        "Le tiradito",
+        "L'anticucho",
+        "La causa"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle viande grillée à la broche garnit le gyros grec ?",
+      "choices": [
+        "Du porc (ou poulet)",
+        "Du bœuf uniquement",
+        "De l'agneau uniquement",
+        "De la chèvre"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle salade grecque marie feta, olives et concombre ?",
+      "choices": [
+        "La salade grecque (horiatiki)",
+        "Le tzatziki",
+        "La moussaka",
+        "Le mezze"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel gratin grec superpose aubergines et viande hachée ?",
+      "choices": [
+        "La moussaka",
+        "Le pastitsio",
+        "Le gemista",
+        "Le kleftiko"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel plat suisse fait fondre un demi-fromage raclé sur des pommes de terre ?",
+      "choices": [
+        "La raclette",
+        "La fondue",
+        "Le rösti",
+        "La croûte"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "De quel pays vient la pizza ?",
+      "choices": [
+        "L'Italie",
+        "La Grèce",
+        "La France",
+        "L'Espagne"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "De quel pays viennent les sushis ?",
+      "choices": [
+        "Le Japon",
+        "La Chine",
+        "La Corée",
+        "La Thaïlande"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel plat italien est une pâte longue servie souvent à la bolognaise ?",
+      "choices": [
+        "Les spaghettis",
+        "Le risotto",
+        "La polenta",
+        "Les gnocchis"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel fromage fondu nappe traditionnellement la pizza margherita ?",
+      "choices": [
+        "La mozzarella",
+        "Le cheddar",
+        "Le gruyère",
+        "Le parmesan"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel plat anglais associe poisson pané et frites ?",
+      "choices": [
+        "Le fish and chips",
+        "Le shepherd's pie",
+        "Le porridge",
+        "Le pudding"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel plat allemand est une saucisse grillée ?",
+      "choices": [
+        "La bratwurst",
+        "Le goulash",
+        "Le strudel",
+        "La choucroute"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "De quel pays vient le bobotie, gratin de viande hachée épicée au curcuma ?",
+      "choices": [
+        "L'Afrique du Sud",
+        "Le Kenya",
+        "Le Nigeria",
+        "Le Maroc"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle galette spongieuse et acidulée sert de base au repas éthiopien ?",
+      "choices": [
+        "L'injera",
+        "Le teff",
+        "Le wat",
+        "Le berbéré"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "De quel pays vient le rendang, ragoût de bœuf longuement mijoté au lait de coco ?",
+      "choices": [
+        "L'Indonésie",
+        "L'Inde",
+        "La Thaïlande",
+        "Le Sri Lanka"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel plat espagnol froid est une soupe de tomate crue ?",
+      "choices": [
+        "Le gazpacho",
+        "La paella",
+        "Le cocido",
+        "La fabada"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "De quelle région d'origine vient la poutine (frites, fromage en grains, sauce brune) ?",
+      "choices": [
+        "Le Québec",
+        "La Nouvelle-Angleterre",
+        "La Wallonie",
+        "L'Ontario"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle sauce d'herbes crues accompagne la viande grillée en Argentine ?",
+      "choices": [
+        "Le chimichurri",
+        "Le mole",
+        "Le pico de gallo",
+        "Le mojo picón"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel plat asturien mijote des haricots blancs avec de la charcuterie ?",
+      "choices": [
+        "La fabada",
+        "La paella",
+        "Le gazpacho",
+        "L'escalivada"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle galette japonaise à base de chou et de sauce se cuit sur une plaque ?",
+      "choices": [
+        "L'okonomiyaki",
+        "Le takoyaki",
+        "Le tamagoyaki",
+        "Le monjayaki"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle épice, la plus chère du monde, colore et parfume la paella ?",
+      "choices": [
+        "Le safran",
+        "Le curcuma",
+        "Le paprika",
+        "Le rocou"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel plat vietnamien est un sandwich servi dans une baguette garnie ?",
+      "choices": [
+        "Le bánh mì",
+        "Le phở",
+        "Le nem",
+        "Le bún"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel plat indien est un riz épicé cuit en couches avec de la viande ?",
+      "choices": [
+        "Le biryani",
+        "Le dal",
+        "Le naan",
+        "Le lassi"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel poisson salé et séché est emblématique de la cuisine portugaise ?",
+      "choices": [
+        "La morue",
+        "Le thon",
+        "La sardine",
+        "Le maquereau"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "De quelle ville espagnole la paella valenciana est-elle originaire ?",
+      "choices": [
+        "Valence",
+        "Séville",
+        "Barcelone",
+        "Madrid"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel chef a réorganisé la cuisine française autour de cinq « sauces mères » au début du XXe siècle ?",
+      "choices": [
+        "Auguste Escoffier",
+        "Marie-Antoine Carême",
+        "Paul Bocuse",
+        "Fernand Point"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel poisson japonais potentiellement mortel exige une licence pour être préparé ?",
+      "choices": [
+        "Le fugu",
+        "L'unagi",
+        "Le tako",
+        "Le hamachi"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle ville italienne est protégée par l'appellation du vinaigre balsamique traditionnel ?",
+      "choices": [
+        "Modène",
+        "Parme",
+        "Naples",
+        "Vérone"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel chef espagnol du restaurant elBulli est une figure de la cuisine moléculaire ?",
+      "choices": [
+        "Ferran Adrià",
+        "José Andrés",
+        "Juan Mari Arzak",
+        "Joan Roca"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "De quelle région italienne le ragù à la bolognaise est-il originaire ?",
+      "choices": [
+        "L'Émilie-Romagne",
+        "La Toscane",
+        "La Sicile",
+        "La Campanie"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel piment mexicain fumé et séché est en réalité un jalapeño ?",
+      "choices": [
+        "Le chipotle",
+        "L'ancho",
+        "Le habanero",
+        "Le poblano"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel couteau japonais long et fin sert à trancher le sashimi ?",
+      "choices": [
+        "Le yanagiba",
+        "Le santoku",
+        "Le nakiri",
+        "Le deba"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel plat coréen est fait de nouilles de patate douce sautées avec des légumes ?",
+      "choices": [
+        "Le japchae",
+        "Le bibimbap",
+        "Le tteokbokki",
+        "Le naengmyeon"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "De quel crustacé la sauce Nantua tire-t-elle sa saveur ?",
+      "choices": [
+        "L'écrevisse",
+        "Le homard",
+        "La crevette",
+        "Le crabe"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quels ingrédients composent le dashi, bouillon de base japonais ?",
+      "choices": [
+        "Le kombu et la bonite séchée",
+        "Le poulet",
+        "Le porc",
+        "Des légumes racines"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel chef, figure de la nouvelle cuisine, avait son restaurant à Collonges-au-Mont-d'Or ?",
+      "choices": [
+        "Paul Bocuse",
+        "Auguste Escoffier",
+        "Alain Ducasse",
+        "Joël Robuchon"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle sauce mexicaine complexe contient notamment du chocolat ?",
+      "choices": [
+        "Le mole poblano",
+        "Le guacamole",
+        "La salsa verde",
+        "Le pico de gallo"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

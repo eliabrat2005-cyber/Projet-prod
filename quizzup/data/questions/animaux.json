@@ -4,64 +4,874 @@
   "icon": "🦁",
   "color": "#7f8c1c",
   "questions": [
-    {"q": "Quel est le plus grand animal vivant sur Terre ?", "choices": ["La baleine bleue", "L'éléphant d'Afrique", "Le requin-baleine", "La girafe"], "answer": 0},
-    {"q": "Combien de pattes possède une araignée ?", "choices": ["Huit", "Six", "Dix", "Douze"], "answer": 0},
-    {"q": "Quel oiseau est incapable de voler mais court très vite ?", "choices": ["L'autruche", "Le pingouin", "L'albatros", "Le paon"], "answer": 0},
-    {"q": "Comment s'appelle le petit de la vache ?", "choices": ["Le veau", "Le poulain", "L'agneau", "Le chevreau"], "answer": 0},
-    {"q": "Quel animal est le symbole de la lenteur avec sa carapace ?", "choices": ["La tortue", "L'escargot", "Le paresseux", "Le koala"], "answer": 0},
-    {"q": "Quel félin est le plus rapide au monde ?", "choices": ["Le guépard", "Le léopard", "Le tigre", "Le puma"], "answer": 0},
-    {"q": "De quoi se nourrit principalement le panda géant ?", "choices": ["De bambou", "De poissons", "D'eucalyptus", "De fruits"], "answer": 0},
-    {"q": "Quel mammifère marin est réputé pour son intelligence et son sonar ?", "choices": ["Le dauphin", "Le phoque", "La loutre", "Le morse"], "answer": 0},
-    {"q": "Combien de cœurs possède une pieuvre ?", "choices": ["Trois", "Un", "Deux", "Quatre"], "answer": 0},
-    {"q": "Quel animal change de couleur pour se camoufler ?", "choices": ["Le caméléon", "L'iguane", "Le gecko", "La salamandre"], "answer": 0},
-    {"q": "Quel est le seul mammifère capable de voler activement ?", "choices": ["La chauve-souris", "L'écureuil volant", "Le colugo", "Le pétaure"], "answer": 0},
-    {"q": "Comment appelle-t-on la femelle du sanglier ?", "choices": ["La laie", "La truie", "La biche", "La hase"], "answer": 0},
-    {"q": "Quel animal australien porte son petit dans une poche ventrale et fait des bonds ?", "choices": ["Le kangourou", "Le koala", "Le wombat", "L'ornithorynque"], "answer": 0},
-    {"q": "Quel insecte produit le miel ?", "choices": ["L'abeille", "La guêpe", "Le frelon", "Le bourdon"], "answer": 0},
-    {"q": "Quel est le plus grand félin sauvage du monde ?", "choices": ["Le tigre", "Le lion", "Le jaguar", "Le léopard"], "answer": 0},
-    {"q": "Combien de temps dure en moyenne la gestation de l'éléphant d'Afrique ?", "choices": ["Environ 22 mois", "Environ 9 mois", "Environ 12 mois", "Environ 30 mois"], "answer": 0},
-    {"q": "Quel oiseau dépose parfois ses œufs dans le nid des autres ?", "choices": ["Le coucou", "Le merle", "La pie", "Le corbeau"], "answer": 0},
-    {"q": "Quel animal marin possède huit bras munis de ventouses ?", "choices": ["La pieuvre", "Le calmar", "La méduse", "L'étoile de mer"], "answer": 0},
-    {"q": "Quel grand singe partage environ 98 % de son ADN avec l'humain ?", "choices": ["Le chimpanzé", "Le gorille", "L'orang-outan", "Le gibbon"], "answer": 0},
-    {"q": "Comment s'appelle l'habitat des fourmis ?", "choices": ["La fourmilière", "La ruche", "Le terrier", "La tanière"], "answer": 0},
-    {"q": "Quel animal polaire a la peau noire sous sa fourrure blanche ?", "choices": ["L'ours polaire", "Le renard arctique", "Le harfang", "Le béluga"], "answer": 0},
-    {"q": "Quel reptile est le plus grand du monde ?", "choices": ["Le crocodile marin", "Le dragon de Komodo", "L'anaconda", "La tortue luth"], "answer": 0},
-    {"q": "Quelle est la durée de vie moyenne d'une tortue géante des Galápagos ?", "choices": ["Plus de 100 ans", "Environ 40 ans", "Environ 60 ans", "Environ 20 ans"], "answer": 0},
-    {"q": "Quel animal dort debout la plupart du temps ?", "choices": ["Le cheval", "Le chat", "Le chien", "Le cochon"], "answer": 0},
-    {"q": "Quel oiseau est le plus rapide en piqué ?", "choices": ["Le faucon pèlerin", "L'aigle royal", "Le martinet", "Le condor"], "answer": 0},
-    {"q": "Combien de bosses possède un dromadaire ?", "choices": ["Une", "Deux", "Trois", "Aucune"], "answer": 0},
-    {"q": "Quel animal est le plus grand carnivore terrestre ?", "choices": ["L'ours polaire", "Le lion", "Le tigre de Sibérie", "Le grizzly"], "answer": 0},
-    {"q": "Comment s'appelle le cri du cerf ?", "choices": ["Le brame", "Le barrissement", "Le hennissement", "Le feulement"], "answer": 0},
-    {"q": "Quel oiseau noir et blanc vit exclusivement dans l'hémisphère sud ?", "choices": ["Le manchot", "Le pingouin", "Le macareux", "Le fou de Bassan"], "answer": 0},
-    {"q": "Quelle est la durée de vie moyenne d'un chien ?", "choices": ["10 à 13 ans", "5 à 7 ans", "18 à 20 ans", "25 ans"], "answer": 0},
-    {"q": "Quel serpent est le plus long du monde ?", "choices": ["Le python réticulé", "L'anaconda", "Le cobra royal", "Le boa constricteur"], "answer": 0},
-    {"q": "Quel insecte élève-t-on pour produire la soie des tissus ?", "choices": ["Le ver à soie", "L'abeille", "La cigale", "La fourmi tisserande"], "answer": 0},
-    {"q": "Quelle est la période d'hibernation typique du hérisson en France ?", "choices": ["L'hiver", "L'été", "Le printemps", "Il n'hiberne pas"], "answer": 0},
-    {"q": "Quel grand requin est réputé le plus dangereux pour l'homme ?", "choices": ["Le grand requin blanc", "Le requin-baleine", "Le requin-marteau", "Le requin pèlerin"], "answer": 0},
-    {"q": "Comment se déplace le kangourou ?", "choices": ["Par bonds", "En galopant", "En rampant", "En marchant sur deux pattes"], "answer": 0},
-    {"q": "Quel oiseau imite la parole humaine ?", "choices": ["Le perroquet", "Le hibou", "Le pigeon", "Le canari"], "answer": 0},
-    {"q": "Quel mammifère pond des œufs ?", "choices": ["L'ornithorynque", "Le tatou", "Le pangolin", "L'opossum"], "answer": 0},
-    {"q": "Quelle abeille pond les œufs dans la ruche ?", "choices": ["La reine", "L'ouvrière", "Le faux bourdon", "La gardienne"], "answer": 0},
-    {"q": "Quel félin vit en groupe appelé « troupe » ou « pride » ?", "choices": ["Le lion", "Le tigre", "Le léopard", "Le jaguar"], "answer": 0},
-    {"q": "Combien de temps une girafe dort-elle par jour en moyenne ?", "choices": ["Moins de 2 heures", "8 heures", "12 heures", "5 heures"], "answer": 0},
-    {"q": "Quel rongeur construit des barrages ?", "choices": ["Le castor", "Le ragondin", "La loutre", "Le rat musqué"], "answer": 0},
-    {"q": "Quelle tortue marine est la plus grande du monde ?", "choices": ["La tortue luth", "La tortue verte", "La tortue caouanne", "La tortue imbriquée"], "answer": 0},
-    {"q": "Quel singe d'Asie a le nez très allongé ?", "choices": ["Le nasique", "Le macaque", "Le gibbon", "Le langur"], "answer": 0},
-    {"q": "Quel animal marin a trois cœurs et un sang bleu ?", "choices": ["La pieuvre", "Le crabe", "L'étoile de mer", "Le dauphin"], "answer": 0},
-    {"q": "Quel oiseau migrateur revient chaque printemps nicher sous les toits en France ?", "choices": ["L'hirondelle", "Le moineau", "Le rouge-gorge", "La mésange"], "answer": 0},
-    {"q": "Quel poisson remonte les rivières pour se reproduire ?", "choices": ["Le saumon", "Le thon", "La sardine", "Le maquereau"], "answer": 0},
-    {"q": "Quel insecte peut soulever jusqu'à 50 fois son poids ?", "choices": ["La fourmi", "L'abeille", "Le grillon", "La sauterelle"], "answer": 0},
-    {"q": "Quel animal d'Australie ressemble à un petit ours et dort 20 h par jour ?", "choices": ["Le koala", "Le wombat", "Le quokka", "Le diable de Tasmanie"], "answer": 0},
-    {"q": "Comment s'appelle la maison de l'écureuil ?", "choices": ["Le nid (ou hotte)", "Le terrier", "La tanière", "La loge"], "answer": 0},
-    {"q": "Quel cétacé est surnommé la « licorne des mers » ?", "choices": ["Le narval", "Le béluga", "L'orque", "Le cachalot"], "answer": 0},
-    {"q": "Quel lézard peut courir sur l'eau ?", "choices": ["Le basilic", "L'iguane", "Le varan", "Le gecko"], "answer": 0},
-    {"q": "Quel animal a la pression sanguine la plus élevée ?", "choices": ["La girafe", "L'éléphant", "Le rhinocéros", "La baleine"], "answer": 0},
-    {"q": "Quelle race de chien est la plus petite du monde ?", "choices": ["Le chihuahua", "Le yorkshire", "Le teckel", "Le bichon"], "answer": 0},
-    {"q": "Quel oiseau est le seul capable de voler sur place et en marche arrière ?", "choices": ["Le colibri", "Le martinet", "Le faucon", "L'hirondelle"], "answer": 0},
-    {"q": "Quel animal africain est le plus meurtrier pour l'homme (hors insectes) ?", "choices": ["L'hippopotame", "Le lion", "Le crocodile", "L'éléphant"], "answer": 0},
-    {"q": "Combien d'yeux possède la plupart des araignées ?", "choices": ["Huit", "Deux", "Quatre", "Six"], "answer": 0},
-    {"q": "Quel animal est le symbole du WWF ?", "choices": ["Le panda", "Le tigre", "L'éléphant", "Le gorille"], "answer": 0},
-    {"q": "Quelle est la vitesse de pointe approximative d'un guépard ?", "choices": ["110 km/h", "70 km/h", "150 km/h", "90 km/h"], "answer": 0},
-    {"q": "Quel amphibien français est protégé et chante la nuit au printemps ?", "choices": ["La rainette", "Le triton", "La salamandre", "L'axolotl"], "answer": 0}
+    {
+      "q": "Quel est le plus grand animal vivant sur Terre ?",
+      "choices": [
+        "La baleine bleue",
+        "L'éléphant d'Afrique",
+        "Le requin-baleine",
+        "La girafe"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Combien de pattes possède une araignée ?",
+      "choices": [
+        "Huit",
+        "Six",
+        "Dix",
+        "Douze"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel oiseau est incapable de voler mais court très vite ?",
+      "choices": [
+        "L'autruche",
+        "Le pingouin",
+        "L'albatros",
+        "Le paon"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment s'appelle le petit de la vache ?",
+      "choices": [
+        "Le veau",
+        "Le poulain",
+        "L'agneau",
+        "Le chevreau"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel animal est le symbole de la lenteur avec sa carapace ?",
+      "choices": [
+        "La tortue",
+        "L'escargot",
+        "Le paresseux",
+        "Le koala"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel félin est le plus rapide au monde ?",
+      "choices": [
+        "Le guépard",
+        "Le léopard",
+        "Le tigre",
+        "Le puma"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "De quoi se nourrit principalement le panda géant ?",
+      "choices": [
+        "De bambou",
+        "De poissons",
+        "D'eucalyptus",
+        "De fruits"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel mammifère marin est réputé pour son intelligence et son sonar ?",
+      "choices": [
+        "Le dauphin",
+        "Le phoque",
+        "La loutre",
+        "Le morse"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Combien de cœurs possède une pieuvre ?",
+      "choices": [
+        "Trois",
+        "Un",
+        "Deux",
+        "Quatre"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel animal change de couleur pour se camoufler ?",
+      "choices": [
+        "Le caméléon",
+        "L'iguane",
+        "Le gecko",
+        "La salamandre"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel est le seul mammifère capable de voler activement ?",
+      "choices": [
+        "La chauve-souris",
+        "L'écureuil volant",
+        "Le colugo",
+        "Le pétaure"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Comment appelle-t-on la femelle du sanglier ?",
+      "choices": [
+        "La laie",
+        "La truie",
+        "La biche",
+        "La hase"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel animal australien porte son petit dans une poche ventrale et fait des bonds ?",
+      "choices": [
+        "Le kangourou",
+        "Le koala",
+        "Le wombat",
+        "L'ornithorynque"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel insecte produit le miel ?",
+      "choices": [
+        "L'abeille",
+        "La guêpe",
+        "Le frelon",
+        "Le bourdon"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel est le plus grand félin sauvage du monde ?",
+      "choices": [
+        "Le tigre",
+        "Le lion",
+        "Le jaguar",
+        "Le léopard"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Combien de temps dure en moyenne la gestation de l'éléphant d'Afrique ?",
+      "choices": [
+        "Environ 22 mois",
+        "Environ 9 mois",
+        "Environ 12 mois",
+        "Environ 30 mois"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel oiseau dépose parfois ses œufs dans le nid des autres ?",
+      "choices": [
+        "Le coucou",
+        "Le merle",
+        "La pie",
+        "Le corbeau"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel animal marin possède huit bras munis de ventouses ?",
+      "choices": [
+        "La pieuvre",
+        "Le calmar",
+        "La méduse",
+        "L'étoile de mer"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel grand singe partage environ 98 % de son ADN avec l'humain ?",
+      "choices": [
+        "Le chimpanzé",
+        "Le gorille",
+        "L'orang-outan",
+        "Le gibbon"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Comment s'appelle l'habitat des fourmis ?",
+      "choices": [
+        "La fourmilière",
+        "La ruche",
+        "Le terrier",
+        "La tanière"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel animal polaire a la peau noire sous sa fourrure blanche ?",
+      "choices": [
+        "L'ours polaire",
+        "Le renard arctique",
+        "Le harfang",
+        "Le béluga"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel reptile est le plus grand du monde ?",
+      "choices": [
+        "Le crocodile marin",
+        "Le dragon de Komodo",
+        "L'anaconda",
+        "La tortue luth"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle est la durée de vie moyenne d'une tortue géante des Galápagos ?",
+      "choices": [
+        "Plus de 100 ans",
+        "Environ 40 ans",
+        "Environ 60 ans",
+        "Environ 20 ans"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel animal dort debout la plupart du temps ?",
+      "choices": [
+        "Le cheval",
+        "Le chat",
+        "Le chien",
+        "Le cochon"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel oiseau est le plus rapide en piqué ?",
+      "choices": [
+        "Le faucon pèlerin",
+        "L'aigle royal",
+        "Le martinet",
+        "Le condor"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de bosses possède un dromadaire ?",
+      "choices": [
+        "Une",
+        "Deux",
+        "Trois",
+        "Aucune"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel animal est le plus grand carnivore terrestre ?",
+      "choices": [
+        "L'ours polaire",
+        "Le lion",
+        "Le tigre de Sibérie",
+        "Le grizzly"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Comment s'appelle le cri du cerf ?",
+      "choices": [
+        "Le brame",
+        "Le barrissement",
+        "Le hennissement",
+        "Le feulement"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel oiseau noir et blanc vit exclusivement dans l'hémisphère sud ?",
+      "choices": [
+        "Le manchot",
+        "Le pingouin",
+        "Le macareux",
+        "Le fou de Bassan"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle est la durée de vie moyenne d'un chien ?",
+      "choices": [
+        "10 à 13 ans",
+        "5 à 7 ans",
+        "18 à 20 ans",
+        "25 ans"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel serpent est le plus long du monde ?",
+      "choices": [
+        "Le python réticulé",
+        "L'anaconda",
+        "Le cobra royal",
+        "Le boa constricteur"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel insecte élève-t-on pour produire la soie des tissus ?",
+      "choices": [
+        "Le ver à soie",
+        "L'abeille",
+        "La cigale",
+        "La fourmi tisserande"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle est la période d'hibernation typique du hérisson en France ?",
+      "choices": [
+        "L'hiver",
+        "L'été",
+        "Le printemps",
+        "Il n'hiberne pas"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel grand requin est réputé le plus dangereux pour l'homme ?",
+      "choices": [
+        "Le grand requin blanc",
+        "Le requin-baleine",
+        "Le requin-marteau",
+        "Le requin pèlerin"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment se déplace le kangourou ?",
+      "choices": [
+        "Par bonds",
+        "En galopant",
+        "En rampant",
+        "En marchant sur deux pattes"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel oiseau imite la parole humaine ?",
+      "choices": [
+        "Le perroquet",
+        "Le hibou",
+        "Le pigeon",
+        "Le canari"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel mammifère pond des œufs ?",
+      "choices": [
+        "L'ornithorynque",
+        "Le tatou",
+        "Le pangolin",
+        "L'opossum"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle abeille pond les œufs dans la ruche ?",
+      "choices": [
+        "La reine",
+        "L'ouvrière",
+        "Le faux bourdon",
+        "La gardienne"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel félin vit en groupe appelé « troupe » ou « pride » ?",
+      "choices": [
+        "Le lion",
+        "Le tigre",
+        "Le léopard",
+        "Le jaguar"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Combien de temps une girafe dort-elle par jour en moyenne ?",
+      "choices": [
+        "Moins de 2 heures",
+        "8 heures",
+        "12 heures",
+        "5 heures"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel rongeur construit des barrages ?",
+      "choices": [
+        "Le castor",
+        "Le ragondin",
+        "La loutre",
+        "Le rat musqué"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle tortue marine est la plus grande du monde ?",
+      "choices": [
+        "La tortue luth",
+        "La tortue verte",
+        "La tortue caouanne",
+        "La tortue imbriquée"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel singe d'Asie a le nez très allongé ?",
+      "choices": [
+        "Le nasique",
+        "Le macaque",
+        "Le gibbon",
+        "Le langur"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel animal marin a trois cœurs et un sang bleu ?",
+      "choices": [
+        "La pieuvre",
+        "Le crabe",
+        "L'étoile de mer",
+        "Le dauphin"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel oiseau migrateur revient chaque printemps nicher sous les toits en France ?",
+      "choices": [
+        "L'hirondelle",
+        "Le moineau",
+        "Le rouge-gorge",
+        "La mésange"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel poisson remonte les rivières pour se reproduire ?",
+      "choices": [
+        "Le saumon",
+        "Le thon",
+        "La sardine",
+        "Le maquereau"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel insecte peut soulever jusqu'à 50 fois son poids ?",
+      "choices": [
+        "La fourmi",
+        "L'abeille",
+        "Le grillon",
+        "La sauterelle"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel animal d'Australie ressemble à un petit ours et dort 20 h par jour ?",
+      "choices": [
+        "Le koala",
+        "Le wombat",
+        "Le quokka",
+        "Le diable de Tasmanie"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment s'appelle la maison de l'écureuil ?",
+      "choices": [
+        "Le nid (ou hotte)",
+        "Le terrier",
+        "La tanière",
+        "La loge"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel cétacé est surnommé la « licorne des mers » ?",
+      "choices": [
+        "Le narval",
+        "Le béluga",
+        "L'orque",
+        "Le cachalot"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel lézard peut courir sur l'eau ?",
+      "choices": [
+        "Le basilic",
+        "L'iguane",
+        "Le varan",
+        "Le gecko"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel animal a la pression sanguine la plus élevée ?",
+      "choices": [
+        "La girafe",
+        "L'éléphant",
+        "Le rhinocéros",
+        "La baleine"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle race de chien est la plus petite du monde ?",
+      "choices": [
+        "Le chihuahua",
+        "Le yorkshire",
+        "Le teckel",
+        "Le bichon"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel oiseau est le seul capable de voler sur place et en marche arrière ?",
+      "choices": [
+        "Le colibri",
+        "Le martinet",
+        "Le faucon",
+        "L'hirondelle"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel animal africain est le plus meurtrier pour l'homme (hors insectes) ?",
+      "choices": [
+        "L'hippopotame",
+        "Le lion",
+        "Le crocodile",
+        "L'éléphant"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien d'yeux possède la plupart des araignées ?",
+      "choices": [
+        "Huit",
+        "Deux",
+        "Quatre",
+        "Six"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel animal est le symbole du WWF ?",
+      "choices": [
+        "Le panda",
+        "Le tigre",
+        "L'éléphant",
+        "Le gorille"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle est la vitesse de pointe approximative d'un guépard ?",
+      "choices": [
+        "110 km/h",
+        "70 km/h",
+        "150 km/h",
+        "90 km/h"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel amphibien français est protégé et chante la nuit au printemps ?",
+      "choices": [
+        "La rainette",
+        "Le triton",
+        "La salamandre",
+        "L'axolotl"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel nom porte le groupe de mammifères marins comprenant phoques, otaries et morses ?",
+      "choices": [
+        "Les pinnipèdes",
+        "Les cétacés",
+        "Les siréniens",
+        "Les mustélidés"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel oiseau vivant possède la plus grande envergure d'ailes au monde ?",
+      "choices": [
+        "L'albatros hurleur",
+        "Le condor des Andes",
+        "Le pélican blanc",
+        "Le marabout d'Afrique"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment appelle-t-on la première et plus grande poche de l'estomac des ruminants ?",
+      "choices": [
+        "Le rumen",
+        "Le feuillet",
+        "La caillette",
+        "Le réseau"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel cétacé détient le record de la plongée en apnée la plus longue chez les mammifères ?",
+      "choices": [
+        "La baleine à bec de Cuvier",
+        "Le cachalot",
+        "Le grand dauphin",
+        "Le rorqual commun"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel oiseau effectue la plus longue migration annuelle, d'un pôle à l'autre ?",
+      "choices": [
+        "La sterne arctique",
+        "La cigogne blanche",
+        "L'hirondelle rustique",
+        "Le coucou gris"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Sur quel continent ne trouve-t-on naturellement aucune fourmi ?",
+      "choices": [
+        "L'Antarctique",
+        "L'Océanie",
+        "L'Amérique du Sud",
+        "L'Afrique"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel est le plus grand rongeur vivant du monde ?",
+      "choices": [
+        "Le capybara",
+        "Le castor",
+        "Le porc-épic",
+        "Le ragondin"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel serpent est le plus lourd du monde ?",
+      "choices": [
+        "L'anaconda vert",
+        "Le python réticulé",
+        "Le cobra royal",
+        "Le boa constricteur"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel est le seul marsupial vivant naturellement en Amérique du Nord ?",
+      "choices": [
+        "L'opossum de Virginie",
+        "Le wombat",
+        "Le numbat",
+        "Le bandicoot"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien de vertèbres cervicales possède une girafe ?",
+      "choices": [
+        "Sept",
+        "Quatorze",
+        "Douze",
+        "Vingt"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel est le nom scientifique du guépard ?",
+      "choices": [
+        "Acinonyx jubatus",
+        "Panthera pardus",
+        "Puma concolor",
+        "Panthera leo"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle est la seule espèce de manchot vivant naturellement au nord de l'équateur ?",
+      "choices": [
+        "Le manchot des Galápagos",
+        "Le manchot du Cap",
+        "Le manchot de Humboldt",
+        "Le gorfou sauteur"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel animal possède le plus grand nombre de types de photorécepteurs dans ses yeux ?",
+      "choices": [
+        "La crevette-mante",
+        "L'aigle royal",
+        "La libellule",
+        "Le poulpe"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle est la plus petite espèce d'ours au monde ?",
+      "choices": [
+        "L'ours malais",
+        "L'ours à lunettes",
+        "L'ours noir d'Asie",
+        "Le panda roux"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel serpent est réputé être le seul à construire un véritable nid pour ses œufs ?",
+      "choices": [
+        "Le cobra royal",
+        "Le python réticulé",
+        "Le mamba noir",
+        "La vipère du Gabon"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel est le nom scientifique de l'abeille domestique élevée en Europe ?",
+      "choices": [
+        "Apis mellifera",
+        "Apis cerana",
+        "Apis dorsata",
+        "Apis florea"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel est l'invertébré le plus lourd connu au monde ?",
+      "choices": [
+        "Le calmar colossal",
+        "Le calmar géant",
+        "Le homard américain",
+        "La méduse à crinière de lion"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel serpent terrestre possède le venin le plus toxique au monde selon la dose létale ?",
+      "choices": [
+        "Le taïpan du désert",
+        "Le cobra royal",
+        "Le mamba noir",
+        "Le crotale diamantin"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel oiseau pond l'œuf le plus gros par rapport à la taille de son corps ?",
+      "choices": [
+        "Le kiwi",
+        "L'autruche",
+        "Le manchot empereur",
+        "Le colibri"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel gros mammifère terrestre possède le cerveau le plus lourd ?",
+      "choices": [
+        "L'éléphant d'Afrique",
+        "L'hippopotame",
+        "Le rhinocéros blanc",
+        "Le gorille"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

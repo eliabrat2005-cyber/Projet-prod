@@ -4,29 +4,566 @@
   "icon": "🍬",
   "color": "#ec407a",
   "questions": [
-    {"q": "Quel bonbon Haribo en forme d'ourson est un best-seller mondial ?", "choices": ["L'ours d'or", "La fraise Tagada", "Le crocodile", "Le schtroumpf"], "answer": 0},
-    {"q": "Quelle petite fraise rouge et sucrée est une star de Haribo ?", "choices": ["La fraise Tagada", "La fraise Pik", "La Fraizibus", "La Framboisine"], "answer": 0},
-    {"q": "Quel bonbon bleu emblématique reprend un personnage de bande dessinée ?", "choices": ["Le Schtroumpf", "Le Titi", "Le Marsupilami", "L'Astérix"], "answer": 0},
-    {"q": "Quel bonbon pétille et crépite sur la langue ?", "choices": ["Le sucre pétillant", "La guimauve", "Le caramel mou", "La réglisse"], "answer": 0},
-    {"q": "De quelle plante vient la réglisse ?", "choices": ["D'une racine", "D'une feuille", "D'une fleur", "D'une écorce"], "answer": 0},
-    {"q": "Quelle sucette ronde est vendue avec un bâton depuis 1958 en Espagne ?", "choices": ["La Chupa Chups", "La Pierrot Gourmand", "La Lolly", "La Pop Rock"], "answer": 0},
-    {"q": "Quel artiste célèbre a dessiné le logo de Chupa Chups ?", "choices": ["Salvador Dalí", "Picasso", "Andy Warhol", "Miró"], "answer": 0},
-    {"q": "Quel bonbon anglais mélange dragées aux mille parfums, dont certains atroces, dans Harry Potter ?", "choices": ["Les dragées surprises de Bertie Crochue", "Les Fizwizbiz", "Les Chocogrenouilles", "Les Patacitrouilles"], "answer": 0},
-    {"q": "Quelle barre chocolatée contient du caramel et des cacahuètes ?", "choices": ["Le Snickers", "Le Kit Kat", "Le Twix", "Le Bounty"], "answer": 0},
-    {"q": "Quelle barre chocolatée est fourrée à la noix de coco ?", "choices": ["Le Bounty", "Le Mars", "Le Lion", "Le Nuts"], "answer": 0},
-    {"q": "Quelles pastilles colorées ont pour slogan « fond dans la bouche, pas dans la main » ?", "choices": ["Les M&M's", "Les Smarties", "Les Skittles", "Les Dragibus"], "answer": 0},
-    {"q": "Quels bonbons multicolores Haribo ressemblent à de grosses billes molles ?", "choices": ["Les Dragibus", "Les Smarties", "Les Skittles", "Les Tic Tac"], "answer": 0},
-    {"q": "Quel bonbon acidulé en forme de bouteille pétille au cola ?", "choices": ["La bouteille de cola", "Le Fizzy", "La limonade Pik", "Le Cola-Cola"], "answer": 0},
-    {"q": "Quelle confiserie molle et aérée grille-t-on sur un feu de camp ?", "choices": ["Le marshmallow (guimauve)", "Le nougat", "La pâte de fruit", "Le loukoum"], "answer": 0},
-    {"q": "Quelle confiserie orientale est parfumée à la rose et couverte de sucre glace ?", "choices": ["Le loukoum", "Le halva", "La datte fourrée", "Le baklava"], "answer": 0},
-    {"q": "Quel bonbon à la menthe a un trou au milieu ?", "choices": ["Le Polo (ou Life Savers)", "Le Tic Tac", "Le Mentos", "La Vichy"], "answer": 0},
-    {"q": "Quelle pastille de Vichy est octogonale et blanche ?", "choices": ["La pastille de Vichy", "Le Krema", "La Ricola", "Le Fisherman's"], "answer": 0},
-    {"q": "Quel caramel breton est fait au beurre salé ?", "choices": ["Le caramel au beurre salé", "Le carambar", "Le nougat tendre", "Le toffee"], "answer": 0},
-    {"q": "Quel bonbon long au caramel est célèbre pour ses blagues ?", "choices": ["Le Carambar", "Le Malabar", "Le Kréma", "Le Michoko"], "answer": 0},
-    {"q": "Quel chewing-gum rose est associé à un personnage musclé ?", "choices": ["Le Malabar", "Le Hollywood", "Le Freedent", "Le Airwaves"], "answer": 0},
-    {"q": "Quelle spécialité de Montélimar mélange miel, amandes et pistaches ?", "choices": ["Le nougat", "Le calisson", "La praline", "Le touron espagnol"], "answer": 0},
-    {"q": "Quelle confiserie d'Aix-en-Provence a une forme de losange ?", "choices": ["Le calisson", "Le nougat", "La navette", "Le berlingot"], "answer": 0},
-    {"q": "Quel petit bonbon pyramidal rayé est une spécialité de Carpentras ?", "choices": ["Le berlingot", "Le calisson", "L'anis de Flavigny", "La bêtise de Cambrai"], "answer": 0},
-    {"q": "Quelle « bêtise » mentholée est née d'une erreur de confiseur ?", "choices": ["La bêtise de Cambrai", "Le berlingot de Nantes", "La violette de Toulouse", "Le sucre d'orge"], "answer": 0}
+    {
+      "q": "Quel bonbon Haribo en forme d'ourson est un best-seller mondial ?",
+      "choices": [
+        "L'ours d'or",
+        "La fraise Tagada",
+        "Le crocodile",
+        "Le schtroumpf"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle petite fraise rouge et sucrée est une star de Haribo ?",
+      "choices": [
+        "La fraise Tagada",
+        "La fraise Pik",
+        "La Fraizibus",
+        "La Framboisine"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel bonbon bleu emblématique reprend un personnage de bande dessinée ?",
+      "choices": [
+        "Le Schtroumpf",
+        "Le Titi",
+        "Le Marsupilami",
+        "L'Astérix"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel bonbon pétille et crépite sur la langue ?",
+      "choices": [
+        "Le sucre pétillant",
+        "La guimauve",
+        "Le caramel mou",
+        "La réglisse"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "De quelle plante vient la réglisse ?",
+      "choices": [
+        "D'une racine",
+        "D'une feuille",
+        "D'une fleur",
+        "D'une écorce"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle sucette ronde est vendue avec un bâton depuis 1958 en Espagne ?",
+      "choices": [
+        "La Chupa Chups",
+        "La Pierrot Gourmand",
+        "La Lolly",
+        "La Pop Rock"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel artiste célèbre a dessiné le logo de Chupa Chups ?",
+      "choices": [
+        "Salvador Dalí",
+        "Picasso",
+        "Andy Warhol",
+        "Miró"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel bonbon anglais mélange dragées aux mille parfums, dont certains atroces, dans Harry Potter ?",
+      "choices": [
+        "Les dragées surprises de Bertie Crochue",
+        "Les Fizwizbiz",
+        "Les Chocogrenouilles",
+        "Les Patacitrouilles"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle barre chocolatée contient du caramel et des cacahuètes ?",
+      "choices": [
+        "Le Snickers",
+        "Le Kit Kat",
+        "Le Twix",
+        "Le Bounty"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle barre chocolatée est fourrée à la noix de coco ?",
+      "choices": [
+        "Le Bounty",
+        "Le Mars",
+        "Le Lion",
+        "Le Nuts"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelles pastilles colorées ont pour slogan « fond dans la bouche, pas dans la main » ?",
+      "choices": [
+        "Les M&M's",
+        "Les Smarties",
+        "Les Skittles",
+        "Les Dragibus"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quels bonbons multicolores Haribo ressemblent à de grosses billes molles ?",
+      "choices": [
+        "Les Dragibus",
+        "Les Smarties",
+        "Les Skittles",
+        "Les Tic Tac"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel bonbon acidulé en forme de bouteille pétille au cola ?",
+      "choices": [
+        "La bouteille de cola",
+        "Le Fizzy",
+        "La limonade Pik",
+        "Le Cola-Cola"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle confiserie molle et aérée grille-t-on sur un feu de camp ?",
+      "choices": [
+        "Le marshmallow (guimauve)",
+        "Le nougat",
+        "La pâte de fruit",
+        "Le loukoum"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle confiserie orientale est parfumée à la rose et couverte de sucre glace ?",
+      "choices": [
+        "Le loukoum",
+        "Le halva",
+        "La datte fourrée",
+        "Le baklava"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel bonbon à la menthe a un trou au milieu ?",
+      "choices": [
+        "Le Polo (ou Life Savers)",
+        "Le Tic Tac",
+        "Le Mentos",
+        "La Vichy"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle pastille de Vichy est octogonale et blanche ?",
+      "choices": [
+        "La pastille de Vichy",
+        "Le Krema",
+        "La Ricola",
+        "Le Fisherman's"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel caramel breton est fait au beurre salé ?",
+      "choices": [
+        "Le caramel au beurre salé",
+        "Le carambar",
+        "Le nougat tendre",
+        "Le toffee"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel bonbon long au caramel est célèbre pour ses blagues ?",
+      "choices": [
+        "Le Carambar",
+        "Le Malabar",
+        "Le Kréma",
+        "Le Michoko"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel chewing-gum rose est associé à un personnage musclé ?",
+      "choices": [
+        "Le Malabar",
+        "Le Hollywood",
+        "Le Freedent",
+        "Le Airwaves"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle spécialité de Montélimar mélange miel, amandes et pistaches ?",
+      "choices": [
+        "Le nougat",
+        "Le calisson",
+        "La praline",
+        "Le touron espagnol"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle confiserie d'Aix-en-Provence a une forme de losange ?",
+      "choices": [
+        "Le calisson",
+        "Le nougat",
+        "La navette",
+        "Le berlingot"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel petit bonbon pyramidal rayé est une spécialité de Carpentras ?",
+      "choices": [
+        "Le berlingot",
+        "Le calisson",
+        "L'anis de Flavigny",
+        "La bêtise de Cambrai"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle « bêtise » mentholée est née d'une erreur de confiseur ?",
+      "choices": [
+        "La bêtise de Cambrai",
+        "Le berlingot de Nantes",
+        "La violette de Toulouse",
+        "Le sucre d'orge"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "De quel pays la marque de bonbons Haribo est-elle originaire ?",
+      "choices": [
+        "L'Allemagne",
+        "La France",
+        "Les Pays-Bas",
+        "La Belgique"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Pour quel goût très prononcé les bonbons « Têtes Brûlées » sont-ils connus ?",
+      "choices": [
+        "Acidulé",
+        "Mentholé",
+        "Chocolaté",
+        "Réglissé"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "En quelle année la marque Haribo a-t-elle été fondée ?",
+      "choices": [
+        "1920",
+        "1935",
+        "1900",
+        "1945"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Que signifie l'acronyme « HARIBO » ?",
+      "choices": [
+        "Hans Riegel Bonn",
+        "Hansel Riegel Berlin",
+        "Haricot Bonbon",
+        "Hans Ribeiro Bonn"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année le Carambar a-t-il été créé ?",
+      "choices": [
+        "1954",
+        "1969",
+        "1946",
+        "1980"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle entreprise du Nord de la France a inventé le Carambar ?",
+      "choices": [
+        "Delespaul-Havez",
+        "Cadbury",
+        "Lutti",
+        "Krema"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "De quel pays le loukoum est-il originaire ?",
+      "choices": [
+        "La Turquie",
+        "La Grèce",
+        "Le Liban",
+        "Le Maroc"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle ville de Loire-Atlantique est, avec Carpentras, célèbre pour ses berlingots ?",
+      "choices": [
+        "Nantes",
+        "Lyon",
+        "Bordeaux",
+        "Lille"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année les M&M's ont-ils été créés aux États-Unis ?",
+      "choices": [
+        "1941",
+        "1932",
+        "1955",
+        "1928"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel entrepreneur espagnol a inventé la sucette Chupa Chups en 1958 ?",
+      "choices": [
+        "Enric Bernat",
+        "Salvador Dalí",
+        "Ferran Adrià",
+        "Josep Lluís Sert"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "De quelle plante la guimauve traditionnelle tire-t-elle son nom et sa texture ?",
+      "choices": [
+        "La racine de guimauve",
+        "La canne à sucre",
+        "Le manioc",
+        "Le blé"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle friandise gélifiée en forme de haricot est traditionnellement associée à Pâques ?",
+      "choices": [
+        "Le jelly bean",
+        "Le candy corn",
+        "Le loukoum",
+        "Le nougat"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans quelle région française sont fabriqués les Anis de Flavigny ?",
+      "choices": [
+        "La Bourgogne",
+        "La Provence",
+        "La Bretagne",
+        "L'Alsace"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel agent gélifiant utilisé dans certains bonbons est extrait d'algues ?",
+      "choices": [
+        "L'agar-agar",
+        "La gélatine",
+        "La cire d'abeille",
+        "Le miel"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "De quelle ville française la papillote chocolatée de Noël est-elle originaire ?",
+      "choices": [
+        "Lyon",
+        "Paris",
+        "Strasbourg",
+        "Marseille"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Que représentent les deux « M » de la marque M&M's ?",
+      "choices": [
+        "Mars et Murrie",
+        "Milton et Mars",
+        "Mint et Milk",
+        "Mars et Milton"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année la fraise Tagada a-t-elle été lancée par Haribo ?",
+      "choices": [
+        "1969",
+        "1961",
+        "1975",
+        "1985"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Qui a fondé l'entreprise Haribo à Bonn en 1920 ?",
+      "choices": [
+        "Hans Riegel",
+        "Bruce Murrie",
+        "Enric Bernat",
+        "Theodor Tobler"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Hans Riegel a-t-il créé le premier ours en gomme de Haribo ?",
+      "choices": [
+        "1922",
+        "1935",
+        "1960",
+        "1911"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année le chewing-gum Malabar a-t-il été lancé en France ?",
+      "choices": [
+        "1958",
+        "1969",
+        "1945",
+        "1975"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel chimiste américain a inventé le sucre pétillant commercialisé sous le nom Pop Rocks ?",
+      "choices": [
+        "William Mitchell",
+        "Forrest Mars",
+        "Bruce Murrie",
+        "Milton Hershey"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Salvador Dalí a-t-il dessiné le logo de Chupa Chups ?",
+      "choices": [
+        "1969",
+        "1958",
+        "1975",
+        "1980"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "De quel pays le bonbon Mentos est-il originaire ?",
+      "choices": [
+        "Les Pays-Bas",
+        "L'Allemagne",
+        "La Belgique",
+        "La Suède"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année la barre chocolatée Mars a-t-elle été créée au Royaume-Uni ?",
+      "choices": [
+        "1932",
+        "1920",
+        "1945",
+        "1958"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel groupe, né en 2017, réunit les marques Carambar, Krema et Malabar ?",
+      "choices": [
+        "Carambar & Co",
+        "Mondelez",
+        "Nestlé",
+        "Cadbury"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel confiseur suisse a inventé le Toblerone en 1908 ?",
+      "choices": [
+        "Theodor Tobler",
+        "Henri Nestlé",
+        "Rodolphe Lindt",
+        "Philippe Suchard"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel colorant rouge (E120) utilisé dans certaines confiseries est extrait d'un insecte ?",
+      "choices": [
+        "La cochenille",
+        "Le curcuma",
+        "La chlorophylle",
+        "Le paprika"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

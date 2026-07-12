@@ -60,6 +60,12 @@
         <div class="xp-text" id="topic-xp-text">0 / 40 XP</div>
         <div class="topic-record" id="topic-record"></div>
       </div>
+      <div class="diff-select" id="diff-select">
+        <button class="diff-chip" data-diff="1"><b>😌</b><span>Facile</span><small></small></button>
+        <button class="diff-chip" data-diff="2"><b>🎯</b><span>Moyen</span><small></small></button>
+        <button class="diff-chip" data-diff="3"><b>🔥</b><span>Difficile</span><small></small></button>
+        <button class="diff-chip" data-diff="4"><b>💀</b><span>Extrême</span><small></small></button>
+      </div>
       <div class="topic-actions">
         <button id="btn-quick" class="btn btn-primary btn-big">⚡ Partie rapide</button>
         <button id="btn-friend" class="btn btn-secondary btn-big">👥 Défier un ami</button>
@@ -78,7 +84,7 @@
       <div class="friend-box">
         <div class="friend-card">
           <h3>Créer un défi</h3>
-          <p>Génère un code et envoie-le à ton ami.</p>
+          <p>Génère un code et envoie-le à ton ami.<br><span id="friend-diff" class="friend-diff"></span></p>
           <button id="btn-create-room" class="btn btn-primary">Générer un code</button>
           <div id="room-code-box" class="room-code hidden">
             <div class="room-code-value" id="room-code">····</div>

@@ -136,12 +136,21 @@ class Session:
         topic_id = msg.get("topic_id")
         return topic_id if topic_id and qbank.get_topic(topic_id) else None
 
+    @staticmethod
+    def _difficulty(msg: dict) -> int:
+        try:
+            d = int(msg.get("difficulty", qbank.DEFAULT_DIFFICULTY))
+        except (TypeError, ValueError):
+            return qbank.DEFAULT_DIFFICULTY
+        return d if d in qbank.DIFFICULTIES else qbank.DEFAULT_DIFFICULTY
+
     async def _find_match(self, msg: dict) -> None:
         topic_id = self._valid_topic(msg)
         if topic_id is None:
             await self.send({"type": "error", "message": "Thème inconnu."})
             return
-        await lobby.find_match(topic_id, self.participant)
+        await lobby.find_match(topic_id, self.participant,
+                               difficulty=self._difficulty(msg))
 
     async def _cancel_find(self, msg: dict) -> None:
         lobby.cancel_find(self.participant)
@@ -152,7 +161,8 @@ class Session:
         if topic_id is None:
             await self.send({"type": "error", "message": "Thème inconnu."})
             return
-        await lobby.start_bot_game(topic_id, self.participant)
+        await lobby.start_bot_game(topic_id, self.participant,
+                                   difficulty=self._difficulty(msg))
 
     async def _create_room(self, msg: dict) -> None:
         topic_id = self._valid_topic(msg)
@@ -160,8 +170,10 @@ class Session:
             await self.send({"type": "error", "message": "Thème inconnu."})
             return
         lobby.close_rooms_of(self.participant.player_id)
-        code = lobby.create_room(topic_id, self.participant)
-        await self.send({"type": "room_created", "code": code, "topic_id": topic_id})
+        difficulty = self._difficulty(msg)
+        code = lobby.create_room(topic_id, self.participant, difficulty=difficulty)
+        await self.send({"type": "room_created", "code": code,
+                         "topic_id": topic_id, "difficulty": difficulty})
 
     async def _cancel_room(self, msg: dict) -> None:
         lobby.close_rooms_of(self.participant.player_id)

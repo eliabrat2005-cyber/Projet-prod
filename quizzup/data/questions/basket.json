@@ -4,29 +4,566 @@
   "icon": "🏀",
   "color": "#ef6c00",
   "questions": [
-    {"q": "Combien de points vaut un panier marqué derrière la ligne à 3 points ?", "choices": ["Trois", "Deux", "Quatre", "Un"], "answer": 0},
-    {"q": "Quelle ligue nord-américaine est la référence mondiale du basket ?", "choices": ["La NBA", "L'Euroligue", "La WNBA", "La G-League"], "answer": 0},
-    {"q": "Quel joueur des Bulls a remporté 6 titres NBA dans les années 90 ?", "choices": ["Michael Jordan", "Scottie Pippen", "Magic Johnson", "Larry Bird"], "answer": 0},
-    {"q": "Quel numéro Michael Jordan portait-il ?", "choices": ["23", "32", "33", "45 toujours"], "answer": 0},
-    {"q": "Quel géant français a été drafté n°1 par les Spurs en 2023 ?", "choices": ["Victor Wembanyama", "Rudy Gobert", "Bilal Coulibaly", "Zaccharie Risacher"], "answer": 0},
-    {"q": "Quel meneur français a gagné 4 titres NBA avec les Spurs ?", "choices": ["Tony Parker", "Boris Diaw", "Nicolas Batum", "Evan Fournier"], "answer": 0},
-    {"q": "Combien de temps dure une possession avant de devoir tirer ?", "choices": ["24 secondes", "30 secondes", "14 secondes", "35 secondes"], "answer": 0},
-    {"q": "Quel « King » a ramené un titre à Cleveland en 2016 ?", "choices": ["LeBron James", "Kyrie Irving", "Kevin Love", "Dwyane Wade"], "answer": 0},
-    {"q": "Quel tir s'effectue en suspension d'une seule main au-dessus du panier ?", "choices": ["Le dunk", "Le lay-up", "Le hook", "Le fadeaway"], "answer": 0},
-    {"q": "Quel meneur des Warriors a révolutionné le tir à 3 points ?", "choices": ["Stephen Curry", "Klay Thompson", "Damian Lillard", "James Harden"], "answer": 0},
-    {"q": "Quelle équipe NBA joue au Madison Square Garden ?", "choices": ["Les New York Knicks", "Les Brooklyn Nets", "Les Celtics", "Les 76ers"], "answer": 0},
-    {"q": "Quel pivot légendaire des Lakers est mort en 2020 avec sa fille Gianna ?", "choices": ["Kobe Bryant", "Shaquille O'Neal", "Wilt Chamberlain", "Kareem"], "answer": 0},
-    {"q": "Quel surnom portait Kobe Bryant ?", "choices": ["Black Mamba", "The King", "The Answer", "Air"], "answer": 0},
-    {"q": "Quel pivot camerounais a mené les Sixers avant son transfert ?", "choices": ["Joel Embiid", "Pascal Siakam", "Serge Ibaka", "Luc Mbah a Moute"], "answer": 0},
-    {"q": "Quel Grec surnommé « Greek Freak » joue à Milwaukee ?", "choices": ["Giannis Antetokounmpo", "Nikola Jokic", "Luka Doncic", "Kristaps Porzingis"], "answer": 0},
-    {"q": "Combien de joueurs par équipe sur un terrain de basket ?", "choices": ["Cinq", "Six", "Sept", "Quatre"], "answer": 0},
-    {"q": "Quelle faute commet-on en marchant avec le ballon sans dribbler ?", "choices": ["Le marcher", "Le double dribble", "Le passage en force", "Les 3 secondes"], "answer": 0},
-    {"q": "Quelle équipe de France a décroché l'argent aux JO de Paris 2024 ?", "choices": ["La France", "L'Allemagne", "La Serbie", "Le Canada"], "answer": 0},
-    {"q": "Quel pivot français est plusieurs fois meilleur défenseur de la NBA ?", "choices": ["Rudy Gobert", "Joakim Noah", "Ian Mahinmi", "Clint Capela"], "answer": 0},
-    {"q": "Quel Slovène génial porte le numéro 77 ?", "choices": ["Luka Doncic", "Goran Dragic", "Nikola Jokic", "Dario Saric"], "answer": 0},
-    {"q": "Quel concours a lieu pendant le All-Star Week-end ?", "choices": ["Le concours de dunks", "Le marathon de tirs", "Le match des légendes", "Le concours de passes"], "answer": 0},
-    {"q": "À quelle hauteur le panier est-il fixé ?", "choices": ["3,05 m", "2,80 m", "3,20 m", "2,95 m"], "answer": 0},
-    {"q": "Quel film réunit Michael Jordan et les Looney Tunes ?", "choices": ["Space Jam", "Coach Carter", "White Men Can't Jump", "Hustle"], "answer": 0},
-    {"q": "Quel pivot serbe des Nuggets a été plusieurs fois MVP de la NBA ?", "choices": ["Nikola Jokic", "Nikola Vucevic", "Boban Marjanovic", "Jusuf Nurkic"], "answer": 0}
+    {
+      "q": "Combien de points vaut un panier marqué derrière la ligne à 3 points ?",
+      "choices": [
+        "Trois",
+        "Deux",
+        "Quatre",
+        "Un"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle ligue nord-américaine est la référence mondiale du basket ?",
+      "choices": [
+        "La NBA",
+        "L'Euroligue",
+        "La WNBA",
+        "La G-League"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel joueur des Bulls a remporté 6 titres NBA dans les années 90 ?",
+      "choices": [
+        "Michael Jordan",
+        "Scottie Pippen",
+        "Magic Johnson",
+        "Larry Bird"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel numéro Michael Jordan portait-il ?",
+      "choices": [
+        "23",
+        "32",
+        "33",
+        "45 toujours"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel géant français a été drafté n°1 par les Spurs en 2023 ?",
+      "choices": [
+        "Victor Wembanyama",
+        "Rudy Gobert",
+        "Bilal Coulibaly",
+        "Zaccharie Risacher"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel meneur français a gagné 4 titres NBA avec les Spurs ?",
+      "choices": [
+        "Tony Parker",
+        "Boris Diaw",
+        "Nicolas Batum",
+        "Evan Fournier"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de temps dure une possession avant de devoir tirer ?",
+      "choices": [
+        "24 secondes",
+        "30 secondes",
+        "14 secondes",
+        "35 secondes"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel « King » a ramené un titre à Cleveland en 2016 ?",
+      "choices": [
+        "LeBron James",
+        "Kyrie Irving",
+        "Kevin Love",
+        "Dwyane Wade"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel tir s'effectue en suspension d'une seule main au-dessus du panier ?",
+      "choices": [
+        "Le dunk",
+        "Le lay-up",
+        "Le hook",
+        "Le fadeaway"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel meneur des Warriors a révolutionné le tir à 3 points ?",
+      "choices": [
+        "Stephen Curry",
+        "Klay Thompson",
+        "Damian Lillard",
+        "James Harden"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle équipe NBA joue au Madison Square Garden ?",
+      "choices": [
+        "Les New York Knicks",
+        "Les Brooklyn Nets",
+        "Les Celtics",
+        "Les 76ers"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel pivot légendaire des Lakers est mort en 2020 avec sa fille Gianna ?",
+      "choices": [
+        "Kobe Bryant",
+        "Shaquille O'Neal",
+        "Wilt Chamberlain",
+        "Kareem"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel surnom portait Kobe Bryant ?",
+      "choices": [
+        "Black Mamba",
+        "The King",
+        "The Answer",
+        "Air"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel pivot camerounais a mené les Sixers avant son transfert ?",
+      "choices": [
+        "Joel Embiid",
+        "Pascal Siakam",
+        "Serge Ibaka",
+        "Luc Mbah a Moute"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel Grec surnommé « Greek Freak » joue à Milwaukee ?",
+      "choices": [
+        "Giannis Antetokounmpo",
+        "Nikola Jokic",
+        "Luka Doncic",
+        "Kristaps Porzingis"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Combien de joueurs par équipe sur un terrain de basket ?",
+      "choices": [
+        "Cinq",
+        "Six",
+        "Sept",
+        "Quatre"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle faute commet-on en marchant avec le ballon sans dribbler ?",
+      "choices": [
+        "Le marcher",
+        "Le double dribble",
+        "Le passage en force",
+        "Les 3 secondes"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle équipe de France a décroché l'argent aux JO de Paris 2024 ?",
+      "choices": [
+        "La France",
+        "L'Allemagne",
+        "La Serbie",
+        "Le Canada"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel pivot français est plusieurs fois meilleur défenseur de la NBA ?",
+      "choices": [
+        "Rudy Gobert",
+        "Joakim Noah",
+        "Ian Mahinmi",
+        "Clint Capela"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel Slovène génial porte le numéro 77 ?",
+      "choices": [
+        "Luka Doncic",
+        "Goran Dragic",
+        "Nikola Jokic",
+        "Dario Saric"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel concours a lieu pendant le All-Star Week-end ?",
+      "choices": [
+        "Le concours de dunks",
+        "Le marathon de tirs",
+        "Le match des légendes",
+        "Le concours de passes"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "À quelle hauteur le panier est-il fixé ?",
+      "choices": [
+        "3,05 m",
+        "2,80 m",
+        "3,20 m",
+        "2,95 m"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel film réunit Michael Jordan et les Looney Tunes ?",
+      "choices": [
+        "Space Jam",
+        "Coach Carter",
+        "White Men Can't Jump",
+        "Hustle"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel pivot serbe des Nuggets a été plusieurs fois MVP de la NBA ?",
+      "choices": [
+        "Nikola Jokic",
+        "Nikola Vucevic",
+        "Boban Marjanovic",
+        "Jusuf Nurkic"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de minutes dure un quart-temps en NBA ?",
+      "choices": [
+        "12 minutes",
+        "10 minutes",
+        "8 minutes",
+        "15 minutes"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de fautes personnelles suffisent à exclure un joueur d'un match NBA ?",
+      "choices": [
+        "Six",
+        "Cinq",
+        "Quatre",
+        "Sept"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel joueur est devenu en 2023 le meilleur marqueur de l'histoire de la NBA ?",
+      "choices": [
+        "LeBron James",
+        "Kareem Abdul-Jabbar",
+        "Michael Jordan",
+        "Kobe Bryant"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle franchise détient le plus grand nombre de titres NBA ?",
+      "choices": [
+        "Les Boston Celtics",
+        "Les Los Angeles Lakers",
+        "Les Chicago Bulls",
+        "Les Golden State Warriors"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Lors de quelle saison la ligne à 3 points a-t-elle été instaurée en NBA ?",
+      "choices": [
+        "1979-1980",
+        "1971-1972",
+        "1985-1986",
+        "1967-1968"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de titres de MVP de la saison régulière Michael Jordan a-t-il remportés ?",
+      "choices": [
+        "Cinq",
+        "Six",
+        "Trois",
+        "Quatre"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel joueur détient le record de passes décisives en carrière NBA ?",
+      "choices": [
+        "John Stockton",
+        "Jason Kidd",
+        "Chris Paul",
+        "Magic Johnson"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel joueur détient le record de rebonds en carrière NBA ?",
+      "choices": [
+        "Wilt Chamberlain",
+        "Bill Russell",
+        "Kareem Abdul-Jabbar",
+        "Dennis Rodman"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année la NBA (alors BAA) a-t-elle été fondée ?",
+      "choices": [
+        "1946",
+        "1936",
+        "1950",
+        "1926"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel entraîneur détient le record de victoires en saison régulière NBA ?",
+      "choices": [
+        "Gregg Popovich",
+        "Phil Jackson",
+        "Don Nelson",
+        "Lenny Wilkens"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle équipe a signé la meilleure saison régulière de l'histoire avec 73 victoires ?",
+      "choices": [
+        "Les Golden State Warriors",
+        "Les Chicago Bulls",
+        "Les Los Angeles Lakers",
+        "Les Boston Celtics"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de titres NBA Bill Russell a-t-il remportés avec les Celtics ?",
+      "choices": [
+        "Onze",
+        "Huit",
+        "Six",
+        "Treize"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle est la largeur réglementaire d'un terrain de basket FIBA ?",
+      "choices": [
+        "15 mètres",
+        "14 mètres",
+        "16 mètres",
+        "13 mètres"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel club détient le record de victoires en EuroLeague ?",
+      "choices": [
+        "Le Real Madrid",
+        "Le CSKA Moscou",
+        "Le Panathinaïkos",
+        "Le Maccabi Tel-Aviv"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel joueur a été élu MVP de la saison régulière NBA en 2023 ?",
+      "choices": [
+        "Joel Embiid",
+        "Nikola Jokic",
+        "Giannis Antetokounmpo",
+        "Jayson Tatum"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de points Wilt Chamberlain a-t-il marqués lors de son match record en 1962 ?",
+      "choices": [
+        "100",
+        "78",
+        "81",
+        "73"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Contre quelle équipe Kobe Bryant a-t-il marqué 81 points en janvier 2006 ?",
+      "choices": [
+        "Les Toronto Raptors",
+        "Les Dallas Mavericks",
+        "Les Utah Jazz",
+        "Les Portland Trail Blazers"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Tony Parker a-t-il été élu MVP des Finales NBA ?",
+      "choices": [
+        "2007",
+        "2005",
+        "2003",
+        "2014"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien de paniers à 3 points Stephen Curry a-t-il inscrits lors de la saison record 2015-2016 ?",
+      "choices": [
+        "402",
+        "286",
+        "272",
+        "324"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Qui a été élu MVP du tout premier All-Star Game de la NBA, en 1951 ?",
+      "choices": [
+        "Ed Macauley",
+        "Bob Cousy",
+        "George Mikan",
+        "Dolph Schayes"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année les San Antonio Spurs ont-ils remporté leur premier titre NBA ?",
+      "choices": [
+        "1999",
+        "2003",
+        "1997",
+        "2005"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel numéro Wilt Chamberlain portait-il durant sa carrière ?",
+      "choices": [
+        "13",
+        "24",
+        "32",
+        "44"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel joueur détient le record du plus grand nombre de triples-doubles en carrière NBA ?",
+      "choices": [
+        "Russell Westbrook",
+        "Oscar Robertson",
+        "Magic Johnson",
+        "LeBron James"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Michael Jordan et les Bulls ont-ils achevé leur premier « three-peat » ?",
+      "choices": [
+        "1993",
+        "1991",
+        "1992",
+        "1996"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle est la moyenne de points par match de Michael Jordan en saison régulière, record de la NBA ?",
+      "choices": [
+        "30,1",
+        "28,4",
+        "32,6",
+        "27,9"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année l'équipe de France masculine a-t-elle remporté son unique titre à l'EuroBasket ?",
+      "choices": [
+        "2013",
+        "2011",
+        "2009",
+        "2015"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien de médailles d'or olympiques Michael Jordan a-t-il remportées ?",
+      "choices": [
+        "Deux",
+        "Une",
+        "Trois",
+        "Quatre"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

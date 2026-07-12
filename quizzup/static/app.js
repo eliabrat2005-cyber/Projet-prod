@@ -13,7 +13,11 @@ const S = {
   timerRAF: null,
   reconnectDelay: 500,
   sound: localStorage.getItem("quizzup_sound") !== "0",
+  difficulty: [1, 2, 3, 4].includes(+localStorage.getItem("quizzup_diff"))
+    ? +localStorage.getItem("quizzup_diff") : 2,
 };
+
+const DIFF_LABELS = { 1: "😌 Facile", 2: "🎯 Moyen", 3: "🔥 Difficile", 4: "💀 Extrême" };
 
 const $ = (id) => document.getElementById(id);
 const SCREENS = ["name", "home", "topic", "friend", "ranking", "profile", "search", "vs", "game", "results"];
@@ -232,7 +236,17 @@ function openTopic(t) {
   $("topic-record").textContent =
     st.games ? `${st.games} matchs — ${st.wins} V · ${st.losses} D · ${st.draws} N — record : ${st.best_score} pts`
              : "Aucun match joué — lance-toi !";
+  renderDiffChips(t);
   show("topic");
+}
+
+function renderDiffChips(t) {
+  document.querySelectorAll(".diff-chip").forEach((chip) => {
+    const d = +chip.dataset.diff;
+    chip.classList.toggle("selected", d === S.difficulty);
+    const n = (t.tiers && t.tiers[d - 1]) || 0;
+    chip.querySelector("small").textContent = n ? `${n} q.` : "—";
+  });
 }
 
 // ─── Recherche / salon ──────────────────────────────────────────────────────
@@ -257,7 +271,8 @@ function onMatchFound(msg) {
   $("vs-opp-avatar").textContent = initial(msg.opponent.name);
   $("vs-opp-name").textContent = msg.opponent.name;
   $("vs-opp-level").textContent = msg.opponent.is_bot ? "Bot" : `Niveau ${msg.opponent.level}`;
-  $("vs-topic").textContent = `${msg.topic.icon} ${msg.topic.name}`;
+  $("vs-topic").textContent =
+    `${msg.topic.icon} ${msg.topic.name} · ${msg.difficulty_label || DIFF_LABELS[msg.difficulty] || ""}`;
   sndGo();
   show("vs");
   // Prépare l'écran de jeu
@@ -605,25 +620,39 @@ document.querySelectorAll(".back-btn").forEach((b) => {
 
 $("profile-btn").onclick = () => { send({ type: "get_profile" }); renderProfile(); show("profile"); };
 
+document.querySelectorAll(".diff-chip").forEach((chip) => {
+  chip.onclick = () => {
+    S.difficulty = +chip.dataset.diff;
+    localStorage.setItem("quizzup_diff", S.difficulty);
+    if (S.currentTopic) renderDiffChips(S.currentTopic);
+    sndTick();
+  };
+});
+
 $("btn-quick").onclick = () => {
   if (!S.currentTopic) return;
-  if (send({ type: "find_match", topic_id: S.currentTopic.id })) {
-    $("search-topic").textContent = `${S.currentTopic.icon} ${S.currentTopic.name}`;
+  if (send({ type: "find_match", topic_id: S.currentTopic.id, difficulty: S.difficulty })) {
+    $("search-topic").textContent =
+      `${S.currentTopic.icon} ${S.currentTopic.name} · ${DIFF_LABELS[S.difficulty]}`;
     debounceBtn($("btn-quick"));
   }
 };
 $("btn-bot").onclick = () => {
   if (!S.currentTopic) return;
-  if (send({ type: "play_bot", topic_id: S.currentTopic.id })) debounceBtn($("btn-bot"));
+  if (send({ type: "play_bot", topic_id: S.currentTopic.id, difficulty: S.difficulty })) {
+    debounceBtn($("btn-bot"));
+  }
 };
 $("btn-ranking").onclick = openRanking;
 $("btn-friend").onclick = () => {
   $("room-code-box").classList.add("hidden");
   $("join-code-input").value = "";
+  $("friend-diff").textContent = `Mode : ${DIFF_LABELS[S.difficulty]}`;
   show("friend");
 };
 $("btn-cancel-search").onclick = () => send({ type: "cancel_find" });
-$("btn-create-room").onclick = () => send({ type: "create_room", topic_id: S.currentTopic.id });
+$("btn-create-room").onclick = () =>
+  send({ type: "create_room", topic_id: S.currentTopic.id, difficulty: S.difficulty });
 $("btn-join-room").onclick = () => {
   const code = $("join-code-input").value.trim().toUpperCase();
   if (code.length !== 4) { toast("Le code fait 4 caractères"); return; }

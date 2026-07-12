@@ -4,29 +4,588 @@
   "icon": "✈️",
   "color": "#0277bd",
   "questions": [
-    {"q": "Quels frères américains ont réussi le premier vol motorisé en 1903 ?", "choices": ["Les frères Wright", "Les frères Montgolfier", "Les frères Voisin", "Les frères Farman"], "answer": 0},
-    {"q": "Quels frères français ont inventé le ballon à air chaud ?", "choices": ["Les frères Montgolfier", "Les frères Wright", "Les frères Lumière", "Les frères Michelin"], "answer": 0},
-    {"q": "Quel Français a traversé la Manche en avion en 1909 ?", "choices": ["Louis Blériot", "Roland Garros", "Clément Ader", "Henri Farman"], "answer": 0},
-    {"q": "Quel aviateur a réussi la première traversée de l'Atlantique en solitaire ?", "choices": ["Charles Lindbergh", "Amelia Earhart", "Jean Mermoz", "Alcock"], "answer": 0},
-    {"q": "Comment s'appelait l'avion de Lindbergh ?", "choices": ["Le Spirit of St. Louis", "L'Enola Gay", "Le Flyer", "Le Concorde"], "answer": 0},
-    {"q": "Quelle aviatrice a disparu au-dessus du Pacifique en 1937 ?", "choices": ["Amelia Earhart", "Hélène Boucher", "Adrienne Bolland", "Maryse Bastié"], "answer": 0},
-    {"q": "Quel pilote-écrivain français a écrit « Vol de nuit » ?", "choices": ["Antoine de Saint-Exupéry", "Jean Mermoz", "Roland Garros", "Didier Daurat"], "answer": 0},
-    {"q": "Quel avion supersonique franco-britannique reliait Paris à New York en 3h30 ?", "choices": ["Le Concorde", "Le Tupolev 144", "Le Boeing 707", "Le Comet"], "answer": 0},
-    {"q": "Quel constructeur européen fabrique l'A380 ?", "choices": ["Airbus", "Boeing", "Dassault", "Embraer"], "answer": 0},
-    {"q": "Quel est le plus gros avion de ligne du monde ?", "choices": ["L'Airbus A380", "Le Boeing 747", "Le 777X", "L'A350"], "answer": 0},
-    {"q": "Quel avion américain est surnommé « Jumbo Jet » ?", "choices": ["Le Boeing 747", "Le 737", "Le DC-10", "Le 787"], "answer": 0},
-    {"q": "Quel avion de chasse français est produit par Dassault ?", "choices": ["Le Rafale", "Le F-16", "L'Eurofighter", "Le Gripen"], "answer": 0},
-    {"q": "Dans quelle ville Airbus assemble-t-il ses avions en France ?", "choices": ["Toulouse", "Bordeaux", "Marseille", "Nantes"], "answer": 0},
-    {"q": "Quelle partie de l'avion crée la portance ?", "choices": ["Les ailes", "Les réacteurs", "La queue", "Le fuselage"], "answer": 0},
-    {"q": "Comment s'appelle le corps principal de l'avion ?", "choices": ["Le fuselage", "La carlingue externe", "Le cockpit", "La nacelle"], "answer": 0},
-    {"q": "Où s'assoient les pilotes ?", "choices": ["Dans le cockpit", "Dans la cabine arrière", "Dans la soute", "Dans la tourelle"], "answer": 0},
-    {"q": "Quelle boîte enregistre les données de vol ?", "choices": ["La boîte noire (orange en réalité)", "La boîte bleue", "Le radar", "Le transpondeur seul"], "answer": 0},
-    {"q": "Quel mur invisible le premier avion supersonique a-t-il franchi en 1947 ?", "choices": ["Le mur du son", "Le mur de chaleur", "La stratosphère", "Le point critique"], "answer": 0},
-    {"q": "Quel pilote américain a franchi le mur du son en premier ?", "choices": ["Chuck Yeager", "Neil Armstrong", "Buzz Aldrin", "John Glenn"], "answer": 0},
-    {"q": "Quelle unité mesure la vitesse par rapport au son ?", "choices": ["Le nombre de Mach", "Le nœud", "Le knot sonique", "Le pied par seconde"], "answer": 0},
-    {"q": "Quelle compagnie française est née en 1933 ?", "choices": ["Air France", "UTA", "Air Inter", "Aéropostale SA"], "answer": 0},
-    {"q": "Quel service postal aérien héroïque reliait la France à l'Amérique du Sud ?", "choices": ["L'Aéropostale", "Air Courrier", "La Poste aérienne", "LatAir"], "answer": 0},
-    {"q": "Quel aéroport parisien est le plus grand de France ?", "choices": ["Paris-Charles-de-Gaulle", "Orly", "Le Bourget", "Beauvais"], "answer": 0},
-    {"q": "Comment s'appelle la piste d'envol des porte-avions ?", "choices": ["Le pont d'envol", "La rampe", "Le tarmac naval", "La catapulte seule"], "answer": 0}
+    {
+      "q": "Quels frères américains ont réussi le premier vol motorisé en 1903 ?",
+      "choices": [
+        "Les frères Wright",
+        "Les frères Montgolfier",
+        "Les frères Voisin",
+        "Les frères Farman"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quels frères français ont inventé le ballon à air chaud ?",
+      "choices": [
+        "Les frères Montgolfier",
+        "Les frères Wright",
+        "Les frères Lumière",
+        "Les frères Michelin"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel Français a traversé la Manche en avion en 1909 ?",
+      "choices": [
+        "Louis Blériot",
+        "Roland Garros",
+        "Clément Ader",
+        "Henri Farman"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel aviateur a réussi la première traversée de l'Atlantique en solitaire ?",
+      "choices": [
+        "Charles Lindbergh",
+        "Amelia Earhart",
+        "Jean Mermoz",
+        "Alcock"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment s'appelait l'avion de Lindbergh ?",
+      "choices": [
+        "Le Spirit of St. Louis",
+        "L'Enola Gay",
+        "Le Flyer",
+        "Le Concorde"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle aviatrice a disparu au-dessus du Pacifique en 1937 ?",
+      "choices": [
+        "Amelia Earhart",
+        "Hélène Boucher",
+        "Adrienne Bolland",
+        "Maryse Bastié"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel pilote-écrivain français a écrit « Vol de nuit » ?",
+      "choices": [
+        "Antoine de Saint-Exupéry",
+        "Jean Mermoz",
+        "Roland Garros",
+        "Didier Daurat"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel avion supersonique franco-britannique reliait Paris à New York en 3h30 ?",
+      "choices": [
+        "Le Concorde",
+        "Le Tupolev 144",
+        "Le Boeing 707",
+        "Le Comet"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel constructeur européen fabrique l'A380 ?",
+      "choices": [
+        "Airbus",
+        "Boeing",
+        "Dassault",
+        "Embraer"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel est le plus gros avion de ligne du monde ?",
+      "choices": [
+        "L'Airbus A380",
+        "Le Boeing 747",
+        "Le 777X",
+        "L'A350"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel avion américain est surnommé « Jumbo Jet » ?",
+      "choices": [
+        "Le Boeing 747",
+        "Le 737",
+        "Le DC-10",
+        "Le 787"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel avion de chasse français est produit par Dassault ?",
+      "choices": [
+        "Le Rafale",
+        "Le F-16",
+        "L'Eurofighter",
+        "Le Gripen"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans quelle ville Airbus assemble-t-il ses avions en France ?",
+      "choices": [
+        "Toulouse",
+        "Bordeaux",
+        "Marseille",
+        "Nantes"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle partie de l'avion crée la portance ?",
+      "choices": [
+        "Les ailes",
+        "Les réacteurs",
+        "La queue",
+        "Le fuselage"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment s'appelle le corps principal de l'avion ?",
+      "choices": [
+        "Le fuselage",
+        "La carlingue externe",
+        "Le cockpit",
+        "La nacelle"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Où s'assoient les pilotes ?",
+      "choices": [
+        "Dans le cockpit",
+        "Dans la cabine arrière",
+        "Dans la soute",
+        "Dans la tourelle"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle boîte enregistre les données de vol ?",
+      "choices": [
+        "La boîte noire (orange en réalité)",
+        "La boîte bleue",
+        "Le radar",
+        "Le transpondeur seul"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel mur invisible le premier avion supersonique a-t-il franchi en 1947 ?",
+      "choices": [
+        "Le mur du son",
+        "Le mur de chaleur",
+        "La stratosphère",
+        "Le point critique"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel pilote américain a franchi le mur du son en premier ?",
+      "choices": [
+        "Chuck Yeager",
+        "Neil Armstrong",
+        "Buzz Aldrin",
+        "John Glenn"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle unité mesure la vitesse par rapport au son ?",
+      "choices": [
+        "Le nombre de Mach",
+        "Le nœud",
+        "Le knot sonique",
+        "Le pied par seconde"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle compagnie française est née en 1933 ?",
+      "choices": [
+        "Air France",
+        "UTA",
+        "Air Inter",
+        "Aéropostale SA"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel service postal aérien héroïque reliait la France à l'Amérique du Sud ?",
+      "choices": [
+        "L'Aéropostale",
+        "Air Courrier",
+        "La Poste aérienne",
+        "LatAir"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel aéroport parisien est le plus grand de France ?",
+      "choices": [
+        "Paris-Charles-de-Gaulle",
+        "Orly",
+        "Le Bourget",
+        "Beauvais"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment s'appelle la piste d'envol des porte-avions ?",
+      "choices": [
+        "Le pont d'envol",
+        "La rampe",
+        "Le tarmac naval",
+        "La catapulte seule"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel constructeur fabrique le Boeing 737 ?",
+      "choices": [
+        "Boeing",
+        "Airbus",
+        "Embraer",
+        "Bombardier"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel avion de ligne d'Airbus, concurrent du Boeing 737, est le plus vendu de la gamme ?",
+      "choices": [
+        "L'A320",
+        "L'A340",
+        "L'A300",
+        "L'A380"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel avion de chasse français a précédé le Rafale chez Dassault ?",
+      "choices": [
+        "Le Mirage 2000",
+        "Le Gripen",
+        "L'Eurofighter",
+        "Le F-18"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "De quel pays est originaire le constructeur aéronautique Embraer ?",
+      "choices": [
+        "Le Brésil",
+        "Le Canada",
+        "La Suède",
+        "Le Mexique"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel gaz inflammable, plus léger que l'air, gonflait le dirigeable Hindenburg ?",
+      "choices": [
+        "L'hydrogène",
+        "L'hélium",
+        "L'azote",
+        "Le méthane"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "En quelle année a eu lieu le premier vol commercial du Concorde ?",
+      "choices": [
+        "1976",
+        "1969",
+        "1973",
+        "1981"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année le Concorde a-t-il effectué son tout premier vol d'essai ?",
+      "choices": [
+        "1969",
+        "1966",
+        "1972",
+        "1976"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année l'Airbus A380 est-il entré en service commercial avec Singapore Airlines ?",
+      "choices": [
+        "2007",
+        "2005",
+        "2010",
+        "2001"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année le Boeing 747 est-il entré en service commercial ?",
+      "choices": [
+        "1970",
+        "1965",
+        "1976",
+        "1982"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Combien de moteurs possède l'Airbus A380 ?",
+      "choices": [
+        "Quatre",
+        "Deux",
+        "Trois",
+        "Six"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel avion supersonique soviétique, surnommé « Concordski », a volé avant le Concorde ?",
+      "choices": [
+        "Le Tupolev Tu-144",
+        "L'Iliouchine Il-62",
+        "L'Antonov An-22",
+        "Le MiG-25"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "À quelle vitesse de croisière, exprimée en nombre de Mach, volait le Concorde ?",
+      "choices": [
+        "Mach 2",
+        "Mach 1,2",
+        "Mach 3",
+        "Mach 4"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel avion espion américain vole à plus de Mach 3 ?",
+      "choices": [
+        "Le Lockheed SR-71 Blackbird",
+        "Le Lockheed U-2",
+        "Le F-117 Nighthawk",
+        "Le B-2 Spirit"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel aviateur français de l'Aéropostale a disparu en mer en 1936 au-dessus de l'Atlantique Sud ?",
+      "choices": [
+        "Jean Mermoz",
+        "Antoine de Saint-Exupéry",
+        "Henri Guillaumet",
+        "Didier Daurat"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Avec quel constructeur américain Boeing a-t-il fusionné en 1997 ?",
+      "choices": [
+        "McDonnell Douglas",
+        "Lockheed",
+        "Northrop",
+        "Convair"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel avion fut le premier jet commercial au monde, mis en service en 1952 ?",
+      "choices": [
+        "Le de Havilland Comet",
+        "Le Boeing 707",
+        "La Caravelle",
+        "Le Douglas DC-8"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel bimoteur à réaction français des années 1950 fut un pionnier de l'aviation civile en Europe ?",
+      "choices": [
+        "La Sud-Aviation Caravelle",
+        "Le Nord 262",
+        "Le Breguet Deux-Ponts",
+        "Le Dassault Mercure"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle distance approximative Charles Lindbergh a-t-il parcourue lors de sa traversée de l'Atlantique en 1927 ?",
+      "choices": [
+        "Environ 5 800 km",
+        "Environ 3 000 km",
+        "Environ 8 500 km",
+        "Environ 11 000 km"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien de temps a duré la traversée de l'Atlantique par Lindbergh en 1927 ?",
+      "choices": [
+        "Environ 33 heures",
+        "Environ 15 heures",
+        "Environ 48 heures",
+        "Environ 72 heures"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel jour de décembre 1903 les frères Wright ont-ils réalisé leur premier vol motorisé ?",
+      "choices": [
+        "Le 17 décembre",
+        "Le 3 décembre",
+        "Le 25 décembre",
+        "Le 1er décembre"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Près de quel lieu les frères Wright ont-ils réalisé leur premier vol en 1903 ?",
+      "choices": [
+        "Kitty Hawk, en Caroline du Nord",
+        "Dayton, dans l'Ohio",
+        "Le Mans, en France",
+        "Chicago, dans l'Illinois"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien d'exemplaires du Concorde sont entrés en service commercial ?",
+      "choices": [
+        "14",
+        "20",
+        "6",
+        "10"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année le Concorde a-t-il effectué son dernier vol commercial ?",
+      "choices": [
+        "2003",
+        "2000",
+        "2006",
+        "1999"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel accident a précipité la fin du Concorde, en juillet 2000 ?",
+      "choices": [
+        "Le crash du vol Air France 4590 à Gonesse",
+        "Le crash de Tenerife",
+        "Le crash du Mont Sainte-Odile",
+        "Le crash de Lockerbie"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle est la capacité maximale de passagers certifiée de l'Airbus A380 ?",
+      "choices": [
+        "853",
+        "555",
+        "700",
+        "1 000"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle est l'envergure (largeur d'aile à aile) de l'Airbus A380 ?",
+      "choices": [
+        "Près de 80 mètres",
+        "Près de 60 mètres",
+        "Près de 100 mètres",
+        "Près de 45 mètres"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel avion Jean Mermoz pilotait-il lors de sa disparition en 1936 ?",
+      "choices": [
+        "Le Latécoère 300 « Croix du Sud »",
+        "Le Spirit of St. Louis",
+        "Le Breguet 19",
+        "Le Potez 25"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "À bord de quel avion Chuck Yeager a-t-il franchi le mur du son en 1947 ?",
+      "choices": [
+        "Le Bell X-1",
+        "Le North American F-86",
+        "Le Douglas Skyrocket",
+        "Le Lockheed P-80"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Roland Garros a-t-il réussi la première traversée aérienne de la Méditerranée ?",
+      "choices": [
+        "1913",
+        "1909",
+        "1919",
+        "1927"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

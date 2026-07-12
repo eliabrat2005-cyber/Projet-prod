@@ -4,64 +4,874 @@
   "icon": "🎬",
   "color": "#c0392b",
   "questions": [
-    {"q": "Qui a réalisé le film « Titanic » (1997) ?", "choices": ["James Cameron", "Steven Spielberg", "Ridley Scott", "Christopher Nolan"], "answer": 0},
-    {"q": "Quel acteur incarne Jack Sparrow dans « Pirates des Caraïbes » ?", "choices": ["Johnny Depp", "Orlando Bloom", "Brad Pitt", "Hugh Jackman"], "answer": 0},
-    {"q": "Quel film d'animation Pixar met en scène un poisson-clown à la recherche de son fils ?", "choices": ["Le Monde de Nemo", "Vice-Versa", "Là-haut", "Toy Story"], "answer": 0},
-    {"q": "Dans quelle saga trouve-t-on le personnage de Dark Vador ?", "choices": ["Star Wars", "Star Trek", "Dune", "Alien"], "answer": 0},
-    {"q": "Quel réalisateur est connu pour « Pulp Fiction » et « Kill Bill » ?", "choices": ["Quentin Tarantino", "Martin Scorsese", "David Fincher", "Tim Burton"], "answer": 0},
-    {"q": "Quel film a remporté l'Oscar du meilleur film en 2020, une première pour un film sud-coréen ?", "choices": ["Parasite", "Old Boy", "Snowpiercer", "Memories of Murder"], "answer": 0},
-    {"q": "Qui joue le rôle principal dans « Forrest Gump » ?", "choices": ["Tom Hanks", "Tom Cruise", "Kevin Costner", "Robin Williams"], "answer": 0},
-    {"q": "Quel acteur français incarne le personnage principal dans « Intouchables » aux côtés de François Cluzet ?", "choices": ["Omar Sy", "Jamel Debbouze", "Dany Boon", "Gad Elmaleh"], "answer": 0},
-    {"q": "Dans « Le Roi Lion », quel est le nom du père de Simba ?", "choices": ["Mufasa", "Scar", "Rafiki", "Zazu"], "answer": 0},
-    {"q": "Quel réalisateur a signé « Inception » et « Interstellar » ?", "choices": ["Christopher Nolan", "Denis Villeneuve", "James Cameron", "Ridley Scott"], "answer": 0},
-    {"q": "Quelle actrice incarne Hermione Granger dans la saga « Harry Potter » ?", "choices": ["Emma Watson", "Emma Stone", "Keira Knightley", "Natalie Portman"], "answer": 0},
-    {"q": "Quel film de 1994 met en scène un prisonnier nommé Andy Dufresne ?", "choices": ["Les Évadés", "La Ligne verte", "Papillon", "Le Prisonnier d'Alcatraz"], "answer": 0},
-    {"q": "Quel est le premier long-métrage d'animation de Walt Disney (1937) ?", "choices": ["Blanche-Neige et les Sept Nains", "Pinocchio", "Fantasia", "Cendrillon"], "answer": 0},
-    {"q": "Qui incarne Iron Man dans l'univers Marvel au cinéma ?", "choices": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Mark Ruffalo"], "answer": 0},
-    {"q": "Quel festival de cinéma décerne la Palme d'or ?", "choices": ["Le Festival de Cannes", "La Mostra de Venise", "La Berlinale", "Le Festival de Deauville"], "answer": 0},
-    {"q": "Dans « Matrix », quelle pilule Neo choisit-il ?", "choices": ["La rouge", "La bleue", "La verte", "La jaune"], "answer": 0},
-    {"q": "Quel réalisateur français a signé « Le Fabuleux Destin d'Amélie Poulain » ?", "choices": ["Jean-Pierre Jeunet", "Luc Besson", "Michel Gondry", "Cédric Klapisch"], "answer": 0},
-    {"q": "Quel acteur incarne le Joker dans « The Dark Knight » (2008) ?", "choices": ["Heath Ledger", "Joaquin Phoenix", "Jack Nicholson", "Jared Leto"], "answer": 0},
-    {"q": "Quelle créature géante escalade l'Empire State Building dans un classique de 1933 ?", "choices": ["King Kong", "Godzilla", "Le Kraken", "Mothra"], "answer": 0},
-    {"q": "Quel film de Steven Spielberg met en scène des dinosaures clonés dans un parc ?", "choices": ["Jurassic Park", "Godzilla", "King Kong", "Le Monde perdu de Conan Doyle"], "answer": 0},
-    {"q": "Qui a réalisé « Psychose » et « Les Oiseaux » ?", "choices": ["Alfred Hitchcock", "Stanley Kubrick", "Orson Welles", "Billy Wilder"], "answer": 0},
-    {"q": "Quel personnage d'animation vit dans un ananas sous la mer ?", "choices": ["Bob l'éponge", "Nemo", "Ariel", "Oscar"], "answer": 0},
-    {"q": "Quelle saga suit Dominic Toretto et sa « famille » de pilotes ?", "choices": ["Fast and Furious", "Taxi", "Need for Speed", "Drive"], "answer": 0},
-    {"q": "Quel acteur incarne James Bond dans « Casino Royale » (2006) ?", "choices": ["Daniel Craig", "Pierce Brosnan", "Sean Connery", "Roger Moore"], "answer": 0},
-    {"q": "Dans « Retour vers le futur », quel véhicule sert de machine à voyager dans le temps ?", "choices": ["Une DeLorean", "Une Mustang", "Une Cadillac", "Un van Volkswagen"], "answer": 0},
-    {"q": "Quel réalisateur a signé « E.T. » et « Les Dents de la mer » ?", "choices": ["Steven Spielberg", "George Lucas", "Robert Zemeckis", "John Carpenter"], "answer": 0},
-    {"q": "Quelle actrice incarne Katniss Everdeen dans « Hunger Games » ?", "choices": ["Jennifer Lawrence", "Shailene Woodley", "Emma Stone", "Kristen Stewart"], "answer": 0},
-    {"q": "Quel film d'animation japonais de Miyazaki suit une fillette dans un monde d'esprits ?", "choices": ["Le Voyage de Chihiro", "Princesse Mononoké", "Mon voisin Totoro", "Le Château ambulant"], "answer": 0},
-    {"q": "Dans quel film Al Pacino incarne-t-il Michael Corleone ?", "choices": ["Le Parrain", "Scarface", "Heat", "Casino"], "answer": 0},
-    {"q": "Quel acteur incarne Neo dans « Matrix » ?", "choices": ["Keanu Reeves", "Brad Pitt", "Will Smith", "Tom Cruise"], "answer": 0},
-    {"q": "Quel film de danse avec Patrick Swayze est culte depuis 1987 ?", "choices": ["Dirty Dancing", "Footloose", "Flashdance", "Grease"], "answer": 0},
-    {"q": "Quelle saga suit un hobbit chargé de détruire un anneau ?", "choices": ["Le Seigneur des anneaux", "Harry Potter", "Narnia", "Eragon"], "answer": 0},
-    {"q": "Quel acteur français a remporté l'Oscar pour « The Artist » ?", "choices": ["Jean Dujardin", "Vincent Cassel", "Guillaume Canet", "Romain Duris"], "answer": 0},
-    {"q": "Dans « Le Dîner de cons », qui incarne François Pignon ?", "choices": ["Jacques Villeret", "Thierry Lhermitte", "Daniel Auteuil", "Gérard Depardieu"], "answer": 0},
-    {"q": "Quel film de Ridley Scott a lancé la saga du xénomorphe ?", "choices": ["Alien", "Blade Runner", "Predator", "La Chose"], "answer": 0},
-    {"q": "Quelle comédie française de 2008 a dépassé les 20 millions d'entrées ?", "choices": ["Bienvenue chez les Ch'tis", "Intouchables", "Astérix Mission Cléopâtre", "Les Visiteurs"], "answer": 0},
-    {"q": "Qui incarne Rocky Balboa au cinéma ?", "choices": ["Sylvester Stallone", "Arnold Schwarzenegger", "Jean-Claude Van Damme", "Dolph Lundgren"], "answer": 0},
-    {"q": "Quel personnage Pixar est un cow-boy jouet ?", "choices": ["Woody", "Buzz", "Flash McQueen", "Rémy"], "answer": 0},
-    {"q": "Dans quel film culte de Kubrick un ordinateur s'appelle HAL 9000 ?", "choices": ["2001, l'Odyssée de l'espace", "Orange mécanique", "Shining", "Docteur Folamour"], "answer": 0},
-    {"q": "Quelle actrice incarne la reine des neiges Elsa (voix originale) ?", "choices": ["Idina Menzel", "Kristen Bell", "Demi Lovato", "Mandy Moore"], "answer": 0},
-    {"q": "Quel film de 2009 de James Cameron se déroule sur Pandora ?", "choices": ["Avatar", "Interstellar", "Prometheus", "Gravity"], "answer": 0},
-    {"q": "Quel duo comique français a joué dans « La Grande Vadrouille » ?", "choices": ["Bourvil et de Funès", "Belmondo et Delon", "Coluche et Depardieu", "Villeret et Lhermitte"], "answer": 0},
-    {"q": "Quel super-héros est surnommé « le Chevalier noir » ?", "choices": ["Batman", "Superman", "Spider-Man", "Daredevil"], "answer": 0},
-    {"q": "Dans « Titanic », comment s'appelle le personnage joué par Leonardo DiCaprio ?", "choices": ["Jack", "William", "Tom", "Charlie"], "answer": 0},
-    {"q": "Quel réalisateur coréen a signé « Old Boy » ?", "choices": ["Park Chan-wook", "Bong Joon-ho", "Kim Jee-woon", "Na Hong-jin"], "answer": 0},
-    {"q": "Quel film met en scène un lion, un zèbre, une girafe et un hippopotame évadés d'un zoo ?", "choices": ["Madagascar", "Le Roi Lion", "Zootopie", "L'Âge de glace"], "answer": 0},
-    {"q": "Qui a composé la musique de « Star Wars » ?", "choices": ["John Williams", "Hans Zimmer", "Ennio Morricone", "Danny Elfman"], "answer": 0},
-    {"q": "Quel acteur incarne Aragorn dans « Le Seigneur des anneaux » ?", "choices": ["Viggo Mortensen", "Orlando Bloom", "Sean Bean", "Hugo Weaving"], "answer": 0},
-    {"q": "Dans quel pays se déroule « Slumdog Millionaire » ?", "choices": ["L'Inde", "Le Bangladesh", "Le Pakistan", "Le Népal"], "answer": 0},
-    {"q": "Quel film français suit Amélie, serveuse à Montmartre ?", "choices": ["Le Fabuleux Destin d'Amélie Poulain", "La Môme", "Paris", "Chocolat"], "answer": 0},
-    {"q": "Quelle actrice a remporté l'Oscar pour « La Môme » ?", "choices": ["Marion Cotillard", "Audrey Tautou", "Juliette Binoche", "Léa Seydoux"], "answer": 0},
-    {"q": "Quel réalisateur mexicain a signé « The Shape of Water » ?", "choices": ["Guillermo del Toro", "Alfonso Cuarón", "Alejandro Iñárritu", "Robert Rodriguez"], "answer": 0},
-    {"q": "Quel personnage d'animation est un ogre vert vivant dans un marais ?", "choices": ["Shrek", "Hulk", "Grinch", "Sulli"], "answer": 0},
-    {"q": "Quel western de Sergio Leone met en scène « le Bon, la Brute et le Truand » ?", "choices": ["Le Bon, la Brute et le Truand", "Il était une fois dans l'Ouest", "Pour une poignée de dollars", "Django"], "answer": 0},
-    {"q": "Quel acteur incarne Hannibal Lecter dans « Le Silence des agneaux » ?", "choices": ["Anthony Hopkins", "Jack Nicholson", "Gary Oldman", "Ralph Fiennes"], "answer": 0},
-    {"q": "Dans « Inception », comment s'appelle la toupie de Cobb ?", "choices": ["Un totem", "Un pion", "Une relique", "Un artefact"], "answer": 0},
-    {"q": "Quel film de Denis Villeneuve adapte le roman de Frank Herbert ?", "choices": ["Dune", "Premier Contact", "Blade Runner 2049", "Enemy"], "answer": 0},
-    {"q": "Quelle saga d'espionnage française parodie les agents secrets avec Jean Dujardin ?", "choices": ["OSS 117", "Le Magnifique", "Nikita", "Largo Winch"], "answer": 0},
-    {"q": "Quel studio d'animation a créé « Wallace et Gromit » ?", "choices": ["Aardman", "Pixar", "DreamWorks", "Studio Ghibli"], "answer": 0}
+    {
+      "q": "Qui a réalisé le film « Titanic » (1997) ?",
+      "choices": [
+        "James Cameron",
+        "Steven Spielberg",
+        "Ridley Scott",
+        "Christopher Nolan"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel acteur incarne Jack Sparrow dans « Pirates des Caraïbes » ?",
+      "choices": [
+        "Johnny Depp",
+        "Orlando Bloom",
+        "Brad Pitt",
+        "Hugh Jackman"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel film d'animation Pixar met en scène un poisson-clown à la recherche de son fils ?",
+      "choices": [
+        "Le Monde de Nemo",
+        "Vice-Versa",
+        "Là-haut",
+        "Toy Story"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans quelle saga trouve-t-on le personnage de Dark Vador ?",
+      "choices": [
+        "Star Wars",
+        "Star Trek",
+        "Dune",
+        "Alien"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel réalisateur est connu pour « Pulp Fiction » et « Kill Bill » ?",
+      "choices": [
+        "Quentin Tarantino",
+        "Martin Scorsese",
+        "David Fincher",
+        "Tim Burton"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel film a remporté l'Oscar du meilleur film en 2020, une première pour un film sud-coréen ?",
+      "choices": [
+        "Parasite",
+        "Old Boy",
+        "Snowpiercer",
+        "Memories of Murder"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Qui joue le rôle principal dans « Forrest Gump » ?",
+      "choices": [
+        "Tom Hanks",
+        "Tom Cruise",
+        "Kevin Costner",
+        "Robin Williams"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel acteur français incarne le personnage principal dans « Intouchables » aux côtés de François Cluzet ?",
+      "choices": [
+        "Omar Sy",
+        "Jamel Debbouze",
+        "Dany Boon",
+        "Gad Elmaleh"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans « Le Roi Lion », quel est le nom du père de Simba ?",
+      "choices": [
+        "Mufasa",
+        "Scar",
+        "Rafiki",
+        "Zazu"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel réalisateur a signé « Inception » et « Interstellar » ?",
+      "choices": [
+        "Christopher Nolan",
+        "Denis Villeneuve",
+        "James Cameron",
+        "Ridley Scott"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle actrice incarne Hermione Granger dans la saga « Harry Potter » ?",
+      "choices": [
+        "Emma Watson",
+        "Emma Stone",
+        "Keira Knightley",
+        "Natalie Portman"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel film de 1994 met en scène un prisonnier nommé Andy Dufresne ?",
+      "choices": [
+        "Les Évadés",
+        "La Ligne verte",
+        "Papillon",
+        "Le Prisonnier d'Alcatraz"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel est le premier long-métrage d'animation de Walt Disney (1937) ?",
+      "choices": [
+        "Blanche-Neige et les Sept Nains",
+        "Pinocchio",
+        "Fantasia",
+        "Cendrillon"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Qui incarne Iron Man dans l'univers Marvel au cinéma ?",
+      "choices": [
+        "Robert Downey Jr.",
+        "Chris Evans",
+        "Chris Hemsworth",
+        "Mark Ruffalo"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel festival de cinéma décerne la Palme d'or ?",
+      "choices": [
+        "Le Festival de Cannes",
+        "La Mostra de Venise",
+        "La Berlinale",
+        "Le Festival de Deauville"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans « Matrix », quelle pilule Neo choisit-il ?",
+      "choices": [
+        "La rouge",
+        "La bleue",
+        "La verte",
+        "La jaune"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel réalisateur français a signé « Le Fabuleux Destin d'Amélie Poulain » ?",
+      "choices": [
+        "Jean-Pierre Jeunet",
+        "Luc Besson",
+        "Michel Gondry",
+        "Cédric Klapisch"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel acteur incarne le Joker dans « The Dark Knight » (2008) ?",
+      "choices": [
+        "Heath Ledger",
+        "Joaquin Phoenix",
+        "Jack Nicholson",
+        "Jared Leto"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle créature géante escalade l'Empire State Building dans un classique de 1933 ?",
+      "choices": [
+        "King Kong",
+        "Godzilla",
+        "Le Kraken",
+        "Mothra"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel film de Steven Spielberg met en scène des dinosaures clonés dans un parc ?",
+      "choices": [
+        "Jurassic Park",
+        "Godzilla",
+        "King Kong",
+        "Le Monde perdu de Conan Doyle"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Qui a réalisé « Psychose » et « Les Oiseaux » ?",
+      "choices": [
+        "Alfred Hitchcock",
+        "Stanley Kubrick",
+        "Orson Welles",
+        "Billy Wilder"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel personnage d'animation vit dans un ananas sous la mer ?",
+      "choices": [
+        "Bob l'éponge",
+        "Nemo",
+        "Ariel",
+        "Oscar"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle saga suit Dominic Toretto et sa « famille » de pilotes ?",
+      "choices": [
+        "Fast and Furious",
+        "Taxi",
+        "Need for Speed",
+        "Drive"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel acteur incarne James Bond dans « Casino Royale » (2006) ?",
+      "choices": [
+        "Daniel Craig",
+        "Pierce Brosnan",
+        "Sean Connery",
+        "Roger Moore"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans « Retour vers le futur », quel véhicule sert de machine à voyager dans le temps ?",
+      "choices": [
+        "Une DeLorean",
+        "Une Mustang",
+        "Une Cadillac",
+        "Un van Volkswagen"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel réalisateur a signé « E.T. » et « Les Dents de la mer » ?",
+      "choices": [
+        "Steven Spielberg",
+        "George Lucas",
+        "Robert Zemeckis",
+        "John Carpenter"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle actrice incarne Katniss Everdeen dans « Hunger Games » ?",
+      "choices": [
+        "Jennifer Lawrence",
+        "Shailene Woodley",
+        "Emma Stone",
+        "Kristen Stewart"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel film d'animation japonais de Miyazaki suit une fillette dans un monde d'esprits ?",
+      "choices": [
+        "Le Voyage de Chihiro",
+        "Princesse Mononoké",
+        "Mon voisin Totoro",
+        "Le Château ambulant"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Dans quel film Al Pacino incarne-t-il Michael Corleone ?",
+      "choices": [
+        "Le Parrain",
+        "Scarface",
+        "Heat",
+        "Casino"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel acteur incarne Neo dans « Matrix » ?",
+      "choices": [
+        "Keanu Reeves",
+        "Brad Pitt",
+        "Will Smith",
+        "Tom Cruise"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel film de danse avec Patrick Swayze est culte depuis 1987 ?",
+      "choices": [
+        "Dirty Dancing",
+        "Footloose",
+        "Flashdance",
+        "Grease"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle saga suit un hobbit chargé de détruire un anneau ?",
+      "choices": [
+        "Le Seigneur des anneaux",
+        "Harry Potter",
+        "Narnia",
+        "Eragon"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel acteur français a remporté l'Oscar pour « The Artist » ?",
+      "choices": [
+        "Jean Dujardin",
+        "Vincent Cassel",
+        "Guillaume Canet",
+        "Romain Duris"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans « Le Dîner de cons », qui incarne François Pignon ?",
+      "choices": [
+        "Jacques Villeret",
+        "Thierry Lhermitte",
+        "Daniel Auteuil",
+        "Gérard Depardieu"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel film de Ridley Scott a lancé la saga du xénomorphe ?",
+      "choices": [
+        "Alien",
+        "Blade Runner",
+        "Predator",
+        "La Chose"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle comédie française de 2008 a dépassé les 20 millions d'entrées ?",
+      "choices": [
+        "Bienvenue chez les Ch'tis",
+        "Intouchables",
+        "Astérix Mission Cléopâtre",
+        "Les Visiteurs"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Qui incarne Rocky Balboa au cinéma ?",
+      "choices": [
+        "Sylvester Stallone",
+        "Arnold Schwarzenegger",
+        "Jean-Claude Van Damme",
+        "Dolph Lundgren"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel personnage Pixar est un cow-boy jouet ?",
+      "choices": [
+        "Woody",
+        "Buzz",
+        "Flash McQueen",
+        "Rémy"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans quel film culte de Kubrick un ordinateur s'appelle HAL 9000 ?",
+      "choices": [
+        "2001, l'Odyssée de l'espace",
+        "Orange mécanique",
+        "Shining",
+        "Docteur Folamour"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle actrice incarne la reine des neiges Elsa (voix originale) ?",
+      "choices": [
+        "Idina Menzel",
+        "Kristen Bell",
+        "Demi Lovato",
+        "Mandy Moore"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel film de 2009 de James Cameron se déroule sur Pandora ?",
+      "choices": [
+        "Avatar",
+        "Interstellar",
+        "Prometheus",
+        "Gravity"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel duo comique français a joué dans « La Grande Vadrouille » ?",
+      "choices": [
+        "Bourvil et de Funès",
+        "Belmondo et Delon",
+        "Coluche et Depardieu",
+        "Villeret et Lhermitte"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel super-héros est surnommé « le Chevalier noir » ?",
+      "choices": [
+        "Batman",
+        "Superman",
+        "Spider-Man",
+        "Daredevil"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans « Titanic », comment s'appelle le personnage joué par Leonardo DiCaprio ?",
+      "choices": [
+        "Jack",
+        "William",
+        "Tom",
+        "Charlie"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel réalisateur coréen a signé « Old Boy » ?",
+      "choices": [
+        "Park Chan-wook",
+        "Bong Joon-ho",
+        "Kim Jee-woon",
+        "Na Hong-jin"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel film met en scène un lion, un zèbre, une girafe et un hippopotame évadés d'un zoo ?",
+      "choices": [
+        "Madagascar",
+        "Le Roi Lion",
+        "Zootopie",
+        "L'Âge de glace"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Qui a composé la musique de « Star Wars » ?",
+      "choices": [
+        "John Williams",
+        "Hans Zimmer",
+        "Ennio Morricone",
+        "Danny Elfman"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel acteur incarne Aragorn dans « Le Seigneur des anneaux » ?",
+      "choices": [
+        "Viggo Mortensen",
+        "Orlando Bloom",
+        "Sean Bean",
+        "Hugo Weaving"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Dans quel pays se déroule « Slumdog Millionaire » ?",
+      "choices": [
+        "L'Inde",
+        "Le Bangladesh",
+        "Le Pakistan",
+        "Le Népal"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel film français suit Amélie, serveuse à Montmartre ?",
+      "choices": [
+        "Le Fabuleux Destin d'Amélie Poulain",
+        "La Môme",
+        "Paris",
+        "Chocolat"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle actrice a remporté l'Oscar pour « La Môme » ?",
+      "choices": [
+        "Marion Cotillard",
+        "Audrey Tautou",
+        "Juliette Binoche",
+        "Léa Seydoux"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel réalisateur mexicain a signé « The Shape of Water » ?",
+      "choices": [
+        "Guillermo del Toro",
+        "Alfonso Cuarón",
+        "Alejandro Iñárritu",
+        "Robert Rodriguez"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel personnage d'animation est un ogre vert vivant dans un marais ?",
+      "choices": [
+        "Shrek",
+        "Hulk",
+        "Grinch",
+        "Sulli"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel western de Sergio Leone met en scène « le Bon, la Brute et le Truand » ?",
+      "choices": [
+        "Le Bon, la Brute et le Truand",
+        "Il était une fois dans l'Ouest",
+        "Pour une poignée de dollars",
+        "Django"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel acteur incarne Hannibal Lecter dans « Le Silence des agneaux » ?",
+      "choices": [
+        "Anthony Hopkins",
+        "Jack Nicholson",
+        "Gary Oldman",
+        "Ralph Fiennes"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Dans « Inception », comment s'appelle la toupie de Cobb ?",
+      "choices": [
+        "Un totem",
+        "Un pion",
+        "Une relique",
+        "Un artefact"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel film de Denis Villeneuve adapte le roman de Frank Herbert ?",
+      "choices": [
+        "Dune",
+        "Premier Contact",
+        "Blade Runner 2049",
+        "Enemy"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle saga d'espionnage française parodie les agents secrets avec Jean Dujardin ?",
+      "choices": [
+        "OSS 117",
+        "Le Magnifique",
+        "Nikita",
+        "Largo Winch"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel studio d'animation a créé « Wallace et Gromit » ?",
+      "choices": [
+        "Aardman",
+        "Pixar",
+        "DreamWorks",
+        "Studio Ghibli"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Qui a réalisé « Les 400 Coups », film fondateur de la Nouvelle Vague ?",
+      "choices": [
+        "François Truffaut",
+        "Jean-Luc Godard",
+        "Claude Chabrol",
+        "Éric Rohmer"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel film des frères Lumière fut projeté lors de la première séance publique payante en 1895 ?",
+      "choices": [
+        "La Sortie de l'usine Lumière à Lyon",
+        "L'Arrivée d'un train en gare de La Ciotat",
+        "L'Arroseur arrosé",
+        "Le Voyage dans la Lune"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel pionnier français du cinéma a réalisé « Le Voyage dans la Lune » en 1902 ?",
+      "choices": [
+        "Georges Méliès",
+        "Louis Lumière",
+        "Léon Gaumont",
+        "Charles Pathé"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle actrice détient le record d'Oscars de la meilleure actrice avec quatre statuettes ?",
+      "choices": [
+        "Katharine Hepburn",
+        "Meryl Streep",
+        "Ingrid Bergman",
+        "Bette Davis"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Qui a réalisé « À bout de souffle » (1960) avec Jean-Paul Belmondo ?",
+      "choices": [
+        "Jean-Luc Godard",
+        "François Truffaut",
+        "Louis Malle",
+        "Claude Lelouch"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel film français de Laurent Cantet a remporté la Palme d'or en 2008 ?",
+      "choices": [
+        "Entre les murs",
+        "Un prophète",
+        "La Graine et le Mulet",
+        "Welcome"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel film partage avec « Ben-Hur » et « Titanic » le record de 11 Oscars ?",
+      "choices": [
+        "Le Seigneur des anneaux : Le Retour du roi",
+        "La La Land",
+        "Autant en emporte le vent",
+        "West Side Story"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel réalisateur japonais a signé « Les Sept Samouraïs » ?",
+      "choices": [
+        "Akira Kurosawa",
+        "Yasujiro Ozu",
+        "Kenji Mizoguchi",
+        "Hayao Miyazaki"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel cinéaste suédois a remporté deux Palmes d'or, pour « The Square » et « Sans filtre » ?",
+      "choices": [
+        "Ruben Östlund",
+        "Ingmar Bergman",
+        "Lasse Hallström",
+        "Thomas Vinterberg"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel film muet de 1927 remporta le tout premier Oscar du meilleur film ?",
+      "choices": [
+        "Les Ailes",
+        "Le Chanteur de jazz",
+        "L'Aurore",
+        "Metropolis"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Qui fut la première femme à remporter l'Oscar de la meilleure réalisation, en 2010 ?",
+      "choices": [
+        "Kathryn Bigelow",
+        "Sofia Coppola",
+        "Jane Campion",
+        "Chloé Zhao"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel film d'Alfred Hitchcock de 1948 est construit pour donner l'illusion d'un seul plan-séquence ?",
+      "choices": [
+        "La Corde",
+        "Fenêtre sur cour",
+        "Le Crime était presque parfait",
+        "L'Ombre d'un doute"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel critique et cinéaste français a forgé la notion de « caméra-stylo » en 1948 ?",
+      "choices": [
+        "Alexandre Astruc",
+        "André Bazin",
+        "François Truffaut",
+        "Georges Sadoul"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Sous quel nom est connu le code d'autocensure appliqué à Hollywood de 1934 aux années 1960 ?",
+      "choices": [
+        "Le code Hays",
+        "Le code Wilson",
+        "La doctrine Zanuck",
+        "La charte Mayer"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel film d'Abel Gance de 1927 utilisait un triple écran baptisé « Polyvision » ?",
+      "choices": [
+        "Napoléon",
+        "J'accuse",
+        "La Roue",
+        "La Fin du monde"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle actrice française fut la première à remporter l'Oscar de la meilleure actrice, en 1960 ?",
+      "choices": [
+        "Simone Signoret",
+        "Jeanne Moreau",
+        "Danielle Darrieux",
+        "Michèle Morgan"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel film de Chantal Akerman a pris la tête du classement Sight & Sound des meilleurs films en 2022 ?",
+      "choices": [
+        "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles",
+        "News from Home",
+        "La Captive",
+        "Les Rendez-vous d'Anna"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel acteur fut le premier à refuser son Oscar, décerné pour « Patton » en 1971 ?",
+      "choices": [
+        "George C. Scott",
+        "Marlon Brando",
+        "Gene Hackman",
+        "Dustin Hoffman"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel réalisateur détient le record d'Oscars de la meilleure réalisation avec quatre victoires ?",
+      "choices": [
+        "John Ford",
+        "William Wyler",
+        "Frank Capra",
+        "Steven Spielberg"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel film de Jacques Tati, tourné dans un décor géant surnommé « Tativille », a ruiné son réalisateur ?",
+      "choices": [
+        "Playtime",
+        "Mon oncle",
+        "Les Vacances de monsieur Hulot",
+        "Trafic"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

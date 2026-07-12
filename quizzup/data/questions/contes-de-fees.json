@@ -4,29 +4,610 @@
   "icon": "🧚",
   "color": "#7b1fa2",
   "questions": [
-    {"q": "Quel objet la marraine de Cendrillon transforme-t-elle en carrosse ?", "choices": ["Une citrouille", "Un potiron doré", "Une pomme", "Un melon"], "answer": 0},
-    {"q": "À quelle heure le sortilège de Cendrillon prend-il fin ?", "choices": ["Minuit", "Midi", "L'aube", "Vingt-trois heures"], "answer": 0},
-    {"q": "Que perd Cendrillon en s'enfuyant du bal ?", "choices": ["Une pantoufle de verre", "Son collier", "Sa couronne", "Son gant"], "answer": 0},
-    {"q": "Sur quoi la Belle au bois dormant se pique-t-elle ?", "choices": ["Un fuseau", "Une aiguille à coudre", "Une épine de rose", "Un rouet entier"], "answer": 0},
-    {"q": "Combien de temps la Belle au bois dormant dort-elle ?", "choices": ["Cent ans", "Mille ans", "Dix ans", "Sept ans"], "answer": 0},
-    {"q": "Quel fruit empoisonné la sorcière donne-t-elle à Blanche-Neige ?", "choices": ["Une pomme", "Une poire", "Une cerise", "Une figue"], "answer": 0},
-    {"q": "Que demande la méchante reine à son miroir ?", "choices": ["Qui est la plus belle", "Qui est la plus riche", "Qui est la plus forte", "Où est Blanche-Neige"], "answer": 0},
-    {"q": "Quelle fillette porte une galette et un petit pot de beurre à sa grand-mère ?", "choices": ["Le Petit Chaperon rouge", "Boucle d'or", "Gretel", "La Petite Sirène"], "answer": 0},
-    {"q": "Quel animal se déguise en grand-mère dans ce conte ?", "choices": ["Le loup", "Le renard", "L'ogre", "L'ours"], "answer": 0},
-    {"q": "Quel héros de Perrault sème des cailloux blancs pour retrouver son chemin ?", "choices": ["Le Petit Poucet", "Hansel", "Le Chat botté", "Tom Pouce"], "answer": 0},
-    {"q": "Quelle maison découvrent Hansel et Gretel dans la forêt ?", "choices": ["Une maison en pain d'épices et sucreries", "Une chaumière", "Un château", "Une cabane de paille"], "answer": 0},
-    {"q": "Quelles bottes magiques porte l'ogre du Petit Poucet ?", "choices": ["Les bottes de sept lieues", "Les bottes ailées", "Les bottes d'or", "Les bottes de géant"], "answer": 0},
-    {"q": "Quel chat rusé offre un royaume à son maître ?", "choices": ["Le Chat botté", "Le chat du Cheshire", "Raminagrobis", "Le chat noir"], "answer": 0},
-    {"q": "Quel nom le Chat botté donne-t-il à son maître ?", "choices": ["Le marquis de Carabas", "Le duc de Bellefontaine", "Le comte du Moulin", "Le prince Igor"], "answer": 0},
-    {"q": "Quelle jeune fille laisse tomber ses longs cheveux du haut d'une tour ?", "choices": ["Raiponce", "Blanche-Neige", "Gretel", "Peau d'Âne"], "answer": 0},
-    {"q": "En quoi la Bête se transforme-t-elle à la fin du conte ?", "choices": ["En prince", "En roi", "En oiseau", "Elle reste une bête"], "answer": 0},
-    {"q": "Que devient le vilain petit canard ?", "choices": ["Un cygne", "Un paon", "Un canard superbe", "Une oie blanche"], "answer": 0},
-    {"q": "Quel petit personnage de bois voit son nez grandir quand il ment ?", "choices": ["Pinocchio", "Le soldat de plomb", "Polichinelle", "Guignol"], "answer": 0},
-    {"q": "Quels frères allemands ont collecté Blanche-Neige et Raiponce ?", "choices": ["Les frères Grimm", "Andersen et Perrault", "Les frères Schmidt", "Les frères Hoffmann"], "answer": 0},
-    {"q": "Quel auteur français a écrit « Cendrillon » et « Le Chat botté » ?", "choices": ["Charles Perrault", "Jean de La Fontaine", "Madame d'Aulnoy", "Fénelon"], "answer": 0},
-    {"q": "Quel auteur danois a écrit « La Petite Sirène » ?", "choices": ["Hans Christian Andersen", "Les frères Grimm", "Perrault", "Selma Lagerlöf"], "answer": 0},
-    {"q": "Combien de vœux le génie des contes orientaux accorde-t-il ?", "choices": ["Trois", "Un", "Sept", "Autant qu'on veut"], "answer": 0},
-    {"q": "Quelle formule ouvre la caverne d'Ali Baba ?", "choices": ["Sésame, ouvre-toi", "Abracadabra", "Par la barbe du sultan", "Ouvre-toi, rocher"], "answer": 0},
-    {"q": "Combien de voleurs se cachent dans la caverne d'Ali Baba ?", "choices": ["Quarante", "Vingt", "Cent", "Douze"], "answer": 0}
+    {
+      "q": "Quel objet la marraine de Cendrillon transforme-t-elle en carrosse ?",
+      "choices": [
+        "Une citrouille",
+        "Un potiron doré",
+        "Une pomme",
+        "Un melon"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "À quelle heure le sortilège de Cendrillon prend-il fin ?",
+      "choices": [
+        "Minuit",
+        "Midi",
+        "L'aube",
+        "Vingt-trois heures"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Que perd Cendrillon en s'enfuyant du bal ?",
+      "choices": [
+        "Une pantoufle de verre",
+        "Son collier",
+        "Sa couronne",
+        "Son gant"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Sur quoi la Belle au bois dormant se pique-t-elle ?",
+      "choices": [
+        "Un fuseau",
+        "Une aiguille à coudre",
+        "Une épine de rose",
+        "Un rouet entier"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de temps la Belle au bois dormant dort-elle ?",
+      "choices": [
+        "Cent ans",
+        "Mille ans",
+        "Dix ans",
+        "Sept ans"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel fruit empoisonné la sorcière donne-t-elle à Blanche-Neige ?",
+      "choices": [
+        "Une pomme",
+        "Une poire",
+        "Une cerise",
+        "Une figue"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Que demande la méchante reine à son miroir ?",
+      "choices": [
+        "Qui est la plus belle",
+        "Qui est la plus riche",
+        "Qui est la plus forte",
+        "Où est Blanche-Neige"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle fillette porte une galette et un petit pot de beurre à sa grand-mère ?",
+      "choices": [
+        "Le Petit Chaperon rouge",
+        "Boucle d'or",
+        "Gretel",
+        "La Petite Sirène"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel animal se déguise en grand-mère dans ce conte ?",
+      "choices": [
+        "Le loup",
+        "Le renard",
+        "L'ogre",
+        "L'ours"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel héros de Perrault sème des cailloux blancs pour retrouver son chemin ?",
+      "choices": [
+        "Le Petit Poucet",
+        "Hansel",
+        "Le Chat botté",
+        "Tom Pouce"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle maison découvrent Hansel et Gretel dans la forêt ?",
+      "choices": [
+        "Une maison en pain d'épices et sucreries",
+        "Une chaumière",
+        "Un château",
+        "Une cabane de paille"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelles bottes magiques porte l'ogre du Petit Poucet ?",
+      "choices": [
+        "Les bottes de sept lieues",
+        "Les bottes ailées",
+        "Les bottes d'or",
+        "Les bottes de géant"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel chat rusé offre un royaume à son maître ?",
+      "choices": [
+        "Le Chat botté",
+        "Le chat du Cheshire",
+        "Raminagrobis",
+        "Le chat noir"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel nom le Chat botté donne-t-il à son maître ?",
+      "choices": [
+        "Le marquis de Carabas",
+        "Le duc de Bellefontaine",
+        "Le comte du Moulin",
+        "Le prince Igor"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle jeune fille laisse tomber ses longs cheveux du haut d'une tour ?",
+      "choices": [
+        "Raiponce",
+        "Blanche-Neige",
+        "Gretel",
+        "Peau d'Âne"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "En quoi la Bête se transforme-t-elle à la fin du conte ?",
+      "choices": [
+        "En prince",
+        "En roi",
+        "En oiseau",
+        "Elle reste une bête"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Que devient le vilain petit canard ?",
+      "choices": [
+        "Un cygne",
+        "Un paon",
+        "Un canard superbe",
+        "Une oie blanche"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel petit personnage de bois voit son nez grandir quand il ment ?",
+      "choices": [
+        "Pinocchio",
+        "Le soldat de plomb",
+        "Polichinelle",
+        "Guignol"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quels frères allemands ont collecté Blanche-Neige et Raiponce ?",
+      "choices": [
+        "Les frères Grimm",
+        "Andersen et Perrault",
+        "Les frères Schmidt",
+        "Les frères Hoffmann"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel auteur français a écrit « Cendrillon » et « Le Chat botté » ?",
+      "choices": [
+        "Charles Perrault",
+        "Jean de La Fontaine",
+        "Madame d'Aulnoy",
+        "Fénelon"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel auteur danois a écrit « La Petite Sirène » ?",
+      "choices": [
+        "Hans Christian Andersen",
+        "Les frères Grimm",
+        "Perrault",
+        "Selma Lagerlöf"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de vœux le génie des contes orientaux accorde-t-il ?",
+      "choices": [
+        "Trois",
+        "Un",
+        "Sept",
+        "Autant qu'on veut"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle formule ouvre la caverne d'Ali Baba ?",
+      "choices": [
+        "Sésame, ouvre-toi",
+        "Abracadabra",
+        "Par la barbe du sultan",
+        "Ouvre-toi, rocher"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Combien de voleurs se cachent dans la caverne d'Ali Baba ?",
+      "choices": [
+        "Quarante",
+        "Vingt",
+        "Cent",
+        "Douze"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel conte d'Andersen met en scène une minuscule fille née dans une fleur ?",
+      "choices": [
+        "La Petite Poucette",
+        "La Petite Sirène",
+        "La Petite Fille aux allumettes",
+        "La Bergère et le Ramoneur"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Dans « La Petite Sirène » d'Andersen, que donne la sirène à la sorcière en échange de jambes humaines ?",
+      "choices": [
+        "Sa voix",
+        "Ses cheveux",
+        "Sa couronne",
+        "Sa mémoire"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel conte d'Andersen met en scène une princesse gênée par un légume caché sous vingt matelas ?",
+      "choices": [
+        "La Princesse au petit pois",
+        "La Reine des neiges",
+        "La Petite Poucette",
+        "La Bergère et le Ramoneur"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Dans quel conte d'Andersen un souverain défile-t-il sans vêtements, berné par des tisserands ?",
+      "choices": [
+        "Les Habits neufs de l'empereur",
+        "Le Rossignol et l'Empereur",
+        "Le Briquet",
+        "La Malle volante"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle particularité physique a le petit soldat de plomb d'Andersen ?",
+      "choices": [
+        "Il n'a qu'une jambe",
+        "Il n'a qu'un bras",
+        "Il est aveugle",
+        "Il est géant"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Dans « Peau d'Âne », pourquoi la princesse s'enfuit-elle du château ?",
+      "choices": [
+        "Son père veut l'épouser",
+        "Une sorcière la menace",
+        "Elle est accusée de vol",
+        "Un dragon attaque le royaume"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Dans « Hansel et Gretel », comment Gretel se débarrasse-t-elle de la sorcière ?",
+      "choices": [
+        "Elle la pousse dans le four",
+        "Elle l'enferme dans la cave",
+        "Elle l'empoisonne",
+        "Elle la change en corbeau"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de frères a le Petit Poucet ?",
+      "choices": [
+        "Six",
+        "Trois",
+        "Quatre",
+        "Sept"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans le conte de Grimm, quel personnage file la paille en or pour la fille du meunier ?",
+      "choices": [
+        "Le Nain Tracassin",
+        "Le Roi Grenouille",
+        "L'ondin de l'étang",
+        "Le lutin cordonnier"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment se termine « Le Petit Chaperon rouge » dans la version de Perrault ?",
+      "choices": [
+        "Le loup mange la fillette",
+        "Un chasseur sauve la fillette",
+        "La grand-mère tue le loup",
+        "Le loup s'enfuit dans la forêt"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans « Cendrillon » de Perrault, en quels animaux la marraine transforme-t-elle les souris ?",
+      "choices": [
+        "En chevaux",
+        "En laquais",
+        "En colombes",
+        "En cochers"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "De quel recueil de Perrault est tiré « Le Chat botté » ?",
+      "choices": [
+        "Les Contes de ma mère l'Oye",
+        "Les Mille et Une Nuits",
+        "Le Décaméron",
+        "Les Fables choisies"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle autrice a popularisé « La Belle et la Bête » avec sa version de 1756 ?",
+      "choices": [
+        "Jeanne-Marie Leprince de Beaumont",
+        "Madame d'Aulnoy",
+        "George Sand",
+        "La comtesse de Ségur"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans « La Petite Sirène » d'Andersen, que devient la sirène à la fin du conte ?",
+      "choices": [
+        "De l'écume de mer",
+        "Une princesse humaine",
+        "Une statue de corail",
+        "Une étoile de mer"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans « Raiponce », quelle plante du jardin de la sorcière la mère enceinte convoite-t-elle ?",
+      "choices": [
+        "De la raiponce",
+        "Du persil",
+        "De la mandragore",
+        "Des fraises"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quels sont les prénoms des frères Grimm ?",
+      "choices": [
+        "Jacob et Wilhelm",
+        "Hans et Friedrich",
+        "Karl et Ludwig",
+        "Johann et Georg"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans « Le Vaillant Petit Tailleur », combien de mouches le tailleur tue-t-il d'un seul coup ?",
+      "choices": [
+        "Sept",
+        "Trois",
+        "Dix",
+        "Douze"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans les contes russes, dans quoi vit la sorcière Baba Yaga ?",
+      "choices": [
+        "Une isba montée sur des pattes de poule",
+        "Un château de glace",
+        "Une grotte sous un lac",
+        "Un moulin abandonné"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Que sème le Petit Poucet lors de la seconde expédition en forêt, causant sa perte ?",
+      "choices": [
+        "Des miettes de pain",
+        "Des cailloux blancs",
+        "Des grains de blé",
+        "Des boutons"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Chez Perrault, comment s'appellent les deux enfants de la Belle au bois dormant ?",
+      "choices": [
+        "Aurore et Jour",
+        "Aube et Soleil",
+        "Rose et Lys",
+        "Perle et Rubis"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien de fées sont invitées au baptême de la Belle au bois dormant chez Perrault ?",
+      "choices": [
+        "Sept",
+        "Trois",
+        "Douze",
+        "Treize"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Dans « Blanche-Neige » des frères Grimm, que la reine demande-t-elle au chasseur de lui rapporter comme preuve ?",
+      "choices": [
+        "Les poumons et le foie",
+        "Le cœur",
+        "Les yeux",
+        "Une mèche de cheveux"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Charles Perrault a-t-il publié son célèbre recueil de contes ?",
+      "choices": [
+        "1697",
+        "1668",
+        "1715",
+        "1740"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Qui a écrit la première version littéraire de « La Belle et la Bête », en 1740 ?",
+      "choices": [
+        "Gabrielle-Suzanne de Villeneuve",
+        "Jeanne-Marie Leprince de Beaumont",
+        "Madame d'Aulnoy",
+        "Marie de France"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel est le titre exact du recueil de Perrault surnommé « Contes de ma mère l'Oye » ?",
+      "choices": [
+        "Histoires ou contes du temps passé",
+        "Contes et légendes de France",
+        "Contes de la veillée",
+        "Récits du temps jadis"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Dans la version des frères Grimm de « Cendrillon », en quelle matière est la pantoufle ?",
+      "choices": [
+        "En or",
+        "En verre",
+        "En argent",
+        "En soie"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Dans « Cendrillon » de Grimm, que font les demi-sœurs pour réussir à enfiler la pantoufle ?",
+      "choices": [
+        "Elles se coupent un morceau du pied",
+        "Elles graissent leur pied",
+        "Elles ensorcellent la pantoufle",
+        "Elles échangent leurs chaussures"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Combien de contes numérotés compte l'édition finale (1857) du recueil des frères Grimm ?",
+      "choices": [
+        "200",
+        "100",
+        "150",
+        "365"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Andersen a-t-il publié son premier recueil de contes ?",
+      "choices": [
+        "1835",
+        "1805",
+        "1850",
+        "1870"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Dans « La Reine des neiges » d'Andersen, comment s'appellent les deux enfants héros ?",
+      "choices": [
+        "Kay et Gerda",
+        "Hansel et Gretel",
+        "Elsa et Anna",
+        "Peter et Heidi"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Dans « Barbe-Bleue », qu'est-ce qui trahit la désobéissance de la jeune épouse ?",
+      "choices": [
+        "La clé tachée de sang",
+        "Un miroir brisé",
+        "Une porte restée ouverte",
+        "Un mouchoir oublié"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    }
   ]
 }

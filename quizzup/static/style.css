@@ -33,6 +33,8 @@ body {
   color: var(--text);
   overflow-x: hidden;
   font-size: 17px;
+  /* Empêche le rebond élastique iOS qui donne l'impression que l'écran bouge */
+  overscroll-behavior: none;
 }
 
 /* Halos iridescents en arrière-plan — lumière douce, très diffuse */
@@ -55,7 +57,7 @@ body::after {
 
 #app { max-width: 520px; margin: 0 auto; min-height: 100vh; position: relative; z-index: 1; }
 
-.screen { padding: 20px 18px 44px; min-height: 100vh; animation: screen-in .35s cubic-bezier(.2,.8,.25,1); }
+.screen { padding: 20px 18px 44px; min-height: 100vh; min-height: 100dvh; animation: screen-in .35s cubic-bezier(.2,.8,.25,1); }
 .hidden { display: none !important; }
 @keyframes screen-in { from { opacity: 0; transform: translateY(14px) scale(.995); } to { opacity: 1; transform: none; } }
 
@@ -216,6 +218,29 @@ body::after {
 .topic-record { font-size: 14px; margin-top: 10px; color: var(--muted); font-style: italic; }
 .topic-actions { display: flex; flex-direction: column; gap: 12px; }
 
+/* ── Sélecteur de difficulté ─────────────────────────────── */
+.diff-select { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; }
+.diff-chip {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 10px 4px 8px; border-radius: 14px; cursor: pointer;
+  border: 1px solid var(--line); background: rgba(255,255,255,.55);
+  color: var(--ink); font-family: var(--font-body);
+  transition: transform .1s ease, border-color .15s, background .15s, box-shadow .15s;
+  backdrop-filter: blur(8px);
+}
+.diff-chip b { font-size: 20px; font-weight: 400; }
+.diff-chip span { font-size: 13.5px; font-weight: 700; letter-spacing: .02em; }
+.diff-chip small { font-size: 11px; color: var(--muted); }
+.diff-chip:active { transform: scale(.94); }
+.diff-chip.selected {
+  border-color: var(--gold); background: rgba(217,182,101,.16);
+  box-shadow: 0 0 0 1px var(--gold), 0 6px 16px rgba(176,141,62,.22);
+}
+.diff-chip.selected span {
+  background: linear-gradient(120deg, #8a6a24, var(--gold-2) 55%, #8a6a24);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
 /* ── Défi ami ────────────────────────────────────────────── */
 .friend-box { display: flex; flex-direction: column; gap: 14px; }
 .friend-card {
@@ -225,6 +250,7 @@ body::after {
 .friend-card h3 { font-family: var(--font-display); font-size: 21px; margin-bottom: 6px; }
 .friend-card p { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
 .friend-card .btn { width: 100%; }
+.friend-diff { display: inline-block; margin-top: 6px; font-weight: 700; color: var(--gold); font-size: 13.5px; }
 .friend-sep { text-align: center; color: var(--muted); font-weight: 600; font-style: italic; }
 .room-code { margin-top: 16px; }
 .room-code-value {
@@ -342,6 +368,18 @@ body::after {
   font-size: 15px;
 }
 @keyframes pulse { 50% { opacity: .55; } }
+
+/* ── Stabilité de l'écran de jeu ──────────────────────────────
+   Ces trois bandeaux apparaissent/disparaissent en cours de manche.
+   On réserve leur place en permanence (sélecteur #id.hidden plus
+   spécifique que .hidden) pour que les réponses ne « sautent » jamais
+   sous le doigt. */
+#double-banner { min-height: 22px; }
+#opp-answered { min-height: 22px; }
+#round-points { min-height: 40px; }
+#double-banner.hidden, #opp-answered.hidden, #round-points.hidden {
+  display: block !important; visibility: hidden;
+}
 
 .countdown-overlay {
   position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;

@@ -201,22 +201,68 @@ def _pick_distractors(rng: random.Random, correct: str, pool: list[str], n: int 
     return rng.sample(candidates, n)
 
 
+# ─── Difficulté des questions générées (1 facile → 4 extrême) ───────────────
+# La notoriété de l'entité (pays, département, élément…) ou la magnitude du
+# calcul détermine le palier. Listes calibrées pour un public francophone.
+
+_COUNTRY_EASY = {
+    "FR", "DE", "IT", "ES", "PT", "GB", "BE", "NL", "CH", "GR", "RU", "US",
+    "CA", "MX", "BR", "AR", "CN", "JP", "IN", "EG", "MA", "DZ", "TN", "TR", "AU",
+}
+_COUNTRY_OBSCURE = {
+    "MD", "MK", "BA", "ME", "BY", "LA", "MM", "MN", "UZ", "AZ", "AM", "GE",
+    "GA", "CG", "TD", "GN", "BF", "BJ", "TG", "RW", "NA", "BW", "MR", "FJ",
+    "PG", "GT", "PA", "LK", "KH", "NP", "BD",
+}
+
+
+def _country_tier(iso: str, continent: str) -> int:
+    if iso in _COUNTRY_EASY:
+        return 1
+    if iso in _COUNTRY_OBSCURE:
+        return 4
+    return 2 if continent == "Europe" else 3
+
+
+def _strip_accents(s: str) -> str:
+    import unicodedata
+    return unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode()
+
+
+def _word_tier(fr: str, foreign: str) -> int:
+    """Vocabulaire : mots courts ou transparents = facile, mots longs = dur."""
+    f = _strip_accents(fr).lower()
+    for art in ("le ", "la ", "les ", "l'", "un ", "une "):
+        if f.startswith(art):
+            f = f[len(art):]
+            break
+    x = _strip_accents(foreign).lower()
+    if x[:4] == f[:4] or len(x) <= 4:
+        return 1
+    if len(x) <= 6:
+        return 2
+    if len(x) == 7:
+        return 3
+    return 4
+
+
 def build_capitales() -> list[dict]:
     """Capitale → pays et pays → capitale, distracteurs du même continent."""
     rng = random.Random(2024)
     out = []
-    for country, capital, _iso, continent in COUNTRIES:
+    for country, capital, iso, continent in COUNTRIES:
+        tier = _country_tier(iso, continent)
         same = [c for _, c, _, cont in COUNTRIES if cont == continent and c != capital]
         pool = same if len(same) >= 3 else [c for _, c, _, _ in COUNTRIES]
         distr = _pick_distractors(rng, capital, pool)
         out.append({"q": f"Quelle est la capitale de {country} ?",
-                    "choices": [capital, *distr], "answer": 0})
+                    "choices": [capital, *distr], "answer": 0, "difficulty": tier})
         same_countries = [p for p, _, _, cont in COUNTRIES if cont == continent and p != country]
         pool_c = same_countries if len(same_countries) >= 3 else [p for p, _, _, _ in COUNTRIES]
         distr_c = _pick_distractors(rng, country, pool_c)
         out.append({"q": f"De quel pays {capital} est-elle la capitale ?",
                     "choices": [_cap_first(country), *[_cap_first(d) for d in distr_c]],
-                    "answer": 0})
+                    "answer": 0, "difficulty": tier})
     return out
 
 
@@ -235,7 +281,7 @@ def build_drapeaux() -> list[dict]:
         distr = _pick_distractors(rng, country, pool)
         out.append({"q": f"À quel pays appartient ce drapeau : {_flag(iso)} ?",
                     "choices": [_cap_first(country), *[_cap_first(d) for d in distr]],
-                    "answer": 0})
+                    "answer": 0, "difficulty": _country_tier(iso, continent)})
     return out
 
 
@@ -244,7 +290,7 @@ def build_calcul() -> list[dict]:
     rng = random.Random(42)
     out, seen = [], set()
 
-    def add(q: str, ans: int, spread: int) -> None:
+    def add(q: str, ans: int, spread: int, diff: int) -> None:
         if q in seen:
             return
         seen.add(q)
@@ -255,28 +301,33 @@ def build_calcul() -> list[dict]:
                 wrongs.add(w)
             spread += 1  # élargit si blocage
         out.append({"q": q, "choices": [str(ans), *[str(w) for w in sorted(wrongs)]],
-                    "answer": 0})
+                    "answer": 0, "difficulty": diff})
 
     for _ in range(120):
         a, b = rng.randint(12, 89), rng.randint(12, 89)
-        add(f"Combien font {a} + {b} ?", a + b, 3)
+        add(f"Combien font {a} + {b} ?", a + b, 3,
+            1 if a < 30 and b < 30 else 2)
     for _ in range(90):
         a, b = rng.randint(30, 99), rng.randint(11, 29)
-        add(f"Combien font {a} − {b} ?", a - b, 3)
+        add(f"Combien font {a} − {b} ?", a - b, 3,
+            2 if b <= 20 else 3)
     for _ in range(90):
         a, b = rng.randint(3, 12), rng.randint(6, 19)
-        add(f"Combien font {a} × {b} ?", a * b, max(2, a))
+        add(f"Combien font {a} × {b} ?", a * b, max(2, a),
+            4 if a >= 10 and b >= 15 else 3 if a >= 7 and b >= 12 else 2)
     for n in range(11, 26):
-        add(f"Combien font {n} au carré ?", n * n, n)
+        add(f"Combien font {n} au carré ?", n * n, n,
+            3 if n <= 15 else 4)
     for _ in range(50):
         pct = rng.choice([10, 20, 25, 50, 75])
         base = rng.choice([40, 60, 80, 120, 160, 200, 240, 300, 400, 500])
-        add(f"Combien font {pct} % de {base} ?", base * pct // 100, max(4, base // 20))
+        add(f"Combien font {pct} % de {base} ?", base * pct // 100, max(4, base // 20),
+            1 if pct in (10, 50) else 2 if pct in (20, 25) else 3)
     for _ in range(40):
         a = rng.randint(13, 60)
-        add(f"Quel est le double de {a} ?", a * 2, 4)
+        add(f"Quel est le double de {a} ?", a * 2, 4, 1)
         b = rng.choice(range(22, 120, 2))
-        add(f"Quelle est la moitié de {b} ?", b // 2, 3)
+        add(f"Quelle est la moitié de {b} ?", b // 2, 3, 1 if b <= 60 else 2)
     return out
 
 
@@ -287,12 +338,13 @@ def build_anglais() -> list[dict]:
     en_all = [e for _, e in ENGLISH_WORDS]
     out = []
     for fr, en in ENGLISH_WORDS:
+        tier = _word_tier(fr, en)
         distr = _pick_distractors(rng, en, en_all)
         out.append({"q": f"Comment dit-on « {fr} » en anglais ?",
-                    "choices": [en, *distr], "answer": 0})
+                    "choices": [en, *distr], "answer": 0, "difficulty": tier})
         distr_fr = _pick_distractors(rng, fr, fr_all)
         out.append({"q": f"Que signifie « {en} » en français ?",
-                    "choices": [fr, *distr_fr], "answer": 0})
+                    "choices": [fr, *distr_fr], "answer": 0, "difficulty": tier})
     return out
 
 
@@ -541,42 +593,70 @@ def _roman(n: int) -> str:
 
 
 def _pairs_topic(rng_seed: int, pairs: list[tuple[str, str]],
-                 q_fwd: str, q_rev: str) -> list[dict]:
-    """Thème « paire » générique : question dans les deux sens, distracteurs du pool."""
+                 q_fwd: str, q_rev: str,
+                 tier=None) -> list[dict]:
+    """Thème « paire » générique : question dans les deux sens, distracteurs du pool.
+
+    ``tier(left, right)`` renvoie la difficulté 1-4 de la paire (défaut : 2).
+    """
     rng = random.Random(rng_seed)
     lefts = [a for a, _ in pairs]
     rights = [b for _, b in pairs]
     out = []
     for left, right in pairs:
+        diff = tier(left, right) if tier else 2
         out.append({"q": q_fwd.format(left), "choices": [right, *_pick_distractors(rng, right, rights)],
-                    "answer": 0})
+                    "answer": 0, "difficulty": diff})
         out.append({"q": q_rev.format(right), "choices": [left, *_pick_distractors(rng, left, lefts)],
-                    "answer": 0})
+                    "answer": 0, "difficulty": diff})
     return out
+
+
+_ELEMENT_EASY = {"H", "He", "O", "C", "N", "Fe", "Au", "Ag", "Cu", "Zn", "Ca", "Cl", "S", "Al"}
+_ELEMENT_SCHOOL = {"Na", "K", "Mg", "P", "I", "Pt", "Pb", "Hg", "U", "Li", "F", "Ne", "Ar", "Si", "Pu", "Sn"}
+_ELEMENT_EXPERT = {"Sb", "Mo", "Cd", "Ba", "Be", "Rn", "Ra"}
+
+
+def _element_tier(sym: str, _name: str) -> int:
+    if sym in _ELEMENT_EASY:
+        return 1
+    if sym in _ELEMENT_SCHOOL:
+        return 2
+    if sym in _ELEMENT_EXPERT:
+        return 4
+    return 3
 
 
 def build_elements() -> list[dict]:
     return _pairs_topic(11, ELEMENTS,
                         "Quel élément chimique a pour symbole « {} » ?",
-                        "Quel est le symbole chimique de {} ?")
+                        "Quel est le symbole chimique de {} ?",
+                        tier=_element_tier)
 
 
 def build_espagnol() -> list[dict]:
     return _pairs_topic(12, SPANISH_WORDS,
                         "Comment dit-on « {} » en espagnol ?",
-                        "Que signifie « {} » en français (depuis l'espagnol) ?")
+                        "Que signifie « {} » en français (depuis l'espagnol) ?",
+                        tier=_word_tier)
 
 
 def build_allemand() -> list[dict]:
     return _pairs_topic(13, GERMAN_WORDS,
                         "Comment dit-on « {} » en allemand ?",
-                        "Que signifie « {} » en français (depuis l'allemand) ?")
+                        "Que signifie « {} » en français (depuis l'allemand) ?",
+                        tier=_word_tier)
 
 
 def build_italien() -> list[dict]:
     return _pairs_topic(14, ITALIAN_WORDS,
                         "Comment dit-on « {} » en italien ?",
-                        "Que signifie « {} » en français (depuis l'italien) ?")
+                        "Que signifie « {} » en français (depuis l'italien) ?",
+                        tier=_word_tier)
+
+
+_DEPT_EASY = {"75", "13", "69", "33", "31", "59", "06", "44", "67", "34", "35", "38"}
+_DEPT_OBSCURE = {"09", "15", "23", "32", "36", "43", "48", "52", "53", "55", "61", "70", "82"}
 
 
 def build_departements() -> list[dict]:
@@ -585,18 +665,47 @@ def build_departements() -> list[dict]:
     prefs = [p for _, _, p in DEPARTEMENTS]
     out = []
     for num, name, pref in DEPARTEMENTS:
+        base = 1 if num in _DEPT_EASY else 3 if num in _DEPT_OBSCURE else 2
         out.append({"q": f"Quel département porte le numéro {num} ?",
                     "choices": [_cap_first(name), *[_cap_first(d) for d in _pick_distractors(rng, name, names)]],
-                    "answer": 0})
+                    "answer": 0, "difficulty": base})
+        # Connaître la préfecture est un cran plus dur que le numéro
         out.append({"q": f"Quelle est la préfecture de {name} ({num}) ?",
-                    "choices": [pref, *_pick_distractors(rng, pref, prefs)], "answer": 0})
+                    "choices": [pref, *_pick_distractors(rng, pref, prefs)], "answer": 0,
+                    "difficulty": base if base == 1 else min(4, base + 1)})
     return out
+
+
+_STATE_FAMOUS = {"la Californie", "le Texas", "la Floride", "l'État de New York"}
+_STATE_OBSCURE = {"le Dakota du Nord", "le Dakota du Sud", "le Vermont", "le Delaware",
+                  "le Rhode Island", "le New Hampshire", "la Virginie-Occidentale",
+                  "l'Idaho", "le Wyoming", "le Montana", "le Nebraska"}
+
+
+def _state_tier(state: str, _cap: str) -> int:
+    if state in _STATE_FAMOUS:
+        return 2
+    if state in _STATE_OBSCURE:
+        return 4
+    return 3
 
 
 def build_etats_usa() -> list[dict]:
     return _pairs_topic(16, [(s, c) for s, c in US_STATES],
                         "Quelle est la capitale de {} (État américain) ?",
-                        "De quel État américain {} est-elle la capitale ?")
+                        "De quel État américain {} est-elle la capitale ?",
+                        tier=_state_tier)
+
+
+_CURRENCY_EASY = {"le Japon", "le Royaume-Uni", "la Suisse", "les États-Unis",
+                  "la Chine", "la Russie", "le Maroc", "la Tunisie", "l'Inde"}
+_CURRENCY_KNOWN = {"le Canada", "le Mexique", "le Brésil", "la Turquie",
+                   "la Suède", "la Norvège", "le Danemark", "l'Égypte", "l'Australie",
+                   "la Nouvelle-Zélande", "la Corée du Sud", "l'Algérie",
+                   "l'Argentine", "la Pologne", "l'Islande"}
+_CURRENCY_EXPERT = {"le Guatemala", "le Costa Rica", "la Mongolie", "le Kazakhstan",
+                    "la Géorgie", "l'Arménie", "l'Azerbaïdjan", "la Birmanie",
+                    "le Laos", "le Cambodge", "le Népal", "le Paraguay", "le Bangladesh"}
 
 
 def build_monnaies() -> list[dict]:
@@ -604,9 +713,12 @@ def build_monnaies() -> list[dict]:
     currs = [c for _, c in CURRENCIES]
     out = []
     for country, curr in CURRENCIES:
+        tier = (1 if country in _CURRENCY_EASY else
+                2 if country in _CURRENCY_KNOWN else
+                4 if country in _CURRENCY_EXPERT else 3)
         out.append({"q": f"Quelle est la monnaie de {country} ?",
                     "choices": [_cap_first(curr), *[_cap_first(d) for d in _pick_distractors(rng, curr, currs)]],
-                    "answer": 0})
+                    "answer": 0, "difficulty": tier})
     return out
 
 
@@ -615,9 +727,19 @@ def build_chiffres_romains() -> list[dict]:
     numbers = list(range(1, 41)) + [45, 49, 50, 55, 60, 64, 70, 75, 80, 88, 90, 94, 99,
                                     100, 150, 200, 300, 400, 444, 500, 600, 700, 800, 900,
                                     1000, 1500, 1789, 1900, 1980, 2000, 2024]
+    def roman_tier(n: int) -> int:
+        if n <= 12:
+            return 1
+        if n <= 40 or n in {50, 100, 500, 1000, 2000}:
+            return 2
+        if n <= 400:
+            return 3
+        return 4
+
     out = []
     for n in numbers:
         r = _roman(n)
+        tier = roman_tier(n)
         wrongs: set[str] = set()
         while len(wrongs) < 3:
             delta = rng.choice([-10, -5, -4, -2, -1, 1, 2, 4, 5, 10])
@@ -625,7 +747,7 @@ def build_chiffres_romains() -> list[dict]:
             if w >= 1 and _roman(w) != r:
                 wrongs.add(_roman(w))
         out.append({"q": f"Comment s'écrit {n} en chiffres romains ?",
-                    "choices": [r, *sorted(wrongs)], "answer": 0})
+                    "choices": [r, *sorted(wrongs)], "answer": 0, "difficulty": tier})
         wrong_nums: set[str] = set()
         while len(wrong_nums) < 3:
             delta = rng.choice([-10, -5, -4, -2, -1, 1, 2, 4, 5, 10])
@@ -633,8 +755,18 @@ def build_chiffres_romains() -> list[dict]:
             if w >= 1 and w != n:
                 wrong_nums.add(str(w))
         out.append({"q": f"Quel nombre s'écrit « {r} » en chiffres romains ?",
-                    "choices": [str(n), *sorted(wrong_nums)], "answer": 0})
+                    "choices": [str(n), *sorted(wrong_nums)], "answer": 0, "difficulty": tier})
     return out
+
+
+_BABY_EASY = {"la vache", "la jument", "la chienne", "la chatte", "la poule", "la brebis"}
+_BABY_MEDIUM = {"la chèvre", "la truie", "la lapine", "l'ourse", "la louve",
+                "la lionne", "la cane", "la biche"}
+_BABY_EXPERT = {"la laie (sanglier)", "la hase (lièvre)", "la pigeonne", "la cigogne",
+                "l'hirondelle", "l'ânesse", "la chamelle"}
+_FEMALE_EASY = {"du cheval", "du coq", "du taureau", "du cochon", "du bélier"}
+_FEMALE_MEDIUM = {"du canard", "du loup", "du bouc", "du cerf"}
+_FEMALE_EXPERT = {"du mulet", "du jars"}
 
 
 def build_petits_animaux() -> list[dict]:
@@ -643,14 +775,29 @@ def build_petits_animaux() -> list[dict]:
     females = [f for _, f in ANIMAL_FEMALES]
     out = []
     for adult, baby in ANIMAL_BABIES:
+        tier = (1 if adult in _BABY_EASY else 2 if adult in _BABY_MEDIUM else
+                4 if adult in _BABY_EXPERT else 3)
         out.append({"q": f"Comment s'appelle le petit de {adult} ?",
                     "choices": [_cap_first(baby), *[_cap_first(d) for d in _pick_distractors(rng, baby, babies)]],
-                    "answer": 0})
+                    "answer": 0, "difficulty": tier})
     for male, female in ANIMAL_FEMALES:
+        tier = (1 if male in _FEMALE_EASY else 2 if male in _FEMALE_MEDIUM else
+                4 if male in _FEMALE_EXPERT else 3)
         out.append({"q": f"Comment s'appelle la femelle {male} ?",
                     "choices": [_cap_first(female), *[_cap_first(d) for d in _pick_distractors(rng, female, females)]],
-                    "answer": 0})
+                    "answer": 0, "difficulty": tier})
     return out
+
+
+_LANG_EASY = {"au Brésil", "au Mexique", "en Autriche", "en Chine", "en Grèce",
+              "au Portugal", "en Argentine", "en Russie", "au Japon", "au Maroc",
+              "en Égypte"}
+_LANG_KNOWN = {"aux Pays-Bas", "au Danemark", "en Finlande", "en Islande", "en Hongrie",
+               "en Pologne", "en Roumanie", "en Turquie", "au Vietnam", "en Thaïlande",
+               "en Corée du Sud", "en Ukraine", "en Angola", "au Mozambique",
+               "en Norvège", "en Israël"}
+_LANG_EXPERT = {"en Somalie", "en Éthiopie", "en Mongolie", "en Géorgie", "en Arménie",
+                "au Sri Lanka", "en Birmanie", "au Bangladesh", "au Népal", "au Cambodge"}
 
 
 def build_langues() -> list[dict]:
@@ -658,9 +805,11 @@ def build_langues() -> list[dict]:
     langs = sorted({lang for _, lang in LANGUAGES})
     out = []
     for place, lang in LANGUAGES:
+        tier = (1 if place in _LANG_EASY else 2 if place in _LANG_KNOWN else
+                4 if place in _LANG_EXPERT else 3)
         out.append({"q": f"Quelle langue officielle parle-t-on {place} ?",
                     "choices": [_cap_first(lang), *[_cap_first(d) for d in _pick_distractors(rng, lang, langs)]],
-                    "answer": 0})
+                    "answer": 0, "difficulty": tier})
     return out
 
 
