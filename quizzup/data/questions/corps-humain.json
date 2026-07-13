@@ -4,709 +4,84 @@
   "icon": "🫀",
   "color": "#c2185b",
   "questions": [
-    {
-      "q": "Combien de chambres compte le cœur humain ?",
-      "choices": [
-        "Quatre",
-        "Deux",
-        "Trois",
-        "Six"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel organe pompe le sang dans tout le corps ?",
-      "choices": [
-        "Le cœur",
-        "Le foie",
-        "Les poumons",
-        "La rate"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel est le plus petit os du corps humain ?",
-      "choices": [
-        "L'étrier (dans l'oreille)",
-        "Le scaphoïde",
-        "La phalange",
-        "Le coccyx"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Combien de poumons possède l'être humain ?",
-      "choices": [
-        "Deux",
-        "Un",
-        "Trois",
-        "Quatre"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel organe est le principal centre de la mémoire ?",
-      "choices": [
-        "Le cerveau",
-        "Le cœur",
-        "La moelle épinière",
-        "Les poumons"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quelle partie du squelette protège le cerveau ?",
-      "choices": [
-        "Le crâne",
-        "La cage thoracique",
-        "La colonne",
-        "Le bassin"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Combien de vertèbres compte la colonne vertébrale humaine ?",
-      "choices": [
-        "33",
-        "24",
-        "40",
-        "28"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quel muscle permet la respiration en se contractant ?",
-      "choices": [
-        "Le diaphragme",
-        "L'abdominal",
-        "Le trapèze",
-        "Le pectoral"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel sens dépend des papilles ?",
-      "choices": [
-        "Le goût",
-        "L'odorat",
-        "Le toucher",
-        "L'ouïe"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel liquide transporte l'oxygène et les nutriments ?",
-      "choices": [
-        "Le sang",
-        "La lymphe",
-        "La salive",
-        "La bile"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel organe produit la bile ?",
-      "choices": [
-        "Le foie",
-        "L'estomac",
-        "Le pancréas",
-        "La vésicule"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Où la digestion commence-t-elle ?",
-      "choices": [
-        "Dans la bouche",
-        "Dans l'estomac",
-        "Dans l'intestin",
-        "Dans l'œsophage"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle articulation relie la cuisse au tronc ?",
-      "choices": [
-        "La hanche",
-        "Le genou",
-        "La cheville",
-        "L'épaule"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Combien de dents de lait un enfant possède-t-il ?",
-      "choices": [
-        "20",
-        "24",
-        "28",
-        "32"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel élément durcit les os et les dents ?",
-      "choices": [
-        "Le calcium",
-        "Le fer",
-        "Le potassium",
-        "Le zinc"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quelle glande régule la glycémie via l'insuline ?",
-      "choices": [
-        "Le pancréas",
-        "La thyroïde",
-        "L'hypophyse",
-        "Les surrénales"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel nerf relie l'œil au cerveau ?",
-      "choices": [
-        "Le nerf optique",
-        "Le nerf auditif",
-        "Le nerf sciatique",
-        "Le nerf facial"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel est le muscle le plus puissant par rapport à sa taille ?",
-      "choices": [
-        "Le masséter (mâchoire)",
-        "Le biceps",
-        "Le mollet",
-        "Le cœur"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Combien de litres d'air les poumons peuvent-ils contenir environ ?",
-      "choices": [
-        "6 litres",
-        "2 litres",
-        "10 litres",
-        "4 centilitres"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle protéine donne sa couleur rouge au sang ?",
-      "choices": [
-        "L'hémoglobine",
-        "La kératine",
-        "Le collagène",
-        "La mélanine"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel pigment protège la peau du soleil ?",
-      "choices": [
-        "La mélanine",
-        "La kératine",
-        "L'hémoglobine",
-        "Le carotène"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle partie de l'oreille assure l'équilibre ?",
-      "choices": [
-        "L'oreille interne",
-        "Le tympan",
-        "Le pavillon",
-        "Le conduit auditif"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel organe stocke l'urine ?",
-      "choices": [
-        "La vessie",
-        "Le rein",
-        "L'uretère",
-        "L'urètre"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Combien de battements par minute fait un cœur adulte au repos environ ?",
-      "choices": [
-        "60 à 80",
-        "100 à 120",
-        "30 à 40",
-        "150"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelles cellules défendent l'organisme contre les infections ?",
-      "choices": [
-        "Les globules blancs",
-        "Les globules rouges",
-        "Les plaquettes",
-        "Les neurones"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel organe est capable de se régénérer en grande partie ?",
-      "choices": [
-        "Le foie",
-        "Le cœur",
-        "Le cerveau",
-        "Les poumons"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle vitamine est essentielle à la coagulation du sang ?",
-      "choices": [
-        "La vitamine K",
-        "La vitamine C",
-        "La vitamine D",
-        "La vitamine A"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel tube relie la bouche à l'estomac ?",
-      "choices": [
-        "L'œsophage",
-        "La trachée",
-        "L'intestin",
-        "Le duodénum"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle est la température normale du corps humain ?",
-      "choices": [
-        "Environ 37 °C",
-        "Environ 35 °C",
-        "Environ 39 °C",
-        "Environ 36 °F"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Combien de muscles compte environ le corps humain ?",
-      "choices": [
-        "Plus de 600",
-        "Environ 200",
-        "Environ 1200",
-        "Environ 100"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle partie du cerveau gère la vision ?",
-      "choices": [
-        "Le lobe occipital",
-        "Le lobe frontal",
-        "Le lobe temporal",
-        "Le cervelet"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel organe fabrique les globules rouges ?",
-      "choices": [
-        "La moelle osseuse",
-        "Le foie",
-        "La rate",
-        "Le cœur"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel réflexe protège l'œil d'un objet approchant ?",
-      "choices": [
-        "Le clignement",
-        "L'éternuement",
-        "Le bâillement",
-        "La déglutition"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle molécule est le « carburant » principal des cellules ?",
-      "choices": [
-        "Le glucose",
-        "Le cholestérol",
-        "L'urée",
-        "Le fer"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle empreinte est unique à chaque individu, même chez les jumeaux ?",
-      "choices": [
-        "L'empreinte digitale",
-        "Le groupe sanguin",
-        "L'ADN",
-        "La couleur des yeux"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel est le plus grand organe du corps humain ?",
-      "choices": [
-        "La peau",
-        "Le foie",
-        "Les poumons",
-        "L'intestin grêle"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Combien de doigts compte une main humaine ?",
-      "choices": [
-        "Cinq",
-        "Quatre",
-        "Six",
-        "Trois"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel organe filtre le sang et produit l'urine ?",
-      "choices": [
-        "Le rein",
-        "Le foie",
-        "La vessie",
-        "La rate"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quelle partie de l'œil détermine sa couleur ?",
-      "choices": [
-        "L'iris",
-        "La pupille",
-        "La cornée",
-        "La rétine"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel os protège le cœur et les poumons ?",
-      "choices": [
-        "La cage thoracique",
-        "Le bassin",
-        "Le crâne",
-        "L'omoplate"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Combien de dents compte en général une dentition adulte complète ?",
-      "choices": [
-        "32",
-        "28",
-        "30",
-        "24"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel est le plus long os du corps humain ?",
-      "choices": [
-        "Le fémur",
-        "Le tibia",
-        "L'humérus",
-        "Le péroné"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel groupe sanguin est qualifié de donneur universel ?",
-      "choices": [
-        "O négatif",
-        "AB positif",
-        "A positif",
-        "B négatif"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Comment s'appelle la partie du cerveau qui coordonne l'équilibre et les mouvements ?",
-      "choices": [
-        "Le cervelet",
-        "L'hypothalamus",
-        "Le bulbe rachidien",
-        "Le corps calleux"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quel est le nom des cellules nerveuses qui transmettent l'influx ?",
-      "choices": [
-        "Les neurones",
-        "Les gliocytes",
-        "Les myocytes",
-        "Les ostéocytes"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel os forme le squelette de la cuisse ?",
-      "choices": [
-        "Le fémur",
-        "Le tibia",
-        "La rotule",
-        "L'ischion"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Combien de paires de côtes possède l'être humain en général ?",
-      "choices": [
-        "12",
-        "10",
-        "14",
-        "8"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quelle glande, située à la base du cou, régule le métabolisme ?",
-      "choices": [
-        "La thyroïde",
-        "Le thymus",
-        "L'hypophyse",
-        "Le pancréas"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quel est le plus long segment du tube digestif ?",
-      "choices": [
-        "L'intestin grêle",
-        "Le gros intestin",
-        "L'œsophage",
-        "L'estomac"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quelle est la partie transparente à l'avant de l'œil qui laisse entrer la lumière ?",
-      "choices": [
-        "La cornée",
-        "La rétine",
-        "Le cristallin",
-        "La sclérotique"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Comment s'appelle le plus gros nerf du corps humain, qui descend dans la jambe ?",
-      "choices": [
-        "Le nerf sciatique",
-        "Le nerf fémoral",
-        "Le nerf vague",
-        "Le nerf médian"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Combien de globules rouges environ contient un microlitre de sang chez l'adulte ?",
-      "choices": [
-        "Environ 5 millions",
-        "Environ 50 000",
-        "Environ 500 000",
-        "Environ 50 millions"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Quel est le nom scientifique de la rotule ?",
-      "choices": [
-        "La patella",
-        "Le calcanéus",
-        "Le sacrum",
-        "La malléole"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Quelle est la durée de vie moyenne d'un globule rouge dans le sang ?",
-      "choices": [
-        "Environ 120 jours",
-        "Environ 30 jours",
-        "Environ 7 jours",
-        "Environ 1 an"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Comment s'appelle la membrane qui enveloppe les poumons ?",
-      "choices": [
-        "La plèvre",
-        "Le péritoine",
-        "Le péricarde",
-        "Le mésentère"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Combien de nerfs crâniens l'être humain possède-t-il de chaque côté ?",
-      "choices": [
-        "12",
-        "8",
-        "10",
-        "31"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Quel est le nom de la protéine fibreuse qui constitue les ongles et les cheveux ?",
-      "choices": [
-        "La kératine",
-        "Le collagène",
-        "L'élastine",
-        "La fibrine"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Comment s'appelle la valve située entre l'oreillette gauche et le ventricule gauche du cœur ?",
-      "choices": [
-        "La valve mitrale",
-        "La valve tricuspide",
-        "La valve aortique",
-        "La valve pulmonaire"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Quel est le pH normal du sang artériel humain ?",
-      "choices": [
-        "Environ 7,4",
-        "Environ 6,5",
-        "Environ 8,2",
-        "Environ 7,0"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Comment s'appellent les trois osselets de l'oreille moyenne ?",
-      "choices": [
-        "Le marteau, l'enclume et l'étrier",
-        "L'étrier, la rotule et le sésamoïde",
-        "Le marteau, la faux et l'enclume",
-        "L'atlas, l'axis et l'étrier"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Quelle hormone, sécrétée par les surrénales, prépare le corps à l'effort ou au danger ?",
-      "choices": [
-        "L'adrénaline",
-        "L'insuline",
-        "La thyroxine",
-        "La mélatonine"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Combien de segments (vertèbres) compte la région cervicale de la colonne vertébrale ?",
-      "choices": [
-        "7",
-        "5",
-        "12",
-        "9"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Quel est le nom de la plus grande artère du corps humain ?",
-      "choices": [
-        "L'aorte",
-        "La veine cave",
-        "L'artère fémorale",
-        "La carotide"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Comment s'appelle le repli de peau qui recouvre partiellement l'ongle à sa base ?",
-      "choices": [
-        "La lunule",
-        "La cuticule",
-        "Le hyponychium",
-        "La matrice"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    }
+    {"q": "Combien de chambres compte le cœur humain ?", "choices": ["Quatre", "Deux", "Trois", "Six"], "answer": 0, "difficulty": 2},
+    {"q": "Quel organe pompe le sang dans tout le corps ?", "choices": ["Le cœur", "Le foie", "Les poumons", "La rate"], "answer": 0, "difficulty": 1},
+    {"q": "Quel est le plus petit os du corps humain ?", "choices": ["L'étrier (dans l'oreille)", "Le scaphoïde", "La phalange", "Le coccyx"], "answer": 0, "difficulty": 3},
+    {"q": "Combien de poumons possède l'être humain ?", "choices": ["Deux", "Un", "Trois", "Quatre"], "answer": 0, "difficulty": 1},
+    {"q": "Quel organe est le principal centre de la mémoire ?", "choices": ["Le cerveau", "Le cœur", "La moelle épinière", "Les poumons"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle partie du squelette protège le cerveau ?", "choices": ["Le crâne", "La cage thoracique", "La colonne", "Le bassin"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de vertèbres compte la colonne vertébrale humaine ?", "choices": ["33", "24", "40", "28"], "answer": 0, "difficulty": 3},
+    {"q": "Quel muscle permet la respiration en se contractant ?", "choices": ["Le diaphragme", "L'abdominal", "Le trapèze", "Le pectoral"], "answer": 0, "difficulty": 2},
+    {"q": "Quel sens dépend des papilles ?", "choices": ["Le goût", "L'odorat", "Le toucher", "L'ouïe"], "answer": 0, "difficulty": 1},
+    {"q": "Quel liquide transporte l'oxygène et les nutriments ?", "choices": ["Le sang", "La lymphe", "La salive", "La bile"], "answer": 0, "difficulty": 1},
+    {"q": "Quel organe produit la bile ?", "choices": ["Le foie", "L'estomac", "Le pancréas", "La vésicule"], "answer": 0, "difficulty": 2},
+    {"q": "Où la digestion commence-t-elle ?", "choices": ["Dans la bouche", "Dans l'estomac", "Dans l'intestin", "Dans l'œsophage"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle articulation relie la cuisse au tronc ?", "choices": ["La hanche", "Le genou", "La cheville", "L'épaule"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de dents de lait un enfant possède-t-il ?", "choices": ["20", "24", "28", "32"], "answer": 0, "difficulty": 2},
+    {"q": "Quel élément durcit les os et les dents ?", "choices": ["Le calcium", "Le fer", "Le potassium", "Le zinc"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle glande régule la glycémie via l'insuline ?", "choices": ["Le pancréas", "La thyroïde", "L'hypophyse", "Les surrénales"], "answer": 0, "difficulty": 2},
+    {"q": "Quel nerf relie l'œil au cerveau ?", "choices": ["Le nerf optique", "Le nerf auditif", "Le nerf sciatique", "Le nerf facial"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le muscle le plus puissant par rapport à sa taille ?", "choices": ["Le masséter (mâchoire)", "Le biceps", "Le mollet", "Le cœur"], "answer": 0, "difficulty": 3},
+    {"q": "Combien de litres d'air les poumons peuvent-ils contenir environ ?", "choices": ["6 litres", "2 litres", "10 litres", "4 centilitres"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle protéine donne sa couleur rouge au sang ?", "choices": ["L'hémoglobine", "La kératine", "Le collagène", "La mélanine"], "answer": 0, "difficulty": 2},
+    {"q": "Quel pigment protège la peau du soleil ?", "choices": ["La mélanine", "La kératine", "L'hémoglobine", "Le carotène"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle partie de l'oreille assure l'équilibre ?", "choices": ["L'oreille interne", "Le tympan", "Le pavillon", "Le conduit auditif"], "answer": 0, "difficulty": 2},
+    {"q": "Quel organe stocke l'urine ?", "choices": ["La vessie", "Le rein", "L'uretère", "L'urètre"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de battements par minute fait un cœur adulte au repos environ ?", "choices": ["60 à 80", "100 à 120", "30 à 40", "150"], "answer": 0, "difficulty": 2},
+    {"q": "Quelles cellules défendent l'organisme contre les infections ?", "choices": ["Les globules blancs", "Les globules rouges", "Les plaquettes", "Les neurones"], "answer": 0, "difficulty": 1},
+    {"q": "Quel organe est capable de se régénérer en grande partie ?", "choices": ["Le foie", "Le cœur", "Le cerveau", "Les poumons"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle vitamine est essentielle à la coagulation du sang ?", "choices": ["La vitamine K", "La vitamine C", "La vitamine D", "La vitamine A"], "answer": 0, "difficulty": 2},
+    {"q": "Quel tube relie la bouche à l'estomac ?", "choices": ["L'œsophage", "La trachée", "L'intestin", "Le duodénum"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle est la température normale du corps humain ?", "choices": ["Environ 37 °C", "Environ 35 °C", "Environ 39 °C", "Environ 36 °F"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de muscles compte environ le corps humain ?", "choices": ["Plus de 600", "Environ 200", "Environ 1200", "Environ 100"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle partie du cerveau gère la vision ?", "choices": ["Le lobe occipital", "Le lobe frontal", "Le lobe temporal", "Le cervelet"], "answer": 0, "difficulty": 2},
+    {"q": "Quel organe fabrique les globules rouges ?", "choices": ["La moelle osseuse", "Le foie", "La rate", "Le cœur"], "answer": 0, "difficulty": 2},
+    {"q": "Quel réflexe protège l'œil d'un objet approchant ?", "choices": ["Le clignement", "L'éternuement", "Le bâillement", "La déglutition"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle molécule est le « carburant » principal des cellules ?", "choices": ["Le glucose", "Le cholestérol", "L'urée", "Le fer"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle empreinte est unique à chaque individu, même chez les jumeaux ?", "choices": ["L'empreinte digitale", "Le groupe sanguin", "L'ADN", "La couleur des yeux"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le plus grand organe du corps humain ?", "choices": ["La peau", "Le foie", "Les poumons", "L'intestin grêle"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de doigts compte une main humaine ?", "choices": ["Cinq", "Quatre", "Six", "Trois"], "answer": 0, "difficulty": 1},
+    {"q": "Quel organe filtre le sang et produit l'urine ?", "choices": ["Le rein", "Le foie", "La vessie", "La rate"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle partie de l'œil détermine sa couleur ?", "choices": ["L'iris", "La pupille", "La cornée", "La rétine"], "answer": 0, "difficulty": 1},
+    {"q": "Quel os protège le cœur et les poumons ?", "choices": ["La cage thoracique", "Le bassin", "Le crâne", "L'omoplate"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de dents compte en général une dentition adulte complète ?", "choices": ["32", "28", "30", "24"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le plus long os du corps humain ?", "choices": ["Le fémur", "Le tibia", "L'humérus", "Le péroné"], "answer": 0, "difficulty": 2},
+    {"q": "Quel groupe sanguin est qualifié de donneur universel ?", "choices": ["O négatif", "AB positif", "A positif", "B négatif"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle la partie du cerveau qui coordonne l'équilibre et les mouvements ?", "choices": ["Le cervelet", "L'hypothalamus", "Le bulbe rachidien", "Le corps calleux"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le nom des cellules nerveuses qui transmettent l'influx ?", "choices": ["Les neurones", "Les gliocytes", "Les myocytes", "Les ostéocytes"], "answer": 0, "difficulty": 2},
+    {"q": "Quel os forme le squelette de la cuisse ?", "choices": ["Le fémur", "Le tibia", "La rotule", "L'ischion"], "answer": 0, "difficulty": 2},
+    {"q": "Combien de paires de côtes possède l'être humain en général ?", "choices": ["12", "10", "14", "8"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle glande, située à la base du cou, régule le métabolisme ?", "choices": ["La thyroïde", "Le thymus", "L'hypophyse", "Le pancréas"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le plus long segment du tube digestif ?", "choices": ["L'intestin grêle", "Le gros intestin", "L'œsophage", "L'estomac"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle est la partie transparente à l'avant de l'œil qui laisse entrer la lumière ?", "choices": ["La cornée", "La rétine", "Le cristallin", "La sclérotique"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle le plus gros nerf du corps humain, qui descend dans la jambe ?", "choices": ["Le nerf sciatique", "Le nerf fémoral", "Le nerf vague", "Le nerf médian"], "answer": 0, "difficulty": 3},
+    {"q": "Combien de globules rouges environ contient un microlitre de sang chez l'adulte ?", "choices": ["Environ 5 millions", "Environ 50 000", "Environ 500 000", "Environ 50 millions"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le nom scientifique de la rotule ?", "choices": ["La patella", "Le calcanéus", "Le sacrum", "La malléole"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est la durée de vie moyenne d'un globule rouge dans le sang ?", "choices": ["Environ 120 jours", "Environ 30 jours", "Environ 7 jours", "Environ 1 an"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle la membrane qui enveloppe les poumons ?", "choices": ["La plèvre", "Le péritoine", "Le péricarde", "Le mésentère"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de nerfs crâniens l'être humain possède-t-il de chaque côté ?", "choices": ["12", "8", "10", "31"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le nom de la protéine fibreuse qui constitue les ongles et les cheveux ?", "choices": ["La kératine", "Le collagène", "L'élastine", "La fibrine"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle la valve située entre l'oreillette gauche et le ventricule gauche du cœur ?", "choices": ["La valve mitrale", "La valve tricuspide", "La valve aortique", "La valve pulmonaire"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le pH normal du sang artériel humain ?", "choices": ["Environ 7,4", "Environ 6,5", "Environ 8,2", "Environ 7,0"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appellent les trois osselets de l'oreille moyenne ?", "choices": ["Le marteau, l'enclume et l'étrier", "L'étrier, la rotule et le sésamoïde", "Le marteau, la faux et l'enclume", "L'atlas, l'axis et l'étrier"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle hormone, sécrétée par les surrénales, prépare le corps à l'effort ou au danger ?", "choices": ["L'adrénaline", "L'insuline", "La thyroxine", "La mélatonine"], "answer": 0, "difficulty": 3},
+    {"q": "Combien de segments (vertèbres) compte la région cervicale de la colonne vertébrale ?", "choices": ["7", "5", "12", "9"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le nom de la plus grande artère du corps humain ?", "choices": ["L'aorte", "La veine cave", "L'artère fémorale", "La carotide"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle le repli de peau qui recouvre partiellement l'ongle à sa base ?", "choices": ["La lunule", "La cuticule", "Le hyponychium", "La matrice"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de dents compte la dentition définitive d'un adulte, dents de sagesse comprises ?", "choices": ["32", "28", "24", "20"], "answer": 0, "difficulty": 1},
+    {"q": "Quel organe assure la digestion des aliments juste après leur passage par l'œsophage ?", "choices": ["L'estomac", "Le foie", "Le cœur", "Le poumon"], "answer": 0, "difficulty": 1},
+    {"q": "Quel organe produit l'insuline, l'hormone qui régule la glycémie ?", "choices": ["Le pancréas", "Le foie", "La rate", "Les reins"], "answer": 0, "difficulty": 3},
+    {"q": "Comment appelle-t-on les cellules nerveuses qui transmettent l'influx nerveux ?", "choices": ["Les neurones", "Les plaquettes", "Les alvéoles", "Les néphrons"], "answer": 0, "difficulty": 3},
+    {"q": "Quel pigment donne sa couleur rouge au sang et transporte l'oxygène ?", "choices": ["L'hémoglobine", "La kératine", "La mélanine", "La chlorophylle"], "answer": 0, "difficulty": 3},
+    {"q": "Combien de cavités compte le cœur humain ?", "choices": ["Quatre", "Deux", "Trois", "Six"], "answer": 0, "difficulty": 3},
+    {"q": "Quel organe, situé sous le diaphragme, assure la détoxification et produit la bile ?", "choices": ["Le foie", "La rate", "Le pancréas", "L'estomac"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle l'unité fonctionnelle du rein qui filtre le sang pour former l'urine ?", "choices": ["Le néphron", "L'alvéole", "L'axone", "La synapse"], "answer": 0, "difficulty": 3},
+    {"q": "Combien d'os compte le squelette d'un être humain adulte ?", "choices": ["206", "208", "201", "212"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de litres de sang circulent en moyenne dans le corps d'un adulte ?", "choices": ["Environ 5 litres", "Environ 3 litres", "Environ 8 litres", "Environ 12 litres"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de paires de nerfs rachidiens (spinaux) l'être humain possède-t-il ?", "choices": ["31", "24", "12", "43"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est la longueur approximative de l'intestin grêle chez l'adulte ?", "choices": ["Environ 6 mètres", "Environ 1,5 mètre", "Environ 3 mètres", "Environ 10 mètres"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle l'os en forme de U situé à la base de la langue, le seul à ne s'articuler avec aucun autre os ?", "choices": ["L'os hyoïde", "L'étrier", "Le vomer", "L'os sphénoïde"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est la fréquence cardiaque moyenne au repos d'un adulte en bonne santé ?", "choices": ["Environ 70 battements par minute", "Environ 40 battements par minute", "Environ 120 battements par minute", "Environ 160 battements par minute"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle région du cerveau régule la température corporelle, la faim et la soif ?", "choices": ["L'hypothalamus", "Le cervelet", "L'hippocampe", "Le bulbe rachidien"], "answer": 0, "difficulty": 4}
   ]
 }

@@ -54,6 +54,27 @@
     {"q": "Quel oiseau nocturne d'Amérique du Sud utilise l'écholocation pour se repérer dans les grottes où il niche ?", "choices": ["Le guacharo des cavernes", "L'engoulevent d'Europe", "Le grand-duc d'Amérique", "L'ibijau gris"], "answer": 0, "difficulty": 4},
     {"q": "Grâce à quelle particularité anatomique la chouette effraie localise-t-elle ses proies dans l'obscurité totale ?", "choices": ["Ses oreilles asymétriques", "Ses yeux thermosensibles", "Son odorat surdéveloppé", "Ses vibrisses faciales"], "answer": 0, "difficulty": 4},
     {"q": "En fauconnerie, comment appelle-t-on le mâle du faucon, plus petit que la femelle ?", "choices": ["Le tiercelet", "Le fauconneau", "Le laneret", "L'émouchet"], "answer": 0, "difficulty": 4},
-    {"q": "Quel fossile découvert en Bavière en 1861 est considéré comme un jalon entre dinosaures et oiseaux ?", "choices": ["L'archéoptéryx", "Le ptéranodon", "L'ichtyornis", "Le confuciusornis"], "answer": 0, "difficulty": 4}
+    {"q": "Quel fossile découvert en Bavière en 1861 est considéré comme un jalon entre dinosaures et oiseaux ?", "choices": ["L'archéoptéryx", "Le ptéranodon", "L'ichtyornis", "Le confuciusornis"], "answer": 0, "difficulty": 4},
+    {"q": "Quel oiseau noir et blanc au long bec est réputé, dans la tradition, voler les objets brillants ?", "choices": ["La pie", "Le corbeau", "Le merle", "L'étourneau"], "answer": 0, "difficulty": 1},
+    {"q": "Quel petit oiseau jaune, apprécié en cage, est réputé pour son chant ?", "choices": ["Le canari", "Le rouge-gorge", "Le moineau", "Le pinson"], "answer": 0, "difficulty": 1},
+    {"q": "Quel grand oiseau blanc au long cou glisse élégamment sur les lacs et étangs ?", "choices": ["Le cygne", "Le héron", "La grue", "Le pélican"], "answer": 0, "difficulty": 1},
+    {"q": "Quel oiseau de basse-cour lance son « cocorico » au lever du jour ?", "choices": ["Le coq", "Le canard", "L'oie", "Le dindon"], "answer": 0, "difficulty": 1},
+    {"q": "Quel petit oiseau brun très commun sautille dans les rues des villes ?", "choices": ["Le moineau", "L'aigle", "Le flamant rose", "Le manchot"], "answer": 0, "difficulty": 1},
+    {"q": "Quel oiseau déploie une roue de plumes colorées pour séduire la femelle ?", "choices": ["Le paon", "Le faisan", "Le dindon", "Le coq"], "answer": 0, "difficulty": 2},
+    {"q": "Quel oiseau migrateur au vol acrobatique annonce le printemps et niche dans les granges ?", "choices": ["L'hirondelle", "Le rouge-gorge", "Le coucou", "La mésange"], "answer": 0, "difficulty": 2},
+    {"q": "Quel oiseau frappe le tronc des arbres avec son bec pour y déloger des insectes ?", "choices": ["Le pivert (pic-vert)", "Le rossignol", "Le pinson", "La huppe"], "answer": 0, "difficulty": 2},
+    {"q": "Quel oiseau aquatique noir déploie ses ailes au soleil pour les sécher après avoir plongé ?", "choices": ["Le cormoran", "Le goéland", "Le canard colvert", "Le héron cendré"], "answer": 0, "difficulty": 2},
+    {"q": "Quel petit oiseau au chant nocturne mélodieux est célébré par les poètes ?", "choices": ["Le rossignol", "Le moineau", "Le pigeon", "Le corbeau"], "answer": 0, "difficulty": 2},
+    {"q": "Quel grand oiseau coureur originaire d'Australie est le deuxième plus grand oiseau du monde ?", "choices": ["L'émeu", "Le nandou", "Le casoar", "Le kiwi"], "answer": 0, "difficulty": 3},
+    {"q": "Quel oiseau d'Amérique centrale aux longues plumes vertes iridescentes était sacré pour les Mayas ?", "choices": ["Le quetzal", "Le toucan", "Le colibri", "L'ara"], "answer": 0, "difficulty": 3},
+    {"q": "Quel oiseau des forêts d'Amérique du Sud possède un bec énorme et vivement coloré ?", "choices": ["Le toucan", "Le calao", "Le perroquet gris", "Le martin-pêcheur"], "answer": 0, "difficulty": 3},
+    {"q": "Quel rapace pêcheur, aussi nommé orfraie, plonge serres en avant pour saisir les poissons ?", "choices": ["Le balbuzard pêcheur", "Le milan noir", "La buse variable", "Le busard des roseaux"], "answer": 0, "difficulty": 3},
+    {"q": "Quel échassier blanc au bec aplati en forme de spatule filtre la vase pour se nourrir ?", "choices": ["La spatule blanche", "L'avocette", "L'ibis sacré", "Le courlis cendré"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le plus grand rapace nocturne d'Europe, reconnaissable à ses aigrettes ?", "choices": ["Le hibou grand-duc", "La chouette hulotte", "La chouette effraie", "Le hibou moyen-duc"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le nom scientifique de l'autruche d'Afrique ?", "choices": ["Struthio camelus", "Rhea americana", "Dromaius novaehollandiae", "Casuarius casuarius"], "answer": 0, "difficulty": 4},
+    {"q": "Combien d'œufs le coucou gris dépose-t-il en général dans chaque nid hôte qu'il parasite ?", "choices": ["Un seul", "Deux", "Cinq", "Une dizaine"], "answer": 0, "difficulty": 4},
+    {"q": "Quel oiseau, étudié en 2019 en Amazonie, détient le record du cri le plus puissant du règne aviaire ?", "choices": ["L'araponga blanc", "Le coq de roche", "Le toucan toco", "Le grand tétras"], "answer": 0, "difficulty": 4},
+    {"q": "Quel vautour africain détient le record d'altitude pour un oiseau, un individu ayant percuté un avion vers 11 300 m en 1973 ?", "choices": ["Le vautour de Rüppell", "L'aigle royal", "Le condor des Andes", "L'albatros hurleur"], "answer": 0, "difficulty": 4},
+    {"q": "Quel petit oiseau d'Afrique australe bâtit d'immenses nids collectifs abritant des centaines d'individus ?", "choices": ["Le républicain social", "Le tisserin gendarme", "Le combassou du Sénégal", "Le travailleur à bec rouge"], "answer": 0, "difficulty": 4}
   ]
 }

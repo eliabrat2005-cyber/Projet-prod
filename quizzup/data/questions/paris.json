@@ -61,6 +61,21 @@
     {"q": "Dans quel arrondissement se trouve la place Vendôme ?", "choices": ["Le 1ᵉʳ arrondissement", "Le 8ᵉ arrondissement", "Le 2ᵉ arrondissement", "Le 9ᵉ arrondissement"], "answer": 0, "difficulty": 4},
     {"q": "Quel roi a fait construire l'enceinte médiévale dont des vestiges sont encore visibles dans le Marais ?", "choices": ["Philippe Auguste", "Charles V", "Louis XIII", "Hugues Capet"], "answer": 0, "difficulty": 4},
     {"q": "Quel architecte a dessiné l'opéra Bastille, inauguré en 1989 ?", "choices": ["Carlos Ott", "Jean Nouvel", "Paul Andreu", "Christian de Portzamparc"], "answer": 0, "difficulty": 4},
-    {"q": "Quelle est la plus longue rue de Paris ?", "choices": ["La rue de Vaugirard", "La rue de Rivoli", "La rue Saint-Honoré", "La rue du Faubourg-Saint-Antoine"], "answer": 0, "difficulty": 4}
+    {"q": "Quelle est la plus longue rue de Paris ?", "choices": ["La rue de Vaugirard", "La rue de Rivoli", "La rue Saint-Honoré", "La rue du Faubourg-Saint-Antoine"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quel pays se trouve la ville de Paris ?", "choices": ["La France", "La Belgique", "La Suisse", "L'Italie"], "answer": 0, "difficulty": 1},
+    {"q": "Quel monument en fer est le symbole le plus connu de Paris ?", "choices": ["La tour Eiffel", "L'Arc de triomphe", "Notre-Dame", "Le Louvre"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle grande basilique blanche domine la butte Montmartre ?", "choices": ["Le Sacré-Cœur", "La Madeleine", "Le Panthéon", "Notre-Dame"], "answer": 0, "difficulty": 1},
+    {"q": "Quel grand musée parisien possède une entrée en forme de pyramide de verre ?", "choices": ["Le Louvre", "Le musée d'Orsay", "Le Centre Pompidou", "Le Grand Palais"], "answer": 0, "difficulty": 1},
+    {"q": "Comment appelle-t-on les bateaux qui promènent les touristes sur la Seine ?", "choices": ["Les bateaux-mouches", "Les gondoles", "Les vaporetti", "Les drakkars"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle nécropole souterraine parisienne conserve les ossements de millions de personnes ?", "choices": ["Les Catacombes", "La crypte de Notre-Dame", "Les carrières d'Amérique", "L'ossuaire du Panthéon"], "answer": 0, "difficulty": 3},
+    {"q": "Quel grand quartier d'affaires aux gratte-ciels s'étend à l'ouest de Paris ?", "choices": ["La Défense", "Bercy", "La Villette", "Montparnasse"], "answer": 0, "difficulty": 3},
+    {"q": "Quel palais de verre et d'acier, bâti pour l'Exposition universelle de 1900, accueille de grandes expositions ?", "choices": ["Le Grand Palais", "Le Petit Palais", "Le Palais de Tokyo", "Le palais de Chaillot"], "answer": 0, "difficulty": 3},
+    {"q": "Sur quelle place se dresse une colonne surmontée d'une statue de Napoléon en empereur romain ?", "choices": ["La place Vendôme", "La place des Victoires", "La place Dauphine", "La place de la Concorde"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année la tour Eiffel devait-elle être démontée, selon le permis d'origine ?", "choices": ["1909", "1919", "1900", "1929"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est la superficie approximative de Paris intra-muros ?", "choices": ["Environ 105 km²", "Environ 50 km²", "Environ 200 km²", "Environ 300 km²"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le plus petit arrondissement de Paris par sa superficie ?", "choices": ["Le 2ᵉ", "Le 1ᵉʳ", "Le 4ᵉ", "Le 3ᵉ"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle ligne du métro parisien fut la première entièrement automatique, ouverte en 1998 ?", "choices": ["La ligne 14", "La ligne 1", "La ligne 4", "La ligne 13"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pont richement orné de statues dorées relie les Invalides aux Champs-Élysées par-dessus la Seine ?", "choices": ["Le pont Alexandre III", "Le pont des Arts", "Le pont de la Concorde", "Le pont Mirabeau"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle avenue est réputée la plus large de Paris ?", "choices": ["L'avenue Foch", "L'avenue des Champs-Élysées", "L'avenue Montaigne", "L'avenue de la Grande-Armée"], "answer": 0, "difficulty": 4}
   ]
 }

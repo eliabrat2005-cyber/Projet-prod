@@ -872,6 +872,17 @@
       ],
       "answer": 0,
       "difficulty": 4
-    }
+    },
+    {"q": "Quel oiseau est capable d'imiter des sons artificiels comme les tronçonneuses ou les déclencheurs d'appareil photo ?", "choices": ["L'oiseau-lyre", "Le perroquet gris", "Le corbeau", "Le mainate"], "answer": 0, "difficulty": 3},
+    {"q": "Quel mammifère est considéré comme le plus lent du monde ?", "choices": ["Le paresseux", "Le koala", "Le tapir", "Le wombat"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle est la durée de vie moyenne d'un éléphant à l'état sauvage ?", "choices": ["60 à 70 ans", "20 à 30 ans", "100 à 120 ans", "10 à 15 ans"], "answer": 0, "difficulty": 3},
+    {"q": "Quel animal actuel possède la morsure la plus puissante jamais mesurée ?", "choices": ["Le crocodile marin", "Le grand requin blanc", "L'hippopotame", "Le lion"], "answer": 0, "difficulty": 3},
+    {"q": "De quelle couleur est la langue de la girafe ?", "choices": ["Bleu-noir", "Rose", "Rouge", "Verte"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle fourmi inflige la piqûre la plus douloureuse selon l'indice de Schmidt ?", "choices": ["La fourmi balle de fusil", "La fourmi de feu", "La fourmi légionnaire", "La fourmi charpentière"], "answer": 0, "difficulty": 4},
+    {"q": "Quel animal microscopique peut survivre dans le vide spatial et à des radiations extrêmes ?", "choices": ["Le tardigrade", "Le scorpion", "Le cafard", "La puce"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle fréquence cardiaque minimale a été mesurée chez la baleine bleue en plongée lors d'une étude de 2019 ?", "choices": ["Environ 2 battements par minute", "Environ 30 battements par minute", "Environ 60 battements par minute", "Environ 100 battements par minute"], "answer": 0, "difficulty": 4},
+    {"q": "Quel oiseau détient le record d'altitude de vol, observé à près de 11 300 mètres ?", "choices": ["Le vautour de Rüppell", "L'aigle royal", "L'albatros hurleur", "La grue cendrée"], "answer": 0, "difficulty": 4},
+    {"q": "Quel mammifère possède un éperon venimeux chez le mâle ?", "choices": ["L'ornithorynque", "Le loris lent", "La musaraigne", "La chauve-souris"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année est mort Sudan, le dernier rhinocéros blanc du Nord mâle ?", "choices": ["2018", "2011", "2020", "2015"], "answer": 0, "difficulty": 4}
   ]
 }

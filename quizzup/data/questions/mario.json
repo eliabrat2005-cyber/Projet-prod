@@ -55,6 +55,26 @@
     {"q": "Quel crapaud est le boss final de Super Mario Bros. 2 (version occidentale) ?", "choices": ["Wart", "Bowser", "Tatanga", "Wario"], "answer": 0, "difficulty": 4},
     {"q": "Quel extraterrestre est le boss final de Super Mario Land (1989) ?", "choices": ["Tatanga", "Wart", "Bowser", "Roi Boo"], "answer": 0, "difficulty": 4},
     {"q": "Combien de mondes compte le jeu original Super Mario Bros. ?", "choices": ["8", "6", "10", "12"], "answer": 0, "difficulty": 4},
-    {"q": "En quelle année est sorti le tout premier Mario Kart (Super Mario Kart) au Japon ?", "choices": ["1992", "1990", "1996", "1994"], "answer": 0, "difficulty": 4}
+    {"q": "En quelle année est sorti le tout premier Mario Kart (Super Mario Kart) au Japon ?", "choices": ["1992", "1990", "1996", "1994"], "answer": 0, "difficulty": 4},
+    {"q": "Quel type d'animal est Yoshi ?", "choices": ["Un dinosaure", "un dragon", "un lézard", "une tortue"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur est la salopette de Mario ?", "choices": ["Bleue", "Rouge", "Verte", "Jaune"], "answer": 0, "difficulty": 1},
+    {"q": "Quel objet Mario doit-il atteindre à la fin d'un niveau classique de Super Mario Bros. ?", "choices": ["Le drapeau", "Une pièce", "Un champignon", "Une clé"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur est la carapace des Koopa Troopa classiques ?", "choices": ["Verte", "Rouge", "Bleue", "Jaune"], "answer": 0, "difficulty": 1},
+    {"q": "Dans quel royaume se déroulent principalement les aventures de Mario ?", "choices": ["Le Royaume Champignon", "Le Royaume des Fleurs", "Hyrule", "Le Pays des Rêves"], "answer": 0, "difficulty": 1},
+    {"q": "Comment s'appellent les tortues volantes à ailes rouges de Super Mario Bros. ?", "choices": ["Les Paratroopas", "les Koopa Troopas", "les Lakitus", "les Bloopers"], "answer": 0, "difficulty": 2},
+    {"q": "Quel ennemi lance des Maskass depuis un nuage dans Super Mario Bros. ?", "choices": ["Lakitu", "Bowser Jr.", "Boo", "Wiggler"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on les plantes carnivores vertes qui sortent des tuyaux ?", "choices": ["Les Plantes Piranha", "les Goombas", "les Boos", "les Maskass"], "answer": 0, "difficulty": 2},
+    {"q": "Quel grand singe affronte Mario dans le jeu d'arcade de 1981 ?", "choices": ["Donkey Kong", "Diddy Kong", "Wario", "Bowser"], "answer": 0, "difficulty": 2},
+    {"q": "Quel personnage violet et dégingandé est le rival de Luigi, partenaire de Wario ?", "choices": ["Waluigi", "Wario", "Bowser Jr.", "Toadette"], "answer": 0, "difficulty": 2},
+    {"q": "Quel jeu, sorti sur Nintendo DS en 2006, a relancé la série des Mario en 2D ?", "choices": ["New Super Mario Bros.", "Super Mario 64 DS", "Super Mario Land", "Super Mario World"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle le dinosaure rose, personnage récurrent de l'univers Mario ?", "choices": ["Birdo", "Yoshi", "Toadette", "Daisy"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année est sorti Super Mario Galaxy sur Wii ?", "choices": ["2007", "2005", "2006", "2008"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle l'ennemi tortue-squelette que l'on croise dans les châteaux de Mario ?", "choices": ["Skelerex", "Bill Balle", "Maskass", "Wiggler"], "answer": 0, "difficulty": 3},
+    {"q": "Quel objet permet à Mario de voler dans Super Mario World ?", "choices": ["La cape", "La feuille Tanuki", "La fleur de glace", "Le champignon d'abeille"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année est sorti Super Mario Bros. 3 au Japon ?", "choices": ["1988", "1986", "1987", "1990"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de niveaux compte le jeu original Super Mario Bros. sur NES ?", "choices": ["32", "24", "28", "40"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Yoshi est-il apparu pour la première fois, dans Super Mario World ?", "choices": ["1990", "1988", "1992", "1985"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de pièces faut-il collecter pour gagner une vie dans Super Mario Bros. ?", "choices": ["100", "50", "99", "200"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Super Mario World est-il sorti en Amérique du Nord avec la Super NES ?", "choices": ["1991", "1990", "1992", "1989"], "answer": 0, "difficulty": 4}
   ]
 }

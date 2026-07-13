@@ -87,6 +87,11 @@
     {"q": "Combien de titres mondiaux consécutifs Sébastien Loeb a-t-il remportés en rallye entre 2004 et 2012 ?", "choices": ["Neuf", "Sept", "Huit", "Six"], "answer": 0, "difficulty": 4},
     {"q": "Quelle hauteur Dick Fosbury a-t-il franchie pour remporter l'or du saut en hauteur aux Jeux de 1968, en imposant sa technique de rouleau dorsal ?", "choices": ["2,24 m", "2,18 m", "2,30 m", "2,10 m"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année Éric Tabarly a-t-il remporté sa première Transat anglaise en solitaire ?", "choices": ["1964", "1968", "1976", "1960"], "answer": 0, "difficulty": 4},
-    {"q": "Quel est le poids réglementaire d'un ballon de football, à vide, selon les Lois du jeu ?", "choices": ["Entre 410 et 450 grammes", "Entre 350 et 390 grammes", "Entre 460 et 500 grammes", "Entre 300 et 340 grammes"], "answer": 0, "difficulty": 4}
+    {"q": "Quel est le poids réglementaire d'un ballon de football, à vide, selon les Lois du jeu ?", "choices": ["Entre 410 et 450 grammes", "Entre 350 et 390 grammes", "Entre 460 et 500 grammes", "Entre 300 et 340 grammes"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année l'équipe de France de handball a-t-elle remporté son premier titre de championne du monde ?", "choices": ["1995", "2001", "1993", "2009"], "answer": 0, "difficulty": 3},
+    {"q": "Quel joueur de tennis suisse a remporté son premier titre à Wimbledon en 2003 ?", "choices": ["Roger Federer", "Rafael Nadal", "Novak Djokovic", "Stan Wawrinka"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Michael Jordan a-t-il annoncé sa première retraite de la NBA, avant de tenter le baseball ?", "choices": ["1993", "1995", "1991", "1998"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle moyenne de points par match Wilt Chamberlain a-t-il réalisée lors de la saison NBA 1961-1962 ?", "choices": ["50,4 points", "44,8 points", "37,1 points", "30,1 points"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Ayrton Senna a-t-il remporté son premier titre de champion du monde de Formule 1 ?", "choices": ["1988", "1990", "1991", "1985"], "answer": 0, "difficulty": 4}
   ]
 }

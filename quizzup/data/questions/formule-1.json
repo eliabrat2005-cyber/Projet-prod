@@ -55,6 +55,26 @@
     {"q": "Quelle écurie a remporté le premier championnat des constructeurs, en 1958 ?", "choices": ["Vanwall", "Ferrari", "Cooper", "BRM"], "answer": 0, "difficulty": 4},
     {"q": "Quelle pilote italienne est la dernière femme à avoir pris le départ d'un Grand Prix de F1, en 1976 ?", "choices": ["Lella Lombardi", "Maria Teresa de Filippis", "Giovanna Amati", "Desiré Wilson"], "answer": 0, "difficulty": 4},
     {"q": "Quel pilote canadien s'est tué lors des qualifications du Grand Prix de Belgique 1982 à Zolder ?", "choices": ["Gilles Villeneuve", "Jacques Villeneuve", "Riccardo Paletti", "Didier Pironi"], "answer": 0, "difficulty": 4},
-    {"q": "Quel pilote a été champion du monde 1982 en ne gagnant qu'une seule course dans la saison ?", "choices": ["Keke Rosberg", "Alain Prost", "Niki Lauda", "Nelson Piquet"], "answer": 0, "difficulty": 4}
+    {"q": "Quel pilote a été champion du monde 1982 en ne gagnant qu'une seule course dans la saison ?", "choices": ["Keke Rosberg", "Alain Prost", "Niki Lauda", "Nelson Piquet"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de roues possède une monoplace de Formule 1 ?", "choices": ["Quatre", "Six", "Trois", "Deux"], "answer": 0, "difficulty": 1},
+    {"q": "Comment appelle-t-on le tour parcouru par les pilotes juste avant le départ pour se mettre en grille ?", "choices": ["Le tour de formation", "Le tour rapide", "Le tour d'honneur", "Le tour de reconnaissance libre"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle écurie française est revenue en Formule 1 comme constructeur en engageant Esteban Ocon et Pierre Gasly ?", "choices": ["Alpine", "Ligier", "Matra", "Bugatti"], "answer": 0, "difficulty": 1},
+    {"q": "Quel Grand Prix de Formule 1 se dispute sur le circuit de Silverstone ?", "choices": ["Le Grand Prix de Grande-Bretagne", "Le Grand Prix d'Allemagne", "Le Grand Prix de Belgique", "Le Grand Prix d'Autriche"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle boisson énergisante donne son nom à une écurie plusieurs fois championne du monde ?", "choices": ["Red Bull", "Monster", "Rockstar", "Burn"], "answer": 0, "difficulty": 1},
+    {"q": "Quel pilote britannique a remporté le titre mondial 2009 avec l'écurie Brawn GP ?", "choices": ["Jenson Button", "Lewis Hamilton", "Rubens Barrichello", "Nico Rosberg"], "answer": 0, "difficulty": 2},
+    {"q": "Quel pilote australien, surnommé « Honey Badger », a couru pour Red Bull puis McLaren ?", "choices": ["Daniel Ricciardo", "Mark Webber", "Oscar Piastri", "Jack Brabham"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quelle ville d'Azerbaïdjan se dispute un Grand Prix de Formule 1 depuis 2016 ?", "choices": ["Bakou", "Sotchi", "Istanbul", "Djeddah"], "answer": 0, "difficulty": 2},
+    {"q": "Chez Pirelli, quel type de pneu slick est identifié par un marquage rouge ?", "choices": ["Le pneu tendre", "Le pneu dur", "Le pneu medium", "Le pneu intermédiaire"], "answer": 0, "difficulty": 2},
+    {"q": "Quel pilote britannique a décroché le titre mondial 2008 dans le dernier virage du Grand Prix du Brésil ?", "choices": ["Lewis Hamilton", "Felipe Massa", "Fernando Alonso", "Kimi Räikkönen"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle écurie a dominé la Formule 1 de 1988 à 1991 grâce à ses moteurs Honda ?", "choices": ["McLaren", "Williams", "Ferrari", "Benetton"], "answer": 0, "difficulty": 3},
+    {"q": "Quel circuit néerlandais, revenu au calendrier en 2021, est réputé pour ses virages relevés en cuvette ?", "choices": ["Zandvoort", "Spa-Francorchamps", "Hockenheim", "Le Hungaroring"], "answer": 0, "difficulty": 3},
+    {"q": "Quel pilote allemand a remporté le titre mondial 1994 après une collision controversée avec Damon Hill à Adélaïde ?", "choices": ["Michael Schumacher", "Gerhard Berger", "Ralf Schumacher", "Heinz-Harald Frentzen"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle écurie britannique a remporté neuf titres de champion du monde des constructeurs entre 1980 et 1997 ?", "choices": ["Williams", "McLaren", "Lotus", "Brabham"], "answer": 0, "difficulty": 3},
+    {"q": "Quel pilote écossais, double champion du monde en 1963 et 1965, s'est tué lors d'une course de Formule 2 à Hockenheim en 1968 ?", "choices": ["Jim Clark", "Jackie Stewart", "Graham Hill", "Stirling Moss"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pilote autrichien est devenu champion du monde de Formule 1 à titre posthume en 1970 ?", "choices": ["Jochen Rindt", "Wolfgang von Trips", "Niki Lauda", "Jim Clark"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle écurie a introduit l'effet de sol en Formule 1 avec sa monoplace Lotus 78 en 1977 ?", "choices": ["Lotus", "Brabham", "Tyrrell", "Ferrari"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle monoplace à six roues Tyrrell a-t-elle engagée en 1976 ?", "choices": ["La Tyrrell P34", "La Brabham BT46B", "La March 711", "La Lotus 79"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pilote sud-africain a été champion du monde de Formule 1 en 1979 avec Ferrari ?", "choices": ["Jody Scheckter", "Gilles Villeneuve", "Carlos Reutemann", "Clay Regazzoni"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pilote brésilien a remporté les titres mondiaux de Formule 1 en 1972 et 1974 ?", "choices": ["Emerson Fittipaldi", "Nelson Piquet", "José Carlos Pace", "Ayrton Senna"], "answer": 0, "difficulty": 4}
   ]
 }

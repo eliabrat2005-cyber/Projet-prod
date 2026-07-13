@@ -54,6 +54,27 @@
     {"q": "De quel continent la tomate est-elle originaire ?", "choices": ["L'Amérique du Sud", "L'Asie", "L'Afrique", "L'Europe"], "answer": 0, "difficulty": 4},
     {"q": "Quel « fruit » détient le record du plus lourd, dépassant une tonne pour les spécimens de concours ?", "choices": ["La citrouille", "La pastèque", "La courge musquée", "Le melon"], "answer": 0, "difficulty": 4},
     {"q": "Quelle enzyme de l'ananas frais empêche la gélatine de prendre ?", "choices": ["La broméline", "La papaïne", "La pepsine", "La lactase"], "answer": 0, "difficulty": 4},
-    {"q": "De quel pays le kiwi est-il originaire, avant d'être largement cultivé en Nouvelle-Zélande ?", "choices": ["La Chine", "La Nouvelle-Zélande", "L'Australie", "L'Italie"], "answer": 0, "difficulty": 4}
+    {"q": "De quel pays le kiwi est-il originaire, avant d'être largement cultivé en Nouvelle-Zélande ?", "choices": ["La Chine", "La Nouvelle-Zélande", "L'Australie", "L'Italie"], "answer": 0, "difficulty": 4},
+    {"q": "Quel fruit à pépins, vert ou rouge, se croque volontiers à la récréation ?", "choices": ["La pomme", "La banane", "L'ananas", "Le kiwi"], "answer": 0, "difficulty": 1},
+    {"q": "Quel légume vert et allongé accompagne l'aubergine dans la ratatouille ?", "choices": ["La courgette", "Le poireau", "Le radis", "Le navet"], "answer": 0, "difficulty": 1},
+    {"q": "Quel petit légume rond et rouge se mange cru en salade avec du sel ?", "choices": ["Le radis", "L'oignon", "L'ail", "Le poireau"], "answer": 0, "difficulty": 1},
+    {"q": "Quel fruit orange à quartiers se pèle facilement et se déguste en hiver ?", "choices": ["L'orange", "La banane", "La fraise", "Le raisin"], "answer": 0, "difficulty": 1},
+    {"q": "Quel légume-racine violet et sucré tache les doigts et colore les salades ?", "choices": ["La betterave", "Le radis", "La carotte", "Le navet"], "answer": 0, "difficulty": 2},
+    {"q": "Quel fruit à noyau orange, plus petit que la pêche, se déguste séché ou en confiture ?", "choices": ["L'abricot", "La prune", "La cerise", "La figue"], "answer": 0, "difficulty": 2},
+    {"q": "Quel fruit à coque est réduit en poudre pour préparer la pâte d'amande ?", "choices": ["L'amande", "La noisette", "La noix", "La pistache"], "answer": 0, "difficulty": 2},
+    {"q": "Quel agrume vert, petit et acide, est indispensable au cocktail mojito ?", "choices": ["Le citron vert", "Le citron jaune", "Le pamplemousse", "L'orange"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle courge allongée à peau beige clair est surnommée « doubeurre » ?", "choices": ["Le butternut", "Le potimarron", "Le pâtisson", "La citrouille"], "answer": 0, "difficulty": 2},
+    {"q": "À quelle famille botanique appartiennent le pois, le haricot et la lentille ?", "choices": ["Les fabacées", "Les solanacées", "Les brassicacées", "Les rosacées"], "answer": 0, "difficulty": 3},
+    {"q": "À quelle famille botanique appartiennent la pomme, la poire et la fraise ?", "choices": ["Les rosacées", "Les solanacées", "Les cucurbitacées", "Les rutacées"], "answer": 0, "difficulty": 3},
+    {"q": "À quelle famille botanique appartiennent l'orange, le citron et le pamplemousse ?", "choices": ["Les rutacées", "Les rosacées", "Les solanacées", "Les alliacées"], "answer": 0, "difficulty": 3},
+    {"q": "Quel pigment orange, précurseur de la vitamine A, donne sa couleur à la carotte ?", "choices": ["Le bêta-carotène", "Le lycopène", "L'anthocyane", "La bétanine"], "answer": 0, "difficulty": 3},
+    {"q": "Comment appelle-t-on botaniquement le fruit sec à graine unique du tournesol ou du pissenlit ?", "choices": ["Un akène", "Une drupe", "Une baie", "Une gousse"], "answer": 0, "difficulty": 3},
+    {"q": "Quel gaz végétal, émis par les fruits mûrs, accélère la maturation des fruits voisins ?", "choices": ["L'éthylène", "Le méthane", "Le dioxyde de carbone", "L'azote"], "answer": 0, "difficulty": 3},
+    {"q": "Combien d'unités Scoville (SHU) titre en moyenne le Carolina Reaper, longtemps recordman du piment le plus fort ?", "choices": ["Environ 1,6 million", "Environ 100 000", "Environ 10 000", "Environ 50 millions"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année la variété de pomme Granny Smith fut-elle découverte par hasard en Australie ?", "choices": ["1868", "1935", "1900", "1810"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pays est aujourd'hui de loin le premier producteur mondial de pommes ?", "choices": ["La Chine", "Les États-Unis", "La France", "L'Italie"], "answer": 0, "difficulty": 4},
+    {"q": "De quelle région du monde la banane cultivée (genre Musa) est-elle originaire ?", "choices": ["L'Asie du Sud-Est", "L'Afrique centrale", "L'Amérique centrale", "Les Caraïbes"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle variété de banane dominait le commerce mondial avant d'être décimée par la maladie de Panama dans les années 1950 ?", "choices": ["La Gros Michel", "La Cavendish", "La plantain", "La Lady Finger"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle maladie fongique de la pomme de terre est responsable de la Grande Famine irlandaise de 1845-1849 ?", "choices": ["Le mildiou", "L'oïdium", "La rouille", "La fusariose"], "answer": 0, "difficulty": 4}
   ]
 }

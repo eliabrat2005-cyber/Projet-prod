@@ -57,6 +57,24 @@
     {"q": "Comment nomme-t-on le tour de pâte feuilletée réalisé par un simple pliage en trois ?", "choices": ["Le tour simple", "Le fraisage", "Le pointage", "Le crémage"], "answer": 0, "difficulty": 4},
     {"q": "Quel colorant rouge naturel, extrait d'un insecte, était utilisé dans certaines pâtisseries et confiseries ?", "choices": ["La cochenille", "Le curcuma", "Le rocou", "La chlorophylle"], "answer": 0, "difficulty": 4},
     {"q": "Quel pâtissier contemporain est célèbre pour ses fruits en trompe-l'œil créés au Meurice ?", "choices": ["Cédric Grolet", "Yann Couvreur", "Amaury Guichon", "Christophe Adam"], "answer": 0, "difficulty": 4},
-    {"q": "Quelle crème de base est une crème anglaise collée à la gélatine puis allégée à la crème fouettée ?", "choices": ["La crème bavaroise", "La crème mousseline", "La crème chiboust", "La crème diplomate"], "answer": 0, "difficulty": 4}
+    {"q": "Quelle crème de base est une crème anglaise collée à la gélatine puis allégée à la crème fouettée ?", "choices": ["La crème bavaroise", "La crème mousseline", "La crème chiboust", "La crème diplomate"], "answer": 0, "difficulty": 4},
+    {"q": "Quel fruit garnit traditionnellement une tarte Tatin ?", "choices": ["La pomme", "La poire", "La fraise", "L'abricot"], "answer": 0, "difficulty": 1},
+    {"q": "Qu'est-ce qui fait gonfler un soufflé sucré à la cuisson ?", "choices": ["Les blancs d'œufs montés en neige", "Le beurre fondu", "Le lait chaud", "La farine"], "answer": 0, "difficulty": 1},
+    {"q": "Quel agrume parfume une tarte meringuée classique ?", "choices": ["Le citron", "L'orange", "Le pamplemousse", "La mandarine"], "answer": 0, "difficulty": 1},
+    {"q": "Quel dessert est composé de morceaux de fruits frais mélangés ?", "choices": ["La salade de fruits", "Le clafoutis", "La panna cotta", "Le far breton"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle pâtisserie sucrée en forme d'anneau est frite puis souvent glacée ?", "choices": ["Le donut", "L'éclair", "La madeleine", "Le financier"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle pâtisserie française est faite de deux coques d'amande garnies d'une ganache ?", "choices": ["Le macaron", "Le financier", "Le canelé", "La navette"], "answer": 0, "difficulty": 2},
+    {"q": "Quel dessert italien à base de crème cuite prise à la gélatine se sert avec un coulis ?", "choices": ["La panna cotta", "Le tiramisu", "Le zabaione", "La cassata"], "answer": 0, "difficulty": 2},
+    {"q": "Quel dessert flambé associe des crêpes, du beurre, du sucre et du jus d'orange ?", "choices": ["Les crêpes Suzette", "Le kouign-amann", "Le clafoutis", "Le far breton"], "answer": 0, "difficulty": 2},
+    {"q": "Quel entremets au chocolat présente un cœur coulant à la sortie du four ?", "choices": ["Le fondant au chocolat", "La mousse au chocolat", "La ganache", "Le brownie"], "answer": 0, "difficulty": 2},
+    {"q": "Quel gâteau américain au chocolat, dense et coupé en carrés, contient souvent des noix ?", "choices": ["Le brownie", "Le muffin", "Le cookie", "Le cheesecake"], "answer": 0, "difficulty": 2},
+    {"q": "Quel gâteau autrichien au chocolat est fourré de confiture d'abricot et nappé d'un glaçage brillant ?", "choices": ["La Sachertorte", "La forêt-noire", "Le Linzer", "Le strudel"], "answer": 0, "difficulty": 3},
+    {"q": "Quel entremets français associe génoise, crème mousseline et fraises entières dressées sur le pourtour ?", "choices": ["Le fraisier", "Le framboisier", "Le mille-feuille", "Le succès"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle spécialité viennoise est un gâteau roulé aux pommes enveloppé d'une pâte très fine ?", "choices": ["Le strudel", "Le baba", "Le kouglof", "Le stollen"], "answer": 0, "difficulty": 3},
+    {"q": "Quel gâteau allemand de Noël, dense aux fruits confits et à la pâte d'amande, est saupoudré de sucre glace ?", "choices": ["Le stollen", "Le panettone", "Le pain d'épices", "Le pandoro"], "answer": 0, "difficulty": 3},
+    {"q": "De quelle ville de Vénétie le tiramisu est-il originaire selon la version la plus répandue ?", "choices": ["Trévise", "Florence", "Naples", "Milan"], "answer": 0, "difficulty": 4},
+    {"q": "Quel gaz, libéré par la levure ou le bicarbonate, fait lever les gâteaux à la cuisson ?", "choices": ["Le dioxyde de carbone", "L'oxygène", "L'azote", "L'hydrogène"], "answer": 0, "difficulty": 4},
+    {"q": "À partir de quelle température environ le sucre commence-t-il à caraméliser ?", "choices": ["Environ 160 °C", "Environ 100 °C", "Environ 250 °C", "Environ 60 °C"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pâtissier a inventé le « cronut », hybride de croissant et de donut, à New York en 2013 ?", "choices": ["Dominique Ansel", "Pierre Hermé", "Cédric Grolet", "Christophe Michalak"], "answer": 0, "difficulty": 4}
   ]
 }

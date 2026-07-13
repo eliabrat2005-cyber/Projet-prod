@@ -564,6 +564,237 @@
       ],
       "answer": 0,
       "difficulty": 4
+    },
+    {
+      "q": "De quelle couleur est traditionnellement un ballon de basket ?",
+      "choices": [
+        "Orange",
+        "Bleu",
+        "Vert",
+        "Blanc"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment appelle-t-on le fait de faire rebondir le ballon au sol en avançant ?",
+      "choices": [
+        "Le dribble",
+        "La passe",
+        "Le rebond",
+        "Le contre"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment appelle-t-on un panier réalisé en écrasant le ballon dans l'arceau ?",
+      "choices": [
+        "Le dunk",
+        "Le lay-up",
+        "Le fadeaway",
+        "Le crossover"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel joueur surnommé « The Answer » a marqué l'histoire des Philadelphia 76ers ?",
+      "choices": [
+        "Allen Iverson",
+        "Julius Erving",
+        "Charles Barkley",
+        "Moses Malone"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "De quel pays vient le basketteur Dirk Nowitzki ?",
+      "choices": [
+        "L'Allemagne",
+        "L'Autriche",
+        "La Suisse",
+        "Les Pays-Bas"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel pivot surnommé « Shaq » a dominé la NBA au tournant des années 2000 ?",
+      "choices": [
+        "Shaquille O'Neal",
+        "Hakeem Olajuwon",
+        "David Robinson",
+        "Patrick Ewing"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Combien de temps une équipe a-t-elle pour franchir la ligne médiane en NBA ?",
+      "choices": [
+        "Huit secondes",
+        "Six secondes",
+        "Dix secondes",
+        "Cinq secondes"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel trophée récompense le meilleur joueur des Finales NBA ?",
+      "choices": [
+        "Le trophée Bill Russell",
+        "Le trophée Maurice Podoloff",
+        "Le trophée Larry O'Brien",
+        "Le trophée Red Auerbach"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle franchise NBA joue à Los Angeles en violet et or ?",
+      "choices": [
+        "Les Lakers",
+        "Les Clippers",
+        "Les Warriors",
+        "Les Kings"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel joueur détient le record de points inscrits en une seule saison régulière NBA ?",
+      "choices": [
+        "Wilt Chamberlain",
+        "Michael Jordan",
+        "Kobe Bryant",
+        "Kareem Abdul-Jabbar"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année Michael Jordan a-t-il pris sa première retraite pour jouer au baseball ?",
+      "choices": [
+        "1993",
+        "1991",
+        "1995",
+        "1994"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel joueur universitaire était le seul non-professionnel de la Dream Team américaine de 1992 ?",
+      "choices": [
+        "Christian Laettner",
+        "Grant Hill",
+        "Shaquille O'Neal",
+        "Chris Webber"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel joueur a été élu MVP de la saison régulière NBA à l'unanimité en 2016 ?",
+      "choices": [
+        "Stephen Curry",
+        "LeBron James",
+        "Kevin Durant",
+        "Russell Westbrook"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle équipe a remporté le tout premier titre de champion NBA (alors BAA) en 1947 ?",
+      "choices": [
+        "Les Philadelphia Warriors",
+        "Les Boston Celtics",
+        "Les Minneapolis Lakers",
+        "Les New York Knicks"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel joueur a inscrit le panier de la victoire pour Chicago lors des Finales NBA 1998 face à Utah ?",
+      "choices": [
+        "Michael Jordan",
+        "Scottie Pippen",
+        "Steve Kerr",
+        "Toni Kukoc"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Contre quelle équipe Wilt Chamberlain a-t-il inscrit ses 100 points en un match, en 1962 ?",
+      "choices": [
+        "Les New York Knicks",
+        "Les Boston Celtics",
+        "Les Los Angeles Lakers",
+        "Les Syracuse Nationals"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année les Toronto Raptors ont-ils remporté leur premier titre NBA ?",
+      "choices": [
+        "2019",
+        "2018",
+        "2016",
+        "2020"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel joueur détient le record de points inscrits en un seul match de playoffs NBA ?",
+      "choices": [
+        "Michael Jordan",
+        "Wilt Chamberlain",
+        "Elgin Baylor",
+        "Kobe Bryant"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel joueur détient le record de rebonds captés dans un seul match NBA ?",
+      "choices": [
+        "Wilt Chamberlain",
+        "Bill Russell",
+        "Dennis Rodman",
+        "Kareem Abdul-Jabbar"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année la ligue ABA a-t-elle fusionné avec la NBA ?",
+      "choices": [
+        "1976",
+        "1971",
+        "1979",
+        "1980"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quel joueur a été le tout premier choix de la draft NBA 1984, avant Michael Jordan ?",
+      "choices": [
+        "Hakeem Olajuwon",
+        "Sam Bowie",
+        "Charles Barkley",
+        "John Stockton"
+      ],
+      "answer": 0,
+      "difficulty": 4
     }
   ]
 }

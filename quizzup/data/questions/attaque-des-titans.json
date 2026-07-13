@@ -575,6 +575,26 @@
       ],
       "answer": 0,
       "difficulty": 4
-    }
+    },
+    {"q": "Que rêve de découvrir Eren depuis l'enfance, au-delà des murs ?", "choices": ["L'océan", "Une autre planète", "Un trésor", "Une cité perdue"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle taille atteignent la plupart des titans ordinaires ?", "choices": ["3 à 15 mètres", "1 à 2 mètres", "30 à 50 mètres", "Près de 100 mètres"], "answer": 0, "difficulty": 1},
+    {"q": "Quel soldat de petite taille est réputé maniaque de la propreté ?", "choices": ["Levi", "Erwin", "Jean", "Connie"], "answer": 0, "difficulty": 1},
+    {"q": "Quel type de créature Eren jure-t-il d'exterminer après la mort de sa mère ?", "choices": ["Les titans", "Les nobles", "Les brigands", "Les soldats mahrs"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle recrue au crâne rasé et un peu naïf est un ami proche de Sasha ?", "choices": ["Connie", "Jean", "Marco", "Bertolt"], "answer": 0, "difficulty": 1},
+    {"q": "Comment se nomme le district natal d'Eren, détruit au tout début de l'histoire ?", "choices": ["Le district de Shiganshina", "Le district de Trost", "Le district de Stohess", "Le district d'Orvud"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle branche de l'armée, chargée de protéger le roi, est réputée corrompue ?", "choices": ["La Police militaire", "Le Bataillon d'exploration", "Les Brigades stationnaires", "Le corps médical"], "answer": 0, "difficulty": 2},
+    {"q": "De quelle couleur est la fusée éclairante signalant la présence d'un titan anormal ?", "choices": ["Noire", "Verte", "Rouge", "Blanche"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quel corps d'armée Eren, Mikasa et Armin s'engagent-ils après leur formation ?", "choices": ["Le Bataillon d'exploration", "La Police militaire", "Les Brigades stationnaires", "La Garnison"], "answer": 0, "difficulty": 2},
+    {"q": "Quel rival d'Eren rêve d'intégrer la Police militaire pour vivre en sécurité ?", "choices": ["Jean", "Connie", "Marco", "Armin"], "answer": 0, "difficulty": 2},
+    {"q": "Quel personnage devient commandant du Bataillon d'exploration après la mort d'Erwin ?", "choices": ["Hansi Zoë", "Levi Ackerman", "Jean Kirstein", "Floch Forster"], "answer": 0, "difficulty": 3},
+    {"q": "Que découvre-t-on dans le sous-sol de la maison familiale d'Eren à Shiganshina ?", "choices": ["Les carnets de Grisha révélant le monde extérieur", "Un stock d'armes", "Un titan endormi", "Un tunnel d'évasion"], "answer": 0, "difficulty": 3},
+    {"q": "Quel commandant perd un bras au combat puis meurt lors de la reprise de Shiganshina ?", "choices": ["Erwin Smith", "Mike Zacharias", "Nile Dawk", "Dot Pixis"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle l'instructeur qui forme les recrues de la 104e brigade d'entraînement ?", "choices": ["Keith Shadis", "Dot Pixis", "Kitz Woermann", "Nile Dawk"], "answer": 0, "difficulty": 3},
+    {"q": "Quel soldat, second meilleur combattant après Levi, est tué par Reiner et Bertolt ?", "choices": ["Mike Zacharias", "Nile Dawk", "Dot Pixis", "Kitz Woermann"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année s'est achevée la publication du manga L'Attaque des Titans ?", "choices": ["2021", "2019", "2023", "2020"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de chapitres compte le manga au total ?", "choices": ["139", "112", "125", "141"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année la première saison de l'anime a-t-elle été diffusée pour la première fois ?", "choices": ["2013", "2011", "2015", "2009"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle la première épouse de Grisha Yeager et mère de Zeke ?", "choices": ["Dina Fritz", "Faye Yeager", "Carla Yeager", "Frieda Reiss"], "answer": 0, "difficulty": 4},
+    {"q": "Quel personnage de la famille Tybur détient le Titan Marteau d'Armes ?", "choices": ["Lara Tybur", "Pieck Finger", "Annie Leonhart", "Gabi Braun"], "answer": 0, "difficulty": 4}
   ]
 }

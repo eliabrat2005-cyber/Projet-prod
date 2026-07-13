@@ -58,6 +58,23 @@
     {"q": "Quel satellite de la NASA a révélé en 1992 les infimes variations du fond diffus cosmologique ?", "choices": ["COBE", "WMAP", "Planck", "IRAS"], "answer": 0, "difficulty": 4},
     {"q": "Quelle sonde japonaise a rapporté sur Terre des échantillons de l'astéroïde Ryugu en 2020 ?", "choices": ["Hayabusa 2", "Akatsuki", "Kaguya", "Sakigake"], "answer": 0, "difficulty": 4},
     {"q": "Quel cosmonaute a réalisé le plus long vol spatial de l'histoire, 437 jours à bord de Mir entre 1994 et 1995 ?", "choices": ["Valeri Poliakov", "Sergueï Krikalev", "Guennadi Padalka", "Anatoli Soloviev"], "answer": 0, "difficulty": 4},
-    {"q": "Quelle sonde de la NASA a été la première à se mettre en orbite autour de Jupiter, en 1995 ?", "choices": ["Galileo", "Pioneer 10", "Voyager 2", "Juno"], "answer": 0, "difficulty": 4}
+    {"q": "Quelle sonde de la NASA a été la première à se mettre en orbite autour de Jupiter, en 1995 ?", "choices": ["Galileo", "Pioneer 10", "Voyager 2", "Juno"], "answer": 0, "difficulty": 4},
+    {"q": "Quel astre se trouve au centre de notre Système solaire ?", "choices": ["Le Soleil", "La Terre", "La Lune", "Jupiter"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle planète est surnommée « la planète rouge » ?", "choices": ["Mars", "Vénus", "Jupiter", "Mercure"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de planètes compte le Système solaire depuis 2006 ?", "choices": ["Huit", "Neuf", "Sept", "Dix"], "answer": 0, "difficulty": 1},
+    {"q": "Quel satellite naturel tourne autour de la Terre ?", "choices": ["La Lune", "Titan", "Phobos", "Europe"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle est la plus grande planète du Système solaire ?", "choices": ["Jupiter", "Saturne", "Neptune", "La Terre"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle est la plus petite planète du Système solaire ?", "choices": ["Mercure", "Mars", "Vénus", "Neptune"], "answer": 0, "difficulty": 3},
+    {"q": "Comment appelle-t-on le point de l'orbite où un corps est au plus près du Soleil ?", "choices": ["Le périhélie", "L'aphélie", "Le périgée", "L'apogée"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle mission Apollo a subi une explosion de réservoir d'oxygène tout en ramenant son équipage sain et sauf ?", "choices": ["Apollo 13", "Apollo 11", "Apollo 1", "Apollo 8"], "answer": 0, "difficulty": 3},
+    {"q": "Quel type d'étoile à neutrons très dense émet un faisceau balayant l'espace en tournant rapidement ?", "choices": ["Un pulsar", "Un quasar", "Une naine blanche", "Une géante rouge"], "answer": 0, "difficulty": 3},
+    {"q": "Comment nomme-t-on le vaste nuage sphérique de comètes situé aux confins du Système solaire ?", "choices": ["Le nuage d'Oort", "La ceinture de Kuiper", "La ceinture principale", "L'héliopause"], "answer": 0, "difficulty": 3},
+    {"q": "Quel astronaute d'Apollo 11 est resté seul en orbite lunaire pendant que ses coéquipiers marchaient sur la Lune ?", "choices": ["Michael Collins", "Buzz Aldrin", "Neil Armstrong", "Jim Lovell"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année a eu lieu Apollo 17, dernière mission habitée à s'être posée sur la Lune ?", "choices": ["1972", "1969", "1975", "1970"], "answer": 0, "difficulty": 4},
+    {"q": "Quel astronaute, commandant d'Apollo 17, est le dernier homme à avoir marché sur la Lune ?", "choices": ["Eugene Cernan", "Harrison Schmitt", "Alan Shepard", "John Young"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de jours terrestres dure environ une année sur Mars ?", "choices": ["Environ 687 jours", "Environ 365 jours", "Environ 225 jours", "Environ 1 000 jours"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle exoplanète, découverte en 1995, fut la première confirmée en orbite autour d'une étoile de type solaire ?", "choices": ["51 Pegasi b", "Proxima b", "Kepler-22b", "HD 209458 b"], "answer": 0, "difficulty": 4},
+    {"q": "Quel astrophysicien donne son nom à la masse limite, environ 1,4 masse solaire, au-delà de laquelle une naine blanche s'effondre ?", "choices": ["Subrahmanyan Chandrasekhar", "Arthur Eddington", "Fred Hoyle", "Edwin Hubble"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle sonde soviétique a rapporté automatiquement les premiers échantillons de sol lunaire en 1970 ?", "choices": ["Luna 16", "Luna 2", "Zond 5", "Luna 9"], "answer": 0, "difficulty": 4}
   ]
 }

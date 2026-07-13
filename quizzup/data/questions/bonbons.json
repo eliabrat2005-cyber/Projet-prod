@@ -564,6 +564,237 @@
       ],
       "answer": 0,
       "difficulty": 4
+    },
+    {
+      "q": "Quel bonbon gélifié Haribo a la forme d'un crocodile ?",
+      "choices": [
+        "Les Crocodiles",
+        "Les Oursons d'or",
+        "Les Dragibus",
+        "Les Schtroumpfs"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle sucrerie file-t-on autour d'un bâton dans les fêtes foraines ?",
+      "choices": [
+        "La barbe à papa",
+        "Le nougat",
+        "La guimauve",
+        "Le berlingot"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "De quelles couleurs est classiquement un sucre d'orge de Noël ?",
+      "choices": [
+        "Rouge et blanc",
+        "Bleu et blanc",
+        "Vert et jaune",
+        "Noir et blanc"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel bonbon dur se suce lentement au bout d'un bâton ?",
+      "choices": [
+        "La sucette",
+        "Le caramel",
+        "Le nougat",
+        "La guimauve"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Dans quel pays le chewing-gum moderne a-t-il été popularisé au XIXe siècle ?",
+      "choices": [
+        "Les États-Unis",
+        "La France",
+        "L'Allemagne",
+        "Le Japon"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "De quelle plante provient le sucre utilisé en France pour fabriquer la plupart des bonbons ?",
+      "choices": [
+        "La betterave",
+        "La canne à sucre",
+        "Le maïs",
+        "Le blé"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel bonbon mou et étirable au beurre porte le nom anglais de « toffee » ?",
+      "choices": [
+        "Le caramel",
+        "La guimauve",
+        "La réglisse",
+        "Le nougat"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel géant américain de l'agroalimentaire produit les bonbons Skittles et les M&M's ?",
+      "choices": [
+        "Mars",
+        "Nestlé",
+        "Mondelez",
+        "Ferrero"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Dans quel pays d'Europe la réglisse salée, appelée « drop », est-elle une friandise emblématique ?",
+      "choices": [
+        "Les Pays-Bas",
+        "La France",
+        "L'Espagne",
+        "L'Italie"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quels bonbons gélifiés suédois ont la forme de petits poissons rouges ?",
+      "choices": [
+        "Les Swedish Fish",
+        "Les Dragibus",
+        "Les Croco",
+        "Les Tagada"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "De quel agrume la « Bergamote de Nancy » tire-t-elle son parfum ?",
+      "choices": [
+        "La bergamote",
+        "Le citron",
+        "L'orange",
+        "Le pamplemousse"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans quelle station balnéaire britannique le sucre d'orge rayé « rock » est-il traditionnellement vendu ?",
+      "choices": [
+        "Blackpool",
+        "Londres",
+        "Manchester",
+        "Édimbourg"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel industriel américain a fondé la célèbre marque de chocolat Hershey's ?",
+      "choices": [
+        "Milton Hershey",
+        "Forrest Mars",
+        "Frank Mars",
+        "Leo Hirschfield"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans quel pays le chocolat au lait a-t-il été mis au point par Daniel Peter en 1875 ?",
+      "choices": [
+        "La Suisse",
+        "La Belgique",
+        "La France",
+        "Les Pays-Bas"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel gélifiant d'origine animale donne aux oursons Haribo leur texture élastique ?",
+      "choices": [
+        "La gélatine",
+        "La pectine",
+        "L'agar-agar",
+        "La gomme arabique"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quelle montagne des Alpes est stylisée dans le logo du Toblerone ?",
+      "choices": [
+        "Le Cervin",
+        "Le Mont-Blanc",
+        "La Jungfrau",
+        "Le Mont Rose"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année les bonbons ronds à trou « Life Savers » ont-ils été créés aux États-Unis ?",
+      "choices": [
+        "1912",
+        "1920",
+        "1905",
+        "1930"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Qui a lancé en 1848 le premier chewing-gum commercialisé aux États-Unis ?",
+      "choices": [
+        "John B. Curtis",
+        "Thomas Adams",
+        "William Wrigley",
+        "Walter Diemer"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Qui a inventé en 1928 le premier chewing-gum à bulles à succès, le « Dubble Bubble » ?",
+      "choices": [
+        "Walter Diemer",
+        "William Wrigley",
+        "Thomas Adams",
+        "Frank Fleer"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Dans quel pays les bonbons PEZ ont-ils été créés en 1927 ?",
+      "choices": [
+        "L'Autriche",
+        "L'Allemagne",
+        "La Suisse",
+        "La Hongrie"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Milton Hershey a-t-il fondé la Hershey Chocolate Company ?",
+      "choices": [
+        "1894",
+        "1900",
+        "1886",
+        "1905"
+      ],
+      "answer": 0,
+      "difficulty": 4
     }
   ]
 }

@@ -82,6 +82,16 @@
     {"q": "Quel J-RPG fondateur créé par Yuji Horii est sorti au Japon en 1986 ?", "choices": ["Dragon Quest", "Final Fantasy", "Phantasy Star", "Mother"], "answer": 0, "difficulty": 4},
     {"q": "Combien de mondes compte le jeu original « Super Mario Bros. » sorti en 1985 ?", "choices": ["8", "6", "10", "12"], "answer": 0, "difficulty": 4},
     {"q": "Quel est le véritable nom du personnage « Master Chief » dans la saga Halo ?", "choices": ["John-117", "Cortana", "Noble Six", "Sergent Johnson"], "answer": 0, "difficulty": 4},
-    {"q": "En quelle année « World of Warcraft » a-t-il été lancé en Amérique du Nord ?", "choices": ["2004", "2002", "2006", "2005"], "answer": 0, "difficulty": 4}
+    {"q": "En quelle année « World of Warcraft » a-t-il été lancé en Amérique du Nord ?", "choices": ["2004", "2002", "2006", "2005"], "answer": 0, "difficulty": 4},
+    {"q": "Quel antagoniste emblématique aux longs cheveux argentés apparaît dans « Final Fantasy VII » ?", "choices": ["Sephiroth", "Kefka", "Golbez", "Kuja"], "answer": 0, "difficulty": 3},
+    {"q": "Quel studio américain a développé la série de jeux de rôle « The Elder Scrolls », dont « Skyrim » ?", "choices": ["Bethesda", "BioWare", "Obsidian", "Larian"], "answer": 0, "difficulty": 3},
+    {"q": "Quel chasseur de trésors est le héros de la série « Uncharted » de Naughty Dog ?", "choices": ["Nathan Drake", "Sam Fisher", "Rico Rodriguez", "Ethan Mars"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle arme emblématique permet de saisir et projeter des objets dans « Half-Life 2 » ?", "choices": ["Le Gravity Gun", "Le Portal Gun", "Le BFG 9000", "Le grappin énergétique"], "answer": 0, "difficulty": 3},
+    {"q": "Quel studio français a développé les jeux « Dishonored » et « Deathloop » ?", "choices": ["Arkane Studios", "Quantic Dream", "Dontnod Entertainment", "Asobo Studio"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année le jeu d'arcade « Pac-Man » de Namco est-il sorti au Japon ?", "choices": ["1980", "1978", "1983", "1985"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année la console Nintendo 64 est-elle sortie au Japon ?", "choices": ["1996", "1994", "1998", "1999"], "answer": 0, "difficulty": 4},
+    {"q": "Quel studio japonais a développé le jeu de rôle culte « Chrono Trigger », sorti en 1995 ?", "choices": ["Square", "Enix", "Capcom", "Konami"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de fantômes poursuivent le joueur dans le jeu d'arcade original « Pac-Man » ?", "choices": ["Quatre", "Trois", "Cinq", "Six"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année la console Sega Dreamcast est-elle sortie au Japon ?", "choices": ["1998", "1999", "2000", "1997"], "answer": 0, "difficulty": 4}
   ]
 }

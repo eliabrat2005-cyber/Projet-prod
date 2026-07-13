@@ -60,6 +60,22 @@
     {"q": "Quel demi-frère d'Aquaman devient le vilain Ocean Master ?", "choices": ["Orm", "Garth", "Kaldur'ahm", "Vulko"], "answer": 0, "difficulty": 4},
     {"q": "Quel scénariste, longtemps non crédité, a co-créé Batman avec Bob Kane ?", "choices": ["Bill Finger", "Jerry Siegel", "Joe Shuster", "Gardner Fox"], "answer": 0, "difficulty": 4},
     {"q": "Quel démon vengeur dirige le Corps des Red Lanterns ?", "choices": ["Atrocitus", "Larfleeze", "Sinestro", "Saint Walker"], "answer": 0, "difficulty": 4},
-    {"q": "Dans quelle ville Hal Jordan travaille-t-il comme pilote d'essai ?", "choices": ["Coast City", "Central City", "Midway City", "Hub City"], "answer": 0, "difficulty": 4}
+    {"q": "Dans quelle ville Hal Jordan travaille-t-il comme pilote d'essai ?", "choices": ["Coast City", "Central City", "Midway City", "Hub City"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est l'identité civile de Wonder Woman dans le monde des humains ?", "choices": ["Diana Prince", "Linda Danvers", "Barbara Gordon", "Selina Kyle"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle le chien kryptonien doté de superpouvoirs de Superman ?", "choices": ["Krypto", "Ace", "Streaky", "Titus"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle cité engloutie Aquaman gouverne-t-il ?", "choices": ["Atlantis", "Themyscira", "Gorilla City", "Kandor"], "answer": 0, "difficulty": 2},
+    {"q": "Quel super-vilain au corps reptilien hante les égouts de Gotham City ?", "choices": ["Killer Croc", "Bane", "Clayface", "Man-Bat"], "answer": 0, "difficulty": 2},
+    {"q": "Quel savant contraint de vivre dans le froid porte un costume cryogénique à Gotham ?", "choices": ["Mr. Freeze", "Double-Face", "L'Épouvantail", "Le Sphinx"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le vrai nom de l'Épouvantail (Scarecrow) ?", "choices": ["Jonathan Crane", "Edward Nygma", "Basil Karlo", "Waylon Jones"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le vrai nom du Sphinx (Riddler) ?", "choices": ["Edward Nygma", "Oswald Cobblepot", "Jonathan Crane", "Harvey Dent"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle fille de Ra's al Ghul est la mère de Damian Wayne ?", "choices": ["Talia al Ghul", "Nyssa Raatko", "Sandra Wu-San", "Cheshire"], "answer": 0, "difficulty": 3},
+    {"q": "Quel mercenaire au masque mi-orange mi-noir est surnommé « Deathstroke » ?", "choices": ["Slade Wilson", "Floyd Lawton", "Wade Wilson", "Roman Sionis"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quel comic de Frank Miller, publié en 1986, un Batman vieillissant sort de sa retraite ?", "choices": ["The Dark Knight Returns", "Batman: Year One", "Watchmen", "The Killing Joke"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quel numéro d'« Action Comics » Superman apparaît-il pour la première fois, en 1938 ?", "choices": ["Le n°1", "Le n°27", "Le n°23", "Le n°100"], "answer": 0, "difficulty": 4},
+    {"q": "Quel duo d'auteurs a créé le personnage de Superman ?", "choices": ["Jerry Siegel et Joe Shuster", "Bob Kane et Bill Finger", "Stan Lee et Jack Kirby", "Gardner Fox et Gil Kane"], "answer": 0, "difficulty": 4},
+    {"q": "Quel psychologue a créé le personnage de Wonder Woman en 1941 ?", "choices": ["William Moulton Marston", "Bob Kane", "Jerry Siegel", "Gardner Fox"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle substance chimique décuple la force physique du vilain Bane ?", "choices": ["Le Venom", "Le Miraclo", "Le Mutagène", "Le Composé V"], "answer": 0, "difficulty": 4},
+    {"q": "Quel écrivain britannique a créé la série « Sandman » pour DC/Vertigo ?", "choices": ["Neil Gaiman", "Alan Moore", "Grant Morrison", "Warren Ellis"], "answer": 0, "difficulty": 4},
+    {"q": "Dans le crossover « Blackest Night », quel corps de Lanterns ressuscite les morts ?", "choices": ["Les Black Lanterns", "Les Red Lanterns", "Le Sinestro Corps", "l'Indigo Tribe"], "answer": 0, "difficulty": 4}
   ]
 }

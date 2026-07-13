@@ -58,6 +58,23 @@
     {"q": "Quel est le nom du disque d'énergie tranchant utilisé par Krilin ?", "choices": ["Kienzan", "Makankosappo", "Taiyoken", "Dodonpa"], "answer": 0, "difficulty": 4},
     {"q": "Quel est le nom japonais de l'attaque de lumière aveuglante employée par Ten Shin Han ?", "choices": ["Taiyoken", "Kikoho", "Dodonpa", "Kienzan"], "answer": 0, "difficulty": 4},
     {"q": "Quelle technique en forme de carré d'énergie draine la force vitale de Ten Shin Han ?", "choices": ["Kikoho", "Taiyoken", "Masenko", "Dodonpa"], "answer": 0, "difficulty": 4},
-    {"q": "Quelle attaque Végéta utilise-t-il pour la première fois contre Goku sur Terre en criant son nom ?", "choices": ["Le Galick Gun", "Le Final Flash", "Le Big Bang Attack", "Le Kamehameha"], "answer": 0, "difficulty": 4}
+    {"q": "Quelle attaque Végéta utilise-t-il pour la première fois contre Goku sur Terre en criant son nom ?", "choices": ["Le Galick Gun", "Le Final Flash", "Le Big Bang Attack", "Le Kamehameha"], "answer": 0, "difficulty": 4},
+    {"q": "Que cherche Bulma lorsqu'elle rencontre Son Goku au tout début de l'histoire ?", "choices": ["Les Dragon Balls", "Une épée magique", "Un trésor de pirates", "La fontaine de jouvence"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur deviennent les cheveux d'un Saiyan sous sa forme Super Saiyan ?", "choices": ["Blonds", "Bleus", "Rouges", "Argentés"], "answer": 0, "difficulty": 1},
+    {"q": "Comment s'appelle le fils cadet de Son Goku ?", "choices": ["Goten", "Gohan", "Trunks", "Raditz"], "answer": 0, "difficulty": 1},
+    {"q": "Quel appendice Son Goku possède-t-il enfant, révélant son origine saiyan ?", "choices": ["Une queue de singe", "Des ailes", "Des cornes", "Des nageoires"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur est la peau du Namek Piccolo ?", "choices": ["Verte", "Bleue", "Rose", "Grise"], "answer": 0, "difficulty": 1},
+    {"q": "À quelle race extraterrestre guerrière Son Goku appartient-il ?", "choices": ["Les Saiyans", "Les Nameks", "Les Majins", "Les Tsufuls"], "answer": 0, "difficulty": 1},
+    {"q": "En quoi un Saiyan doté de sa queue se transforme-t-il en regardant la pleine lune ?", "choices": ["En singe géant (Oozaru)", "En loup géant", "En dragon", "En golem de pierre"], "answer": 0, "difficulty": 2},
+    {"q": "Quel appareil Végéta et Nappa portent-ils à l'œil pour mesurer la force de combat ?", "choices": ["Le scouter", "Le radar Bulma", "Le viseur laser", "Le capteur solaire"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle l'appareil inventé par Bulma pour localiser les boules de cristal ?", "choices": ["Le Dragon Radar", "Le Ball Tracker", "Le Cristal-Scope", "Le Radar Capsule"], "answer": 0, "difficulty": 2},
+    {"q": "Comment se nomme le commando d'élite de cinq mercenaires au service de Freezer ?", "choices": ["Le Commando Ginyu", "La Force Cold", "L'Escadron Dodoria", "Les Bio-guerriers"], "answer": 0, "difficulty": 2},
+    {"q": "Quel chef du Commando Ginyu possède le pouvoir d'échanger son corps avec celui de son adversaire ?", "choices": ["Le capitaine Ginyu", "Reacoom", "Jeece", "Guldo"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle la salle d'entraînement où une année s'écoule en une seule journée extérieure ?", "choices": ["La Salle de l'Esprit et du Temps", "La Chambre de gravité", "Le Palais de Kaïo", "La Salle des étoiles"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle attaque Végéta charge-t-il à deux mains, dans un éclair jaune, lors de son combat contre Cell ?", "choices": ["Le Final Flash", "Le Galick Gun", "Le Big Bang Attack", "Le Kienzan"], "answer": 0, "difficulty": 3},
+    {"q": "Quel puissant Saiyan légendaire, antagoniste récurrent des films, sombre dans une rage destructrice au combat ?", "choices": ["Broly", "Turles", "Tarble", "Paragus"], "answer": 0, "difficulty": 3},
+    {"q": "Quel scientifique a créé les cyborgs C-17 et C-18 ?", "choices": ["Le docteur Gero", "Le docteur Brief", "Le docteur Willow", "Le docteur Myuu"], "answer": 0, "difficulty": 4},
+    {"q": "Sous quel numéro de cyborg le docteur Gero s'est-il lui-même transformé ?", "choices": ["C-20", "C-19", "C-21", "C-15"], "answer": 0, "difficulty": 4},
+    {"q": "Quel niveau de puissance maximal Freezer annonce-t-il sous sa forme finale sur Namek ?", "choices": ["120 000 000", "530 000", "1 000 000", "3 000 000"], "answer": 0, "difficulty": 4}
   ]
 }

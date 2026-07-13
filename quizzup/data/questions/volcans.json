@@ -56,6 +56,25 @@
     {"q": "Quel lac d'Auvergne occupe le cratère du plus jeune volcan de France métropolitaine ?", "choices": ["Le lac Pavin", "Le lac Chambon", "Le lac d'Aydat", "Le lac de Guéry"], "answer": 0, "difficulty": 4},
     {"q": "Quel séisme de 1923 a dévasté Tokyo et Yokohama ?", "choices": ["Le séisme du Kantō", "Le séisme de Kobe", "Le séisme du Tōhoku", "Le séisme de Niigata"], "answer": 0, "difficulty": 4},
     {"q": "Quel volcan péruvien a produit en 1600 la plus grande éruption historique d'Amérique du Sud ?", "choices": ["Le Huaynaputina", "L'El Misti", "L'Ubinas", "Le Sabancaya"], "answer": 0, "difficulty": 4},
-    {"q": "Comment s'appelle le cône volcanique surgi en 1927 dans la caldeira laissée par l'explosion du Krakatoa ?", "choices": ["L'Anak Krakatoa", "Le Rakata", "Le Sertung", "Le Panjang"], "answer": 0, "difficulty": 4}
+    {"q": "Comment s'appelle le cône volcanique surgi en 1927 dans la caldeira laissée par l'explosion du Krakatoa ?", "choices": ["L'Anak Krakatoa", "Le Rakata", "Le Sertung", "Le Panjang"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quel océan se situe la majeure partie de la ceinture de feu ?", "choices": ["L'océan Pacifique", "L'océan Atlantique", "L'océan Indien", "L'océan Arctique"], "answer": 0, "difficulty": 1},
+    {"q": "Comment appelle-t-on les fines particules de roche projetées dans l'air lors d'une éruption ?", "choices": ["Les cendres", "Les galets", "Les glaçons", "Les coquillages"], "answer": 0, "difficulty": 1},
+    {"q": "Quel pays possède le plus grand nombre de volcans actifs au monde ?", "choices": ["L'Indonésie", "Le Japon", "L'Islande", "Le Chili"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle roche volcanique noire et vitreuse se forme par refroidissement très rapide de la lave ?", "choices": ["L'obsidienne", "Le granite", "Le marbre", "Le calcaire"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle roche volcanique claire et poreuse est assez légère pour flotter sur l'eau ?", "choices": ["La pierre ponce", "Le basalte", "Le gabbro", "L'ardoise"], "answer": 0, "difficulty": 2},
+    {"q": "Quel volcan enneigé domine la ville de Mexico ?", "choices": ["Le Popocatépetl", "Le Cotopaxi", "Le Chimborazo", "Le Pinatubo"], "answer": 0, "difficulty": 2},
+    {"q": "Sur quelle île des Canaries se dresse le Teide, point culminant de l'Espagne ?", "choices": ["Tenerife", "Majorque", "La Palma", "Lanzarote"], "answer": 0, "difficulty": 2},
+    {"q": "Quel détroit indonésien, entre Java et Sumatra, abritait le Krakatoa ?", "choices": ["Le détroit de la Sonde", "Le détroit de Malacca", "Le détroit de Lombok", "Le détroit de Bali"], "answer": 0, "difficulty": 2},
+    {"q": "Quel volcan des Philippines a connu en 1991 la deuxième plus grande éruption du XXe siècle ?", "choices": ["Le Pinatubo", "Le Mayon", "Le Taal", "Le Kanlaon"], "answer": 0, "difficulty": 3},
+    {"q": "Comment appelle-t-on une éruption explosive majeure à haut panache, du nom de Pline le Jeune ?", "choices": ["Une éruption plinienne", "Une éruption péléenne", "Une éruption vulcanienne", "Une éruption hawaïenne"], "answer": 0, "difficulty": 3},
+    {"q": "Quel type d'éruption, du nom d'une île éolienne, se caractérise par des explosions modérées et rythmées projetant des lambeaux de lave ?", "choices": ["L'éruption strombolienne", "L'éruption plinienne", "L'éruption hawaïenne", "L'éruption surtseyenne"], "answer": 0, "difficulty": 3},
+    {"q": "Quel volcan bouclier hawaïen est la plus haute montagne de la Terre mesurée depuis sa base sous-marine ?", "choices": ["Le Mauna Kea", "Le Mauna Loa", "Le Kilimandjaro", "L'Ojos del Salado"], "answer": 0, "difficulty": 3},
+    {"q": "Quelles ondes sismiques, les plus rapides, sont les premières enregistrées par un sismographe ?", "choices": ["Les ondes P", "Les ondes S", "Les ondes de Love", "Les ondes de Rayleigh"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année l'éruption du Pinatubo a-t-elle fait baisser la température moyenne mondiale d'environ 0,5 °C ?", "choices": ["1991", "1985", "1996", "2001"], "answer": 0, "difficulty": 4},
+    {"q": "Quel volume de matériaux éjectés, en kilomètres cubes, caractérise une éruption de VEI 8 ?", "choices": ["Plus de 1 000 km³", "Plus de 1 km³", "Plus de 10 km³", "Plus de 100 km³"], "answer": 0, "difficulty": 4},
+    {"q": "Quel séisme de magnitude 9,1 a déclenché le tsunami de l'océan Indien le 26 décembre 2004 ?", "choices": ["Le séisme de Sumatra-Andaman", "Le séisme de Nias", "Le séisme du Tōhoku", "Le séisme de Sulawesi"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est l'altitude approximative du sommet de l'Ojos del Salado, plus haut volcan du monde ?", "choices": ["6 893 m", "5 895 m", "7 200 m", "6 100 m"], "answer": 0, "difficulty": 4},
+    {"q": "Quel volcan grec a connu vers 1600 av. J.-C. l'éruption minoenne qui bouleversa la civilisation égéenne ?", "choices": ["Le Santorin (Théra)", "Le Nisyros", "Le Méthana", "Le Milos"], "answer": 0, "difficulty": 4},
+    {"q": "Quel volcan d'Alaska a produit en 1912 la plus grande éruption du XXe siècle, formant la Vallée des Dix Mille Fumées ?", "choices": ["Le Novarupta", "Le Katmai", "Le Redoubt", "L'Augustine"], "answer": 0, "difficulty": 4}
   ]
 }

@@ -55,6 +55,26 @@
     {"q": "Comment s'appelle le professeur Pokémon de la région de Sinnoh ?", "choices": ["Le professeur Sorbier", "Le professeur Seko", "Le professeur Keteleeria", "Le professeur Chen"], "answer": 0, "difficulty": 4},
     {"q": "Quel Pokémon porte le numéro 448 au Pokédex national et est de type Combat et Acier ?", "choices": ["Lucario", "Gallame", "Mackogneur", "Charmina"], "answer": 0, "difficulty": 4},
     {"q": "Quel Pokémon légendaire est la mascotte de Pokémon Diamant ?", "choices": ["Dialga", "Palkia", "Giratina", "Arceus"], "answer": 0, "difficulty": 4},
-    {"q": "Quel Pokémon légendaire est la mascotte de Pokémon Perle ?", "choices": ["Palkia", "Dialga", "Giratina", "Cresselia"], "answer": 0, "difficulty": 4}
+    {"q": "Quel Pokémon légendaire est la mascotte de Pokémon Perle ?", "choices": ["Palkia", "Dialga", "Giratina", "Cresselia"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le type du Pokémon Pikachu ?", "choices": ["Électrik", "Feu", "Eau", "Plante"], "answer": 0, "difficulty": 1},
+    {"q": "Quel est le Pokémon de départ de type Eau de la région de Kanto ?", "choices": ["Carapuce", "Bulbizarre", "Salamèche", "Pikachu"], "answer": 0, "difficulty": 1},
+    {"q": "Quel est le Pokémon de départ de type Plante de la région de Kanto ?", "choices": ["Bulbizarre", "Salamèche", "Carapuce", "Pikachu"], "answer": 0, "difficulty": 1},
+    {"q": "Quel Pokémon orange ailé est l'évolution finale de Salamèche ?", "choices": ["Dracaufeu", "Reptincel", "Léviator", "Sulfura"], "answer": 0, "difficulty": 1},
+    {"q": "Comment appelle-t-on une personne qui capture et entraîne des Pokémon ?", "choices": ["Un dresseur", "Un éleveur", "Un pêcheur", "Un ranger"], "answer": 0, "difficulty": 1},
+    {"q": "Comment s'appelle le rival de Sacha, petit-fils du professeur Chen, dans la première génération ?", "choices": ["Régis", "Pierre", "Aldo", "Auguste"], "answer": 0, "difficulty": 2},
+    {"q": "En quoi évolue Évoli avec une Pierre Foudre ?", "choices": ["Voltali", "Aquali", "Pyroli", "Mentali"], "answer": 0, "difficulty": 2},
+    {"q": "En quoi évolue Évoli avec une Pierre Feu ?", "choices": ["Pyroli", "Aquali", "Voltali", "Givrali"], "answer": 0, "difficulty": 2},
+    {"q": "Combien de Pokémon un dresseur peut-il transporter au maximum dans son équipe ?", "choices": ["Six", "Quatre", "Huit", "Trois"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quelle petite ville de Kanto se trouve le laboratoire du professeur Chen ?", "choices": ["Bourg Palette", "Argenta", "Azuria", "Céladopole"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le Pokémon de départ de type Feu de la région de Kanto ?", "choices": ["Salamèche", "Carapuce", "Bulbizarre", "Héricendre"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le type du Pokémon Mewtwo ?", "choices": ["Psy", "Ténèbres", "Combat", "Spectre"], "answer": 0, "difficulty": 3},
+    {"q": "Quels sont les deux types du Pokémon Léviator ?", "choices": ["Eau et Vol", "Eau et Dragon", "Eau uniquement", "Dragon et Vol"], "answer": 0, "difficulty": 3},
+    {"q": "Quel oiseau légendaire de type Électrik fait partie du trio légendaire de Kanto ?", "choices": ["Électhor", "Sulfura", "Artikodin", "Lugia"], "answer": 0, "difficulty": 3},
+    {"q": "Quel oiseau légendaire de type Glace fait partie du trio légendaire de Kanto ?", "choices": ["Artikodin", "Électhor", "Sulfura", "Lugia"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le numéro de Mew dans le Pokédex national ?", "choices": ["151", "150", "152", "149"], "answer": 0, "difficulty": 4},
+    {"q": "Quel Pokémon porte le numéro 1 dans le Pokédex national ?", "choices": ["Bulbizarre", "Pikachu", "Salamèche", "Mew"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de nouveaux Pokémon la cinquième génération (Unys) a-t-elle ajoutés, portant le total à 649 ?", "choices": ["156", "135", "107", "100"], "answer": 0, "difficulty": 4},
+    {"q": "Quel Pokémon légendaire est la mascotte de Pokémon Noir ?", "choices": ["Zekrom", "Reshiram", "Kyurem", "Dialga"], "answer": 0, "difficulty": 4},
+    {"q": "Quel Pokémon légendaire est la mascotte de Pokémon Blanc ?", "choices": ["Reshiram", "Zekrom", "Kyurem", "Palkia"], "answer": 0, "difficulty": 4}
   ]
 }

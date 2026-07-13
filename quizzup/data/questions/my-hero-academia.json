@@ -56,6 +56,25 @@
     {"q": "Quelle organisation le vilain Re-Destro dirige-t-il ?", "choices": ["L'Armée de Libération Méta", "Le Shie Hassaikai", "La Ligue des Vilains", "L'Union des Justiciers"], "answer": 0, "difficulty": 4},
     {"q": "Quel est l'Alter de Tomura Shigaraki ?", "choices": ["La décomposition (Decay)", "L'explosion", "La copie", "La régénération"], "answer": 0, "difficulty": 4},
     {"q": "Comment s'appelle l'Alter de flammes d'Endeavor ?", "choices": ["Hellflame (Flammes de l'enfer)", "Half-Cold Half-Hot", "Explosion", "Foudre"], "answer": 0, "difficulty": 4},
-    {"q": "Quel est le nom de l'Alter du héros Hawks ?", "choices": ["Fierce Wings (Ailes féroces)", "Float", "Blackwhip", "High-End"], "answer": 0, "difficulty": 4}
+    {"q": "Quel est le nom de l'Alter du héros Hawks ?", "choices": ["Fierce Wings (Ailes féroces)", "Float", "Blackwhip", "High-End"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est l'Alter de Katsuki Bakugo ?", "choices": ["L'explosion", "La glace", "La gravité zéro", "Le durcissement"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur est principalement le costume de héros de Deku ?", "choices": ["Vert", "Rouge", "Jaune", "Violet"], "answer": 0, "difficulty": 1},
+    {"q": "Quel surnom désigne All Might, le plus grand des héros ?", "choices": ["Le Symbole de la Paix", "Le Symbole de la Justice", "Le Roi des héros", "Le Gardien du Japon"], "answer": 0, "difficulty": 1},
+    {"q": "Sous quel format l'œuvre My Hero Academia a-t-elle d'abord été publiée ?", "choices": ["Un manga", "Un roman", "Un film d'animation", "Un jeu vidéo"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur sont les cheveux de Katsuki Bakugo ?", "choices": ["Blond", "Vert", "Rouge", "Noir"], "answer": 0, "difficulty": 1},
+    {"q": "Quel objet Izuku remplit-il de notes détaillées sur les héros et leurs Alters ?", "choices": ["Un carnet de notes", "Des figurines", "Des badges", "Des cartes à collectionner"], "answer": 0, "difficulty": 1},
+    {"q": "Quel élève de la classe 1-A génère et manipule l'électricité ?", "choices": ["Denki Kaminari", "Hanta Sero", "Mezo Shoji", "Koji Koda"], "answer": 0, "difficulty": 2},
+    {"q": "Quel élève de la classe 1-A produit du ruban adhésif depuis ses coudes ?", "choices": ["Hanta Sero", "Denki Kaminari", "Rikido Sato", "Mashirao Ojiro"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle l'Alter de Shoto Todoroki qui associe la glace et le feu ?", "choices": ["Mi-froid Mi-chaud (Half-Cold Half-Hot)", "Hellflame", "Explosion", "Blackwhip"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle est la particularité du héros Present Mic, enseignant à Yuei ?", "choices": ["Sa voix surpuissante", "Sa super-force", "Son invisibilité", "Sa vitesse"], "answer": 0, "difficulty": 2},
+    {"q": "Quel jeune héros ailé occupe la place de héros numéro 2 dans le nouveau classement ?", "choices": ["Hawks", "Best Jeanist", "Mirko", "Edgeshot"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le vrai nom du héros professionnel Eraser Head ?", "choices": ["Shota Aizawa", "Hizashi Yamada", "Toshinori Yagi", "Enji Todoroki"], "answer": 0, "difficulty": 3},
+    {"q": "Quel élève de la classe 1-A matérialise une créature d'ombre nommée Dark Shadow ?", "choices": ["Fumikage Tokoyami", "Mezo Shoji", "Koji Koda", "Yuga Aoyama"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le vrai nom du héros Endeavor ?", "choices": ["Enji Todoroki", "Toshinori Yagi", "Keigo Takami", "Shota Aizawa"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le vrai nom du héros Hawks ?", "choices": ["Keigo Takami", "Enji Todoroki", "Toshinori Yagi", "Hizashi Yamada"], "answer": 0, "difficulty": 4},
+    {"q": "Quel Alter, hérité du troisième détenteur du One For All, emmagasine l'énergie cinétique des mouvements répétitifs ?", "choices": ["Fa Jin", "Gearshift", "Smokescreen", "Danger Sense"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le vrai nom du héros numéro 3 Best Jeanist, spécialiste des fibres ?", "choices": ["Tsunagu Hakamada", "Keigo Takami", "Enji Todoroki", "Shota Aizawa"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est l'Alter du vilain Twice, capable de créer des clones autonomes ?", "choices": ["Double", "Decay", "Warping", "Compress"], "answer": 0, "difficulty": 4},
+    {"q": "Quel membre de l'Alliance des super-vilains peut compresser n'importe quoi en petites billes ?", "choices": ["Mr. Compress", "Twice", "Spinner", "Magne"], "answer": 0, "difficulty": 4}
   ]
 }

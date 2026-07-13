@@ -55,6 +55,26 @@
     {"q": "Dans quelle couche de l'atmosphère se forment les nuages noctulescents, visibles en été au crépuscule ?", "choices": ["La mésosphère", "La troposphère", "La stratosphère", "L'exosphère"], "answer": 0, "difficulty": 4},
     {"q": "Dans quel département la température record de France métropolitaine, 46,0 °C, a-t-elle été relevée en juin 2019 ?", "choices": ["L'Hérault", "Le Var", "Le Vaucluse", "Les Bouches-du-Rhône"], "answer": 0, "difficulty": 4},
     {"q": "Quel mathématicien britannique a tenté dans les années 1920 la toute première prévision numérique du temps ?", "choices": ["Lewis Fry Richardson", "Alan Turing", "George Stokes", "Charles Babbage"], "answer": 0, "difficulty": 4},
-    {"q": "Dans quel pays est tombé en 1986 le grêlon le plus lourd jamais homologué, environ 1 kg ?", "choices": ["Au Bangladesh", "En Inde", "Aux États-Unis", "En Argentine"], "answer": 0, "difficulty": 4}
+    {"q": "Dans quel pays est tombé en 1986 le grêlon le plus lourd jamais homologué, environ 1 kg ?", "choices": ["Au Bangladesh", "En Inde", "Aux États-Unis", "En Argentine"], "answer": 0, "difficulty": 4},
+    {"q": "À quelle température l'eau bout-elle au niveau de la mer ?", "choices": ["100 °C", "90 °C", "50 °C", "120 °C"], "answer": 0, "difficulty": 1},
+    {"q": "Quel astre est à l'origine de presque toute l'énergie qui anime la météo terrestre ?", "choices": ["Le Soleil", "La Lune", "Mars", "Vénus"], "answer": 0, "difficulty": 1},
+    {"q": "Comment appelle-t-on un nuage bas et gris uniforme qui couvre tout le ciel ?", "choices": ["Le stratus", "Le cirrus", "Le cumulus", "Le cumulonimbus"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on les gros nuages blancs à sommet bourgeonnant, typiques des belles journées d'été ?", "choices": ["Les cumulus", "Les cirrus", "Les stratus", "Les nimbostratus"], "answer": 0, "difficulty": 2},
+    {"q": "Quel appareil, emporté par un ballon-sonde, mesure la température et l'humidité en altitude ?", "choices": ["La radiosonde", "Le baromètre", "L'anémomètre", "Le pluviomètre"], "answer": 0, "difficulty": 2},
+    {"q": "Comment nomme-t-on la grandeur exprimant, en pourcentage, la quantité de vapeur d'eau dans l'air par rapport au maximum possible ?", "choices": ["L'humidité relative", "La pression", "Le point de rosée", "La visibilité"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on le brouillard qui se forme par refroidissement nocturne près du sol ?", "choices": ["Le brouillard de rayonnement", "Le brouillard d'advection", "La brume de mer", "Le smog"], "answer": 0, "difficulty": 2},
+    {"q": "Quel nuage gris et sans relief donne une pluie continue et durable ?", "choices": ["Le nimbostratus", "Le cirrus", "Le cumulus", "Le stratocumulus"], "answer": 0, "difficulty": 2},
+    {"q": "À quelle altitude approximative se situe la tropopause aux latitudes moyennes ?", "choices": ["Environ 11 km", "Environ 3 km", "Environ 25 km", "Environ 50 km"], "answer": 0, "difficulty": 3},
+    {"q": "Quel gaz de la haute atmosphère filtre les rayons ultraviolets du Soleil ?", "choices": ["L'ozone", "L'azote", "Le dioxyde de carbone", "L'argon"], "answer": 0, "difficulty": 3},
+    {"q": "Comment appelle-t-on la zone de contact entre une masse d'air chaud et une masse d'air froid ?", "choices": ["Un front", "Un anticyclone", "Un thalweg", "Une dorsale"], "answer": 0, "difficulty": 3},
+    {"q": "Quel instrument moderne utilise les ondes radio pour détecter la pluie et suivre les orages à distance ?", "choices": ["Le radar météorologique", "Le baromètre", "L'héliographe", "Le pyranomètre"], "answer": 0, "difficulty": 3},
+    {"q": "Quel instrument mesure la durée d'ensoleillement ?", "choices": ["L'héliographe", "Le baromètre", "L'hygromètre", "L'anémomètre"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quel sens tournent les vents autour d'une dépression dans l'hémisphère nord ?", "choices": ["Dans le sens inverse des aiguilles d'une montre", "Dans le sens des aiguilles d'une montre", "Toujours vers l'ouest", "Verticalement de bas en haut"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année a été créé le service météorologique britannique (Met Office) par Robert FitzRoy ?", "choices": ["1854", "1820", "1875", "1900"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année le premier satellite météorologique, TIROS-1, a-t-il été lancé ?", "choices": ["1960", "1957", "1965", "1972"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle pression atmosphérique record, la plus basse jamais mesurée dans un cyclone, a été relevée dans le typhon Tip en 1979 ?", "choices": ["870 hPa", "920 hPa", "950 hPa", "800 hPa"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quel pays se trouve Cherrapunji, célèbre pour ses records de précipitations ?", "choices": ["L'Inde", "Le Bangladesh", "Le Népal", "Le Sri Lanka"], "answer": 0, "difficulty": 4},
+    {"q": "Quel météorologue américain a formulé dans les années 1960 l'idée de l'« effet papillon » ?", "choices": ["Edward Lorenz", "Vilhelm Bjerknes", "Carl-Gustaf Rossby", "Jule Charney"], "answer": 0, "difficulty": 4},
+    {"q": "Comment nomme-t-on les grandes ondulations du courant-jet, du nom d'un météorologue suédo-américain ?", "choices": ["Les ondes de Rossby", "Les ondes de Kelvin", "Les ondes de Lorenz", "Les ondes de Coriolis"], "answer": 0, "difficulty": 4}
   ]
 }

@@ -608,6 +608,23 @@
       ],
       "answer": 0,
       "difficulty": 4
-    }
+    },
+    {"q": "Quel plat italien est un riz crémeux cuit lentement au bouillon ?", "choices": ["Le risotto", "La polenta", "Les gnocchis", "Les lasagnes"], "answer": 0, "difficulty": 1},
+    {"q": "Quel fromage français à pâte persillée est fabriqué au lait de brebis ?", "choices": ["Le roquefort", "Le camembert", "Le comté", "Le reblochon"], "answer": 0, "difficulty": 1},
+    {"q": "Quel dessert italien superpose des biscuits imbibés de café et une crème au mascarpone ?", "choices": ["Le tiramisu", "La panna cotta", "Le cannolo", "La pastiera"], "answer": 0, "difficulty": 1},
+    {"q": "Quel alcool mexicain distillé à partir d'agave bleu est la base de la margarita ?", "choices": ["La tequila", "Le rhum", "La vodka", "Le gin"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle préparation mexicaine est une purée d'avocat assaisonnée d'oignon et de citron vert ?", "choices": ["Le guacamole", "La salsa roja", "Le pico de gallo", "Le mole"], "answer": 0, "difficulty": 1},
+    {"q": "Comment appelle-t-on les petites portions espagnoles servies à l'apéritif ?", "choices": ["Les tapas", "Les mezze", "Les antipasti", "Les zakouski"], "answer": 0, "difficulty": 2},
+    {"q": "Quel dessert français se caractérise par une croûte de sucre caramélisé au chalumeau sur une crème à la vanille ?", "choices": ["La crème brûlée", "La crème caramel", "La panna cotta", "L'île flottante"], "answer": 0, "difficulty": 2},
+    {"q": "De quel pays le plat national « ackee and saltfish » est-il originaire ?", "choices": ["La Jamaïque", "Trinité-et-Tobago", "La Barbade", "Haïti"], "answer": 0, "difficulty": 3},
+    {"q": "De quel pays les « pierogi », raviolis farcis bouillis, sont-ils une spécialité nationale ?", "choices": ["La Pologne", "La Roumanie", "La Hongrie", "La République tchèque"], "answer": 0, "difficulty": 3},
+    {"q": "De quel pays vient le « bunny chow », pain de mie évidé et garni de curry ?", "choices": ["L'Afrique du Sud", "L'Inde", "Le Kenya", "Maurice"], "answer": 0, "difficulty": 3},
+    {"q": "De quel pays vient le « khachapuri », pain en forme de barque garni de fromage et d'un œuf ?", "choices": ["La Géorgie", "L'Arménie", "La Turquie", "La Grèce"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle soupe froide andalouse est préparée à base d'amandes, d'ail et de pain ?", "choices": ["L'ajoblanco", "Le gazpacho", "Le salmorejo", "La vichyssoise"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année le « repas gastronomique des Français » a-t-il été inscrit au patrimoine culturel immatériel de l'UNESCO ?", "choices": ["2010", "2008", "2013", "2015"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année le Guide Michelin a-t-il décerné pour la première fois ses trois étoiles ?", "choices": ["1931", "1926", "1920", "1955"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année le restaurant elBulli de Ferran Adrià a-t-il définitivement fermé ses portes ?", "choices": ["2011", "2009", "2013", "2007"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pigment naturel donne sa couleur noire à l'encre de seiche utilisée en cuisine ?", "choices": ["La mélanine", "Le charbon végétal", "Le colorant caramel", "La betterave noire"], "answer": 0, "difficulty": 4},
+    {"q": "Quel couteau japonais polyvalent tire son nom de ses « trois usages » (viande, poisson, légumes) ?", "choices": ["Le santoku", "Le yanagiba", "Le nakiri", "Le deba"], "answer": 0, "difficulty": 4}
   ]
 }

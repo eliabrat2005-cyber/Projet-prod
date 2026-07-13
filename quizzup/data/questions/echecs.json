@@ -58,6 +58,23 @@
     {"q": "Quel match de championnat du monde de 1984 fut interrompu sans vainqueur après cinq mois ?", "choices": ["Karpov contre Kasparov", "Fischer contre Spassky", "Kasparov contre Kramnik", "Botvinnik contre Tal"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année la FIDE a-t-elle adopté officiellement le classement Elo ?", "choices": ["1970", "1950", "1985", "1960"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année Wilhelm Steinitz est-il devenu le premier champion du monde officiel ?", "choices": ["1886", "1875", "1894", "1900"], "answer": 0, "difficulty": 4},
-    {"q": "Contre quel joueur Garry Kasparov a-t-il perdu son titre de champion du monde en 2000 ?", "choices": ["Vladimir Kramnik", "Anatoli Karpov", "Viswanathan Anand", "Veselin Topalov"], "answer": 0, "difficulty": 4}
+    {"q": "Contre quel joueur Garry Kasparov a-t-il perdu son titre de champion du monde en 2000 ?", "choices": ["Vladimir Kramnik", "Anatoli Karpov", "Viswanathan Anand", "Veselin Topalov"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de dames chaque joueur possède-t-il au début de la partie ?", "choices": ["Une", "Deux", "Aucune", "Quatre"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de fous chaque joueur possède-t-il au départ ?", "choices": ["Deux", "Un", "Trois", "Quatre"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de cavaliers chaque joueur possède-t-il au départ ?", "choices": ["Deux", "Un", "Trois", "Quatre"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de rois chaque joueur possède-t-il sur l'échiquier ?", "choices": ["Un", "Deux", "Aucun", "Quatre"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle est la valeur relative classique d'un cavalier, en points ?", "choices": ["3", "5", "1", "9"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle est la valeur relative classique de la dame, en points ?", "choices": ["9", "5", "3", "1"], "answer": 0, "difficulty": 2},
+    {"q": "Combien de points vaut classiquement un pion ?", "choices": ["1", "3", "2", "5"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on une menace directe sur le roi adverse, à laquelle il faut obligatoirement répondre ?", "choices": ["L'échec", "Le pat", "Le gambit", "Le zugzwang"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle la tactique où une pièce en immobilise une autre, placée devant le roi, qui ne peut plus bouger ?", "choices": ["Le clouage", "La fourchette", "L'enfilade", "La déviation"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle défense noire répond au coup 1.e4 par 1...c5 ?", "choices": ["La défense sicilienne", "La défense française", "La défense Caro-Kann", "La défense scandinave"], "answer": 0, "difficulty": 3},
+    {"q": "Comment nomme-t-on la phase finale d'une partie, lorsqu'il ne reste que peu de pièces sur l'échiquier ?", "choices": ["La finale", "L'ouverture", "Le milieu de jeu", "Le gambit"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Bobby Fischer a-t-il conquis le titre mondial face à Boris Spassky à Reykjavik ?", "choices": ["1972", "1969", "1975", "1966"], "answer": 0, "difficulty": 4},
+    {"q": "Sur quel score Bobby Fischer a-t-il battu Boris Spassky lors du match de 1972 ?", "choices": ["12,5 à 8,5", "12 à 9", "11 à 10", "13 à 8"], "answer": 0, "difficulty": 4},
+    {"q": "Quel joueur américain du XIXe siècle est considéré comme le meilleur de son époque, avant l'ère des championnats officiels ?", "choices": ["Paul Morphy", "Harry Pillsbury", "Frank Marshall", "Reuben Fine"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quelle ville s'est tenu en 1851 le tout premier grand tournoi international d'échecs ?", "choices": ["Londres", "Paris", "Vienne", "Saint-Pétersbourg"], "answer": 0, "difficulty": 4},
+    {"q": "Quel joueur chinois est devenu champion du monde en 2023 en battant Ian Nepomniachtchi ?", "choices": ["Ding Liren", "Wei Yi", "Wang Hao", "Bu Xiangzhi"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle joueuse chinoise est devenue en 2010 la plus jeune championne du monde féminine de l'histoire ?", "choices": ["Hou Yifan", "Ju Wenjun", "Tan Zhongyi", "Zhu Chen"], "answer": 0, "difficulty": 4}
   ]
 }

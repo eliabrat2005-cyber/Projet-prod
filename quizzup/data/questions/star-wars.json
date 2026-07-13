@@ -57,6 +57,24 @@
     {"q": "Comment s'appelle le pilote rebelle ami de Luke qui survit aux batailles des deux Étoiles de la Mort ?", "choices": ["Wedge Antilles", "Biggs Darklighter", "Jek Porkins", "Dutch Vander"], "answer": 0, "difficulty": 4},
     {"q": "Comment s'appelle la corvette corellienne (CR90) de la princesse Leia au début d'Un nouvel espoir ?", "choices": ["Le Tantive IV", "Le Profundity", "Le Ghost", "Le Sundered Heart"], "answer": 0, "difficulty": 4},
     {"q": "Quel amiral Dark Vador étrangle-t-il pour être sorti de l'hyperespace trop près du système de Hoth ?", "choices": ["L'amiral Ozzel", "L'amiral Piett", "Le capitaine Needa", "Le général Veers"], "answer": 0, "difficulty": 4},
-    {"q": "Quel modèle de chasseur TIE Dark Vador pilote-t-il durant la bataille de Yavin ?", "choices": ["Un TIE Advanced x1", "Un TIE/ln standard", "Un TIE Interceptor", "Un TIE Bomber"], "answer": 0, "difficulty": 4}
+    {"q": "Quel modèle de chasseur TIE Dark Vador pilote-t-il durant la bataille de Yavin ?", "choices": ["Un TIE Advanced x1", "Un TIE/ln standard", "Un TIE Interceptor", "Un TIE Bomber"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle le droïde astromécano bleu et blanc de la saga ?", "choices": ["R2-D2", "C-3PO", "BB-8", "K-2SO"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur est le sabre laser de Dark Vador ?", "choices": ["Rouge", "Bleu", "Vert", "Jaune"], "answer": 0, "difficulty": 1},
+    {"q": "Comment s'appelle le petit droïde orange et blanc en forme de boule de la postlogie ?", "choices": ["BB-8", "R2-D2", "D-O", "BD-1"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle est la couleur de la peau du maître Yoda ?", "choices": ["Verte", "Bleue", "Grise", "Rouge"], "answer": 0, "difficulty": 1},
+    {"q": "Comment s'appelle le chasseur de primes mandalorien héros de la série The Mandalorian ?", "choices": ["Din Djarin", "Boba Fett", "Jango Fett", "Cad Bane"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le vrai nom de « l'Enfant » (Baby Yoda) révélé dans The Mandalorian ?", "choices": ["Grogu", "Yaddle", "Yoda", "Ezra"], "answer": 0, "difficulty": 2},
+    {"q": "Sur quelle planète se trouve la Cité des Nuages dirigée par Lando Calrissian ?", "choices": ["Bespin", "Endor", "Naboo", "Kamino"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle la reine puis sénatrice de Naboo, mère de Luke et Leia ?", "choices": ["Padmé Amidala", "Shmi Skywalker", "Mon Mothma", "Beru Lars"], "answer": 0, "difficulty": 2},
+    {"q": "Sur quelle planète Obi-Wan Kenobi se cache-t-il pour veiller sur Luke enfant ?", "choices": ["Tatooine", "Dagobah", "Alderaan", "Jakku"], "answer": 0, "difficulty": 3},
+    {"q": "Quel Jedi survit à l'Ordre 66 et forme Ezra Bridger dans la série Star Wars Rebels ?", "choices": ["Kanan Jarrus", "Le capitaine Rex", "Ezra Bridger", "Garazeb Orrelios"], "answer": 0, "difficulty": 3},
+    {"q": "Quel ancien Padawan d'Anakin Skywalker quitte l'Ordre Jedi dans la série The Clone Wars ?", "choices": ["Ahsoka Tano", "Barriss Offee", "Aayla Secura", "Shaak Ti"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle la planète natale de la princesse Leia, détruite par l'Étoile de la Mort ?", "choices": ["Alderaan", "Naboo", "Corellia", "Chandrila"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle sénatrice de Chandrila dirige politiquement l'Alliance rebelle dans Le Retour du Jedi ?", "choices": ["Mon Mothma", "Leia Organa", "Padmé Amidala", "Bail Organa"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le matricule du stormtrooper qui deviendra Finn dans Le Réveil de la Force ?", "choices": ["FN-2187", "TK-421", "CT-7567", "THX-1138"], "answer": 0, "difficulty": 4},
+    {"q": "Quel acteur incarne physiquement Dark Vador (le corps sous l'armure) dans la trilogie originale ?", "choices": ["David Prowse", "James Earl Jones", "Sebastian Shaw", "Bob Anderson"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année L'Empire contre-attaque est-il sorti au cinéma ?", "choices": ["1980", "1977", "1983", "1978"], "answer": 0, "difficulty": 4},
+    {"q": "Quel réalisateur a dirigé L'Empire contre-attaque (épisode V) ?", "choices": ["Irvin Kershner", "George Lucas", "Richard Marquand", "Lawrence Kasdan"], "answer": 0, "difficulty": 4},
+    {"q": "Quel acteur incarne le jeune Han Solo dans le film Solo: A Star Wars Story (2018) ?", "choices": ["Alden Ehrenreich", "Harrison Ford", "Ewan McGregor", "Diego Luna"], "answer": 0, "difficulty": 4}
   ]
 }

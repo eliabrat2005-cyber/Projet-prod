@@ -57,6 +57,24 @@
     {"q": "Quel DJ et producteur est membre du groupe IAM aux côtés d'Akhenaton et Shurik'n ?", "choices": ["Kheops", "DJ Mehdi", "Cut Killer", "DJ Abdel"], "answer": 0, "difficulty": 4},
     {"q": "Quel album de Diam's, sorti en 2006, contient le titre « La Boulette » ?", "choices": ["Dans ma bulle", "Brut de femme", "S.O.S", "Enfants du désert"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année Orelsan a-t-il sorti l'album « Le chant des sirènes » ?", "choices": ["2011", "2009", "2013", "2017"], "answer": 0, "difficulty": 4},
-    {"q": "En quelle année le groupe La Fonky Family a-t-il sorti l'album « Si Dieu veut... » ?", "choices": ["1997", "1995", "1999", "2001"], "answer": 0, "difficulty": 4}
+    {"q": "En quelle année le groupe La Fonky Family a-t-il sorti l'album « Si Dieu veut... » ?", "choices": ["1997", "1995", "1999", "2001"], "answer": 0, "difficulty": 4},
+    {"q": "De quelle ville le groupe IAM est-il originaire ?", "choices": ["Marseille", "Paris", "Lyon", "Lille"], "answer": 0, "difficulty": 1},
+    {"q": "Quel artiste a interprété le tube « Bella » en 2013 ?", "choices": ["Maître Gims", "Black M", "Soprano", "Kendji Girac"], "answer": 0, "difficulty": 1},
+    {"q": "Quel rappeur toulousain forme un duo avec son frère Oli ?", "choices": ["Bigflo", "Gringe", "Vald", "Lomepal"], "answer": 0, "difficulty": 1},
+    {"q": "Dans quelle ville est né le rappeur Jul ?", "choices": ["Marseille", "Paris", "Lyon", "Toulouse"], "answer": 0, "difficulty": 1},
+    {"q": "Quel rappeur français a connu un large succès avec le titre « On verra » en 2015 ?", "choices": ["Nekfeu", "Damso", "Vald", "Lomepal"], "answer": 0, "difficulty": 1},
+    {"q": "Quel rappeur et animateur, ancien membre de Psy 4 de la Rime, est juré de « La France a un incroyable talent » ?", "choices": ["Soprano", "Jul", "Kery James", "Naps"], "answer": 0, "difficulty": 1},
+    {"q": "Quel rappeur parisien a popularisé l'afro-trap avec « Champions League » en 2016 ?", "choices": ["MHD", "Niska", "Gazo", "Dadju"], "answer": 0, "difficulty": 2},
+    {"q": "Quel rappeur du 91 a sorti l'album « Destin » en 2019 ?", "choices": ["Ninho", "PLK", "Niska", "Koba LaD"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le vrai nom du rappeur Damso ?", "choices": ["William Kalubi", "Élie Yaffa", "Ken Samaras", "Karim Fall"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le vrai nom du rappeur Orelsan ?", "choices": ["Aurélien Cotentin", "Guillaume Tranchant", "Karim Zenoud", "Fabien Marsaud"], "answer": 0, "difficulty": 3},
+    {"q": "Quel rappeur du groupe 1995 a sorti la mixtape solo « Alph Lauren » ?", "choices": ["Alpha Wann", "Nekfeu", "Sneazzy", "Doums"], "answer": 0, "difficulty": 3},
+    {"q": "Quel rappeur français est surnommé « le Duc de Boulogne » ?", "choices": ["Booba", "Rohff", "La Fouine", "Kaaris"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Orelsan a-t-il sorti l'album « La fête est finie » ?", "choices": ["2017", "2015", "2019", "2011"], "answer": 0, "difficulty": 3},
+    {"q": "De quel collectif parisien le S-Crew et le groupe 1995 font-ils partie ?", "choices": ["L'Entourage", "Mafia K'1 Fry", "La Cliqua", "Time Bomb"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année MC Solaar a-t-il sorti l'album « Prose Combat » ?", "choices": ["1994", "1991", "1997", "2001"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Suprême NTM a-t-il sorti l'album « Paris sous les bombes » ?", "choices": ["1995", "1993", "1998", "1991"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Doc Gynéco a-t-il sorti l'album « Première consultation » ?", "choices": ["1996", "1994", "1998", "1992"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Kery James a-t-il sorti son premier album solo « Si c'était à refaire » ?", "choices": ["2001", "1999", "2005", "2008"], "answer": 0, "difficulty": 4}
   ]
 }

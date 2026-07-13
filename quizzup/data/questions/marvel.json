@@ -55,6 +55,26 @@
     {"q": "Quel auteur a créé Thanos, apparu pour la première fois en 1973 ?", "choices": ["Jim Starlin", "Stan Lee", "Jack Kirby", "Steve Englehart"], "answer": 0, "difficulty": 4},
     {"q": "Dans quel comic Miles Morales apparaît-il pour la première fois en 2011 ?", "choices": ["Ultimate Fallout #4", "Ultimate Spider-Man #1", "Spider-Man #1", "Miles Morales #1"], "answer": 0, "difficulty": 4},
     {"q": "Dans quel comic de 1966 la Panthère noire, premier super-héros noir majeur, fait-elle ses débuts ?", "choices": ["Fantastic Four #52", "Jungle Action #6", "Black Panther #1", "The Avengers #52"], "answer": 0, "difficulty": 4},
-    {"q": "Quel est le véritable nom de Stan Lee ?", "choices": ["Stanley Martin Lieber", "Stanley Kirby", "Stan Leiber", "Stanley Ditko"], "answer": 0, "difficulty": 4}
+    {"q": "Quel est le véritable nom de Stan Lee ?", "choices": ["Stanley Martin Lieber", "Stanley Kirby", "Stan Leiber", "Stanley Ditko"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le véritable nom de Spider-Man ?", "choices": ["Peter Parker", "Tony Stark", "Bruce Banner", "Steve Rogers"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur est la peau de Hulk dans sa version classique ?", "choices": ["Verte", "Rouge", "Bleue", "Grise"], "answer": 0, "difficulty": 1},
+    {"q": "Quel est le véritable nom d'Iron Man ?", "choices": ["Tony Stark", "Steve Rogers", "Bruce Banner", "Thor Odinson"], "answer": 0, "difficulty": 1},
+    {"q": "Quel animal donne son nom au costume du héros du Wakanda ?", "choices": ["La panthère", "Le tigre", "Le lion", "Le léopard"], "answer": 0, "difficulty": 1},
+    {"q": "Quel est le véritable nom de Captain America ?", "choices": ["Steve Rogers", "Bucky Barnes", "Sam Wilson", "Tony Stark"], "answer": 0, "difficulty": 1},
+    {"q": "Quel acteur incarne Captain America (Steve Rogers) dans le MCU ?", "choices": ["Chris Evans", "Chris Hemsworth", "Chris Pratt", "Sebastian Stan"], "answer": 0, "difficulty": 2},
+    {"q": "Quel acteur incarne Thor dans le MCU ?", "choices": ["Chris Hemsworth", "Chris Evans", "Tom Hiddleston", "Liam Hemsworth"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle équipe galactique réunit Star-Lord, Gamora, Drax, Rocket et Groot ?", "choices": ["Les Gardiens de la Galaxie", "Les Avengers", "Les X-Men", "Les Quatre Fantastiques"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle organisation d'espionnage dirigée par Nick Fury rassemble les Avengers ?", "choices": ["Le S.H.I.E.L.D.", "L'HYDRA", "Le S.W.O.R.D.", "Le Damage Control"], "answer": 0, "difficulty": 2},
+    {"q": "Quel acteur incarne Doctor Strange dans le MCU ?", "choices": ["Benedict Cumberbatch", "Benedict Wong", "Mark Ruffalo", "Paul Bettany"], "answer": 0, "difficulty": 2},
+    {"q": "Quel acteur incarne Spider-Man dans le MCU depuis 2016 ?", "choices": ["Tom Holland", "Tobey Maguire", "Andrew Garfield", "Tom Hardy"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle le père de Thor, roi d'Asgard ?", "choices": ["Odin", "Heimdall", "Bor", "Tyr"], "answer": 0, "difficulty": 3},
+    {"q": "Par quel film de 2008 le Marvel Cinematic Universe débute-t-il ?", "choices": ["Iron Man", "L'Incroyable Hulk", "Thor", "Captain America: First Avenger"], "answer": 0, "difficulty": 3},
+    {"q": "Quel acteur incarne le méchant Killmonger dans Black Panther ?", "choices": ["Michael B. Jordan", "Chadwick Boseman", "Winston Duke", "Daniel Kaluuya"], "answer": 0, "difficulty": 3},
+    {"q": "Sur quel monde des nains Thor fait-il forger l'arme Stormbreaker dans Infinity War ?", "choices": ["Nidavellir", "Asgard", "Vanaheim", "Svartalfheim"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quel comic les Avengers apparaissent-ils pour la première fois, en 1963 ?", "choices": ["The Avengers #1", "Fantastic Four #1", "Journey into Mystery #83", "Tales of Suspense #39"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quel comic les X-Men font-ils leur toute première apparition, en 1963 ?", "choices": ["The X-Men #1", "Giant-Size X-Men #1", "The Uncanny X-Men #94", "The Avengers #1"], "answer": 0, "difficulty": 4},
+    {"q": "Quel dessinateur a cocréé les Quatre Fantastiques avec Stan Lee ?", "choices": ["Jack Kirby", "Steve Ditko", "Bill Everett", "Don Heck"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quelle revue le personnage de Groot apparaît-il pour la première fois, en 1960 ?", "choices": ["Tales to Astonish #13", "Tales of Suspense #39", "Journey into Mystery #83", "Strange Tales #110"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Stan Lee est-il décédé ?", "choices": ["2018", "2016", "2017", "2019"], "answer": 0, "difficulty": 4}
   ]
 }

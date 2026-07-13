@@ -553,6 +553,28 @@
       ],
       "answer": 0,
       "difficulty": 4
-    }
+    },
+    {"q": "Quel constructeur japonais a pour logo trois diamants rouges ?", "choices": ["Mitsubishi", "Mazda", "Subaru", "Honda"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle marque britannique de luxe est symbolisée par un double « R » entrelacé ?", "choices": ["Rolls-Royce", "Bentley", "Jaguar", "Aston Martin"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle source d'énergie alimente une voiture 100 % électrique ?", "choices": ["Une batterie électrique", "Le gazole", "L'essence", "Le gaz naturel"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de roues possède une automobile classique ?", "choices": ["Quatre", "Trois", "Deux", "Six"], "answer": 0, "difficulty": 1},
+    {"q": "Quel constructeur allemand au logo bleu et blanc produit les Série 3 et Série 5 ?", "choices": ["BMW", "Audi", "Opel", "Porsche"], "answer": 0, "difficulty": 1},
+    {"q": "Quel groupe automobile possède les marques Audi, Bentley et Lamborghini ?", "choices": ["Volkswagen", "BMW", "Daimler", "Stellantis"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on le coussin de sécurité qui se gonfle lors d'un choc pour protéger le conducteur ?", "choices": ["L'airbag", "L'ABS", "Le régulateur", "Le turbo"], "answer": 0, "difficulty": 2},
+    {"q": "Que désigne le sigle « ABS » sur une voiture ?", "choices": ["Le système antiblocage des roues", "La boîte automatique", "L'assistance au stationnement", "Le contrôle de vitesse"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quelle commune italienne se trouve l'usine historique de Ferrari ?", "choices": ["Maranello", "Turin", "Milan", "Naples"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on une voiture dont le toit peut se replier ?", "choices": ["Un cabriolet", "Un break", "Un monospace", "Un coupé"], "answer": 0, "difficulty": 2},
+    {"q": "Quel ingénieur a conçu la Mini, lancée en 1959 ?", "choices": ["Alec Issigonis", "Ferdinand Porsche", "Enzo Ferrari", "André Citroën"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Volkswagen a-t-il lancé la première génération de la Golf ?", "choices": ["1974", "1968", "1980", "1972"], "answer": 0, "difficulty": 3},
+    {"q": "Quel modèle Toyota, lancé en 1997, fut la première voiture hybride produite en grande série ?", "choices": ["La Prius", "La Corolla", "La Yaris", "L'Auris"], "answer": 0, "difficulty": 3},
+    {"q": "Qui a fondé la marque automobile Ferrari ?", "choices": ["Enzo Ferrari", "Ferruccio Lamborghini", "Battista Pininfarina", "Giovanni Agnelli"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année la marque Tesla a-t-elle été fondée ?", "choices": ["2003", "2008", "1999", "2010"], "answer": 0, "difficulty": 3},
+    {"q": "Quel pilote français a été sacré champion du monde de Formule 1 à quatre reprises ?", "choices": ["Alain Prost", "Jean Alesi", "René Arnoux", "Jacques Laffite"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année est né Enzo Ferrari ?", "choices": ["1898", "1888", "1905", "1910"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pilote est devenu le plus jeune champion du monde de Formule 1, titré en 2010 ?", "choices": ["Sebastian Vettel", "Fernando Alonso", "Lewis Hamilton", "Kimi Räikkönen"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Ettore Bugatti a-t-il fondé la marque Bugatti ?", "choices": ["1909", "1919", "1901", "1923"], "answer": 0, "difficulty": 4},
+    {"q": "Quel modèle Mercedes-Benz de 1954 était célèbre pour ses portes « papillon » ?", "choices": ["La 300 SL", "La 190 SL", "La 220 S", "La 540 K"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle écurie a remporté le tout premier championnat du monde des constructeurs de Formule 1, en 1958 ?", "choices": ["Vanwall", "Ferrari", "Mercedes", "Cooper"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Citroën a-t-il présenté la Traction Avant ?", "choices": ["1934", "1948", "1955", "1929"], "answer": 0, "difficulty": 4}
   ]
 }

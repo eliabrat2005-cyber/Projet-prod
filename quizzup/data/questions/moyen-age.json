@@ -58,6 +58,23 @@
     {"q": "Quel évêque de Beauvais a présidé le procès de Jeanne d'Arc en 1431 ?", "choices": ["Pierre Cauchon", "Jean Gerson", "Guillaume d'Estouteville", "Regnault de Chartres"], "answer": 0, "difficulty": 4},
     {"q": "Quel texte de 842, parmi les plus anciens écrits en langue romane, scella l'alliance de deux petits-fils de Charlemagne ?", "choices": ["Les Serments de Strasbourg", "Le capitulaire de Villis", "Les Serments de Coulaines", "L'ordonnance de Villers-Cotterêts"], "answer": 0, "difficulty": 4},
     {"q": "Quelle bataille de 1302, dite « des éperons d'or », vit les milices flamandes écraser la chevalerie française ?", "choices": ["La bataille de Courtrai", "La bataille de Mons-en-Pévèle", "La bataille de Cassel", "La bataille de Roosebeke"], "answer": 0, "difficulty": 4},
-    {"q": "Quel philosophe du XIIe siècle est resté célèbre pour sa liaison tragique avec Héloïse ?", "choices": ["Pierre Abélard", "Thomas d'Aquin", "Guillaume d'Ockham", "Albert le Grand"], "answer": 0, "difficulty": 4}
+    {"q": "Quel philosophe du XIIe siècle est resté célèbre pour sa liaison tragique avec Héloïse ?", "choices": ["Pierre Abélard", "Thomas d'Aquin", "Guillaume d'Ockham", "Albert le Grand"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle arme à lame le chevalier portait-il à son côté ?", "choices": ["L'épée", "L'arc", "La fronde", "Le fléau à grain"], "answer": 0, "difficulty": 1},
+    {"q": "Dans quel bâtiment religieux dirigé par un abbé vivaient les moines ?", "choices": ["Le monastère", "Le donjon", "Le beffroi", "Le pont-levis"], "answer": 0, "difficulty": 1},
+    {"q": "Quel impôt, correspondant à un dixième des récoltes, les paysans versaient-ils à l'Église ?", "choices": ["La dîme", "La taille", "La gabelle", "Le cens"], "answer": 0, "difficulty": 2},
+    {"q": "Quel art consistait à décorer les manuscrits de lettrines et de peintures fines ?", "choices": ["L'enluminure", "La calligraphie", "La fresque", "La marqueterie"], "answer": 0, "difficulty": 2},
+    {"q": "Quel vaste édifice religieux les villes mettaient parfois plus d'un siècle à bâtir ?", "choices": ["La cathédrale", "Le donjon", "Le moulin", "Le beffroi"], "answer": 0, "difficulty": 2},
+    {"q": "Quelles grandes foires commerciales attiraient les marchands de toute l'Europe dans le nord-est de la France médiévale ?", "choices": ["Les foires de Champagne", "Les foires de Provence", "Les foires de Bretagne", "Les foires de Savoie"], "answer": 0, "difficulty": 2},
+    {"q": "Comment nommait-on l'association d'artisans d'un même métier dans les villes médiévales ?", "choices": ["La corporation", "La châtellenie", "La sénéchaussée", "La prévôté"], "answer": 0, "difficulty": 2},
+    {"q": "Quel empereur du Saint-Empire fut humilié devant le pape à Canossa en 1077 ?", "choices": ["Henri IV", "Frédéric Barberousse", "Otton Ier", "Charles Quint"], "answer": 0, "difficulty": 3},
+    {"q": "Quel théologien italien du XIIIe siècle a rédigé la « Somme théologique » ?", "choices": ["Thomas d'Aquin", "Saint Augustin", "Pierre Abélard", "Guillaume d'Ockham"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle dynastie a succédé aux Mérovingiens à la tête du royaume franc en 751 ?", "choices": ["Les Carolingiens", "Les Capétiens", "Les Valois", "Les Plantagenêts"], "answer": 0, "difficulty": 3},
+    {"q": "Quel roi capétien est parti à la troisième croisade aux côtés de Richard Cœur de Lion ?", "choices": ["Philippe Auguste", "Louis IX", "Louis VII", "Philippe le Bel"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quelle ville Charlemagne avait-il établi la capitale de son empire ?", "choices": ["Aix-la-Chapelle", "Paris", "Reims", "Rome"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Jeanne d'Arc a-t-elle levé le siège d'Orléans ?", "choices": ["1429", "1431", "1415", "1435"], "answer": 0, "difficulty": 4},
+    {"q": "Quel roi de France, dit « le Bel », a affronté le pape Boniface VIII ?", "choices": ["Philippe IV", "Philippe VI", "Charles IV", "Louis X"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année débuta officiellement la guerre de Cent Ans ?", "choices": ["1337", "1346", "1415", "1328"], "answer": 0, "difficulty": 4},
+    {"q": "Quel roi anglais fut tué à la bataille de Bosworth en 1485, mettant fin à la guerre des Deux-Roses ?", "choices": ["Richard III", "Henri VI", "Édouard IV", "Jean sans Terre"], "answer": 0, "difficulty": 4},
+    {"q": "Quel empereur byzantin a fait codifier le droit romain dans un grand recueil au VIe siècle ?", "choices": ["Justinien", "Constantin", "Héraclius", "Basile II"], "answer": 0, "difficulty": 4}
   ]
 }

@@ -56,6 +56,25 @@
     {"q": "Quelle chanson de Noël fut la première jouée depuis l'espace, à bord de Gemini 6 en 1965 ?", "choices": ["Jingle Bells", "Silent Night", "White Christmas", "Deck the Halls"], "answer": 0, "difficulty": 4},
     {"q": "Quel compositeur a écrit « White Christmas », l'un des singles les plus vendus de l'histoire ?", "choices": ["Irving Berlin", "Cole Porter", "George Gershwin", "Richard Rodgers"], "answer": 0, "difficulty": 4},
     {"q": "Dans quel film de 1942 Bing Crosby interprète-t-il « White Christmas » pour la première fois ?", "choices": ["L'Amour chante et danse (Holiday Inn)", "Noël blanc (White Christmas)", "La Route semée d'étoiles", "Haute Société"], "answer": 0, "difficulty": 4},
-    {"q": "Quel santon provençal représente le simple d'esprit émerveillé, les bras levés au ciel ?", "choices": ["Le ravi", "Le pistachié", "Le boumian", "Le tambourinaire"], "answer": 0, "difficulty": 4}
+    {"q": "Quel santon provençal représente le simple d'esprit émerveillé, les bras levés au ciel ?", "choices": ["Le ravi", "Le pistachié", "Le boumian", "Le tambourinaire"], "answer": 0, "difficulty": 4},
+    {"q": "De quelle couleur est le costume traditionnel du père Noël moderne ?", "choices": ["Rouge et blanc", "Vert et or", "Bleu et argent", "Marron"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur sont les baies du houx, plante décorative de Noël ?", "choices": ["Rouges", "Bleues", "Jaunes", "Noires"], "answer": 0, "difficulty": 2},
+    {"q": "Quel personnage vert et grincheux cherche à voler Noël dans le conte du Dr. Seuss ?", "choices": ["Le Grinch", "Scrooge", "Krampus", "Gollum"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quel pays est née la tradition du sapin de Noël décoré ?", "choices": ["L'Allemagne", "L'Italie", "L'Espagne", "La Grèce"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on le repas de fête pris le soir du 24 décembre en France ?", "choices": ["Le réveillon", "Le brunch", "Le goûter", "La cène"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle sucrerie blanche et rouge, en forme de crosse, décore souvent le sapin ?", "choices": ["La canne de sucre d'orge", "La guimauve", "Le calisson", "Le nougat"], "answer": 0, "difficulty": 2},
+    {"q": "Combien de jours compte le décompte de la célèbre chanson « The Twelve Days of Christmas » ?", "choices": ["Douze", "Sept", "Vingt-quatre", "Trois"], "answer": 0, "difficulty": 2},
+    {"q": "Quel oratorio de Haendel, avec son fameux « Alléluia », est souvent donné à Noël ?", "choices": ["Le Messie", "La Création", "Les Quatre Saisons", "La Passion selon saint Matthieu"], "answer": 0, "difficulty": 3},
+    {"q": "Quel conte de Charles Dickens paru en 1843 met en scène le fantôme de Marley ?", "choices": ["Un chant de Noël", "Oliver Twist", "David Copperfield", "Les Grandes Espérances"], "answer": 0, "difficulty": 3},
+    {"q": "Quel pays offre chaque année depuis 1947 le grand sapin dressé à Trafalgar Square, à Londres ?", "choices": ["La Norvège", "La Suède", "La Finlande", "Le Danemark"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quelle ville allemande se tient le Christkindlesmarkt, l'un des plus anciens marchés de Noël ?", "choices": ["Nuremberg", "Berlin", "Munich", "Cologne"], "answer": 0, "difficulty": 3},
+    {"q": "De quelle ville allemande le Stollen, gâteau de Noël aux fruits confits, est-il originaire ?", "choices": ["Dresde", "Munich", "Vienne", "Cologne"], "answer": 0, "difficulty": 3},
+    {"q": "Quel chant de Noël, créé en 1818 à Oberndorf en Autriche, est connu en français sous le titre « Douce nuit » ?", "choices": ["Douce nuit (Stille Nacht)", "Mon beau sapin", "Vive le vent", "Petit papa Noël"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Coca-Cola commence-t-il à mettre en scène le père Noël illustré par Haddon Sundblom dans ses publicités ?", "choices": ["1931", "1922", "1945", "1901"], "answer": 0, "difficulty": 4},
+    {"q": "Qui composa la mélodie de « Douce nuit » (Stille Nacht) en 1818 ?", "choices": ["Franz Xaver Gruber", "Joseph Mohr", "Franz Schubert", "Georg Friedrich Haendel"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle chanson écrite en 1857 par James Lord Pierpont était à l'origine destinée à Thanksgiving ?", "choices": ["Jingle Bells", "White Christmas", "Silent Night", "Last Christmas"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Tino Rossi popularisa-t-il « Petit papa Noël » dans un film ?", "choices": ["1946", "1936", "1955", "1962"], "answer": 0, "difficulty": 4},
+    {"q": "Comment se nomme le huitième renne du père Noël dont le nom signifie « éclair » en allemand ?", "choices": ["Blitzen", "Donner", "Cupid", "Comet"], "answer": 0, "difficulty": 4},
+    {"q": "Quel collectif d'artistes britanniques sortit en 1984 le single caritatif « Do They Know It's Christmas? » ?", "choices": ["Band Aid", "Wham!", "Queen", "The Beatles"], "answer": 0, "difficulty": 4}
   ]
 }

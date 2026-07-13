@@ -54,6 +54,27 @@
     {"q": "Quel est le meilleur résultat atteint par Pete Sampras à Roland-Garros ?", "choices": ["Une demi-finale", "Une finale", "Un quart de finale", "La victoire"], "answer": 0, "difficulty": 4},
     {"q": "Sur quel score s'est conclu le célèbre tie-break du quatrième set de la finale Borg-McEnroe à Wimbledon 1980 ?", "choices": ["18-16", "16-14", "20-18", "13-11"], "answer": 0, "difficulty": 4},
     {"q": "Quel Français a remporté Roland-Garros en simple messieurs en 1946 ?", "choices": ["Marcel Bernard", "Yvon Petra", "Henri Cochet", "Robert Abdesselam"], "answer": 0, "difficulty": 4},
-    {"q": "Dans quelle ville Suzanne Lenglen a-t-elle été sacrée championne olympique en 1920 ?", "choices": ["Anvers", "Paris", "Londres", "Stockholm"], "answer": 0, "difficulty": 4}
+    {"q": "Dans quelle ville Suzanne Lenglen a-t-elle été sacrée championne olympique en 1920 ?", "choices": ["Anvers", "Paris", "Londres", "Stockholm"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de joueurs s'affrontent lors d'un match de simple ?", "choices": ["Deux", "Quatre", "Un", "Trois"], "answer": 0, "difficulty": 1},
+    {"q": "Comment appelle-t-on l'arbitre principal installé sur une chaise haute pendant un match ?", "choices": ["L'arbitre de chaise", "Le juge de ligne", "Le ramasseur de balles", "Le starter"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur sont les balles de tennis utilisées dans les tournois modernes ?", "choices": ["Jaune fluo", "Blanche", "Orange", "Verte"], "answer": 0, "difficulty": 1},
+    {"q": "Dans quelle ville se dispute l'Open d'Australie ?", "choices": ["Melbourne", "Sydney", "Perth", "Brisbane"], "answer": 0, "difficulty": 2},
+    {"q": "Sur quelle surface se joue l'Open d'Australie depuis 1988 ?", "choices": ["Une surface dure", "Le gazon", "La terre battue", "La moquette"], "answer": 0, "difficulty": 2},
+    {"q": "Combien de tournois composent le Grand Chelem sur une saison ?", "choices": ["Quatre", "Trois", "Cinq", "Six"], "answer": 0, "difficulty": 2},
+    {"q": "Quel joueur suédois a remporté 11 titres du Grand Chelem avant de se retirer très jeune, en 1983 ?", "choices": ["Björn Borg", "Stefan Edberg", "Mats Wilander", "Ivan Lendl"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle joueuse américaine, sœur aînée de Serena, a remporté cinq fois Wimbledon ?", "choices": ["Venus Williams", "Lindsay Davenport", "Jennifer Capriati", "Monica Seles"], "answer": 0, "difficulty": 2},
+    {"q": "Comment nomme-t-on le coup qui consiste à frapper la balle avant qu'elle ne rebondisse, souvent près du filet ?", "choices": ["La volée", "Le lob", "Le smash", "L'amortie"], "answer": 0, "difficulty": 2},
+    {"q": "En quelle année Roger Federer a-t-il remporté son premier titre à Wimbledon ?", "choices": ["2003", "2001", "2005", "2004"], "answer": 0, "difficulty": 3},
+    {"q": "Contre quel joueur Rafael Nadal a-t-il remporté sa première finale de Roland-Garros, en 2005 ?", "choices": ["Mariano Puerta", "Roger Federer", "Guillermo Coria", "Robin Söderling"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Novak Djokovic a-t-il remporté son premier titre du Grand Chelem, à l'Open d'Australie ?", "choices": ["2008", "2007", "2009", "2011"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle joueuse a remporté l'US Open 1999 à seulement 17 ans, son premier titre du Grand Chelem ?", "choices": ["Serena Williams", "Venus Williams", "Martina Hingis", "Lindsay Davenport"], "answer": 0, "difficulty": 3},
+    {"q": "Quel Américain a remporté l'US Open 1990 à 19 ans en battant Andre Agassi en finale ?", "choices": ["Pete Sampras", "Jim Courier", "Michael Chang", "Boris Becker"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle joueuse allemande a remporté 22 titres du Grand Chelem entre 1987 et 1999 ?", "choices": ["Steffi Graf", "Martina Navratilova", "Monica Seles", "Chris Evert"], "answer": 0, "difficulty": 3},
+    {"q": "Quel joueur Roger Federer a-t-il battu en finale de Wimbledon 2003 pour son premier Grand Chelem ?", "choices": ["Mark Philippoussis", "Andy Roddick", "Pete Sampras", "Lleyton Hewitt"], "answer": 0, "difficulty": 4},
+    {"q": "Quel joueur a remporté le tournoi de l'US Open 1968, premier tournoi masculin de l'ère Open ?", "choices": ["Arthur Ashe", "Rod Laver", "Stan Smith", "John Newcombe"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle joueuse australienne a réalisé le Grand Chelem calendaire en simple dames en 1970 ?", "choices": ["Margaret Court", "Billie Jean King", "Maureen Connolly", "Evonne Goolagong"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année a eu lieu la célèbre « Bataille des sexes » entre Billie Jean King et Bobby Riggs ?", "choices": ["1973", "1971", "1975", "1969"], "answer": 0, "difficulty": 4},
+    {"q": "Quel joueur a remporté le dernier Open d'Australie disputé sur gazon, en 1987, à Kooyong ?", "choices": ["Stefan Edberg", "Pat Cash", "Mats Wilander", "Ivan Lendl"], "answer": 0, "difficulty": 4},
+    {"q": "Quel Australien détenait le record masculin de 12 titres du Grand Chelem dans les années 1960 ?", "choices": ["Roy Emerson", "Rod Laver", "Ken Rosewall", "John Newcombe"], "answer": 0, "difficulty": 4}
   ]
 }

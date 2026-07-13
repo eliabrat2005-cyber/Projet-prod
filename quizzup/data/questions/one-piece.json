@@ -54,6 +54,27 @@
     {"q": "Quels deux géants d'Elbaf se battent en duel depuis un siècle sur Little Garden ?", "choices": ["Dorry et Brogy", "Oimo et Kashii", "Hajrudin et Stansen", "Jarul et Jorl"], "answer": 0, "difficulty": 4},
     {"q": "Quel est le véritable nom de l'amiral Akainu ?", "choices": ["Sakazuki", "Borsalino", "Kuzan", "Issho"], "answer": 0, "difficulty": 4},
     {"q": "Combien de membres compte l'équipage du Chapeau de paille après le recrutement de Jinbe, capitaine inclus ?", "choices": ["Dix", "Neuf", "Huit", "Onze"], "answer": 0, "difficulty": 4},
-    {"q": "Quel montant record atteint la prime de Gol D. Roger, la plus élevée jamais enregistrée ?", "choices": ["Environ 5,56 milliards de berries", "Environ 4 milliards de berries", "Environ 3 milliards de berries", "Environ 1,5 milliard de berries"], "answer": 0, "difficulty": 4}
+    {"q": "Quel montant record atteint la prime de Gol D. Roger, la plus élevée jamais enregistrée ?", "choices": ["Environ 5,56 milliards de berries", "Environ 4 milliards de berries", "Environ 3 milliards de berries", "Environ 1,5 milliard de berries"], "answer": 0, "difficulty": 4},
+    {"q": "Qui est le médecin de l'équipage du Chapeau de paille ?", "choices": ["Chopper", "Law", "Kureha", "Hiluluk"], "answer": 0, "difficulty": 1},
+    {"q": "De quelle couleur est le gilet emblématique de Luffy au début de l'aventure ?", "choices": ["Rouge", "Bleu", "Vert", "Noir"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle est la particularité du corps de Luffy après avoir mangé son fruit du démon ?", "choices": ["Il est élastique comme du caoutchouc", "Il devient invisible", "Il peut prendre feu", "Il se transforme en métal"], "answer": 0, "difficulty": 1},
+    {"q": "Dans quelle mer commence l'aventure de Luffy ?", "choices": ["East Blue", "North Blue", "South Blue", "West Blue"], "answer": 0, "difficulty": 1},
+    {"q": "Quel surnom donne-t-on à Luffy à cause de son couvre-chef ?", "choices": ["Chapeau de paille", "Poing de feu", "Œil de faucon", "Le Roux"], "answer": 0, "difficulty": 1},
+    {"q": "Quel membre de l'équipage est reconnaissable à son très long nez ?", "choices": ["Usopp", "Sanji", "Brook", "Franky"], "answer": 0, "difficulty": 1},
+    {"q": "Quel est le rêve de Nami, la navigatrice de l'équipage ?", "choices": ["Dessiner la carte du monde entier", "Devenir la femme la plus riche", "Trouver All Blue", "Retrouver son village natal"], "answer": 0, "difficulty": 2},
+    {"q": "Où Luffy porte-t-il une cicatrice caractéristique depuis l'enfance ?", "choices": ["Sous l'œil gauche", "Sur la joue droite", "Sur le front", "Sur le menton"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le rêve de Sanji, le cuisinier de l'équipage ?", "choices": ["Trouver All Blue", "Devenir le roi des pirates", "Cartographier le monde", "Devenir le meilleur sabreur"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle le second navire de l'équipage, doté d'une figure de proue en tête de lion ?", "choices": ["Le Thousand Sunny", "Le Vogue Merry", "L'Oro Jackson", "Le Moby Dick"], "answer": 0, "difficulty": 2},
+    {"q": "Quel amiral de la Marine possède le pouvoir du magma ?", "choices": ["Akainu", "Aokiji", "Kizaru", "Fujitora"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle l'archipel où l'équipage se sépare avant l'ellipse de deux ans ?", "choices": ["L'archipel Sabaody", "Water Seven", "Dressrosa", "Punk Hazard"], "answer": 0, "difficulty": 3},
+    {"q": "Quel royaume désertique gouverné par la princesse Vivi l'équipage sauve-t-il de Baroque Works ?", "choices": ["Alabasta", "Drum", "Wano", "Dressrosa"], "answer": 0, "difficulty": 3},
+    {"q": "Quel ancien homme-poisson des Pirates du Soleil rejoint l'équipage comme timonier ?", "choices": ["Jinbe", "Arlong", "Hody Jones", "Fisher Tiger"], "answer": 0, "difficulty": 3},
+    {"q": "Quel sabre maudit Zoro obtient-il dans une boutique de Loguetown ?", "choices": ["Le Sandai Kitetsu", "Le Wado Ichimonji", "Le Yoru", "Le Shusui"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle prime Luffy atteint-il après les événements de Dressrosa ?", "choices": ["500 millions de berries", "400 millions de berries", "300 millions de berries", "1,5 milliard de berries"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle l'île hivernale, royaume de Wapol, où l'équipage rencontre Chopper ?", "choices": ["L'île de Drum", "Little Garden", "Jaya", "Thriller Bark"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le véritable nom de l'amiral Aokiji ?", "choices": ["Kuzan", "Borsalino", "Sakazuki", "Issho"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le véritable nom de l'amiral Kizaru ?", "choices": ["Borsalino", "Kuzan", "Sakazuki", "Issho"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle le style de combat de Sanji, qui n'utilise que les jambes ?", "choices": ["La Jambe Noire", "Le Rokushiki", "Le Fishman Karaté", "Le Santoryu"], "answer": 0, "difficulty": 4},
+    {"q": "Quel sabre, transmis par Kozuki Oden, Zoro obtient-il au pays de Wano ?", "choices": ["L'Enma", "Le Shusui", "Le Wado Ichimonji", "Le Sandai Kitetsu"], "answer": 0, "difficulty": 4}
   ]
 }

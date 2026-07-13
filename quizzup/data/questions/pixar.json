@@ -54,6 +54,27 @@
     {"q": "Quel acteur a prêté sa voix à un personnage dans chaque long-métrage Pixar, devenant le « porte-bonheur » du studio ?", "choices": ["John Ratzenberger", "Tom Hanks", "Billy Crystal", "John Goodman"], "answer": 0, "difficulty": 4},
     {"q": "Quel réalisateur a signé à la fois « Les Indestructibles » et « Ratatouille » ?", "choices": ["Brad Bird", "Andrew Stanton", "John Lasseter", "Pete Docter"], "answer": 0, "difficulty": 4},
     {"q": "Dans « Vice-Versa », qui est le personnage nommé « Bing Bong » ?", "choices": ["L'ami imaginaire de Riley", "Un train de la pensée", "Une île de la personnalité", "Un ouvrier de la mémoire"], "answer": 0, "difficulty": 4},
-    {"q": "Quel court-métrage Pixar de 1997 montre un vieil homme jouant aux échecs contre lui-même ?", "choices": ["Geri's Game", "Tin Toy", "Knick Knack", "Red's Dream"], "answer": 0, "difficulty": 4}
+    {"q": "Quel court-métrage Pixar de 1997 montre un vieil homme jouant aux échecs contre lui-même ?", "choices": ["Geri's Game", "Tin Toy", "Knick Knack", "Red's Dream"], "answer": 0, "difficulty": 4},
+    {"q": "Quel dinosaure vert et anxieux fait partie des jouets d'Andy dans « Toy Story » ?", "choices": ["Rex", "Zurg", "Bayonne", "Buzz"], "answer": 0, "difficulty": 1},
+    {"q": "Dans « Le Monde de Nemo », comment s'appelle la poissonne amnésique qui aide Marin ?", "choices": ["Dory", "Perle", "Gill", "Nemo"], "answer": 0, "difficulty": 1},
+    {"q": "Quel métier Rémy rêve-t-il d'exercer dans « Ratatouille » ?", "choices": ["Cuisinier", "Boulanger", "Serveur", "Jardinier"], "answer": 0, "difficulty": 1},
+    {"q": "Quel sport pratique Flash McQueen dans « Cars » ?", "choices": ["La course automobile", "Le football", "La natation", "Le ski"], "answer": 0, "difficulty": 1},
+    {"q": "Quel jouet en forme de cochon-tirelire fait partie de la bande dans « Toy Story » ?", "choices": ["Bayonne", "Rex", "La Bergère", "Zurg"], "answer": 0, "difficulty": 1},
+    {"q": "Dans « Toy Story », comment s'appelle le méchant empereur de l'espace, ennemi de Buzz ?", "choices": ["Zurg", "Lotso", "Sid", "Al"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Toy Story », comment s'appelle le garçon du voisinage qui détruit les jouets ?", "choices": ["Sid", "Andy", "Al", "Zurg"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Le Monde de Nemo », quels oiseaux répètent sans cesse « À moi ! À moi ! » ?", "choices": ["Les mouettes", "Les pélicans", "Les manchots", "Les albatros"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Là-haut », grâce à quoi la maison de Carl s'envole-t-elle ?", "choices": ["Des milliers de ballons d'hélium", "Un moteur d'avion", "Des hélices", "Une montgolfière"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Ratatouille », comment Rémy contrôle-t-il les gestes du commis Linguini ?", "choices": ["En tirant sur ses cheveux", "En lui parlant à l'oreille", "En le poussant dans le dos", "En clignant des yeux"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Coco », quel chien errant et sans poils accompagne Miguel ?", "choices": ["Dante", "Pepita", "Dug", "Slinky"], "answer": 0, "difficulty": 2},
+    {"q": "Qui a réalisé « Vice-Versa » (2015) et « Là-haut » ?", "choices": ["Pete Docter", "Andrew Stanton", "Brad Bird", "Lee Unkrich"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Ratatouille », comment s'appelle le sous-chef antipathique du restaurant Gusteau ?", "choices": ["Skinner", "Anton Ego", "Linguini", "Auguste"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Monstres et Cie », comment s'appelle le méchant caméléon qui trahit Sulli ?", "choices": ["Léon", "Georges", "Bob", "Fungus"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Les Indestructibles », quels sont les pouvoirs de Violette ?", "choices": ["L'invisibilité et les champs de force", "La super-vitesse", "L'élasticité", "La super-force"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Les Indestructibles », quel est le vrai nom du super-vilain Syndrome ?", "choices": ["Buddy Pine", "Winston Deavor", "Gilbert Huph", "Rick Dicker"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année est sorti « Le Voyage d'Arlo » (The Good Dinosaur) ?", "choices": ["2015", "2013", "2017", "2011"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle le professeur de musique héros du film « Soul » (2020) ?", "choices": ["Joe Gardner", "Miguel Rivera", "Ernesto de la Cruz", "Terry"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année « Toy Story 2 » est-il sorti au cinéma ?", "choices": ["1999", "2001", "1998", "2000"], "answer": 0, "difficulty": 4},
+    {"q": "Quel réalisateur a signé « Coco » (2017) ?", "choices": ["Lee Unkrich", "Pete Docter", "Brad Bird", "Andrew Stanton"], "answer": 0, "difficulty": 4},
+    {"q": "Quel court-métrage Pixar de 2016 met en scène un petit bécasseau sur une plage ?", "choices": ["Piper", "La Luna", "Lou", "Bao"], "answer": 0, "difficulty": 4}
   ]
 }

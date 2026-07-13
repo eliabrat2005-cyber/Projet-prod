@@ -58,6 +58,23 @@
     {"q": "Dans « Hocus Pocus », quel est le prénom de la sorcière incarnée par Bette Midler ?", "choices": ["Winifred", "Sarah", "Mary", "Agatha"], "answer": 0, "difficulty": 4},
     {"q": "Comment s'appelle l'enfant à tête de sac de jute, mascotte du film culte « Trick 'r Treat » ?", "choices": ["Sam", "Billy", "Jack", "Corey"], "answer": 0, "difficulty": 4},
     {"q": "Quel pape a étendu la fête de la Toussaint du 1ᵉʳ novembre à toute l'Église en 837 ?", "choices": ["Grégoire IV", "Léon III", "Urbain II", "Innocent III"], "answer": 0, "difficulty": 4},
-    {"q": "Quel acteur incarnait le comte Orlok dans « Nosferatu » (1922) ?", "choices": ["Max Schreck", "Conrad Veidt", "Emil Jannings", "Bela Lugosi"], "answer": 0, "difficulty": 4}
+    {"q": "Quel acteur incarnait le comte Orlok dans « Nosferatu » (1922) ?", "choices": ["Max Schreck", "Conrad Veidt", "Emil Jannings", "Bela Lugosi"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle couleur, associée à l'orange, est traditionnelle à Halloween ?", "choices": ["Le noir", "Le bleu", "Le rose", "Le vert"], "answer": 0, "difficulty": 2},
+    {"q": "Quel film de 1982 met en scène une famille dont la maison est hantée par des poltergeists ?", "choices": ["Poltergeist", "Beetlejuice", "Gremlins", "Amityville"], "answer": 0, "difficulty": 2},
+    {"q": "Quel monstre verdâtre, doté de boulons au cou, est créé par un savant fou dans les films classiques ?", "choices": ["La créature de Frankenstein", "La momie", "Le zombie", "Le golem"], "answer": 0, "difficulty": 2},
+    {"q": "Quel oiseau noir donne son titre à un célèbre poème d'Edgar Allan Poe ?", "choices": ["Le corbeau", "Le hibou", "La corneille", "Le vautour"], "answer": 0, "difficulty": 2},
+    {"q": "Selon le folklore, quel type de projectile est nécessaire pour abattre un loup-garou ?", "choices": ["Une balle en argent", "Un pieu en bois", "Une flèche enflammée", "Une lame en fer"], "answer": 0, "difficulty": 2},
+    {"q": "Quel réalisateur italien a signé le film d'horreur « Suspiria » (1977) ?", "choices": ["Dario Argento", "Mario Bava", "Lucio Fulci", "Sergio Leone"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « L'Exorciste » (1973), comment se prénomme la fillette possédée ?", "choices": ["Regan", "Carol", "Karen", "Linda"], "answer": 0, "difficulty": 3},
+    {"q": "Quel roman de Stephen King met en scène une adolescente télékinésique humiliée lors d'un bal ?", "choices": ["Carrie", "Christine", "Simetierre", "Shining"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle le tueur au masque de hockey de la saga « Vendredi 13 » ?", "choices": ["Jason Voorhees", "Michael Myers", "Freddy Krueger", "Leatherface"], "answer": 0, "difficulty": 3},
+    {"q": "Quel tueur hante les rêves des adolescents dans « Les Griffes de la nuit » ?", "choices": ["Freddy Krueger", "Jason Voorhees", "Michael Myers", "Chucky"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle créature d'argile animée provient du folklore juif d'Europe centrale ?", "choices": ["Le golem", "Le troll", "L'ogre", "Le gobelin"], "answer": 0, "difficulty": 3},
+    {"q": "Quel écrivain américain a écrit la nouvelle « L'Appel de Cthulhu » en 1928 ?", "choices": ["H. P. Lovecraft", "Edgar Allan Poe", "Stephen King", "Robert Bloch"], "answer": 0, "difficulty": 4},
+    {"q": "Quel réalisateur a lancé la franchise « Saw » avec le film sorti en 2004 ?", "choices": ["James Wan", "Eli Roth", "Rob Zombie", "Wes Craven"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le vrai nom du tueur dont l'âme habite la poupée Chucky ?", "choices": ["Charles Lee Ray", "Charles Manson", "Charlie Barrett", "Charles Lee"], "answer": 0, "difficulty": 4},
+    {"q": "Quel film d'horreur de 1974 introduit pour la première fois le tueur Leatherface ?", "choices": ["Massacre à la tronçonneuse", "La Colline a des yeux", "Les Griffes de la nuit", "Vendredi 13"], "answer": 0, "difficulty": 4},
+    {"q": "Quel démon possède la jeune Regan dans « L'Exorciste » ?", "choices": ["Pazuzu", "Belial", "Asmodée", "Baal"], "answer": 0, "difficulty": 4},
+    {"q": "Quel prince de Valachie du XVe siècle a inspiré à Bram Stoker le personnage de Dracula ?", "choices": ["Vlad III l'Empaleur", "Étienne le Grand", "Jean Hunyadi", "Mircea l'Ancien"], "answer": 0, "difficulty": 4}
   ]
 }

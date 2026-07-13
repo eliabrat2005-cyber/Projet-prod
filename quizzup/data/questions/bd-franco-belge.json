@@ -586,6 +586,215 @@
       ],
       "answer": 0,
       "difficulty": 4
+    },
+    {
+      "q": "Dans quelle contrée vivent Astérix et Obélix ?",
+      "choices": [
+        "La Gaule",
+        "La Germanie",
+        "L'Hispanie",
+        "La Bretagne"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel breuvage donne une force surhumaine aux Gaulois d'Astérix ?",
+      "choices": [
+        "La potion magique",
+        "Le vin",
+        "L'hydromel",
+        "La cervoise"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel personnage, meilleur ami d'Astérix, adore manger des sangliers ?",
+      "choices": [
+        "Obélix",
+        "Panoramix",
+        "Assurancetourix",
+        "Abraracourcix"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "De quelle couleur est la barbe du capitaine Haddock ?",
+      "choices": [
+        "Noire",
+        "Blonde",
+        "Rousse",
+        "Blanche"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel dessinateur belge a créé Lucky Luke ?",
+      "choices": [
+        "Morris",
+        "Franquin",
+        "Peyo",
+        "Hergé"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Dans quel pays imaginaire se déroulent les aventures de Spirou avec le Marsupilami ?",
+      "choices": [
+        "La Palombie",
+        "La Syldavie",
+        "La Bordurie",
+        "Le San Theodoros"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel scénariste a écrit les aventures d'Astérix aux côtés d'Uderzo ?",
+      "choices": [
+        "René Goscinny",
+        "Jean Van Hamme",
+        "Greg",
+        "Jean-Michel Charlier"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel félin Gaston Lagaffe amène-t-il régulièrement au bureau du journal Spirou ?",
+      "choices": [
+        "Un chat",
+        "Un chien",
+        "Un perroquet",
+        "Un lapin"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel auteur a repris seul la série Astérix après la mort de Goscinny ?",
+      "choices": [
+        "Albert Uderzo",
+        "Jean-Yves Ferri",
+        "Didier Conrad",
+        "Marcel Uderzo"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Comment s'appelle la femme du chef Abraracourcix dans Astérix ?",
+      "choices": [
+        "Bonemine",
+        "Falbala",
+        "Iélosubmarine",
+        "Cléopâtre"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment s'appelle le doyen du village gaulois d'Astérix ?",
+      "choices": [
+        "Agecanonix",
+        "Assurancetourix",
+        "Cétautomatix",
+        "Ordralfabétix"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans Tintin, quel pays imaginaire d'Europe de l'Est est dirigé par le roi Muskar XII ?",
+      "choices": [
+        "La Syldavie",
+        "La Bordurie",
+        "Le San Theodoros",
+        "La Ruritanie"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Quel opéra de Gounod la Castafiore interprète-t-elle avec son « Air des bijoux » ?",
+      "choices": [
+        "Faust",
+        "Carmen",
+        "La Traviata",
+        "Aïda"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Dans Boule et Bill, quelle race de chien est Bill ?",
+      "choices": [
+        "Un cocker",
+        "Un beagle",
+        "Un labrador",
+        "Un teckel"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "En quelle année Hergé, le créateur de Tintin, est-il décédé ?",
+      "choices": [
+        "1983",
+        "1979",
+        "1986",
+        "1991"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Comment s'intitule le dernier album complet de Tintin publié du vivant d'Hergé ?",
+      "choices": [
+        "Tintin et les Picaros",
+        "Vol 714 pour Sydney",
+        "Tintin et l'Alph-Art",
+        "Les Bijoux de la Castafiore"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année René Goscinny est-il décédé ?",
+      "choices": [
+        "1977",
+        "1975",
+        "1980",
+        "1968"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année est paru le tout premier album de Lucky Luke ?",
+      "choices": [
+        "1949",
+        "1946",
+        "1952",
+        "1955"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "En quelle année Franquin a-t-il créé le personnage du Marsupilami ?",
+      "choices": [
+        "1952",
+        "1948",
+        "1957",
+        "1960"
+      ],
+      "answer": 0,
+      "difficulty": 4
     }
   ]
 }

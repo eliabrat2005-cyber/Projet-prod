@@ -59,6 +59,22 @@
     {"q": "Qui a écrit le roman « Le Guépard » (Il Gattopardo) ?", "choices": ["Giuseppe Tomasi di Lampedusa", "Italo Calvino", "Alberto Moravia", "Cesare Pavese"], "answer": 0, "difficulty": 4},
     {"q": "Quel écrivain, auteur du « Livre de la jungle », a reçu le prix Nobel en 1907 ?", "choices": ["Rudyard Kipling", "Rabindranath Tagore", "Joseph Conrad", "H.G. Wells"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année le prix Femina a-t-il été créé ?", "choices": ["1904", "1892", "1918", "1926"], "answer": 0, "difficulty": 4},
-    {"q": "Pour quel roman Marguerite Duras a-t-elle reçu le prix Goncourt en 1984 ?", "choices": ["L'Amant", "Un barrage contre le Pacifique", "Moderato cantabile", "Le Ravissement de Lol V. Stein"], "answer": 0, "difficulty": 4}
+    {"q": "Pour quel roman Marguerite Duras a-t-elle reçu le prix Goncourt en 1984 ?", "choices": ["L'Amant", "Un barrage contre le Pacifique", "Moderato cantabile", "Le Ravissement de Lol V. Stein"], "answer": 0, "difficulty": 4},
+    {"q": "Qui a écrit le roman « Notre-Dame de Paris » ?", "choices": ["Victor Hugo", "Alexandre Dumas", "Émile Zola", "Stendhal"], "answer": 0, "difficulty": 1},
+    {"q": "Quel écrivain italien a écrit « Pinocchio » ?", "choices": ["Carlo Collodi", "Dante Alighieri", "Italo Calvino", "Umberto Eco"], "answer": 0, "difficulty": 1},
+    {"q": "Quel romancier français a écrit « Le Rouge et le Noir » ?", "choices": ["Stendhal", "Honoré de Balzac", "Gustave Flaubert", "Émile Zola"], "answer": 0, "difficulty": 1},
+    {"q": "Quel écrivain américain a créé le personnage de Tom Sawyer ?", "choices": ["Mark Twain", "Jack London", "Herman Melville", "Ernest Hemingway"], "answer": 0, "difficulty": 1},
+    {"q": "Quel auteur a écrit la pièce « Cyrano de Bergerac » ?", "choices": ["Edmond Rostand", "Molière", "Jean Racine", "Pierre Corneille"], "answer": 0, "difficulty": 1},
+    {"q": "Quel écrivain de la Renaissance a créé les géants Gargantua et Pantagruel ?", "choices": ["François Rabelais", "Michel de Montaigne", "Clément Marot", "Joachim du Bellay"], "answer": 0, "difficulty": 1},
+    {"q": "Quel dramaturge de la Grèce antique a écrit « Antigone » et « Œdipe roi » ?", "choices": ["Sophocle", "Euripide", "Eschyle", "Aristophane"], "answer": 0, "difficulty": 3},
+    {"q": "Quel romancier russe a écrit « Crime et Châtiment » ?", "choices": ["Fiodor Dostoïevski", "Léon Tolstoï", "Anton Tchekhov", "Ivan Tourgueniev"], "answer": 0, "difficulty": 3},
+    {"q": "Quel écrivain colombien a écrit « Cent ans de solitude » ?", "choices": ["Gabriel García Márquez", "Mario Vargas Llosa", "Jorge Luis Borges", "Julio Cortázar"], "answer": 0, "difficulty": 3},
+    {"q": "Quel poète italien du Moyen Âge a écrit « La Divine Comédie » ?", "choices": ["Dante Alighieri", "Pétrarque", "Boccace", "Le Tasse"], "answer": 0, "difficulty": 3},
+    {"q": "Quel écrivain tchèque de langue allemande a écrit « La Métamorphose » ?", "choices": ["Franz Kafka", "Milan Kundera", "Bohumil Hrabal", "Robert Musil"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année l'écrivain Victor Hugo est-il mort ?", "choices": ["1885", "1870", "1891", "1878"], "answer": 0, "difficulty": 4},
+    {"q": "Quel écrivain irlandais a écrit le roman « Ulysse », publié en 1922 ?", "choices": ["James Joyce", "Samuel Beckett", "Oscar Wilde", "Bram Stoker"], "answer": 0, "difficulty": 4},
+    {"q": "Quel poète français, figure du symbolisme, a écrit « Un coup de dés jamais n'abolira le hasard » ?", "choices": ["Stéphane Mallarmé", "Paul Verlaine", "Arthur Rimbaud", "José-Maria de Heredia"], "answer": 0, "difficulty": 4},
+    {"q": "Quel écrivain américain a reçu le prix Nobel de littérature en 1954 ?", "choices": ["Ernest Hemingway", "William Faulkner", "John Steinbeck", "Saul Bellow"], "answer": 0, "difficulty": 4},
+    {"q": "Quel écrivain russe a reçu le prix Nobel de littérature en 1965 pour « Le Don paisible » ?", "choices": ["Mikhaïl Cholokhov", "Boris Pasternak", "Alexandre Soljenitsyne", "Ivan Bounine"], "answer": 0, "difficulty": 4}
   ]
 }

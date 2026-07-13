@@ -55,6 +55,26 @@
     {"q": "D'après Notch, le Creeper est né d'une erreur de modélisation de quel animal ?", "choices": ["Le cochon", "La vache", "Le poulet", "Le mouton"], "answer": 0, "difficulty": 4},
     {"q": "Quel disque de musique se fabrique avec neuf fragments trouvés dans les cités antiques ?", "choices": ["Le disque « 5 »", "Le disque « 13 »", "Pigstep", "Otherside"], "answer": 0, "difficulty": 4},
     {"q": "Que se passe-t-il quand on nomme un mob « Dinnerbone » avec une étiquette ?", "choices": ["Il apparaît tête en bas", "Il change de couleur", "Il devient hostile", "Il rétrécit"], "answer": 0, "difficulty": 4},
-    {"q": "À quelle distance approximative du point d'apparition commençaient les « Far Lands » des anciennes versions ?", "choices": ["Environ 12,5 millions de blocs", "Environ 1 million de blocs", "Environ 100 000 blocs", "Environ 30 millions de blocs"], "answer": 0, "difficulty": 4}
+    {"q": "À quelle distance approximative du point d'apparition commençaient les « Far Lands » des anciennes versions ?", "choices": ["Environ 12,5 millions de blocs", "Environ 1 million de blocs", "Environ 100 000 blocs", "Environ 30 millions de blocs"], "answer": 0, "difficulty": 4},
+    {"q": "Quel outil sert à couper le bois le plus efficacement ?", "choices": ["La hache", "La pelle", "La faux", "Les ciseaux"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle viande crue obtient-on en tuant une vache ?", "choices": ["Le bœuf", "Le porc", "Le poulet", "Le mouton"], "answer": 0, "difficulty": 1},
+    {"q": "Quel bloc transparent obtient-on en faisant fondre du sable dans un four ?", "choices": ["Le verre", "La glace", "Le quartz", "Le diamant"], "answer": 0, "difficulty": 1},
+    {"q": "Combien de demi-cœurs de vie possède un joueur en pleine santé ?", "choices": ["20", "10", "30", "40"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle céréale cultive-t-on à partir de graines pour fabriquer du pain ?", "choices": ["Le blé", "La betterave", "La carotte", "Le maïs"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle créature morte-vivante brûle à la lumière du jour et tire des flèches ?", "choices": ["Le squelette", "Le zombie", "La sorcière", "Le Creeper"], "answer": 0, "difficulty": 2},
+    {"q": "Quel enchantement permet de récupérer un bloc dans son état d'origine, comme le minerai brut ?", "choices": ["Toucher de soie", "Fortune", "Efficacité", "Solidité"], "answer": 0, "difficulty": 2},
+    {"q": "Quel bloc explosif peut être allumé avec une pierre à feu (briquet) ?", "choices": ["La TNT", "L'obsidienne", "La redstone", "Le sable des âmes"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle potion permet au joueur de respirer sous l'eau ?", "choices": ["La potion de respiration aquatique", "La potion de vision nocturne", "La potion de force", "La potion de lenteur"], "answer": 0, "difficulty": 2},
+    {"q": "Quel marchand nomade apparaît accompagné de deux lamas de bât ?", "choices": ["Le marchand ambulant", "Le villageois fermier", "Le pilleur", "Le forgeron du village"], "answer": 0, "difficulty": 3},
+    {"q": "Combien de blocs de fer faut-il pour fabriquer un golem de fer ?", "choices": ["4 blocs de fer", "2 blocs de fer", "9 blocs de fer", "1 bloc de fer"], "answer": 0, "difficulty": 3},
+    {"q": "Au-delà de combien de blocs de chute le joueur commence-t-il à subir des dégâts ?", "choices": ["3 blocs", "1 bloc", "5 blocs", "8 blocs"], "answer": 0, "difficulty": 3},
+    {"q": "Quel mob aquatique hostile peut laisser tomber un trident en mourant ?", "choices": ["Le noyé", "Le Gardien", "La pieuvre", "Le poisson-globe"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quelle structure du Nether trouve-t-on des vestiges gardés par des Piglins brutes ?", "choices": ["Le bastion", "Le monument sous-marin", "La cité antique", "Le manoir des bois"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Minecraft est-il sorti de sa phase bêta avec la version 1.0 ?", "choices": ["2011", "2009", "2012", "2013"], "answer": 0, "difficulty": 4},
+    {"q": "Combien Microsoft a-t-il déboursé pour racheter Mojang en 2014 ?", "choices": ["2,5 milliards de dollars", "500 millions de dollars", "10 milliards de dollars", "1 milliard de dollars"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle la mise à jour 1.13 consacrée aux océans ?", "choices": ["Update Aquatic", "Nether Update", "Caves & Cliffs", "The Wild Update"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle mise à jour 1.14 a introduit les pilleurs et refondu les villages ?", "choices": ["Village & Pillage", "Update Aquatic", "Buzzy Bees", "Caves & Cliffs"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Notch a-t-il quitté Mojang après le rachat par Microsoft ?", "choices": ["2014", "2011", "2016", "2012"], "answer": 0, "difficulty": 4},
+    {"q": "Quel studio écossais a développé les éditions console (Xbox 360, PS3) de Minecraft ?", "choices": ["4J Studios", "Telltale Games", "Mojang", "Rare"], "answer": 0, "difficulty": 4}
   ]
 }

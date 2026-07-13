@@ -81,6 +81,17 @@
     {"q": "À quel prix symbolique l'ordinateur Apple I était-il vendu en 1976 ?", "choices": ["666,66 dollars", "999,99 dollars", "500 dollars", "1 234,56 dollars"], "answer": 0, "difficulty": 4},
     {"q": "Quel langage de programmation a été créé par John McCarthy en 1958 ?", "choices": ["Lisp", "COBOL", "BASIC", "Pascal"], "answer": 0, "difficulty": 4},
     {"q": "Quel a été le tout premier nom de domaine en « .com » enregistré, en 1985 ?", "choices": ["symbolics.com", "ibm.com", "xerox.com", "hp.com"], "answer": 0, "difficulty": 4},
-    {"q": "Quel processeur Intel équipait le premier IBM PC, sorti en 1981 ?", "choices": ["L'Intel 8088", "L'Intel 8086", "L'Intel 80286", "L'Intel 4004"], "answer": 0, "difficulty": 4}
+    {"q": "Quel processeur Intel équipait le premier IBM PC, sorti en 1981 ?", "choices": ["L'Intel 8088", "L'Intel 8086", "L'Intel 80286", "L'Intel 4004"], "answer": 0, "difficulty": 4},
+    {"q": "Quel langage de programmation, créé chez Sun Microsystems en 1995, avait pour slogan « write once, run anywhere » ?", "choices": ["Java", "JavaScript", "C#", "Kotlin"], "answer": 0, "difficulty": 3},
+    {"q": "Chez quelle organisation le système d'exploitation Unix a-t-il été développé dans les années 1970 ?", "choices": ["Les laboratoires Bell (AT&T)", "IBM", "Microsoft", "Digital Equipment Corporation"], "answer": 0, "difficulty": 3},
+    {"q": "Quel protocole standard sert à acheminer les e-mails entre serveurs de messagerie ?", "choices": ["SMTP", "HTTP", "FTP", "POP3"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle l'algorithme de chiffrement à clé publique nommé d'après ses trois inventeurs en 1977 ?", "choices": ["RSA", "AES", "DES", "SHA-256"], "answer": 0, "difficulty": 3},
+    {"q": "Quel réseau militaire américain de la fin des années 1960 est considéré comme l'ancêtre d'Internet ?", "choices": ["ARPANET", "NSFNET", "Ethernet", "Usenet"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année le premier message a-t-il été transmis sur ARPANET, entre l'UCLA et Stanford ?", "choices": ["1969", "1971", "1965", "1974"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelait le premier navigateur web graphique grand public, sorti en 1993 ?", "choices": ["Mosaic", "Netscape Navigator", "Lynx", "WorldWideWeb"], "answer": 0, "difficulty": 4},
+    {"q": "Qui a créé le langage de programmation C++ au début des années 1980 ?", "choices": ["Bjarne Stroustrup", "Dennis Ritchie", "James Gosling", "Guido van Rossum"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle était la capacité de stockage approximative du premier disque dur, l'IBM 350 de 1956 ?", "choices": ["Environ 5 Mo", "Environ 5 Go", "Environ 500 Ko", "Environ 50 Mo"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année l'entreprise Google a-t-elle été officiellement fondée par Larry Page et Sergueï Brin ?", "choices": ["1998", "1996", "2000", "1994"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelait l'ordinateur d'IBM qui a battu le champion du monde d'échecs Garry Kasparov en 1997 ?", "choices": ["Deep Blue", "Watson", "Deep Thought", "Big Blue"], "answer": 0, "difficulty": 4}
   ]
 }

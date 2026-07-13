@@ -61,6 +61,24 @@
     {"q": "Dans « Les Soprano », comment se prénomme le fils de Tony Soprano ?", "choices": ["Anthony Junior", "Christopher", "Silvio", "Bobby"], "answer": 0, "difficulty": 4},
     {"q": "Dans « Better Call Saul », quel est le vrai nom de Saul Goodman ?", "choices": ["Jimmy McGill", "Chuck McGill", "Howard Hamlin", "Lalo Salamanca"], "answer": 0, "difficulty": 4},
     {"q": "Comment s'appelle le personnage joué par Giancarlo Esposito dans « Breaking Bad » ?", "choices": ["Gustavo Fring", "Tuco Salamanca", "Hector Salamanca", "Krazy-8"], "answer": 0, "difficulty": 4},
-    {"q": "Dans « The Office » (version américaine), quel personnage incarné par Steve Carell dirige la filiale de Scranton ?", "choices": ["Michael Scott", "David Brent", "Andy Bernard", "Robert California"], "answer": 0, "difficulty": 4}
+    {"q": "Dans « The Office » (version américaine), quel personnage incarné par Steve Carell dirige la filiale de Scranton ?", "choices": ["Michael Scott", "David Brent", "Andy Bernard", "Robert California"], "answer": 0, "difficulty": 4},
+    {"q": "Dans « Breaking Bad », quel pseudonyme Walter White prend-il comme producteur de méthamphétamine ?", "choices": ["Heisenberg", "Scarface", "Cap'n Cook", "El Padrino"], "answer": 0, "difficulty": 3},
+    {"q": "Quel acteur incarne Tyrion Lannister dans « Game of Thrones » ?", "choices": ["Peter Dinklage", "Kit Harington", "Nikolaj Coster-Waldau", "Sean Bean"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Peaky Blinders », comment se prénomme le chef de la famille Shelby ?", "choices": ["Thomas", "Arthur", "Michael", "Alfie"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « The Mandalorian », quel personnage est surnommé « Baby Yoda » par le public ?", "choices": ["Grogu", "Ahsoka", "Din Djarin", "Boba Fett"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Dexter », quelle est la profession officielle de Dexter Morgan à la police de Miami ?", "choices": ["Analyste des traces de sang", "Médecin légiste", "Avocat", "Journaliste"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle série de HBO suit la famille Roy, propriétaire d'un empire médiatique ?", "choices": ["Succession", "Billions", "Dynastie", "Empire"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année la série « Game of Thrones » a-t-elle diffusé son tout premier épisode ?", "choices": ["2011", "2009", "2013", "2010"], "answer": 0, "difficulty": 4},
+    {"q": "Qui est le créateur de la série « The Wire » ?", "choices": ["David Simon", "David Chase", "Vince Gilligan", "David Milch"], "answer": 0, "difficulty": 4},
+    {"q": "Combien d'épisodes compte au total la série « Breaking Bad » ?", "choices": ["62", "50", "73", "45"], "answer": 0, "difficulty": 4},
+    {"q": "Quel groupe de rock accompagne la scène finale de la série « Les Soprano » avec « Don't Stop Believin' » ?", "choices": ["Journey", "Bon Jovi", "Foreigner", "Toto"], "answer": 0, "difficulty": 4},
+    {"q": "Qui a composé le générique emblématique de la série « Game of Thrones » ?", "choices": ["Ramin Djawadi", "Hans Zimmer", "Bear McCreary", "Ludwig Göransson"], "answer": 0, "difficulty": 4},
+    {"q": "Dans « Mad Men », quel est le véritable nom de Don Draper ?", "choices": ["Dick Whitman", "Roger Sterling", "Pete Campbell", "Lane Pryce"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle sitcom américaine réunit une bande d'amis au café Central Perk ?", "choices": ["Friends", "How I Met Your Mother", "Seinfeld", "The Big Bang Theory"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle série de HBO adaptée des romans de George R. R. Martin met en scène des dragons ?", "choices": ["Game of Thrones", "Vikings", "The Witcher", "Rome"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle série suit deux frères qui tentent de s'évader de prison ?", "choices": ["Prison Break", "Oz", "Lost", "Orange Is the New Black"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle série suit des survivants d'un crash d'avion échoués sur une île mystérieuse ?", "choices": ["Lost : Les Disparus", "Survivor", "Manifest", "The Island"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle série suit l'agent Jack Bauer luttant contre le terrorisme, une saison couvrant 24 heures ?", "choices": ["24 heures chrono", "Homeland", "Alias", "The Blacklist"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle série médicale suit des internes en chirurgie au Grey Sloan Memorial Hospital ?", "choices": ["Grey's Anatomy", "Urgences", "Chicago Med", "New Amsterdam"], "answer": 0, "difficulty": 1}
   ]
 }

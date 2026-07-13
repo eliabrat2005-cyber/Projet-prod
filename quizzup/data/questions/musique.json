@@ -79,6 +79,15 @@
     {"q": "Quel guitariste fondateur des Rolling Stones est mort en 1969, peu après avoir quitté le groupe ?", "choices": ["Brian Jones", "Keith Richards", "Mick Taylor", "Ronnie Wood"], "answer": 0, "difficulty": 4},
     {"q": "Quel recueil de Jean-Sébastien Bach réunit 48 préludes et fugues dans toutes les tonalités ?", "choices": ["Le Clavier bien tempéré", "Les Variations Goldberg", "L'Art de la fugue", "Les Concertos brandebourgeois"], "answer": 0, "difficulty": 4},
     {"q": "Combien de touches noires compte un piano standard à 88 touches ?", "choices": ["36", "52", "44", "26"], "answer": 0, "difficulty": 4},
-    {"q": "Quel opéra de Giuseppe Verdi contient le célèbre chœur « Va, pensiero » ?", "choices": ["Nabucco", "Aïda", "Rigoletto", "La Traviata"], "answer": 0, "difficulty": 4}
+    {"q": "Quel opéra de Giuseppe Verdi contient le célèbre chœur « Va, pensiero » ?", "choices": ["Nabucco", "Aïda", "Rigoletto", "La Traviata"], "answer": 0, "difficulty": 4},
+    {"q": "Quel instrument à cordes se joue avec un archet, posé sous le menton ?", "choices": ["Le violon", "La guitare", "Le piano", "La harpe"], "answer": 0, "difficulty": 1},
+    {"q": "Quel compositeur baroque allemand a écrit les « Concertos brandebourgeois » ?", "choices": ["Jean-Sébastien Bach", "Georg Friedrich Haendel", "Antonio Vivaldi", "Georg Philipp Telemann"], "answer": 0, "difficulty": 3},
+    {"q": "Quel groupe de rock britannique mené par Mick Jagger existe depuis 1962 ?", "choices": ["The Rolling Stones", "The Who", "The Kinks", "Led Zeppelin"], "answer": 0, "difficulty": 3},
+    {"q": "Quel compositeur et chef d'orchestre américain a signé la musique de « West Side Story » ?", "choices": ["Leonard Bernstein", "George Gershwin", "Aaron Copland", "Cole Porter"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Elvis Presley est-il mort dans sa demeure de Graceland ?", "choices": ["1977", "1980", "1973", "1985"], "answer": 0, "difficulty": 4},
+    {"q": "Quel fut le titre du premier single des Beatles, sorti en 1962 ?", "choices": ["Love Me Do", "Please Please Me", "She Loves You", "Twist and Shout"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Wolfgang Amadeus Mozart est-il mort à Vienne ?", "choices": ["1791", "1780", "1799", "1770"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de symphonies numérotées Ludwig van Beethoven a-t-il achevées ?", "choices": ["9", "5", "12", "7"], "answer": 0, "difficulty": 4},
+    {"q": "Quel chanteur du groupe Joy Division est mort en 1980, avant que le groupe ne devienne New Order ?", "choices": ["Ian Curtis", "Ian Brown", "Morrissey", "Robert Smith"], "answer": 0, "difficulty": 4}
   ]
 }

@@ -62,6 +62,19 @@
     {"q": "En quelle année l'OM a-t-il été relégué en deuxième division à la suite de l'affaire VA-OM ?", "choices": ["1994", "1993", "1996", "1998"], "answer": 0, "difficulty": 4},
     {"q": "Quel joueur français a manqué son tir au but lors de la séance décisive de la finale du Mondial 2006 ?", "choices": ["David Trezeguet", "Thierry Henry", "Sylvain Wiltord", "Éric Abidal"], "answer": 0, "difficulty": 4},
     {"q": "Quel club grec a atteint la finale de la Coupe d'Europe des clubs champions en 1971 ?", "choices": ["Le Panathinaïkos", "L'Olympiakos", "L'AEK Athènes", "Le PAOK Salonique"], "answer": 0, "difficulty": 4},
-    {"q": "Quel gardien anglais a réalisé « l'arrêt du siècle » face à une tête de Pelé au Mondial 1970 ?", "choices": ["Gordon Banks", "Peter Shilton", "Ray Clemence", "Peter Bonetti"], "answer": 0, "difficulty": 4}
+    {"q": "Quel gardien anglais a réalisé « l'arrêt du siècle » face à une tête de Pelé au Mondial 1970 ?", "choices": ["Gordon Banks", "Peter Shilton", "Ray Clemence", "Peter Bonetti"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de joueurs par équipe sont sur le terrain au coup d'envoi d'un match de football ?", "choices": ["Onze", "Dix", "Douze", "Neuf"], "answer": 0, "difficulty": 1},
+    {"q": "Quel club néerlandais a remporté trois Coupes des clubs champions consécutives de 1971 à 1973 ?", "choices": ["L'Ajax Amsterdam", "Le Feyenoord Rotterdam", "Le PSV Eindhoven", "Le FC Twente"], "answer": 0, "difficulty": 3},
+    {"q": "Quel joueur libérien a remporté le Ballon d'or en 1995 ?", "choices": ["George Weah", "Abedi Pelé", "Jay-Jay Okocha", "Nwankwo Kanu"], "answer": 0, "difficulty": 3},
+    {"q": "Contre quelle sélection la France a-t-elle perdu la demi-finale du Mondial 1982, lors du match de Séville ?", "choices": ["L'Allemagne de l'Ouest", "L'Italie", "Le Brésil", "La Pologne"], "answer": 0, "difficulty": 3},
+    {"q": "Quel club anglais a remporté la Coupe des clubs champions en 1982 en battant le Bayern Munich ?", "choices": ["Aston Villa", "Nottingham Forest", "Everton", "Leeds United"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle sélection a remporté la Coupe du monde 1954 lors du « Miracle de Berne » ?", "choices": ["L'Allemagne de l'Ouest", "La Hongrie", "L'Uruguay", "La Suisse"], "answer": 0, "difficulty": 3},
+    {"q": "Quel club portugais a remporté la Coupe des clubs champions en 1961 et 1962 ?", "choices": ["Le Benfica", "Le FC Porto", "Le Sporting Portugal", "Le Belenenses"], "answer": 0, "difficulty": 3},
+    {"q": "Quel joueur a inscrit le but le plus rapide de l'histoire de la Coupe du monde, après environ 11 secondes en 2002 ?", "choices": ["Hakan Şükür", "Rivaldo", "Christian Vieri", "Ronaldo"], "answer": 0, "difficulty": 4},
+    {"q": "Quel club anglais a remporté la toute première Coupe UEFA, en 1972 ?", "choices": ["Tottenham Hotspur", "Wolverhampton", "Leeds United", "Arsenal"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle sélection a terminé quatrième de la Coupe du monde 2002, meilleur résultat asiatique de l'histoire ?", "choices": ["La Corée du Sud", "Le Japon", "L'Arabie saoudite", "La Chine"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année le Danemark a-t-il remporté le Championnat d'Europe alors qu'il avait été repêché après sa non-qualification ?", "choices": ["1992", "1988", "1996", "2000"], "answer": 0, "difficulty": 4},
+    {"q": "Quel joueur italien, meilleur buteur du Mondial 1982, a remporté le Ballon d'or la même année ?", "choices": ["Paolo Rossi", "Marco Tardelli", "Bruno Conti", "Dino Zoff"], "answer": 0, "difficulty": 4},
+    {"q": "Quel joueur néerlandais a marqué un but en pleine lucarne d'une reprise de volée face à l'URSS en finale de l'Euro 1988 ?", "choices": ["Marco van Basten", "Ruud Gullit", "Frank Rijkaard", "Ronald Koeman"], "answer": 0, "difficulty": 4}
   ]
 }

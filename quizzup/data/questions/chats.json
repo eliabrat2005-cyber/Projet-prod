@@ -619,6 +619,182 @@
       ],
       "answer": 0,
       "difficulty": 4
+    },
+    {
+      "q": "Quel cri le chat pousse-t-il le plus couramment ?",
+      "choices": [
+        "Le miaulement",
+        "L'aboiement",
+        "Le hennissement",
+        "Le meuglement"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment appelle-t-on la femelle du chat ?",
+      "choices": [
+        "Une chatte",
+        "Une jument",
+        "Une truie",
+        "Une brebis"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel dessin animé Disney met en scène des chats aristocrates parisiens ?",
+      "choices": [
+        "Les Aristochats",
+        "Le Roi Lion",
+        "La Belle et le Clochard",
+        "Bambi"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Comment le chat fait-il principalement sa toilette ?",
+      "choices": [
+        "En se léchant",
+        "En se roulant dans l'eau",
+        "En se frottant aux arbres",
+        "En se secouant"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quel objet en laine les chats adorent-ils faire rouler pour jouer ?",
+      "choices": [
+        "Une pelote",
+        "Un ballon de football",
+        "Un cerf-volant",
+        "Une toupie"
+      ],
+      "answer": 0,
+      "difficulty": 1
+    },
+    {
+      "q": "Quelle est l'espérance de vie moyenne d'un chat domestique d'intérieur ?",
+      "choices": [
+        "12 à 16 ans",
+        "3 à 5 ans",
+        "25 à 30 ans",
+        "40 ans"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Que traduit généralement un chat qui remue vivement le bout de la queue ?",
+      "choices": [
+        "De l'agacement",
+        "De la faim",
+        "De la fatigue",
+        "De la soif"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Comment appelle-t-on la période de reproduction de la chatte, marquée par des miaulements insistants ?",
+      "choices": [
+        "Les chaleurs",
+        "La mue",
+        "L'hibernation",
+        "La ponte"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quelle plante rend de nombreux chats euphoriques lorsqu'ils la sentent ?",
+      "choices": [
+        "L'herbe-aux-chats (cataire)",
+        "La lavande",
+        "Le basilic",
+        "La menthe poivrée"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "Quel aliment courant est toxique pour le chat et ne doit jamais lui être donné ?",
+      "choices": [
+        "Le chocolat",
+        "La courgette",
+        "Le riz cuit",
+        "La carotte"
+      ],
+      "answer": 0,
+      "difficulty": 2
+    },
+    {
+      "q": "De quel pays nordique le « chat des forêts » est-il la race emblématique ?",
+      "choices": [
+        "La Norvège",
+        "La Finlande",
+        "L'Islande",
+        "Le Danemark"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment appelle-t-on le motif rayé du pelage de nombreux chats ?",
+      "choices": [
+        "Tabby (tigré)",
+        "Colourpoint",
+        "Bicolore",
+        "Écaille-de-tortue"
+      ],
+      "answer": 0,
+      "difficulty": 3
+    },
+    {
+      "q": "Comment s'appelle la race de chat née d'une mutation naturelle aux pattes très courtes, apparue dans les années 1980 aux États-Unis ?",
+      "choices": [
+        "Le munchkin",
+        "Le sphynx",
+        "Le bengal",
+        "Le ragdoll"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Dans quel lieu de Londres s'est tenue en 1871 la première exposition féline officielle ?",
+      "choices": [
+        "Le Crystal Palace",
+        "La Tour de Londres",
+        "Hyde Park",
+        "Le British Museum"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "Quelle éleveuse a développé la race Ragdoll en Californie à partir de 1963 ?",
+      "choices": [
+        "Ann Baker",
+        "Jean Mill",
+        "Cora Cobb",
+        "Peggy Weseloh"
+      ],
+      "answer": 0,
+      "difficulty": 4
+    },
+    {
+      "q": "De quel pays est originaire la race de chat Korat, réputée porte-bonheur ?",
+      "choices": [
+        "La Thaïlande",
+        "Le Japon",
+        "La Chine",
+        "Le Vietnam"
+      ],
+      "answer": 0,
+      "difficulty": 4
     }
   ]
 }

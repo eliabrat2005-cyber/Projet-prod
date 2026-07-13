@@ -62,6 +62,22 @@
     {"q": "Quel dieu nordique perdit sa main droite dans la gueule du loup Fenrir ?", "choices": ["Tyr", "Heimdall", "Vidar", "Baldur"], "answer": 0, "difficulty": 4},
     {"q": "Du sang de quel être sage les dieux nordiques fabriquèrent-ils l'hydromel poétique ?", "choices": ["Kvasir", "Mímir", "Ymir", "Bragi"], "answer": 0, "difficulty": 4},
     {"q": "Quel fils d'Hélios périt en tentant de conduire le char du Soleil dans le ciel ?", "choices": ["Phaéton", "Icare", "Bellérophon", "Hippolyte"], "answer": 0, "difficulty": 4},
-    {"q": "Quel devin accompagna les Achéens à Troie et interpréta leurs présages dans l'Iliade ?", "choices": ["Calchas", "Tirésias", "Hélénos", "Amphiaraos"], "answer": 0, "difficulty": 4}
+    {"q": "Quel devin accompagna les Achéens à Troie et interpréta leurs présages dans l'Iliade ?", "choices": ["Calchas", "Tirésias", "Hélénos", "Amphiaraos"], "answer": 0, "difficulty": 4},
+    {"q": "Quel dieu grec forgeron fabrique les armes des dieux dans sa forge sous un volcan ?", "choices": ["Héphaïstos", "Arès", "Apollon", "Hermès"], "answer": 0, "difficulty": 2},
+    {"q": "Quel dieu grec de la guerre est le fils de Zeus et d'Héra ?", "choices": ["Arès", "Apollon", "Hadès", "Hermès"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle déesse grecque protège le foyer et le feu domestique ?", "choices": ["Hestia", "Déméter", "Héra", "Perséphone"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle déesse grecque des moissons est la mère de Perséphone ?", "choices": ["Déméter", "Héra", "Aphrodite", "Hestia"], "answer": 0, "difficulty": 2},
+    {"q": "Quel héros grec trancha la tête de la Gorgone Méduse ?", "choices": ["Persée", "Thésée", "Héraclès", "Jason"], "answer": 0, "difficulty": 2},
+    {"q": "Quel roi de Crète fit construire le Labyrinthe par Dédale ?", "choices": ["Minos", "Égée", "Rhadamanthe", "Éaque"], "answer": 0, "difficulty": 3},
+    {"q": "Quel architecte construisit le Labyrinthe et s'échappa de Crète grâce à des ailes de cire ?", "choices": ["Dédale", "Icare", "Talos", "Héphaïstos"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle déesse grecque de la victoire est représentée avec des ailes ?", "choices": ["Niké", "Iris", "Héra", "Éris"], "answer": 0, "difficulty": 3},
+    {"q": "Quel fleuve des Enfers grecs procurait l'oubli aux âmes qui en buvaient ?", "choices": ["Le Léthé", "Le Styx", "L'Achéron", "Le Cocyte"], "answer": 0, "difficulty": 3},
+    {"q": "Quel géant Héraclès dut-il soulever de terre pour le priver de la force que lui donnait sa mère la Terre ?", "choices": ["Antée", "Géryon", "Cacus", "Alcyonée"], "answer": 0, "difficulty": 3},
+    {"q": "Combien d'enfants Niobé perdit-elle, tués par Apollon et Artémis selon le mythe ?", "choices": ["Quatorze", "Douze", "Sept", "Vingt"], "answer": 0, "difficulty": 4},
+    {"q": "Comment appelle-t-on les frères ailés, fils de Borée, qui chassèrent les Harpies durant l'expédition des Argonautes ?", "choices": ["Les Boréades", "Les Dioscures", "Les Aloades", "Les Molionides"], "answer": 0, "difficulty": 4},
+    {"q": "Quel roi de Thrace, dont les juments se nourrissaient de chair humaine, Héraclès affronta-t-il lors de son huitième travail ?", "choices": ["Diomède", "Augias", "Géryon", "Busiris"], "answer": 0, "difficulty": 4},
+    {"q": "Par quel fleuve des Enfers les dieux grecs prêtaient-ils leurs serments les plus solennels ?", "choices": ["Le Styx", "Le Léthé", "Le Phlégéthon", "L'Achéron"], "answer": 0, "difficulty": 4},
+    {"q": "Quel géant chasseur, fils de Poséidon, fut placé parmi les étoiles après sa mort ?", "choices": ["Orion", "Bellérophon", "Tityos", "Otos"], "answer": 0, "difficulty": 4},
+    {"q": "Dans l'Iliade, quel guerrier grec au bouclier en forme de tour est considéré comme le meilleur combattant après Achille ?", "choices": ["Ajax fils de Télamon", "Diomède", "Ménélas", "Patrocle"], "answer": 0, "difficulty": 4}
   ]
 }

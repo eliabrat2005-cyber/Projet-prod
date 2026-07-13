@@ -80,6 +80,18 @@
     {"q": "En quelle année la Grande Charte (Magna Carta) a-t-elle été scellée en Angleterre ?", "choices": ["1215", "1066", "1348", "1453"], "answer": 0, "difficulty": 4},
     {"q": "Quel empereur romain a instauré la Tétrarchie, divisant l'Empire entre quatre dirigeants ?", "choices": ["Dioclétien", "Constantin", "Auguste", "Marc Aurèle"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année la République a-t-elle été proclamée pour la première fois en France ?", "choices": ["1792", "1789", "1793", "1804"], "answer": 0, "difficulty": 4},
-    {"q": "En quelle année Constantinople est-elle tombée aux mains des Ottomans ?", "choices": ["1453", "1492", "1204", "1071"], "answer": 0, "difficulty": 4}
+    {"q": "En quelle année Constantinople est-elle tombée aux mains des Ottomans ?", "choices": ["1453", "1492", "1204", "1071"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle bataille de 1214 assura le pouvoir du roi de France Philippe Auguste ?", "choices": ["Bouvines", "Azincourt", "Crécy", "Poitiers"], "answer": 0, "difficulty": 3},
+    {"q": "Quel traité de 1494 a partagé le Nouveau Monde entre l'Espagne et le Portugal ?", "choices": ["Le traité de Tordesillas", "Le traité de Westphalie", "Le traité d'Utrecht", "Le traité de Vienne"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle dynastie mongole a régné sur la Chine avant la dynastie Ming ?", "choices": ["Les Yuan", "Les Qing", "Les Song", "Les Han"], "answer": 0, "difficulty": 3},
+    {"q": "Quel roi anglais a rompu avec Rome pour fonder l'Église anglicane ?", "choices": ["Henri VIII", "Édouard VI", "Jacques Ier", "Henri VII"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle révolte paysanne a secoué le nord de la France en 1358 ?", "choices": ["La Jacquerie", "La Fronde", "La guerre des Gueux", "La Vendée"], "answer": 0, "difficulty": 3},
+    {"q": "Quel empereur byzantin a fait rédiger un grand recueil de droit romain au VIᵉ siècle ?", "choices": ["Justinien", "Constantin", "Théodose", "Dioclétien"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Charles Martel a-t-il arrêté les armées omeyyades à la bataille de Poitiers ?", "choices": ["732", "778", "800", "711"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année le traité de Verdun a-t-il partagé l'empire de Charlemagne entre ses petits-fils ?", "choices": ["843", "800", "987", "877"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Hugues Capet est-il devenu roi des Francs, fondant la dynastie capétienne ?", "choices": ["987", "888", "1066", "936"], "answer": 0, "difficulty": 4},
+    {"q": "Quel était le nom du dernier empereur byzantin, mort lors de la chute de Constantinople en 1453 ?", "choices": ["Constantin XI Paléologue", "Jean VIII Paléologue", "Manuel II Paléologue", "Justinien Ier"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Vasco de Gama a-t-il atteint les Indes par la voie maritime en contournant l'Afrique ?", "choices": ["1498", "1492", "1519", "1488"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année eut lieu le sac de Rome par les troupes de Charles Quint ?", "choices": ["1527", "1453", "1494", "1559"], "answer": 0, "difficulty": 4}
   ]
 }

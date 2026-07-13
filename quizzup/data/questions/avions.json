@@ -586,6 +586,25 @@
       ],
       "answer": 0,
       "difficulty": 4
-    }
+    },
+    {"q": "Combien d'ailes principales possède un avion de ligne moderne ?", "choices": ["Deux", "Une", "Quatre", "Trois"], "answer": 0, "difficulty": 1},
+    {"q": "Quel appareil décolle et atterrit à la verticale grâce à un rotor, sans ailes fixes ?", "choices": ["L'hélicoptère", "Le planeur", "Le deltaplane", "La montgolfière"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle gouverne, située sur la dérive, contrôle le mouvement de lacet de l'avion ?", "choices": ["La gouverne de direction", "Les ailerons", "La gouverne de profondeur", "Les volets"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on l'ensemble des roues qui permettent à l'avion de rouler au sol ?", "choices": ["Le train d'atterrissage", "La nacelle", "L'empennage", "Le fuselage"], "answer": 0, "difficulty": 2},
+    {"q": "Quel type de moteur équipe la plupart des avions de ligne modernes ?", "choices": ["Le turboréacteur", "Le moteur à hélice à pistons", "Le moteur électrique", "Le moteur-fusée"], "answer": 0, "difficulty": 2},
+    {"q": "De quel pays est originaire le constructeur aéronautique Soukhoï ?", "choices": ["La Russie", "La Chine", "Les États-Unis", "Le Japon"], "answer": 0, "difficulty": 2},
+    {"q": "Quel instrument de bord indique au pilote l'altitude de l'avion ?", "choices": ["L'altimètre", "L'anémomètre", "Le variomètre", "Le compas"], "answer": 0, "difficulty": 2},
+    {"q": "Quel fut le premier avion furtif opérationnel de l'histoire ?", "choices": ["Le F-117 Nighthawk", "Le B-2 Spirit", "Le F-22 Raptor", "Le F-35 Lightning II"], "answer": 0, "difficulty": 3},
+    {"q": "Quel constructeur fabrique l'avion de chasse F-35 Lightning II ?", "choices": ["Lockheed Martin", "Boeing", "Northrop Grumman", "Dassault"], "answer": 0, "difficulty": 3},
+    {"q": "Quel avion de transport militaire, surnommé « Hercules », est produit par Lockheed depuis les années 1950 ?", "choices": ["Le C-130", "Le C-17", "L'A400M", "Le C-5 Galaxy"], "answer": 0, "difficulty": 3},
+    {"q": "Combien de moteurs possède le Boeing 747 ?", "choices": ["Quatre", "Deux", "Trois", "Six"], "answer": 0, "difficulty": 3},
+    {"q": "Quel avion-cargo, le plus grand du monde, fut construit en un seul exemplaire par Antonov ?", "choices": ["L'Antonov An-225", "L'Antonov An-124", "Le Boeing 747-8", "L'Airbus Beluga"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle compagnie aérienne néerlandaise, fondée en 1919, est la plus ancienne opérant encore sous son nom d'origine ?", "choices": ["KLM", "Lufthansa", "SAS", "Iberia"], "answer": 0, "difficulty": 3},
+    {"q": "Combien d'exemplaires du Concorde ont été construits au total, prototypes compris ?", "choices": ["20", "14", "16", "10"], "answer": 0, "difficulty": 4},
+    {"q": "Quel avion expérimental américain à moteur-fusée détient le record de vitesse pour un avion habité, à plus de Mach 6 ?", "choices": ["Le X-15", "Le SR-71 Blackbird", "Le X-1", "Le F-15"], "answer": 0, "difficulty": 4},
+    {"q": "Quel appareil allemand fut le premier chasseur à réaction opérationnel, engagé en 1944 ?", "choices": ["Le Messerschmitt Me 262", "Le Heinkel He 178", "Le Gloster Meteor", "Le Focke-Wulf Fw 190"], "answer": 0, "difficulty": 4},
+    {"q": "Quel avion réalisa le tout premier vol propulsé par un turboréacteur, en 1939 ?", "choices": ["Le Heinkel He 178", "Le Gloster E.28/39", "Le Messerschmitt Me 262", "Le Bell XP-59"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de temps a duré le premier vol motorisé des frères Wright, le 17 décembre 1903 ?", "choices": ["12 secondes", "1 minute", "59 secondes", "5 secondes"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année le Boeing 747 a-t-il effectué son tout premier vol ?", "choices": ["1969", "1965", "1972", "1958"], "answer": 0, "difficulty": 4}
   ]
 }

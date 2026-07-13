@@ -63,6 +63,18 @@
     {"q": "En quelle année Beyoncé a-t-elle sorti son album « Lemonade » ?", "choices": ["2016", "2013", "2014", "2018"], "answer": 0, "difficulty": 4},
     {"q": "Quel single d'Elton John, réécrit en 1997 en hommage à Lady Diana, est l'un des plus vendus de l'histoire ?", "choices": ["Candle in the Wind 1997", "Your Song", "Sacrifice", "Rocket Man"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année Amy Winehouse a-t-elle sorti l'album « Back to Black » ?", "choices": ["2006", "2003", "2008", "2010"], "answer": 0, "difficulty": 4},
-    {"q": "Quel a été le premier single numéro un de Lady Gaga au Billboard Hot 100 ?", "choices": ["Just Dance", "Poker Face", "Bad Romance", "Paparazzi"], "answer": 0, "difficulty": 4}
+    {"q": "Quel a été le premier single numéro un de Lady Gaga au Billboard Hot 100 ?", "choices": ["Just Dance", "Poker Face", "Bad Romance", "Paparazzi"], "answer": 0, "difficulty": 4},
+    {"q": "Quel chanteur du groupe Queen interprétait « Bohemian Rhapsody » ?", "choices": ["Freddie Mercury", "David Bowie", "Elton John", "Mick Jagger"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle chanteuse américaine interprète le tube « Thank U, Next » ?", "choices": ["Ariana Grande", "Selena Gomez", "Demi Lovato", "Camila Cabello"], "answer": 0, "difficulty": 1},
+    {"q": "Quel duo français masqué a produit « Get Lucky » avec Pharrell Williams ?", "choices": ["Daft Punk", "Justice", "The Chemical Brothers", "Modjo"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle chanteuse américaine a chanté « I Wanna Dance with Somebody » ?", "choices": ["Whitney Houston", "Mariah Carey", "Janet Jackson", "Tina Turner"], "answer": 0, "difficulty": 1},
+    {"q": "Quel chanteur écossais a connu un immense succès avec « Someone You Loved » ?", "choices": ["Lewis Capaldi", "Sam Smith", "James Arthur", "Tom Walker"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle chanteuse a remporté la première saison d'« American Idol » en 2002 ?", "choices": ["Kelly Clarkson", "Carrie Underwood", "Jennifer Hudson", "Fantasia Barrino"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle chanteuse américaine interprète le tube « Truth Hurts » ?", "choices": ["Lizzo", "Doja Cat", "Megan Thee Stallion", "SZA"], "answer": 0, "difficulty": 2},
+    {"q": "Quel album de Lady Gaga, sorti en 2020, contient « Rain On Me » ?", "choices": ["Chromatica", "Artpop", "Joanne", "Born This Way"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le vrai nom du chanteur The Weeknd ?", "choices": ["Abel Tesfaye", "Aubrey Graham", "Scott Mescudi", "Tremaine Neverson"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Adele a-t-elle sorti l'album « 25 » ?", "choices": ["2015", "2013", "2016", "2011"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Britney Spears a-t-elle sorti son premier album « ...Baby One More Time » ?", "choices": ["1999", "1998", "2000", "1997"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle chanteuse islandaise a sorti l'album « Homogenic » en 1997 ?", "choices": ["Björk", "Sia", "Enya", "Kate Bush"], "answer": 0, "difficulty": 3}
   ]
 }

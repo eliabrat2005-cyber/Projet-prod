@@ -82,6 +82,18 @@
     {"q": "Quel compositeur autrichien est mort en 1791 en laissant son Requiem inachevé ?", "choices": ["Wolfgang Amadeus Mozart", "Joseph Haydn", "Franz Schubert", "Antonio Salieri"], "answer": 0, "difficulty": 4},
     {"q": "Quelle planète du Système solaire possède le plus grand nombre de lunes confirmées ?", "choices": ["Saturne", "Jupiter", "Uranus", "Neptune"], "answer": 0, "difficulty": 4},
     {"q": "Quel physicien né en Nouvelle-Zélande est considéré comme le père de la physique nucléaire ?", "choices": ["Ernest Rutherford", "Niels Bohr", "Joseph John Thomson", "James Chadwick"], "answer": 0, "difficulty": 4},
-    {"q": "En quelle année la Magna Carta fut-elle scellée par le roi Jean d'Angleterre ?", "choices": ["1215", "1066", "1348", "1453"], "answer": 0, "difficulty": 4}
+    {"q": "En quelle année la Magna Carta fut-elle scellée par le roi Jean d'Angleterre ?", "choices": ["1215", "1066", "1348", "1453"], "answer": 0, "difficulty": 4},
+    {"q": "Quel fut le premier président de la Cinquième République française ?", "choices": ["Charles de Gaulle", "Georges Pompidou", "René Coty", "Vincent Auriol"], "answer": 0, "difficulty": 3},
+    {"q": "Combien de pièces autres que les pions chaque joueur possède-t-il au début d'une partie d'échecs ?", "choices": ["Huit", "Six", "Dix", "Douze"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le deuxième plus grand pays du monde par sa superficie ?", "choices": ["Le Canada", "Les États-Unis", "La Chine", "Le Brésil"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle étendue d'eau intérieure, appelée « mer » mais en réalité un lac, est la plus vaste du monde ?", "choices": ["La mer Caspienne", "La mer Morte", "La mer d'Aral", "Le lac Baïkal"], "answer": 0, "difficulty": 3},
+    {"q": "Quel savant a énoncé les trois lois du mouvement dans son ouvrage « Principia » ?", "choices": ["Isaac Newton", "Galilée", "Johannes Kepler", "René Descartes"], "answer": 0, "difficulty": 3},
+    {"q": "Dans la mythologie grecque, quel héros devait accomplir douze travaux ?", "choices": ["Héraclès", "Thésée", "Persée", "Achille"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année a été signé le traité de Verdun partageant l'empire de Charlemagne ?", "choices": ["843", "800", "987", "1066"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est la plus longue chaîne de montagnes émergée du monde ?", "choices": ["La cordillère des Andes", "L'Himalaya", "Les montagnes Rocheuses", "Le Grand Rift"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année la sonde spatiale Voyager 1 a-t-elle été lancée ?", "choices": ["1977", "1969", "1981", "1972"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle constante mathématique est approximée par le nombre 2,71828 ?", "choices": ["Le nombre e", "Le nombre pi", "Le nombre d'or", "La constante d'Euler-Mascheroni"], "answer": 0, "difficulty": 4},
+    {"q": "Quel élément chimique est le plus abondant en masse dans la croûte terrestre ?", "choices": ["L'oxygène", "Le silicium", "Le fer", "L'aluminium"], "answer": 0, "difficulty": 4},
+    {"q": "Quel physicien danois a proposé en 1913 un modèle de l'atome à orbites quantifiées ?", "choices": ["Niels Bohr", "Ernest Rutherford", "Max Planck", "Werner Heisenberg"], "answer": 0, "difficulty": 4}
   ]
 }

@@ -65,6 +65,16 @@
     {"q": "Quel court-métrage de 1928 marque la première apparition sonore de Mickey Mouse ?", "choices": ["Steamboat Willie", "Fantasia", "Bambi", "Dumbo"], "answer": 0, "difficulty": 4},
     {"q": "Comment s'appelle le frère de Walt Disney, cofondateur du studio ?", "choices": ["Roy Disney", "Ub Iwerks", "Elias Disney", "Carl Disney"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année a ouvert le premier Disneyland, en Californie ?", "choices": ["1955", "1965", "1971", "1950"], "answer": 0, "difficulty": 4},
-    {"q": "Quelle chanson d'« Aladdin » a remporté l'Oscar de la meilleure chanson originale ?", "choices": ["Ce rêve bleu", "Histoire éternelle", "Sous l'océan", "Je vais y arriver"], "answer": 0, "difficulty": 4}
+    {"q": "Quelle chanson d'« Aladdin » a remporté l'Oscar de la meilleure chanson originale ?", "choices": ["Ce rêve bleu", "Histoire éternelle", "Sous l'océan", "Je vais y arriver"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle le crabe conseiller musical dans La Petite Sirène ?", "choices": ["Sébastien", "Polochon", "Eurêka", "Triton"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle le petit poisson jaune ami d'Ariel dans La Petite Sirène ?", "choices": ["Polochon", "Sébastien", "Eurêka", "Barbotte"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle le singe d'Aladdin ?", "choices": ["Abu", "Iago", "Rajah", "Sultan"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle le tigre de compagnie de Jasmine dans Aladdin ?", "choices": ["Rajah", "Abu", "Iago", "Jafar"], "answer": 0, "difficulty": 2},
+    {"q": "Comment s'appelle le chandelier dans La Belle et la Bête ?", "choices": ["Lumière", "Big Ben", "Zip", "Maestro"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle la théière dans La Belle et la Bête ?", "choices": ["Mrs Samovar", "Zip", "Plumette", "Lumière"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle la panthère noire qui veille sur Mowgli dans Le Livre de la Jungle ?", "choices": ["Bagheera", "Shere Khan", "Kaa", "Baloo"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle le cheval ailé d'Hercule dans le film Disney ?", "choices": ["Pégase", "Phil", "Hadès", "Zeus"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année le film « La Reine des Neiges » (Frozen) est-il sorti au cinéma ?", "choices": ["2013", "2011", "2015", "2010"], "answer": 0, "difficulty": 4},
+    {"q": "Quel studio d'animation, racheté par Disney en 2006, a produit « Toy Story » et « Le Monde de Nemo » ?", "choices": ["Pixar", "DreamWorks", "Blue Sky", "Illumination"], "answer": 0, "difficulty": 4}
   ]
 }

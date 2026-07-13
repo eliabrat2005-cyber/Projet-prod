@@ -83,6 +83,17 @@
     {"q": "Quel acide donne au vinaigre son goût acide caractéristique ?", "choices": ["L'acide acétique", "L'acide citrique", "L'acide lactique", "L'acide malique"], "answer": 0, "difficulty": 4},
     {"q": "Quelle bactérie transforme le lait en yaourt avec Lactobacillus bulgaricus ?", "choices": ["Streptococcus thermophilus", "Escherichia coli", "Bifidobacterium longum", "Penicillium candidum"], "answer": 0, "difficulty": 4},
     {"q": "Dans quelle commune près de Lyon Paul Bocuse tenait-il son restaurant étoilé ?", "choices": ["Collonges-au-Mont-d'Or", "Vonnas", "Roanne", "Mionnay"], "answer": 0, "difficulty": 4},
-    {"q": "Que mesure l'échelle de Brix, utilisée en œnologie et en confiserie ?", "choices": ["Le taux de sucre", "L'acidité", "Le taux d'alcool", "La teneur en sel"], "answer": 0, "difficulty": 4}
+    {"q": "Que mesure l'échelle de Brix, utilisée en œnologie et en confiserie ?", "choices": ["Le taux de sucre", "L'acidité", "Le taux d'alcool", "La teneur en sel"], "answer": 0, "difficulty": 4},
+    {"q": "Quel cépage est à la base du vin rouge du Beaujolais ?", "choices": ["Le gamay", "Le pinot noir", "La syrah", "Le merlot"], "answer": 0, "difficulty": 3},
+    {"q": "De quelle ville allemande le hamburger tire-t-il son nom ?", "choices": ["Hambourg", "Berlin", "Francfort", "Munich"], "answer": 0, "difficulty": 3},
+    {"q": "Quel plat vietnamien est une soupe de nouilles de riz servie dans un bouillon aromatique ?", "choices": ["Le pho", "Le pad thaï", "Le nasi goreng", "Le laksa"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle préparation de fines tranches de bœuf cru fut inventée au Harry's Bar de Venise ?", "choices": ["Le carpaccio", "Le tartare", "La bresaola", "Le vitello tonnato"], "answer": 0, "difficulty": 3},
+    {"q": "Quel plat marocain mijote viande et légumes dans un récipient conique en terre cuite ?", "choices": ["Le tajine", "La pastilla", "La harira", "Le méchoui"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Auguste Escoffier a-t-il publié son « Guide culinaire » ?", "choices": ["1903", "1885", "1920", "1867"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pâtissier du XIXe siècle, pionnier des pièces montées, fut surnommé le « roi des chefs et chef des rois » ?", "choices": ["Marie-Antoine Carême", "Auguste Escoffier", "Gaston Lenôtre", "Pierre Hermé"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année le Guide Michelin a-t-il commencé à décerner des étoiles aux restaurants ?", "choices": ["1926", "1900", "1931", "1955"], "answer": 0, "difficulty": 4},
+    {"q": "À quelle température environ le saccharose commence-t-il à caraméliser ?", "choices": ["Environ 160 °C", "Environ 60 °C", "Environ 250 °C", "Environ 100 °C"], "answer": 0, "difficulty": 4},
+    {"q": "Quel cépage domine l'assemblage du vin rouge de Châteauneuf-du-Pape ?", "choices": ["Le grenache", "Le cabernet sauvignon", "Le pinot noir", "Le chardonnay"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle épice provient de l'arille rouge qui entoure la graine du muscadier ?", "choices": ["Le macis", "Le sumac", "Le curcuma", "Le fenugrec"], "answer": 0, "difficulty": 4}
   ]
 }

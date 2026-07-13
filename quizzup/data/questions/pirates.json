@@ -54,6 +54,27 @@
     {"q": "Au large de quel État américain l'épave du Queen Anne's Revenge a-t-elle été découverte en 1996 ?", "choices": ["La Caroline du Nord", "La Floride", "La Virginie", "La Géorgie"], "answer": 0, "difficulty": 4},
     {"q": "Quelle reine pirate irlandaise du XVIᵉ siècle a rencontré la reine Élisabeth Iʳᵉ ?", "choices": ["Grace O'Malley", "Anne Bonny", "Mary Read", "Jeanne de Belleville"], "answer": 0, "difficulty": 4},
     {"q": "Quel nom portait le contrat fixant les règles de vie et le partage du butin chez les flibustiers ?", "choices": ["La chasse-partie", "Le rôle d'équipage", "La charte royale", "Le pacte noir"], "answer": 0, "difficulty": 4},
-    {"q": "Quel flibustier français originaire des Sables-d'Olonne était tristement célèbre pour sa cruauté envers les Espagnols ?", "choices": ["François l'Olonnais", "Michel de Grammont", "Laurent de Graff", "Daniel Montbars"], "answer": 0, "difficulty": 4}
+    {"q": "Quel flibustier français originaire des Sables-d'Olonne était tristement célèbre pour sa cruauté envers les Espagnols ?", "choices": ["François l'Olonnais", "Michel de Grammont", "Laurent de Graff", "Daniel Montbars"], "answer": 0, "difficulty": 4},
+    {"q": "De quelle couleur est traditionnellement le pavillon pirate à tête de mort ?", "choices": ["Noir", "Rouge", "Bleu", "Vert"], "answer": 0, "difficulty": 1},
+    {"q": "Quel métal précieux et jaune les pirates recherchaient-ils avant tout dans les trésors ?", "choices": ["L'or", "Le fer", "Le charbon", "L'étain"], "answer": 0, "difficulty": 1},
+    {"q": "Quel animal marin, réputé dangereux, menace les naufragés dans les histoires de pirates ?", "choices": ["Le requin", "Le dauphin", "La sardine", "L'hippocampe"], "answer": 0, "difficulty": 1},
+    {"q": "Quel objet remplace la main manquante du capitaine ennemi de Peter Pan ?", "choices": ["Un crochet", "Une pince", "Un gant de fer", "Une écharpe"], "answer": 0, "difficulty": 1},
+    {"q": "Dans quel meuble de bois les pirates rangeaient-ils leur trésor dans les récits ?", "choices": ["Un coffre", "Une armoire", "Un panier", "Un tonneau"], "answer": 0, "difficulty": 1},
+    {"q": "Quel officier, second du capitaine, veillait au partage du butin sur un navire pirate ?", "choices": ["Le quartier-maître", "Le mousse", "Le calfat", "Le coq"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on le fait de coucher un navire sur le flanc pour nettoyer et réparer sa coque ?", "choices": ["Le carénage", "L'abordage", "Le mouillage", "L'arrimage"], "answer": 0, "difficulty": 2},
+    {"q": "Quel océan les galions espagnols chargés d'or traversaient-ils entre l'Amérique et l'Europe ?", "choices": ["L'océan Atlantique", "L'océan Pacifique", "L'océan Indien", "L'océan Arctique"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on les grands navires espagnols qui transportaient l'or et l'argent d'Amérique ?", "choices": ["Les galions", "Les caravelles", "Les frégates", "Les drakkars"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on le poste de vigie situé en haut du grand mât ?", "choices": ["Le nid-de-pie", "La cale", "La soute", "La coursive"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on la partie avant d'un navire ?", "choices": ["La proue", "La poupe", "La quille", "Le gouvernail"], "answer": 0, "difficulty": 2},
+    {"q": "Quel navigateur anglais fut à la fois corsaire, explorateur et vice-amiral sous Élisabeth Iʳᵉ ?", "choices": ["Francis Drake", "Walter Raleigh", "John Hawkins", "Martin Frobisher"], "answer": 0, "difficulty": 3},
+    {"q": "Quel corsaire dunkerquois au service de Louis XIV fut anobli pour ses exploits ?", "choices": ["Jean Bart", "Robert Surcouf", "René Duguay-Trouin", "Jean Lafitte"], "answer": 0, "difficulty": 3},
+    {"q": "Comment appelait-on la ration de rhum coupé d'eau distribuée quotidiennement aux marins ?", "choices": ["Le grog", "Le punch", "L'hydromel", "L'absinthe"], "answer": 0, "difficulty": 3},
+    {"q": "Quel flibustier d'origine française aida les Américains lors de la bataille de La Nouvelle-Orléans en 1815 ?", "choices": ["Jean Lafitte", "François l'Olonnais", "Laurent de Graff", "Michel de Grammont"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Anne Bonny et Mary Read furent-elles capturées avec l'équipage de Calico Jack ?", "choices": ["1720", "1718", "1725", "1715"], "answer": 0, "difficulty": 4},
+    {"q": "Quel surnom portait le pirate gallois Bartholomew Roberts ?", "choices": ["Black Bart", "Black Sam", "Black Caesar", "Red Legs"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pirate anglais surnommé « Long Ben » réussit un immense butin en pillant un navire moghol en 1695 ?", "choices": ["Henry Every", "Thomas Tew", "William Kidd", "Edward England"], "answer": 0, "difficulty": 4},
+    {"q": "Quel océan les pirates de la « route des pirates » écumaient-ils en direction de Madagascar ?", "choices": ["L'océan Indien", "La mer des Caraïbes", "La Méditerranée", "L'Atlantique Nord"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle l'île au large de Madagascar, célèbre repaire de pirates avec son cimetière marin ?", "choices": ["L'île Sainte-Marie", "L'île Maurice", "Zanzibar", "Les Comores"], "answer": 0, "difficulty": 4},
+    {"q": "Quel type de petit navire rapide et maniable les pirates préféraient-ils pour l'attaque ?", "choices": ["Le sloop", "Le galion", "La caraque", "Le vaisseau de ligne"], "answer": 0, "difficulty": 4}
   ]
 }

@@ -55,6 +55,26 @@
     {"q": "Quelle ville japonaise a subi une bombe atomique le 9 août 1945, trois jours après Hiroshima ?", "choices": ["Nagasaki", "Kyoto", "Osaka", "Kokura"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année les Jeux olympiques d'été se sont-ils tenus pour la première fois à Tokyo ?", "choices": ["1964", "1972", "1988", "1940"], "answer": 0, "difficulty": 4},
     {"q": "Quel roman classique du XIe siècle, écrit par Murasaki Shikibu, est considéré comme l'un des premiers romans du monde ?", "choices": ["Le Dit du Genji", "Les Notes de chevet", "Le Heike monogatari", "Le Kojiki"], "answer": 0, "difficulty": 4},
-    {"q": "Comment nomme-t-on le séisme de 2011 qui a déclenché la catastrophe nucléaire de Fukushima ?", "choices": ["Le séisme de Tohoku", "Le séisme du Kanto", "Le séisme de Kobe", "Le séisme du Hanshin"], "answer": 0, "difficulty": 4}
+    {"q": "Comment nomme-t-on le séisme de 2011 qui a déclenché la catastrophe nucléaire de Fukushima ?", "choices": ["Le séisme de Tohoku", "Le séisme du Kanto", "Le séisme de Kobe", "Le séisme du Hanshin"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle monnaie utilise-t-on au Japon ?", "choices": ["Le yen", "Le won", "Le yuan", "Le baht"], "answer": 0, "difficulty": 1},
+    {"q": "Quel animal est honoré par la célèbre statue Hachiko à Shibuya ?", "choices": ["Un chien", "Un chat", "Un renard", "Un cerf"], "answer": 0, "difficulty": 1},
+    {"q": "De quelles couleurs est composé le drapeau national du Japon ?", "choices": ["Blanc avec un disque rouge", "Bleu avec une étoile blanche", "Rouge avec une croix blanche", "Vert avec un cercle jaune"], "answer": 0, "difficulty": 1},
+    {"q": "Quel poisson-globe potentiellement toxique est un mets raffiné au Japon ?", "choices": ["Le fugu", "Le thon rouge", "La carpe koï", "Le maquereau"], "answer": 0, "difficulty": 1},
+    {"q": "Comment nomme-t-on la coutume japonaise consistant à admirer les cerisiers en fleurs ?", "choices": ["Le hanami", "Le matsuri", "L'obon", "Le tanabata"], "answer": 0, "difficulty": 2},
+    {"q": "Quel constructeur automobile japonais fabrique la Corolla ?", "choices": ["Toyota", "Hyundai", "Kia", "Volkswagen"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on les estampes japonaises dites « images du monde flottant » ?", "choices": ["L'ukiyo-e", "Le sumi-e", "Le nihonga", "Le shodo"], "answer": 0, "difficulty": 2},
+    {"q": "Quel titre désigne le rang suprême dans la hiérarchie du sumo ?", "choices": ["Yokozuna", "Ozeki", "Sekiwake", "Komusubi"], "answer": 0, "difficulty": 2},
+    {"q": "Quel détroit, franchi par le tunnel du Seikan, sépare les îles de Honshu et de Hokkaido ?", "choices": ["Le détroit de Tsugaru", "Le détroit de Kanmon", "Le détroit de Bungo", "Le détroit de La Pérouse"], "answer": 0, "difficulty": 3},
+    {"q": "Quel Premier ministre japonais a été assassiné en juillet 2022 lors d'un meeting à Nara ?", "choices": ["Shinzo Abe", "Yoshihide Suga", "Fumio Kishida", "Junichiro Koizumi"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle est la deuxième plus grande île du Japon par sa superficie, après Honshu ?", "choices": ["Hokkaido", "Shikoku", "Okinawa", "Sado"], "answer": 0, "difficulty": 3},
+    {"q": "Quel archipel japonais du sud était autrefois le royaume indépendant de Ryukyu ?", "choices": ["Okinawa", "Les îles Ogasawara", "L'archipel d'Izu", "Les îles Goto"], "answer": 0, "difficulty": 3},
+    {"q": "De quelle grande tradition religieuse le zen est-il une école apparue au Japon ?", "choices": ["Le bouddhisme", "Le shintoïsme", "Le confucianisme", "Le taoïsme"], "answer": 0, "difficulty": 3},
+    {"q": "Comment nomme-t-on, dans son appellation traditionnelle, la cérémonie japonaise du thé ?", "choices": ["Le chanoyu", "Le kabuki", "Le bunraku", "Le bushido"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année le shogunat Tokugawa a-t-il pris fin, marquant le début de la restauration Meiji ?", "choices": ["1868", "1853", "1877", "1889"], "answer": 0, "difficulty": 4},
+    {"q": "Quel traité de 1854 a ouvert les ports japonais aux États-Unis à la suite de l'expédition Perry ?", "choices": ["Le traité de Kanagawa", "Le traité de Shimonoseki", "Le traité de Portsmouth", "Le traité d'Edo"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle rébellion de 1877, menée par Saigo Takamori, marqua la fin de la classe des samouraïs ?", "choices": ["La rébellion de Satsuma", "La guerre de Boshin", "La révolte de Shimabara", "La guerre d'Onin"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année le grand séisme du Kanto a-t-il dévasté Tokyo et Yokohama ?", "choices": ["1923", "1906", "1934", "1948"], "answer": 0, "difficulty": 4},
+    {"q": "Comment s'appelle l'époque classique japonaise (794-1185) durant laquelle fut écrit le Dit du Genji ?", "choices": ["L'époque de Heian", "L'époque de Nara", "L'époque de Kamakura", "L'époque d'Asuka"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année le film « Les Sept Samouraïs » d'Akira Kurosawa est-il sorti ?", "choices": ["1954", "1948", "1961", "1965"], "answer": 0, "difficulty": 4}
   ]
 }

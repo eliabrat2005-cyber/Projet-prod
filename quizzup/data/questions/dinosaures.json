@@ -56,6 +56,25 @@
     {"q": "Quel petit dinosaure à plumes du Crétacé chinois fut l'un des premiers dont la couleur a été reconstituée grâce aux mélanosomes ?", "choices": ["Le Sinosauropteryx", "Le vélociraptor", "Le compsognathus", "L'oviraptor"], "answer": 0, "difficulty": 4},
     {"q": "De quelle langue provient le suffixe « -saurus » présent dans les noms de dinosaures ?", "choices": ["Le grec ancien", "Le latin", "L'égyptien ancien", "Le sanskrit"], "answer": 0, "difficulty": 4},
     {"q": "Quel physicien a proposé en 1980, avec son fils Walter, l'hypothèse de l'impact d'astéroïde ?", "choices": ["Luis Alvarez", "Barnum Brown", "Robert Bakker", "Jack Horner"], "answer": 0, "difficulty": 4},
-    {"q": "Quel carnivore géant d'Argentine a été décrit par Coria et Salgado en 1995 ?", "choices": ["Le giganotosaure", "Le carnotaure", "L'allosaure", "Le mégalosaure"], "answer": 0, "difficulty": 4}
+    {"q": "Quel carnivore géant d'Argentine a été décrit par Coria et Salgado en 1995 ?", "choices": ["Le giganotosaure", "Le carnotaure", "L'allosaure", "Le mégalosaure"], "answer": 0, "difficulty": 4},
+    {"q": "Quel dinosaure carnivore est surnommé le « roi des dinosaures » ?", "choices": ["Le tyrannosaure", "Le diplodocus", "Le tricératops", "Le ptéranodon"], "answer": 0, "difficulty": 1},
+    {"q": "De quoi se nourrissait principalement le tyrannosaure ?", "choices": ["De la viande", "Des plantes", "Des fruits", "Des feuilles"], "answer": 0, "difficulty": 1},
+    {"q": "Pendant combien de temps environ les dinosaures ont-ils régné sur Terre ?", "choices": ["Des millions d'années", "Des milliers d'années", "Des centaines d'années", "Des milliards d'années"], "answer": 0, "difficulty": 1},
+    {"q": "Les dinosaures vivaient-ils avant ou après les êtres humains ?", "choices": ["Avant les humains", "En même temps que les humains", "Après les humains", "Juste après la préhistoire"], "answer": 0, "difficulty": 1},
+    {"q": "Sur combien de pattes le vélociraptor se déplaçait-il ?", "choices": ["Deux", "Quatre", "Six", "Trois"], "answer": 0, "difficulty": 1},
+    {"q": "Où peut-on voir aujourd'hui des squelettes de dinosaures ?", "choices": ["Dans les musées", "Dans les zoos", "Dans les aquariums", "Dans les fermes"], "answer": 0, "difficulty": 1},
+    {"q": "Quel dinosaure herbivore portait une double rangée de plaques sur le dos et des pointes au bout de la queue ?", "choices": ["Le stégosaure", "L'ankylosaure", "Le tricératops", "Le diplodocus"], "answer": 0, "difficulty": 2},
+    {"q": "Quel supercontinent regroupait toutes les terres émergées au début de l'ère des dinosaures ?", "choices": ["La Pangée", "Le Gondwana", "La Laurasia", "La Panthalassa"], "answer": 0, "difficulty": 2},
+    {"q": "À quelle période géologique vivait le tyrannosaure ?", "choices": ["Au Crétacé", "Au Jurassique", "Au Trias", "Au Permien"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on un dinosaure qui se nourrissait de plantes ?", "choices": ["Un herbivore", "Un carnivore", "Un insectivore", "Un piscivore"], "answer": 0, "difficulty": 2},
+    {"q": "Quel dinosaure au très long cou pouvait dépasser 25 mètres de long au Jurassique ?", "choices": ["Le diplodocus", "Le vélociraptor", "Le stégosaure", "Le compsognathus"], "answer": 0, "difficulty": 2},
+    {"q": "Comment nomme-t-on les traces de pas de dinosaures conservées dans la roche ?", "choices": ["Des empreintes fossiles", "Des coprolithes", "Des mélanosomes", "Des stromatolithes"], "answer": 0, "difficulty": 3},
+    {"q": "À quelle période géologique a principalement vécu le brachiosaure ?", "choices": ["Au Jurassique", "Au Crétacé", "Au Trias", "Au Permien"], "answer": 0, "difficulty": 3},
+    {"q": "Comment appelle-t-on les grands reptiles marins au long cou qui vivaient à l'époque des dinosaures ?", "choices": ["Les plésiosaures", "Les ptérosaures", "Les théropodes", "Les sauropodes"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quel pays a-t-on découvert le plus grand nombre de fossiles de dinosaures à plumes ?", "choices": ["La Chine", "Les États-Unis", "L'Argentine", "Le Canada"], "answer": 0, "difficulty": 3},
+    {"q": "Quel sauropode, dont le nom signifie « lézard tonnerre », fut au cœur d'une longue controverse de nom avec l'Apatosaurus ?", "choices": ["Le brontosaure", "Le brachiosaure", "Le diplodocus", "Le camarasaure"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de dents environ un Tyrannosaurus rex adulte possédait-il dans ses mâchoires ?", "choices": ["Une soixantaine", "Une vingtaine", "Plus de deux cents", "Une dizaine"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quelle formation géologique de Mongolie de nombreux fossiles de vélociraptors ont-ils été mis au jour ?", "choices": ["La formation de Djadokhta", "La formation de Morrison", "La formation de Hell Creek", "La formation de Solnhofen"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quel pays a été découvert l'Archaeopteryx, considéré comme un chaînon entre dinosaures et oiseaux ?", "choices": ["L'Allemagne", "L'Angleterre", "La Chine", "Les États-Unis"], "answer": 0, "difficulty": 4}
   ]
 }

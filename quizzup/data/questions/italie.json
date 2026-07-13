@@ -59,6 +59,23 @@
     {"q": "Quel sculpteur baroque a réalisé la colonnade de la place Saint-Pierre à Rome ?", "choices": ["Le Bernin", "Borromini", "Michel-Ange", "Le Caravage"], "answer": 0, "difficulty": 3},
     {"q": "Quel plat milanais est un risotto teinté et parfumé au safran ?", "choices": ["Le risotto alla milanese", "L'osso buco", "La polenta", "Le vitello tonnato"], "answer": 0, "difficulty": 3},
     {"q": "Quel homme politique a instauré le régime fasciste en Italie dans les années 1920 ?", "choices": ["Benito Mussolini", "Victor-Emmanuel III", "Giovanni Giolitti", "Pietro Badoglio"], "answer": 0, "difficulty": 2},
-    {"q": "Quelle petite république enclavée dans l'Italie centrale est l'une des plus anciennes du monde ?", "choices": ["Saint-Marin", "Andorre", "Monaco", "Le Liechtenstein"], "answer": 0, "difficulty": 3}
+    {"q": "Quelle petite république enclavée dans l'Italie centrale est l'une des plus anciennes du monde ?", "choices": ["Saint-Marin", "Andorre", "Monaco", "Le Liechtenstein"], "answer": 0, "difficulty": 3},
+    {"q": "Avec quel pays l'Italie partage-t-elle une frontière au nord-ouest ?", "choices": ["La France", "L'Espagne", "La Grèce", "le Portugal"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle mer entoure principalement les côtes de l'Italie ?", "choices": ["La Méditerranée", "l'océan Atlantique", "la mer Baltique", "la mer du Nord"], "answer": 0, "difficulty": 1},
+    {"q": "Quel célèbre navigateur, né à Gênes, est associé à la découverte de l'Amérique en 1492 ?", "choices": ["Christophe Colomb", "Marco Polo", "Amerigo Vespucci", "Jean Cabot"], "answer": 0, "difficulty": 1},
+    {"q": "Comment appelle-t-on la crème glacée artisanale italienne, réputée dans le monde entier ?", "choices": ["Le gelato", "Le baba", "Le clafoutis", "le flan"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle ville d'Émilie-Romagne est surnommée « la Grassa » (la grasse) pour sa gastronomie ?", "choices": ["Bologne", "Turin", "Gênes", "Bari"], "answer": 0, "difficulty": 3},
+    {"q": "Quel détroit sépare la Sicile de la péninsule italienne ?", "choices": ["Le détroit de Messine", "Le détroit d'Otrante", "Le canal de Sicile", "Le détroit de Bonifacio"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle grande île italienne, au sud de la Corse, a pour capitale Cagliari ?", "choices": ["La Sardaigne", "La Sicile", "L'île d'Elbe", "Lampedusa"], "answer": 0, "difficulty": 3},
+    {"q": "Quel peintre vénitien de la Renaissance a réalisé « l'Assomption de la Vierge » de l'église des Frari ?", "choices": ["Titien", "Le Caravage", "Botticelli", "Giotto"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle grande ville portuaire de Ligurie, rivale maritime de Venise au Moyen Âge, est la capitale de sa région ?", "choices": ["Gênes", "Livourne", "La Spezia", "Trieste"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année Rome est-elle devenue la capitale du royaume d'Italie ?", "choices": ["1871", "1861", "1946", "1929"], "answer": 0, "difficulty": 4},
+    {"q": "Sous quel empereur romain la construction du Colisée a-t-elle débuté ?", "choices": ["Vespasien", "Néron", "Auguste", "Trajan"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pape a lancé au début du XVIᵉ siècle la reconstruction de l'actuelle basilique Saint-Pierre de Rome ?", "choices": ["Jules II", "Léon X", "Alexandre VI", "Sixte IV"], "answer": 0, "difficulty": 4},
+    {"q": "Quel sommet des Alpes est le plus haut situé entièrement en territoire italien ?", "choices": ["Le Gran Paradiso", "Le Cervin", "Le mont Rose", "Le Grand-Paradis suisse"], "answer": 0, "difficulty": 4},
+    {"q": "Combien d'habitants compte approximativement l'Italie ?", "choices": ["Environ 59 millions", "Environ 30 millions", "Environ 90 millions", "Environ 120 millions"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle dynastie a régné sur le royaume d'Italie de 1861 à l'instauration de la République ?", "choices": ["La maison de Savoie", "Les Médicis", "Les Bourbons", "Les Habsbourg"], "answer": 0, "difficulty": 4},
+    {"q": "Quel roi d'Italie a régné de 1900 à 1946, traversant les deux guerres mondiales et le fascisme ?", "choices": ["Victor-Emmanuel III", "Humbert Ier", "Victor-Emmanuel II", "Humbert II"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année l'Italie est-elle devenue une république par référendum, abolissant la monarchie ?", "choices": ["1946", "1861", "1948", "1922"], "answer": 0, "difficulty": 4}
   ]
 }

@@ -4,555 +4,77 @@
   "icon": "😂",
   "color": "#f9a825",
   "questions": [
-    {
-      "q": "Dans quel film Louis de Funès dirige-t-il la gendarmerie d'une station balnéaire ?",
-      "choices": [
-        "Le Gendarme de Saint-Tropez",
-        "Rabbi Jacob",
-        "La Grande Vadrouille",
-        "L'Aile ou la Cuisse"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel duo traverse la France occupée dans « La Grande Vadrouille » ?",
-      "choices": [
-        "Bourvil et Louis de Funès",
-        "Belmondo et Delon",
-        "Coluche et Richard",
-        "Blier et Serrault"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel chevalier et son écuyer voyagent dans le temps dans « Les Visiteurs » ?",
-      "choices": [
-        "Godefroy et Jacquouille",
-        "Perceval et Karadoc",
-        "Arthur et Lancelot",
-        "Jean et Pierre"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quelle réplique culte Jacquouille répète-t-il ?",
-      "choices": [
-        "« Okayyyy »",
-        "« C'est de la balle »",
-        "« Mortecouille uniquement »",
-        "« Sapristi »"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Dans quel film un cadre parisien est-il muté dans le Nord ?",
-      "choices": [
-        "Bienvenue chez les Ch'tis",
-        "Rien à déclarer",
-        "La Ch'tite Famille",
-        "Le Nord c'est le Nord"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Qui réalise et joue dans « Bienvenue chez les Ch'tis » ?",
-      "choices": [
-        "Dany Boon",
-        "Kad Merad",
-        "Gad Elmaleh",
-        "Franck Dubosc"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel dîner réunit des invités choisis pour leur bêtise supposée ?",
-      "choices": [
-        "Le Dîner de cons",
-        "Le Grand Restaurant",
-        "Le Repas des fauves",
-        "Le Banquet"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel personnage maladroit incarne Pierre Richard dans plusieurs comédies ?",
-      "choices": [
-        "François Perrin/Pignon",
-        "Antoine Doinel",
-        "Hubert",
-        "Léon"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quel duo culte forme Gérard Depardieu avec Pierre Richard chez Francis Veber ?",
-      "choices": [
-        "La Chèvre, Les Compères, Les Fugitifs",
-        "Les Bronzés",
-        "Le Splendid",
-        "Les Charlots"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle troupe est à l'origine des « Bronzés » ?",
-      "choices": [
-        "Le Splendid",
-        "Les Nuls",
-        "Les Inconnus",
-        "Les Robins des Bois"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Où se déroule « Les Bronzés font du ski » ?",
-      "choices": [
-        "Val d'Isère",
-        "Chamonix",
-        "Courchevel",
-        "Les Arcs"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quel acteur incarne à la fois Godefroy de Montmirail et sa descendance moderne ?",
-      "choices": [
-        "Jean Reno",
-        "Christian Clavier",
-        "Gérard Jugnot",
-        "Thierry Lhermitte"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel film de 2011 réunit un aristocrate tétraplégique et son aide à domicile ?",
-      "choices": [
-        "Intouchables",
-        "Samba",
-        "Hors Normes",
-        "Le Sens de la fête"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel personnage incarné par Christian Clavier reçoit des gendres du monde entier ?",
-      "choices": [
-        "Claude Verneuil",
-        "Jacquouille",
-        "Astérix",
-        "Hubert de Montmirail"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Dans « OSS 117 », quel acteur incarne l'espion gaffeur ?",
-      "choices": [
-        "Jean Dujardin",
-        "Guillaume Canet",
-        "Gilles Lellouche",
-        "Albert Dupontel"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel taxi marseillais fonce dans les films de Luc Besson ?",
-      "choices": [
-        "Le taxi de Daniel",
-        "Le taxi de Sami",
-        "Le taxi d'Eddy",
-        "Le taxi de Momo"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle comédie suit l'organisation chaotique d'un mariage dans un château ?",
-      "choices": [
-        "Le Sens de la fête",
-        "Mariage à la grecque",
-        "Plan de table",
-        "Un plus une"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel instituteur remonte le moral d'un pensionnat en créant une chorale ?",
-      "choices": [
-        "Clément Mathieu (Les Choristes)",
-        "Monsieur Lazhar",
-        "François Foucault",
-        "Georges Lopez"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle famille de « sans-dents » débarque chez des bourgeois dans « Les Tuche » ?",
-      "choices": [
-        "Les Tuche",
-        "Les Groseille",
-        "Les Le Quesnoy",
-        "Les Bidochon"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Dans « La Vie est un long fleuve tranquille », quelles familles sont échangées ?",
-      "choices": [
-        "Les Groseille et les Le Quesnoy",
-        "Les Tuche et les Verneuil",
-        "Les Duval et les Martin",
-        "Les Bodin et les Roche"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel acteur incarne Astérix dans « Mission Cléopâtre » ?",
-      "choices": [
-        "Christian Clavier",
-        "Gérard Depardieu",
-        "Édouard Baer",
-        "Clovis Cornillac"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Qui réalise « Astérix et Obélix : Mission Cléopâtre » ?",
-      "choices": [
-        "Alain Chabat",
-        "Claude Zidi",
-        "Michel Hazanavicius",
-        "Dany Boon"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quel sosie de Claude François incarne Benoît Poelvoorde dans « Podium » ?",
-      "choices": [
-        "Bernard Frédéric",
-        "Jean-Claude Duss",
-        "Bébel",
-        "Patrick Chirac"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quelle bande d'amis se retrouve chaque été dans « Les Petits Mouchoirs » ?",
-      "choices": [
-        "La bande de Max",
-        "Les Bronzés",
-        "Les Copains d'abord",
-        "La Bande du Splendid"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Quelle comédie de 1966 avec Bourvil et Louis de Funès est longtemps restée le film français le plus vu en France ?",
-      "choices": [
-        "La Grande Vadrouille",
-        "Le Corniaud",
-        "Les Grandes Vacances",
-        "Le Petit Baigneur"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Dans « Astérix et Obélix : Mission Cléopâtre », quel acteur incarne Obélix ?",
-      "choices": [
-        "Gérard Depardieu",
-        "Christian Clavier",
-        "Alain Chabat",
-        "Jamel Debbouze"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Quel acteur comique incarne le gendarme Cruchot ?",
-      "choices": [
-        "Louis de Funès",
-        "Bourvil",
-        "Fernandel",
-        "Coluche"
-      ],
-      "answer": 0,
-      "difficulty": 1
-    },
-    {
-      "q": "Dans « Les Bronzés », quel personnage éternellement malchanceux en amour incarne Michel Blanc ?",
-      "choices": [
-        "Jean-Claude Dusse",
-        "Popeye",
-        "Bernard Morin",
-        "Gilbert"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Dans quelle ville du Nord Philippe Abrams est-il muté dans « Bienvenue chez les Ch'tis » ?",
-      "choices": [
-        "Bergues",
-        "Dunkerque",
-        "Lille",
-        "Arras"
-      ],
-      "answer": 0,
-      "difficulty": 2
-    },
-    {
-      "q": "Dans « Le Père Noël est une ordure », quel personnage incarne Thierry Lhermitte ?",
-      "choices": [
-        "Pierre Mortez",
-        "Félix",
-        "Monsieur Preskovitch",
-        "Katia"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Qui a réalisé « Le Dîner de cons » ?",
-      "choices": [
-        "Francis Veber",
-        "Claude Zidi",
-        "Gérard Oury",
-        "Patrice Leconte"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Dans « La Cité de la peur », quel personnage devient le garde du corps d'Odile Deray ?",
-      "choices": [
-        "Serge Karamazov",
-        "Simon Jérémi",
-        "Émile Gravier",
-        "Le commissaire Bialès"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quel réalisateur a signé « Les Visiteurs » ?",
-      "choices": [
-        "Jean-Marie Poiré",
-        "Claude Zidi",
-        "Gérard Jugnot",
-        "Francis Veber"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Qui a réalisé « Trois hommes et un couffin » (1985) ?",
-      "choices": [
-        "Coline Serreau",
-        "Josiane Balasko",
-        "Danièle Thompson",
-        "Agnès Jaoui"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quel duo d'acteurs est à l'affiche de « L'Aile ou la Cuisse » (1976) ?",
-      "choices": [
-        "Louis de Funès et Coluche",
-        "Louis de Funès et Bourvil",
-        "Coluche et Depardieu",
-        "Louis de Funès et Yves Montand"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Dans « Les Aventures de Rabbi Jacob », comment s'appelle l'homme d'affaires qui se fait passer pour un rabbin ?",
-      "choices": [
-        "Victor Pivert",
-        "Antoine Maréchal",
-        "Léopold Saroyan",
-        "Stanislas Lefort"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quel réalisateur a signé « La Grande Vadrouille » et « Le Corniaud » ?",
-      "choices": [
-        "Gérard Oury",
-        "Claude Zidi",
-        "Georges Lautner",
-        "Yves Robert"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Quel est le nom complet de l'agent OSS 117 incarné par Jean Dujardin ?",
-      "choices": [
-        "Hubert Bonisseur de La Bath",
-        "Hubert de Montmirail",
-        "Lucien Bramard",
-        "Hubert de La Pâte Feuilletée"
-      ],
-      "answer": 0,
-      "difficulty": 3
-    },
-    {
-      "q": "Dans « La Grande Vadrouille », quel air sert de signe de reconnaissance dans les bains turcs ?",
-      "choices": [
-        "« Tea for Two »",
-        "« La Marseillaise »",
-        "« Lili Marleen »",
-        "« Singin' in the Rain »"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Dans « Le Corniaud », comment s'appelle le célèbre diamant caché dans la Cadillac ?",
-      "choices": [
-        "Le Youkounkoun",
-        "Le Régent",
-        "Le Koh-i-Noor",
-        "Le Sancy"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "En quelle année est sorti « Le Gendarme de Saint-Tropez » ?",
-      "choices": [
-        "1964",
-        "1958",
-        "1968",
-        "1972"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Combien de films compte la saga du « Gendarme » avec Louis de Funès ?",
-      "choices": [
-        "6",
-        "4",
-        "5",
-        "7"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Dans « La Folie des grandeurs », quel acteur incarne le valet Blaze aux côtés de Louis de Funès ?",
-      "choices": [
-        "Yves Montand",
-        "Bourvil",
-        "Jean Gabin",
-        "Bernard Blier"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Dans « Papy fait de la résistance », quel nom porte le mystérieux résistant masqué ?",
-      "choices": [
-        "Super-Résistant",
-        "Le Vengeur masqué",
-        "L'Aigle noir",
-        "Monsieur X"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Quel acteur incarne Monsieur Preskovitch dans « Le Père Noël est une ordure » ?",
-      "choices": [
-        "Bruno Moynot",
-        "Gérard Jugnot",
-        "Christian Clavier",
-        "Michel Blanc"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Quelle actrice incarne à la fois Frénégonde et Béatrice dans « Les Visiteurs » ?",
-      "choices": [
-        "Valérie Lemercier",
-        "Marie-Anne Chazel",
-        "Josiane Balasko",
-        "Chantal Lauby"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Combien d'entrées « La Grande Vadrouille » a-t-elle environ réalisées en France ?",
-      "choices": [
-        "17 millions",
-        "10 millions",
-        "25 millions",
-        "8 millions"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Quel acteur incarne l'adjudant Gerber dans la saga du « Gendarme » ?",
-      "choices": [
-        "Michel Galabru",
-        "Jean Lefebvre",
-        "Guy Grosso",
-        "Michel Modo"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Dans « Podium », quel chanteur le personnage de Couscous imite-t-il ?",
-      "choices": [
-        "Michel Polnareff",
-        "Claude François",
-        "Johnny Hallyday",
-        "Michel Sardou"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    },
-    {
-      "q": "Qui a réalisé « Les Tuche » ?",
-      "choices": [
-        "Olivier Baroux",
-        "Dany Boon",
-        "Kad Merad",
-        "Philippe Lacheau"
-      ],
-      "answer": 0,
-      "difficulty": 4
-    }
+    {"q": "Dans quel film Louis de Funès dirige-t-il la gendarmerie d'une station balnéaire ?", "choices": ["Le Gendarme de Saint-Tropez", "Rabbi Jacob", "La Grande Vadrouille", "L'Aile ou la Cuisse"], "answer": 0, "difficulty": 1},
+    {"q": "Quel duo traverse la France occupée dans « La Grande Vadrouille » ?", "choices": ["Bourvil et Louis de Funès", "Belmondo et Delon", "Coluche et Richard", "Blier et Serrault"], "answer": 0, "difficulty": 1},
+    {"q": "Quel chevalier et son écuyer voyagent dans le temps dans « Les Visiteurs » ?", "choices": ["Godefroy et Jacquouille", "Perceval et Karadoc", "Arthur et Lancelot", "Jean et Pierre"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle réplique culte Jacquouille répète-t-il ?", "choices": ["« Okayyyy »", "« C'est de la balle »", "« Mortecouille uniquement »", "« Sapristi »"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quel film un cadre parisien est-il muté dans le Nord ?", "choices": ["Bienvenue chez les Ch'tis", "Rien à déclarer", "La Ch'tite Famille", "Le Nord c'est le Nord"], "answer": 0, "difficulty": 1},
+    {"q": "Qui réalise et joue dans « Bienvenue chez les Ch'tis » ?", "choices": ["Dany Boon", "Kad Merad", "Gad Elmaleh", "Franck Dubosc"], "answer": 0, "difficulty": 1},
+    {"q": "Quel dîner réunit des invités choisis pour leur bêtise supposée ?", "choices": ["Le Dîner de cons", "Le Grand Restaurant", "Le Repas des fauves", "Le Banquet"], "answer": 0, "difficulty": 1},
+    {"q": "Quel personnage maladroit incarne Pierre Richard dans plusieurs comédies ?", "choices": ["François Perrin/Pignon", "Antoine Doinel", "Hubert", "Léon"], "answer": 0, "difficulty": 3},
+    {"q": "Quel duo culte forme Gérard Depardieu avec Pierre Richard chez Francis Veber ?", "choices": ["La Chèvre, Les Compères, Les Fugitifs", "Les Bronzés", "Le Splendid", "Les Charlots"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle troupe est à l'origine des « Bronzés » ?", "choices": ["Le Splendid", "Les Nuls", "Les Inconnus", "Les Robins des Bois"], "answer": 0, "difficulty": 2},
+    {"q": "Où se déroule « Les Bronzés font du ski » ?", "choices": ["Val d'Isère", "Chamonix", "Courchevel", "Les Arcs"], "answer": 0, "difficulty": 3},
+    {"q": "Quel acteur incarne à la fois Godefroy de Montmirail et sa descendance moderne ?", "choices": ["Jean Reno", "Christian Clavier", "Gérard Jugnot", "Thierry Lhermitte"], "answer": 0, "difficulty": 2},
+    {"q": "Quel film de 2011 réunit un aristocrate tétraplégique et son aide à domicile ?", "choices": ["Intouchables", "Samba", "Hors Normes", "Le Sens de la fête"], "answer": 0, "difficulty": 1},
+    {"q": "Quel personnage incarné par Christian Clavier reçoit des gendres du monde entier ?", "choices": ["Claude Verneuil", "Jacquouille", "Astérix", "Hubert de Montmirail"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « OSS 117 », quel acteur incarne l'espion gaffeur ?", "choices": ["Jean Dujardin", "Guillaume Canet", "Gilles Lellouche", "Albert Dupontel"], "answer": 0, "difficulty": 1},
+    {"q": "Quel taxi marseillais fonce dans les films de Luc Besson ?", "choices": ["Le taxi de Daniel", "Le taxi de Sami", "Le taxi d'Eddy", "Le taxi de Momo"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle comédie suit l'organisation chaotique d'un mariage dans un château ?", "choices": ["Le Sens de la fête", "Mariage à la grecque", "Plan de table", "Un plus une"], "answer": 0, "difficulty": 2},
+    {"q": "Quel instituteur remonte le moral d'un pensionnat en créant une chorale ?", "choices": ["Clément Mathieu (Les Choristes)", "Monsieur Lazhar", "François Foucault", "Georges Lopez"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle famille de « sans-dents » débarque chez des bourgeois dans « Les Tuche » ?", "choices": ["Les Tuche", "Les Groseille", "Les Le Quesnoy", "Les Bidochon"], "answer": 0, "difficulty": 1},
+    {"q": "Dans « La Vie est un long fleuve tranquille », quelles familles sont échangées ?", "choices": ["Les Groseille et les Le Quesnoy", "Les Tuche et les Verneuil", "Les Duval et les Martin", "Les Bodin et les Roche"], "answer": 0, "difficulty": 2},
+    {"q": "Quel acteur incarne Astérix dans « Mission Cléopâtre » ?", "choices": ["Christian Clavier", "Gérard Depardieu", "Édouard Baer", "Clovis Cornillac"], "answer": 0, "difficulty": 2},
+    {"q": "Qui réalise « Astérix et Obélix : Mission Cléopâtre » ?", "choices": ["Alain Chabat", "Claude Zidi", "Michel Hazanavicius", "Dany Boon"], "answer": 0, "difficulty": 2},
+    {"q": "Quel sosie de Claude François incarne Benoît Poelvoorde dans « Podium » ?", "choices": ["Bernard Frédéric", "Jean-Claude Duss", "Bébel", "Patrick Chirac"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle bande d'amis se retrouve chaque été dans « Les Petits Mouchoirs » ?", "choices": ["La bande de Max", "Les Bronzés", "Les Copains d'abord", "La Bande du Splendid"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle comédie de 1966 avec Bourvil et Louis de Funès est longtemps restée le film français le plus vu en France ?", "choices": ["La Grande Vadrouille", "Le Corniaud", "Les Grandes Vacances", "Le Petit Baigneur"], "answer": 0, "difficulty": 1},
+    {"q": "Dans « Astérix et Obélix : Mission Cléopâtre », quel acteur incarne Obélix ?", "choices": ["Gérard Depardieu", "Christian Clavier", "Alain Chabat", "Jamel Debbouze"], "answer": 0, "difficulty": 1},
+    {"q": "Quel acteur comique incarne le gendarme Cruchot ?", "choices": ["Louis de Funès", "Bourvil", "Fernandel", "Coluche"], "answer": 0, "difficulty": 1},
+    {"q": "Dans « Les Bronzés », quel personnage éternellement malchanceux en amour incarne Michel Blanc ?", "choices": ["Jean-Claude Dusse", "Popeye", "Bernard Morin", "Gilbert"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quelle ville du Nord Philippe Abrams est-il muté dans « Bienvenue chez les Ch'tis » ?", "choices": ["Bergues", "Dunkerque", "Lille", "Arras"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Le Père Noël est une ordure », quel personnage incarne Thierry Lhermitte ?", "choices": ["Pierre Mortez", "Félix", "Monsieur Preskovitch", "Katia"], "answer": 0, "difficulty": 3},
+    {"q": "Qui a réalisé « Le Dîner de cons » ?", "choices": ["Francis Veber", "Claude Zidi", "Gérard Oury", "Patrice Leconte"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « La Cité de la peur », quel personnage devient le garde du corps d'Odile Deray ?", "choices": ["Serge Karamazov", "Simon Jérémi", "Émile Gravier", "Le commissaire Bialès"], "answer": 0, "difficulty": 3},
+    {"q": "Quel réalisateur a signé « Les Visiteurs » ?", "choices": ["Jean-Marie Poiré", "Claude Zidi", "Gérard Jugnot", "Francis Veber"], "answer": 0, "difficulty": 3},
+    {"q": "Qui a réalisé « Trois hommes et un couffin » (1985) ?", "choices": ["Coline Serreau", "Josiane Balasko", "Danièle Thompson", "Agnès Jaoui"], "answer": 0, "difficulty": 3},
+    {"q": "Quel duo d'acteurs est à l'affiche de « L'Aile ou la Cuisse » (1976) ?", "choices": ["Louis de Funès et Coluche", "Louis de Funès et Bourvil", "Coluche et Depardieu", "Louis de Funès et Yves Montand"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Les Aventures de Rabbi Jacob », comment s'appelle l'homme d'affaires qui se fait passer pour un rabbin ?", "choices": ["Victor Pivert", "Antoine Maréchal", "Léopold Saroyan", "Stanislas Lefort"], "answer": 0, "difficulty": 3},
+    {"q": "Quel réalisateur a signé « La Grande Vadrouille » et « Le Corniaud » ?", "choices": ["Gérard Oury", "Claude Zidi", "Georges Lautner", "Yves Robert"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le nom complet de l'agent OSS 117 incarné par Jean Dujardin ?", "choices": ["Hubert Bonisseur de La Bath", "Hubert de Montmirail", "Lucien Bramard", "Hubert de La Pâte Feuilletée"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « La Grande Vadrouille », quel air sert de signe de reconnaissance dans les bains turcs ?", "choices": ["« Tea for Two »", "« La Marseillaise »", "« Lili Marleen »", "« Singin' in the Rain »"], "answer": 0, "difficulty": 4},
+    {"q": "Dans « Le Corniaud », comment s'appelle le célèbre diamant caché dans la Cadillac ?", "choices": ["Le Youkounkoun", "Le Régent", "Le Koh-i-Noor", "Le Sancy"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année est sorti « Le Gendarme de Saint-Tropez » ?", "choices": ["1964", "1958", "1968", "1972"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de films compte la saga du « Gendarme » avec Louis de Funès ?", "choices": ["6", "4", "5", "7"], "answer": 0, "difficulty": 4},
+    {"q": "Dans « La Folie des grandeurs », quel acteur incarne le valet Blaze aux côtés de Louis de Funès ?", "choices": ["Yves Montand", "Bourvil", "Jean Gabin", "Bernard Blier"], "answer": 0, "difficulty": 4},
+    {"q": "Dans « Papy fait de la résistance », quel nom porte le mystérieux résistant masqué ?", "choices": ["Super-Résistant", "Le Vengeur masqué", "L'Aigle noir", "Monsieur X"], "answer": 0, "difficulty": 4},
+    {"q": "Quel acteur incarne Monsieur Preskovitch dans « Le Père Noël est une ordure » ?", "choices": ["Bruno Moynot", "Gérard Jugnot", "Christian Clavier", "Michel Blanc"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle actrice incarne à la fois Frénégonde et Béatrice dans « Les Visiteurs » ?", "choices": ["Valérie Lemercier", "Marie-Anne Chazel", "Josiane Balasko", "Chantal Lauby"], "answer": 0, "difficulty": 4},
+    {"q": "Combien d'entrées « La Grande Vadrouille » a-t-elle environ réalisées en France ?", "choices": ["17 millions", "10 millions", "25 millions", "8 millions"], "answer": 0, "difficulty": 4},
+    {"q": "Quel acteur incarne l'adjudant Gerber dans la saga du « Gendarme » ?", "choices": ["Michel Galabru", "Jean Lefebvre", "Guy Grosso", "Michel Modo"], "answer": 0, "difficulty": 4},
+    {"q": "Dans « Podium », quel chanteur le personnage de Couscous imite-t-il ?", "choices": ["Michel Polnareff", "Claude François", "Johnny Hallyday", "Michel Sardou"], "answer": 0, "difficulty": 4},
+    {"q": "Qui a réalisé « Les Tuche » ?", "choices": ["Olivier Baroux", "Dany Boon", "Kad Merad", "Philippe Lacheau"], "answer": 0, "difficulty": 4},
+    {"q": "Dans le premier film « Les Bronzés », dans quel type d'établissement les personnages passent-ils leurs vacances ?", "choices": ["Un club de vacances", "Un camping", "Une croisière", "Un hôtel de luxe"], "answer": 0, "difficulty": 1},
+    {"q": "Dans « Les Visiteurs », de quelle époque viennent Godefroy et Jacquouille avant d'arriver au XXe siècle ?", "choices": ["Le Moyen Âge", "L'Antiquité", "La Renaissance", "Le XIXe siècle"], "answer": 0, "difficulty": 1},
+    {"q": "Dans « Bienvenue chez les Ch'tis », quel métier exerce Philippe Abrams ?", "choices": ["Directeur de bureau de poste", "Instituteur", "Gendarme", "Médecin"], "answer": 0, "difficulty": 1},
+    {"q": "Quel acteur incarne Driss, l'aide à domicile, dans « Intouchables » ?", "choices": ["Omar Sy", "Jamel Debbouze", "Fabrice Éboué", "Ahmed Sylla"], "answer": 0, "difficulty": 1},
+    {"q": "Dans « Le Dîner de cons », que fabrique François Pignon avec des allumettes ?", "choices": ["Des maquettes de monuments", "Des maquettes d'avion", "Des châteaux de cartes", "Des origamis"], "answer": 0, "difficulty": 1},
+    {"q": "Dans le premier film « Les Tuche », grâce à quel jeu la famille devient-elle subitement riche ?", "choices": ["Le loto", "Un héritage", "Un concours de télévision", "La Bourse"], "answer": 0, "difficulty": 1},
+    {"q": "Quel réalisateur a mis en scène « OSS 117 : Le Caire, nid d'espions » avec Jean Dujardin ?", "choices": ["Michel Hazanavicius", "Dany Boon", "Philippe de Chauveron", "Éric Toledano"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Le Grand Blond avec une chaussure noire », de quel instrument joue le personnage de Pierre Richard ?", "choices": ["Le violon", "Le piano", "La trompette", "La guitare"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle comédie de 2014 met en scène le mariage des quatre filles d'un couple bourgeois de Chinon ?", "choices": ["Qu'est-ce qu'on a fait au Bon Dieu ?", "Le Sens de la fête", "La Ch'tite Famille", "Le Prénom"], "answer": 0, "difficulty": 2},
+    {"q": "Quel acteur incarne Fernand Naudin dans « Les Tontons flingueurs » ?", "choices": ["Lino Ventura", "Bernard Blier", "Francis Blanche", "Jean Lefebvre"], "answer": 0, "difficulty": 2},
+    {"q": "Qui a réalisé « Intouchables » (2011) ?", "choices": ["Olivier Nakache et Éric Toledano", "Dany Boon", "Philippe Lioret", "Cédric Klapisch"], "answer": 0, "difficulty": 3},
+    {"q": "Quel réalisateur a signé « La Cité de la peur » avec la troupe des Nuls ?", "choices": ["Alain Berbérian", "Josiane Balasko", "Gérard Oury", "Francis Veber"], "answer": 0, "difficulty": 3},
+    {"q": "Qui a écrit les dialogues des « Tontons flingueurs » ?", "choices": ["Michel Audiard", "Francis Veber", "Jean-Loup Dabadie", "Henri Jeanson"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle actrice a écrit et réalisé la comédie « Gazon maudit » (1995) ?", "choices": ["Josiane Balasko", "Coline Serreau", "Agnès Jaoui", "Tonie Marshall"], "answer": 0, "difficulty": 3},
+    {"q": "Quel réalisateur, proche de la troupe du Splendid, a mis en scène le premier film « Les Bronzés » ?", "choices": ["Patrice Leconte", "Jean-Marie Poiré", "Claude Zidi", "Gérard Jugnot"], "answer": 0, "difficulty": 3},
+    {"q": "Quel acteur incarne François Pignon, le champion des maquettes, dans « Le Dîner de cons » ?", "choices": ["Jacques Villeret", "Thierry Lhermitte", "Daniel Prévost", "Francis Huster"], "answer": 0, "difficulty": 3},
+    {"q": "Comment s'appelle le gendarme rêveur incarné par Jean Lefebvre dans la saga du « Gendarme » ?", "choices": ["Fougasse", "Merlot", "Berlicot", "Tricard"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle spécialité culinaire monsieur Preskovic apporte-t-il dans « Le Père Noël est une ordure » ?", "choices": ["Les doubitchous", "Les zakouskis", "Les loukoums", "Les pierogis"], "answer": 0, "difficulty": 4},
+    {"q": "Combien d'entrées « Bienvenue chez les Ch'tis » a-t-il approximativement réalisées en France ?", "choices": ["Plus de 20 millions", "Environ 12 millions", "Environ 8 millions", "Environ 30 millions"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année est sorti « Le Dîner de cons » de Francis Veber ?", "choices": ["1998", "1995", "2001", "1992"], "answer": 0, "difficulty": 4},
+    {"q": "Quel lien de parenté unit les personnages de Louis de Funès et de Coluche dans « L'Aile ou la Cuisse » ?", "choices": ["Père et fils", "Oncle et neveu", "Patron et employé", "Frères"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année est sorti « Les Aventures de Rabbi Jacob » de Gérard Oury ?", "choices": ["1973", "1968", "1976", "1980"], "answer": 0, "difficulty": 4}
   ]
 }

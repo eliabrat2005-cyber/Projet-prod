@@ -55,6 +55,26 @@
     {"q": "Quel nom porte la boîte à pralines créée par la maison Neuhaus ?", "choices": ["Le ballotin", "Le coffret", "La bonbonnière", "Le drageoir"], "answer": 0, "difficulty": 4},
     {"q": "Quelle reine, épouse de Louis XIII, introduisit le chocolat à la cour de France ?", "choices": ["Anne d'Autriche", "Marie de Médicis", "Catherine de Médicis", "Marie-Thérèse d'Espagne"], "answer": 0, "difficulty": 4},
     {"q": "Dans quelle commune de la Drôme se trouve le siège historique du chocolatier Valrhona ?", "choices": ["Tain-l'Hermitage", "Valence", "Montélimar", "Romans-sur-Isère"], "answer": 0, "difficulty": 4},
-    {"q": "Quelle teneur minimale en beurre de cacao doit contenir un chocolat dit « de couverture » ?", "choices": ["31 %", "20 %", "40 %", "55 %"], "answer": 0, "difficulty": 4}
+    {"q": "Quelle teneur minimale en beurre de cacao doit contenir un chocolat dit « de couverture » ?", "choices": ["31 %", "20 %", "40 %", "55 %"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle fête chrétienne célèbre-t-on traditionnellement en offrant des œufs en chocolat ?", "choices": ["Pâques", "La Pentecôte", "La Toussaint", "L'Ascension"], "answer": 0, "difficulty": 1},
+    {"q": "Quelle boisson chaude obtient-on en mélangeant du cacao avec du lait ?", "choices": ["Le chocolat chaud", "Le café au lait", "Le thé au lait", "La chicorée"], "answer": 0, "difficulty": 1},
+    {"q": "Quel est le principal corps gras du chocolat, extrait de la fève de cacao ?", "choices": ["Le beurre de cacao", "L'huile de palme", "Le beurre laitier", "La margarine"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle barre chocolatée américaine est fourrée de caramel, de nougat et de cacahuètes ?", "choices": ["Le Snickers", "Le Kit Kat", "Le Bounty", "Le Twix"], "answer": 0, "difficulty": 2},
+    {"q": "De quel fruit la barre chocolatée Bounty est-elle fourrée ?", "choices": ["La noix de coco", "L'amande", "La noisette", "La cerise"], "answer": 0, "difficulty": 2},
+    {"q": "Quel bonbon de chocolat, fait de ganache roulée dans le cacao en poudre, est traditionnel à Noël ?", "choices": ["La truffe", "Le nougat", "La pâte d'amande", "Le calisson"], "answer": 0, "difficulty": 2},
+    {"q": "Comment appelle-t-on un artisan spécialisé dans la fabrication du chocolat ?", "choices": ["Un chocolatier", "Un fromager", "Un charcutier", "Un boulanger"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle marque de poudre chocolatée pour petit-déjeuner appartient au groupe Nestlé ?", "choices": ["Nesquik", "Banania", "Poulain", "Van Houten"], "answer": 0, "difficulty": 2},
+    {"q": "Quel pays d'Amérique du Sud est réputé pour son cacao fin de variété « Nacional » dit Arriba ?", "choices": ["L'Équateur", "Le Pérou", "La Colombie", "Le Brésil"], "answer": 0, "difficulty": 3},
+    {"q": "Comment appelle-t-on l'étape où les fèves de cacao développent leurs arômes sous l'action de levures ?", "choices": ["La fermentation", "La torréfaction", "Le conchage", "Le tempérage"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle épice les Aztèques ajoutaient-ils traditionnellement à leur boisson au cacao pour la relever ?", "choices": ["Le piment", "La cannelle", "Le gingembre", "Le safran"], "answer": 0, "difficulty": 3},
+    {"q": "Comment nomme-t-on la pâte obtenue après broyage des fèves torréfiées, avant tout ajout de sucre ?", "choices": ["La masse de cacao", "Le beurre de cacao", "Le gianduja", "Le praliné"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle est la plus ancienne chocolaterie de Paris, fondée en 1800 par Sulpice Debauve ?", "choices": ["Debauve et Gallais", "La Maison du Chocolat", "Jean-Paul Hévin", "Patrick Roger"], "answer": 0, "difficulty": 3},
+    {"q": "Comment appelle-t-on les éclats de fèves de cacao torréfiées et concassées ?", "choices": ["Le grué", "Le tourteau", "La lécithine", "La nougatine"], "answer": 0, "difficulty": 3},
+    {"q": "Quel chocolatier suisse, associé à Henri Nestlé, mit au point le chocolat au lait en 1875 ?", "choices": ["Daniel Peter", "Rodolphe Lindt", "Philippe Suchard", "François-Louis Cailler"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année la marque Toblerone fut-elle créée à Berne par Theodor Tobler ?", "choices": ["1908", "1875", "1923", "1946"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quelle ville anglaise John Cadbury ouvrit-il sa première boutique de cacao en 1824 ?", "choices": ["Birmingham", "York", "Bristol", "Manchester"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Milton Hershey lança-t-il la friandise Hershey's Kiss ?", "choices": ["1907", "1894", "1923", "1945"], "answer": 0, "difficulty": 4},
+    {"q": "Quel naturaliste suédois donna au cacaoyer le nom de genre Theobroma en 1753 ?", "choices": ["Carl von Linné", "Charles Darwin", "Joseph Banks", "Georges Cuvier"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année Victor-Auguste Poulain fonda-t-il sa chocolaterie à Blois ?", "choices": ["1848", "1800", "1884", "1912"], "answer": 0, "difficulty": 4}
   ]
 }

@@ -78,6 +78,18 @@
     {"q": "Quelle est la capitale de la Nouvelle-Zélande ?", "choices": ["Wellington", "Auckland", "Christchurch", "Hamilton"], "answer": 0, "difficulty": 4},
     {"q": "Quelle ville est le siège du gouvernement de l'Afrique du Sud ?", "choices": ["Pretoria", "Le Cap", "Johannesbourg", "Durban"], "answer": 0, "difficulty": 4},
     {"q": "Quel est le plus petit pays d'Amérique du Sud par sa superficie ?", "choices": ["Le Suriname", "L'Uruguay", "Le Guyana", "L'Équateur"], "answer": 0, "difficulty": 4},
-    {"q": "Quelle est la plus longue chaîne de montagnes continentale du monde ?", "choices": ["La cordillère des Andes", "L'Himalaya", "Les montagnes Rocheuses", "Les Alpes"], "answer": 0, "difficulty": 4}
+    {"q": "Quelle est la plus longue chaîne de montagnes continentale du monde ?", "choices": ["La cordillère des Andes", "L'Himalaya", "Les montagnes Rocheuses", "Les Alpes"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pays partage ses frontières terrestres avec quatorze États, à égalité avec la Russie ?", "choices": ["La Chine", "L'Inde", "Le Brésil", "L'Allemagne"], "answer": 0, "difficulty": 3},
+    {"q": "Quel petit royaume est entièrement enclavé à l'intérieur de l'Afrique du Sud ?", "choices": ["Le Lesotho", "L'Eswatini", "Le Botswana", "La Namibie"], "answer": 0, "difficulty": 3},
+    {"q": "Quel fleuve possède le plus grand débit d'eau du monde ?", "choices": ["L'Amazone", "L'Orénoque", "Le Paraná", "Le Congo"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle est la capitale du Nigeria depuis 1991 ?", "choices": ["Abuja", "Lagos", "Kano", "Ibadan"], "answer": 0, "difficulty": 3},
+    {"q": "Quel pays européen possède le plus grand nombre d'îles ?", "choices": ["La Suède", "La Grèce", "La Norvège", "La Croatie"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle mer borde à la fois la Suède, la Pologne et les pays baltes ?", "choices": ["La mer Baltique", "La mer du Nord", "La mer de Norvège", "La mer Blanche"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle ville est le siège du gouvernement de la Bolivie ?", "choices": ["La Paz", "Sucre", "Santa Cruz", "Cochabamba"], "answer": 0, "difficulty": 4},
+    {"q": "Quel est le point terrestre émergé le plus bas du globe ?", "choices": ["Les rives de la mer Morte", "La vallée de la Mort", "La dépression de Qattara", "Le lac Assal"], "answer": 0, "difficulty": 4},
+    {"q": "Quel pays abrite le plus grand nombre de volcans actifs au monde ?", "choices": ["L'Indonésie", "Le Japon", "Les États-Unis", "Le Chili"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est la capitale du Myanmar (Birmanie) depuis 2006 ?", "choices": ["Naypyidaw", "Rangoun", "Mandalay", "Bagan"], "answer": 0, "difficulty": 4},
+    {"q": "Quel détroit, l'un des plus fréquentés du monde, relie l'océan Indien à la mer de Chine méridionale ?", "choices": ["Le détroit de Malacca", "Le détroit d'Ormuz", "Le détroit de Béring", "Le détroit de Torres"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est l'altitude du mont Blanc, plus haut sommet des Alpes ?", "choices": ["4 809 mètres", "4 478 mètres", "3 798 mètres", "5 642 mètres"], "answer": 0, "difficulty": 4}
   ]
 }

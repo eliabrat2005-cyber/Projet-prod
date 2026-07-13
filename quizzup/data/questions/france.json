@@ -60,6 +60,21 @@
     {"q": "Quelle rivière traverse Bayonne avant de confluer avec l'Adour ?", "choices": ["La Nive", "Le gave de Pau", "La Bidassoa", "La Nivelle"], "answer": 0, "difficulty": 4},
     {"q": "Quelle est la préfecture la moins peuplée de France métropolitaine ?", "choices": ["Privas", "Mende", "Digne-les-Bains", "Foix"], "answer": 0, "difficulty": 4},
     {"q": "En quelle année la Savoie et le comté de Nice furent-ils rattachés à la France ?", "choices": ["1860", "1815", "1789", "1919"], "answer": 0, "difficulty": 4},
-    {"q": "Quelle est la plus haute cascade de France, située dans les Pyrénées ?", "choices": ["La grande cascade de Gavarnie", "La cascade du Rouget", "La cascade de la Pisse", "Les cascades du Hérisson"], "answer": 0, "difficulty": 4}
+    {"q": "Quelle est la plus haute cascade de France, située dans les Pyrénées ?", "choices": ["La grande cascade de Gavarnie", "La cascade du Rouget", "La cascade de la Pisse", "Les cascades du Hérisson"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est la capitale de la France ?", "choices": ["Paris", "Lyon", "Marseille", "Lille"], "answer": 0, "difficulty": 1},
+    {"q": "De quelles couleurs est composé le drapeau français ?", "choices": ["Bleu, blanc et rouge", "Rouge, blanc et vert", "Bleu, blanc et jaune", "Rouge, blanc et noir"], "answer": 0, "difficulty": 1},
+    {"q": "Quel océan borde les côtes de Biarritz et de Bordeaux ?", "choices": ["L'océan Atlantique", "La mer Méditerranée", "La Manche", "La mer du Nord"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle ville est la préfecture de la région Bourgogne-Franche-Comté ?", "choices": ["Dijon", "Besançon", "Auxerre", "Mâcon"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle ville est la préfecture du département de la Creuse ?", "choices": ["Guéret", "Aubusson", "Bourganeuf", "La Souterraine"], "answer": 0, "difficulty": 3},
+    {"q": "Quel col alpin, culminant à 2 764 mètres, est le plus haut col routier des Alpes françaises ?", "choices": ["Le col de l'Iseran", "Le col du Galibier", "Le col du Tourmalet", "Le col de la Croix-de-Fer"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le deuxième fleuve le plus long de France, après la Loire ?", "choices": ["La Seine", "La Garonne", "Le Rhône", "La Dordogne"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle ville est la préfecture du département du Cantal ?", "choices": ["Aurillac", "Saint-Flour", "Mauriac", "Murat"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle ville est la préfecture de la région Grand Est ?", "choices": ["Strasbourg", "Metz", "Reims", "Nancy"], "answer": 0, "difficulty": 3},
+    {"q": "Quel roi de France fut sacré à Reims en 1429 en présence de Jeanne d'Arc ?", "choices": ["Charles VII", "Charles VI", "Louis XI", "Charles VIII"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année l'édit de Nantes, accordant des droits aux protestants, fut-il promulgué par Henri IV ?", "choices": ["1598", "1572", "1610", "1685"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est la commune la plus méridionale de la France métropolitaine continentale ?", "choices": ["Lamanère", "Cerbère", "Menton", "Perpignan"], "answer": 0, "difficulty": 4},
+    {"q": "Quel département français d'outre-mer porte le numéro 976 ?", "choices": ["Mayotte", "La Réunion", "La Guadeloupe", "La Guyane"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle ville Clovis fit-il capitale du royaume franc vers 508 ?", "choices": ["Paris", "Reims", "Soissons", "Tournai"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année la Corse fut-elle cédée à la France par la République de Gênes ?", "choices": ["1768", "1789", "1815", "1860"], "answer": 0, "difficulty": 4}
   ]
 }

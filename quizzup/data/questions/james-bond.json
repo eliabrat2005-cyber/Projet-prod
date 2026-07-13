@@ -55,6 +55,26 @@
     {"q": "Lequel de ces titres est un film de James Bond ?", "choices": ["GoldenEye", "Mission: Impossible", "Jason Bourne", "OSS 117"], "answer": 0, "difficulty": 1},
     {"q": "De quel gadget célèbre l'Aston Martin de Bond est-elle équipée ?", "choices": ["Un siège éjectable", "Une piscine", "Un four à micro-ondes", "Un distributeur de bonbons"], "answer": 0, "difficulty": 1},
     {"q": "Quel acteur a incarné Q pendant plus de trente ans, de « Bons Baisers de Russie » au « Monde ne suffit pas » ?", "choices": ["Desmond Llewelyn", "John Cleese", "Ben Whishaw", "Peter Burton"], "answer": 0, "difficulty": 3},
-    {"q": "Dans « GoldenEye » (1995), qui est le méchant, ancien agent 006 devenu traître ?", "choices": ["Alec Trevelyan", "Max Zorin", "Renard", "Elliot Carver"], "answer": 0, "difficulty": 3}
+    {"q": "Dans « GoldenEye » (1995), qui est le méchant, ancien agent 006 devenu traître ?", "choices": ["Alec Trevelyan", "Max Zorin", "Renard", "Elliot Carver"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quelle ville se situe le quartier général du MI6 de James Bond ?", "choices": ["Londres", "Paris", "New York", "Genève"], "answer": 0, "difficulty": 1},
+    {"q": "Quel acteur incarne James Bond dans « GoldenEye » (1995) ?", "choices": ["Pierce Brosnan", "Sean Connery", "Roger Moore", "Timothy Dalton"], "answer": 0, "difficulty": 1},
+    {"q": "Quel acteur incarne James Bond dans « Casino Royale » (2006) ?", "choices": ["Daniel Craig", "Pierce Brosnan", "Sean Connery", "George Lazenby"], "answer": 0, "difficulty": 1},
+    {"q": "Comment appelle-t-on les personnages féminins séduisants récurrents de la saga ?", "choices": ["Les James Bond girls", "Les Bond boys", "Les M girls", "Les Q girls"], "answer": 0, "difficulty": 1},
+    {"q": "Quel type d'établissement James Bond fréquente-t-il souvent pour ses parties de cartes à gros enjeux ?", "choices": ["Un casino", "Une caserne", "Une ambassade", "Un hôpital"], "answer": 0, "difficulty": 1},
+    {"q": "Quel film de 1964 voit Bond affronter un criminel obsédé par l'or ?", "choices": ["Goldfinger", "Dr No", "Bons Baisers de Russie", "Opération Tonnerre"], "answer": 0, "difficulty": 2},
+    {"q": "Quel est le nom complet du chef borgne du SPECTRE, ennemi récurrent de Bond ?", "choices": ["Ernst Stavro Blofeld", "Auric Goldfinger", "Julius No", "Le Chiffre"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quel film de 1977 le tueur « Requin » aux dents d'acier apparaît-il pour la première fois ?", "choices": ["L'Espion qui m'aimait", "Moonraker", "Vivre et laisser mourir", "Rien que pour vos yeux"], "answer": 0, "difficulty": 2},
+    {"q": "Quelle actrice incarne Vesper Lynd dans « Casino Royale » (2006) ?", "choices": ["Eva Green", "Léa Seydoux", "Halle Berry", "Monica Bellucci"], "answer": 0, "difficulty": 2},
+    {"q": "Quel groupe a interprété la chanson-titre du film « Dangereusement vôtre » (1985) ?", "choices": ["Duran Duran", "Tina Turner", "a-ha", "Sheena Easton"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle actrice française incarne Madeleine Swann dans « Spectre » et « Mourir peut attendre » ?", "choices": ["Léa Seydoux", "Eva Green", "Marion Cotillard", "Bérénice Marlohe"], "answer": 0, "difficulty": 3},
+    {"q": "Quel réalisateur a dirigé « GoldenEye » (1995) ?", "choices": ["Martin Campbell", "Sam Mendes", "Guy Hamilton", "John Glen"], "answer": 0, "difficulty": 3},
+    {"q": "Quel film de James Bond de 1971, avec Sean Connery, est centré sur un trafic de diamants ?", "choices": ["Les diamants sont éternels", "Goldfinger", "Opération Tonnerre", "On ne vit que deux fois"], "answer": 0, "difficulty": 3},
+    {"q": "Quel acteur incarne le méchant Raoul Silva dans « Skyfall » (2012) ?", "choices": ["Javier Bardem", "Christoph Waltz", "Mads Mikkelsen", "Rami Malek"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Opération Tonnerre » (1965), à quelle organisation appartient le méchant Emilio Largo ?", "choices": ["Le SPECTRE", "Le SMERSH", "Quantum", "Le KGB"], "answer": 0, "difficulty": 3},
+    {"q": "Quel acteur incarne Ernst Stavro Blofeld dans « Spectre » (2015) ?", "choices": ["Christoph Waltz", "Javier Bardem", "Mads Mikkelsen", "Rami Malek"], "answer": 0, "difficulty": 4},
+    {"q": "Quel acteur incarne le méchant Safin dans « Mourir peut attendre » (2021) ?", "choices": ["Rami Malek", "Christoph Waltz", "Javier Bardem", "Mathieu Amalric"], "answer": 0, "difficulty": 4},
+    {"q": "Quel acteur français incarne le méchant Dominic Greene dans « Quantum of Solace » (2008) ?", "choices": ["Mathieu Amalric", "Jean Reno", "Vincent Cassel", "Tchéky Karyo"], "answer": 0, "difficulty": 4},
+    {"q": "Quel roman d'Ian Fleming publié en 1953 est le tout premier de la série James Bond ?", "choices": ["Casino Royale", "Vivre et laisser mourir", "Moonraker", "Goldfinger"], "answer": 0, "difficulty": 4},
+    {"q": "Quel général du KGB, interprété par Walter Gotell, apparaît dans plusieurs films de Bond des années 1970-1980 ?", "choices": ["Le général Gogol", "Le général Orlov", "Rosa Klebb", "Le docteur No"], "answer": 0, "difficulty": 4}
   ]
 }

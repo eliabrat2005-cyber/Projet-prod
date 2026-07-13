@@ -83,6 +83,18 @@
     {"q": "Combien de paires de nerfs crâniens possède l'être humain ?", "choices": ["12", "10", "24", "31"], "answer": 0, "difficulty": 4},
     {"q": "Quelle est la valeur approximative de la constante de Planck ?", "choices": ["6,63 × 10⁻³⁴ J·s", "1,60 × 10⁻¹⁹ J·s", "6,02 × 10²³ J·s", "9,81 × 10⁻³¹ J·s"], "answer": 0, "difficulty": 4},
     {"q": "Quel physicien écossais a unifié l'électricité et le magnétisme dans ses célèbres équations au XIXe siècle ?", "choices": ["James Clerk Maxwell", "Michael Faraday", "André-Marie Ampère", "Heinrich Hertz"], "answer": 0, "difficulty": 4},
-    {"q": "Quel métal de symbole W tire son nom du minerai wolfram ?", "choices": ["Le tungstène", "Le titane", "Le tantale", "Le vanadium"], "answer": 0, "difficulty": 4}
+    {"q": "Quel métal de symbole W tire son nom du minerai wolfram ?", "choices": ["Le tungstène", "Le titane", "Le tantale", "Le vanadium"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est l'unité de mesure de la pression dans le Système international ?", "choices": ["Le pascal", "Le bar", "L'atmosphère", "Le newton"], "answer": 0, "difficulty": 3},
+    {"q": "Quel physicien danois a proposé en 1913 un modèle de l'atome avec des orbites électroniques quantifiées ?", "choices": ["Niels Bohr", "Ernest Rutherford", "Max Planck", "Joseph John Thomson"], "answer": 0, "difficulty": 3},
+    {"q": "Quel est le gaz noble le plus léger ?", "choices": ["L'hélium", "Le néon", "L'argon", "Le krypton"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle est la formule chimique du méthane ?", "choices": ["CH₄", "CO₂", "C₂H₆", "CH₃OH"], "answer": 0, "difficulty": 3},
+    {"q": "Quel organite de la cellule est le principal lieu de production de l'ATP ?", "choices": ["La mitochondrie", "Le noyau", "Le ribosome", "L'appareil de Golgi"], "answer": 0, "difficulty": 3},
+    {"q": "Quel type de roche se forme par refroidissement et solidification du magma ?", "choices": ["La roche magmatique", "La roche sédimentaire", "La roche métamorphique", "Le calcaire"], "answer": 0, "difficulty": 3},
+    {"q": "Quelle est la valeur approximative de la constante de gravitation universelle G ?", "choices": ["6,67 × 10⁻¹¹ N·m²/kg²", "9,81 N·m²/kg²", "6,02 × 10²³ N·m²/kg²", "1,60 × 10⁻¹⁹ N·m²/kg²"], "answer": 0, "difficulty": 4},
+    {"q": "Quel physicien né en Nouvelle-Zélande a démontré l'existence du noyau atomique grâce à son expérience de la feuille d'or ?", "choices": ["Ernest Rutherford", "Niels Bohr", "Joseph John Thomson", "James Chadwick"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année James Watson et Francis Crick ont-ils publié la structure en double hélice de l'ADN ?", "choices": ["1953", "1944", "1962", "1928"], "answer": 0, "difficulty": 4},
+    {"q": "Quel élément chimique a pour symbole Sb ?", "choices": ["L'antimoine", "L'étain", "Le strontium", "Le soufre"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle est la température approximative de la surface (photosphère) du Soleil ?", "choices": ["Environ 5 500 °C", "Environ 1 000 °C", "Environ 15 millions de °C", "Environ 100 000 °C"], "answer": 0, "difficulty": 4},
+    {"q": "Quel astronome danois du XVIe siècle a réalisé les observations planétaires précises exploitées ensuite par Johannes Kepler ?", "choices": ["Tycho Brahe", "Nicolas Copernic", "Galilée", "Johannes Hevelius"], "answer": 0, "difficulty": 4}
   ]
 }

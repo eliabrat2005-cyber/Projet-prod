@@ -56,6 +56,25 @@
     {"q": "Quel monument de Pétra sert de décor à la scène finale d'Indiana Jones et la Dernière Croisade ?", "choices": ["La Khazneh (le Trésor)", "Le Deir (le Monastère)", "Le théâtre romain", "Le tombeau aux Obélisques"], "answer": 0, "difficulty": 4},
     {"q": "Quel empereur byzantin a fait édifier la basilique Sainte-Sophie de Constantinople au VIe siècle ?", "choices": ["Justinien Ier", "Constantin Ier", "Théodose II", "Basile II"], "answer": 0, "difficulty": 4},
     {"q": "Combien de moaïs compte environ l'île de Pâques ?", "choices": ["Environ 900", "Environ 150", "Environ 3 000", "Environ 50"], "answer": 0, "difficulty": 4},
-    {"q": "Quel roi khmer a fait construire le temple d'Angkor Vat au XIIe siècle ?", "choices": ["Suryavarman II", "Jayavarman VII", "Indravarman Ier", "Yasovarman Ier"], "answer": 0, "difficulty": 4}
+    {"q": "Quel roi khmer a fait construire le temple d'Angkor Vat au XIIe siècle ?", "choices": ["Suryavarman II", "Jayavarman VII", "Indravarman Ier", "Yasovarman Ier"], "answer": 0, "difficulty": 4},
+    {"q": "Dans quelle ville se trouve la tour Eiffel ?", "choices": ["Paris", "Londres", "Rome", "Madrid"], "answer": 0, "difficulty": 1},
+    {"q": "Dans quel pays se trouve le Colisée ?", "choices": ["Italie", "Grèce", "Espagne", "France"], "answer": 0, "difficulty": 1},
+    {"q": "Dans quelle ville américaine se dresse la statue de la Liberté ?", "choices": ["New York", "Washington", "Boston", "Chicago"], "answer": 0, "difficulty": 1},
+    {"q": "Dans quel pays se trouve le temple d'Angkor Vat ?", "choices": ["Cambodge", "Thaïlande", "Vietnam", "Laos"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quelle ville indienne se trouve le Taj Mahal ?", "choices": ["Agra", "New Delhi", "Jaipur", "Bombay"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quelle ville se trouve la Sagrada Família ?", "choices": ["Barcelone", "Madrid", "Valence", "Séville"], "answer": 0, "difficulty": 2},
+    {"q": "Quel fleuve coule au pied de la cathédrale Notre-Dame de Paris ?", "choices": ["La Seine", "La Loire", "Le Rhône", "La Garonne"], "answer": 0, "difficulty": 2},
+    {"q": "Dans quel pays se dresse la statue du Christ Rédempteur ?", "choices": ["Brésil", "Argentine", "Portugal", "Mexique"], "answer": 0, "difficulty": 2},
+    {"q": "Quel architecte a conçu le musée Guggenheim de Bilbao ?", "choices": ["Frank Gehry", "Zaha Hadid", "Renzo Piano", "Norman Foster"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quel pays se trouvent les milliers de temples de Bagan ?", "choices": ["Birmanie", "Thaïlande", "Inde", "Népal"], "answer": 0, "difficulty": 3},
+    {"q": "Quel matériau blanc compose principalement le Taj Mahal ?", "choices": ["Le marbre blanc", "Le calcaire", "Le granit", "L'albâtre"], "answer": 0, "difficulty": 3},
+    {"q": "Dans quel État se trouve la basilique Saint-Pierre, plus grande église du monde ?", "choices": ["Le Vatican", "Florence", "Milan", "Naples"], "answer": 0, "difficulty": 3},
+    {"q": "Quel roi de France a fait édifier le château de Versailles dans sa forme monumentale ?", "choices": ["Louis XIV", "Louis XV", "François Ier", "Henri IV"], "answer": 0, "difficulty": 3},
+    {"q": "En quelle année la tour Eiffel a-t-elle été inaugurée lors de l'Exposition universelle ?", "choices": ["1889", "1900", "1878", "1867"], "answer": 0, "difficulty": 4},
+    {"q": "Quelle hauteur atteint aujourd'hui la tour Eiffel avec ses antennes ?", "choices": ["330 mètres", "300 mètres", "276 mètres", "410 mètres"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de marches compte l'escalier de la tour Eiffel jusqu'au sommet ?", "choices": ["1 665 marches", "900 marches", "2 500 marches", "1 200 marches"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année la construction de la cathédrale Notre-Dame de Paris a-t-elle commencé ?", "choices": ["1163", "1245", "1090", "1310"], "answer": 0, "difficulty": 4},
+    {"q": "Quel architecte a conçu le dôme de la cathédrale Santa Maria del Fiore à Florence ?", "choices": ["Filippo Brunelleschi", "Michel-Ange", "Donato Bramante", "Léon Battista Alberti"], "answer": 0, "difficulty": 4},
+    {"q": "Combien de temps a duré la construction du Taj Mahal, achevé vers 1653 ?", "choices": ["Environ 22 ans", "Environ 5 ans", "Environ 50 ans", "Environ 10 ans"], "answer": 0, "difficulty": 4}
   ]
 }

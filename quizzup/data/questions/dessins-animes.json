@@ -61,6 +61,24 @@
     {"q": "Sous quel pseudonyme Georges Remi a-t-il signé les aventures de Tintin ?", "choices": ["Hergé", "Peyo", "Morris", "Franquin"], "answer": 0, "difficulty": 4},
     {"q": "Quel auteur belge a créé les Schtroumpfs ?", "choices": ["Peyo", "Hergé", "Franquin", "Morris"], "answer": 0, "difficulty": 4},
     {"q": "Qui est le dessinateur historique de la bande dessinée « Astérix » ?", "choices": ["Albert Uderzo", "René Goscinny", "Morris", "Jean Giraud"], "answer": 0, "difficulty": 4},
-    {"q": "Quel acteur double Scar en version originale dans « Le Roi Lion » (1994) ?", "choices": ["Jeremy Irons", "James Earl Jones", "Nathan Lane", "Matthew Broderick"], "answer": 0, "difficulty": 4}
+    {"q": "Quel acteur double Scar en version originale dans « Le Roi Lion » (1994) ?", "choices": ["Jeremy Irons", "James Earl Jones", "Nathan Lane", "Matthew Broderick"], "answer": 0, "difficulty": 4},
+    {"q": "Dans « Vice-Versa », quelle émotion est représentée en rouge ?", "choices": ["La colère", "La joie", "La peur", "Le dégoût"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Les Indestructibles », quel membre de la famille peut étirer son corps ?", "choices": ["Elastigirl", "M. Indestructible", "Flèche", "Violette"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Le Roi Lion », comment s'appelle le suricate ami de Simba ?", "choices": ["Timon", "Pumbaa", "Zazu", "Rafiki"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Le Roi Lion », comment s'appelle le babouin qui présente le lionceau Simba ?", "choices": ["Rafiki", "Zazu", "Timon", "Mufasa"], "answer": 0, "difficulty": 2},
+    {"q": "Quel studio a produit « Toy Story », « Là-haut » et « Vice-Versa » ?", "choices": ["Pixar", "DreamWorks", "Studio Ghibli", "Illumination"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Kung Fu Panda », quel animal est le maître Shifu ?", "choices": ["Un panda roux", "Un tigre", "Une tortue", "Un léopard"], "answer": 0, "difficulty": 2},
+    {"q": "Dans « Vaiana », comment s'appelle le coq un peu bête qui accompagne l'héroïne ?", "choices": ["Heihei", "Pua", "Maui", "Tamatoa"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Rebelle », comment s'appelle l'héroïne écossaise aux cheveux roux ?", "choices": ["Mérida", "Raiponce", "Anna", "Vaiana"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Les Indestructibles », quel est le pouvoir de Violette ?", "choices": ["Devenir invisible", "Courir très vite", "Étirer son corps", "Voler"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Cars », comment s'appelle la voiture de course rouge, héros du film ?", "choices": ["Flash McQueen", "Martin", "Doc Hudson", "Chick Hicks"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Le Monde de Nemo », de quelle espèce de poisson est Nemo ?", "choices": ["Un poisson-clown", "Un poisson-chirurgien", "Un hippocampe", "Un poisson-globe"], "answer": 0, "difficulty": 3},
+    {"q": "Dans « Madagascar », quel lion s'échappe du zoo de New York ?", "choices": ["Alex", "Marty", "Melman", "Gloria"], "answer": 0, "difficulty": 3},
+    {"q": "Quel réalisateur du « Tombeau des lucioles » a cofondé le studio Ghibli ?", "choices": ["Isao Takahata", "Hayao Miyazaki", "Mamoru Hosoda", "Makoto Shinkai"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année est sorti « Shrek », premier film à recevoir l'Oscar du meilleur film d'animation ?", "choices": ["2001", "1998", "2004", "1995"], "answer": 0, "difficulty": 4},
+    {"q": "Quel compositeur a signé la musique de nombreux films du Studio Ghibli, dont « Le Voyage de Chihiro » ?", "choices": ["Joe Hisaishi", "Alan Menken", "Hans Zimmer", "Ryuichi Sakamoto"], "answer": 0, "difficulty": 4},
+    {"q": "Qui est l'auteur du manga « Naruto » ?", "choices": ["Masashi Kishimoto", "Eiichiro Oda", "Akira Toriyama", "Tite Kubo"], "answer": 0, "difficulty": 4},
+    {"q": "En quelle année la série « Les Simpson » a-t-elle été diffusée pour la première fois en tant que série à part entière ?", "choices": ["1989", "1985", "1993", "1990"], "answer": 0, "difficulty": 4},
+    {"q": "Quel réalisateur japonais a créé le film d'animation « Your Name » en 2016 ?", "choices": ["Makoto Shinkai", "Hayao Miyazaki", "Mamoru Hosoda", "Isao Takahata"], "answer": 0, "difficulty": 4}
   ]
 }
