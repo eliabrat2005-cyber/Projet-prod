@@ -103,6 +103,12 @@ class Session:
             "leave_game": self._leave_game,
             "get_profile": self._get_profile,
             "rename": self._rename,
+            "add_friend": self._add_friend,
+            "list_friends": self._list_friends,
+            "challenge_friend": self._challenge_friend,
+            "accept_challenge": self._accept_challenge,
+            "decline_challenge": self._decline_challenge,
+            "cancel_challenge": self._cancel_challenge,
         }.get(mtype)
         if handler is None:
             await self.send({"type": "error", "message": f"Type inconnu : {mtype}"})
@@ -125,12 +131,19 @@ class Session:
             player["name"] = name
         self.participant = Participant(player["id"], player["name"])
         self.participant.send = self.send
+        await lobby.set_online(self.participant)
         await self.send({
             "type": "welcome",
             "player": player,
             "topics": qbank.topic_list(),
             "profile": _profile_payload(player["id"]),
+            "friend_code": store.get_or_create_friend_code(player["id"]),
+            "friends": self._friends_payload(player["id"]),
         })
+
+    def _friends_payload(self, pid: str) -> list[dict]:
+        online = set(lobby.online)
+        return [{**f, "online": f["id"] in online} for f in store.list_friends(pid)]
 
     def _valid_topic(self, msg: dict) -> str | None:
         topic_id = msg.get("topic_id")
@@ -218,6 +231,48 @@ class Session:
             store.rename_player(self.participant.player_id, name)
             self.participant.name = name
             await self.send({"type": "renamed", "name": name})
+
+    # ── Amis ─────────────────────────────────────────────────────────────────
+
+    async def _add_friend(self, msg: dict) -> None:
+        pid = self.participant.player_id
+        friend = store.add_friend_by_code(pid, str(msg.get("code") or ""))
+        if friend is None:
+            await self.send({"type": "friend_error",
+                             "message": "Code ami introuvable."})
+            return
+        await self.send({"type": "friend_added", "friend": friend,
+                         "friends": self._friends_payload(pid)})
+        # Prévient l'ami (s'il est en ligne) que sa liste a changé
+        other = lobby.online.get(friend["id"])
+        if other is not None:
+            await other.emit({"type": "friends",
+                              "friends": self._friends_payload(friend["id"])})
+
+    async def _list_friends(self, msg: dict) -> None:
+        await self.send({"type": "friends",
+                         "friends": self._friends_payload(self.participant.player_id)})
+
+    async def _challenge_friend(self, msg: dict) -> None:
+        topic_id = self._valid_topic(msg)
+        friend_id = str(msg.get("friend_id") or "")
+        if topic_id is None or not friend_id:
+            await self.send({"type": "friend_error", "message": "Défi invalide."})
+            return
+        if not store.are_friends(self.participant.player_id, friend_id):
+            await self.send({"type": "friend_error", "message": "Vous n'êtes pas amis."})
+            return
+        await lobby.challenge_friend(self.participant, friend_id, topic_id,
+                                     self._difficulty(msg))
+
+    async def _accept_challenge(self, msg: dict) -> None:
+        await lobby.accept_challenge(self.participant, str(msg.get("from_id") or ""))
+
+    async def _decline_challenge(self, msg: dict) -> None:
+        await lobby.decline_challenge(self.participant, str(msg.get("from_id") or ""))
+
+    async def _cancel_challenge(self, msg: dict) -> None:
+        await lobby.cancel_challenge(self.participant)
 
 
 @app.websocket("/ws")

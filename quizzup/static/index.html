@@ -29,6 +29,7 @@
       <header class="topbar">
         <div class="logo logo-small">Quizz<span>Up</span><em>⚡</em></div>
         <div class="topbar-right">
+          <button id="friends-btn" class="icon-btn" title="Amis">👥</button>
           <button id="sound-btn" class="icon-btn" title="Son">🔊</button>
           <button id="profile-btn" class="avatar-chip">
             <span class="avatar" id="home-avatar">?</span>
@@ -74,31 +75,32 @@
       </div>
     </section>
 
-    <!-- ── Écran : défi d'un ami (salon code) ──────────────────── -->
-    <section id="screen-friend" class="screen hidden">
+    <!-- ── Écran : amis (liste, code, scores, défis) ───────────── -->
+    <section id="screen-friends" class="screen hidden">
       <header class="topbar">
-        <button class="back-btn" data-back="topic">‹</button>
-        <div class="topbar-title">Défier un ami</div>
+        <button class="back-btn" data-back="home">‹</button>
+        <div class="topbar-title" id="friends-title">Mes amis</div>
         <span></span>
       </header>
-      <div class="friend-box">
-        <div class="friend-card">
-          <h3>Créer un défi</h3>
-          <p>Génère un code et envoie-le à ton ami.<br><span id="friend-diff" class="friend-diff"></span></p>
-          <button id="btn-create-room" class="btn btn-primary">Générer un code</button>
-          <div id="room-code-box" class="room-code hidden">
-            <div class="room-code-value" id="room-code">····</div>
-            <div class="room-waiting">En attente de ton adversaire… <span class="dots"></span></div>
-          </div>
-        </div>
-        <div class="friend-sep">ou</div>
-        <div class="friend-card">
-          <h3>Rejoindre un défi</h3>
-          <input id="join-code-input" type="text" maxlength="4" placeholder="CODE" autocomplete="off">
-          <button id="btn-join-room" class="btn btn-secondary">Rejoindre</button>
-          <div id="join-error" class="join-error hidden">Code introuvable 😕</div>
-        </div>
+
+      <div id="friends-challenge-hint" class="friends-hint hidden"></div>
+
+      <div class="friend-card" id="friend-code-card">
+        <h3>Ton code ami</h3>
+        <p>Partage-le à un pote pour qu'il t'ajoute (une seule fois).</p>
+        <div class="friend-code-value" id="my-friend-code">······</div>
+        <button id="btn-copy-code" class="btn btn-ghost">📋 Copier mon code</button>
       </div>
+
+      <div class="friend-card" id="add-friend-card">
+        <h3>Ajouter un ami</h3>
+        <input id="add-friend-input" type="text" maxlength="6" placeholder="Code de ton ami" autocomplete="off">
+        <button id="btn-add-friend" class="btn btn-secondary">Ajouter</button>
+        <div id="add-friend-error" class="join-error hidden">Code introuvable 😕</div>
+      </div>
+
+      <h3 class="section-title">Mes potes</h3>
+      <div id="friends-list" class="friends-list"></div>
     </section>
 
     <!-- ── Écran : classement ──────────────────────────────────── -->
@@ -131,7 +133,7 @@
     <section id="screen-search" class="screen hidden">
       <div class="search-box">
         <div class="search-spinner"></div>
-        <div class="search-text">Recherche d'un adversaire…</div>
+        <div class="search-text" id="search-text">Recherche d'un adversaire…</div>
         <div class="search-topic" id="search-topic"></div>
         <button id="btn-cancel-search" class="btn btn-ghost">Annuler</button>
       </div>
@@ -232,6 +234,20 @@
     </section>
 
   </div>
+
+  <!-- ── Invitation entrante d'un ami ─────────────────────────── -->
+  <div id="challenge-overlay" class="challenge-overlay hidden">
+    <div class="challenge-card">
+      <div class="challenge-emoji">⚔️</div>
+      <div class="challenge-text"><b id="challenge-from">Un ami</b> te défie&nbsp;!</div>
+      <div class="challenge-sub" id="challenge-topic">—</div>
+      <div class="challenge-actions">
+        <button id="btn-accept-challenge" class="btn btn-primary btn-big">Accepter</button>
+        <button id="btn-decline-challenge" class="btn btn-ghost">Refuser</button>
+      </div>
+    </div>
+  </div>
+
   <canvas id="confetti" class="confetti-canvas"></canvas>
   <div id="toast" class="toast hidden"></div>
   <script src="/static/app.js"></script>

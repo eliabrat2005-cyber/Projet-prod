@@ -358,6 +358,110 @@ def test_quick_match_separates_difficulties(quizzup_modules):
             assert m2["opponent"]["is_bot"] is True and m2["difficulty"] == 4
 
 
+def test_friend_store_and_head_to_head(quizzup_modules):
+    """Ajout d'ami par code + bilan tête-à-tête incrémenté."""
+    _, _, _ = quizzup_modules
+    from quizzup import store
+
+    a = store.create_player("Alpha")
+    b = store.create_player("Bravo")
+    code_b = store.get_or_create_friend_code(b["id"])
+    assert code_b and len(code_b) == 6
+    assert store.get_or_create_friend_code(b["id"]) == code_b  # stable
+
+    assert store.add_friend_by_code(a["id"], code_b)["id"] == b["id"]
+    assert store.are_friends(a["id"], b["id"]) and store.are_friends(b["id"], a["id"])
+    assert store.add_friend_by_code(a["id"], "ZZZZZZ") is None      # code inconnu
+    assert store.add_friend_by_code(a["id"], code_b.lower()) is not None  # insensible casse
+
+    store.record_friend_result(a["id"], b["id"], "win")
+    store.record_friend_result(a["id"], b["id"], "win")
+    store.record_friend_result(b["id"], a["id"], "win")   # = défaite pour A
+    store.record_friend_result(a["id"], b["id"], "draw")
+
+    fa = {f["id"]: f for f in store.list_friends(a["id"])}[b["id"]]
+    fb = {f["id"]: f for f in store.list_friends(b["id"])}[a["id"]]
+    assert (fa["wins"], fa["losses"], fa["draws"]) == (2, 1, 1)
+    assert (fb["wins"], fb["losses"], fb["draws"]) == (1, 2, 1)  # miroir
+
+
+def test_friend_challenge_mutual_start(quizzup_modules):
+    """Deux amis se défient (accept) sur le même thème → partie lancée, H2H enregistré."""
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    with TestClient(server.app) as client:
+        topic_id = client.get("/api/topics").json()[0]["id"]
+        with client.websocket_connect("/ws") as w1, client.websocket_connect("/ws") as w2:
+            w1.send_text(json.dumps({"type": "hello", "name": "Amaury"}))
+            welc1 = json.loads(w1.receive_text())
+            w2.send_text(json.dumps({"type": "hello", "name": "Bao"}))
+            welc2 = json.loads(w2.receive_text())
+            id1, id2 = welc1["player"]["id"], welc2["player"]["id"]
+            code2 = welc2["friend_code"]
+
+            # Amaury ajoute Bao par code
+            w1.send_text(json.dumps({"type": "add_friend", "code": code2}))
+            assert _drain_until(w1, "friend_added")["friend"]["id"] == id2
+
+            # Amaury défie Bao ; Bao reçoit l'invite et accepte
+            w1.send_text(json.dumps({"type": "challenge_friend", "friend_id": id2,
+                                     "topic_id": topic_id, "difficulty": 2}))
+            inv = _drain_until(w2, "challenge_received")
+            assert inv["from_id"] == id1 and inv["difficulty"] == 2
+            w2.send_text(json.dumps({"type": "accept_challenge", "from_id": id1}))
+
+            m1 = _drain_until(w1, "match_found")
+            m2 = _drain_until(w2, "match_found")
+            assert m1["opponent"]["name"] == "Bao" and m1["opponent"]["is_bot"] is False
+            assert m2["opponent"]["name"] == "Amaury"
+            gid = m1["game_id"]
+
+            for _ in range(400):
+                msg = json.loads(w1.receive_text())
+                if msg["type"] == "question":
+                    w1.send_text(json.dumps({"type": "answer", "game_id": gid,
+                                             "round": msg["round"], "choice": 0}))
+                elif msg["type"] == "game_over":
+                    break
+
+            # Le bilan tête-à-tête est enregistré (1 partie jouée entre amis)
+            w1.send_text(json.dumps({"type": "list_friends"}))
+            friends = _drain_until(w1, "friends")["friends"]
+            bao = next(f for f in friends if f["id"] == id2)
+            assert bao["wins"] + bao["losses"] + bao["draws"] == 1
+
+
+def test_friend_challenge_mutual_autostart(quizzup_modules):
+    """Les DEUX amis appuient sur « Défier » (même thème+mode) → la partie
+    se lance automatiquement, sans que personne n'accepte."""
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    with TestClient(server.app) as client:
+        topic_id = client.get("/api/topics").json()[0]["id"]
+        with client.websocket_connect("/ws") as w1, client.websocket_connect("/ws") as w2:
+            w1.send_text(json.dumps({"type": "hello", "name": "Chloe"}))
+            id1 = json.loads(w1.receive_text())["player"]["id"]
+            w2.send_text(json.dumps({"type": "hello", "name": "Driss"}))
+            welc2 = json.loads(w2.receive_text())
+            id2, code2 = welc2["player"]["id"], welc2["friend_code"]
+
+            w1.send_text(json.dumps({"type": "add_friend", "code": code2}))
+            _drain_until(w1, "friend_added")
+
+            # Les deux se défient mutuellement sur le même thème + mode
+            w1.send_text(json.dumps({"type": "challenge_friend", "friend_id": id2,
+                                     "topic_id": topic_id, "difficulty": 3}))
+            w2.send_text(json.dumps({"type": "challenge_friend", "friend_id": id1,
+                                     "topic_id": topic_id, "difficulty": 3}))
+
+            m1 = _drain_until(w1, "match_found")
+            m2 = _drain_until(w2, "match_found")
+            assert m1["opponent"]["name"] == "Driss" and m1["difficulty"] == 3
+            assert m2["opponent"]["name"] == "Chloe" and m2["opponent"]["is_bot"] is False
+
+
 def test_room_code_flow(quizzup_modules):
     _, server, _ = quizzup_modules
     from starlette.testclient import TestClient

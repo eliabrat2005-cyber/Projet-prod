@@ -295,6 +295,12 @@ class Game:
         self.aborted_by = forfeit_pid
         self.round_done.set()
 
+        # Bilan tête-à-tête entre amis (parties humain vs humain uniquement)
+        if all(not p.is_bot for p in self.players):
+            p0, p1 = self.players
+            store.record_friend_result(p0.player_id, p1.player_id,
+                                       self._result_for(p0.player_id))
+
         for me in self.players:
             result = self._result_for(me.player_id)
             score = self.scores[me.player_id]
@@ -335,6 +341,10 @@ class Lobby:
         self.queue_timers: dict[str, asyncio.Task] = {}     # player_id -> fallback bot
         # code -> (topic, difficulté, hôte)
         self.rooms: dict[str, tuple[str, int, Participant]] = {}
+        # Présence : player_id -> Participant connecté
+        self.online: dict[str, Participant] = {}
+        # Défis d'ami en attente : from_pid -> {"to","topic","difficulty","name"}
+        self.friend_challenges: dict[str, dict] = {}
 
     # ── Démarrage de partie ────────────────────────────────────────────────
 
@@ -467,11 +477,91 @@ class Lobby:
         game.rematch_votes.discard(pid)
         await opp.emit({"type": "rematch_declined", "game_id": game_id})
 
+    # ── Présence & défis d'amis ────────────────────────────────────────────
+
+    async def set_online(self, me: Participant) -> None:
+        self.online[me.player_id] = me
+        for friend in store.list_friends(me.player_id):
+            fp = self.online.get(friend["id"])
+            if fp is not None:
+                await fp.emit({"type": "friend_presence",
+                               "friend_id": me.player_id, "online": True})
+
+    async def set_offline(self, pid: str) -> None:
+        self.online.pop(pid, None)
+        self.friend_challenges.pop(pid, None)
+        # Annule les défis qui visaient ce joueur
+        for frm in [f for f, c in self.friend_challenges.items() if c["to"] == pid]:
+            self.friend_challenges.pop(frm, None)
+        for friend in store.list_friends(pid):
+            fp = self.online.get(friend["id"])
+            if fp is not None:
+                await fp.emit({"type": "friend_presence",
+                               "friend_id": pid, "online": False})
+
+    def friend_online_ids(self, pid: str) -> list[str]:
+        return [f["id"] for f in store.list_friends(pid) if f["id"] in self.online]
+
+    async def challenge_friend(self, me: Participant, friend_id: str,
+                               topic_id: str, difficulty: int) -> None:
+        # Défi mutuel déjà en attente (l'ami m'a défié sur le même thème+mode) → on lance.
+        other = self.friend_challenges.get(friend_id)
+        if other and other["to"] == me.player_id and other["topic"] == topic_id \
+                and other["difficulty"] == difficulty:
+            self.friend_challenges.pop(friend_id, None)
+            self.friend_challenges.pop(me.player_id, None)
+            target = self.online.get(friend_id)
+            if target is not None:
+                await self.start_game(topic_id, target, me, difficulty=difficulty)
+            return
+        # Sinon on enregistre mon défi et j'invite l'ami s'il est en ligne.
+        self.friend_challenges[me.player_id] = {
+            "to": friend_id, "topic": topic_id, "difficulty": difficulty,
+            "name": me.name,
+        }
+        await me.emit({"type": "challenge_sent", "friend_id": friend_id})
+        target = self.online.get(friend_id)
+        if target is not None:
+            await target.emit({"type": "challenge_received", "from_id": me.player_id,
+                               "from_name": me.name, "topic_id": topic_id,
+                               "difficulty": difficulty})
+
+    async def accept_challenge(self, me: Participant, from_id: str) -> None:
+        chal = self.friend_challenges.get(from_id)
+        if not chal or chal["to"] != me.player_id:
+            await me.emit({"type": "challenge_gone", "from_id": from_id})
+            return
+        challenger = self.online.get(from_id)
+        if challenger is None:
+            self.friend_challenges.pop(from_id, None)
+            await me.emit({"type": "challenge_gone", "from_id": from_id})
+            return
+        self.friend_challenges.pop(from_id, None)
+        self.friend_challenges.pop(me.player_id, None)
+        await self.start_game(chal["topic"], challenger, me, difficulty=chal["difficulty"])
+
+    async def cancel_challenge(self, me: Participant) -> None:
+        chal = self.friend_challenges.pop(me.player_id, None)
+        if chal:
+            target = self.online.get(chal["to"])
+            if target is not None:
+                await target.emit({"type": "challenge_cancelled", "from_id": me.player_id})
+
+    async def decline_challenge(self, me: Participant, from_id: str) -> None:
+        chal = self.friend_challenges.get(from_id)
+        if chal and chal["to"] == me.player_id:
+            self.friend_challenges.pop(from_id, None)
+            challenger = self.online.get(from_id)
+            if challenger is not None:
+                await challenger.emit({"type": "challenge_declined",
+                                       "friend_id": me.player_id})
+
     # ── Déconnexions ───────────────────────────────────────────────────────
 
     async def handle_disconnect(self, me: Participant) -> None:
         self.cancel_find(me)
         self.close_rooms_of(me.player_id)
+        await self.set_offline(me.player_id)
         for game in list(self.games.values()):
             if game.participant(me.player_id) and not game.finished:
                 opp = game.opponent_of(me.player_id)

@@ -241,26 +241,65 @@ body::after {
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
-/* ── Défi ami ────────────────────────────────────────────── */
-.friend-box { display: flex; flex-direction: column; gap: 14px; }
+/* ── Amis ────────────────────────────────────────────────── */
+.friends-hint {
+  text-align: center; font-weight: 700; color: var(--gold); font-size: 15px;
+  margin-bottom: 14px; background: rgba(217,182,101,.14); border: 1px solid rgba(176,141,62,.3);
+  border-radius: 12px; padding: 10px 12px;
+}
 .friend-card {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 20px; text-align: center; box-shadow: var(--shadow); backdrop-filter: blur(6px);
+  padding: 18px 20px; text-align: center; box-shadow: var(--shadow);
+  backdrop-filter: blur(6px); margin-bottom: 14px;
 }
 .friend-card h3 { font-family: var(--font-display); font-size: 21px; margin-bottom: 6px; }
-.friend-card p { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
+.friend-card p { color: var(--muted); font-size: 14.5px; margin-bottom: 14px; }
 .friend-card .btn { width: 100%; }
-.friend-diff { display: inline-block; margin-top: 6px; font-weight: 700; color: var(--gold); font-size: 13.5px; }
-.friend-sep { text-align: center; color: var(--muted); font-weight: 600; font-style: italic; }
-.room-code { margin-top: 16px; }
-.room-code-value {
-  font-family: var(--font-display); font-size: 46px; font-weight: 700; letter-spacing: 14px;
+.friend-card input {
+  width: 100%; padding: 13px 16px; border-radius: var(--radius); border: 1px solid var(--line);
+  background: rgba(255,255,255,.75); color: var(--ink); font-size: 18px; text-align: center;
+  outline: none; margin-bottom: 12px; font-family: var(--font-body);
+  text-transform: uppercase; letter-spacing: 4px; font-weight: 700;
+}
+.friend-card input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(217,182,101,.22); }
+.friend-code-value {
+  font-family: var(--font-display); font-size: 40px; font-weight: 700; letter-spacing: 8px;
+  margin-bottom: 14px;
   background: linear-gradient(120deg, #8a6a24, var(--gold-2) 55%, #8a6a24);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.room-waiting { color: var(--muted); font-size: 15px; margin-top: 8px; }
-.join-error { color: var(--red); font-size: 15px; margin-top: 10px; font-weight: 600; }
-#join-code-input { text-transform: uppercase; letter-spacing: 8px; font-weight: 700; }
+.join-error { color: var(--red); font-size: 15px; margin-top: 4px; font-weight: 600; }
+
+.friends-list { display: flex; flex-direction: column; gap: 8px; }
+.friend-row {
+  display: flex; align-items: center; gap: 12px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px;
+  box-shadow: 0 4px 14px rgba(23,26,48,.05); backdrop-filter: blur(6px);
+}
+.friend-body { flex: 1; min-width: 0; }
+.friend-name { font-weight: 700; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.friend-score { color: var(--muted); font-size: 13px; font-weight: 600; }
+.friend-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.friend-dot.on { background: var(--green); box-shadow: 0 0 8px rgba(31,158,99,.6); }
+.friend-dot.off { background: rgba(23,26,48,.2); }
+.friend-offline { color: var(--muted); font-size: 13px; font-style: italic; }
+.friend-defy { padding: 8px 16px; font-size: 15px; }
+
+/* ── Invitation entrante ─────────────────────────────────── */
+.challenge-overlay {
+  position: fixed; inset: 0; z-index: 70; display: flex; align-items: center; justify-content: center;
+  background: rgba(23,26,48,.45); backdrop-filter: blur(6px); padding: 24px;
+  animation: screen-in .2s;
+}
+.challenge-card {
+  background: var(--bg); border: 1px solid rgba(217,182,101,.5); border-radius: 22px;
+  padding: 28px 24px; text-align: center; max-width: 360px; width: 100%;
+  box-shadow: 0 20px 50px rgba(23,26,48,.3);
+}
+.challenge-emoji { font-size: 52px; margin-bottom: 8px; animation: streak-pop .5s cubic-bezier(.2,.9,.3,1.6); }
+.challenge-text { font-family: var(--font-display); font-size: 24px; margin-bottom: 6px; }
+.challenge-sub { color: var(--muted); font-weight: 600; margin-bottom: 20px; font-style: italic; }
+.challenge-actions { display: flex; flex-direction: column; gap: 10px; }
 
 /* ── Classement ──────────────────────────────────────────── */
 .ranking-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }

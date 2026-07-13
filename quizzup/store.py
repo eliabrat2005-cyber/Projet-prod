@@ -6,11 +6,14 @@ du package (``quizzup/quizzup.db``), surchageable via ``QUIZZUP_DB``.
 from __future__ import annotations
 
 import os
+import secrets
 import sqlite3
 import threading
 import uuid
 from datetime import UTC, datetime
 from pathlib import Path
+
+_CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"  # sans caractères ambigus
 
 _DB_PATH = Path(os.environ.get("QUIZZUP_DB", Path(__file__).parent / "quizzup.db"))
 
@@ -48,10 +51,153 @@ def _db() -> sqlite3.Connection:
                 seen_at   TEXT NOT NULL,
                 PRIMARY KEY (player_id, topic_id, qhash)
             );
+            CREATE TABLE IF NOT EXISTS friendships (
+                a_id       TEXT NOT NULL,
+                b_id       TEXT NOT NULL,
+                created_at TEXT NOT NULL,
+                PRIMARY KEY (a_id, b_id)
+            );
+            CREATE TABLE IF NOT EXISTS head_to_head (
+                a_id   TEXT NOT NULL,
+                b_id   TEXT NOT NULL,
+                a_wins INTEGER NOT NULL DEFAULT 0,
+                b_wins INTEGER NOT NULL DEFAULT 0,
+                draws  INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY (a_id, b_id)
+            );
             """
+        )
+        # Colonne code ami (migration idempotente sur DB existante)
+        cols = {r["name"] for r in _conn.execute("PRAGMA table_info(players)")}
+        if "friend_code" not in cols:
+            _conn.execute("ALTER TABLE players ADD COLUMN friend_code TEXT")
+        _conn.execute(
+            "CREATE UNIQUE INDEX IF NOT EXISTS idx_players_friend_code"
+            " ON players(friend_code) WHERE friend_code IS NOT NULL"
         )
         _conn.commit()
     return _conn
+
+
+# ─── Amis ───────────────────────────────────────────────────────────────────
+
+def _canon(a: str, b: str) -> tuple[str, str, bool]:
+    """Paire ordonnée (x, y) + True si ``a`` est le premier (x)."""
+    return (a, b, True) if a <= b else (b, a, False)
+
+
+def get_or_create_friend_code(pid: str) -> str | None:
+    """Code ami permanent du joueur (6 caractères), généré à la demande."""
+    with _lock:
+        row = _db().execute("SELECT friend_code FROM players WHERE id = ?", (pid,)).fetchone()
+        if row is None:
+            return None
+        if row["friend_code"]:
+            return row["friend_code"]
+        for _ in range(20):
+            code = "".join(secrets.choice(_CODE_ALPHABET) for _ in range(6))
+            try:
+                _db().execute("UPDATE players SET friend_code = ? WHERE id = ?", (code, pid))
+                _db().commit()
+                return code
+            except sqlite3.IntegrityError:
+                continue
+    return None
+
+
+def find_by_friend_code(code: str) -> dict | None:
+    code = (code or "").strip().upper()
+    if not code:
+        return None
+    with _lock:
+        row = _db().execute(
+            "SELECT id, name FROM players WHERE friend_code = ?", (code,)
+        ).fetchone()
+    return dict(row) if row else None
+
+
+def are_friends(a: str, b: str) -> bool:
+    x, y, _ = _canon(a, b)
+    with _lock:
+        row = _db().execute(
+            "SELECT 1 FROM friendships WHERE a_id = ? AND b_id = ?", (x, y)
+        ).fetchone()
+    return row is not None
+
+
+def add_friend_by_code(pid: str, code: str) -> dict | None:
+    """Ajoute l'ami identifié par ``code`` (réciproque immédiate). Renvoie
+    le dict {id, name} de l'ami, ou None si code inconnu / soi-même."""
+    friend = find_by_friend_code(code)
+    if friend is None or friend["id"] == pid:
+        return None
+    x, y, _ = _canon(pid, friend["id"])
+    now = datetime.now(UTC).isoformat()
+    with _lock:
+        _db().execute(
+            "INSERT OR IGNORE INTO friendships (a_id, b_id, created_at) VALUES (?, ?, ?)",
+            (x, y, now),
+        )
+        _db().commit()
+    return friend
+
+
+def list_friends(pid: str) -> list[dict]:
+    """Amis du joueur avec le bilan tête-à-tête (de son point de vue)."""
+    with _lock:
+        rows = _db().execute(
+            """
+            SELECT p.id AS id, p.name AS name,
+                   f.a_id AS a_id, f.b_id AS b_id
+            FROM friendships f
+            JOIN players p ON p.id = CASE WHEN f.a_id = ? THEN f.b_id ELSE f.a_id END
+            WHERE f.a_id = ? OR f.b_id = ?
+            ORDER BY p.name COLLATE NOCASE
+            """,
+            (pid, pid, pid),
+        ).fetchall()
+        out = []
+        for r in rows:
+            fid = r["id"]
+            x, y, pid_is_x = _canon(pid, fid)
+            h = _db().execute(
+                "SELECT a_wins, b_wins, draws FROM head_to_head WHERE a_id = ? AND b_id = ?",
+                (x, y),
+            ).fetchone()
+            if h:
+                my = h["a_wins"] if pid_is_x else h["b_wins"]
+                opp = h["b_wins"] if pid_is_x else h["a_wins"]
+                draws = h["draws"]
+            else:
+                my = opp = draws = 0
+            out.append({"id": fid, "name": r["name"],
+                        "wins": my, "losses": opp, "draws": draws})
+    return out
+
+
+def record_friend_result(a: str, b: str, result_for_a: str) -> None:
+    """Incrémente le tête-à-tête si (a, b) sont amis. ``result_for_a`` ∈ win/loss/draw."""
+    if not are_friends(a, b):
+        return
+    x, y, a_is_x = _canon(a, b)
+    if result_for_a == "draw":
+        col, inc = "draws", 1
+    else:
+        a_won = result_for_a == "win"
+        winner_is_x = a_won if a_is_x else not a_won
+        col = "a_wins" if winner_is_x else "b_wins"
+        inc = 1
+    with _lock:
+        _db().execute(
+            f"""
+            INSERT INTO head_to_head (a_id, b_id, a_wins, b_wins, draws)
+            VALUES (?, ?, {1 if col == 'a_wins' else 0}, {1 if col == 'b_wins' else 0},
+                    {1 if col == 'draws' else 0})
+            ON CONFLICT (a_id, b_id) DO UPDATE SET {col} = {col} + {inc}
+            """,
+            (x, y),
+        )
+        _db().commit()
 
 
 # ─── Joueurs ────────────────────────────────────────────────────────────────

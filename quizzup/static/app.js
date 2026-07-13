@@ -15,12 +15,16 @@ const S = {
   sound: localStorage.getItem("quizzup_sound") !== "0",
   difficulty: [1, 2, 3, 4].includes(+localStorage.getItem("quizzup_diff"))
     ? +localStorage.getItem("quizzup_diff") : 2,
+  friends: [],           // [{id, name, wins, losses, draws, online}]
+  friendCode: null,
+  challengeCtx: null,    // {topic, difficulty} quand on ouvre les amis pour défier
+  waitingChallenge: null, // {friend_id, name} en attente d'acceptation
 };
 
 const DIFF_LABELS = { 1: "😌 Facile", 2: "🎯 Moyen", 3: "🔥 Difficile", 4: "💀 Extrême" };
 
 const $ = (id) => document.getElementById(id);
-const SCREENS = ["name", "home", "topic", "friend", "ranking", "profile", "search", "vs", "game", "results"];
+const SCREENS = ["name", "home", "topic", "friends", "ranking", "profile", "search", "vs", "game", "results"];
 
 function show(name) {
   for (const s of SCREENS) $("screen-" + s).classList.toggle("hidden", s !== name);
@@ -133,12 +137,18 @@ function handle(msg) {
     case "profile": S.profile = msg.profile; renderProfile(); break;
     case "queued": show("search"); break;
     case "find_cancelled": show("topic"); break;
-    case "room_created": onRoomCreated(msg); break;
-    case "room_not_found":
-      $("join-error").classList.remove("hidden");
-      setTimeout(() => $("join-error").classList.add("hidden"), 2500);
+    case "friends": S.friends = msg.friends; renderFriends(); break;
+    case "friend_added": onFriendAdded(msg); break;
+    case "friend_error": onFriendError(msg); break;
+    case "friend_presence": onFriendPresence(msg); break;
+    case "challenge_received": onChallengeReceived(msg); break;
+    case "challenge_sent": onChallengeSent(msg); break;
+    case "challenge_cancelled": break;
+    case "challenge_declined": onChallengeDeclined(msg); break;
+    case "challenge_gone":
+      toast("Ce défi n'est plus disponible.");
+      if (!$("screen-search").classList.contains("hidden")) show("topic");
       break;
-    case "room_cancelled": break;
     case "match_found": onMatchFound(msg); break;
     case "countdown": onCountdown(msg); break;
     case "question": onQuestion(msg); break;
@@ -171,6 +181,8 @@ function onWelcome(msg) {
   S.player = msg.player;
   S.topics = msg.topics;
   S.profile = msg.profile;
+  S.friends = msg.friends || [];
+  S.friendCode = msg.friend_code || null;
   localStorage.setItem("quizzup_pid", msg.player.id);
   localStorage.setItem("quizzup_name", msg.player.name);
   $("conn-banner").classList.add("hidden");
@@ -249,10 +261,105 @@ function renderDiffChips(t) {
   });
 }
 
-// ─── Recherche / salon ──────────────────────────────────────────────────────
-function onRoomCreated(msg) {
-  $("room-code").textContent = msg.code;
-  $("room-code-box").classList.remove("hidden");
+// ─── Amis ─────────────────────────────────────────────────────────────────
+function friendById(id) { return S.friends.find((f) => f.id === id) || null; }
+
+function openFriends(challengeCtx = null) {
+  S.challengeCtx = challengeCtx;
+  send({ type: "list_friends" });
+  const hint = $("friends-challenge-hint");
+  if (challengeCtx) {
+    $("friends-title").textContent = "Défier un ami";
+    hint.textContent = `${challengeCtx.topic.icon} ${challengeCtx.topic.name} · ${DIFF_LABELS[challengeCtx.difficulty]} — choisis qui défier`;
+    hint.classList.remove("hidden");
+  } else {
+    $("friends-title").textContent = "Mes amis";
+    hint.classList.add("hidden");
+  }
+  renderFriends();
+  show("friends");
+}
+
+function renderFriends() {
+  $("my-friend-code").textContent = S.friendCode || "······";
+  const wrap = $("friends-list");
+  wrap.innerHTML = "";
+  if (!S.friends.length) {
+    wrap.innerHTML = "<div class='ranking-empty'>Aucun ami pour l'instant. Ajoute le code d'un pote ci-dessus !</div>";
+    return;
+  }
+  const challenge = S.challengeCtx;
+  for (const f of S.friends) {
+    const row = document.createElement("div");
+    row.className = "friend-row";
+    const score = `${f.wins} V · ${f.losses} D${f.draws ? " · " + f.draws + " N" : ""}`;
+    let action;
+    if (challenge) {
+      action = f.online
+        ? `<button class="btn btn-primary friend-defy" data-id="${f.id}">Défier</button>`
+        : `<span class="friend-offline">hors ligne</span>`;
+    } else {
+      action = `<span class="friend-dot ${f.online ? "on" : "off"}" title="${f.online ? "en ligne" : "hors ligne"}"></span>`;
+    }
+    row.innerHTML = `<span class="avatar avatar-opp">${initial(f.name)}</span>
+      <div class="friend-body"><div class="friend-name">${escapeHtml(f.name)}</div>
+      <div class="friend-score">Toi ${score}</div></div>${action}`;
+    wrap.appendChild(row);
+  }
+  wrap.querySelectorAll(".friend-defy").forEach((b) => {
+    b.onclick = () => {
+      const ctx = S.challengeCtx;
+      if (!ctx) return;
+      send({ type: "challenge_friend", friend_id: b.dataset.id,
+             topic_id: ctx.topic.id, difficulty: ctx.difficulty });
+      debounceBtn(b, 2000);
+    };
+  });
+}
+
+function onFriendAdded(msg) {
+  S.friends = msg.friends;
+  $("add-friend-input").value = "";
+  $("add-friend-error").classList.add("hidden");
+  toast(`${msg.friend.name} est maintenant ton ami ! 🎉`);
+  renderFriends();
+}
+
+function onFriendError(msg) {
+  const err = $("add-friend-error");
+  err.textContent = msg.message || "Erreur";
+  err.classList.remove("hidden");
+  setTimeout(() => err.classList.add("hidden"), 3000);
+}
+
+function onFriendPresence(msg) {
+  const f = friendById(msg.friend_id);
+  if (f) { f.online = msg.online; renderFriends(); }
+}
+
+function onChallengeReceived(msg) {
+  $("challenge-from").textContent = msg.from_name;
+  const t = S.topics.find((x) => x.id === msg.topic_id);
+  $("challenge-topic").textContent =
+    `${t ? t.icon + " " + t.name : msg.topic_id} · ${DIFF_LABELS[msg.difficulty] || ""}`;
+  $("challenge-overlay").dataset.from = msg.from_id;
+  $("challenge-overlay").classList.remove("hidden");
+  sndGo(); vibrate([60, 40, 60]);
+}
+
+function onChallengeSent(msg) {
+  const f = friendById(msg.friend_id);
+  S.waitingChallenge = { friend_id: msg.friend_id, name: f ? f.name : "ton ami" };
+  $("search-text").textContent = "Défi envoyé…";
+  $("search-topic").textContent = `En attente de ${S.waitingChallenge.name}`;
+  show("search");
+}
+
+function onChallengeDeclined(msg) {
+  const f = friendById(msg.friend_id);
+  toast(`${f ? f.name : "Ton ami"} a refusé le défi.`);
+  S.waitingChallenge = null;
+  if (!$("screen-search").classList.contains("hidden")) show("topic");
 }
 
 // ─── Match ──────────────────────────────────────────────────────────────────
@@ -262,7 +369,8 @@ function onMatchFound(msg) {
     opponent: msg.opponent, meScore: 0, oppScore: 0,
     roundResults: [], over: false, currentRound: 0,
   };
-  $("room-code-box").classList.add("hidden");
+  S.waitingChallenge = null;
+  $("challenge-overlay").classList.add("hidden");
   // Écran VS
   $("vs-me-avatar").textContent = initial(S.player.name);
   $("vs-me-name").textContent = S.player.name;
@@ -612,13 +720,12 @@ document.querySelectorAll(".back-btn").forEach((b) => {
     const dest = b.dataset.back;
     if (dest === "topic" && !S.currentTopic) { show("home"); return; }
     if (dest === "home") { renderTopics(); }
-    // Quitter l'écran ami annule un salon en attente
-    if (!$("screen-friend").classList.contains("hidden")) send({ type: "cancel_room" });
     show(dest);
   };
 });
 
 $("profile-btn").onclick = () => { send({ type: "get_profile" }); renderProfile(); show("profile"); };
+$("friends-btn").onclick = () => openFriends(null);
 
 document.querySelectorAll(".diff-chip").forEach((chip) => {
   chip.onclick = () => {
@@ -645,20 +752,37 @@ $("btn-bot").onclick = () => {
 };
 $("btn-ranking").onclick = openRanking;
 $("btn-friend").onclick = () => {
-  $("room-code-box").classList.add("hidden");
-  $("join-code-input").value = "";
-  $("friend-diff").textContent = `Mode : ${DIFF_LABELS[S.difficulty]}`;
-  show("friend");
+  if (!S.currentTopic) return;
+  openFriends({ topic: S.currentTopic, difficulty: S.difficulty });
 };
-$("btn-cancel-search").onclick = () => send({ type: "cancel_find" });
-$("btn-create-room").onclick = () =>
-  send({ type: "create_room", topic_id: S.currentTopic.id, difficulty: S.difficulty });
-$("btn-join-room").onclick = () => {
-  const code = $("join-code-input").value.trim().toUpperCase();
-  if (code.length !== 4) { toast("Le code fait 4 caractères"); return; }
-  send({ type: "join_room", code });
+$("btn-cancel-search").onclick = () => {
+  if (S.waitingChallenge) { send({ type: "cancel_challenge" }); S.waitingChallenge = null; show("topic"); }
+  else send({ type: "cancel_find" });
 };
-$("join-code-input").addEventListener("keydown", (e) => { if (e.key === "Enter") $("btn-join-room").click(); });
+
+// Amis : ajouter, copier le code, accepter/refuser un défi
+$("btn-add-friend").onclick = () => {
+  const code = $("add-friend-input").value.trim().toUpperCase();
+  if (code.length < 4) { toast("Entre le code de ton ami"); return; }
+  send({ type: "add_friend", code });
+};
+$("add-friend-input").addEventListener("keydown", (e) => { if (e.key === "Enter") $("btn-add-friend").click(); });
+$("btn-copy-code").onclick = () => {
+  const code = S.friendCode || "";
+  if (navigator.clipboard && code) {
+    navigator.clipboard.writeText(code).then(() => toast("Code copié !")).catch(() => toast(code));
+  } else { toast(code); }
+};
+$("btn-accept-challenge").onclick = () => {
+  const from = $("challenge-overlay").dataset.from;
+  $("challenge-overlay").classList.add("hidden");
+  if (from) send({ type: "accept_challenge", from_id: from });
+};
+$("btn-decline-challenge").onclick = () => {
+  const from = $("challenge-overlay").dataset.from;
+  $("challenge-overlay").classList.add("hidden");
+  if (from) send({ type: "decline_challenge", from_id: from });
+};
 
 $("btn-rematch").onclick = () => {
   if (!S.game) return;
