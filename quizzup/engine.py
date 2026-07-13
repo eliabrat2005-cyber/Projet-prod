@@ -26,6 +26,7 @@ from . import store
 log = logging.getLogger("quizzup")
 
 ROUNDS = qbank.ROUNDS_PER_GAME
+ALLOWED_ROUNDS = (7, 10, 15, 20)  # longueurs de partie proposées
 FAST = os.environ.get("QUIZZUP_FAST") == "1"  # timings raccourcis pour les tests
 
 QUESTION_SECONDS = 1.2 if FAST else 10.0
@@ -82,7 +83,8 @@ def make_bot(level_hint: int) -> tuple[Participant, float]:
 # ─── Partie ─────────────────────────────────────────────────────────────────
 
 def _pick_fresh_questions(topic_id: str, players: list[Participant],
-                          difficulty: int | None = None) -> list[dict]:
+                          difficulty: int | None = None,
+                          rounds: int = ROUNDS) -> list[dict]:
     """Tire les questions du match en évitant celles déjà vues par les joueurs.
 
     Quand un joueur a fait le tour du palier demandé, son historique du
@@ -96,11 +98,11 @@ def _pick_fresh_questions(topic_id: str, players: list[Participant],
     pool = qbank.get_topic(topic_id)["questions"]
     tier_hashes = {q["h"] for q in pool
                    if difficulty is None or q["difficulty"] == difficulty}
-    if len(tier_hashes) >= ROUNDS and len(tier_hashes - exclude) < ROUNDS:
+    if len(tier_hashes) >= rounds and len(tier_hashes - exclude) < rounds:
         for p in humans:
             store.reset_seen_questions(p.player_id, topic_id)
         exclude = set()
-    questions = qbank.pick_game_questions(topic_id, exclude=exclude,
+    questions = qbank.pick_game_questions(topic_id, n=rounds, exclude=exclude,
                                           difficulty=difficulty)
     picked = [q["h"] for q in questions]
     for p in humans:
@@ -111,13 +113,15 @@ def _pick_fresh_questions(topic_id: str, players: list[Participant],
 class Game:
     def __init__(self, topic_id: str, p1: Participant, p2: Participant,
                  bot_accuracy: float = 0.7,
-                 difficulty: int = qbank.DEFAULT_DIFFICULTY):
+                 difficulty: int = qbank.DEFAULT_DIFFICULTY,
+                 rounds: int = ROUNDS):
         self.id = uuid.uuid4().hex[:12]
         self.topic_id = topic_id
         self.difficulty = difficulty
+        self.rounds = rounds
         self.players = [p1, p2]
         self.bot_accuracy = bot_accuracy
-        self.questions = _pick_fresh_questions(topic_id, self.players, difficulty)
+        self.questions = _pick_fresh_questions(topic_id, self.players, difficulty, rounds)
         self.scores = {p1.player_id: 0, p2.player_id: 0}
         self.round_no = 0
         self.round_answers: dict[str, tuple[int, float]] = {}  # pid -> (choix, temps)
@@ -162,13 +166,13 @@ class Game:
                           "icon": topic["icon"], "color": topic["color"]},
                 "difficulty": self.difficulty,
                 "difficulty_label": qbank.DIFFICULTIES[self.difficulty],
-                "rounds": ROUNDS,
+                "rounds": self.rounds,
                 "opponent": {"name": opp.name, "is_bot": opp.is_bot,
                              "level": opp_stats["level"]},
             })
         await asyncio.sleep(VS_SCREEN_SECONDS)
 
-        for rnd in range(1, ROUNDS + 1):
+        for rnd in range(1, self.rounds + 1):
             if self.finished:
                 return
             await self._play_round(rnd)
@@ -177,10 +181,10 @@ class Game:
 
     async def _play_round(self, rnd: int) -> None:
         self.round_no = rnd
-        double = rnd == ROUNDS
+        double = rnd == self.rounds
         q = self.questions[rnd - 1]
 
-        await self._broadcast({"type": "countdown", "round": rnd, "rounds": ROUNDS,
+        await self._broadcast({"type": "countdown", "round": rnd, "rounds": self.rounds,
                                "seconds": COUNTDOWN_SECONDS, "double": double})
         await asyncio.sleep(COUNTDOWN_SECONDS)
         if self.finished:
@@ -189,7 +193,7 @@ class Game:
         self.round_answers = {}
         self.round_done = asyncio.Event()
         self.round_start = time.monotonic()
-        await self._broadcast({"type": "question", "round": rnd, "rounds": ROUNDS,
+        await self._broadcast({"type": "question", "round": rnd, "rounds": self.rounds,
                                "q": q["q"], "choices": q["choices"],
                                "duration": QUESTION_SECONDS, "double": double})
 
@@ -350,7 +354,8 @@ class Lobby:
 
     async def start_game(self, topic_id: str, p1: Participant, p2: Participant,
                          bot_accuracy: float = 0.7,
-                         difficulty: int = qbank.DEFAULT_DIFFICULTY) -> Game:
+                         difficulty: int = qbank.DEFAULT_DIFFICULTY,
+                         rounds: int = ROUNDS) -> Game:
         # Un joueur ne peut être que dans une partie à la fois : si une
         # partie active traîne (autre onglet, client figé), on la clôt.
         for p in (p1, p2):
@@ -359,7 +364,7 @@ class Lobby:
                 if stale is not None:
                     await stale.forfeit(p.player_id)
         game = Game(topic_id, p1, p2, bot_accuracy=bot_accuracy,
-                    difficulty=difficulty)
+                    difficulty=difficulty, rounds=rounds)
         self.games[game.id] = game
         game.task = asyncio.create_task(self._run_and_cleanup(game))
         return game
@@ -373,42 +378,46 @@ class Lobby:
             self.games.pop(game.id, None)
 
     async def start_bot_game(self, topic_id: str, human: Participant,
-                             difficulty: int = qbank.DEFAULT_DIFFICULTY) -> Game:
+                             difficulty: int = qbank.DEFAULT_DIFFICULTY,
+                             rounds: int = ROUNDS) -> Game:
         level = qbank.level_info(store.get_topic_stats(human.player_id, topic_id)["xp"])["level"]
         bot, accuracy = make_bot(level)
         return await self.start_game(topic_id, human, bot, bot_accuracy=accuracy,
-                                     difficulty=difficulty)
+                                     difficulty=difficulty, rounds=rounds)
 
     # ── Matchmaking « Partie rapide » ──────────────────────────────────────
 
     async def find_match(self, topic_id: str, me: Participant,
-                         difficulty: int = qbank.DEFAULT_DIFFICULTY) -> None:
-        queue = self.queues.setdefault((topic_id, difficulty), [])
+                         difficulty: int = qbank.DEFAULT_DIFFICULTY,
+                         rounds: int = ROUNDS) -> None:
+        key = (topic_id, difficulty, rounds)
+        queue = self.queues.setdefault(key, [])
         queue[:] = [p for p in queue if p.send is not None]  # purge les morts
         for waiting in queue:
             if waiting.player_id != me.player_id:
                 queue.remove(waiting)
                 self._cancel_queue_timer(waiting.player_id)
-                await self.start_game(topic_id, waiting, me, difficulty=difficulty)
+                await self.start_game(topic_id, waiting, me,
+                                      difficulty=difficulty, rounds=rounds)
                 return
         if me not in queue:
             queue.append(me)
         await me.emit({"type": "queued", "topic_id": topic_id,
-                       "difficulty": difficulty})
+                       "difficulty": difficulty, "rounds": rounds})
         self._cancel_queue_timer(me.player_id)
         self.queue_timers[me.player_id] = asyncio.create_task(
-            self._bot_fallback(topic_id, me, difficulty))
+            self._bot_fallback(topic_id, me, difficulty, rounds))
 
     async def _bot_fallback(self, topic_id: str, me: Participant,
-                            difficulty: int) -> None:
+                            difficulty: int, rounds: int) -> None:
         try:
             await asyncio.sleep(MATCHMAKING_BOT_FALLBACK)
         except asyncio.CancelledError:
             return
-        queue = self.queues.get((topic_id, difficulty), [])
+        queue = self.queues.get((topic_id, difficulty, rounds), [])
         if me in queue:
             queue.remove(me)
-            await self.start_bot_game(topic_id, me, difficulty=difficulty)
+            await self.start_bot_game(topic_id, me, difficulty=difficulty, rounds=rounds)
 
     def cancel_find(self, me: Participant) -> None:
         for queue in self.queues.values():
@@ -503,28 +512,30 @@ class Lobby:
         return [f["id"] for f in store.list_friends(pid) if f["id"] in self.online]
 
     async def challenge_friend(self, me: Participant, friend_id: str,
-                               topic_id: str, difficulty: int) -> None:
-        # Défi mutuel déjà en attente (l'ami m'a défié sur le même thème+mode) → on lance.
+                               topic_id: str, difficulty: int,
+                               rounds: int = ROUNDS) -> None:
+        # Défi mutuel déjà en attente (l'ami m'a défié sur le même thème+mode+format) → on lance.
         other = self.friend_challenges.get(friend_id)
         if other and other["to"] == me.player_id and other["topic"] == topic_id \
-                and other["difficulty"] == difficulty:
+                and other["difficulty"] == difficulty and other["rounds"] == rounds:
             self.friend_challenges.pop(friend_id, None)
             self.friend_challenges.pop(me.player_id, None)
             target = self.online.get(friend_id)
             if target is not None:
-                await self.start_game(topic_id, target, me, difficulty=difficulty)
+                await self.start_game(topic_id, target, me,
+                                      difficulty=difficulty, rounds=rounds)
             return
         # Sinon on enregistre mon défi et j'invite l'ami s'il est en ligne.
         self.friend_challenges[me.player_id] = {
             "to": friend_id, "topic": topic_id, "difficulty": difficulty,
-            "name": me.name,
+            "rounds": rounds, "name": me.name,
         }
         await me.emit({"type": "challenge_sent", "friend_id": friend_id})
         target = self.online.get(friend_id)
         if target is not None:
             await target.emit({"type": "challenge_received", "from_id": me.player_id,
                                "from_name": me.name, "topic_id": topic_id,
-                               "difficulty": difficulty})
+                               "difficulty": difficulty, "rounds": rounds})
 
     async def accept_challenge(self, me: Participant, from_id: str) -> None:
         chal = self.friend_challenges.get(from_id)
@@ -538,7 +549,8 @@ class Lobby:
             return
         self.friend_challenges.pop(from_id, None)
         self.friend_challenges.pop(me.player_id, None)
-        await self.start_game(chal["topic"], challenger, me, difficulty=chal["difficulty"])
+        await self.start_game(chal["topic"], challenger, me,
+                              difficulty=chal["difficulty"], rounds=chal["rounds"])
 
     async def cancel_challenge(self, me: Participant) -> None:
         chal = self.friend_challenges.pop(me.player_id, None)

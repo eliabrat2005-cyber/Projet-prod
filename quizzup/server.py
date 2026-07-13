@@ -17,6 +17,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
+from . import engine as engine_mod
 from . import questions as qbank
 from . import store
 from .engine import Lobby, Participant
@@ -157,13 +158,22 @@ class Session:
             return qbank.DEFAULT_DIFFICULTY
         return d if d in qbank.DIFFICULTIES else qbank.DEFAULT_DIFFICULTY
 
+    @staticmethod
+    def _rounds(msg: dict) -> int:
+        try:
+            r = int(msg.get("rounds", engine_mod.ROUNDS))
+        except (TypeError, ValueError):
+            return engine_mod.ROUNDS
+        return r if r in engine_mod.ALLOWED_ROUNDS else engine_mod.ROUNDS
+
     async def _find_match(self, msg: dict) -> None:
         topic_id = self._valid_topic(msg)
         if topic_id is None:
             await self.send({"type": "error", "message": "Thème inconnu."})
             return
         await lobby.find_match(topic_id, self.participant,
-                               difficulty=self._difficulty(msg))
+                               difficulty=self._difficulty(msg),
+                               rounds=self._rounds(msg))
 
     async def _cancel_find(self, msg: dict) -> None:
         lobby.cancel_find(self.participant)
@@ -175,7 +185,8 @@ class Session:
             await self.send({"type": "error", "message": "Thème inconnu."})
             return
         await lobby.start_bot_game(topic_id, self.participant,
-                                   difficulty=self._difficulty(msg))
+                                   difficulty=self._difficulty(msg),
+                                   rounds=self._rounds(msg))
 
     async def _create_room(self, msg: dict) -> None:
         topic_id = self._valid_topic(msg)
@@ -263,7 +274,7 @@ class Session:
             await self.send({"type": "friend_error", "message": "Vous n'êtes pas amis."})
             return
         await lobby.challenge_friend(self.participant, friend_id, topic_id,
-                                     self._difficulty(msg))
+                                     self._difficulty(msg), self._rounds(msg))
 
     async def _accept_challenge(self, msg: dict) -> None:
         await lobby.accept_challenge(self.participant, str(msg.get("from_id") or ""))

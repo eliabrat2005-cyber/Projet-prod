@@ -241,6 +241,27 @@ body::after {
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
+/* ── Sélecteur nombre de questions ───────────────────────── */
+.rounds-select {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 18px;
+}
+.rounds-label { font-size: 13px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .14em; }
+.rounds-chips { display: flex; gap: 8px; }
+.rounds-chip {
+  width: 48px; padding: 9px 0; border-radius: 12px; cursor: pointer;
+  border: 1px solid var(--line); background: rgba(255,255,255,.55);
+  color: var(--ink); font-family: var(--font-display); font-size: 18px; font-weight: 700;
+  transition: transform .1s, border-color .15s, background .15s, box-shadow .15s;
+  backdrop-filter: blur(8px);
+}
+.rounds-chip:active { transform: scale(.92); }
+.rounds-chip.selected {
+  border-color: var(--gold); background: rgba(217,182,101,.16);
+  box-shadow: 0 0 0 1px var(--gold), 0 6px 16px rgba(176,141,62,.22);
+  color: #8a6a24;
+}
+
 /* ── Amis ────────────────────────────────────────────────── */
 .friends-hint {
   text-align: center; font-weight: 700; color: var(--gold); font-size: 15px;

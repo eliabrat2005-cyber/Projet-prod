@@ -15,6 +15,8 @@ const S = {
   sound: localStorage.getItem("quizzup_sound") !== "0",
   difficulty: [1, 2, 3, 4].includes(+localStorage.getItem("quizzup_diff"))
     ? +localStorage.getItem("quizzup_diff") : 2,
+  rounds: [7, 10, 15, 20].includes(+localStorage.getItem("quizzup_rounds"))
+    ? +localStorage.getItem("quizzup_rounds") : 7,
   friends: [],           // [{id, name, wins, losses, draws, online}]
   friendCode: null,
   challengeCtx: null,    // {topic, difficulty} quand on ouvre les amis pour défier
@@ -259,6 +261,9 @@ function renderDiffChips(t) {
     const n = (t.tiers && t.tiers[d - 1]) || 0;
     chip.querySelector("small").textContent = n ? `${n} q.` : "—";
   });
+  document.querySelectorAll(".rounds-chip").forEach((chip) => {
+    chip.classList.toggle("selected", +chip.dataset.rounds === S.rounds);
+  });
 }
 
 // ─── Amis ─────────────────────────────────────────────────────────────────
@@ -270,7 +275,7 @@ function openFriends(challengeCtx = null) {
   const hint = $("friends-challenge-hint");
   if (challengeCtx) {
     $("friends-title").textContent = "Défier un ami";
-    hint.textContent = `${challengeCtx.topic.icon} ${challengeCtx.topic.name} · ${DIFF_LABELS[challengeCtx.difficulty]} — choisis qui défier`;
+    hint.textContent = `${challengeCtx.topic.icon} ${challengeCtx.topic.name} · ${DIFF_LABELS[challengeCtx.difficulty]} · ${challengeCtx.rounds} q. — choisis qui défier`;
     hint.classList.remove("hidden");
   } else {
     $("friends-title").textContent = "Mes amis";
@@ -311,7 +316,7 @@ function renderFriends() {
       const ctx = S.challengeCtx;
       if (!ctx) return;
       send({ type: "challenge_friend", friend_id: b.dataset.id,
-             topic_id: ctx.topic.id, difficulty: ctx.difficulty });
+             topic_id: ctx.topic.id, difficulty: ctx.difficulty, rounds: ctx.rounds });
       debounceBtn(b, 2000);
     };
   });
@@ -380,7 +385,7 @@ function onMatchFound(msg) {
   $("vs-opp-name").textContent = msg.opponent.name;
   $("vs-opp-level").textContent = msg.opponent.is_bot ? "Bot" : `Niveau ${msg.opponent.level}`;
   $("vs-topic").textContent =
-    `${msg.topic.icon} ${msg.topic.name} · ${msg.difficulty_label || DIFF_LABELS[msg.difficulty] || ""}`;
+    `${msg.topic.icon} ${msg.topic.name} · ${msg.difficulty_label || DIFF_LABELS[msg.difficulty] || ""} · ${msg.rounds} questions`;
   sndGo();
   show("vs");
   // Prépare l'écran de jeu
@@ -736,17 +741,26 @@ document.querySelectorAll(".diff-chip").forEach((chip) => {
   };
 });
 
+document.querySelectorAll(".rounds-chip").forEach((chip) => {
+  chip.onclick = () => {
+    S.rounds = +chip.dataset.rounds;
+    localStorage.setItem("quizzup_rounds", S.rounds);
+    if (S.currentTopic) renderDiffChips(S.currentTopic);
+    sndTick();
+  };
+});
+
 $("btn-quick").onclick = () => {
   if (!S.currentTopic) return;
-  if (send({ type: "find_match", topic_id: S.currentTopic.id, difficulty: S.difficulty })) {
+  if (send({ type: "find_match", topic_id: S.currentTopic.id, difficulty: S.difficulty, rounds: S.rounds })) {
     $("search-topic").textContent =
-      `${S.currentTopic.icon} ${S.currentTopic.name} · ${DIFF_LABELS[S.difficulty]}`;
+      `${S.currentTopic.icon} ${S.currentTopic.name} · ${DIFF_LABELS[S.difficulty]} · ${S.rounds} q.`;
     debounceBtn($("btn-quick"));
   }
 };
 $("btn-bot").onclick = () => {
   if (!S.currentTopic) return;
-  if (send({ type: "play_bot", topic_id: S.currentTopic.id, difficulty: S.difficulty })) {
+  if (send({ type: "play_bot", topic_id: S.currentTopic.id, difficulty: S.difficulty, rounds: S.rounds })) {
     debounceBtn($("btn-bot"));
   }
 };

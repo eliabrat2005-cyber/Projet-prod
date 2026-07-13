@@ -358,6 +358,43 @@ def test_quick_match_separates_difficulties(quizzup_modules):
             assert m2["opponent"]["is_bot"] is True and m2["difficulty"] == 4
 
 
+def test_rounds_selectable(quizzup_modules):
+    """Une partie bot en 15 questions comporte bien 15 manches (dernière doublée)."""
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    with TestClient(server.app) as client:
+        topic_id = client.get("/api/topics").json()[0]["id"]
+        with client.websocket_connect("/ws") as ws:
+            ws.send_text(json.dumps({"type": "hello", "name": "Longue"}))
+            json.loads(ws.receive_text())
+            ws.send_text(json.dumps({"type": "play_bot", "topic_id": topic_id,
+                                     "difficulty": 2, "rounds": 15}))
+            gid, seen, double_rounds = None, 0, []
+            for _ in range(400):
+                msg = json.loads(ws.receive_text())
+                if msg["type"] == "match_found":
+                    gid = msg["game_id"]
+                    assert msg["rounds"] == 15
+                elif msg["type"] == "question":
+                    seen += 1
+                    if msg["double"]:
+                        double_rounds.append(msg["round"])
+                    ws.send_text(json.dumps({"type": "answer", "game_id": gid,
+                                             "round": msg["round"], "choice": 0}))
+                elif msg["type"] == "game_over":
+                    break
+            assert seen == 15
+            assert double_rounds == [15]  # seule la dernière manche est doublée
+
+
+def test_invalid_rounds_falls_back(quizzup_modules):
+    engine, _, _ = quizzup_modules
+    # 12 n'est pas proposé → le serveur retombe sur la valeur par défaut
+    assert 12 not in engine.ALLOWED_ROUNDS
+    assert engine.ROUNDS in engine.ALLOWED_ROUNDS
+
+
 def test_friend_store_and_head_to_head(quizzup_modules):
     """Ajout d'ami par code + bilan tête-à-tête incrémenté."""
     _, _, _ = quizzup_modules
