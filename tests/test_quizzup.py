@@ -358,6 +358,63 @@ def test_quick_match_separates_difficulties(quizzup_modules):
             assert m2["opponent"]["is_bot"] is True and m2["difficulty"] == 4
 
 
+def test_party_three_players(quizzup_modules):
+    """Salon à 3 joueurs : création, join, démarrage, 7 manches, podium final."""
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    with TestClient(server.app) as client:
+        topic_id = client.get("/api/topics").json()[0]["id"]
+        with client.websocket_connect("/ws") as w1, \
+             client.websocket_connect("/ws") as w2, \
+             client.websocket_connect("/ws") as w3:
+            for w, name in ((w1, "Hôte"), (w2, "Bea"), (w3, "Caro")):
+                w.send_text(json.dumps({"type": "hello", "name": name}))
+                json.loads(w.receive_text())
+
+            w1.send_text(json.dumps({"type": "create_party", "topic_id": topic_id,
+                                     "difficulty": 2, "rounds": 7}))
+            created = _drain_until(w1, "party_created")
+            code = created["code"]
+            assert len(code) == 4 and created["is_host"] is True
+
+            w2.send_text(json.dumps({"type": "join_party", "code": code}))
+            w3.send_text(json.dumps({"type": "join_party", "code": code.lower()}))
+            # L'hôte voit la liste monter à 3 joueurs
+            members = _drain_until(w1, "party_update")["members"]
+            while len(members) < 3:
+                members = _drain_until(w1, "party_update")["members"]
+            assert {m["name"] for m in members} == {"Hôte", "Bea", "Caro"}
+
+            w1.send_text(json.dumps({"type": "start_party"}))
+            socks = {"a": w1, "b": w2, "c": w3}
+            gid = {}
+            for key, w in socks.items():
+                st = _drain_until(w, "party_started")
+                assert len(st["players"]) == 3 and st["rounds"] == 7
+                gid[key] = st["game_id"]
+
+            # Lockstep sur un seul thread : les 3 sockets reçoivent les mêmes
+            # diffusions, on lit un message par socket à tour de rôle.
+            overs = {}
+            for _ in range(600):
+                if len(overs) == 3:
+                    break
+                for key, w in socks.items():
+                    if key in overs:
+                        continue
+                    m = json.loads(w.receive_text())
+                    if m["type"] == "question":
+                        w.send_text(json.dumps({"type": "answer", "game_id": gid[key],
+                                                "round": m["round"], "choice": 0}))
+                    elif m["type"] == "party_over":
+                        overs[key] = m
+            assert len(overs) == 3
+            for key in ("a", "b", "c"):
+                assert len(overs[key]["podium"]) == 3
+                assert overs[key]["result"] in {"win", "loss", "draw"}
+
+
 def test_tournament_bot(quizzup_modules):
     """Tournoi 5 thèmes vs bot : 5 manches, une par thème choisi, dernière doublée."""
     _, server, _ = quizzup_modules

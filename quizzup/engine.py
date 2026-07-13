@@ -375,6 +375,212 @@ class Game:
             await p.emit(msg)
 
 
+MAX_PARTY = 8  # joueurs max dans une partie de groupe
+
+
+class PartyGame:
+    """Partie de groupe (2 à MAX_PARTY joueurs humains) : mêmes questions
+    pour tous, scores en direct, classement final. Séparé de ``Game`` (1v1)
+    pour ne pas fragiliser le duel."""
+
+    def __init__(self, players: list[Participant], topic_id: str | None,
+                 difficulty: int, rounds: int, topics: list[str] | None = None):
+        self.id = uuid.uuid4().hex[:12]
+        self.players = list(players)
+        self.difficulty = difficulty
+        self.names = {p.player_id: p.name for p in self.players}
+        self.active = {p.player_id for p in self.players}
+        self.is_tournament = bool(topics)
+        if self.is_tournament:
+            self.tournament_topics = topics
+            self.round_topics = [qbank.get_topic(t) for t in topics]
+            self.topic_id = "tournoi"
+            self.rounds = len(topics)
+            self.questions = _pick_tournament_questions(topics, self.players, difficulty)
+        else:
+            self.tournament_topics = None
+            self.round_topics = None
+            self.topic_id = topic_id
+            self.rounds = rounds
+            self.questions = _pick_fresh_questions(topic_id, self.players, difficulty, rounds)
+        self.scores = {p.player_id: 0 for p in self.players}
+        self.round_no = 0
+        self.round_answers: dict[str, tuple[int, float]] = {}
+        self.round_start = 0.0
+        self.round_done = asyncio.Event()
+        self.finished = False
+        self.task: asyncio.Task | None = None
+
+    def participant(self, pid: str) -> Participant | None:
+        for p in self.players:
+            if p.player_id == pid:
+                return p
+        return None
+
+    def _connected(self) -> list[Participant]:
+        return [p for p in self.players
+                if p.player_id in self.active and p.send is not None]
+
+    async def _broadcast(self, msg: dict) -> None:
+        for p in self._connected():
+            await p.emit(msg)
+
+    def _topic_card(self) -> dict:
+        if self.is_tournament:
+            return {"id": "tournoi", "name": "Tournoi", "icon": "🏆", "color": "#b08d3e"}
+        t = qbank.get_topic(self.topic_id)
+        return {"id": t["id"], "name": t["name"], "icon": t["icon"], "color": t["color"]}
+
+    async def run(self) -> None:
+        try:
+            await self._run_inner()
+        except asyncio.CancelledError:
+            raise
+        except Exception:
+            log.exception("party %s crashed", self.id)
+            await self._broadcast({"type": "error", "message": "Erreur serveur — partie interrompue."})
+
+    async def _run_inner(self) -> None:
+        card = self._topic_card()
+        tournament = None
+        if self.is_tournament:
+            tournament = {"count": self.rounds,
+                          "topics": [{"icon": t["icon"], "name": t["name"]}
+                                     for t in self.round_topics]}
+        roster = [{"id": p.player_id, "name": p.name} for p in self.players]
+        await self._broadcast({"type": "party_started", "game_id": self.id,
+                               "players": roster, "topic": card,
+                               "tournament": tournament, "rounds": self.rounds,
+                               "difficulty": self.difficulty,
+                               "difficulty_label": qbank.DIFFICULTIES[self.difficulty]})
+        await asyncio.sleep(VS_SCREEN_SECONDS)
+        for rnd in range(1, self.rounds + 1):
+            if self.finished:
+                return
+            await self._play_round(rnd)
+        await self._finish()
+
+    async def _play_round(self, rnd: int) -> None:
+        self.round_no = rnd
+        double = rnd == self.rounds
+        q = self.questions[rnd - 1]
+        round_topic = None
+        if self.is_tournament:
+            rt = self.round_topics[rnd - 1]
+            round_topic = {"name": rt["name"], "icon": rt["icon"], "color": rt["color"]}
+
+        self.round_answers = {}
+        self.round_done = asyncio.Event()
+        await self._broadcast({"type": "countdown", "round": rnd, "rounds": self.rounds,
+                               "seconds": COUNTDOWN_SECONDS, "double": double,
+                               "round_topic": round_topic})
+        await asyncio.sleep(COUNTDOWN_SECONDS)
+        if self.finished:
+            return
+
+        self.round_start = time.monotonic()
+        await self._broadcast({"type": "question", "round": rnd, "rounds": self.rounds,
+                               "q": q["q"], "choices": q["choices"],
+                               "duration": QUESTION_SECONDS, "double": double,
+                               "round_topic": round_topic})
+        try:
+            await asyncio.wait_for(self.round_done.wait(),
+                                   timeout=QUESTION_SECONDS + ANSWER_GRACE)
+        except TimeoutError:
+            pass
+        if self.finished:
+            return
+
+        for pid, (choice, elapsed) in self.round_answers.items():
+            self.scores[pid] += score_for_answer(choice == q["answer"], elapsed, double)
+        ranking = sorted(self.scores.items(), key=lambda kv: kv[1], reverse=True)
+        results = [{"id": pid, "name": self.names[pid], "total": total,
+                    "answered": pid in self.round_answers}
+                   for pid, total in ranking]
+        for me in self._connected():
+            ans = self.round_answers.get(me.player_id)
+            gained = 0
+            if ans is not None:
+                gained = score_for_answer(ans[0] == q["answer"], ans[1], double)
+            await me.emit({"type": "party_reveal", "round": rnd, "correct": q["answer"],
+                           "double": double, "results": results,
+                           "you": {"choice": ans[0] if ans else None, "points": gained}})
+        await asyncio.sleep(REVEAL_SECONDS)
+
+    def submit_answer(self, pid: str, rnd: int, choice: int) -> bool:
+        if self.finished or rnd != self.round_no or pid in self.round_answers:
+            return False
+        if pid not in self.active:
+            return False
+        elapsed = time.monotonic() - self.round_start
+        if elapsed > QUESTION_SECONDS + ANSWER_GRACE:
+            return False
+        if not isinstance(choice, int) or not (0 <= choice <= 3):
+            return False
+        self.round_answers[pid] = (choice, min(elapsed, QUESTION_SECONDS))
+        if len(self.round_answers) >= len(self._connected()):
+            self.round_done.set()
+        return True
+
+    async def remove_player(self, pid: str) -> None:
+        self.active.discard(pid)
+        if not self.finished:
+            await self._broadcast({"type": "party_left", "player_id": pid,
+                                   "name": self.names.get(pid, "?")})
+            if len(self.active) < 2:
+                await self._finish()
+            elif len(self.round_answers) >= len(self._connected()) and self._connected():
+                self.round_done.set()
+
+    async def _finish(self) -> None:
+        if self.finished:
+            return
+        self.finished = True
+        self.round_done.set()
+        ranking = sorted(self.scores.items(), key=lambda kv: kv[1], reverse=True)
+        top = ranking[0][1] if ranking else 0
+        winners = [pid for pid, s in ranking if s == top]
+        podium = [{"id": pid, "name": self.names[pid], "score": s,
+                   "winner": s == top and top > 0}
+                  for pid, s in ranking]
+        for me in self.players:
+            if me.send is None:
+                continue
+            score = self.scores[me.player_id]
+            result = ("draw" if len(winners) > 1 else "win") if me.player_id in winners else "loss"
+            xp_gain = Game.xp_for(result, score, self.difficulty)
+            before = qbank.level_info(store.get_topic_stats(me.player_id, self.topic_id)["xp"])
+            stats = store.record_game(me.player_id, self.topic_id, xp_gain, result, score)
+            after = qbank.level_info(stats["xp"])
+            await me.emit({"type": "party_over", "game_id": self.id,
+                           "podium": podium, "your_id": me.player_id,
+                           "result": result, "xp_gained": xp_gain,
+                           "level_before": before, "level_after": after,
+                           "topic_stats": stats, "level_up": after["level"] > before["level"]})
+
+    async def forfeit_all(self) -> None:
+        if self.task and not self.task.done():
+            self.task.cancel()
+
+
+class Party:
+    """Salon d'attente avant une partie de groupe."""
+
+    def __init__(self, code: str, host: Participant, spec: dict):
+        self.code = code
+        self.host_id = host.player_id
+        self.spec = spec               # {kind, topic?/topics?, difficulty, rounds?}
+        self.members: list[Participant] = [host]
+        self.started = False
+
+    def roster(self) -> list[dict]:
+        return [{"id": p.player_id, "name": p.name, "is_host": p.player_id == self.host_id}
+                for p in self.members]
+
+    def has(self, pid: str) -> bool:
+        return any(p.player_id == pid for p in self.members)
+
+
 # ─── Lobby : matchmaking, salons privés, revanche ───────────────────────────
 
 class Lobby:
@@ -389,6 +595,9 @@ class Lobby:
         self.online: dict[str, Participant] = {}
         # Défis d'ami en attente : from_pid -> {"to","topic","difficulty","name"}
         self.friend_challenges: dict[str, dict] = {}
+        # Parties de groupe
+        self.parties: dict[str, Party] = {}                 # code -> Party (avant lancement)
+        self.party_games: dict[str, PartyGame] = {}         # game_id -> PartyGame en cours
 
     # ── Démarrage de partie ────────────────────────────────────────────────
 
@@ -621,11 +830,102 @@ class Lobby:
                 await challenger.emit({"type": "challenge_declined",
                                        "friend_id": me.player_id})
 
+    # ── Parties de groupe (2 à MAX_PARTY joueurs) ──────────────────────────
+
+    def _new_party_code(self) -> str:
+        alphabet = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"
+        code = "".join(secrets.choice(alphabet) for _ in range(4))
+        while code in self.parties:
+            code = "".join(secrets.choice(alphabet) for _ in range(4))
+        return code
+
+    def _party_of(self, pid: str) -> Party | None:
+        for party in self.parties.values():
+            if party.has(pid):
+                return party
+        return None
+
+    async def create_party(self, host: Participant, spec: dict) -> None:
+        await self.leave_party(host)  # une seule à la fois
+        code = self._new_party_code()
+        self.parties[code] = Party(code, host, spec)
+        await host.emit({"type": "party_created", "code": code,
+                         "members": self.parties[code].roster(),
+                         "is_host": True, "spec_label": spec.get("label", "")})
+
+    async def join_party(self, guest: Participant, code: str) -> None:
+        party = self.parties.get((code or "").strip().upper())
+        if party is None or party.started:
+            await guest.emit({"type": "party_not_found"})
+            return
+        if len(party.members) >= MAX_PARTY:
+            await guest.emit({"type": "party_error", "message": "Salon complet."})
+            return
+        await self.leave_party(guest)
+        if not party.has(guest.player_id):
+            party.members.append(guest)
+        for p in party.members:
+            await p.emit({"type": "party_update", "code": party.code,
+                          "members": party.roster(),
+                          "is_host": p.player_id == party.host_id,
+                          "spec_label": party.spec.get("label", "")})
+
+    async def leave_party(self, me: Participant) -> None:
+        party = self._party_of(me.player_id)
+        if party is None:
+            return
+        party.members = [p for p in party.members if p.player_id != me.player_id]
+        if me.player_id == party.host_id or not party.members:
+            # L'hôte s'en va → le salon se dissout.
+            self.parties.pop(party.code, None)
+            for p in party.members:
+                await p.emit({"type": "party_closed"})
+        else:
+            for p in party.members:
+                await p.emit({"type": "party_update", "code": party.code,
+                              "members": party.roster(),
+                              "is_host": p.player_id == party.host_id,
+                              "spec_label": party.spec.get("label", "")})
+
+    async def start_party(self, me: Participant) -> None:
+        party = self._party_of(me.player_id)
+        if party is None or party.host_id != me.player_id or party.started:
+            return
+        if len(party.members) < 2:
+            await me.emit({"type": "party_error", "message": "Il faut au moins 2 joueurs."})
+            return
+        party.started = True
+        self.parties.pop(party.code, None)
+        spec = party.spec
+        if spec.get("kind") == "tournoi":
+            game = PartyGame(party.members, None, spec["difficulty"], 0, topics=spec["topics"])
+        else:
+            game = PartyGame(party.members, spec["topic"], spec["difficulty"], spec["rounds"])
+        self.party_games[game.id] = game
+        game.task = asyncio.create_task(self._run_party(game))
+
+    async def _run_party(self, game: PartyGame) -> None:
+        try:
+            await game.run()
+        finally:
+            await asyncio.sleep(3 if FAST else 300)
+            self.party_games.pop(game.id, None)
+
+    def active_party_game_of(self, pid: str) -> PartyGame | None:
+        for g in self.party_games.values():
+            if not g.finished and pid in g.active:
+                return g
+        return None
+
     # ── Déconnexions ───────────────────────────────────────────────────────
 
     async def handle_disconnect(self, me: Participant) -> None:
         self.cancel_find(me)
         self.close_rooms_of(me.player_id)
+        await self.leave_party(me)
+        pg = self.active_party_game_of(me.player_id)
+        if pg is not None:
+            await pg.remove_player(me.player_id)
         await self.set_offline(me.player_id)
         for game in list(self.games.values()):
             if game.participant(me.player_id) and not game.finished:

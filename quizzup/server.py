@@ -112,6 +112,10 @@ class Session:
             "accept_challenge": self._accept_challenge,
             "decline_challenge": self._decline_challenge,
             "cancel_challenge": self._cancel_challenge,
+            "create_party": self._create_party,
+            "join_party": self._join_party,
+            "start_party": self._start_party,
+            "leave_party": self._leave_party,
         }.get(mtype)
         if handler is None:
             await self.send({"type": "error", "message": f"Type inconnu : {mtype}"})
@@ -224,14 +228,17 @@ class Session:
             await self.send({"type": "room_not_found", "code": code})
 
     async def _answer(self, msg: dict) -> None:
-        game = lobby.games.get(str(msg.get("game_id")))
-        if game is None:
-            return
+        gid = str(msg.get("game_id"))
         pid = self.participant.player_id
-        accepted = game.submit_answer(pid, msg.get("round"), msg.get("choice"))
-        if accepted:
+        game = lobby.games.get(gid)
+        if game is not None:
+            if game.submit_answer(pid, msg.get("round"), msg.get("choice")):
+                await self.send({"type": "answer_ack", "round": msg.get("round")})
+                await game.notify_answered(pid, msg.get("round"))
+            return
+        party = lobby.party_games.get(gid)
+        if party is not None and party.submit_answer(pid, msg.get("round"), msg.get("choice")):
             await self.send({"type": "answer_ack", "round": msg.get("round")})
-            await game.notify_answered(pid, msg.get("round"))
 
     async def _rematch(self, msg: dict) -> None:
         await lobby.request_rematch(str(msg.get("game_id")), self.participant.player_id)
@@ -240,11 +247,16 @@ class Session:
         await lobby.decline_rematch(str(msg.get("game_id")), self.participant.player_id)
 
     async def _leave_game(self, msg: dict) -> None:
-        game = lobby.games.get(str(msg.get("game_id")))
+        gid = str(msg.get("game_id"))
+        game = lobby.games.get(gid)
         if game and not game.finished:
             opp = game.opponent_of(self.participant.player_id)
             await opp.emit({"type": "opponent_left", "game_id": game.id})
             await game.forfeit(self.participant.player_id)
+            return
+        party = lobby.party_games.get(gid)
+        if party and not party.finished:
+            await party.remove_player(self.participant.player_id)
 
     async def _get_profile(self, msg: dict) -> None:
         await self.send({"type": "profile",
@@ -323,6 +335,34 @@ class Session:
 
     async def _cancel_challenge(self, msg: dict) -> None:
         await lobby.cancel_challenge(self.participant)
+
+    # ── Parties de groupe ────────────────────────────────────────────────────
+
+    async def _create_party(self, msg: dict) -> None:
+        topics = self._valid_tournament_topics(msg)
+        diff = self._difficulty(msg)
+        if topics is not None:  # tournoi de groupe
+            spec = {"kind": "tournoi", "topics": topics, "difficulty": diff,
+                    "label": f"🏆 Tournoi · {len(topics)} thèmes · {qbank.DIFFICULTIES[diff]}"}
+        else:
+            topic_id = self._valid_topic(msg)
+            if topic_id is None:
+                await self.send({"type": "party_error", "message": "Thème inconnu."})
+                return
+            rounds = self._rounds(msg)
+            t = qbank.get_topic(topic_id)
+            spec = {"kind": "solo", "topic": topic_id, "difficulty": diff, "rounds": rounds,
+                    "label": f"{t['icon']} {t['name']} · {qbank.DIFFICULTIES[diff]} · {rounds} q."}
+        await lobby.create_party(self.participant, spec)
+
+    async def _join_party(self, msg: dict) -> None:
+        await lobby.join_party(self.participant, str(msg.get("code") or ""))
+
+    async def _start_party(self, msg: dict) -> None:
+        await lobby.start_party(self.participant)
+
+    async def _leave_party(self, msg: dict) -> None:
+        await lobby.leave_party(self.participant)
 
 
 @app.websocket("/ws")

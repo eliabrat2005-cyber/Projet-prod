@@ -23,12 +23,13 @@ const S = {
   waitingChallenge: null, // {friend_id, name} en attente d'acceptation
   tournSize: 5,          // nombre de thèmes du tournoi
   tournTopics: [],       // ids des thèmes choisis pour le tournoi
+  party: null,           // salon en attente {code, members, is_host}
 };
 
 const DIFF_LABELS = { 1: "😌 Facile", 2: "🎯 Moyen", 3: "🔥 Difficile", 4: "💀 Extrême" };
 
 const $ = (id) => document.getElementById(id);
-const SCREENS = ["name", "home", "topic", "tournament", "friends", "ranking", "profile", "search", "vs", "game", "results"];
+const SCREENS = ["name", "home", "topic", "tournament", "party", "friends", "ranking", "profile", "search", "vs", "game", "results"];
 
 function show(name) {
   for (const s of SCREENS) $("screen-" + s).classList.toggle("hidden", s !== name);
@@ -152,6 +153,23 @@ function handle(msg) {
     case "challenge_gone":
       toast("Ce défi n'est plus disponible.");
       if (!$("screen-search").classList.contains("hidden")) show("topic");
+      break;
+    case "party_created": onPartyLobby(msg, true); break;
+    case "party_update": onPartyLobby(msg, false); break;
+    case "party_not_found":
+      $("party-join-error").classList.remove("hidden");
+      setTimeout(() => $("party-join-error").classList.add("hidden"), 2500);
+      break;
+    case "party_error": toast(msg.message || "Erreur salon"); break;
+    case "party_closed":
+      toast("Le salon a été fermé.");
+      S.party = null; renderTopics(); show("home");
+      break;
+    case "party_started": onPartyStarted(msg); break;
+    case "party_reveal": onPartyReveal(msg); break;
+    case "party_over": onPartyOver(msg); break;
+    case "party_left":
+      if (S.game && S.game.party) toast(`${msg.name} a quitté la partie`);
       break;
     case "match_found": onMatchFound(msg); break;
     case "countdown": onCountdown(msg); break;
@@ -455,6 +473,175 @@ function launchTournament(mode, friendId) {
   }
 }
 
+// ─── Partie à plusieurs (salon) ─────────────────────────────────────────────
+function openPartyJoin() {
+  S.party = null;
+  $("party-join").classList.remove("hidden");
+  $("party-lobby").classList.add("hidden");
+  $("party-code-input").value = "";
+  show("party");
+}
+
+function onPartyLobby(msg, created) {
+  S.party = { code: msg.code, members: msg.members, is_host: msg.is_host };
+  $("party-join").classList.add("hidden");
+  $("party-lobby").classList.remove("hidden");
+  $("party-label").textContent = msg.spec_label || "Salon";
+  $("party-code").textContent = msg.code;
+  renderPartyMembers();
+  show("party");
+  if (created) sndGo();
+}
+
+function renderPartyMembers() {
+  const p = S.party;
+  if (!p) return;
+  $("party-count").textContent = p.members.length;
+  const wrap = $("party-members");
+  wrap.innerHTML = "";
+  for (const m of p.members) {
+    const row = document.createElement("div");
+    row.className = "friend-row";
+    row.innerHTML = `<span class="avatar">${initial(m.name)}</span>
+      <div class="friend-body"><div class="friend-name">${escapeHtml(m.name)}${m.id === S.player.id ? " (toi)" : ""}</div>
+      <div class="friend-score">${m.is_host ? "👑 Organisateur" : "Prêt"}</div></div>`;
+    wrap.appendChild(row);
+  }
+  const canStart = p.is_host && p.members.length >= 2;
+  $("btn-start-party").classList.toggle("hidden", !p.is_host);
+  $("btn-start-party").disabled = !canStart;
+  $("btn-start-party").textContent = canStart ? "🚀 Démarrer la partie"
+    : (p.is_host ? "En attente d'un 2e joueur…" : "");
+  $("party-wait").classList.toggle("hidden", p.is_host);
+}
+
+function onPartyStarted(msg) {
+  const scores = {};
+  msg.players.forEach((pl) => { scores[pl.id] = 0; });
+  S.party = null;
+  S.game = {
+    id: msg.game_id, party: true, topic: msg.topic, rounds: msg.rounds,
+    players: msg.players, scores, roundResults: [], over: false, currentRound: 0,
+  };
+  $("challenge-overlay").classList.add("hidden");
+  // Bascule l'entête en tableau des scores multijoueur
+  $("party-scoreboard").classList.remove("hidden");
+  document.querySelector("#screen-game .game-head").classList.add("hidden");
+  $("streak-badge").classList.add("hidden");
+  $("question-text").textContent = "Prêts ? 🎯";
+  $("answers").innerHTML = "";
+  $("round-points").classList.add("hidden");
+  $("double-banner").classList.add("hidden");
+  $("round-topic").classList.add("hidden");
+  $("g-round").textContent = `1/${msg.rounds}`;
+  $("timer-fill").style.transform = "scaleX(1)";
+  renderPartyScoreboard();
+  sndGo();
+  show("game");
+}
+
+function renderPartyScoreboard(gains = {}) {
+  const g = S.game;
+  if (!g || !g.party) return;
+  const board = $("party-scoreboard");
+  board.innerHTML = "";
+  const sorted = g.players.slice().sort((a, b) => (g.scores[b.id] || 0) - (g.scores[a.id] || 0));
+  for (const pl of sorted) {
+    const el = document.createElement("div");
+    el.className = "psb-player" + (pl.id === S.player.id ? " me" : "");
+    const gain = gains[pl.id];
+    el.innerHTML = `<span class="psb-avatar">${initial(pl.name)}</span>
+      <span class="psb-name">${escapeHtml(pl.name)}</span>
+      <span class="psb-score">${g.scores[pl.id] || 0}</span>
+      ${gain ? `<span class="psb-gain">+${gain}</span>` : ""}`;
+    board.appendChild(el);
+  }
+}
+
+function onPartyReveal(msg) {
+  if (!S.game) return;
+  cancelAnimationFrame(S.timerRAF);
+  $("timer-fill").style.transform = "scaleX(0)";
+  $("timer-fill").parentElement.classList.remove("urgent");
+
+  const buttons = document.querySelectorAll(".answer-btn");
+  buttons.forEach((b, i) => {
+    b.disabled = true;
+    if (i === msg.correct) b.classList.add("correct");
+    if (msg.you.choice !== null && i === msg.you.choice && i !== msg.correct) b.classList.add("wrong");
+  });
+  const gotIt = msg.you.choice === msg.correct;
+  if (gotIt) { sndGood(); vibrate(30); } else { sndBad(); vibrate([70, 40, 70]); }
+
+  const pts = $("round-points");
+  pts.textContent = gotIt ? `+${msg.you.points} pts`
+                          : (msg.you.choice === null ? "Temps écoulé !" : "Raté !");
+  pts.classList.toggle("zero", !gotIt);
+  pts.classList.remove("hidden");
+
+  const gains = {};
+  for (const r of msg.results) {
+    S.game.scores[r.id] = r.total;
+  }
+  gains[S.player.id] = gotIt ? msg.you.points : 0;
+  renderPartyScoreboard(gains);
+}
+
+function onPartyOver(msg) {
+  if (!S.game) return;
+  S.game.over = true;
+  cancelAnimationFrame(S.timerRAF);
+
+  const podium = msg.podium;
+  const iWon = msg.result === "win";
+  const banner = $("results-banner");
+  banner.className = "results-banner " + (iWon ? "win" : msg.result);
+  const myRank = podium.findIndex((p) => p.id === msg.your_id) + 1;
+  banner.textContent = iWon ? "Victoire ! 🏆"
+                     : msg.result === "draw" ? "Égalité en tête !"
+                     : `${myRank}ᵉ place`;
+  $("results-sub").classList.add("hidden");
+
+  // Masque l'affichage 1v1, montre le podium
+  document.querySelector("#screen-results .results-scores").classList.add("hidden");
+  $("r-dots").classList.add("hidden");
+  const pod = $("party-podium");
+  pod.classList.remove("hidden");
+  pod.innerHTML = "";
+  const medals = ["🥇", "🥈", "🥉"];
+  podium.forEach((p, i) => {
+    const row = document.createElement("div");
+    row.className = "podium-row" + (p.winner ? " win" : "") + (p.id === msg.your_id ? " me" : "");
+    row.innerHTML = `<span class="podium-rank">${medals[i] || (i + 1)}</span>
+      <span class="podium-name">${escapeHtml(p.name)}${p.id === msg.your_id ? " (toi)" : ""}</span>
+      <span class="podium-score">${p.score}</span>`;
+    pod.appendChild(row);
+  });
+
+  if (iWon) { sndGood(); vibrate([40, 60, 40, 60, 120]); confetti(160); }
+  else sndBad();
+
+  // Carte XP (réutilise l'affichage existant)
+  $("r-xp-gain").textContent = `+${msg.xp_gained || 0} XP`;
+  const after = msg.level_after || { level: 0, title: "Débutant", xp_in_level: 0, xp_for_next: 40 };
+  $("r-level").textContent = `Niv. ${after.level}`;
+  $("r-title").textContent = after.title;
+  $("r-xp-text").textContent = `${after.xp_in_level} / ${after.xp_for_next} XP`;
+  $("r-levelup").classList.toggle("hidden", !msg.level_up);
+  const before = msg.level_before || after;
+  const fill = $("r-xp-fill");
+  fill.style.transition = "none";
+  fill.style.width = `${Math.round(100 * before.xp_in_level / before.xp_for_next)}%`;
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    fill.style.transition = "";
+    fill.style.width = `${Math.round(100 * after.xp_in_level / after.xp_for_next)}%`;
+  }));
+
+  $("rematch-status").classList.add("hidden");
+  $("btn-rematch").classList.add("hidden");   // pas de revanche 1-clic en groupe
+  setTimeout(() => show("results"), 900);
+}
+
 // ─── Match ──────────────────────────────────────────────────────────────────
 function onMatchFound(msg) {
   S.game = {
@@ -464,6 +651,13 @@ function onMatchFound(msg) {
   };
   S.waitingChallenge = null;
   $("challenge-overlay").classList.add("hidden");
+  // Rétablit l'affichage duel 1v1 (au cas où on sortait d'une partie de groupe)
+  $("party-scoreboard").classList.add("hidden");
+  document.querySelector("#screen-game .game-head").classList.remove("hidden");
+  document.querySelector("#screen-results .results-scores").classList.remove("hidden");
+  $("party-podium").classList.add("hidden");
+  $("r-dots").classList.remove("hidden");
+  $("btn-rematch").classList.remove("hidden");
   // Écran VS
   $("vs-me-avatar").textContent = initial(S.player.name);
   $("vs-me-name").textContent = S.player.name;
@@ -824,6 +1018,11 @@ $("name-input").addEventListener("keydown", (e) => { if (e.key === "Enter") $("n
 document.querySelectorAll(".back-btn").forEach((b) => {
   b.onclick = () => {
     const dest = b.dataset.back;
+    // Quitter l'écran salon annule la participation au salon
+    if (!$("screen-party").classList.contains("hidden") && S.party) {
+      send({ type: "leave_party" });
+      S.party = null;
+    }
     if (dest === "topic" && !S.currentTopic) { show("home"); return; }
     if (dest === "home") { renderTopics(); }
     show(dest);
@@ -851,6 +1050,30 @@ $("btn-tourn-friend").onclick = () => {
   if (S.tournTopics.length !== S.tournSize) { toast(`Choisis ${S.tournSize} thèmes`); return; }
   openFriends({ kind: "tournoi", topics: S.tournTopics.slice(), difficulty: S.difficulty, size: S.tournSize });
 };
+
+// Parties à plusieurs
+$("btn-join-party-home").onclick = () => openPartyJoin();
+$("btn-party-topic").onclick = () => {
+  if (!S.currentTopic) return;
+  send({ type: "create_party", topic_id: S.currentTopic.id, difficulty: S.difficulty, rounds: S.rounds });
+};
+$("btn-tourn-party").onclick = () => {
+  if (S.tournTopics.length !== S.tournSize) { toast(`Choisis ${S.tournSize} thèmes`); return; }
+  send({ type: "create_party", topics: S.tournTopics.slice(), difficulty: S.difficulty });
+};
+$("btn-join-party").onclick = () => {
+  const code = $("party-code-input").value.trim().toUpperCase();
+  if (code.length !== 4) { toast("Le code fait 4 caractères"); return; }
+  send({ type: "join_party", code });
+};
+$("party-code-input").addEventListener("keydown", (e) => { if (e.key === "Enter") $("btn-join-party").click(); });
+$("btn-copy-party").onclick = () => {
+  const code = S.party ? S.party.code : "";
+  if (navigator.clipboard && code) navigator.clipboard.writeText(code).then(() => toast("Code copié !")).catch(() => toast(code));
+  else toast(code);
+};
+$("btn-start-party").onclick = () => send({ type: "start_party" });
+$("btn-quit-party").onclick = () => { send({ type: "leave_party" }); S.party = null; renderTopics(); show("home"); };
 
 document.querySelectorAll(".diff-chip").forEach((chip) => {
   chip.onclick = () => {
@@ -928,8 +1151,12 @@ $("btn-rematch").onclick = () => {
 
 $("btn-giveup").onclick = () => {
   if (!S.game || S.game.over) return;
-  if (confirm("Abandonner la partie ? Ton adversaire gagnera par forfait.")) {
+  const msg = S.game.party
+    ? "Quitter la partie de groupe ?"
+    : "Abandonner la partie ? Ton adversaire gagnera par forfait.";
+  if (confirm(msg)) {
     send({ type: "leave_game", game_id: S.game.id });
+    if (S.game.party) { S.game = null; renderTopics(); show("home"); }
   }
 };
 

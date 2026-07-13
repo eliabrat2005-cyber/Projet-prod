@@ -241,6 +241,44 @@ body::after {
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
+/* ── Multijoueur (partie de groupe) ──────────────────────── */
+.btn-party { }
+.party-scoreboard {
+  display: flex; gap: 6px; overflow-x: auto; padding: 4px 0 10px; margin-bottom: 6px;
+}
+.psb-player {
+  flex: none; min-width: 68px; display: flex; flex-direction: column; align-items: center;
+  gap: 3px; padding: 8px 8px 7px; border-radius: 12px; background: var(--card);
+  border: 1px solid var(--line); position: relative; transition: box-shadow .2s;
+}
+.psb-player.me { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+.psb-avatar {
+  width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 14px;
+  background: linear-gradient(135deg, #2a2f52, #12142a); color: #f0e3bd;
+}
+.psb-name { font-size: 11px; font-weight: 700; max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.psb-score { font-family: var(--font-display); font-weight: 700; font-size: 17px; }
+.psb-gain {
+  position: absolute; top: -8px; right: 2px; font-size: 12px; font-weight: 800; color: var(--green);
+  animation: rise .5s cubic-bezier(.2,.9,.3,1.4);
+}
+.psb-player.answered::after {
+  content: "✓"; position: absolute; top: 3px; left: 4px; font-size: 10px; color: var(--green);
+}
+
+.party-podium { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+.podium-row {
+  display: flex; align-items: center; gap: 12px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px;
+  box-shadow: 0 4px 14px rgba(23,26,48,.05);
+}
+.podium-row.win { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), 0 8px 20px rgba(176,141,62,.2); }
+.podium-row.me .podium-name { color: #8a6a24; }
+.podium-rank { font-size: 22px; width: 34px; text-align: center; }
+.podium-name { flex: 1; font-weight: 700; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.podium-score { font-family: var(--font-display); font-weight: 700; font-size: 20px; }
+
 /* ── Mode Tournoi ────────────────────────────────────────── */
 .btn-tournament {
   margin-bottom: 16px; font-size: 16px;

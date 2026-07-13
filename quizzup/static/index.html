@@ -42,6 +42,7 @@
              placeholder="🔍 Chercher un thème…" autocomplete="off">
       <div class="home-stats" id="home-stats"></div>
       <button id="btn-tournament" class="btn btn-tournament btn-big">🏆 Mode Tournoi — plusieurs thèmes, un seul vainqueur</button>
+      <button id="btn-join-party-home" class="btn btn-ghost btn-big">👥 Rejoindre une partie à plusieurs</button>
       <div id="topics-grid" class="topics-grid"></div>
     </section>
 
@@ -80,6 +81,40 @@
       <div class="topic-actions tourn-actions">
         <button id="btn-tourn-bot" class="btn btn-primary btn-big">🤖 Lancer contre un bot</button>
         <button id="btn-tourn-friend" class="btn btn-secondary btn-big">👥 Défier un ami</button>
+        <button id="btn-tourn-party" class="btn btn-ghost btn-big">👨‍👩‍👧‍👦 Salon à plusieurs</button>
+      </div>
+    </section>
+
+    <!-- ── Écran : partie à plusieurs (salon) ──────────────────── -->
+    <section id="screen-party" class="screen hidden">
+      <header class="topbar">
+        <button class="back-btn" data-back="home">‹</button>
+        <div class="topbar-title">👥 Partie à plusieurs</div>
+        <span></span>
+      </header>
+
+      <div id="party-join" class="friend-card">
+        <h3>Rejoindre une partie</h3>
+        <p>Entre le code que l'organisateur t'a partagé.</p>
+        <input id="party-code-input" type="text" maxlength="4" placeholder="CODE" autocomplete="off">
+        <button id="btn-join-party" class="btn btn-secondary">Rejoindre</button>
+        <div id="party-join-error" class="join-error hidden">Salon introuvable 😕</div>
+      </div>
+
+      <div id="party-lobby" class="hidden">
+        <div class="friend-card">
+          <h3 id="party-label">Salon</h3>
+          <p>Partage ce code à tes potes pour qu'ils rejoignent :</p>
+          <div class="friend-code-value" id="party-code">····</div>
+          <button id="btn-copy-party" class="btn btn-ghost">📋 Copier le code</button>
+        </div>
+        <h3 class="section-title">Joueurs · <span id="party-count">1</span></h3>
+        <div id="party-members" class="friends-list"></div>
+        <div class="topic-actions">
+          <button id="btn-start-party" class="btn btn-primary btn-big">🚀 Démarrer la partie</button>
+          <div id="party-wait" class="rematch-status hidden">En attente que l'organisateur lance la partie… <span class="dots"></span></div>
+          <button id="btn-quit-party" class="btn btn-ghost">Quitter le salon</button>
+        </div>
       </div>
     </section>
 
@@ -118,6 +153,7 @@
       <div class="topic-actions">
         <button id="btn-quick" class="btn btn-primary btn-big">⚡ Partie rapide</button>
         <button id="btn-friend" class="btn btn-secondary btn-big">👥 Défier un ami</button>
+        <button id="btn-party-topic" class="btn btn-ghost btn-big">👨‍👩‍👧‍👦 Salon à plusieurs</button>
         <button id="btn-bot" class="btn btn-ghost btn-big">🤖 Jouer contre un bot</button>
         <button id="btn-ranking" class="btn btn-ghost btn-big">🏆 Classement</button>
       </div>
@@ -207,6 +243,7 @@
 
     <!-- ── Écran : match ───────────────────────────────────────── -->
     <section id="screen-game" class="screen hidden">
+      <div id="party-scoreboard" class="party-scoreboard hidden"></div>
       <div class="game-head">
         <div class="game-player me">
           <span class="avatar" id="g-me-avatar">?</span>
@@ -252,6 +289,7 @@
     <section id="screen-results" class="screen hidden">
       <div class="results-banner" id="results-banner">Victoire !</div>
       <div class="results-sub hidden" id="results-sub"></div>
+      <div id="party-podium" class="party-podium hidden"></div>
       <div class="results-scores">
         <div class="results-side">
           <span class="avatar avatar-big" id="r-me-avatar">?</span>
