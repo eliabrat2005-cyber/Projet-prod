@@ -19,14 +19,16 @@ const S = {
     ? +localStorage.getItem("quizzup_rounds") : 7,
   friends: [],           // [{id, name, wins, losses, draws, online}]
   friendCode: null,
-  challengeCtx: null,    // {topic, difficulty} quand on ouvre les amis pour défier
+  challengeCtx: null,    // contexte de défi (solo ou tournoi) pour l'écran amis
   waitingChallenge: null, // {friend_id, name} en attente d'acceptation
+  tournSize: 5,          // nombre de thèmes du tournoi
+  tournTopics: [],       // ids des thèmes choisis pour le tournoi
 };
 
 const DIFF_LABELS = { 1: "😌 Facile", 2: "🎯 Moyen", 3: "🔥 Difficile", 4: "💀 Extrême" };
 
 const $ = (id) => document.getElementById(id);
-const SCREENS = ["name", "home", "topic", "friends", "ranking", "profile", "search", "vs", "game", "results"];
+const SCREENS = ["name", "home", "topic", "tournament", "friends", "ranking", "profile", "search", "vs", "game", "results"];
 
 function show(name) {
   for (const s of SCREENS) $("screen-" + s).classList.toggle("hidden", s !== name);
@@ -275,7 +277,10 @@ function openFriends(challengeCtx = null) {
   const hint = $("friends-challenge-hint");
   if (challengeCtx) {
     $("friends-title").textContent = "Défier un ami";
-    hint.textContent = `${challengeCtx.topic.icon} ${challengeCtx.topic.name} · ${DIFF_LABELS[challengeCtx.difficulty]} · ${challengeCtx.rounds} q. — choisis qui défier`;
+    const desc = challengeCtx.kind === "tournoi"
+      ? `🏆 Tournoi · ${challengeCtx.size} thèmes · ${DIFF_LABELS[challengeCtx.difficulty]}`
+      : `${challengeCtx.topic.icon} ${challengeCtx.topic.name} · ${DIFF_LABELS[challengeCtx.difficulty]} · ${challengeCtx.rounds} q.`;
+    hint.textContent = `${desc} — choisis qui défier`;
     hint.classList.remove("hidden");
   } else {
     $("friends-title").textContent = "Mes amis";
@@ -315,8 +320,13 @@ function renderFriends() {
     b.onclick = () => {
       const ctx = S.challengeCtx;
       if (!ctx) return;
-      send({ type: "challenge_friend", friend_id: b.dataset.id,
-             topic_id: ctx.topic.id, difficulty: ctx.difficulty, rounds: ctx.rounds });
+      if (ctx.kind === "tournoi") {
+        send({ type: "challenge_tournament", friend_id: b.dataset.id,
+               topics: ctx.topics, difficulty: ctx.difficulty });
+      } else {
+        send({ type: "challenge_friend", friend_id: b.dataset.id,
+               topic_id: ctx.topic.id, difficulty: ctx.difficulty, rounds: ctx.rounds });
+      }
       debounceBtn(b, 2000);
     };
   });
@@ -344,9 +354,7 @@ function onFriendPresence(msg) {
 
 function onChallengeReceived(msg) {
   $("challenge-from").textContent = msg.from_name;
-  const t = S.topics.find((x) => x.id === msg.topic_id);
-  $("challenge-topic").textContent =
-    `${t ? t.icon + " " + t.name : msg.topic_id} · ${DIFF_LABELS[msg.difficulty] || ""}`;
+  $("challenge-topic").textContent = msg.label || "";
   $("challenge-overlay").dataset.from = msg.from_id;
   $("challenge-overlay").classList.remove("hidden");
   sndGo(); vibrate([60, 40, 60]);
@@ -367,6 +375,86 @@ function onChallengeDeclined(msg) {
   if (!$("screen-search").classList.contains("hidden")) show("topic");
 }
 
+// ─── Tournoi ────────────────────────────────────────────────────────────────
+function openTournament() {
+  if (!S.tournTopics.length) {
+    // pré-remplit avec des thèmes au hasard pour démarrer vite
+    pickRandomThemes();
+  }
+  renderTournament();
+  show("tournament");
+}
+
+function renderTournament(filter = "") {
+  document.querySelectorAll(".tsize-chip").forEach((c) =>
+    c.classList.toggle("selected", +c.dataset.size === S.tournSize));
+  document.querySelectorAll(".tdiff-chip").forEach((c) =>
+    c.classList.toggle("selected", +c.dataset.diff === S.difficulty));
+
+  const label = $("tourn-picked-label");
+  label.textContent = `Thèmes choisis : ${S.tournTopics.length} / ${S.tournSize}`;
+
+  const picked = $("tourn-picked");
+  picked.innerHTML = "";
+  for (const id of S.tournTopics) {
+    const t = S.topics.find((x) => x.id === id);
+    if (!t) continue;
+    const tag = document.createElement("button");
+    tag.className = "tourn-tag";
+    tag.innerHTML = `${t.icon} ${escapeHtml(t.name)}`;
+    tag.onclick = () => { toggleTournTheme(id); };
+    picked.appendChild(tag);
+  }
+
+  const grid = $("tourn-grid");
+  grid.innerHTML = "";
+  const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  const list = S.topics.filter((t) => !filter || norm(t.name).includes(norm(filter)));
+  for (const t of list) {
+    const card = document.createElement("button");
+    card.className = "tourn-grid-card" + (S.tournTopics.includes(t.id) ? " picked" : "");
+    card.innerHTML = `<span class="t-icon">${t.icon}</span><span class="t-name">${escapeHtml(t.name)}</span>`;
+    card.onclick = () => toggleTournTheme(t.id);
+    grid.appendChild(card);
+  }
+}
+
+function toggleTournTheme(id) {
+  const i = S.tournTopics.indexOf(id);
+  if (i >= 0) {
+    S.tournTopics.splice(i, 1);
+  } else if (S.tournTopics.length < S.tournSize) {
+    S.tournTopics.push(id);
+  } else {
+    toast(`${S.tournSize} thèmes maximum — retire-en un d'abord`);
+    return;
+  }
+  sndTick();
+  renderTournament($("tourn-search").value);
+}
+
+function pickRandomThemes() {
+  const pool = S.topics.slice();
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  S.tournTopics = pool.slice(0, S.tournSize).map((t) => t.id);
+}
+
+function launchTournament(mode, friendId) {
+  if (S.tournTopics.length !== S.tournSize) {
+    toast(`Choisis exactement ${S.tournSize} thèmes (ou 🎲 au hasard)`);
+    return;
+  }
+  if (mode === "bot") {
+    send({ type: "play_tournament", topics: S.tournTopics, difficulty: S.difficulty });
+  } else {
+    send({ type: "challenge_tournament", friend_id: friendId,
+           topics: S.tournTopics, difficulty: S.difficulty });
+  }
+}
+
 // ─── Match ──────────────────────────────────────────────────────────────────
 function onMatchFound(msg) {
   S.game = {
@@ -384,8 +472,9 @@ function onMatchFound(msg) {
   $("vs-opp-avatar").textContent = initial(msg.opponent.name);
   $("vs-opp-name").textContent = msg.opponent.name;
   $("vs-opp-level").textContent = msg.opponent.is_bot ? "Bot" : `Niveau ${msg.opponent.level}`;
+  const vsCount = msg.tournament ? `${msg.tournament.count} thèmes` : `${msg.rounds} questions`;
   $("vs-topic").textContent =
-    `${msg.topic.icon} ${msg.topic.name} · ${msg.difficulty_label || DIFF_LABELS[msg.difficulty] || ""} · ${msg.rounds} questions`;
+    `${msg.topic.icon} ${msg.topic.name} · ${msg.difficulty_label || DIFF_LABELS[msg.difficulty] || ""} · ${vsCount}`;
   sndGo();
   show("vs");
   // Prépare l'écran de jeu
@@ -425,9 +514,21 @@ function onCountdown(msg) {
   $("timer-fill").style.transform = "scaleX(1)";
   renderDots();
 
+  // Tournoi : thème de la manche en cours
+  const rt = msg.round_topic;
+  const rtEl = $("round-topic");
+  if (rt) {
+    rtEl.textContent = `${rt.icon} ${rt.name}`;
+    rtEl.classList.remove("hidden");
+  } else {
+    rtEl.classList.add("hidden");
+  }
+
   const overlay = $("countdown-overlay");
   const num = $("countdown-num");
-  $("countdown-sub").textContent = `Question ${msg.round}/${msg.rounds}`;
+  $("countdown-sub").textContent = rt
+    ? `Manche ${msg.round}/${msg.rounds} · ${rt.icon} ${rt.name}`
+    : `Question ${msg.round}/${msg.rounds}`;
   $("countdown-double").classList.toggle("hidden", !msg.double);
   overlay.classList.remove("hidden");
   const secs = Math.max(1, Math.round(msg.seconds));
@@ -731,6 +832,25 @@ document.querySelectorAll(".back-btn").forEach((b) => {
 
 $("profile-btn").onclick = () => { send({ type: "get_profile" }); renderProfile(); show("profile"); };
 $("friends-btn").onclick = () => openFriends(null);
+$("btn-tournament").onclick = () => openTournament();
+
+document.querySelectorAll(".tsize-chip").forEach((c) => {
+  c.onclick = () => {
+    S.tournSize = +c.dataset.size;
+    if (S.tournTopics.length > S.tournSize) S.tournTopics = S.tournTopics.slice(0, S.tournSize);
+    sndTick(); renderTournament($("tourn-search").value);
+  };
+});
+document.querySelectorAll(".tdiff-chip").forEach((c) => {
+  c.onclick = () => { S.difficulty = +c.dataset.diff; localStorage.setItem("quizzup_diff", S.difficulty); sndTick(); renderTournament($("tourn-search").value); };
+});
+$("btn-random-themes").onclick = () => { pickRandomThemes(); sndTick(); renderTournament($("tourn-search").value); };
+$("tourn-search").addEventListener("input", (e) => renderTournament(e.target.value));
+$("btn-tourn-bot").onclick = () => launchTournament("bot");
+$("btn-tourn-friend").onclick = () => {
+  if (S.tournTopics.length !== S.tournSize) { toast(`Choisis ${S.tournSize} thèmes`); return; }
+  openFriends({ kind: "tournoi", topics: S.tournTopics.slice(), difficulty: S.difficulty, size: S.tournSize });
+};
 
 document.querySelectorAll(".diff-chip").forEach((chip) => {
   chip.onclick = () => {

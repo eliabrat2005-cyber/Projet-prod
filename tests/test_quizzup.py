@@ -358,6 +358,57 @@ def test_quick_match_separates_difficulties(quizzup_modules):
             assert m2["opponent"]["is_bot"] is True and m2["difficulty"] == 4
 
 
+def test_tournament_bot(quizzup_modules):
+    """Tournoi 5 thèmes vs bot : 5 manches, une par thème choisi, dernière doublée."""
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    with TestClient(server.app) as client:
+        all_ids = [t["id"] for t in client.get("/api/topics").json()]
+        chosen = all_ids[:5]
+        with client.websocket_connect("/ws") as ws:
+            ws.send_text(json.dumps({"type": "hello", "name": "Tournoyeur"}))
+            json.loads(ws.receive_text())
+            ws.send_text(json.dumps({"type": "play_tournament",
+                                     "topics": chosen, "difficulty": 2}))
+            gid, seen_topics, doubles, seen = None, [], [], 0
+            for _ in range(300):
+                msg = json.loads(ws.receive_text())
+                if msg["type"] == "match_found":
+                    gid = msg["game_id"]
+                    assert msg["topic"]["id"] == "tournoi"
+                    assert msg["rounds"] == 5
+                    assert msg["tournament"]["count"] == 5
+                elif msg["type"] == "question":
+                    seen += 1
+                    assert msg["round_topic"] is not None
+                    seen_topics.append(msg["round_topic"]["name"])
+                    if msg["double"]:
+                        doubles.append(msg["round"])
+                    ws.send_text(json.dumps({"type": "answer", "game_id": gid,
+                                             "round": msg["round"], "choice": 0}))
+                elif msg["type"] == "game_over":
+                    assert msg["result"] in {"win", "loss", "draw"}
+                    break
+            assert seen == 5
+            assert doubles == [5]
+            assert len(set(seen_topics)) == 5  # 5 thèmes distincts
+
+
+def test_tournament_rejects_bad_size(quizzup_modules):
+    """Un tournoi de 4 thèmes est refusé (tailles autorisées : 3, 5, 7)."""
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    with TestClient(server.app) as client:
+        ids = [t["id"] for t in client.get("/api/topics").json()][:4]
+        with client.websocket_connect("/ws") as ws:
+            ws.send_text(json.dumps({"type": "hello", "name": "Bancal"}))
+            json.loads(ws.receive_text())
+            ws.send_text(json.dumps({"type": "play_tournament", "topics": ids, "difficulty": 2}))
+            assert _drain_until(ws, "error")["type"] == "error"
+
+
 def test_rounds_selectable(quizzup_modules):
     """Une partie bot en 15 questions comporte bien 15 manches (dernière doublée)."""
     _, server, _ = quizzup_modules
@@ -445,7 +496,8 @@ def test_friend_challenge_mutual_start(quizzup_modules):
             w1.send_text(json.dumps({"type": "challenge_friend", "friend_id": id2,
                                      "topic_id": topic_id, "difficulty": 2}))
             inv = _drain_until(w2, "challenge_received")
-            assert inv["from_id"] == id1 and inv["difficulty"] == 2
+            assert inv["from_id"] == id1 and inv["from_name"] == "Amaury"
+            assert "label" in inv and inv["label"]  # libellé lisible du défi
             w2.send_text(json.dumps({"type": "accept_challenge", "from_id": id1}))
 
             m1 = _drain_until(w1, "match_found")

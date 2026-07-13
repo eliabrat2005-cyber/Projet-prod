@@ -107,6 +107,8 @@ class Session:
             "add_friend": self._add_friend,
             "list_friends": self._list_friends,
             "challenge_friend": self._challenge_friend,
+            "play_tournament": self._play_tournament,
+            "challenge_tournament": self._challenge_tournament,
             "accept_challenge": self._accept_challenge,
             "decline_challenge": self._decline_challenge,
             "cancel_challenge": self._cancel_challenge,
@@ -165,6 +167,18 @@ class Session:
         except (TypeError, ValueError):
             return engine_mod.ROUNDS
         return r if r in engine_mod.ALLOWED_ROUNDS else engine_mod.ROUNDS
+
+    @staticmethod
+    def _valid_tournament_topics(msg: dict) -> list[str] | None:
+        raw = msg.get("topics")
+        if not isinstance(raw, list):
+            return None
+        seen, topics = set(), []
+        for t in raw:
+            if isinstance(t, str) and t not in seen and qbank.get_topic(t):
+                seen.add(t)
+                topics.append(t)
+        return topics if len(topics) in engine_mod.TOURNAMENT_SIZES else None
 
     async def _find_match(self, msg: dict) -> None:
         topic_id = self._valid_topic(msg)
@@ -273,8 +287,33 @@ class Session:
         if not store.are_friends(self.participant.player_id, friend_id):
             await self.send({"type": "friend_error", "message": "Vous n'êtes pas amis."})
             return
-        await lobby.challenge_friend(self.participant, friend_id, topic_id,
-                                     self._difficulty(msg), self._rounds(msg))
+        diff, rounds = self._difficulty(msg), self._rounds(msg)
+        spec = {"kind": "solo", "topic": topic_id, "difficulty": diff, "rounds": rounds}
+        t = qbank.get_topic(topic_id)
+        label = f"{t['icon']} {t['name']} · {qbank.DIFFICULTIES[diff]} · {rounds} q."
+        await lobby.challenge_friend_spec(self.participant, friend_id, spec, label)
+
+    async def _play_tournament(self, msg: dict) -> None:
+        topics = self._valid_tournament_topics(msg)
+        if topics is None:
+            await self.send({"type": "error", "message": "Choisis 3, 5 ou 7 thèmes."})
+            return
+        await lobby.start_bot_tournament(self.participant, topics,
+                                         difficulty=self._difficulty(msg))
+
+    async def _challenge_tournament(self, msg: dict) -> None:
+        topics = self._valid_tournament_topics(msg)
+        friend_id = str(msg.get("friend_id") or "")
+        if topics is None or not friend_id:
+            await self.send({"type": "friend_error", "message": "Tournoi invalide."})
+            return
+        if not store.are_friends(self.participant.player_id, friend_id):
+            await self.send({"type": "friend_error", "message": "Vous n'êtes pas amis."})
+            return
+        diff = self._difficulty(msg)
+        spec = {"kind": "tournoi", "topics": topics, "difficulty": diff}
+        label = f"🏆 Tournoi · {len(topics)} thèmes · {qbank.DIFFICULTIES[diff]}"
+        await lobby.challenge_friend_spec(self.participant, friend_id, spec, label)
 
     async def _accept_challenge(self, msg: dict) -> None:
         await lobby.accept_challenge(self.participant, str(msg.get("from_id") or ""))

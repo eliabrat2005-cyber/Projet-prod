@@ -27,6 +27,7 @@ log = logging.getLogger("quizzup")
 
 ROUNDS = qbank.ROUNDS_PER_GAME
 ALLOWED_ROUNDS = (7, 10, 15, 20)  # longueurs de partie proposées
+TOURNAMENT_SIZES = (3, 5, 7)      # nombre de thèmes d'un tournoi
 FAST = os.environ.get("QUIZZUP_FAST") == "1"  # timings raccourcis pour les tests
 
 QUESTION_SECONDS = 1.2 if FAST else 10.0
@@ -110,18 +111,39 @@ def _pick_fresh_questions(topic_id: str, players: list[Participant],
     return questions
 
 
+def _pick_tournament_questions(topics: list[str], players: list[Participant],
+                               difficulty: int | None) -> list[dict]:
+    """Une question par thème du tournoi, fraîche pour les joueurs humains."""
+    out = []
+    for tid in topics:
+        out.append(_pick_fresh_questions(tid, players, difficulty, rounds=1)[0])
+    return out
+
+
 class Game:
-    def __init__(self, topic_id: str, p1: Participant, p2: Participant,
+    def __init__(self, topic_id: str | None, p1: Participant, p2: Participant,
                  bot_accuracy: float = 0.7,
                  difficulty: int = qbank.DEFAULT_DIFFICULTY,
-                 rounds: int = ROUNDS):
+                 rounds: int = ROUNDS,
+                 topics: list[str] | None = None):
         self.id = uuid.uuid4().hex[:12]
-        self.topic_id = topic_id
         self.difficulty = difficulty
-        self.rounds = rounds
         self.players = [p1, p2]
         self.bot_accuracy = bot_accuracy
-        self.questions = _pick_fresh_questions(topic_id, self.players, difficulty, rounds)
+        self.is_tournament = bool(topics)
+        if self.is_tournament:
+            # Tournoi : une manche par thème, dernière manche doublée.
+            self.tournament_topics = topics
+            self.round_topics = [qbank.get_topic(t) for t in topics]
+            self.topic_id = "tournoi"           # pseudo-thème pour les stats globales
+            self.rounds = len(topics)
+            self.questions = _pick_tournament_questions(topics, self.players, difficulty)
+        else:
+            self.tournament_topics = None
+            self.round_topics = None
+            self.topic_id = topic_id
+            self.rounds = rounds
+            self.questions = _pick_fresh_questions(topic_id, self.players, difficulty, rounds)
         self.scores = {p1.player_id: 0, p2.player_id: 0}
         self.round_no = 0
         self.round_answers: dict[str, tuple[int, float]] = {}  # pid -> (choix, temps)
@@ -153,8 +175,19 @@ class Game:
             for p in self.players:
                 await p.emit({"type": "error", "message": "Erreur serveur — partie interrompue."})
 
+    def _topic_card(self) -> dict:
+        if self.is_tournament:
+            return {"id": "tournoi", "name": "Tournoi", "icon": "🏆", "color": "#b08d3e"}
+        t = qbank.get_topic(self.topic_id)
+        return {"id": t["id"], "name": t["name"], "icon": t["icon"], "color": t["color"]}
+
     async def _run_inner(self) -> None:
-        topic = qbank.get_topic(self.topic_id)
+        card = self._topic_card()
+        tournament = None
+        if self.is_tournament:
+            tournament = {"count": self.rounds,
+                          "topics": [{"icon": t["icon"], "name": t["name"]}
+                                     for t in self.round_topics]}
         for me in self.players:
             opp = self.opponent_of(me.player_id)
             opp_stats = qbank.level_info(store.get_topic_stats(opp.player_id, self.topic_id)["xp"]) \
@@ -162,8 +195,8 @@ class Game:
             await me.emit({
                 "type": "match_found",
                 "game_id": self.id,
-                "topic": {"id": topic["id"], "name": topic["name"],
-                          "icon": topic["icon"], "color": topic["color"]},
+                "topic": card,
+                "tournament": tournament,
                 "difficulty": self.difficulty,
                 "difficulty_label": qbank.DIFFICULTIES[self.difficulty],
                 "rounds": self.rounds,
@@ -183,9 +216,15 @@ class Game:
         self.round_no = rnd
         double = rnd == self.rounds
         q = self.questions[rnd - 1]
+        # En tournoi, chaque manche affiche le thème du moment.
+        round_topic = None
+        if self.is_tournament:
+            rt = self.round_topics[rnd - 1]
+            round_topic = {"name": rt["name"], "icon": rt["icon"], "color": rt["color"]}
 
         await self._broadcast({"type": "countdown", "round": rnd, "rounds": self.rounds,
-                               "seconds": COUNTDOWN_SECONDS, "double": double})
+                               "seconds": COUNTDOWN_SECONDS, "double": double,
+                               "round_topic": round_topic})
         await asyncio.sleep(COUNTDOWN_SECONDS)
         if self.finished:
             return
@@ -195,7 +234,8 @@ class Game:
         self.round_start = time.monotonic()
         await self._broadcast({"type": "question", "round": rnd, "rounds": self.rounds,
                                "q": q["q"], "choices": q["choices"],
-                               "duration": QUESTION_SECONDS, "double": double})
+                               "duration": QUESTION_SECONDS, "double": double,
+                               "round_topic": round_topic})
 
         bot_task = None
         for p in self.players:
@@ -352,10 +392,11 @@ class Lobby:
 
     # ── Démarrage de partie ────────────────────────────────────────────────
 
-    async def start_game(self, topic_id: str, p1: Participant, p2: Participant,
+    async def start_game(self, topic_id: str | None, p1: Participant, p2: Participant,
                          bot_accuracy: float = 0.7,
                          difficulty: int = qbank.DEFAULT_DIFFICULTY,
-                         rounds: int = ROUNDS) -> Game:
+                         rounds: int = ROUNDS,
+                         topics: list[str] | None = None) -> Game:
         # Un joueur ne peut être que dans une partie à la fois : si une
         # partie active traîne (autre onglet, client figé), on la clôt.
         for p in (p1, p2):
@@ -364,10 +405,19 @@ class Lobby:
                 if stale is not None:
                     await stale.forfeit(p.player_id)
         game = Game(topic_id, p1, p2, bot_accuracy=bot_accuracy,
-                    difficulty=difficulty, rounds=rounds)
+                    difficulty=difficulty, rounds=rounds, topics=topics)
         self.games[game.id] = game
         game.task = asyncio.create_task(self._run_and_cleanup(game))
         return game
+
+    async def start_bot_tournament(self, human: Participant, topics: list[str],
+                                   difficulty: int = qbank.DEFAULT_DIFFICULTY) -> Game:
+        # Force du bot : moyenne des niveaux du joueur sur les thèmes du tournoi.
+        levels = [qbank.level_info(store.get_topic_stats(human.player_id, t)["xp"])["level"]
+                  for t in topics]
+        bot, accuracy = make_bot(sum(levels) // max(1, len(levels)))
+        return await self.start_game(None, human, bot, bot_accuracy=accuracy,
+                                     difficulty=difficulty, topics=topics)
 
     async def _run_and_cleanup(self, game: Game) -> None:
         try:
@@ -473,10 +523,11 @@ class Lobby:
         if all(p.player_id in game.rematch_votes for p in game.players):
             self.games.pop(game_id, None)
             # Mêmes adversaires (bot compris : même nom, même force),
-            # nouvelles questions — comme l'original.
+            # nouvelles questions — comme l'original (tournoi préservé).
             await self.start_game(game.topic_id, game.players[0], game.players[1],
                                   bot_accuracy=game.bot_accuracy,
-                                  difficulty=game.difficulty)
+                                  difficulty=game.difficulty, rounds=game.rounds,
+                                  topics=game.tournament_topics)
 
     async def decline_rematch(self, game_id: str, pid: str) -> None:
         game = self.games.get(game_id)
@@ -511,31 +562,34 @@ class Lobby:
     def friend_online_ids(self, pid: str) -> list[str]:
         return [f["id"] for f in store.list_friends(pid) if f["id"] in self.online]
 
-    async def challenge_friend(self, me: Participant, friend_id: str,
-                               topic_id: str, difficulty: int,
-                               rounds: int = ROUNDS) -> None:
-        # Défi mutuel déjà en attente (l'ami m'a défié sur le même thème+mode+format) → on lance.
+    async def _start_from_spec(self, spec: dict, p1: Participant, p2: Participant) -> None:
+        if spec.get("kind") == "tournoi":
+            await self.start_game(None, p1, p2, difficulty=spec["difficulty"],
+                                  topics=spec["topics"])
+        else:
+            await self.start_game(spec["topic"], p1, p2,
+                                  difficulty=spec["difficulty"], rounds=spec["rounds"])
+
+    async def challenge_friend_spec(self, me: Participant, friend_id: str,
+                                    spec: dict, label: str) -> None:
+        """``spec`` décrit la partie (solo thème ou tournoi). Défi mutuel
+        identique en attente → lancement immédiat ; sinon invitation."""
         other = self.friend_challenges.get(friend_id)
-        if other and other["to"] == me.player_id and other["topic"] == topic_id \
-                and other["difficulty"] == difficulty and other["rounds"] == rounds:
+        if other and other["to"] == me.player_id and other["spec"] == spec:
             self.friend_challenges.pop(friend_id, None)
             self.friend_challenges.pop(me.player_id, None)
             target = self.online.get(friend_id)
             if target is not None:
-                await self.start_game(topic_id, target, me,
-                                      difficulty=difficulty, rounds=rounds)
+                await self._start_from_spec(spec, target, me)
             return
-        # Sinon on enregistre mon défi et j'invite l'ami s'il est en ligne.
         self.friend_challenges[me.player_id] = {
-            "to": friend_id, "topic": topic_id, "difficulty": difficulty,
-            "rounds": rounds, "name": me.name,
+            "to": friend_id, "spec": spec, "name": me.name, "label": label,
         }
         await me.emit({"type": "challenge_sent", "friend_id": friend_id})
         target = self.online.get(friend_id)
         if target is not None:
             await target.emit({"type": "challenge_received", "from_id": me.player_id,
-                               "from_name": me.name, "topic_id": topic_id,
-                               "difficulty": difficulty, "rounds": rounds})
+                               "from_name": me.name, "label": label})
 
     async def accept_challenge(self, me: Participant, from_id: str) -> None:
         chal = self.friend_challenges.get(from_id)
@@ -549,8 +603,7 @@ class Lobby:
             return
         self.friend_challenges.pop(from_id, None)
         self.friend_challenges.pop(me.player_id, None)
-        await self.start_game(chal["topic"], challenger, me,
-                              difficulty=chal["difficulty"], rounds=chal["rounds"])
+        await self._start_from_spec(chal["spec"], challenger, me)
 
     async def cancel_challenge(self, me: Participant) -> None:
         chal = self.friend_challenges.pop(me.player_id, None)

@@ -41,7 +41,46 @@
       <input id="topic-search" class="topic-search" type="search"
              placeholder="🔍 Chercher un thème…" autocomplete="off">
       <div class="home-stats" id="home-stats"></div>
+      <button id="btn-tournament" class="btn btn-tournament btn-big">🏆 Mode Tournoi — plusieurs thèmes, un seul vainqueur</button>
       <div id="topics-grid" class="topics-grid"></div>
+    </section>
+
+    <!-- ── Écran : configuration d'un tournoi ──────────────────── -->
+    <section id="screen-tournament" class="screen hidden">
+      <header class="topbar">
+        <button class="back-btn" data-back="home">‹</button>
+        <div class="topbar-title">🏆 Tournoi</div>
+        <span></span>
+      </header>
+      <p class="tourn-intro">Un mélange de thèmes : <b>1 manche par thème</b>, et une seule couronne à la fin 👑</p>
+
+      <div class="rounds-select">
+        <span class="rounds-label">Combien de thèmes</span>
+        <div class="rounds-chips">
+          <button class="tsize-chip" data-size="3">3</button>
+          <button class="tsize-chip" data-size="5">5</button>
+          <button class="tsize-chip" data-size="7">7</button>
+        </div>
+      </div>
+
+      <div class="diff-select" id="tourn-diff">
+        <button class="tdiff-chip" data-diff="1"><b>😌</b><span>Facile</span></button>
+        <button class="tdiff-chip" data-diff="2"><b>🎯</b><span>Moyen</span></button>
+        <button class="tdiff-chip" data-diff="3"><b>🔥</b><span>Difficile</span></button>
+        <button class="tdiff-chip" data-diff="4"><b>💀</b><span>Extrême</span></button>
+      </div>
+
+      <button id="btn-random-themes" class="btn btn-ghost btn-big">🎲 Thèmes au hasard</button>
+      <div class="tourn-picked-label" id="tourn-picked-label">Thèmes choisis : 0</div>
+      <div class="tourn-picked" id="tourn-picked"></div>
+      <input id="tourn-search" class="topic-search" type="search"
+             placeholder="🔍 Ajouter un thème…" autocomplete="off">
+      <div id="tourn-grid" class="topics-grid"></div>
+
+      <div class="topic-actions tourn-actions">
+        <button id="btn-tourn-bot" class="btn btn-primary btn-big">🤖 Lancer contre un bot</button>
+        <button id="btn-tourn-friend" class="btn btn-secondary btn-big">👥 Défier un ami</button>
+      </div>
     </section>
 
     <!-- ── Écran : détail d'un thème ───────────────────────────── -->
@@ -182,6 +221,8 @@
           <span class="avatar avatar-opp" id="g-opp-avatar">?</span>
         </div>
       </div>
+
+      <div id="round-topic" class="round-topic hidden"></div>
 
       <div class="timer-track"><div class="timer-fill" id="timer-fill"></div></div>
 
