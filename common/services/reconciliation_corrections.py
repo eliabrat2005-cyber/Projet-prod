@@ -34,27 +34,41 @@ def _audit(tenant_id, cible, action, details, by):
 
 
 # ── Corrections de LIGNE ──────────────────────────────────────────────────
-def upsert_line_correction(tenant_id, order_number, *, by, reason=None, **champs):
-    """Enregistre/actualise la correction d'une ligne (champs surchargés)."""
+def upsert_line_correction(tenant_id, order_number, *, by, reason=None,
+                           is_added=False, **champs):
+    """Enregistre/actualise la correction d'une ligne (champs surchargés).
+
+    is_added=True -> ligne AJOUTÉE à la main (n'existe pas dans le snapshot).
+    Une fois marquée ajoutée, elle le reste (OR sur ON CONFLICT).
+    """
     vals = {k: champs.get(k) for k in _CHAMPS}
     run_sql_with_tenant(
         """
         INSERT INTO reconciliation_line_corrections
-            (tenant_id, order_number, deleted, client, poids_eb, poids_sofripa,
-             cout_transport, montant_ht, reason, updated_by, updated_at)
-        VALUES (:t, :n, false, :client, :poids_eb, :poids_sofripa, :cout_transport,
-                :montant_ht, :reason, :by, now())
+            (tenant_id, order_number, deleted, is_added, client, poids_eb,
+             poids_sofripa, cout_transport, montant_ht, reason, updated_by, updated_at)
+        VALUES (:t, :n, false, :added, :client, :poids_eb, :poids_sofripa,
+                :cout_transport, :montant_ht, :reason, :by, now())
         ON CONFLICT (tenant_id, order_number) DO UPDATE SET
-            deleted=false, client=EXCLUDED.client, poids_eb=EXCLUDED.poids_eb,
+            deleted=false,
+            is_added=(reconciliation_line_corrections.is_added OR EXCLUDED.is_added),
+            client=EXCLUDED.client, poids_eb=EXCLUDED.poids_eb,
             poids_sofripa=EXCLUDED.poids_sofripa, cout_transport=EXCLUDED.cout_transport,
             montant_ht=EXCLUDED.montant_ht, reason=EXCLUDED.reason,
             updated_by=EXCLUDED.updated_by, updated_at=now()
         """,
-        {"t": tenant_id, "n": order_number, "reason": reason, "by": by, **vals},
+        {"t": tenant_id, "n": order_number, "reason": reason, "by": by,
+         "added": is_added, **vals},
         tenant_id=tenant_id,
     )
-    _audit(tenant_id, f"ligne {order_number}", "EDIT",
+    _audit(tenant_id, f"ligne {order_number}", "ADD" if is_added else "EDIT",
            {k: v for k, v in vals.items() if v is not None} | {"reason": reason}, by)
+
+
+def add_line(tenant_id, order_number, *, by, reason=None, **champs):
+    """Ajoute une ligne de réconciliation à la main (n'existe pas au snapshot)."""
+    upsert_line_correction(tenant_id, order_number, by=by, reason=reason,
+                           is_added=True, **champs)
 
 
 def delete_line(tenant_id, order_number, *, by, reason=None):
@@ -86,7 +100,7 @@ def reset_line(tenant_id, order_number, *, by):
 def list_line_corrections(tenant_id) -> dict[int, dict]:
     """Toutes les corrections de ligne du tenant, indexées par order_number."""
     rows = run_sql_with_tenant(
-        """SELECT order_number, deleted, client, poids_eb, poids_sofripa,
+        """SELECT order_number, deleted, is_added, client, poids_eb, poids_sofripa,
                   cout_transport, montant_ht FROM reconciliation_line_corrections
            WHERE tenant_id=:t""",
         {"t": tenant_id}, tenant_id=tenant_id,
@@ -154,5 +168,26 @@ def appliquer_corrections(res, corrections: dict[int, dict]):
             if (L.cout_transport and L.montant_ht) else None
         )
         gardees.append(L)
+
+    # Lignes AJOUTÉES à la main (absentes du snapshot) -> on les crée et append.
+    from core.reconciliation.reconciliation_core import LigneReconciliee
+    existants = {L.numero for L in gardees}
+    for num, c in corrections.items():
+        if not c.get("is_added") or c.get("deleted") or num in existants:
+            continue
+        peb = float(c["poids_eb"]) if c.get("poids_eb") is not None else None
+        psof = float(c["poids_sofripa"]) if c.get("poids_sofripa") is not None else None
+        cout = float(c["cout_transport"]) if c.get("cout_transport") is not None else None
+        ht = float(c["montant_ht"]) if c.get("montant_ht") is not None else None
+        ecart = round(psof - peb, 2) if (psof is not None and peb is not None) else None
+        gardees.append(LigneReconciliee(
+            numero=num, client=c.get("client"), ot=None, piece=None,
+            poids_eb=peb, poids_sofripa=psof, ecart_kg=ecart,
+            ecart_pct=(ecart / peb if (ecart is not None and peb) else None),
+            cout_transport=cout, montant_ht=ht,
+            transport_sur_ht=(cout / ht if (cout and ht) else None),
+            eur_par_kg=(cout / psof if (cout and psof) else None),
+            statut="OK", methode="manuel",
+        ))
     res.lignes = gardees
     return res

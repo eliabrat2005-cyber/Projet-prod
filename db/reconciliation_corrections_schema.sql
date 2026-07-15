@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS reconciliation_line_corrections (
   tenant_id      UUID NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   order_number   INT  NOT NULL,
   deleted        BOOLEAN NOT NULL DEFAULT false,   -- ligne masquée par l'opérateur
+  is_added       BOOLEAN NOT NULL DEFAULT false,   -- ligne AJOUTÉE à la main (n'existe pas au snapshot)
   client         TEXT,
   poids_eb       NUMERIC,
   poids_sofripa  NUMERIC,
@@ -26,6 +27,9 @@ CREATE TABLE IF NOT EXISTS reconciliation_line_corrections (
 );
 
 -- Validation FORCÉE d'une facture (l'opérateur sait qu'elle est OK).
+-- Colonne récente sur base existante.
+ALTER TABLE reconciliation_line_corrections ADD COLUMN IF NOT EXISTS is_added BOOLEAN NOT NULL DEFAULT false;
+
 CREATE TABLE IF NOT EXISTS facture_status_overrides (
   id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   tenant_id         UUID NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,

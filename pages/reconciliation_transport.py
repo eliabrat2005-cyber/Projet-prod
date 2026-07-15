@@ -93,7 +93,8 @@ _METHODE_BADGE_JS = r"""
       <q-badge :color="{
         'Pièce':'green-7',
         'Déduit':'indigo-5',
-        'Déduit (date)':'orange-6'
+        'Déduit (date)':'orange-6',
+        'Manuel':'purple-6'
       }[props.value] || 'grey-6'" :label="props.value"
       :outline="props.value !== 'Pièce'" />
     </q-td>
@@ -102,7 +103,10 @@ _METHODE_BADGE_JS = r"""
 
 def _methode_label(L) -> str:
     """Libellé du badge méthode pour une ligne réconciliée."""
-    if getattr(L, "methode", "piece") != "deduit":
+    m = getattr(L, "methode", "piece")
+    if m == "manuel":
+        return "Manuel"
+    if m != "deduit":
         return "Pièce"
     return "Déduit (date)" if getattr(L, "confiance", "") == "date" else "Déduit"
 
@@ -873,6 +877,9 @@ def page_reconciliation_transport():
         def _render_results(res):
             k = res.kpis
             eb_headers = _eb_headers(res)
+            # Index partagé numero -> ligne : tous les tableaux de commandes
+            # (à vérifier, sûres, déduites, méga) sont cliquables -> _open_commande.
+            all_by_num = {L.numero: L for L in res.lignes}
             with results:
                 # ─── a) Synthèse (KPIs) ───────────────────────────────────
                 section_title("Synthèse", "insights")
@@ -912,6 +919,12 @@ def page_reconciliation_transport():
                              str(k.get("lignes_a_verifier_negatif", 0)), COLORS["error"])
                     kpi_card("help_outline", "Sans pièce (non rapprochées)",
                              str(k.get("lignes_sans_piece", 0)), COLORS["ink2"])
+
+                # Contrôle opérateur : ajouter une ligne à la main.
+                with ui.row().classes("w-full justify-end q-mb-xs"):
+                    ui.button("Ajouter une ligne", icon="add_circle",
+                              on_click=lambda: _open_add_line()).props(
+                        "outline dense color=green-8")
 
                 if not res.lignes:
                     ui.label(
@@ -957,12 +970,14 @@ def page_reconciliation_transport():
                         }
                         for L, raison in a_verifier
                     ]
-                    ui.table(
+                    av_t = ui.table(
                         columns=av_cols, rows=av_rows, row_key="numero",
                         pagination={"rowsPerPage": 25},
-                    ).classes("w-full").props(
+                    ).classes("w-full recon-sortable").props(
                         'flat bordered dense :rows-per-page-options="[25,50,100]"'
                     )
+                    av_t.on("rowClick",
+                            lambda e: _open_commande(all_by_num.get(e.args[1]["numero"])))
 
                 # ─── b) Deux tableaux : réconciliées SÛRES puis À VÉRIFIER ────
                 lignes_sures = [L for L in res.lignes
@@ -1165,6 +1180,50 @@ def page_reconciliation_transport():
                                 ).props("flat dense")
                     dlg.open()
 
+                def _open_add_line():
+                    """Ajouter une ligne de réconciliation à la main (tracée)."""
+                    who = user.get("email") or "?"
+                    with ui.dialog() as dlg, ui.card().classes("w-full").style(
+                        "max-width: 520px"
+                    ):
+                        with ui.row().classes("w-full items-center justify-between"):
+                            section_title("Ajouter une ligne", "add_circle")
+                            ui.button(icon="close", on_click=dlg.close).props(
+                                "flat round dense")
+                        num = ui.number("N° commande EasyBeer", format="%d").props(
+                            "outlined dense").classes("w-full")
+                        cli = ui.input("Client").props("outlined dense").classes("w-full")
+                        with ui.row().classes("w-full gap-2 wrap"):
+                            peb = ui.number("Poids EB (kg)", format="%.1f").props(
+                                "outlined dense").classes("w-36")
+                            psof = ui.number("Poids SOFRIPA (kg)", format="%.1f").props(
+                                "outlined dense").classes("w-36")
+                            cout = ui.number("Coût transport (€)", format="%.2f").props(
+                                "outlined dense").classes("w-36")
+                            ht = ui.number("Montant HT (€)", format="%.2f").props(
+                                "outlined dense").classes("w-36")
+                        motif = ui.input("Motif").props("outlined dense").classes("w-full")
+
+                        async def _save():
+                            if not num.value:
+                                ui.notify("Indique un N° de commande.", type="warning")
+                                return
+                            await asyncio.to_thread(
+                                corrections.add_line, tenant_id, int(num.value),
+                                by=who, reason=(motif.value or None),
+                                client=(cli.value or None), poids_eb=peb.value,
+                                poids_sofripa=psof.value, cout_transport=cout.value,
+                                montant_ht=ht.value)
+                            ui.notify("Ligne ajoutée.", type="positive")
+                            dlg.close()
+                            _show_range(*_current_range())
+
+                        with ui.row().classes("gap-2 q-mt-sm"):
+                            ui.button("Ajouter", icon="save", on_click=_save).props(
+                                "color=green-8")
+                            ui.button("Annuler", on_click=dlg.close).props("flat dense")
+                    dlg.open()
+
                 # 1) Réconciliées SÛRES (par N° pièce) — certitude
                 section_title(
                     f"Réconciliées sûres — par N° pièce ({len(lignes_sures)})",
@@ -1285,7 +1344,7 @@ def page_reconciliation_transport():
                 mega_rows = []
                 for L in res.lignes:
                     brut = L.commande.brut if (L.commande and L.commande.brut) else {}
-                    row = {}
+                    row = {"_num": L.numero}   # caché : sert au clic -> détail
                     for i, h in enumerate(eb_headers):
                         row[f"c{i}"] = _eb_display(brut.get(h))
                     for j, (_, getter, disp, _xl) in enumerate(_CALC_COLS):
@@ -1294,6 +1353,7 @@ def page_reconciliation_transport():
                 # Lignes NON RATTACHÉES : colonnes EB vides + coût transport.
                 for f in res.sans_piece:
                     row = {f"c{i}": "" for i in range(n_eb)}
+                    row["_num"] = None
                     for j, (screen, _excel) in enumerate(_sp_calc_cells(f)):
                         row[f"c{n_eb + j}"] = screen
                     mega_rows.append(row)
@@ -1304,6 +1364,8 @@ def page_reconciliation_transport():
                 ).classes("w-full mega-table").props(
                     'flat bordered dense :rows-per-page-options="[25,50,100]"'
                 )
+                mega.on("rowClick",
+                        lambda e: _open_commande(all_by_num.get(e.args[1].get("_num"))))
                 # Badge coloré du statut (même couleurs que le tableau décisionnel),
                 # sur la dernière colonne (Statut poids).
                 statut_key = f"c{n_eb + len(_CALC_COLS) - 1}"
