@@ -209,8 +209,12 @@
         <div id="profile-name" class="profile-name">—</div>
       </div>
       <div class="profile-stats" id="profile-stats"></div>
+      <h3 class="section-title">Mes amis</h3>
+      <div id="profile-friends" class="friends-list"></div>
+      <button id="btn-manage-friends" class="btn btn-ghost btn-big profile-friends-btn">👥 Gérer mes amis / ajouter</button>
       <h3 class="section-title">Mes thèmes</h3>
       <div id="profile-topics" class="profile-topics"></div>
+      <button id="btn-logout" class="btn btn-ghost btn-big logout-btn">🚪 Se déconnecter</button>
     </section>
 
     <!-- ── Écran : recherche d'adversaire ──────────────────────── -->
@@ -321,7 +325,89 @@
       </div>
     </section>
 
+    <!-- ── Écran : Cartes (apprentissage par flashcards) ───────── -->
+    <section id="screen-cards" class="screen hidden">
+      <header class="topbar">
+        <div class="cards-score"><span class="cs-ok">✓ <b id="cards-ok">0</b></span><span class="cs-ko">✗ <b id="cards-ko">0</b></span></div>
+        <div class="topbar-title cards-title">Cartes</div>
+        <button id="cards-filter-btn" class="icon-btn" title="Filtres">🎛️</button>
+      </header>
+
+      <div id="cards-filter" class="cards-filter hidden">
+        <div class="cf-label">Difficulté</div>
+        <div class="cf-chips">
+          <button class="cf-diff selected" data-diff="0">Tout</button>
+          <button class="cf-diff" data-diff="1">😌</button>
+          <button class="cf-diff" data-diff="2">🎯</button>
+          <button class="cf-diff" data-diff="3">🔥</button>
+          <button class="cf-diff" data-diff="4">💀</button>
+        </div>
+        <div class="cf-label">Thème</div>
+        <select id="cards-topic-select" class="cf-select"><option value="">🎲 Tous les thèmes</option></select>
+      </div>
+
+      <div class="card-stage" id="card-stage">
+        <div class="flashcard-ghost" id="flashcard-ghost"></div>
+        <div class="flashcard" id="flashcard">
+          <div class="fc-inner" id="fc-inner">
+            <div class="fc-face fc-front">
+              <div class="fc-theme" id="fc-theme">🎲 Thème</div>
+              <div class="fc-question" id="fc-question">…</div>
+              <div class="fc-hint">Touche la carte pour révéler ✨</div>
+            </div>
+            <div class="fc-face fc-back">
+              <div class="fc-theme" id="fc-theme-back">Réponse</div>
+              <div class="fc-answer" id="fc-answer">…</div>
+              <div class="fc-hint">Glisse → si tu savais · ← sinon</div>
+            </div>
+          </div>
+          <div class="fc-verdict ok" id="fc-verdict-ok">✓</div>
+          <div class="fc-verdict ko" id="fc-verdict-ko">✗</div>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button id="card-wrong" class="card-round-btn ko" title="Je ne savais pas">✗</button>
+        <button id="card-flip" class="card-round-btn flip" title="Retourner">↻</button>
+        <button id="card-right" class="card-round-btn ok" title="Je savais !">✓</button>
+      </div>
+      <button id="btn-stop-session" class="giveup-btn cards-stop">⏹ Terminer la session</button>
+    </section>
+
+    <!-- ── Écran : synthèse de session cartes ──────────────────── -->
+    <section id="screen-cardsummary" class="screen hidden">
+      <div class="summary-terminal" id="summary-terminal"><span class="cursor" id="summary-cursor">▌</span></div>
+      <div class="topic-actions summary-actions hidden" id="summary-actions">
+        <button id="btn-cards-again" class="btn btn-primary btn-big">🃏 Nouvelle session</button>
+        <button id="btn-summary-home" class="btn btn-ghost btn-big">🏠 Accueil</button>
+      </div>
+    </section>
+
+    <!-- ── Écran : profil d'un ami ─────────────────────────────── -->
+    <section id="screen-friendprofile" class="screen hidden">
+      <header class="topbar">
+        <button class="back-btn" data-back="profile">‹</button>
+        <div class="topbar-title">Profil d'ami</div>
+        <span></span>
+      </header>
+      <div class="profile-head">
+        <span class="avatar avatar-xl avatar-opp" id="fp-avatar">?</span>
+        <div class="profile-name" id="fp-name">—</div>
+        <div class="fp-online" id="fp-online"></div>
+      </div>
+      <div class="profile-stats" id="fp-stats"></div>
+      <h3 class="section-title">Face à face</h3>
+      <div class="h2h-card" id="fp-h2h"></div>
+    </section>
+
   </div>
+
+  <!-- ── Barre d'onglets ──────────────────────────────────────── -->
+  <nav id="tabbar" class="tabbar hidden">
+    <button class="tab-btn active" data-tab="home"><b>⚡</b><span>Quiz</span></button>
+    <button class="tab-btn" data-tab="cards"><b>🃏</b><span>Cartes</span></button>
+    <button class="tab-btn" data-tab="profile"><b>👤</b><span>Profil</span></button>
+  </nav>
 
   <!-- ── Invitation entrante d'un ami ─────────────────────────── -->
   <div id="challenge-overlay" class="challenge-overlay hidden">

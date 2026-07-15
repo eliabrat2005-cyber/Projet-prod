@@ -850,6 +850,10 @@ def generated_topics() -> dict[str, dict]:
     topics = {}
     for spec in GENERATED_TOPICS:
         questions = spec["build"]()
+        for q in questions:
+            # Contractions françaises : « de le » → « du », « de les » → « des »
+            # (les entités portent leur article : « le lithium », « les Pays-Bas »)
+            q["q"] = q["q"].replace(" de le ", " du ").replace(" de les ", " des ")
         topics[spec["id"]] = {"id": spec["id"], "name": spec["name"],
                               "icon": spec["icon"], "color": spec["color"],
                               "questions": questions}

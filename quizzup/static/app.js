@@ -24,15 +24,31 @@ const S = {
   tournSize: 5,          // nombre de thèmes du tournoi
   tournTopics: [],       // ids des thèmes choisis pour le tournoi
   party: null,           // salon en attente {code, members, is_host}
+  cards: {               // session de cartes (flashcards)
+    deck: [], idx: 0, ok: 0, ko: 0, streak: 0, bestStreak: 0,
+    perTheme: {}, diff: 0, topic: "", fetching: false, busy: false,
+  },
 };
 
 const DIFF_LABELS = { 1: "😌 Facile", 2: "🎯 Moyen", 3: "🔥 Difficile", 4: "💀 Extrême" };
 
 const $ = (id) => document.getElementById(id);
-const SCREENS = ["name", "home", "topic", "tournament", "party", "friends", "ranking", "profile", "search", "vs", "game", "results"];
+const SCREENS = ["name", "home", "topic", "tournament", "party", "friends", "ranking",
+                 "profile", "friendprofile", "search", "vs", "game", "results",
+                 "cards", "cardsummary"];
+const TAB_SCREENS = { home: "home", cards: "cards", profile: "profile" };
+const NIGHT_SCREENS = new Set(["cards", "cardsummary"]);
 
 function show(name) {
   for (const s of SCREENS) $("screen-" + s).classList.toggle("hidden", s !== name);
+  // Barre d'onglets sur les 3 écrans racine ; ambiance nuit pour les cartes
+  const tab = TAB_SCREENS[name];
+  $("tabbar").classList.toggle("hidden", !tab && !NIGHT_SCREENS.has(name));
+  document.querySelectorAll(".tab-btn").forEach((b) =>
+    b.classList.toggle("active", b.dataset.tab === (tab || (NIGHT_SCREENS.has(name) ? "cards" : ""))));
+  document.body.classList.toggle("cards-mode", NIGHT_SCREENS.has(name));
+  const scr = $("screen-" + name);
+  scr.classList.toggle("with-tabbar", !!tab || NIGHT_SCREENS.has(name));
   window.scrollTo(0, 0);
 }
 
@@ -142,7 +158,8 @@ function handle(msg) {
     case "profile": S.profile = msg.profile; renderProfile(); break;
     case "queued": show("search"); break;
     case "find_cancelled": show("topic"); break;
-    case "friends": S.friends = msg.friends; renderFriends(); break;
+    case "friends": S.friends = msg.friends; renderFriends(); renderProfileFriends(); break;
+    case "friend_profile": onFriendProfile(msg); break;
     case "friend_added": onFriendAdded(msg); break;
     case "friend_error": onFriendError(msg); break;
     case "friend_presence": onFriendPresence(msg); break;
@@ -642,6 +659,186 @@ function onPartyOver(msg) {
   setTimeout(() => show("results"), 900);
 }
 
+// ─── Cartes (flashcards) ────────────────────────────────────────────────────
+const C = () => S.cards;
+
+async function fetchCards(reset = false) {
+  const c = C();
+  if (c.fetching) return;
+  c.fetching = true;
+  try {
+    const params = new URLSearchParams({ n: "40" });
+    if (c.topic) params.set("topic_id", c.topic);
+    if (c.diff) params.set("difficulty", c.diff);
+    const rows = await (await fetch(`/api/cards?${params}`)).json();
+    if (reset) { c.deck = []; c.idx = 0; }
+    // Évite de remettre une carte déjà dans le paquet restant
+    const seen = new Set(c.deck.slice(c.idx).map((x) => x.q));
+    for (const r of rows) if (!seen.has(r.q)) c.deck.push(r);
+  } catch (e) { toast("Impossible de charger les cartes 😕"); }
+  c.fetching = false;
+}
+
+function openCards() {
+  const c = C();
+  // Nouvelle session si aucune en cours
+  if (!c.deck.length || c.idx >= c.deck.length) startCardSession();
+  else show("cards");
+  populateCardTopicSelect();
+}
+
+async function startCardSession() {
+  const c = C();
+  c.deck = []; c.idx = 0; c.ok = 0; c.ko = 0; c.streak = 0; c.bestStreak = 0;
+  c.perTheme = {}; c.busy = false;
+  updateCardScore();
+  show("cards");
+  $("fc-question").textContent = "…";
+  await fetchCards(true);
+  renderCard();
+}
+
+function currentCard() { const c = C(); return c.deck[c.idx] || null; }
+
+function renderCard(deal = true) {
+  const card = currentCard();
+  const el = $("flashcard");
+  el.classList.remove("fly-right", "fly-left", "flipped", "lean-right", "lean-left", "deal-in");
+  el.style.transform = "";
+  if (!card) { $("fc-question").textContent = "Plus de cartes — change les filtres 🎛️"; return; }
+  $("fc-theme").textContent = `${card.topic.icon} ${card.topic.name}`;
+  $("fc-theme-back").textContent = `${DIFF_LABELS[card.difficulty] || ""}`;
+  $("fc-question").textContent = card.q;
+  $("fc-answer").textContent = card.a;
+  el.style.setProperty("--fc-color", card.topic.color);
+  if (deal) { void el.offsetWidth; el.classList.add("deal-in"); }
+  const c = C();
+  if (c.deck.length - c.idx < 8) fetchCards();  // recharge en avance
+}
+
+function updateCardScore() {
+  $("cards-ok").textContent = C().ok;
+  $("cards-ko").textContent = C().ko;
+}
+
+function judgeCard(good) {
+  const c = C();
+  const card = currentCard();
+  if (!card || c.busy) return;
+  c.busy = true;
+  const el = $("flashcard");
+  el.classList.add(good ? "lean-right" : "lean-left");
+  el.classList.add(good ? "fly-right" : "fly-left");
+  if (good) { c.ok += 1; c.streak += 1; c.bestStreak = Math.max(c.bestStreak, c.streak); sndGood(); vibrate(25); }
+  else { c.ko += 1; c.streak = 0; sndBad(); vibrate([50, 30, 50]); }
+  const t = c.perTheme[card.topic.id] ||
+    (c.perTheme[card.topic.id] = { name: card.topic.name, icon: card.topic.icon, ok: 0, ko: 0 });
+  good ? (t.ok += 1) : (t.ko += 1);
+  updateCardScore();
+  setTimeout(() => { c.idx += 1; c.busy = false; renderCard(); }, 460);
+}
+
+// Glisser-déposer de la carte (tactile + souris)
+(function initCardSwipe() {
+  const el = $("flashcard");
+  let startX = 0, dx = 0, dragging = false, moved = false;
+  const down = (x) => { if (C().busy) return; dragging = true; moved = false; startX = x; el.classList.add("dragging"); };
+  const move = (x) => {
+    if (!dragging) return;
+    dx = x - startX;
+    if (Math.abs(dx) > 8) moved = true;
+    el.style.transform = `translateX(${dx}px) rotate(${dx / 16}deg)`;
+    el.classList.toggle("lean-right", dx > 55);
+    el.classList.toggle("lean-left", dx < -55);
+  };
+  const up = () => {
+    if (!dragging) return;
+    dragging = false;
+    el.classList.remove("dragging");
+    if (dx > 95) judgeCard(true);
+    else if (dx < -95) judgeCard(false);
+    else {
+      el.style.transform = "";
+      el.classList.remove("lean-right", "lean-left");
+      if (!moved) { el.classList.toggle("flipped"); sndTick(); }  // simple tap → flip
+    }
+    dx = 0;
+  };
+  el.addEventListener("pointerdown", (e) => { el.setPointerCapture(e.pointerId); down(e.clientX); });
+  el.addEventListener("pointermove", (e) => move(e.clientX));
+  el.addEventListener("pointerup", up);
+  el.addEventListener("pointercancel", up);
+})();
+
+function populateCardTopicSelect() {
+  const sel = $("cards-topic-select");
+  if (sel.options.length > 1 || !S.topics.length) return;
+  for (const t of S.topics) {
+    const o = document.createElement("option");
+    o.value = t.id;
+    o.textContent = `${t.icon} ${t.name}`;
+    sel.appendChild(o);
+  }
+}
+
+// ─── Synthèse de session (machine à écrire) ────────────────────────────────
+function stopCardSession() {
+  const c = C();
+  const total = c.ok + c.ko;
+  if (!total) { show("home"); return; }
+  const acc = Math.round(100 * c.ok / total);
+  const themes = Object.values(c.perTheme);
+  const best = themes.slice().sort((a, b) => (b.ok - b.ko) - (a.ok - a.ko) || b.ok - a.ok)[0];
+  const worstList = themes.filter((t) => t.ko > 0).sort((a, b) => (b.ko - b.ok) - (a.ko - a.ok) || b.ko - a.ko);
+  const worst = worstList[0];
+  const lines = [
+    ["t-gold", "▶ SESSION TERMINÉE — RAPPORT\n"],
+    ["", `Cartes vues ........ ${total}\n`],
+    ["t-ok", `Réussites .......... ${c.ok} ✓\n`],
+    ["t-ko", `Erreurs ............ ${c.ko} ✗\n`],
+    ["", `Précision .......... ${acc}%\n`],
+    ["", `Meilleure série .... ${c.bestStreak} ✓ d'affilée\n`],
+  ];
+  if (best && best.ok > 0) {
+    lines.push(["t-ok", `\n★ Thème star ....... ${best.icon} ${best.name} (${best.ok}/${best.ok + best.ko})\n`]);
+  }
+  if (worst && worst !== best) {
+    lines.push(["t-ko", `☠ Bête noire ....... ${worst.icon} ${worst.name} (${worst.ko} ✗ · ${worst.ok} ✓)\n`]);
+  }
+  lines.push(["t-dim", `\n${acc >= 80 ? "Mémoire d'éléphant. Reviens défendre ton titre." :
+    acc >= 50 ? "Pas mal ! Encore une session et c'est maîtrisé." :
+    "Chaque erreur d'aujourd'hui est un point de demain."}\n`]);
+  show("cardsummary");
+  typewriteSummary(lines);
+}
+
+function typewriteSummary(lines) {
+  const term = $("summary-terminal");
+  const cursor = $("summary-cursor");
+  term.querySelectorAll(".t-line").forEach((n) => n.remove());
+  $("summary-actions").classList.add("hidden");
+  let li = 0, ci = 0;
+  let span = null;
+  clearInterval(term._t);
+  term._t = setInterval(() => {
+    if (li >= lines.length) {
+      clearInterval(term._t);
+      $("summary-actions").classList.remove("hidden");
+      return;
+    }
+    const [cls, text] = lines[li];
+    if (ci === 0) {
+      span = document.createElement("span");
+      span.className = "t-line " + cls;
+      term.insertBefore(span, cursor);
+    }
+    span.textContent += text[ci];
+    if (text[ci] !== " " && text[ci] !== "." && Math.random() < 0.25) sndTick();
+    ci += 1;
+    if (ci >= text.length) { li += 1; ci = 0; }
+  }, 18);
+}
+
 // ─── Match ──────────────────────────────────────────────────────────────────
 function onMatchFound(msg) {
   S.game = {
@@ -972,6 +1169,54 @@ async function openRanking() {
   }
 }
 
+function renderProfileFriends() {
+  const wrap = $("profile-friends");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+  if (!S.friends.length) {
+    wrap.innerHTML = "<div class='ranking-empty'>Aucun ami — ajoute un pote via son code !</div>";
+    return;
+  }
+  for (const f of S.friends) {
+    const row = document.createElement("div");
+    row.className = "friend-row clickable";
+    const score = `${f.wins} V · ${f.losses} D${f.draws ? " · " + f.draws + " N" : ""}`;
+    row.innerHTML = `<span class="avatar avatar-opp">${initial(f.name)}</span>
+      <div class="friend-body"><div class="friend-name">${escapeHtml(f.name)}</div>
+      <div class="friend-score">Face à face : ${score}</div></div>
+      <span class="friend-dot ${f.online ? "on" : "off"}"></span>`;
+    row.onclick = () => { send({ type: "get_friend_profile", friend_id: f.id }); };
+    wrap.appendChild(row);
+  }
+}
+
+function onFriendProfile(msg) {
+  $("fp-avatar").textContent = initial(msg.friend.name);
+  $("fp-name").textContent = msg.friend.name;
+  const on = $("fp-online");
+  on.textContent = msg.online ? "● En ligne" : "○ Hors ligne";
+  on.className = "fp-online" + (msg.online ? " on" : "");
+  const g = msg.global || { games: 0, wins: 0, losses: 0, xp: 0 };
+  $("fp-stats").innerHTML = `
+    <div class="stat-card"><div class="v">${g.games}</div><div class="l">Matchs</div></div>
+    <div class="stat-card"><div class="v">${g.wins}</div><div class="l">Victoires</div></div>
+    <div class="stat-card"><div class="v">${g.losses}</div><div class="l">Défaites</div></div>
+    <div class="stat-card"><div class="v">${g.xp}</div><div class="l">XP total</div></div>`;
+  const h = msg.h2h;
+  const total = h.wins + h.losses;
+  const mePct = total ? Math.round(100 * h.wins / total) : 50;
+  const lead = h.wins > h.losses ? `👑 Tu mènes ${h.wins}–${h.losses} !`
+             : h.losses > h.wins ? `😤 ${escapeHtml(msg.friend.name)} mène ${h.losses}–${h.wins}`
+             : "⚖️ Égalité parfaite — le prochain duel décidera !";
+  $("fp-h2h").innerHTML = `
+    <div class="h2h-score"><span>${h.wins}</span><span class="h2h-sep">—</span><span>${h.losses}</span></div>
+    <div class="h2h-names"><span>Toi</span><span>${escapeHtml(msg.friend.name)}</span></div>
+    <div class="h2h-bar"><i class="me" style="width:${mePct}%"></i><i class="opp" style="flex:1"></i></div>
+    ${h.draws ? `<div class="h2h-draws">${h.draws} match${h.draws > 1 ? "s" : ""} nul${h.draws > 1 ? "s" : ""}</div>` : ""}
+    <div class="h2h-lead">${lead}</div>`;
+  show("friendprofile");
+}
+
 function renderProfile() {
   const g = (S.profile && S.profile.global) || { games: 0, wins: 0, losses: 0, draws: 0, xp: 0 };
   $("profile-avatar").textContent = initial(S.player.name);
@@ -981,6 +1226,7 @@ function renderProfile() {
     <div class="stat-card"><div class="v">${g.wins}</div><div class="l">Victoires</div></div>
     <div class="stat-card"><div class="v">${g.losses}</div><div class="l">Défaites</div></div>
     <div class="stat-card"><div class="v">${g.xp}</div><div class="l">XP total</div></div>`;
+  renderProfileFriends();
   const wrap = $("profile-topics");
   wrap.innerHTML = "";
   const played = S.topics.filter((t) => topicStats(t.id).games > 0);
@@ -1049,6 +1295,51 @@ $("btn-tourn-bot").onclick = () => launchTournament("bot");
 $("btn-tourn-friend").onclick = () => {
   if (S.tournTopics.length !== S.tournSize) { toast(`Choisis ${S.tournSize} thèmes`); return; }
   openFriends({ kind: "tournoi", topics: S.tournTopics.slice(), difficulty: S.difficulty, size: S.tournSize });
+};
+
+// Barre d'onglets
+document.querySelectorAll(".tab-btn").forEach((b) => {
+  b.onclick = () => {
+    const tab = b.dataset.tab;
+    sndTick();
+    if (tab === "home") { renderTopics(); show("home"); }
+    else if (tab === "cards") openCards();
+    else if (tab === "profile") { send({ type: "get_profile" }); send({ type: "list_friends" }); renderProfile(); show("profile"); }
+  };
+});
+
+// Cartes : filtres, boutons, session
+$("cards-filter-btn").onclick = () => {
+  $("cards-filter").classList.toggle("hidden");
+  populateCardTopicSelect();
+};
+document.querySelectorAll(".cf-diff").forEach((b) => {
+  b.onclick = () => {
+    document.querySelectorAll(".cf-diff").forEach((x) => x.classList.remove("selected"));
+    b.classList.add("selected");
+    C().diff = +b.dataset.diff;
+    sndTick();
+    startCardSession();
+  };
+});
+$("cards-topic-select").addEventListener("change", (e) => {
+  C().topic = e.target.value;
+  startCardSession();
+});
+$("card-flip").onclick = () => { $("flashcard").classList.toggle("flipped"); sndTick(); };
+$("card-right").onclick = () => judgeCard(true);
+$("card-wrong").onclick = () => judgeCard(false);
+$("btn-stop-session").onclick = () => stopCardSession();
+$("btn-cards-again").onclick = () => startCardSession();
+$("btn-summary-home").onclick = () => { renderTopics(); show("home"); };
+
+// Profil : amis, déconnexion
+$("btn-manage-friends").onclick = () => openFriends(null);
+$("btn-logout").onclick = () => {
+  if (!confirm("Se déconnecter ? Tu pourras te reconnecter avec un nouveau pseudo.")) return;
+  localStorage.removeItem("quizzup_pid");
+  localStorage.removeItem("quizzup_name");
+  location.reload();
 };
 
 // Parties à plusieurs

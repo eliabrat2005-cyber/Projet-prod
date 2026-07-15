@@ -90,6 +90,20 @@ def test_question_bank_valid(quizzup_modules):
                 f"difficulté invalide dans {topic['id']} : {item['q']}"
 
 
+def test_generated_no_missing_contractions(quizzup_modules):
+    """Les gabarits générés ne produisent jamais « de le X » / « de les X »
+    (contractés en « du » / « des »). Les thèmes écrits main peuvent contenir
+    « de le » légitime devant un verbe (« avant de le céder »)."""
+    _, _, q = quizzup_modules
+    from quizzup import qgen
+    generated = {t["id"] for t in qgen.GENERATED_TOPICS}
+    topics = q.load_topics()
+    for tid in generated:
+        for item in topics[tid]["questions"]:
+            assert " de le " not in item["q"] and " de les " not in item["q"], \
+                f"contraction manquante ({tid}) : {item['q']}"
+
+
 def test_handwritten_topics_have_all_tiers(quizzup_modules):
     """Les thèmes écrits à la main proposent les 4 paliers (≥4 questions
     chacun) pour que le mode choisi soit vraiment ressenti. Les thèmes
@@ -356,6 +370,53 @@ def test_quick_match_separates_difficulties(quizzup_modules):
             m2 = _drain_until(ws2, "match_found")
             assert m1["opponent"]["is_bot"] is True and m1["difficulty"] == 1
             assert m2["opponent"]["is_bot"] is True and m2["difficulty"] == 4
+
+
+def test_api_cards(quizzup_modules):
+    """Cartes d'apprentissage : aléatoires, filtrables par thème et palier."""
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    with TestClient(server.app) as client:
+        rows = client.get("/api/cards?n=15").json()
+        assert len(rows) == 15
+        for r in rows:
+            assert r["q"] and r["a"] and r["difficulty"] in (1, 2, 3, 4)
+            assert r["topic"]["name"] and r["topic"]["color"].startswith("#")
+        # Filtre palier extrême
+        hard = client.get("/api/cards?n=20&difficulty=4").json()
+        assert hard and all(r["difficulty"] == 4 for r in hard)
+        # Filtre thème
+        tid = client.get("/api/topics").json()[0]["id"]
+        only = client.get(f"/api/cards?n=20&topic_id={tid}").json()
+        assert only and all(r["topic"]["id"] == tid for r in only)
+
+
+def test_friend_profile(quizzup_modules):
+    """Profil d'un ami : stats globales + face-à-face, refusé si pas amis."""
+    _, server, _ = quizzup_modules
+    from starlette.testclient import TestClient
+
+    with TestClient(server.app) as client:
+        with client.websocket_connect("/ws") as w1, client.websocket_connect("/ws") as w2:
+            w1.send_text(json.dumps({"type": "hello", "name": "Profi"}))
+            json.loads(w1.receive_text())
+            w2.send_text(json.dumps({"type": "hello", "name": "Copain"}))
+            welc2 = json.loads(w2.receive_text())
+            id2, code2 = welc2["player"]["id"], welc2["friend_code"]
+
+            # Pas encore amis → refus
+            w1.send_text(json.dumps({"type": "get_friend_profile", "friend_id": id2}))
+            assert _drain_until(w1, "friend_error")
+
+            w1.send_text(json.dumps({"type": "add_friend", "code": code2}))
+            _drain_until(w1, "friend_added")
+            w1.send_text(json.dumps({"type": "get_friend_profile", "friend_id": id2}))
+            prof = _drain_until(w1, "friend_profile")
+            assert prof["friend"]["name"] == "Copain"
+            assert prof["online"] is True
+            assert {"wins", "losses", "draws"} <= set(prof["h2h"])
+            assert "games" in prof["global"]
 
 
 def test_party_three_players(quizzup_modules):

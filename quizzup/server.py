@@ -11,6 +11,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import random
 from pathlib import Path
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
@@ -46,6 +47,25 @@ async def health():
 @app.get("/api/topics")
 async def api_topics():
     return qbank.topic_list()
+
+
+@app.get("/api/cards")
+async def api_cards(topic_id: str = "", difficulty: int = 0, n: int = 40):
+    """Cartes d'apprentissage : questions aléatoires (+ réponse) filtrées
+    par thème et/ou palier. Utilisé par l'onglet Cartes (flashcards)."""
+    topics = qbank.load_topics()
+    sources = [topics[topic_id]] if topic_id in topics else list(topics.values())
+    pool = [(t, q) for t in sources for q in t["questions"]
+            if difficulty not in (1, 2, 3, 4) or q["difficulty"] == difficulty]
+    if not pool:
+        return []
+    n = max(1, min(int(n), 60))
+    picked = random.sample(pool, min(n, len(pool)))
+    return [{"q": q["q"], "a": q["choices"][q["answer"]],
+             "difficulty": q["difficulty"],
+             "topic": {"id": t["id"], "name": t["name"],
+                       "icon": t["icon"], "color": t["color"]}}
+            for t, q in picked]
 
 
 @app.get("/api/leaderboard/{topic_id}")
@@ -106,6 +126,7 @@ class Session:
             "rename": self._rename,
             "add_friend": self._add_friend,
             "list_friends": self._list_friends,
+            "get_friend_profile": self._get_friend_profile,
             "challenge_friend": self._challenge_friend,
             "play_tournament": self._play_tournament,
             "challenge_tournament": self._challenge_tournament,
@@ -289,6 +310,23 @@ class Session:
     async def _list_friends(self, msg: dict) -> None:
         await self.send({"type": "friends",
                          "friends": self._friends_payload(self.participant.player_id)})
+
+    async def _get_friend_profile(self, msg: dict) -> None:
+        fid = str(msg.get("friend_id") or "")
+        pid = self.participant.player_id
+        if not store.are_friends(pid, fid):
+            await self.send({"type": "friend_error", "message": "Vous n'êtes pas amis."})
+            return
+        friend = store.get_player(fid)
+        h2h = next((f for f in store.list_friends(pid) if f["id"] == fid),
+                   {"wins": 0, "losses": 0, "draws": 0})
+        await self.send({
+            "type": "friend_profile",
+            "friend": {"id": fid, "name": friend["name"] if friend else "?"},
+            "global": store.global_profile(fid),
+            "h2h": {"wins": h2h["wins"], "losses": h2h["losses"], "draws": h2h["draws"]},
+            "online": fid in lobby.online,
+        })
 
     async def _challenge_friend(self, msg: dict) -> None:
         topic_id = self._valid_topic(msg)
