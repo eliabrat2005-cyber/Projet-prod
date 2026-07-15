@@ -1477,9 +1477,14 @@ def page_reconciliation_transport():
 
         # ── Rendu de l'onglet Stockage ──────────────────────────────────────
         def _render_factures():
-            """Onglet FACTURES : statut de validation de chaque facture SOFRIPA."""
+            """Onglet FACTURES : statut de validation de chaque facture SOFRIPA.
+
+            Bornée au mois affiché (state fac_from/fac_to) -> ne montre que les
+            factures du/des mois sélectionné(s), en phase avec la réconciliation."""
+            d_min = state.get("fac_from")
+            d_max = state.get("fac_to")
             with results_factures:
-                stats = facture_store.stats_factures(tenant_id)
+                stats = facture_store.stats_factures(tenant_id, d_min, d_max)
                 section_title("Synthèse factures", "receipt_long")
                 with ui.row().classes("w-full gap-3 wrap reconcil-kpis"):
                     kpi_card("description", "Factures traitées", str(stats.get("nb", 0)))
@@ -1492,7 +1497,7 @@ def page_reconciliation_transport():
                     kpi_card("local_gas_station", "Gasoil total",
                              _eur(float(stats.get("gasoil") or 0)), COLORS["orange"])
 
-                factures = facture_store.list_factures(tenant_id)
+                factures = facture_store.list_factures(tenant_id, d_min, d_max)
                 overrides = corrections.list_facture_overrides(tenant_id)
                 # Corrige les compteurs : une rejetée validée à la main compte OK.
                 n_forced = sum(
@@ -1761,9 +1766,12 @@ def page_reconciliation_transport():
                     snap["result"], corrections.list_line_corrections(tenant_id))
             except Exception:  # noqa: BLE001
                 _log.exception("Application des corrections échouée")
-            # Mémorise la plage affichée (sert au nom de fichier de l'export Excel).
+            # Mémorise la plage affichée (sert au nom de fichier de l'export Excel
+            # ET au filtrage des factures du mois dans l'onglet FACTURES).
             state["date_min"] = str(snap.get("period_start"))
             state["date_max"] = str(snap.get("period_end"))
+            state["fac_from"] = state["date_min"]
+            state["fac_to"] = state["date_max"]
             synced = snap.get("synced_at")
             synced_txt = synced.strftime("%d/%m/%Y à %H:%M") if synced else "?"
             nb_mois = snap.get("nb_mois", 1)
@@ -1796,6 +1804,7 @@ def page_reconciliation_transport():
                 _log.exception("Lecture des mois échouée")
                 periods = []
             opts = {}
+            latest_nonvide = None  # dernier mois AVEC des lignes (commandes)
             for p in periods:
                 ps = p["period_start"]
                 lbl = f"{_MOIS_FR[ps.month - 1].capitalize()} {ps.year}"
@@ -1803,6 +1812,8 @@ def page_reconciliation_transport():
                 if taux is not None:
                     lbl += f" · {round(float(taux) * 100)}%"
                 opts[ps.isoformat()] = lbl
+                if latest_nonvide is None and (p.get("nb_lignes") or 0) > 0:
+                    latest_nonvide = ps.isoformat()  # periods triés récent -> ancien
             month_from.set_options(opts)
             month_to.set_options(opts)
             if not opts:
@@ -1814,7 +1825,10 @@ def page_reconciliation_transport():
                         "pour récupérer les derniers mois."
                     ).classes("text-body2 q-mt-md").style(f"color: {COLORS['ink2']}")
                 return
-            latest = next(iter(opts))  # opts triés du plus récent au plus ancien
+            # Par défaut : le dernier mois AVEC commandes (ex. en juillet, si juillet
+            # n'a encore rien, on ouvre sur juin). Repli sur le plus récent si tous
+            # les mois sont vides.
+            latest = latest_nonvide or next(iter(opts))
             a = month_from.value if (not select_latest and month_from.value in opts) else latest
             b = month_to.value if (not select_latest and month_to.value in opts) else latest
             render_guard["busy"] = True

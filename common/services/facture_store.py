@@ -37,32 +37,59 @@ def _date_iso(s: str | None) -> str | None:
         return None
 
 
-def stats_factures(tenant_id: str) -> dict:
-    """Compteurs pour la synthèse : nb factures, OK, rejetées, gasoil, HT total."""
+def _bornes_date(date_min: str | None, date_max: str | None) -> tuple[str, dict]:
+    """Fragment SQL + params pour borner sur date_facture (ISO 'YYYY-MM-DD').
+
+    Filtre uniquement les factures QUI ONT une date dans la plage ; celles sans
+    date (date_facture NULL) sont exclues dès qu'une borne est posée."""
+    frag, params = "", {}
+    if date_min:
+        frag += " AND date_facture >= :dmin"
+        params["dmin"] = date_min
+    if date_max:
+        frag += " AND date_facture <= :dmax"
+        params["dmax"] = date_max
+    return frag, params
+
+
+def stats_factures(tenant_id: str, date_min: str | None = None,
+                   date_max: str | None = None) -> dict:
+    """Compteurs pour la synthèse : nb factures, OK, rejetées, gasoil, HT total.
+
+    Bornée à [date_min, date_max] (dates de facture) si fournies -> la synthèse
+    reflète le mois affiché, pas tout l'historique."""
+    frag, params = _bornes_date(date_min, date_max)
+    params["t"] = tenant_id
     rows = run_sql(
-        """
+        f"""
         SELECT count(*) AS nb,
                count(*) FILTER (WHERE status='OK') AS ok,
                count(*) FILTER (WHERE status='REJECTED') AS rejetees,
                COALESCE(sum(maj_total) FILTER (WHERE status='OK'), 0) AS gasoil,
                COALESCE(sum(montant_ht) FILTER (WHERE status='OK'), 0) AS ht
-        FROM processed_invoices WHERE tenant_id=:t
+        FROM processed_invoices WHERE tenant_id=:t{frag}
         """,
-        {"t": tenant_id},
+        params,
     )
     return rows[0] if rows else {"nb": 0, "ok": 0, "rejetees": 0, "gasoil": 0, "ht": 0}
 
 
-def list_factures(tenant_id: str) -> list[dict]:
-    """Liste des factures traitées (récentes d'abord)."""
+def list_factures(tenant_id: str, date_min: str | None = None,
+                  date_max: str | None = None) -> list[dict]:
+    """Liste des factures traitées (récentes d'abord).
+
+    Bornée à [date_min, date_max] (dates de facture) si fournies -> n'affiche que
+    les factures du/des mois sélectionné(s)."""
+    frag, params = _bornes_date(date_min, date_max)
+    params["t"] = tenant_id
     return run_sql(
-        """
+        f"""
         SELECT id, id_facture_source, date_facture, montant_ht, montant_ttc,
                maj_total, nb_lignes, status, error_log, date_traitement
-        FROM processed_invoices WHERE tenant_id=:t
+        FROM processed_invoices WHERE tenant_id=:t{frag}
         ORDER BY date_facture DESC NULLS LAST, date_traitement DESC
         """,
-        {"t": tenant_id},
+        params,
     )
 
 
