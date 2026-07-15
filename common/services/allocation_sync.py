@@ -100,6 +100,7 @@ def synchroniser(
     fetch_detail: Callable[[int], dict | None] | None = None,
     override_path: str | None = None,
     full: bool = False,
+    max_orders: int | None = None,
     progress_cb: Callable[[int, int, str | None], None] | None = None,
 ) -> dict[str, int]:
     """Synchronise la repartition sur la plage de mois ['YYYY-MM', 'YYYY-MM'].

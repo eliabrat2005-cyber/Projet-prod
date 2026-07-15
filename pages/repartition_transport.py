@@ -145,6 +145,10 @@ def page_repartition_transport():
         table_box = ui.column().classes("w-full")
 
         # ── Synchro (seul appel API) ───────────────────────────────────────
+        # On PLAFONNE le nombre de commandes interrogées par clic (EasyBeer = 1/s)
+        # -> le bouton reste borné (~qq min) ; l'auto en fond rattrape le reste.
+        _MAX_PAR_CLIC = 250
+
         async def _sync():
             progress_box.clear()
             run_btn.disable()
@@ -153,33 +157,51 @@ def page_repartition_transport():
                     prog_label = ui.label("Synchronisation en cours…").classes(
                         "text-body2"
                     ).style(f"color: {COLORS['ink']}")
-                    ui.linear_progress(value=0, show_value=False, size="10px").props(
-                        "rounded color=green-8 indeterminate"
-                    )
+                    prog_bar = ui.linear_progress(
+                        value=0, show_value=False, size="10px").props(
+                        "rounded color=green-8 indeterminate")
             pm_from, pm_to = _default_sync_range()
+            progress = {"done": 0, "total": None}
+
+            def _cb(done, total, cur):
+                progress.update(done=done, total=total)
+
+            def _tick():
+                total = progress["total"]
+                if not total:
+                    return
+                prog_bar.props(remove="indeterminate")
+                prog_bar.set_value(progress["done"] / total)
+                prog_label.text = (
+                    f"Interrogation EasyBeer… {progress['done']}/{total} commandes")
+
+            timer = ui.timer(0.3, _tick)
 
             def _work():
                 from common.services.auto_sync import SYNC_LOCK
                 with SYNC_LOCK:  # pas de chevauchement avec la synchro auto
-                    return synchroniser(tenant_id, pm_from, pm_to)
+                    return synchroniser(tenant_id, pm_from, pm_to,
+                                        max_orders=_MAX_PAR_CLIC, progress_cb=_cb)
 
             try:
                 stats = await asyncio.to_thread(_work)
             except Exception as exc:  # noqa: BLE001
                 _log.exception("Synchro répartition échouée")
+                timer.cancel()
                 progress_box.clear()
                 with progress_box:
                     error_banner(f"Échec de la synchronisation : {exc}")
                 run_btn.enable()
                 return
+            timer.cancel()
             progress_box.clear()
             run_btn.enable()
-            ui.notify(
-                f"Synchro terminée : {stats['ecrites']} écrites, "
-                f"{stats['anomalies']} anomalie(s), "
-                f"{stats['ignorees']} déjà à jour (ignorées).",
-                type="positive",
-            )
+            reste = stats.get("restantes", 0)
+            msg = (f"Synchro : {stats['ecrites']} traitées, "
+                   f"{stats['ignorees']} déjà à jour.")
+            if reste:
+                msg += f" {reste} restantes — clique encore ou laisse l'auto finir."
+            ui.notify(msg, type="positive")
             _refresh_months(select_latest=True)
 
         run_btn.on_click(_sync)
@@ -204,13 +226,26 @@ def page_repartition_transport():
             kpis_box.clear()
             table_box.clear()
 
-            synced = max((r.get("last_synced_at") for r in rows if r.get("last_synced_at")),
-                         default=None)
+            # Badge = état de la PLAGE AFFICHÉE (anomalies visibles), pas global :
+            # l'historique lointain encore à rattraper ne doit pas alarmer alors
+            # que le mois consulté est propre. `dernier` reste global (info synchro).
+            etat = allocation_store.sync_etat(tenant_id)
+            reste = sum(1 for r in rows if r["allocation_status"] == STATUS_ANOMALIE)
             with kpis_box, ui.row().classes("items-center gap-2 q-mb-xs"):
-                ui.icon("cloud_done", size="sm").style(f"color: {COLORS['green']}")
-                ui.badge("À jour", color="green-6")
-                ui.label(f"dernière synchro {_temps_relatif(synced)} (auto)").classes(
-                    "text-caption").style(f"color: {COLORS['ink2']}")
+                if reste:
+                    ui.icon("sync", size="sm").style(f"color: {COLORS['orange']}")
+                    ui.badge("Rattrapage en cours", color="orange-7")
+                    ui.label(
+                        f"{reste} commande(s) à retraiter sur cette période — l'auto "
+                        f"les reprend en fond (dernière synchro "
+                        f"{_temps_relatif(etat.get('dernier'))})"
+                    ).classes("text-caption").style(f"color: {COLORS['ink2']}")
+                else:
+                    ui.icon("cloud_done", size="sm").style(f"color: {COLORS['green']}")
+                    ui.badge("À jour", color="green-6")
+                    ui.label(
+                        f"dernière synchro {_temps_relatif(etat.get('dernier'))} (auto)"
+                    ).classes("text-caption").style(f"color: {COLORS['ink2']}")
 
             total = sum((_f(r["transport_cost_total"]) or 0) for r in rows)
             cost_fs = sum((_f(r["cost_fs"]) or 0) for r in rows)

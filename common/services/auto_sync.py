@@ -55,8 +55,11 @@ def sync_tenant(tenant_id: str, *, mois: int = 12) -> dict:
             recap["reconciliation"] = "erreur"
         from common.services.allocation_sync import synchroniser as sync_alloc
         try:
+            # Plafond par passage : borne la durée + evite les bans EB ; les
+            # commandes restantes sont traitees au(x) passage(s) suivant(s).
             recap["repartition"] = sync_alloc(
-                tenant_id, d1.strftime("%Y-%m"), d2.strftime("%Y-%m"))
+                tenant_id, d1.strftime("%Y-%m"), d2.strftime("%Y-%m"),
+                max_orders=int(os.getenv("AUTO_SYNC_MAX_ORDERS", "300")))
         except Exception:  # noqa: BLE001
             _log.exception("auto-sync répartition échouée (tenant %s)", tenant_id)
             recap["repartition"] = "erreur"

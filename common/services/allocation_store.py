@@ -129,6 +129,24 @@ def list_period_months(tenant_id: str) -> list[str]:
     return [r["period_month"] for r in rows] if isinstance(rows, list) else []
 
 
+def sync_etat(tenant_id: str) -> dict:
+    """État global de la synchro répartition : dernière synchro + reste à traiter.
+
+    dernier = quand une allocation a été écrite pour la dernière fois (= dernière
+    synchro effective) ; n_anomalies = commandes encore à (re)traiter."""
+    rows = run_sql_with_tenant(
+        """
+        SELECT max(last_synced_at) AS dernier,
+               count(*) FILTER (WHERE allocation_status='ANOMALIE') AS n_anomalies,
+               count(*) AS total
+        FROM transport_allocation WHERE tenant_id=:t
+        """,
+        {"t": tenant_id}, tenant_id=tenant_id,
+    )
+    return rows[0] if isinstance(rows, list) and rows else {
+        "dernier": None, "n_anomalies": 0, "total": 0}
+
+
 # ── Validation / edition operateur (fige la commande) ─────────────────────
 def _audit(tenant_id, order_number, action, *, field=None, before=None,
            after=None, reason=None, by=None) -> None:
