@@ -26,7 +26,7 @@ const S = {
   party: null,           // salon en attente {code, members, is_host}
   cards: {               // session de cartes (flashcards)
     deck: [], idx: 0, ok: 0, ko: 0, streak: 0, bestStreak: 0,
-    perTheme: {}, diff: 0, topic: "", fetching: false, busy: false,
+    perTheme: {}, diff: 0, topic: "", fetching: false, busy: false, ended: false,
   },
 };
 
@@ -681,16 +681,21 @@ async function fetchCards(reset = false) {
 
 function openCards() {
   const c = C();
-  // Nouvelle session si aucune en cours
-  if (!c.deck.length || c.idx >= c.deck.length) startCardSession();
-  else show("cards");
   populateCardTopicSelect();
+  // Reprend la session en cours UNIQUEMENT si on ne l'a pas terminée ;
+  // sinon (terminée, ou aucune) on repart de zéro.
+  if (c.ended || !c.deck.length || c.idx >= c.deck.length) {
+    startCardSession();
+  } else {
+    show("cards");
+    renderCard(false);   // ré-affiche la carte courante proprement (sans état résiduel)
+  }
 }
 
 async function startCardSession() {
   const c = C();
   c.deck = []; c.idx = 0; c.ok = 0; c.ko = 0; c.streak = 0; c.bestStreak = 0;
-  c.perTheme = {}; c.busy = false;
+  c.perTheme = {}; c.busy = false; c.ended = false;
   updateCardScore();
   show("cards");
   $("fc-question").textContent = "…";
@@ -784,8 +789,9 @@ function populateCardTopicSelect() {
 // ─── Synthèse de session (machine à écrire) ────────────────────────────────
 function stopCardSession() {
   const c = C();
+  c.ended = true;   // la prochaine ouverture des cartes repartira de zéro
   const total = c.ok + c.ko;
-  if (!total) { show("home"); return; }
+  if (!total) { renderTopics(); show("home"); return; }
   const acc = Math.round(100 * c.ok / total);
   const themes = Object.values(c.perTheme);
   const best = themes.slice().sort((a, b) => (b.ok - b.ko) - (a.ok - a.ko) || b.ok - a.ok)[0];
