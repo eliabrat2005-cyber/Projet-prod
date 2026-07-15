@@ -867,6 +867,97 @@ BEFORE UPDATE ON production_sheets
 FOR EACH ROW EXECUTE FUNCTION touch_updated_at();
 
 -- =========================
+-- Commandes magasins (commandes clients reçues par email PDF)
+-- =========================
+-- Une commande = un PDF de commande envoyé par un magasin (Franprix, Bio c'Bon,
+-- Coop…). Le PDF est lu (pdfplumber) puis extrait en JSON par Claude :
+-- magasin, date de réception, date de livraison, lignes {gamme, quantité, unité}.
+-- Source 'email' (poll IMAP) ou 'upload' (dépôt manuel filet de sécurité).
+CREATE TABLE IF NOT EXISTS commandes_magasins (
+  id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  tenant_id         UUID NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
+  created_by        UUID REFERENCES users(id) ON DELETE SET NULL,
+  magasin           TEXT NOT NULL DEFAULT '',          -- enseigne / magasin émetteur
+  date_reception    DATE,                              -- date de réception de la commande
+  date_livraison    DATE,                              -- date de livraison demandée
+  source            TEXT NOT NULL DEFAULT 'upload',    -- 'email' | 'upload'
+  email_message_id  TEXT,                              -- Message-ID IMAP (dédup) - NULL si upload
+  email_from        TEXT NOT NULL DEFAULT '',          -- expéditeur du mail (info)
+  email_subject     TEXT NOT NULL DEFAULT '',          -- objet du mail (info)
+  pdf_filename      TEXT NOT NULL DEFAULT '',
+  pdf_bytes         BYTEA,                             -- PDF source archivé (réextraction)
+  raw_text          TEXT NOT NULL DEFAULT '',          -- texte brut extrait du PDF
+  lignes            JSONB NOT NULL DEFAULT '[]'::jsonb, -- [{gamme, quantite, unite}]
+  confiance         TEXT NOT NULL DEFAULT '',          -- 'haute' | 'moyenne' | 'basse' (auto-éval IA)
+  statut            TEXT NOT NULL DEFAULT 'nouveau',   -- 'nouveau' | 'traite' | 'erreur'
+  parse_error       TEXT,                              -- message si l'extraction a échoué
+  created_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at        TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_commandes_magasins_tenant_created
+  ON commandes_magasins(tenant_id, created_at DESC);
+
+-- Dédup : un même mail (Message-ID) ne doit être ingéré qu'une fois par tenant.
+CREATE UNIQUE INDEX IF NOT EXISTS uq_commandes_magasins_msgid
+  ON commandes_magasins(tenant_id, email_message_id)
+  WHERE email_message_id IS NOT NULL;
+
+DROP TRIGGER IF EXISTS trg_commandes_magasins_touch ON commandes_magasins;
+CREATE TRIGGER trg_commandes_magasins_touch
+BEFORE UPDATE ON commandes_magasins
+FOR EACH ROW EXECUTE FUNCTION touch_updated_at();
+
+ALTER TABLE commandes_magasins ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS tenant_isolation ON commandes_magasins;
+CREATE POLICY tenant_isolation ON commandes_magasins
+  USING (
+    current_setting('app.current_tenant_id', true) IS NULL
+    OR current_setting('app.current_tenant_id', true) = ''
+    OR tenant_id = current_setting('app.current_tenant_id', true)::uuid
+  )
+  WITH CHECK (
+    current_setting('app.current_tenant_id', true) IS NULL
+    OR current_setting('app.current_tenant_id', true) = ''
+    OR tenant_id = current_setting('app.current_tenant_id', true)::uuid
+  );
+
+-- =========================
+-- Réconciliation transport : snapshot du dernier calcul (perf + hors-ligne)
+-- La page lit ce snapshot (instantané) ; un « Synchroniser » manuel le régénère
+-- en interrogeant Pennylane + EasyBeer. Un snapshot par tenant (le dernier).
+-- =========================
+-- Un snapshot PAR MOIS et par tenant → l'utilisateur change de mois
+-- instantanément (lecture base), la synchro (API) reste manuelle.
+CREATE TABLE IF NOT EXISTS reconciliation_snapshots (
+  tenant_id     UUID NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
+  period_start  DATE NOT NULL,                  -- 1er jour du mois couvert
+  period_end    DATE,                           -- dernier jour du mois
+  payload       JSONB NOT NULL DEFAULT '{}',    -- Resultat sérialisé + stockage
+  nb_lignes     INT NOT NULL DEFAULT 0,
+  nb_sans_piece INT NOT NULL DEFAULT 0,
+  taux          NUMERIC,                         -- taux de réconciliation [0..1]
+  synced_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+  synced_by     UUID REFERENCES users(id) ON DELETE SET NULL,
+  PRIMARY KEY (tenant_id, period_start)
+);
+
+ALTER TABLE reconciliation_snapshots ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS tenant_isolation ON reconciliation_snapshots;
+CREATE POLICY tenant_isolation ON reconciliation_snapshots
+  USING (
+    current_setting('app.current_tenant_id', true) IS NULL
+    OR current_setting('app.current_tenant_id', true) = ''
+    OR tenant_id = current_setting('app.current_tenant_id', true)::uuid
+  )
+  WITH CHECK (
+    current_setting('app.current_tenant_id', true) IS NULL
+    OR current_setting('app.current_tenant_id', true) = ''
+    OR tenant_id = current_setting('app.current_tenant_id', true)::uuid
+  );
+
+-- =========================
 -- Permissions (user applicatif "shark")
 -- =========================
 DO $$
@@ -886,6 +977,8 @@ BEGIN
                        mobile_api_tokens,
                        production_sheets,
                        eb_outbox,
+                       commandes_magasins,
+                       reconciliation_snapshots,
                        eb_stock_product_templates TO shark;
     GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA public TO shark;
   END IF;

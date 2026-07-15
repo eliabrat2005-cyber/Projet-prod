@@ -1,0 +1,13 @@
+category,entity,active
+# Mapping CATEGORIE produit EasyBeer -> entite (choix : classification par categorie).
+# entity : FERMENT_STATION (Symbiose/Niko/infusions) ou SPRAGA (kombucha).
+# Les 7 categories ci-dessous = tout le catalogue actuel (2026-07), 100% Ferment Station.
+# Quand Spraga enverra ses 1eres commandes, ajouter ici sa/ses categorie(s) -> SPRAGA.
+# Une categorie ABSENTE de cette table => produit non classe => ANOMALIE (a mapper).
+Kéfir de fruits - SYMBIOSE,FERMENT_STATION,true
+Kéfir de fruits - NIKO,FERMENT_STATION,true
+Kéfir de fruits - Export BE-ES-DE-UK,FERMENT_STATION,true
+Infusion Probiotique,FERMENT_STATION,true
+Infusion Probiotique - Export BE-ES-DE-UK,FERMENT_STATION,true
+Soda,FERMENT_STATION,true
+Recette Garde,FERMENT_STATION,true

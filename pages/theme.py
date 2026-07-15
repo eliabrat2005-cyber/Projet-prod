@@ -64,6 +64,7 @@ COLORS = {
 
 NAV_ITEMS: list[tuple] = [
     ("home",           "Accueil",              "/accueil"),
+    ("shopping_cart",  "Commandes reçues",     "/commandes"),
     ("factory",        "Production",           "/production"),
     ("insights",       "Prévisions",           "/previsions"),
     # /etiquettes-palette retiré (Sprint 3) — équivalent iOS
@@ -71,6 +72,9 @@ NAV_ITEMS: list[tuple] = [
     ("history",        "Historique ramasses",  "/historique-ramasses"),
     ("inventory_2",    "Stocks",               "/stocks"),
     ("bar_chart",      "Commercial",            "/commercial"),
+    ("compare_arrows", "Réconciliation transport", "/reconciliation-transport"),
+    ("call_split",     "Répartition transport", "/repartition-transport"),
+    ("account_balance", "Trésorerie",            "/tresorerie"),
     # Groupe dépliable
     ("settings", "Paramètres", None, [
         ("menu_book",      "Instructions IA",      "/ressources"),
