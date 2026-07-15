@@ -26,3 +26,4 @@ if __name__ == "__main__":
     # une fois celui-ci démêlé). Dépendent des tables de base (tenants, users).
     run_file("db/invoices_schema.sql")
     run_file("db/transport_allocation_schema.sql")
+    run_file("db/reconciliation_corrections_schema.sql")

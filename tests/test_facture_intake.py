@@ -69,10 +69,13 @@ def test_valider_rejette_ht_incoherent():
     assert any("HT" in e for e in valider_facture(fac))
 
 
-def test_valider_rejette_transport_negatif():
+def test_valider_tolere_ligne_gratuite():
+    # Règle « transport > 0 par ligne » RETIRÉE : une ligne à 0 € (taxi-colis
+    # gratuit, transfert interne SYMBIOSE) ne rejette PLUS la facture tant que
+    # Σ montant_final = HT. Seuls les totaux (global + journaliers) comptent.
     fac = _facture_ok()
     fac.lignes[0].transport = 0.0
-    assert any("transport" in e for e in valider_facture(fac))
+    assert valider_facture(fac) == []
 
 
 # ─── Liaison Easy Beer ───────────────────────────────────────────────────────

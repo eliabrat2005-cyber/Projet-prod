@@ -81,7 +81,7 @@ def lire_lignes_reconciliation(tenant_id: str, date_min: str, date_max: str) -> 
         """
         SELECT l.exp_date, l.num_ordre_transport, l.destinataire, l.num_piece,
                l.poids, l.unite, l.quantite, l.montant_final, l.surtaxe_gasoil,
-               f.date_facture
+               f.date_facture, f.id_facture_source
         FROM processed_invoice_lines l
         JOIN processed_invoices f ON f.id = l.invoice_id
         WHERE l.tenant_id = :t AND f.status = 'OK'
@@ -112,9 +112,39 @@ def lire_lignes_reconciliation(tenant_id: str, date_min: str, date_max: str) -> 
             surtaxe_gasoil=_f(r["surtaxe_gasoil"]) or 0.0,
             unite=r["unite"],
             quantite=_f(r["quantite"]),
+            facture=r["id_facture_source"],
         )
         for r in rows
     ]
+
+
+def get_facture_data(tenant_id: str, invoice_id: str) -> dict | None:
+    """JSON parsé (lignes + totaux journaliers) + statut/erreur d'une facture.
+
+    Sert à AFFICHER une facture REJETÉE : ses lignes ne sont pas dans
+    processed_invoice_lines (on ne stocke les lignes que si status=OK), mais le
+    parse complet est conservé dans facture_data_json. On peut ainsi montrer où
+    ça coince (jour dont le total ne tombe pas juste).
+    """
+    rows = run_sql(
+        """
+        SELECT status, error_log, date_facture, montant_ht, maj_total,
+               facture_data_json
+        FROM processed_invoices WHERE tenant_id=:t AND id=:i
+        """,
+        {"t": tenant_id, "i": invoice_id},
+    )
+    if not rows:
+        return None
+    row = rows[0]
+    data = row["facture_data_json"]
+    if isinstance(data, str):
+        data = json.loads(data)
+    return {
+        "status": row["status"], "error_log": row["error_log"],
+        "date_facture": row["date_facture"], "montant_ht": row["montant_ht"],
+        "maj_total": row["maj_total"], "data": data or {},
+    }
 
 
 def get_lignes(tenant_id: str, invoice_id: str) -> list[dict]:

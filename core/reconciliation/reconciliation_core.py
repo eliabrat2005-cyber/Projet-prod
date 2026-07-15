@@ -63,6 +63,7 @@ class LigneFacture:
     surtaxe_gasoil: float = 0.0   # part de majoration gasoil déjà comprise dans montant
     unite: str | None = None      # KGS | PAL | COL | FO — seul KGS est un vrai poids (kg)
     quantite: float | None = None # quantité facturée dans l'unité (nb palettes/colis/kg)
+    facture: str | None = None    # n° de la facture SOFRIPA d'où vient la ligne
 
 
 @dataclass
@@ -95,6 +96,8 @@ class LigneReconciliee:
     surtaxe_gasoil: float = 0.0        # part gasoil comprise dans cout_transport
     unite: str | None = None          # unité de facturation SOFRIPA (KGS|PAL|COL|FO)
     quantite: float | None = None     # quantité facturée (nb palettes/colis/kg)
+    exp_date: str | None = None       # date d'expédition (jj/mm/aaaa) de la ligne facture
+    facture: str | None = None        # n° de la facture SOFRIPA d'où vient la ligne
     commande: Commande | None = None  # référence vers la commande (colonnes brutes)
     methode: str = "piece"            # "piece" (sûr, via N° pièce) | "deduit" (nom+ville+date)
     confiance: str = ""               # "" (pièce) | "haute" (unique) | "date" (départagé par date)
@@ -514,6 +517,7 @@ def _faire_ligne(f, num, cmd, seuil_pct, methode="piece", confiance="") -> "Lign
         statut=_statut(poids_eb, poids_sof, ecart_kg, ecart_pct, seuil_pct),
         surtaxe_gasoil=f.surtaxe_gasoil,
         unite=getattr(f, "unite", None), quantite=getattr(f, "quantite", None),
+        exp_date=f.exp_date, facture=getattr(f, "facture", None),
         commande=cmd, methode=methode, confiance=confiance,
     )
 

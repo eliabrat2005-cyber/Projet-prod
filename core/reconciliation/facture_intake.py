@@ -282,19 +282,10 @@ def valider_facture(fac: FactureIntake, tol: float = 0.02) -> list[str]:
     if not fac.lignes:
         err.append("Aucune ligne de transport extraite")
 
-    # 2. Montants de ligne positifs — SAUF transferts internes gratuits.
-    # Un enlèvement interne vers un site SYMBIOSE (ex. Ivry) peut légitimement
-    # être facturé 0 € : ce n'est PAS une erreur de lecture, on ne rejette pas
-    # la facture pour ça (ces lignes sont de toute façon exclues de la
-    # réconciliation, cf. _est_interne).
-    from .reconciliation_core import _est_interne
-
-    for i, L in enumerate(fac.lignes, 1):
-        interne = _est_interne(L.destinataire)
-        if (not L.transport or L.transport <= 0) and not interne:
-            err.append(f"Ligne {i} (pièce {L.num_piece}) : transport ≤ 0")
-        if L.poids is not None and L.poids <= 0 and not interne:
-            err.append(f"Ligne {i} (pièce {L.num_piece}) : poids ≤ 0")
+    # 2. (Ancienne règle « transport > 0 par ligne » RETIRÉE.) Elle rejetait à
+    # tort des lignes légitimement à 0 € (taxi-colis gratuit, transfert interne
+    # SYMBIOSE…). Elle est de toute façon redondante : si une ligne a un vrai
+    # montant qu'on a raté au parse, le contrôle Σ = HT ci-dessous le détecte.
 
     # 3. Réconciliation globale : Σ montant_final == HT (après gasoil)
     if fac.montant_ht is not None:

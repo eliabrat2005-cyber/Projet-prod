@@ -42,6 +42,7 @@ from pathlib import Path
 from nicegui import app, ui
 
 from common.services import facture_store
+from common.services import reconciliation_corrections as corrections
 from common.services.reconciliation_store import list_periods, load_range
 from core.reconciliation.pennylane_cache import PennylaneCache
 from pages.auth import require_auth
@@ -111,6 +112,7 @@ _FACTURE_BADGE_JS = r"""
     <q-td :props="props">
       <q-badge :color="{
         'Validée':'green-6',
+        'Validée (forcée)':'teal-6',
         'Rejetée':'red-6',
         'Stockage':'blue-grey-5'
       }[props.value] || 'grey-6'" :label="props.value" />
@@ -196,6 +198,11 @@ def _pct(v) -> str:
     return f"{v * 100:.1f} %".replace(".", ",") if v is not None else "—"
 
 
+def _f(v):
+    """Decimal/None (NUMERIC PG) -> float/None."""
+    return float(v) if v is not None else None
+
+
 def _fr(v, dec: int):
     """Nombre formaté à la française (virgule), sans unité — pour l'Excel. None -> None."""
     if v is None:
@@ -208,6 +215,53 @@ def _fr_pct(v):
     if v is None:
         return None
     return f"{v * 100:.1f}".replace(".", ",") + " %"
+
+
+def _iso_date(exp_date: str | None) -> str:
+    """« 16/04/2026 » -> « 2026-04-16 » (clé de tri chronologique). '' si illisible."""
+    import re
+    m = re.match(r"\s*(\d{1,2})/(\d{1,2})/(\d{2,4})", exp_date or "")
+    if not m:
+        return ""
+    d, mo, y = int(m.group(1)), int(m.group(2)), m.group(3)
+    y = ("20" + y) if len(y) == 2 else y
+    return f"{y}-{mo:02d}-{d:02d}"
+
+
+# ─── Slots Quasar : la ligne porte la valeur BRUTE (nombre) -> TRI NUMÉRIQUE
+# correct ; le slot formate l'affichage (kg / € / %). props.row donne accès aux
+# champs cachés (qte/unite pour le poids SOFRIPA en palettes).
+_SLOT_KG = (
+    '<q-td :props="props" class="text-right">{{ props.value == null ? "—" : '
+    'Number(props.value).toFixed(1).replace(".", ",") + " kg" }}</q-td>'
+)
+_SLOT_EUR = (
+    '<q-td :props="props" class="text-right">{{ props.value == null ? "—" : '
+    'Number(props.value).toFixed(1).replace(".", ",") + " €" }}</q-td>'
+)
+_SLOT_PCT = (
+    '<q-td :props="props" class="text-right">{{ props.value == null ? "—" : '
+    '(Number(props.value)*100).toFixed(1).replace(".", ",") + " %" }}</q-td>'
+)
+_SLOT_EURKG = (
+    '<q-td :props="props" class="text-right">{{ props.value == null ? "—" : '
+    'Number(props.value).toFixed(3).replace(".", ",") + " €" }}</q-td>'
+)
+_SLOT_DATE = (
+    '<q-td :props="props">{{ props.value ? '
+    'props.value.split("-").reverse().join("/") : "—" }}</q-td>'
+)
+_SLOT_POIDS_SOF = (
+    '<q-td :props="props" class="text-right">{{ props.value != null ? '
+    '(Number(props.value).toFixed(1).replace(".", ",") + " kg") : '
+    '(props.row.qte ? (Math.round(props.row.qte) + " " + props.row.unite) : "—") }}</q-td>'
+)
+# Cellule en ROUGE si la ligne est marquée « _bad » (jour dont le total ne
+# tombe pas juste, sur une facture rejetée).
+_SLOT_ROUGE_SI_BAD = (
+    '<q-td :props="props" :class="props.row._bad ? '
+    '\'text-red-6 text-weight-bold\' : \'\'">{{ props.value }}</q-td>'
+)
 
 
 def _poids_sof_disp(L) -> str:
@@ -410,6 +464,18 @@ def _inject_mega_css():
       /* KPIs : cartes assez larges (2 rangées si besoin) + valeurs sur UNE ligne */
       .reconcil-kpis .kpi-card { min-width: 215px; }
       .reconcil-kpis .kpi-card .text-h6 { white-space: nowrap; }
+      /* Tableau réconciliation triable : entête figé en haut + 2 premières
+         colonnes (Date, N° cmd) figées à gauche quand on scrolle à droite. */
+      .recon-sortable .q-table__middle { max-height: 65vh; }
+      .recon-sortable thead tr th { position: sticky; top: 0; z-index: 2; background: #fff; }
+      .recon-sortable td:nth-child(1), .recon-sortable th:nth-child(1) {
+        position: sticky; left: 0; z-index: 3; background: #fff; }
+      .recon-sortable td:nth-child(2), .recon-sortable th:nth-child(2) {
+        position: sticky; left: 96px; z-index: 3; background: #fff; }
+      .recon-sortable th:nth-child(1) { min-width: 96px; }
+      .recon-sortable thead th:nth-child(1), .recon-sortable thead th:nth-child(2) { z-index: 4; }
+      .recon-sortable tbody tr { cursor: pointer; }
+      .recon-sortable tbody tr:hover td { background: #F0FDF4; }
     </style>
     """)
 
@@ -904,48 +970,59 @@ def page_reconciliation_transport():
                 lignes_deduites = [L for L in res.lignes
                                    if getattr(L, "methode", "piece") == "deduit"]
 
+                # Colonnes TRIABLES (clic sur l'entête). La ligne porte la valeur
+                # BRUTE (nombre) pour un tri numérique correct ; un slot formate
+                # l'affichage. Date + N° cmd figées à gauche (classe recon-sortable).
                 base_cols = [
+                    {"name": "date", "label": "Date", "field": "date",
+                     "align": "left", "sortable": True},
                     {"name": "numero", "label": "N° cmd", "field": "numero",
                      "align": "left", "sortable": True},
                     {"name": "client", "label": "Client", "field": "client",
                      "align": "left", "sortable": True},
                     {"name": "poids_eb", "label": "Poids EB", "field": "poids_eb",
-                     "align": "right"},
+                     "align": "right", "sortable": True},
                     {"name": "poids_sof", "label": "Poids SOFRIPA", "field": "poids_sof",
-                     "align": "right"},
+                     "align": "right", "sortable": True},
                     {"name": "ecart_kg", "label": "Écart kg", "field": "ecart_kg",
-                     "align": "right"},
+                     "align": "right", "sortable": True},
                     {"name": "ecart_pct", "label": "Écart %", "field": "ecart_pct",
-                     "align": "right"},
+                     "align": "right", "sortable": True},
                     {"name": "cout", "label": "Coût transport", "field": "cout",
-                     "align": "right"},
+                     "align": "right", "sortable": True},
                     {"name": "gasoil", "label": "dont gasoil", "field": "gasoil",
-                     "align": "right"},
+                     "align": "right", "sortable": True},
                     {"name": "montant_ht", "label": "Montant HT", "field": "montant_ht",
-                     "align": "right"},
+                     "align": "right", "sortable": True},
                     {"name": "transport_ht", "label": "Transport/HT", "field": "transport_ht",
-                     "align": "right"},
+                     "align": "right", "sortable": True},
                     {"name": "eur_kg", "label": "€/kg facturé", "field": "eur_kg",
-                     "align": "right"},
+                     "align": "right", "sortable": True},
                     {"name": "statut", "label": "Statut", "field": "statut",
                      "align": "left", "sortable": True},
                 ]
                 methode_col = {"name": "methode", "label": "Confiance",
                                "field": "methode", "align": "left", "sortable": True}
 
+                by_num_recon: dict = {}
+
                 def _row(L):
+                    by_num_recon[L.numero] = L
                     return {
+                        "date": _iso_date(getattr(L, "exp_date", None)),
                         "numero": L.numero,
                         "client": L.client or "—",
-                        "poids_eb": _kg(L.poids_eb),
-                        "poids_sof": _poids_sof_disp(L),
-                        "ecart_kg": _kg(L.ecart_kg),
-                        "ecart_pct": _pct(L.ecart_pct),
-                        "cout": _eur(L.cout_transport),
-                        "gasoil": _eur(getattr(L, "surtaxe_gasoil", 0.0)),
-                        "montant_ht": _eur(L.montant_ht),
-                        "transport_ht": _pct(L.transport_sur_ht),
-                        "eur_kg": _eur_kg(L.eur_par_kg),
+                        "poids_eb": L.poids_eb,
+                        "poids_sof": L.poids_sofripa,   # None -> le slot montre « 2 PAL »
+                        "qte": getattr(L, "quantite", None),
+                        "unite": getattr(L, "unite", None),
+                        "ecart_kg": L.ecart_kg,
+                        "ecart_pct": L.ecart_pct,
+                        "cout": L.cout_transport,
+                        "gasoil": getattr(L, "surtaxe_gasoil", 0.0),
+                        "montant_ht": L.montant_ht,
+                        "transport_ht": L.transport_sur_ht,
+                        "eur_kg": L.eur_par_kg,
                         "statut": L.statut,
                         "methode": _methode_label(L),
                     }
@@ -954,12 +1031,139 @@ def page_reconciliation_transport():
                     t = ui.table(
                         columns=cols, rows=[_row(L) for L in sous_lignes],
                         row_key="numero", pagination={"rowsPerPage": 50},
-                    ).classes("w-full").props(
+                    ).classes("w-full recon-sortable").props(
                         'flat bordered dense :rows-per-page-options="[25,50,100]"'
                     )
-                    t.add_slot("body-cell-statut", _STATUT_BADGE_JS)
-                    t.add_slot("body-cell-methode", _METHODE_BADGE_JS)
+                    for name, slot in (
+                        ("date", _SLOT_DATE), ("poids_eb", _SLOT_KG),
+                        ("poids_sof", _SLOT_POIDS_SOF), ("ecart_kg", _SLOT_KG),
+                        ("ecart_pct", _SLOT_PCT), ("cout", _SLOT_EUR),
+                        ("gasoil", _SLOT_EUR), ("montant_ht", _SLOT_EUR),
+                        ("transport_ht", _SLOT_PCT), ("eur_kg", _SLOT_EURKG),
+                        ("statut", _STATUT_BADGE_JS), ("methode", _METHODE_BADGE_JS),
+                    ):
+                        t.add_slot(f"body-cell-{name}", slot)
+                    t.on("rowClick",
+                         lambda e: _open_commande(by_num_recon.get(e.args[1]["numero"])))
                     return t
+
+                def _open_commande(L):
+                    """Détail d'une commande réconciliée (infos en vertical + lien
+                    vers sa facture SOFRIPA complète)."""
+                    if L is None:
+                        return
+                    with ui.dialog() as dlg, ui.card().classes("w-full").style(
+                        "max-width: 560px"
+                    ):
+                        with ui.row().classes("w-full items-center justify-between"):
+                            section_title(
+                                f"Commande {L.numero} — {L.client or ''}", "local_shipping")
+                            ui.button(icon="close", on_click=dlg.close).props(
+                                "flat round dense")
+                        infos = [
+                            ("Date d'expédition", getattr(L, "exp_date", None) or "—"),
+                            ("N° pièce", L.piece or "—"),
+                            ("N° OT", L.ot or "—"),
+                            ("Poids Easy Beer", _kg(L.poids_eb)),
+                            ("Poids SOFRIPA", _poids_sof_disp(L)),
+                            ("Écart poids", f"{_kg(L.ecart_kg)} ({_pct(L.ecart_pct)})"),
+                            ("Coût transport", _eur(L.cout_transport)),
+                            ("dont gasoil", _eur(getattr(L, "surtaxe_gasoil", 0.0))),
+                            ("Montant HT", _eur(L.montant_ht)),
+                            ("Statut poids", L.statut),
+                            ("Méthode", _methode_label(L)),
+                        ]
+                        with ui.column().classes("w-full gap-0 q-mt-sm"):
+                            for k, v in infos:
+                                with ui.row().classes(
+                                    "w-full justify-between q-py-xs items-center"
+                                ).style("border-bottom: 1px solid #F1F5F9"):
+                                    ui.label(k).classes("text-caption").style(
+                                        f"color: {COLORS['ink2']}")
+                                    ui.label(str(v)).classes("text-body2").style(
+                                        f"color: {COLORS['ink']}; font-weight: 600")
+                        ui.separator().classes("q-my-sm")
+                        fac = getattr(L, "facture", None)
+                        if fac:
+                            ui.label("Facturée sur :").classes("text-caption").style(
+                                f"color: {COLORS['ink2']}")
+                            ui.button(
+                                f"Voir la facture {fac}", icon="receipt_long",
+                                on_click=lambda: (dlg.close(), _open_facture_by_source(fac)),
+                            ).props("color=green-8")
+                        else:
+                            ui.label("Facture non identifiée pour cette ligne.").classes(
+                                "text-caption").style(f"color: {COLORS['ink2']}")
+
+                        # ── Contrôle opérateur : corriger / supprimer la ligne ──
+                        ui.separator().classes("q-my-sm")
+                        section_title("Contrôle opérateur", "tune")
+                        who = user.get("email") or "?"
+                        edit_box = ui.column().classes("w-full gap-2")
+                        edit_box.visible = False
+
+                        async def _suppr():
+                            await asyncio.to_thread(
+                                corrections.delete_line, tenant_id, L.numero,
+                                by=who, reason="masquée par l'opérateur")
+                            ui.notify(f"Ligne {L.numero} masquée.", type="positive")
+                            dlg.close()
+                            _show_range(*_current_range())
+
+                        async def _reset():
+                            await asyncio.to_thread(
+                                corrections.reset_line, tenant_id, L.numero, by=who)
+                            ui.notify("Ligne réinitialisée (retour à l'original).",
+                                      type="info")
+                            dlg.close()
+                            _show_range(*_current_range())
+
+                        with ui.row().classes("gap-2"):
+                            ui.button("Modifier", icon="edit",
+                                      on_click=lambda: setattr(edit_box, "visible", True)
+                                      ).props("outline dense color=green-8")
+                            ui.button("Supprimer", icon="delete_outline",
+                                      on_click=_suppr).props("outline dense color=red-7")
+                            ui.button("Réinitialiser", icon="restart_alt",
+                                      on_click=_reset).props("flat dense color=grey-7")
+
+                        with edit_box:
+                            cli = ui.input("Client", value=L.client or "").props(
+                                "outlined dense").classes("w-full")
+                            with ui.row().classes("w-full gap-2 wrap"):
+                                peb = ui.number("Poids EB (kg)", value=_f(L.poids_eb),
+                                                format="%.1f").props(
+                                    "outlined dense").classes("w-36")
+                                psof = ui.number(
+                                    "Poids SOFRIPA (kg)", value=_f(L.poids_sofripa),
+                                    format="%.1f").props("outlined dense").classes("w-36")
+                                cout = ui.number(
+                                    "Coût transport (€)", value=_f(L.cout_transport),
+                                    format="%.2f").props("outlined dense").classes("w-36")
+                                ht = ui.number("Montant HT (€)", value=_f(L.montant_ht),
+                                               format="%.2f").props(
+                                    "outlined dense").classes("w-36")
+                            motif = ui.input("Motif").props("outlined dense").classes("w-full")
+
+                            async def _save():
+                                await asyncio.to_thread(
+                                    corrections.upsert_line_correction, tenant_id,
+                                    L.numero, by=who, reason=(motif.value or None),
+                                    client=(cli.value or None),
+                                    poids_eb=peb.value, poids_sofripa=psof.value,
+                                    cout_transport=cout.value, montant_ht=ht.value)
+                                ui.notify("Ligne corrigée.", type="positive")
+                                dlg.close()
+                                _show_range(*_current_range())
+
+                            with ui.row().classes("gap-2"):
+                                ui.button("Sauvegarder", icon="save",
+                                          on_click=_save).props("color=green-8")
+                                ui.button(
+                                    "Annuler", icon="close",
+                                    on_click=lambda: setattr(edit_box, "visible", False)
+                                ).props("flat dense")
+                    dlg.open()
 
                 # 1) Réconciliées SÛRES (par N° pièce) — certitude
                 section_title(
@@ -1209,6 +1413,14 @@ def page_reconciliation_transport():
                              _eur(float(stats.get("gasoil") or 0)), COLORS["orange"])
 
                 factures = facture_store.list_factures(tenant_id)
+                overrides = corrections.list_facture_overrides(tenant_id)
+                # Corrige les compteurs : une rejetée validée à la main compte OK.
+                n_forced = sum(
+                    1 for f in factures
+                    if f["status"] == "REJECTED" and f["id_facture_source"] in overrides)
+                if n_forced:
+                    with ui.row().classes("q-mb-sm"):
+                        ui.badge(f"{n_forced} facture(s) validée(s) à la main", color="teal-6")
                 if not factures:
                     ui.label(
                         "Aucune facture traitée. Cliquez « Mettre à jour » pour "
@@ -1243,7 +1455,9 @@ def page_reconciliation_transport():
                         "num": f["id_facture_source"],
                         "date": (f["date_facture"].strftime("%d/%m/%Y")
                                  if f.get("date_facture") else "—"),
-                        "statut": _FACTURE_STATUT_LABEL.get(f["status"], f["status"]),
+                        "statut": ("Validée (forcée)"
+                                   if f["id_facture_source"] in overrides
+                                   else _FACTURE_STATUT_LABEL.get(f["status"], f["status"])),
                         "ht": _eur(float(f["montant_ht"]) if f.get("montant_ht") else None),
                         "gasoil": _eur(
                             float(f["maj_total"]) if f.get("maj_total") else None),
@@ -1269,54 +1483,178 @@ def page_reconciliation_transport():
         def _open_facture(r):
             if not r:
                 return
+            fac = next(
+                (x for x in facture_store.list_factures(tenant_id)
+                 if str(x["id"]) == r["id"]), None,
+            )
             with ui.dialog() as dlg, ui.card().classes("w-full").style(
                 "max-width: 900px"
             ):
                 with ui.row().classes("w-full items-center justify-between"):
                     section_title(f"Facture {r['num']} — {r['statut']}", "receipt_long")
                     ui.button(icon="close", on_click=dlg.close).props("flat round dense")
+                # Entête : date, HT, gasoil, nb lignes.
+                if fac:
+                    d = fac.get("date_facture")
+                    with ui.row().classes("w-full gap-4 wrap q-mb-xs"):
+                        for k, v in (
+                            ("Date", d.strftime("%d/%m/%Y") if d else "—"),
+                            ("Total HT", _eur(_f(fac.get("montant_ht")))),
+                            ("dont gasoil", _eur(_f(fac.get("maj_total")))),
+                            ("Nb lignes", str(fac.get("nb_lignes") or 0)),
+                        ):
+                            with ui.column().classes("gap-0"):
+                                ui.label(k).classes("text-caption").style(
+                                    f"color: {COLORS['ink2']}")
+                                ui.label(v).classes("text-body2").style(
+                                    f"color: {COLORS['ink']}; font-weight: 600")
                 if r["statut"] == "Rejetée":
-                    fac = next(
-                        (x for x in facture_store.list_factures(tenant_id)
-                         if str(x["id"]) == r["id"]), None,
-                    )
                     err = (fac or {}).get("error_log") or r.get("motif") or "?"
                     error_banner("Facture rejetée — " + err)
+                    # Contrôle opérateur : forcer la validation si on sait qu'elle
+                    # est en fait bonne (tracé au journal). Statut -> Validée (forcée).
+                    with ui.row().classes("items-center gap-2 q-mt-xs"):
+                        _motif_fac = ui.input("Motif").props(
+                            "outlined dense").classes("w-64")
+
+                        async def _valider_quand_meme():
+                            await asyncio.to_thread(
+                                corrections.force_validate_facture, tenant_id, r["num"],
+                                by=(user.get("email") or "?"),
+                                reason=(_motif_fac.value or None))
+                            ui.notify(f"Facture {r['num']} validée à la main.",
+                                      type="positive")
+                            dlg.close()
+                            results_factures.clear()
+                            _render_factures()
+
+                        ui.button("Valider quand même", icon="verified",
+                                  on_click=_valider_quand_meme).props("color=teal-7")
                 lignes = facture_store.get_lignes(tenant_id, r["id"])
                 if lignes:
+                    section_title(f"Commandes de la facture ({len(lignes)})", "list")
                     lcols = [
+                        {"name": "date", "label": "Date", "field": "date",
+                         "align": "left", "sortable": True},
                         {"name": "piece", "label": "N° pièce", "field": "piece",
-                         "align": "left"},
+                         "align": "left", "sortable": True},
                         {"name": "dest", "label": "Destinataire", "field": "dest",
-                         "align": "left"},
+                         "align": "left", "sortable": True},
                         {"name": "poids", "label": "Poids", "field": "poids",
                          "align": "right"},
                         {"name": "final", "label": "Montant", "field": "final",
-                         "align": "right"},
+                         "align": "right", "sortable": True},
                         {"name": "match", "label": "Lien EB", "field": "match",
                          "align": "left"},
                     ]
                     lrows = [
                         {
+                            "date": ln.get("exp_date") or "—",
                             "piece": ln.get("num_piece") or "—",
                             "dest": ln.get("destinataire") or "—",
                             "poids": _kg(
                                 float(ln["poids"]) if ln.get("poids") else None),
-                            "final": _eur(
-                                float(ln["montant_final"])
-                                if ln.get("montant_final") else None),
+                            "final": (float(ln["montant_final"])
+                                      if ln.get("montant_final") else None),
                             "match": ln.get("statut_match") or "—",
                         }
                         for ln in lignes
                     ]
-                    ui.table(columns=lcols, rows=lrows, row_key="piece").classes(
-                        "w-full"
-                    ).props("flat bordered dense")
+                    t = ui.table(
+                        columns=lcols, rows=lrows, row_key="piece",
+                        pagination={"rowsPerPage": 0},
+                    ).classes("w-full").props("flat bordered dense")
+                    t.add_slot("body-cell-final", _SLOT_EUR)
                 else:
-                    ui.label(
-                        "Aucune ligne stockée (facture rejetée ou stockage)."
-                    ).classes("text-caption").style(f"color: {COLORS['ink2']}")
+                    # REJETÉE / STOCKAGE : pas de lignes en base -> on lit le parse
+                    # (facture_data_json) et on montre OÙ ça coince, EN ROUGE.
+                    _render_facture_rejetee(r["id"])
             dlg.open()
+
+        def _render_facture_rejetee(invoice_id):
+            fdata = facture_store.get_facture_data(tenant_id, invoice_id)
+            data = (fdata or {}).get("data") or {}
+            lignes = data.get("lignes") or []
+            tj = data.get("totaux_journaliers") or {}
+            if not lignes and not tj:
+                ui.label(
+                    "Cette facture n'a pas de lignes de transport (autre type de "
+                    "facture : rétrocession, frais EDI, stockage…)."
+                ).classes("text-body2").style(f"color: {COLORS['ink2']}")
+                return
+            # 1) Contrôle des totaux journaliers : le jour fautif en ROUGE.
+            par_jour: dict = {}
+            for ln in lignes:
+                j = ln.get("jour")
+                if j:
+                    par_jour[j] = round(par_jour.get(j, 0.0) + (ln.get("montant_brut") or 0.0), 2)
+            bad_days = set()
+            section_title("Contrôle des totaux journaliers", "fact_check")
+            jcols = [
+                {"name": "jour", "label": "Jour", "field": "jour", "align": "left"},
+                {"name": "calc", "label": "Σ des lignes", "field": "calc", "align": "right"},
+                {"name": "imp", "label": "Total imprimé", "field": "imp", "align": "right"},
+                {"name": "ecart", "label": "Écart", "field": "ecart", "align": "right"},
+            ]
+            jrows = []
+            for jour, imp in sorted(tj.items()):
+                calc = par_jour.get(jour)
+                ecart = round((calc or 0) - (imp or 0), 2)
+                if abs(ecart) > 0.02:
+                    bad_days.add(jour)
+                jrows.append({
+                    "jour": jour, "calc": _eur(calc), "imp": _eur(imp),
+                    "ecart": _eur(ecart), "_bad": abs(ecart) > 0.02,
+                })
+            jt = ui.table(columns=jcols, rows=jrows, row_key="jour",
+                          pagination={"rowsPerPage": 0}).classes("w-full").props(
+                "flat bordered dense")
+            jt.add_slot("body-cell-ecart", _SLOT_ROUGE_SI_BAD)
+            jt.add_slot("body-cell-jour", _SLOT_ROUGE_SI_BAD)
+            ui.label(
+                "En ROUGE : le(s) jour(s) dont la somme des lignes ne tombe pas sur "
+                "le total imprimé -> il manque (ou en trop) une ligne à lire là."
+            ).classes("text-caption q-mt-xs").style(f"color: {COLORS['error']}")
+
+            # 2) Les lignes du/des jour(s) fautif(s), pour voir précisément.
+            if bad_days:
+                section_title(
+                    f"Lignes des jours en écart : {', '.join(sorted(bad_days))}", "search")
+                lcols2 = [
+                    {"name": "dest", "label": "Destinataire", "field": "dest", "align": "left"},
+                    {"name": "piece", "label": "N° pièce", "field": "piece", "align": "left"},
+                    {"name": "poids", "label": "Poids", "field": "poids", "align": "right"},
+                    {"name": "brut", "label": "Montant brut", "field": "brut", "align": "right"},
+                ]
+                lrows2 = [
+                    {
+                        "dest": ln.get("destinataire") or "—",
+                        "piece": ln.get("num_piece") or "—",
+                        "poids": _kg(ln.get("poids")),
+                        "brut": _eur(ln.get("montant_brut")),
+                    }
+                    for ln in lignes if ln.get("jour") in bad_days
+                ]
+                ui.table(columns=lcols2, rows=lrows2, row_key="dest",
+                         pagination={"rowsPerPage": 0}).classes("w-full").props(
+                    "flat bordered dense")
+
+        def _open_facture_by_source(source):
+            """Ouvre la facture complète à partir de son n° (ex. « SO014466 »)."""
+            fac = next(
+                (x for x in facture_store.list_factures(tenant_id)
+                 if x["id_facture_source"] == source), None,
+            )
+            if not fac:
+                ui.notify(f"Facture {source} introuvable.", type="warning")
+                return
+            _open_facture({
+                "id": str(fac["id"]),
+                "num": fac["id_facture_source"],
+                "statut": _FACTURE_STATUT_LABEL.get(fac["status"], fac["status"]),
+                "motif": ((fac.get("error_log") or "").split("\n")[0]
+                          if fac["status"] == "REJECTED" else ""),
+            })
 
         # ── Sélection d'un mois : lecture INSTANTANÉE depuis la base (0 appel API) ──
         _MOIS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet",
@@ -1336,6 +1674,13 @@ def page_reconciliation_transport():
                 snap = None
             if not snap or snap.get("result") is None:
                 return
+            # Applique les CORRECTIONS opérateur par-dessus le snapshot (éditions /
+            # suppressions de lignes) — elles survivent ainsi aux synchros.
+            try:
+                corrections.appliquer_corrections(
+                    snap["result"], corrections.list_line_corrections(tenant_id))
+            except Exception:  # noqa: BLE001
+                _log.exception("Application des corrections échouée")
             # Mémorise la plage affichée (sert au nom de fichier de l'export Excel).
             state["date_min"] = str(snap.get("period_start"))
             state["date_max"] = str(snap.get("period_end"))
