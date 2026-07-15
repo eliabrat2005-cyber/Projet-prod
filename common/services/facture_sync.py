@@ -15,10 +15,9 @@ import logging
 import os
 import tempfile
 
-from common.services.facture_store import enregistrer
+from common.services import facture_store
 from core.reconciliation.facture_processor import traiter_facture
 from core.reconciliation.io_api import (
-    PENNYLANE_BASE_URL,
     SOFRIPA_SUPPLIER_ID,
     _build_filter,
     _get_pages,
@@ -54,7 +53,18 @@ def traiter_factures_pennylane(
     recap = {"total": len(factures), "stored": 0, "skipped": 0,
              "rejected": 0, "erreurs": []}
 
+    # INCRÉMENTAL : on saute (sans télécharger) toute facture dont l'id Pennylane
+    # est déjà en base. La 1re synchro traite tout ; les suivantes ne chargent que
+    # les NOUVELLES factures -> quasi instantanées.
+    deja = facture_store.processed_source_ids(tenant_id)
+
     for i, fac_meta in enumerate(factures, start=1):
+        sid = str(fac_meta.get("id")) if fac_meta.get("id") is not None else None
+        if sid and sid in deja:
+            recap["skipped"] += 1
+            if progress_cb:
+                progress_cb(i, len(factures), None)
+            continue
         url = fac_meta.get("public_file_url")
         if not url:
             if progress_cb:
@@ -68,7 +78,8 @@ def traiter_factures_pennylane(
             with open(chemin, "wb") as fh:
                 fh.write(pdf.content)
             res = traiter_facture(chemin, commandes_par_num)
-            statut = enregistrer(tenant_id, res, user_id=user_id)
+            statut = facture_store.enregistrer(
+                tenant_id, res, user_id=user_id, source_id=sid)
         finally:
             os.unlink(chemin)
 

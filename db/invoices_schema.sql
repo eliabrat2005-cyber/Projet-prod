@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS processed_invoices (
   nb_lignes          INT NOT NULL DEFAULT 0,
   status             TEXT NOT NULL,                 -- 'OK' | 'REJECTED'
   error_log          TEXT,
+  source_id          TEXT,                          -- id Pennylane (skip re-download au sync incrémental)
   facture_data_json  JSONB NOT NULL DEFAULT '{}',   -- snapshot complet du PDF parsé
   created_by         UUID REFERENCES users(id) ON DELETE SET NULL,
   -- Unicité : une facture n'est jamais traitée 2 fois (par tenant)
@@ -57,6 +58,8 @@ CREATE INDEX IF NOT EXISTS idx_pil_invoice ON processed_invoice_lines(invoice_id
 CREATE INDEX IF NOT EXISTS idx_pil_piece ON processed_invoice_lines(tenant_id, num_piece);
 -- Ajout de la quantité facturée (colonne récente) sur les tables existantes.
 ALTER TABLE processed_invoice_lines ADD COLUMN IF NOT EXISTS quantite NUMERIC;
+ALTER TABLE processed_invoices ADD COLUMN IF NOT EXISTS source_id TEXT;
+CREATE INDEX IF NOT EXISTS idx_pi_source ON processed_invoices(tenant_id, source_id);
 
 -- Table 3 : journal d'audit (toutes les actions)
 CREATE TABLE IF NOT EXISTS invoice_processing_audit (
@@ -70,8 +73,18 @@ CREATE TABLE IF NOT EXISTS invoice_processing_audit (
 CREATE INDEX IF NOT EXISTS idx_ipa_facture ON invoice_processing_audit(tenant_id, id_facture_source);
 
 -- ── IMMUABILITÉ : bloquer tout UPDATE sur les 2 tables de données ─────────
+-- Seule exception : le BACKFILL du champ technique `source_id` (id Pennylane,
+-- pour l'incrémental) tant que les données comptables ne changent pas.
 CREATE OR REPLACE FUNCTION _bloquer_update_immuable() RETURNS trigger AS $$
 BEGIN
+  IF TG_TABLE_NAME = 'processed_invoices'
+     AND OLD.source_id IS NULL AND NEW.source_id IS NOT NULL
+     AND NEW.id_facture_source = OLD.id_facture_source
+     AND NEW.status = OLD.status
+     AND NEW.montant_ht IS NOT DISTINCT FROM OLD.montant_ht
+     AND NEW.facture_data_json = OLD.facture_data_json THEN
+    RETURN NEW;
+  END IF;
   RAISE EXCEPTION 'Table immuable (%): UPDATE interdit (CDC intake factures)', TG_TABLE_NAME;
 END;
 $$ LANGUAGE plpgsql;

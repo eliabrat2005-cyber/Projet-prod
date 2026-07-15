@@ -99,12 +99,18 @@ def synchroniser(
     *,
     fetch_detail: Callable[[int], dict | None] | None = None,
     override_path: str | None = None,
+    full: bool = False,
     progress_cb: Callable[[int, int, str | None], None] | None = None,
 ) -> dict[str, int]:
     """Synchronise la repartition sur la plage de mois ['YYYY-MM', 'YYYY-MM'].
 
+    INCREMENTAL par defaut : ne (re)traite que les commandes NOUVELLES ou en
+    ANOMALIE ; celles deja reparties (PROVISOIRE/VALIDEE) sont sautees (leur
+    detail EasyBeer est stable) -> synchros suivantes quasi instantanees.
+    full=True force le recalcul de tout.
+
     ``fetch_detail`` : injectable pour les tests ; par defaut appelle EasyBeer.
-    Retourne un compteur {vues, ecrites, anomalies, figees_ignorees}.
+    Retourne un compteur {vues, ecrites, anomalies, ignorees}.
     """
     if period_from > period_to:
         period_from, period_to = period_to, period_from
@@ -117,19 +123,33 @@ def synchroniser(
         fetch = fetch_commande_detail
 
     orders = _collect_orders(tenant_id, period_from, period_to)
-    validated = {
-        r["order_number"]
-        for r in allocation_store.list_allocations(tenant_id, status="VALIDEE")
+    # Déjà réparties : on saute (sauf full) celles PROVISOIRE/VALIDEE ; on retente
+    # les ANOMALIE et on traite les nouvelles.
+    existantes = {
+        r["order_number"]: r["allocation_status"]
+        for r in allocation_store.list_allocations(tenant_id)
     }
 
-    stats = {"vues": len(orders), "ecrites": 0, "anomalies": 0, "figees_ignorees": 0}
-    total = len(orders)
-    for i, (num, info) in enumerate(sorted(orders.items())):
+    # À TRAITER = nouvelles + anomalies (fetch EB, 1/s). On PLAFONNE (max_orders)
+    # pour borner la durée : le reste est traité au prochain passage (l'auto en
+    # fond rattrape par lots). Les nouvelles d'abord, puis les anomalies.
+    a_traiter = [
+        (num, info) for num, info in sorted(orders.items())
+        if full or existantes.get(num) not in ("PROVISOIRE", "VALIDEE")
+    ]
+    a_traiter.sort(key=lambda x: existantes.get(x[0]) == "ANOMALIE")  # nouvelles avant
+    ignorees = len(orders) - len(a_traiter)
+    restantes = 0
+    if max_orders and len(a_traiter) > max_orders:
+        restantes = len(a_traiter) - max_orders
+        a_traiter = a_traiter[:max_orders]
+
+    stats = {"vues": len(orders), "ecrites": 0, "anomalies": 0,
+             "ignorees": ignorees, "restantes": restantes}
+    total = len(a_traiter)
+    for i, (num, info) in enumerate(a_traiter):
         if progress_cb:
             progress_cb(i, total, f"commande {num}")
-        if num in validated:
-            stats["figees_ignorees"] += 1
-            continue
 
         cost = round(info["cost"], 2) if info.get("cost") else None
         detail = fetch(num)

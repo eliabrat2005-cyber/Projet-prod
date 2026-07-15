@@ -227,6 +227,16 @@ def exporter_registre_xlsx(tenant_id: str) -> bytes:
     return buf.getvalue()
 
 
+def processed_source_ids(tenant_id: str) -> set:
+    """Ids Pennylane déjà traités (pour sauter le re-téléchargement au sync)."""
+    rows = run_sql(
+        "SELECT source_id FROM processed_invoices "
+        "WHERE tenant_id=:t AND source_id IS NOT NULL",
+        {"t": tenant_id},
+    )
+    return {r["source_id"] for r in rows} if isinstance(rows, list) else set()
+
+
 def deja_traitee(tenant_id: str, id_facture: str) -> bool:
     rows = run_sql(
         "SELECT 1 FROM processed_invoices WHERE tenant_id=:t AND id_facture_source=:f",
@@ -245,7 +255,8 @@ def _audit(conn, tenant_id, id_facture, action, details):
     )
 
 
-def enregistrer(tenant_id: str, res: ResultatTraitement, user_id: str | None = None) -> str:
+def enregistrer(tenant_id: str, res: ResultatTraitement, user_id: str | None = None,
+                source_id: str | None = None) -> str:
     """Grave la facture dans le registre. Retourne 'stored' | 'skipped'.
 
     - déjà traitée → 'skipped' (+ audit SKIP)
@@ -256,6 +267,15 @@ def enregistrer(tenant_id: str, res: ResultatTraitement, user_id: str | None = N
 
     if idf and deja_traitee(tenant_id, idf):
         with get_engine().begin() as conn:
+            # Backfill de l'id Pennylane sur les factures déjà en base (sinon on
+            # les re-téléchargerait à chaque synchro). Autorisé par le trigger.
+            if source_id:
+                conn.execute(
+                    text("UPDATE processed_invoices SET source_id=:s "
+                         "WHERE tenant_id=:t AND id_facture_source=:f "
+                         "AND source_id IS NULL"),
+                    {"s": source_id, "t": tenant_id, "f": idf},
+                )
             _audit(conn, tenant_id, idf, "SKIP", {"raison": "déjà traitée (unicité)"})
         return "skipped"
 
@@ -269,10 +289,10 @@ def enregistrer(tenant_id: str, res: ResultatTraitement, user_id: str | None = N
                 INSERT INTO processed_invoices
                   (tenant_id, id_facture_source, date_facture, montant_ht, montant_tva,
                    montant_ttc, maj_go, maj_gnr, maj_total, nb_lignes, status, error_log,
-                   facture_data_json, created_by)
+                   source_id, facture_data_json, created_by)
                 VALUES
                   (:t, :f, :df, :ht, :tva, :ttc, :mgo, :mgnr, :mtot, :nl, :st, :err,
-                   CAST(:js AS JSONB), :u)
+                   :src, CAST(:js AS JSONB), :u)
                 RETURNING id
                 """
             ),
@@ -282,7 +302,7 @@ def enregistrer(tenant_id: str, res: ResultatTraitement, user_id: str | None = N
                 "mgo": fac.maj_go, "mgnr": fac.maj_gnr, "mtot": fac.maj_total,
                 "nl": len(fac.lignes), "st": res.status,
                 "err": "\n".join(res.erreurs) if res.erreurs else None,
-                "js": json.dumps(asdict(fac)), "u": user_id,
+                "src": source_id, "js": json.dumps(asdict(fac)), "u": user_id,
             },
         ).scalar()
 

@@ -332,6 +332,7 @@ import pages.admin_eb_outbox  # noqa: F401 — /admin/eb-outbox (admin only)
 import pages.admin_eb_stock_templates  # noqa: F401 — /admin/eb-stock-templates (admin only)
 import pages.auth  # noqa: F401 — /login, /reset/{token}
 import pages.chargement_camion  # noqa: F401 — /chargement-camion
+import pages.commandes  # noqa: F401 — /commandes
 import pages.commercial  # noqa: F401 — /commercial
 import pages.historique_ramasses  # noqa: F401 — /historique-ramasses
 import pages.nomenclatures  # noqa: F401 — /nomenclatures
@@ -344,6 +345,7 @@ import pages.sscc_log  # noqa: F401 — /sscc-log (admin only)
 import pages.stocks  # noqa: F401 — /stocks
 import pages.sync  # noqa: F401 — /sync
 import pages.tags  # noqa: F401 — /tags
+import pages.tresorerie  # noqa: F401 — /tresorerie
 
 # ─── Health check ────────────────────────────────────────────────────────────
 
@@ -1337,6 +1339,15 @@ async def _startup_cleanup():
     from common.outbox import eb_outbox_worker
     asyncio.ensure_future(eb_outbox_worker())
 
+    # Démarrer l'ingestion IMAP des commandes magasins (no-op si IMAP_* absents)
+    from common.email_inbound import commandes_inbound_loop
+    asyncio.ensure_future(commandes_inbound_loop())
+
+    # Synchro AUTO en fond de la réconciliation + répartition transport
+    # (incrémentale ; AUTO_SYNC_INTERVAL_SECONDS, défaut 1h, 0 = off)
+    from common.services.auto_sync import auto_sync_loop
+    asyncio.ensure_future(auto_sync_loop())
+
 
 # ─── Service Worker (servi depuis / pour scope racine) ──────────────────────
 
@@ -1376,7 +1387,8 @@ def _get_storage_secret() -> str:
 
 
 if __name__ in {"__main__", "__mp_main__"}:
-    port = int(os.environ.get("NICEGUI_PORT", "8502"))
+    # PORT (convention PaaS / outils de preview) prioritaire, sinon NICEGUI_PORT.
+    port = int(os.environ.get("PORT") or os.environ.get("NICEGUI_PORT") or "8502")
     ui.run(
         title="Ferment Station",
         port=port,

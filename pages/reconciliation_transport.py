@@ -207,6 +207,22 @@ def _f(v):
     return float(v) if v is not None else None
 
 
+def _temps_relatif(dt) -> str:
+    """datetime -> « il y a 5 min » / « il y a 2 h » / « il y a 3 j »."""
+    if not dt:
+        return "jamais"
+    from datetime import datetime
+    now = datetime.now(dt.tzinfo) if getattr(dt, "tzinfo", None) else datetime.now()
+    s = int((now - dt).total_seconds())
+    if s < 90:
+        return "à l'instant"
+    if s < 3600:
+        return f"il y a {s // 60} min"
+    if s < 86400:
+        return f"il y a {s // 3600} h"
+    return f"il y a {s // 86400} j"
+
+
 def _fr(v, dec: int):
     """Nombre formaté à la française (virgule), sans unité — pour l'Excel. None -> None."""
     if v is None:
@@ -832,12 +848,14 @@ def page_reconciliation_transport():
                 from common.services.reconciliation_sync import synchroniser
 
                 def _work():
-                    return synchroniser(
-                        tenant_id, d1, d2,
-                        source=source, export_path=state.get("export_path"),
-                        cache=_CACHE, user_id=user.get("id"),
-                        progress_cb=_progress_cb,
-                    )
+                    from common.services.auto_sync import SYNC_LOCK
+                    with SYNC_LOCK:  # pas de chevauchement avec la synchro auto
+                        return synchroniser(
+                            tenant_id, d1, d2,
+                            source=source, export_path=state.get("export_path"),
+                            cache=_CACHE, user_id=user.get("id"),
+                            progress_cb=_progress_cb,
+                        )
 
                 mois = await asyncio.to_thread(_work)
             except _Cancelled:
@@ -1756,8 +1774,10 @@ def page_reconciliation_transport():
             with results:
                 with ui.row().classes("items-center gap-2 q-mb-xs"):
                     ui.icon("cloud_done", size="sm").style(f"color: {COLORS['success']}")
+                    ui.badge("À jour", color="green-6")
                     ui.label(
-                        f"Période affichée : {portee} · synchronisé le {synced_txt}"
+                        f"dernière synchro {_temps_relatif(synced)} (auto) · le "
+                        f"{synced_txt} · période {portee}"
                     ).classes("text-caption").style(f"color: {COLORS['ink2']}")
             _render_results(snap["result"])
             _render_factures()

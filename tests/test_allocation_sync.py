@@ -60,9 +60,10 @@ def _patch_common(monkeypatch, *, validated=None, captured=None):
     )
     monkeypatch.setattr(
         allocation_store, "list_allocations",
-        lambda t, status=None, **kw: (
-            [{"order_number": n} for n in (validated or [])] if status == "VALIDEE" else []
-        ),
+        lambda t, *a, **kw: [
+            {"order_number": n, "allocation_status": "VALIDEE"}
+            for n in (validated or [])
+        ],
     )
     if captured is not None:
         monkeypatch.setattr(
@@ -108,7 +109,7 @@ def test_synchroniser_skips_validated(monkeypatch):
     stats = allocation_sync.synchroniser(
         "tenant-1", "2026-05", "2026-05", fetch_detail=_should_not_fetch,
     )
-    assert stats["figees_ignorees"] == 1 and stats["ecrites"] == 0
+    assert stats["ignorees"] == 1 and stats["ecrites"] == 0
     assert calls == []            # une commande figee n'est meme pas refetchee
     assert captured == []
 

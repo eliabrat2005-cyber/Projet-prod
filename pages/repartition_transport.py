@@ -134,9 +134,10 @@ def page_repartition_transport():
                             "réconciliation + le détail EasyBeer (12 derniers mois)"
                         )
                 ui.label(
-                    "« Mettre à jour » interroge EasyBeer (quelques minutes). Les "
-                    "commandes déjà validées ne sont jamais recalculées. Ensuite, "
-                    "changer de mois ou de statut est instantané (lecture base)."
+                    "La synchro tourne AUTOMATIQUEMENT en fond (toutes les heures) : "
+                    "tu n'as normalement rien à faire. « Mettre à jour » force une "
+                    "synchro maintenant - INCRÉMENTALE (seulement les nouvelles "
+                    "commandes), donc rapide une fois le 1er chargement fait."
                 ).classes("text-caption").style(f"color: {COLORS['ink2']}")
 
         progress_box = ui.column().classes("w-full")
@@ -158,7 +159,9 @@ def page_repartition_transport():
             pm_from, pm_to = _default_sync_range()
 
             def _work():
-                return synchroniser(tenant_id, pm_from, pm_to)
+                from common.services.auto_sync import SYNC_LOCK
+                with SYNC_LOCK:  # pas de chevauchement avec la synchro auto
+                    return synchroniser(tenant_id, pm_from, pm_to)
 
             try:
                 stats = await asyncio.to_thread(_work)
@@ -174,7 +177,7 @@ def page_repartition_transport():
             ui.notify(
                 f"Synchro terminée : {stats['ecrites']} écrites, "
                 f"{stats['anomalies']} anomalie(s), "
-                f"{stats['figees_ignorees']} figée(s) préservée(s).",
+                f"{stats['ignorees']} déjà à jour (ignorées).",
                 type="positive",
             )
             _refresh_months(select_latest=True)
@@ -182,10 +185,32 @@ def page_repartition_transport():
         run_btn.on_click(_sync)
 
         # ── Rendu KPIs + tableau ───────────────────────────────────────────
+        def _temps_relatif(dt) -> str:
+            if not dt:
+                return "jamais"
+            from datetime import datetime
+            now = datetime.now(dt.tzinfo) if getattr(dt, "tzinfo", None) else datetime.now()
+            s = int((now - dt).total_seconds())
+            if s < 90:
+                return "à l'instant"
+            if s < 3600:
+                return f"il y a {s // 60} min"
+            if s < 86400:
+                return f"il y a {s // 3600} h"
+            return f"il y a {s // 86400} j"
+
         def _render(rows: list[dict]):
             state["rows"] = rows
             kpis_box.clear()
             table_box.clear()
+
+            synced = max((r.get("last_synced_at") for r in rows if r.get("last_synced_at")),
+                         default=None)
+            with kpis_box, ui.row().classes("items-center gap-2 q-mb-xs"):
+                ui.icon("cloud_done", size="sm").style(f"color: {COLORS['green']}")
+                ui.badge("À jour", color="green-6")
+                ui.label(f"dernière synchro {_temps_relatif(synced)} (auto)").classes(
+                    "text-caption").style(f"color: {COLORS['ink2']}")
 
             total = sum((_f(r["transport_cost_total"]) or 0) for r in rows)
             cost_fs = sum((_f(r["cost_fs"]) or 0) for r in rows)
