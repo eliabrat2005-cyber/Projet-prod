@@ -681,10 +681,10 @@ async function fetchCards(reset = false) {
 
 function openCards() {
   const c = C();
-  populateCardTopicSelect();
   // Reprend la session en cours UNIQUEMENT si on ne l'a pas terminée ;
-  // sinon (terminée, ou aucune) on repart de zéro.
+  // sinon (terminée, ou aucune) on repart de zéro EN ALÉATOIRE.
   if (c.ended || !c.deck.length || c.idx >= c.deck.length) {
+    c.topic = "";  // le thème repart sur « aléatoire »
     startCardSession();
   } else {
     show("cards");
@@ -775,14 +775,30 @@ function judgeCard(good) {
   el.addEventListener("pointercancel", up);
 })();
 
-function populateCardTopicSelect() {
-  const sel = $("cards-topic-select");
-  if (sel.options.length > 1 || !S.topics.length) return;
-  for (const t of S.topics) {
-    const o = document.createElement("option");
-    o.value = t.id;
-    o.textContent = `${t.icon} ${t.name}`;
-    sel.appendChild(o);
+function syncCardFilter() {
+  document.querySelectorAll(".cf-diff").forEach((b) =>
+    b.classList.toggle("selected", +b.dataset.diff === C().diff));
+  renderCardTopicList($("cards-topic-search").value);
+}
+
+function renderCardTopicList(filter = "") {
+  const list = $("cards-topic-list");
+  if (!list) return;
+  const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  const items = [{ id: "", icon: "🎲", name: "Tous les thèmes (aléatoire)" }]
+    .concat(S.topics.filter((t) => !filter || norm(t.name).includes(norm(filter))));
+  list.innerHTML = "";
+  for (const t of items) {
+    const el = document.createElement("button");
+    el.className = "cf-topic-item" + (t.id === C().topic ? " selected" : "");
+    el.innerHTML = `<span>${t.icon}</span><span>${escapeHtml(t.name)}</span>`;
+    el.onclick = () => {
+      C().topic = t.id;
+      sndTick();
+      $("cards-filter").classList.add("hidden");
+      startCardSession();  // garde le thème choisi
+    };
+    list.appendChild(el);
   }
 }
 
@@ -1316,8 +1332,9 @@ document.querySelectorAll(".tab-btn").forEach((b) => {
 
 // Cartes : filtres, boutons, session
 $("cards-filter-btn").onclick = () => {
-  $("cards-filter").classList.toggle("hidden");
-  populateCardTopicSelect();
+  const f = $("cards-filter");
+  f.classList.toggle("hidden");
+  if (!f.classList.contains("hidden")) syncCardFilter();
 };
 document.querySelectorAll(".cf-diff").forEach((b) => {
   b.onclick = () => {
@@ -1325,18 +1342,15 @@ document.querySelectorAll(".cf-diff").forEach((b) => {
     b.classList.add("selected");
     C().diff = +b.dataset.diff;
     sndTick();
-    startCardSession();
+    startCardSession();  // garde le thème choisi, change juste la difficulté
   };
 });
-$("cards-topic-select").addEventListener("change", (e) => {
-  C().topic = e.target.value;
-  startCardSession();
-});
+$("cards-topic-search").addEventListener("input", (e) => renderCardTopicList(e.target.value));
 $("card-flip").onclick = () => { $("flashcard").classList.toggle("flipped"); sndTick(); };
 $("card-right").onclick = () => judgeCard(true);
 $("card-wrong").onclick = () => judgeCard(false);
 $("btn-stop-session").onclick = () => stopCardSession();
-$("btn-cards-again").onclick = () => startCardSession();
+$("btn-cards-again").onclick = () => { C().topic = ""; startCardSession(); };  // repart en aléatoire
 $("btn-summary-home").onclick = () => { renderTopics(); show("home"); };
 
 // Profil : amis, déconnexion
