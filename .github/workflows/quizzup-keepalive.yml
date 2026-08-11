@@ -1,0 +1,31 @@
+name: QuizzUp keep-alive
+
+# Garde le service Render QuizzUp (offre gratuite) réveillé : sans trafic, il
+# s'endort au bout de ~15 min et met ~50 s à redémarrer au clic suivant. On le
+# ping toutes les 10 min pour supprimer ce « cold start » aux heures actives.
+#
+# ⚠️ Les workflows planifiés ne s'exécutent QUE depuis la branche par défaut du
+# dépôt. Ce fichier doit donc se trouver sur la branche par défaut pour tourner.
+# URL personnalisable via la variable de dépôt QUIZZUP_URL
+# (Settings → Secrets and variables → Actions → Variables).
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping health endpoint
+        run: |
+          URL="${{ vars.QUIZZUP_URL || 'https://quizzup-fcit.onrender.com' }}"
+          echo "Ping $URL/health"
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 "$URL/health" || echo "000")
+            echo "Tentative $i → HTTP $code"
+            [ "$code" = "200" ] && exit 0
+            sleep 20
+          done
+          echo "Service injoignable après 3 tentatives (démarrage à froid ?)"

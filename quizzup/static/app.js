@@ -114,6 +114,13 @@ function confetti(count = 120) {
 }
 
 // ─── WebSocket ──────────────────────────────────────────────────────────────
+function hideSplash() {
+  const s = $("splash");
+  if (!s || s.classList.contains("hide")) return;
+  s.classList.add("hide");
+  setTimeout(() => { if (s.parentNode) s.remove(); }, 600);
+}
+
 function connect() {
   const proto = location.protocol === "https:" ? "wss" : "ws";
   const ws = new WebSocket(`${proto}://${location.host}/ws`);
@@ -124,7 +131,7 @@ function connect() {
     const pid = localStorage.getItem("quizzup_pid");
     const name = localStorage.getItem("quizzup_name");
     if (pid || name) send({ type: "hello", player_id: pid, name });
-    else show("name");
+    else { show("name"); hideSplash(); }
   };
   ws.onmessage = (ev) => handle(JSON.parse(ev.data));
   ws.onclose = () => {
@@ -153,7 +160,7 @@ function debounceBtn(btn, ms = 1500) {
 // ─── Dispatch des messages serveur ──────────────────────────────────────────
 function handle(msg) {
   switch (msg.type) {
-    case "need_name": show("name"); break;
+    case "need_name": show("name"); hideSplash(); break;
     case "welcome": onWelcome(msg); break;
     case "profile": S.profile = msg.profile; renderProfile(); break;
     case "queued": show("search"); break;
@@ -236,6 +243,7 @@ function onWelcome(msg) {
     toast("Connexion perdue — la partie a été interrompue 🏳️");
   }
   show("home");
+  hideSplash();
 }
 
 // ─── Accueil / thèmes ───────────────────────────────────────────────────────
@@ -1495,5 +1503,10 @@ $("topic-search").addEventListener("input", (e) => renderTopics(e.target.value))
 // État initial du bouton son (préférence persistée)
 $("sound-btn").textContent = S.sound ? "🔊" : "🔇";
 $("sound-btn").classList.toggle("off", !S.sound);
+
+// Message d'attente si le serveur met du temps à répondre (réveil Render à froid),
+// puis filet de sécurité : on ne reste jamais bloqué derrière l'écran de chargement.
+setTimeout(() => { if (!S.wsReady) { const s = $("splash-sub"); if (s) s.textContent = "Réveil du serveur, un instant… ⏳"; } }, 3500);
+setTimeout(() => { if (!S.wsReady) { show("name"); hideSplash(); } }, 12000);
 
 connect();
